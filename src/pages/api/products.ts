@@ -19,27 +19,32 @@ export const GET: APIRoute = async ({ request }) => {
 
             return new Response(JSON.stringify(products[0]), {
                 status: 200,
-                headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Cache-Control': 'public, max-age=3600'
+                }
             });
         }
 
-        // Lógica existente para el listado de zapatos
+        // LISTADO DE PRODUCTOS (SOLO ZAPATOS)
+        // Intentamos traer suficientes productos para filtrar
         const response = await fetch(
             `https://winstonandharrystore.com/wp-json/wc/store/v1/products?per_page=100&page=${page}`
         );
 
         if (!response.ok) {
-            return new Response(JSON.stringify({ error: 'Failed' }), { status: response.status });
+            return new Response(JSON.stringify({ error: 'API Error' }), { status: response.status });
         }
 
-        let allProducts = await response.json();
+        const allProducts = await response.json();
+
+        const shoeKeywords = ['zapatos', 'botas', 'tenis', 'mocasin', 'mocasín', 'pantuflas', 'calzado', 'oxford', 'derby', 'sneaker', 'bota', 'zapato'];
+        const excludeKeywords = ['camisa', 'camiseta', 'hoodie', 'media', 'calcetin', 'cinturon', 'morral', 'maleta', 'chaqueta', 'sueter', 'cubre bocas', 'kit'];
 
         const shoes = allProducts.filter((p: any) => {
             const categoryNames = p.categories.map((c: any) => c.name.toLowerCase());
             const name = p.name.toLowerCase();
-
-            const shoeKeywords = ['zapatos', 'botas', 'tenis', 'mocasin', 'mocasín', 'pantuflas', 'calzado', 'oxford', 'derby', 'sneaker'];
-            const excludeKeywords = ['camisa', 'camiseta', 'hoodie', 'media', 'calcetin', 'cinturon', 'morral', 'maleta', 'chaqueta', 'sueter'];
 
             const hasShoeCategory = categoryNames.some((cat: string) =>
                 shoeKeywords.some(kw => cat.includes(kw))
@@ -51,16 +56,19 @@ export const GET: APIRoute = async ({ request }) => {
             return (hasShoeCategory || hasShoeName) && !isExcluded;
         });
 
-        const paginatedShoes = shoes.slice(0, 15);
+        // Si encontramos muy pocos en esta página, intentamos traer de la siguiente (opcionalmente)
+        // Pero por ahora, devolvemos lo que hay (máximo 15 para la grid)
+        const result = shoes.slice(0, 15);
 
-        return new Response(JSON.stringify(paginatedShoes), {
+        return new Response(JSON.stringify(result), {
             status: 200,
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
+                'Access-Control-Allow-Origin': '*',
+                'Cache-Control': 'public, max-age=3600'
             }
         });
     } catch (error) {
-        return new Response(JSON.stringify({ error: 'Server Error' }), { status: 500 });
+        return new Response(JSON.stringify({ error: 'Internal Server Error' }), { status: 500 });
     }
 };

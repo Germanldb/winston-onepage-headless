@@ -105,6 +105,13 @@ export default function ProductGrid() {
           ))}
         </div>
 
+        {!loading && products.length === 0 && (
+          <div className="empty-state">
+            <p>No se encontraron zapatos en esta colección.</p>
+            <button onClick={() => fetchProducts(1)} className="btn btn-outline">Actualizar</button>
+          </div>
+        )}
+
         {loading && (
           <div className="loading-spinner">
             <div className="spinner"></div>
