@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+---
+
+<header class="header glass">
+    <div class="container header-content">
+        <a href="/" class="logo">
+            <Image
+                src="https://winstonandharrystore.com/wp-content/uploads/2020/12/logo-w-h-vertical.png"
+                alt="Winston & Harry Logo"
+                width={800}
+                height={800}
+                referrerpolicy="no-referrer"
+            />
+        </a>
+        <nav class="nav">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#tienda">Tienda</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<style>
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 1rem 0;
+        transition: var(--transition-smooth);
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        max-width: 100px;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo img {
+        width: 250%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .nav ul {
+        display: flex;
+        gap: 2.5rem;
+    }
+
+    .nav a {
+        font-weight: 500;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--color-green);
+    }
+
+    .nav a:hover {
+        color: var(--color-beige);
+    }
+
+    @media (max-width: 768px) {
+        .nav {
+            display: none;
+        }
+    }
+</style>
