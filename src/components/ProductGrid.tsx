@@ -81,7 +81,7 @@ export default function ProductGrid() {
         <div className="grid-5x3">
           {products.map((product) => (
             <div key={product.id} className="product-card">
-              <a href={product.permalink} target="_blank" rel="noopener noreferrer">
+              <a href={`/productos/${product.slug}`}>
                 <div className="product-image">
                   <img
                     src={product.images[0]?.src || 'https://via.placeholder.com/300x400?text=Zapato'}
