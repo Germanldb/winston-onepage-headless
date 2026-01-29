@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface Product {
   id: number;
@@ -22,6 +22,10 @@ interface Product {
     name: string;
     terms: { id: number; name: string; slug: string }[];
   }[];
+  variations?: {
+    id: number;
+    attributes: { name: string; value: string }[];
+  }[];
 }
 
 interface Props {
@@ -34,16 +38,53 @@ export default function ProductDetail({ initialProduct }: Props) {
 
   const product = initialProduct;
 
+  useEffect(() => {
+    // Leer parámetros de URL al montar
+    const params = new URLSearchParams(window.location.search);
+    const colorParam = params.get('color');
+    const tallaParam = params.get('talla');
+
+    if (colorParam) setSelectedColor(colorParam);
+    if (tallaParam) setSelectedSize(tallaParam);
+  }, []);
+
   // Encontrar atributo de talla
   const sizeAttribute = product.attributes?.find(attr =>
     attr.name.toLowerCase().includes('talla') ||
     attr.terms.some(t => !isNaN(Number(t.name)))
   );
 
+  const hasSize = !!sizeAttribute;
+
   // Encontrar atributo de color
   const colorAttribute = product.attributes?.find(attr =>
     attr.name.toLowerCase().includes('color')
   );
+
+  // Filtrar tallas disponibles robustamente
+  const availableSizes = selectedColor && hasSize
+    ? sizeAttribute?.terms.filter(term => {
+      // Estrategia 1: Buscar en 'variations' si existe la combinación
+      if (product.variations && product.variations.length > 0) {
+        return product.variations.some(variation => {
+          const variationColor = variation.attributes.find(a =>
+            a.name.toLowerCase().includes('color') || a.name === 'Pa_selecciona-el-color'
+          )?.value.toLowerCase();
+
+          const variationSize = variation.attributes.find(a =>
+            a.name.toLowerCase().includes('talla') || a.name === 'Pa_selecciona-una-talla'
+          )?.value.toLowerCase();
+
+          const matchesColor = variationColor === selectedColor.toLowerCase();
+          const matchesSize = variationSize === term.slug.toLowerCase() || variationSize === term.name.toLowerCase();
+
+          return matchesColor && matchesSize;
+        });
+      }
+      // Estrategia 2: Fallback
+      return true;
+    })
+    : [];
 
   const formatPrice = (price: string) => {
     return new Intl.NumberFormat('es-CO', {
@@ -52,6 +93,8 @@ export default function ProductDetail({ initialProduct }: Props) {
       minimumFractionDigits: 0
     }).format(parseInt(price) / (10 ** product.prices.currency_minor_unit));
   };
+
+  const isSelectionComplete = selectedColor && (!hasSize || selectedSize);
 
   return (
     <div className="product-detail">
@@ -92,7 +135,10 @@ export default function ProductDetail({ initialProduct }: Props) {
                     <button
                       key={term.id}
                       className={`color-btn ${selectedColor === term.slug ? 'selected' : ''}`}
-                      onClick={() => setSelectedColor(term.slug)}
+                      onClick={() => {
+                        setSelectedColor(term.slug);
+                        if (hasSize) setSelectedSize(null);
+                      }}
                       title={term.name}
                     >
                       <span className="color-swatch" style={{ backgroundColor: getColorCode(term.slug) }}></span>
@@ -104,14 +150,14 @@ export default function ProductDetail({ initialProduct }: Props) {
             )}
 
             {/* Selector de Talla */}
-            {sizeAttribute && (
+            {selectedColor && hasSize && (
               <div className="attribute-selector size-selector">
                 <div className="attribute-header">
-                  <span>Talla: {sizeAttribute.terms.find(t => t.slug === selectedSize)?.name || ''}</span>
+                  <span>Talla: {sizeAttribute?.terms.find(t => t.slug === selectedSize)?.name || ''}</span>
                   <button className="size-guide-btn">Guía de tallas</button>
                 </div>
                 <div className="size-grid">
-                  {sizeAttribute.terms.map((term) => (
+                  {availableSizes?.map((term) => (
                     <button
                       key={term.id}
                       className={`size-btn ${selectedSize === term.slug ? 'selected' : ''}`}
@@ -126,14 +172,14 @@ export default function ProductDetail({ initialProduct }: Props) {
 
             <div className="actions">
               <button
-                className={`btn btn-add-cart ${(selectedSize && (colorAttribute ? selectedColor : true)) ? '' : 'disabled'}`}
-                disabled={!(selectedSize && (colorAttribute ? selectedColor : true))}
+                className={`btn btn-add-cart ${isSelectionComplete ? '' : 'disabled'}`}
+                disabled={!isSelectionComplete}
               >
                 Añadir al carrito
               </button>
               <button
-                className={`btn btn-buy-now ${(selectedSize && (colorAttribute ? selectedColor : true)) ? '' : 'disabled'}`}
-                disabled={!(selectedSize && (colorAttribute ? selectedColor : true))}
+                className={`btn btn-buy-now ${isSelectionComplete ? '' : 'disabled'}`}
+                disabled={!isSelectionComplete}
               >
                 Comprar ahora
               </button>
@@ -221,7 +267,7 @@ export default function ProductDetail({ initialProduct }: Props) {
         }
 
         .product-price {
-          font-family: var(--font-paragraphs);
+          font-family: 'Helvetica', sans-serif;
           font-size: 1.6rem;
           color: var(--color-beige);
           font-weight: 700;
@@ -334,12 +380,23 @@ export default function ProductDetail({ initialProduct }: Props) {
         .btn-add-cart, .btn-buy-now {
           width: 100%;
           padding: 1.2rem;
-          font-size: 1rem;
+          font-size: 0.9rem;
+          font-family: 'Helvetica', sans-serif;
+          font-weight: 600;
+          text-transform: uppercase;
+          border-radius: 0;
+          cursor: pointer;
+          transition: all 0.3s ease;
         }
 
         .btn-add-cart {
           background-color: var(--color-green);
           color: #fff;
+          border: none;
+        }
+
+        .btn-add-cart:hover {
+           background-color: #000;
         }
 
         .btn-buy-now {
@@ -358,6 +415,11 @@ export default function ProductDetail({ initialProduct }: Props) {
           cursor: not-allowed;
           background-color: #ccc;
           border-color: #ccc;
+          color: #fff;
+        }
+
+        .btn.disabled:hover {
+          background-color: #ccc;
         }
 
         /* Accordions */
@@ -411,6 +473,8 @@ export default function ProductDetail({ initialProduct }: Props) {
           .product-detail-grid {
             grid-template-columns: 1fr;
             gap: 3rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
           }
           .product-sidebar { position: static; }
           .product-gallery { gap: 1rem; }
@@ -431,7 +495,8 @@ function getColorCode(slug: string): string {
     'verde': '#155338',
     'vino': '#722F37',
     'tabaco': '#8B5A2B',
-    'cognac': '#9A463D'
+    'cognac': '#9A463D',
+    'rojo': '#C41E3A'
   };
   return colors[slug.toLowerCase()] || '#ddd';
 }

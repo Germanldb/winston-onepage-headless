@@ -2,8 +2,8 @@
 import { Image } from "astro:assets";
 ---
 
-<header class="header glass">
-    <div class="container header-content">
+<header class="header">
+    <div class="header-inner">
         <a href="/" class="logo">
             <Image
                 src="https://winstonandharrystore.com/wp-content/uploads/2020/12/logo-w-h-vertical.png"
@@ -13,7 +13,8 @@ import { Image } from "astro:assets";
                 referrerpolicy="no-referrer"
             />
         </a>
-        <nav class="nav">
+
+        <nav class="desktop-nav">
             <ul>
                 <li><a href="/">Inicio</a></li>
                 <li><a href="/#tienda">Tienda</a></li>
@@ -21,30 +22,143 @@ import { Image } from "astro:assets";
                 <li><a href="/#contacto">Contacto</a></li>
             </ul>
         </nav>
+
+        <div class="header-actions">
+            <a
+                href="/#tienda"
+                class="action-btn favorites-link"
+                aria-label="Ver Favoritos"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                    ></path>
+                </svg>
+                <span class="fav-count" id="fav-count">0</span>
+            </a>
+
+            <button
+                class="burger-menu"
+                aria-label="Abrir menú"
+                id="burger-menu"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="mobile-nav" id="mobile-nav">
+        <ul class="mobile-links">
+            <li><a href="/" class="mobile-link">Inicio</a></li>
+            <li><a href="/#tienda" class="mobile-link">Tienda</a></li>
+            <li><a href="/#nosotros" class="mobile-link">Nosotros</a></li>
+            <li><a href="/#contacto" class="mobile-link">Contacto</a></li>
+        </ul>
     </div>
 </header>
 
+<script>
+    const burgerBtn = document.getElementById("burger-menu");
+    const mobileNav = document.getElementById("mobile-nav");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    if (burgerBtn && mobileNav) {
+        burgerBtn.addEventListener("click", () => {
+            mobileNav.classList.toggle("active");
+            document.body.style.overflow = mobileNav.classList.contains(
+                "active",
+            )
+                ? "hidden"
+                : "";
+        });
+    }
+
+    mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            if (mobileNav) {
+                mobileNav.classList.remove("active");
+                document.body.style.overflow = "";
+            }
+        });
+    });
+
+    function updateFavCount() {
+        const countSpan = document.getElementById("fav-count");
+        if (!countSpan) return;
+
+        try {
+            const favorites = JSON.parse(
+                localStorage.getItem("wh_favorites") || "[]",
+            );
+            const count = favorites.length;
+
+            if (count > 0) {
+                countSpan.textContent = count.toString();
+                countSpan.style.display = "flex";
+            } else {
+                countSpan.style.display = "none";
+            }
+        } catch (e) {
+            console.error("Error reading favorites", e);
+        }
+    }
+
+    window.addEventListener("storage", updateFavCount);
+    document.addEventListener("astro:page-load", updateFavCount);
+    updateFavCount();
+</script>
+
 <style>
     .header {
-        position: fixed;
+        position: sticky;
         top: 0;
         left: 0;
         width: 100%;
         z-index: 1000;
-        padding: 1rem 0;
-        transition: var(--transition-smooth);
+        background-color: #ffffff;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        padding: 0.5rem 0;
     }
 
-    .header-content {
+    .header-inner {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        width: 100%;
     }
 
     .logo {
-        max-width: 300px;
+        flex: 1;
         display: flex;
         align-items: center;
+        max-width: 250px;
     }
 
     .logo img {
@@ -53,26 +167,139 @@ import { Image } from "astro:assets";
         object-fit: contain;
     }
 
-    .nav ul {
+    .desktop-nav {
+        flex: 2;
         display: flex;
-        gap: 2.5rem;
+        justify-content: center;
     }
 
-    .nav a {
-        font-weight: 500;
+    .desktop-nav ul {
+        display: flex;
+        gap: 3rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .desktop-nav a {
+        font-weight: 600;
         font-size: 0.9rem;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 1.5px;
         color: var(--color-green);
+        text-decoration: none;
+        position: relative;
     }
 
-    .nav a:hover {
+    .desktop-nav a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: var(--color-beige);
+        transition: width 0.3s ease;
+    }
+
+    .desktop-nav a:hover::after {
+        width: 100%;
+    }
+
+    .header-actions {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .action-btn {
+        color: var(--color-green);
+        position: relative;
+        display: flex;
+        align-items: center;
+        transition: color 0.3s;
+    }
+
+    .action-btn:hover {
         color: var(--color-beige);
     }
 
-    @media (max-width: 768px) {
-        .nav {
+    .fav-count {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background-color: var(--color-beige);
+        color: white;
+        font-size: 0.7rem;
+        font-weight: bold;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .burger-menu {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--color-green);
+        padding: 0;
+    }
+
+    .mobile-nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: #fff;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mobile-nav.active {
+        transform: translateX(0);
+    }
+
+    .mobile-links {
+        list-style: none;
+        text-align: center;
+        gap: 2rem;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .mobile-link {
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: var(--color-green);
+        text-decoration: none;
+        display: block;
+    }
+
+    @media (max-width: 900px) {
+        .desktop-nav {
             display: none;
+        }
+
+        .burger-menu {
+            display: block;
+        }
+
+        .logo {
+            max-width: 180px;
         }
     }
 </style>

@@ -17,7 +17,11 @@ export const GET: APIRoute = async ({ request }) => {
             const products = await response.json();
             if (products.length === 0) return new Response(JSON.stringify({ error: 'Not found' }), { status: 404 });
 
-            return new Response(JSON.stringify(products[0]), {
+            // FIX: A veces existen productos duplicados con el mismo slug (error de base de datos WP).
+            // Priorizamos el que tenga atributos (el "bueno").
+            const bestProduct = products.find((p: any) => p.attributes && p.attributes.length > 0) || products[0];
+
+            return new Response(JSON.stringify(bestProduct), {
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',

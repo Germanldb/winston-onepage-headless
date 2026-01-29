@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import ProductCard from './ProductCard';
 
 interface Product {
   id: number;
   name: string;
+  slug: string;
   permalink: string;
   prices: {
     price: string;
@@ -15,7 +17,15 @@ interface Product {
     src: string;
     alt: string;
   }[];
-  slug: string;
+  attributes: {
+    id: number;
+    name: string;
+    terms: { id: number; name: string; slug: string }[];
+  }[];
+  variations: {
+    id: number;
+    attributes: { name: string; value: string }[];
+  }[];
 }
 
 export default function ProductGrid() {
@@ -74,34 +84,16 @@ export default function ProductGrid() {
     <section id="tienda" className="tienda">
       <div className="container">
         <div className="section-title">
-          <h2>Colección de Calzado</h2>
-          <div className="divider"></div>
+          <span className="subtitle">ACCESORIOS Y ZAPATOS DE CUERO PARA HOMBRE</span>
+          <h2>LOS FAVORITOS</h2>
+          <p className="description">
+            En un mundo en el que todos tratamos de encajar, la única forma de diferenciarnos es honrando nuestras diferencias reflejadas en nuestra personalidad.
+          </p>
         </div>
 
         <div className="grid-5x3">
           {products.map((product) => (
-            <div key={product.id} className="product-card">
-              <a href={`/productos/${product.slug}`}>
-                <div className="product-image">
-                  <img
-                    src={product.images[0]?.src || 'https://via.placeholder.com/300x400?text=Zapato'}
-                    alt={product.images[0]?.alt || product.name}
-                    loading="lazy"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="overlay">
-                    <span>Ver Detalles</span>
-                  </div>
-                </div>
-                <div className="product-info">
-                  <h3>{product.name}</h3>
-                  <p className="price">
-                    {product.prices.currency_prefix || product.prices.currency_symbol}
-                    {new Intl.NumberFormat('es-CO').format(parseInt(product.prices.price) / (10 ** (product.prices.currency_minor_unit || 0)))}
-                  </p>
-                </div>
-              </a>
-            </div>
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
 
@@ -128,10 +120,16 @@ export default function ProductGrid() {
       </div>
 
       <style>{`
-        .tienda { background-color: #fff; padding: 6rem 0; }
-        .section-title { text-align: center; margin-bottom: 4rem; }
-        .section-title h2 { font-size: 3rem; margin-bottom: 1rem; color: var(--color-green); }
-        .divider { width: 60px; height: 3px; background-color: var(--color-beige); margin: 0 auto; }
+        .tienda { background-color: #fff; padding: 4rem 0; }
+        .section-title { text-align: center; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; padding: 0 1rem; }
+        .subtitle { font-size: 0.8rem; color: #999; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 0.5rem; font-family: var(--font-paragraphs); }
+        .section-title h2 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--color-green); line-height: 1; }
+        .description { font-size: 1.1rem; color: #666; line-height: 1.6; font-family: var(--font-paragraphs); }
+
+        @media (max-width: 768px) {
+          .section-title h2 { font-size: 1.5rem; }
+          .description { font-size: 1rem; }
+        }
 
         .grid-5x3 {
           display: grid;
@@ -142,39 +140,6 @@ export default function ProductGrid() {
         @media (max-width: 1200px) { .grid-5x3 { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 768px) { .grid-5x3 { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 480px) { .grid-5x3 { grid-template-columns: 1fr; } }
-
-        .product-card { background: #fff; transition: var(--transition-smooth); border: 1px solid #eee; }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-
-        .product-image { position: relative; aspect-ratio: 1/1; overflow: hidden; background-color: #f9f9f9; }
-        .product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .product-card:hover .product-image img { transform: scale(1.05); }
-
-        .overlay {
-          position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-          background: rgba(21, 83, 56, 0.85); display: flex; align-items: center;
-          justify-content: center; opacity: 0; transition: var(--transition-smooth);
-        }
-        .product-card:hover .overlay { opacity: 1; }
-        .overlay span { color: #fff; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border: 1px solid #fff; padding: 0.5rem 1rem; }
-
-        .product-info { padding: 1.5rem 1rem; text-align: center; }
-        .product-info h3 { 
-          font-family: var(--font-products); 
-          font-size: 1.4rem; 
-          font-weight: 300; 
-          margin-bottom: 0.7rem; 
-          color: var(--color-green); 
-          min-height: 2.2rem; 
-          display: flex; 
-          align-items: center; 
-          justify-content: center; 
-          text-transform: uppercase; 
-          letter-spacing: 0px;
-          transform: scaleX(0.9);
-          transform-origin: center;
-        }
-        .price { color: var(--color-beige); font-weight: 700; font-size: 1rem; }
 
         .load-more-container { margin-top: 4rem; display: flex; justify-content: center; }
         .error-container { text-align: center; padding: 4rem 0; }
