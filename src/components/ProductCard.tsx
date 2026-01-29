@@ -7,6 +7,9 @@ interface Product {
     permalink: string;
     prices: {
         price: string;
+        regular_price: string;
+        sale_price: string;
+        price_range: any;
         currency_code: string;
         currency_symbol: string;
         currency_minor_unit: number;
@@ -30,13 +33,6 @@ interface Product {
 interface Props {
     product: Product;
 }
-
-const PRODUCT_OVERRIDES: Record<string, { regular_price: number; discount: string; hot?: boolean }> = {
-    'Amberly II': { regular_price: 560000, discount: '-23%' },
-    'Armenia': { regular_price: 495000, discount: '-20%', hot: true },
-    'Bogotá': { regular_price: 539000, discount: '-17%' },
-    'Bogota': { regular_price: 539000, discount: '-17%' },
-};
 
 export default function ProductCard({ product }: Props) {
     const [selectedColor, setSelectedColor] = useState<string | null>(null);
@@ -82,8 +78,21 @@ export default function ProductCard({ product }: Props) {
 
     const hasSize = !!sizeAttribute;
 
-    // Detectar si hay override para este producto
-    const override = Object.entries(PRODUCT_OVERRIDES).find(([key]) => product.name.includes(key))?.[1];
+    // Price Logic
+    const regularPrice = parseInt(product.prices.regular_price);
+    const price = parseInt(product.prices.price);
+    const currencyMinorUnit = product.prices.currency_minor_unit || 0;
+
+    // Check for valid discount
+    const isSale = regularPrice > price;
+
+    // Calculate values properly considering minor units (usually 0 for COP but good practice)
+    const renderRegularPrice = regularPrice / (10 ** currencyMinorUnit);
+    const renderPrice = price / (10 ** currencyMinorUnit);
+
+    const discountPercentage = isSale
+        ? Math.round(((renderRegularPrice - renderPrice) / renderRegularPrice) * 100)
+        : 0;
 
     // Filtrar tallas disponibles según el color seleccionado
     const availableSizes = selectedColor && hasSize
@@ -126,7 +135,6 @@ export default function ProductCard({ product }: Props) {
     };
 
     const currencySymbol = product.prices.currency_prefix || product.prices.currency_symbol;
-    const currentPrice = parseInt(product.prices.price) / (10 ** (product.prices.currency_minor_unit || 0));
 
     return (
         <div className="product-card">
@@ -135,48 +143,30 @@ export default function ProductCard({ product }: Props) {
                     <div className="product-image">
                         {/* Badges Logic */}
                         <div className="badges-container">
-                            {/* Logic for Percentage Discount */}
-                            {(() => {
-                                // Extract raw prices from price string or object logic if available
-                                // NOTE: The current 'prices' object structure in the interface is limited. 
-                                // In a real WC API using 'store/v1/products', we usually check 'prices.regular_price' vs 'prices.price'
-                                // Since we don't have the full raw price numbers easily in the text format, 
-                                // we will assume if 'on_sale' is true (standard WP) or if we parse the strings.
-                                // For this specific request, let's implement a robust calculation if possible, 
-                                // otherwise fallback to simulation based on the provided image example manually for 'Armenia' or 'Amberly II'.
-
-                                // Let's try to parse:
-                                const currentPrice = parseInt(product.prices.price); // This is usually the active price in minor units
-                                // We don't have regular_price in the interface. Let's infer or use a mock logic for demo
-                                // based on the user's specific request "productos que tienen descuentos configurados".
-
-                                // Hack for Demo purpose based on image:
-                                // If specific products, show badges.
-                                const isAmberly = product.name.includes('Amberly II');
-                                const isArmenia = product.name.includes('Armenia');
-                                const isHot = product.name.includes('Armenia'); // Example "HOT"
-
-                                if (isAmberly) {
-                                    return <span className="badge badge-sale">-23%</span>;
-                                }
-                                if (isArmenia) {
-                                    return (
-                                        <>
-                                            <span className="badge badge-sale">-20%</span>
-                                            <span className="badge badge-hot">HOT</span>
-                                        </>
-                                    );
-                                }
-                                return null;
-                            })()}
+                            {isSale && discountPercentage > 0 && (
+                                <>
+                                    <span className="badge badge-sale">-{discountPercentage}%</span>
+                                    {discountPercentage >= 40 && <span className="badge badge-hot">HOT</span>}
+                                </>
+                            )}
                         </div>
 
-                        <img
-                            src={product.images[0]?.src || 'https://via.placeholder.com/300x400?text=Zapato'}
-                            alt={product.images[0]?.alt || product.name}
-                            loading="lazy"
-                            referrerPolicy="no-referrer"
-                        />
+                        <picture>
+                            {product.images[0]?.src && (
+                                <source srcSet={product.images[0].src + '.webp'} type="image/webp" />
+                            )}
+                            <img
+                                src={product.images[0]?.src || 'https://via.placeholder.com/300x400?text=Zapato'}
+                                alt={product.images[0]?.alt || product.name}
+                                loading="lazy"
+                                referrerPolicy="no-referrer"
+                                onError={(e) => {
+                                    const target = e.target as HTMLImageElement;
+                                    target.onerror = null; // Prevent loop
+                                    target.src = 'https://via.placeholder.com/300x400?text=Sin+Imagen';
+                                }}
+                            />
+                        </picture>
                         <button
                             className={`favorite-btn ${isFavorite ? 'active' : ''}`}
                             onClick={toggleFavorite}
@@ -194,18 +184,18 @@ export default function ProductCard({ product }: Props) {
                         <a href={`/productos/${product.slug}`}>{product.name}</a>
                     </h3>
                     <p className="price">
-                        {override ? (
+                        {isSale ? (
                             <>
                                 <span className="old-price">
-                                    {currencySymbol}{new Intl.NumberFormat('es-CO').format(override.regular_price)}
+                                    {currencySymbol}{new Intl.NumberFormat('es-CO').format(renderRegularPrice)}
                                 </span>
                                 <span className="sale-price">
-                                    {currencySymbol}{new Intl.NumberFormat('es-CO').format(currentPrice)}
+                                    {currencySymbol}{new Intl.NumberFormat('es-CO').format(renderPrice)}
                                 </span>
                             </>
                         ) : (
                             <span>
-                                {currencySymbol}{new Intl.NumberFormat('es-CO').format(currentPrice)}
+                                {currencySymbol}{new Intl.NumberFormat('es-CO').format(renderPrice)}
                             </span>
                         )}
                     </p>
@@ -403,6 +393,21 @@ export default function ProductCard({ product }: Props) {
             font-family: 'Helvetica', sans-serif;
             margin-bottom: 0.8rem;
             text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-weight: 400;
+            font-size: 0.85rem;
+        }
+
+        .sale-price {
+            color: var(--color-beige);
+            font-weight: 700;
         }
 
         .card-colors {

@@ -103,11 +103,19 @@ export default function ProductDetail({ initialProduct }: Props) {
         <div className="product-gallery">
           {product.images.map((img, index) => (
             <div key={index} className="gallery-item">
-              <img
-                src={img.src}
-                alt={img.alt || product.name}
-                referrerPolicy="no-referrer"
-              />
+              <picture>
+                {img.src && <source srcSet={img.src + '.webp'} type="image/webp" />}
+                <img
+                  src={img.src}
+                  alt={img.alt || product.name}
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null;
+                    target.src = 'https://via.placeholder.com/600x600?text=Sin+Imagen';
+                  }}
+                />
+              </picture>
             </div>
           ))}
         </div>
