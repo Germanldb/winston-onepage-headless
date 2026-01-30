@@ -182,6 +182,35 @@ export default function ProductDetail({ initialProduct }: Props) {
               <button
                 className={`btn btn-add-cart ${isSelectionComplete ? '' : 'disabled'}`}
                 disabled={!isSelectionComplete}
+                onClick={() => {
+                  const cartItem = {
+                    id: product.id,
+                    name: product.name,
+                    price: parseInt(product.prices.price) / (10 ** product.prices.currency_minor_unit),
+                    color: selectedColor,
+                    size: selectedSize,
+                    quantity: 1,
+                    image: product.images[0]?.src
+                  };
+
+                  const cart = JSON.parse(localStorage.getItem('wh_cart') || '[]');
+                  // Verificar si ya existe el mismo item con mismo color y talla
+                  const existingItemIndex = cart.findIndex((item: any) =>
+                    item.id === cartItem.id && item.color === cartItem.color && item.size === cartItem.size
+                  );
+
+                  if (existingItemIndex > -1) {
+                    cart[existingItemIndex].quantity += 1;
+                  } else {
+                    cart.push(cartItem);
+                  }
+
+                  localStorage.setItem('wh_cart', JSON.stringify(cart));
+                  window.dispatchEvent(new Event('cart-updated'));
+
+                  // Opcional: Feedback visual
+                  alert('Producto añadido al carrito');
+                }}
               >
                 Añadir al carrito
               </button>

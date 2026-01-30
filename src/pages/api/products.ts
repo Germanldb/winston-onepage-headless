@@ -60,9 +60,8 @@ export const GET: APIRoute = async ({ request }) => {
             return (hasShoeCategory || hasShoeName) && !isExcluded;
         });
 
-        // Si encontramos muy pocos en esta página, intentamos traer de la siguiente (opcionalmente)
-        // Pero por ahora, devolvemos lo que hay (máximo 15 para la grid)
-        const result = shoes.slice(0, 15);
+        // Limitamos a 12 productos para completar perfectamente una grid de 4x3
+        const result = shoes.slice(0, 12);
 
         return new Response(JSON.stringify(result), {
             status: 200,

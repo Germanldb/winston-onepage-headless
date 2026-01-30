@@ -8,6 +8,9 @@ interface Product {
   permalink: string;
   prices: {
     price: string;
+    regular_price: string;
+    sale_price: string;
+    price_range: any;
     currency_code: string;
     currency_symbol: string;
     currency_minor_unit: number;
@@ -45,7 +48,7 @@ export default function ProductGrid() {
 
       const data = await response.json();
 
-      if (data.length < 15) {
+      if (data.length < 12) {
         setHasMore(false);
       }
 
@@ -91,7 +94,7 @@ export default function ProductGrid() {
           </p>
         </div>
 
-        <div className="grid-5x3">
+        <div className="grid-4x3">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -123,23 +126,23 @@ export default function ProductGrid() {
         .tienda { background-color: #fff; padding: 4rem 0; }
         .section-title { text-align: center; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; padding: 0 1rem; }
         .subtitle { font-size: 0.8rem; color: #999; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 0.5rem; font-family: var(--font-paragraphs); }
-        .section-title h2 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--color-green); line-height: 1; }
-        .description { font-size: 1.1rem; color: #666; line-height: 1.6; font-family: var(--font-paragraphs); }
+        .section-title h2 { font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--color-green); line-height: 1; }
+        .description { font-size: 0.8rem; color: #666; line-height: 1.6; font-family: var(--font-paragraphs); }
 
         @media (max-width: 768px) {
-          .section-title h2 { font-size: 1.5rem; }
-          .description { font-size: 1rem; }
+          .section-title h2 { font-size: 1.15rem; }
+          .description { font-size: 0.75rem; }
         }
 
-        .grid-5x3 {
+        .grid-4x3 {
           display: grid;
-          grid-template-columns: repeat(5, 1fr);
-          gap: 1.5rem;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 0.2rem;
         }
 
-        @media (max-width: 1200px) { .grid-5x3 { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 768px) { .grid-5x3 { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 480px) { .grid-5x3 { grid-template-columns: 1fr; } }
+        @media (max-width: 1200px) { .grid-4x3 { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 768px) { .grid-4x3 { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 480px) { .grid-4x3 { grid-template-columns: 1fr; } }
 
         .load-more-container { margin-top: 4rem; display: flex; justify-content: center; }
         .error-container { text-align: center; padding: 4rem 0; }
