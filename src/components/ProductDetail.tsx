@@ -65,7 +65,6 @@ export default function ProductDetail({ initialProduct }: Props) {
     attr.name.toLowerCase().includes('color')
   );
 
-  // Obtener la categoría principal para la miga de pan
   const mainCategory = useMemo(() => {
     if (!product.categories || product.categories.length === 0) return null;
     const cat = product.categories.find(c =>
@@ -208,7 +207,6 @@ export default function ProductDetail({ initialProduct }: Props) {
         <div className="product-info-sidebar">
           <div className="sidebar-inner">
             <div className="sidebar-content">
-              {/* Miga de Pan ahora arriba de la información del producto */}
               <div className="product-breadcrumbs">
                 <a href="/">Inicio</a>
                 <span className="separator">/</span>
@@ -226,35 +224,6 @@ export default function ProductDetail({ initialProduct }: Props) {
               <p className="product-price">{formatPrice(product.prices.price)}</p>
 
               <div className="product-short-description" dangerouslySetInnerHTML={{ __html: product.short_description }} />
-
-              <div className="quantity-selector-container">
-                <label>Cantidad:</label>
-                <div className="quantity-controls">
-                  <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>−</button>
-                  <span>{quantity}</span>
-                  <button onClick={() => setQuantity(quantity + 1)}>+</button>
-                </div>
-              </div>
-
-              <div className="product-actions-grid">
-                <button
-                  className={`btn-action btn-fill ${isSelectionComplete ? '' : 'disabled'}`}
-                  disabled={!isSelectionComplete}
-                  onClick={handleAddToCart}
-                >
-                  Añadir al Carrito
-                </button>
-                <button
-                  className={`btn-action btn-outline-thick ${isSelectionComplete ? '' : 'disabled'}`}
-                  disabled={!isSelectionComplete}
-                  onClick={() => {
-                    handleAddToCart();
-                    window.location.href = '/checkout';
-                  }}
-                >
-                  Comprar Ahora
-                </button>
-              </div>
 
               <div className="product-selectors">
                 {colorAttribute && (
@@ -301,6 +270,35 @@ export default function ProductDetail({ initialProduct }: Props) {
                     </div>
                   </div>
                 )}
+              </div>
+
+              <div className="quantity-selector-container">
+                <label>Cantidad:</label>
+                <div className="quantity-controls">
+                  <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>−</button>
+                  <span>{quantity}</span>
+                  <button onClick={() => setQuantity(quantity + 1)}>+</button>
+                </div>
+              </div>
+
+              <div className="product-actions-grid">
+                <button
+                  className={`btn-action btn-fill ${isSelectionComplete ? '' : 'disabled'}`}
+                  disabled={!isSelectionComplete}
+                  onClick={handleAddToCart}
+                >
+                  Añadir al Carrito
+                </button>
+                <button
+                  className={`btn-action btn-outline-thick ${isSelectionComplete ? '' : 'disabled'}`}
+                  disabled={!isSelectionComplete}
+                  onClick={() => {
+                    handleAddToCart();
+                    window.location.href = '/checkout';
+                  }}
+                >
+                  Comprar Ahora
+                </button>
               </div>
 
               <div className="product-details-dropdowns">
@@ -362,7 +360,6 @@ export default function ProductDetail({ initialProduct }: Props) {
       <style>{`
         .product-detail { background: #fff; width: 100%; }
 
-        /* Miga de Pan Refinada */
         .product-breadcrumbs {
             margin-bottom: 2rem;
             font-size: 0.8rem;
@@ -401,7 +398,7 @@ export default function ProductDetail({ initialProduct }: Props) {
         .product-price { font-size: 1rem; color: #A98B68; margin-bottom: 2rem; font-weight: 400; }
         
         .quantity-selector-container {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -450,7 +447,7 @@ export default function ProductDetail({ initialProduct }: Props) {
         .btn-action:hover:not(.disabled) { opacity: 0.8; transform: translateY(-2px); }
         .btn-action.disabled { background-color: #eee; border-color: #eee; color: #999; cursor: not-allowed; }
         .product-short-description { font-size: 0.85rem; color: #555; line-height: 1.7; margin-bottom: 3rem; }
-        .selector-group { margin-bottom: 2.5rem; }
+        .selector-group { margin-bottom: 1.5rem; }
         .selector-group label { display: block; font-size: 0.75rem; text-transform: uppercase; color: #888; margin-bottom: 0px; letter-spacing: 1px; }
         .label-row-between { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; }
         .color-dot-btn { background: none; border: none; padding: 4px; cursor: pointer; border: 1px solid transparent; border-radius: 50%; transition: all 0.2s; position: relative; }
