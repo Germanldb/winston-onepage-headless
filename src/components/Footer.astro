@@ -1,144 +1,357 @@
 ---
-
+import { Image } from "astro:assets";
 ---
 
-<footer id="contacto" class="footer">
+<footer id="footer" class="footer">
     <div class="container footer-grid">
-        <div class="footer-brand">
-            <a href="/" class="logo">WINSTON & HARRY</a>
-            <p>
-                Elevando la tradición del calzado artesanal a un nuevo nivel de
-                sofisticación.
-            </p>
-        </div>
-
-        <div class="footer-links">
-            <h3>Explorar</h3>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#tienda">Tienda</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-contact">
-            <h3>Contacto</h3>
-            <ul>
-                <li>Email: info@winstonandharry.com</li>
-                <li>Tel: +57 (123) 456-7890</li>
-                <li>Ubicación: Bogotá, Colombia</li>
-            </ul>
-        </div>
-
-        <div class="footer-social">
-            <h3>Síguenos</h3>
-            <div class="social-icons">
-                <a href="#" class="social-icon">IG</a>
-                <a href="#" class="social-icon">FB</a>
-                <a href="#" class="social-icon">WA</a>
+        <!-- Columna 1: Logo e Info -->
+        <div class="footer-column brand-info">
+            <div class="footer-logo">
+                <img
+                    src="https://winstonandharrystore.com/wp-content/uploads/2020/12/logo-w-h-vertical.png"
+                    alt="Winston & Harry Logo"
+                    class="logo-img"
+                />
             </div>
+            <p class="brand-description">
+                Nuestros productos son orgullosamente hechos a mano, cuidando
+                las tradiciones que nuestros artesanos colombianos han
+                conservado a lo largo de varias generaciones.
+            </p>
+            <div class="brand-contact">
+                <p>Bogotá, Colombia</p>
+                <p>Teléfono: +57 310 3075540</p>
+                <p>info@winstonandharrystore.com</p>
+            </div>
+        </div>
+
+        <!-- Columna 2: Atención al Cliente -->
+        <div class="footer-column">
+            <h3 class="footer-title">ATENCIÓN AL CLIENTE</h3>
+            <ul class="footer-links">
+                <li><a href="/contacto">Contáctanos</a></li>
+                <li>
+                    <a href="/preguntas-frecuentes">Preguntas frecuentes</a>
+                </li>
+                <li><a href="/tiendas">Tiendas</a></li>
+                <li>
+                    <a href="/cuidado-del-calzado">Cuidado de los productos</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Columna 3: Nosotros -->
+        <div class="footer-column">
+            <h3 class="footer-title">NOSOTROS</h3>
+            <ul class="footer-links">
+                <li><a href="/la-marca">La Marca</a></li>
+                <li><a href="/#tienda">Zapatos</a></li>
+                <li><a href="/accesorios">Accesorios</a></li>
+                <li><a href="/maletas">Maletas</a></li>
+                <li><a href="/mascotas">Mascotas</a></li>
+                <li><a href="/ropa">Ropa</a></li>
+                <li><a href="/guia-de-tallas">Guía de tallas</a></li>
+                <li>
+                    <a href="/dona-tus-zapatos" class="italic-link"
+                        >Dona tus zapatos</a
+                    >
+                </li>
+            </ul>
+        </div>
+
+        <!-- Columna 4: Legal -->
+        <div class="footer-column">
+            <h3 class="footer-title">LEGAL</h3>
+            <ul class="footer-links">
+                <li>
+                    <a href="/politica-de-privacidad">Política de privacidad</a>
+                </li>
+                <li><a href="/politica-de-cookies">Política de cookies</a></li>
+                <li>
+                    <a href="/terminos-y-condiciones">Términos y condiciones</a>
+                </li>
+                <li><a href="/politica-de-envios">Política de envíos</a></li>
+            </ul>
         </div>
     </div>
 
+    <!-- Barra Inferior -->
     <div class="footer-bottom">
         <div class="container">
             <p>
-                &copy; {new Date().getFullYear()} Winston & Harry. Todos los derechos
-                reservados.
+                WINSTON & HARRY 2020 UN DESARROLLO DE <span class="agency"
+                    >GO-Agency.</span
+                >
             </p>
         </div>
     </div>
+
+    <!-- Botón Volver Arriba -->
+    <button
+        id="scroll-to-top"
+        class="scroll-top-btn"
+        aria-label="Volver arriba"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+        >
+    </button>
+
+    <!-- Barra Social Lateral (Sticky) -->
+    <div class="social-sidebar">
+        <a
+            href="https://facebook.com"
+            class="social-link facebook"
+            target="_blank"
+            aria-label="Facebook"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                ><path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                ></path></svg
+            >
+        </a>
+        <a
+            href="mailto:info@winstonandharrystore.com"
+            class="social-link email"
+            aria-label="Email"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
+                    d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
+            >
+        </a>
+        <a
+            href="https://wa.me/573103075540"
+            class="social-link whatsapp"
+            target="_blank"
+            aria-label="WhatsApp"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                ></path></svg
+            >
+        </a>
+    </div>
 </footer>
+
+<script is:inline>
+    const scrollBtn = document.getElementById("scroll-to-top");
+    window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+            scrollBtn.classList.add("visible");
+        } else {
+            scrollBtn.classList.remove("visible");
+        }
+    });
+    scrollBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+</script>
 
 <style>
     .footer {
-        background-color: #0b2e1f;
-        color: var(--color-white);
-        padding: 6rem 0 2rem;
+        background-color: #fff;
+        color: #666;
+        padding: 5rem 0 0;
+        border-top: 1px solid #f0f0f0;
+        font-family: var(--font-paragraphs);
     }
 
     .footer-grid {
         display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: 4rem;
-        margin-bottom: 4rem;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 2rem;
+        padding-bottom: 4rem;
     }
 
-    .footer-brand .logo {
-        font-size: 1.8rem;
-        color: var(--color-beige);
-        margin-bottom: 1.5rem;
-        display: block;
+    .brand-info {
+        padding-right: 2rem;
     }
 
-    .footer-brand p {
-        opacity: 0.7;
-        max-width: 300px;
+    .logo-img {
+        max-width: 250px;
+        height: auto;
+        margin-bottom: 2rem;
     }
 
-    h3 {
-        color: var(--color-white);
-        font-size: 1.2rem;
-        margin-bottom: 1.5rem;
-        font-family: "Outfit", sans-serif;
-        text-transform: uppercase;
+    .brand-description {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        color: #888;
+    }
+
+    .brand-contact p {
+        margin: 0.5rem 0;
+        font-size: 0.9rem;
+        color: #999;
+    }
+
+    .footer-title {
+        color: var(--color-green, #155338);
+        font-size: 0.9rem;
+        font-weight: 800;
+        margin-bottom: 2rem;
         letter-spacing: 1px;
     }
 
-    ul {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
     }
 
-    ul li a,
-    ul li {
-        opacity: 0.7;
-        font-size: 0.95rem;
+    .footer-links li {
+        margin-bottom: 1rem;
     }
 
-    ul li a:hover {
-        opacity: 1;
-        color: var(--color-beige);
-        padding-left: 5px;
+    .footer-links a {
+        color: #999;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.2s;
     }
 
-    .social-icons {
-        display: flex;
-        gap: 1rem;
+    .footer-links a:hover {
+        color: var(--color-green, #155338);
     }
 
-    .social-icon {
-        width: 40px;
-        height: 40px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        font-size: 0.8rem;
-    }
-
-    .social-icon:hover {
-        background-color: var(--color-beige);
-        border-color: var(--color-beige);
+    .italic-link {
+        font-style: italic;
     }
 
     .footer-bottom {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 2rem;
+        border-top: 1px solid #f9f9f9;
+        padding: 2.5rem 0;
         text-align: center;
-        font-size: 0.9rem;
-        opacity: 0.5;
+        background-color: #fff;
+    }
+
+    .footer-bottom p {
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+        color: #aaa;
+        text-transform: uppercase;
+    }
+
+    .agency {
+        color: #f7a228; /* Color naranja de la imagen */
+        font-weight: bold;
+    }
+
+    /* Botón Volver Arriba */
+    .scroll-top-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 45px;
+        height: 45px;
+        background: #fff;
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        z-index: 99;
+        color: #333;
+    }
+
+    .scroll-top-btn.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .scroll-top-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Barra Social Lateral */
+    .social-sidebar {
+        position: fixed;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        z-index: 100;
+    }
+
+    .social-link {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .social-link.facebook {
+        background-color: #3b5998;
+    }
+    .social-link.email {
+        background-color: #f7a228;
+    }
+    .social-link.whatsapp {
+        background-color: #25d366;
+    }
+
+    .social-link:hover {
+        width: 50px;
+        padding-right: 10px;
     }
 
     @media (max-width: 992px) {
         .footer-grid {
             grid-template-columns: repeat(2, 1fr);
+            padding: 0 2rem 4rem;
+        }
+        .social-sidebar {
+            display: none;
         }
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: 600px) {
         .footer-grid {
             grid-template-columns: 1fr;
         }
