@@ -7,11 +7,16 @@ import { Image } from "astro:assets";
         <!-- Columna 1: Logo e Info -->
         <div class="footer-column brand-info">
             <div class="footer-logo">
-                <img
-                    src="https://winstonandharrystore.com/wp-content/uploads/2020/12/logo-w-h-vertical.png"
-                    alt="Winston & Harry Logo"
-                    class="logo-img"
-                />
+                <a href="/" class="logo">
+                    <Image
+                        src="https://winstonandharrystore.com/wp-content/uploads/2020/12/logo-w-h-vertical.png"
+                        alt="Winston & Harry Logo"
+                        width={400}
+                        height={400}
+                        referrerpolicy="no-referrer"
+                        loading="lazy"
+                    />
+                </a>
             </div>
             <p class="brand-description">
                 Nuestros productos son orgullosamente hechos a mano, cuidando
@@ -104,67 +109,6 @@ import { Image } from "astro:assets";
             stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
         >
     </button>
-
-    <!-- Barra Social Lateral (Sticky) -->
-    <div class="social-sidebar">
-        <a
-            href="https://facebook.com"
-            class="social-link facebook"
-            target="_blank"
-            aria-label="Facebook"
-        >
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                ><path
-                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                ></path></svg
-            >
-        </a>
-        <a
-            href="mailto:info@winstonandharrystore.com"
-            class="social-link email"
-            aria-label="Email"
-        >
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
-                    d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
-            >
-        </a>
-        <a
-            href="https://wa.me/573103075540"
-            class="social-link whatsapp"
-            target="_blank"
-            aria-label="WhatsApp"
-        >
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                ></path></svg
-            >
-        </a>
-    </div>
 </footer>
 
 <script is:inline>
@@ -201,10 +145,14 @@ import { Image } from "astro:assets";
         padding-right: 2rem;
     }
 
-    .logo-img {
-        max-width: 250px;
-        height: auto;
+    .footer-logo {
         margin-bottom: 2rem;
+    }
+
+    .footer-logo :global(img) {
+        max-width: 200px;
+        height: auto;
+        display: block;
     }
 
     .brand-description {
@@ -304,50 +252,10 @@ import { Image } from "astro:assets";
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
 
-    /* Barra Social Lateral */
-    .social-sidebar {
-        position: fixed;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        display: flex;
-        flex-direction: column;
-        z-index: 100;
-    }
-
-    .social-link {
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        text-decoration: none;
-        transition: all 0.2s;
-    }
-
-    .social-link.facebook {
-        background-color: #3b5998;
-    }
-    .social-link.email {
-        background-color: #f7a228;
-    }
-    .social-link.whatsapp {
-        background-color: #25d366;
-    }
-
-    .social-link:hover {
-        width: 50px;
-        padding-right: 10px;
-    }
-
     @media (max-width: 992px) {
         .footer-grid {
             grid-template-columns: repeat(2, 1fr);
             padding: 0 2rem 4rem;
-        }
-        .social-sidebar {
-            display: none;
         }
     }
 
