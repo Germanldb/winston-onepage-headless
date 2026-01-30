@@ -179,19 +179,19 @@ import { Image } from "astro:assets";
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
+                    width="18"
+                    height="18"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="1.2"
+                    stroke-width="1.5"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                 >
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
-                <span class="close-text">Cerrar</span>
+                <span>Cerrar</span>
             </button>
         </div>
 
@@ -296,7 +296,7 @@ import { Image } from "astro:assets";
                     itemEl.className = "cart-item-drawer";
                     itemEl.innerHTML = `
                     <div class="cart-item-img">
-                        <img src="${item.image}" alt="${item.name}">
+                        <img src="${item.image}" alt="${item.name}" referrerpolicy="no-referrer">
                     </div>
                     <div class="cart-item-details">
                         <div class="cart-item-header">
@@ -317,10 +317,9 @@ import { Image } from "astro:assets";
 
                 document.querySelectorAll(".remove-item").forEach((btn) => {
                     btn.addEventListener("click", (e) => {
+                        const target = e.currentTarget as HTMLElement;
                         const idx = parseInt(
-                            (e.currentTarget as HTMLElement).getAttribute(
-                                "data-index",
-                            ) || "0",
+                            target.getAttribute("data-index") || "0",
                         );
                         const currentCart = JSON.parse(
                             localStorage.getItem("wh_cart") || "[]",
@@ -396,19 +395,33 @@ import { Image } from "astro:assets";
         });
 
         window.addEventListener("cart-updated", updateCartTotal);
+        window.addEventListener("open-cart-drawer", () => toggleCart(true));
 
         document.addEventListener("astro:page-load", () => {
             updateFavCount();
             updateCartTotal();
         });
 
+        // Efecto de ocultar Header al hacer scroll
+        let lastScrollY = window.scrollY;
+        const header = document.querySelector(".header");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                header?.classList.add("header-hidden");
+            } else {
+                header?.classList.remove("header-hidden");
+            }
+            lastScrollY = window.scrollY;
+        });
+
         updateFavCount();
         updateCartTotal();
     </script>
 
-    <style>
+    <style is:global>
         .header {
-            position: sticky;
+            position: fixed; /* Cambiado de sticky a fixed para mejor control */
             top: 0;
             left: 0;
             width: 100%;
@@ -416,7 +429,11 @@ import { Image } from "astro:assets";
             background-color: #ffffff;
             border-bottom: 1px solid #f0f0f0;
             padding: 1.2rem 0;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .header-hidden {
+            transform: translateY(-100%);
         }
 
         .header-inner {
@@ -680,10 +697,23 @@ import { Image } from "astro:assets";
 
         .cart-title {
             font-family: var(--font-titles);
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--color-green);
             letter-spacing: 1.5px;
             font-weight: 700;
+        }
+
+        .cart-close {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #121212;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-family: var(--font-paragraphs);
+            font-weight: 400;
         }
 
         .cart-items {
@@ -693,11 +723,13 @@ import { Image } from "astro:assets";
         }
 
         .cart-item-drawer {
-            display: flex;
-            gap: 1rem;
+            display: flex !important;
+            flex-direction: row !important;
+            gap: 1.2rem;
             padding: 1.5rem 2rem;
-            border-bottom: 1px solid #f9f9f9;
+            border-bottom: 1px solid #f2f2f2;
             position: relative;
+            align-items: flex-start;
         }
 
         .cart-item-img {
@@ -728,10 +760,11 @@ import { Image } from "astro:assets";
 
         .cart-item-name {
             font-family: var(--font-products);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            color: #333;
+            color: var(--color-green);
             letter-spacing: 0.5px;
+            font-weight: 400;
         }
 
         .remove-item {
@@ -751,21 +784,25 @@ import { Image } from "astro:assets";
             font-size: 0.8rem;
             color: #666;
             margin: 2px 0;
+            text-transform: none;
+            letter-spacing: normal;
         }
 
         .cart-item-variant span {
-            color: #333;
+            color: #999;
+            font-weight: 400;
         }
 
         .cart-item-price-qty {
-            margin-top: 0.6rem;
-            font-size: 0.9rem;
-            color: #999;
-            font-family: "Helvetica", sans-serif;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: #ccc;
+            font-family: Arial, sans-serif;
+            font-weight: 400;
         }
 
         .cart-item-price-qty span {
-            color: var(--color-beige);
+            color: #a98b68;
             font-weight: 600;
         }
 

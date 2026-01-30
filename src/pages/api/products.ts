@@ -17,11 +17,42 @@ export const GET: APIRoute = async ({ request }) => {
             const products = await response.json();
             if (products.length === 0) return new Response(JSON.stringify({ error: 'Not found' }), { status: 404 });
 
-            // FIX: A veces existen productos duplicados con el mismo slug (error de base de datos WP).
-            // Priorizamos el que tenga atributos (el "bueno").
-            const bestProduct = products.find((p: any) => p.attributes && p.attributes.length > 0) || products[0];
+            const product = products.find((p: any) => p.attributes && p.attributes.length > 0) || products[0];
 
-            return new Response(JSON.stringify(bestProduct), {
+            // ENRIQUECIMIENTO: Traer imágenes de variaciones si es un producto variable
+            if (product.type === 'variable' && product.variations) {
+                const colorAttr = product.attributes.find((a: any) => a.name.toLowerCase().includes('color'));
+                if (colorAttr) {
+                    const variationImages: any = {};
+                    const colors = colorAttr.terms.map((t: any) => t.slug);
+
+                    // Para cada color, buscamos la primera variación y traemos sus fotos
+                    // Usamos Promise.all para que sea más rápido
+                    await Promise.all(colors.map(async (colorSlug: string) => {
+                        const variation = product.variations.find((v: any) =>
+                            v.attributes.some((attr: any) => attr.value.toLowerCase() === colorSlug.toLowerCase())
+                        );
+
+                        if (variation) {
+                            try {
+                                const varRes = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products/${variation.id}`);
+                                if (varRes.ok) {
+                                    const varData = await varRes.json();
+                                    if (varData.images && varData.images.length > 0) {
+                                        variationImages[colorSlug] = varData.images;
+                                    }
+                                }
+                            } catch (e) {
+                                console.error(`Error fetching variation ${variation.id}:`, e);
+                            }
+                        }
+                    }));
+
+                    product.variation_images_map = variationImages;
+                }
+            }
+
+            return new Response(JSON.stringify(product), {
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
