@@ -1,0 +1,56 @@
+---
+
+---
+
+<section id="inicio" class="hero">
+    <div class="video-background">
+        <video
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="https://winstonandharrystore.com/wp-content/uploads/Liverpool-miel-cuero-zapato-winstonandharry-8.jpg"
+        >
+            <source
+                src="https://winstonandharrystore.com/wp-content/uploads/Winston-Harry-Sin-Limites-comp.mp4"
+                type="video/mp4"
+            />
+        </video>
+    </div>
+</section>
+
+<style>
+    .hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background-color: #000;
+        margin-top: 90px;
+    }
+
+    .video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    .video-background video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    @media (max-width: 992px) {
+        .hero {
+            height: auto;
+            aspect-ratio: 16 / 9;
+            margin-top: 65px;
+        }
+    }
+</style>
