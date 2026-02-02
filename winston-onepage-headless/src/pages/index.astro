@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import ProductGrid from "../components/ProductGrid";
+import About from "../components/About.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Winston & Harry | Calzado Artesanal de Lujo">
+	<Header />
+
+	<main>
+		<Hero />
+		<ProductGrid client:load />
+		<About />
+	</main>
+
+	<Footer />
+</Layout>
+
+<style is:global>
+	/* Smoothie scroll */
+	html {
+		scroll-behavior: smooth;
+	}
+
+	main {
+		overflow-x: hidden;
+	}
+</style>
