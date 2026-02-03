@@ -29,6 +29,7 @@ interface Product {
     id: number;
     attributes: { name: string; value: string }[];
   }[];
+  variation_images_map?: Record<string, any[]>;
 }
 
 export default function ProductGrid() {
@@ -142,7 +143,7 @@ export default function ProductGrid() {
 
         @media (max-width: 1200px) { .grid-4x3 { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 768px) { .grid-4x3 { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 480px) { .grid-4x3 { grid-template-columns: 1fr; } }
+        @media (max-width: 480px) { .grid-4x3 { grid-template-columns: repeat(2, 1fr); } }
 
         .load-more-container { margin-top: 4rem; display: flex; justify-content: center; }
         .error-container { text-align: center; padding: 4rem 0; }

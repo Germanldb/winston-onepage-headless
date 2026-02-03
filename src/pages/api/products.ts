@@ -6,7 +6,7 @@ export const GET: APIRoute = async ({ request }) => {
     const slug = url.searchParams.get('slug');
 
     try {
-        // Si viene un slug, buscamos ese producto específico
+        // 1. Si viene un slug, buscamos ese producto específico (Lógica existente)
         if (slug) {
             const response = await fetch(
                 `https://winstonandharrystore.com/wp-json/wc/store/v1/products?slug=${slug}`
@@ -19,15 +19,13 @@ export const GET: APIRoute = async ({ request }) => {
 
             const product = products.find((p: any) => p.attributes && p.attributes.length > 0) || products[0];
 
-            // ENRIQUECIMIENTO: Traer imágenes de variaciones si es un producto variable
+            // ENRIQUECIMIENTO: Traer imágenes de variaciones
             if (product.type === 'variable' && product.variations) {
                 const colorAttr = product.attributes.find((a: any) => a.name.toLowerCase().includes('color'));
                 if (colorAttr) {
                     const variationImages: any = {};
                     const colors = colorAttr.terms.map((t: any) => t.slug);
 
-                    // Para cada color, buscamos la primera variación y traemos sus fotos
-                    // Usamos Promise.all para que sea más rápido
                     await Promise.all(colors.map(async (colorSlug: string) => {
                         const variation = product.variations.find((v: any) =>
                             v.attributes.some((attr: any) => attr.value.toLowerCase() === colorSlug.toLowerCase())
@@ -47,7 +45,6 @@ export const GET: APIRoute = async ({ request }) => {
                             }
                         }
                     }));
-
                     product.variation_images_map = variationImages;
                 }
             }
@@ -62,39 +59,95 @@ export const GET: APIRoute = async ({ request }) => {
             });
         }
 
-        // LISTADO DE PRODUCTOS (SOLO ZAPATOS)
-        // Intentamos traer suficientes productos para filtrar
-        const response = await fetch(
-            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?per_page=100&page=${page}`
-        );
+        // 2. LISTADO DE PRODUCTOS PARA EL GRID
+        let resultProducts = [];
 
-        if (!response.ok) {
-            return new Response(JSON.stringify({ error: 'API Error' }), { status: response.status });
-        }
-
-        const allProducts = await response.json();
-
-        const shoeKeywords = ['zapatos', 'botas', 'tenis', 'mocasin', 'mocasín', 'pantuflas', 'calzado', 'oxford', 'derby', 'sneaker', 'bota', 'zapato'];
-        const excludeKeywords = ['camisa', 'camiseta', 'hoodie', 'media', 'calcetin', 'cinturon', 'morral', 'maleta', 'chaqueta', 'sueter', 'cubre bocas', 'kit'];
-
-        const shoes = allProducts.filter((p: any) => {
-            const categoryNames = p.categories.map((c: any) => c.name.toLowerCase());
-            const name = p.name.toLowerCase();
-
-            const hasShoeCategory = categoryNames.some((cat: string) =>
-                shoeKeywords.some(kw => cat.includes(kw))
+        // MÉTODO DIRECTO: Usar la categoría 'Zapatos' (ID: 63) verificada
+        try {
+            // ID 63 confirmado para zapatos en la taxonomía product_cat
+            const productsResponse = await fetch(
+                `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&page=${page}&per_page=12`
             );
 
-            const hasShoeName = shoeKeywords.some(kw => name.includes(kw));
-            const isExcluded = excludeKeywords.some(kw => name.includes(kw));
+            if (productsResponse.ok) {
+                const products = await productsResponse.json();
+                if (products.length > 0) {
+                    resultProducts = products;
+                }
+            }
+        } catch (e) {
+            console.warn('Error intentando fetch por categoría ID 63, usando fallback...', e);
+        }
 
-            return (hasShoeCategory || hasShoeName) && !isExcluded;
-        });
+        // FALLBACK: Si el método anterior no trajo productos (ej. ID incorrecto o categoría vacía), usamos el método antiguo de filtrado manual
+        if (resultProducts.length === 0) {
+            const response = await fetch(
+                `https://winstonandharrystore.com/wp-json/wc/store/v1/products?per_page=100&page=${page}`
+            );
 
-        // Limitamos a 12 productos para completar perfectamente una grid de 4x3
-        const result = shoes.slice(0, 12);
+            if (!response.ok) {
+                return new Response(JSON.stringify({ error: 'API Error' }), { status: response.status });
+            }
 
-        return new Response(JSON.stringify(result), {
+            const allProducts = await response.json();
+            const shoeKeywords = ['zapatos', 'botas', 'tenis', 'mocasin', 'mocasín', 'pantuflas', 'calzado', 'oxford', 'derby', 'sneaker', 'bota', 'zapato'];
+            const excludeKeywords = ['camisa', 'camiseta', 'hoodie', 'media', 'calcetin', 'cinturon', 'morral', 'maleta', 'chaqueta', 'sueter', 'cubre bocas', 'kit'];
+
+            const shoes = allProducts.filter((p: any) => {
+                const categoryNames = p.categories.map((c: any) => c.name.toLowerCase());
+                const name = p.name.toLowerCase();
+                const hasShoeCategory = categoryNames.some((cat: string) => shoeKeywords.some(kw => cat.includes(kw)));
+                const hasShoeName = shoeKeywords.some(kw => name.includes(kw));
+                const isExcluded = excludeKeywords.some(kw => name.includes(kw));
+                return (hasShoeCategory || hasShoeName) && !isExcluded;
+            });
+
+            resultProducts = shoes.slice(0, 12);
+        }
+
+        // ENRIQUECIMIENTO (Común para ambos métodos)
+        // Traer imágenes de variaciones para mostrar los colores correctamente en la tarjeta
+        await Promise.all(resultProducts.map(async (product: any) => {
+            if (product.type === 'variable' && product.variations) {
+                const colorAttr = product.attributes.find((a: any) =>
+                    a.name.toLowerCase().includes('color') ||
+                    a.taxonomy?.includes('color')
+                );
+
+                if (colorAttr && colorAttr.terms) {
+                    const variationImages: any = {};
+                    const colors = colorAttr.terms.map((t: any) => t.slug);
+
+                    await Promise.all(colors.map(async (colorSlug: string) => {
+                        const colorTerm = colorAttr.terms.find((t: any) => t.slug === colorSlug);
+                        const colorName = colorTerm?.name || "";
+
+                        const variation = product.variations.find((v: any) =>
+                            v.attributes.some((attr: any) =>
+                                (attr.name.toLowerCase().includes('color') || attr.taxonomy?.includes('color')) &&
+                                (attr.value.toLowerCase() === colorSlug.toLowerCase() ||
+                                    attr.value.toLowerCase() === colorName.toLowerCase())
+                            )
+                        );
+
+                        if (variation) {
+                            try {
+                                const varRes = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products/${variation.id}`);
+                                if (varRes.ok) {
+                                    const varData = await varRes.json();
+                                    if (varData.images && varData.images.length > 0) {
+                                        variationImages[colorSlug] = varData.images;
+                                    }
+                                }
+                            } catch (e) { }
+                        }
+                    }));
+                    product.variation_images_map = variationImages;
+                }
+            }
+        }));
+
+        return new Response(JSON.stringify(resultProducts), {
             status: 200,
             headers: {
                 'Content-Type': 'application/json',

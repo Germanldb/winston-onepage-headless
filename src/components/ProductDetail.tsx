@@ -121,14 +121,19 @@ export default function ProductDetail({ initialProduct }: Props) {
     return cat || product.categories[0];
   }, [product.categories]);
 
+  /* Restaurando lógica de filtrado de imágenes por color */
   const filteredImages = useMemo(() => {
     if (!selectedColor) return product.images;
     const colorSlug = selectedColor.toLowerCase();
 
+    // 1. Prioridad: Mapa de imágenes de variaciones (API)
     if (product.variation_images_map && product.variation_images_map[colorSlug]) {
-      return product.variation_images_map[colorSlug];
+      const specificImages = product.variation_images_map[colorSlug];
+      // Si la variante tiene imágenes, las usamos.
+      if (specificImages.length > 0) return specificImages;
     }
 
+    // 2. Fallback: Filtrado por nombre/alt
     const colorTerm = colorAttribute?.terms.find(t => t.slug === selectedColor);
     const colorName = colorTerm?.name.toLowerCase() || "";
 
@@ -146,6 +151,8 @@ export default function ProductDetail({ initialProduct }: Props) {
     });
 
     if (matches.length > 0) return matches;
+
+    // 3. Last resort: Si no encontramos nada específico, mostrar todo
     return product.images;
   }, [selectedColor, product.images, colorAttribute, product.variation_images_map]);
 
@@ -250,6 +257,36 @@ export default function ProductDetail({ initialProduct }: Props) {
                 </picture>
               </div>
             ))}
+
+            {/* Smart Gallery Expansion: Si solo hay 1 imagen filtrada, intentamos adivinar las siguientes (2, 3, 4) */}
+            {filteredImages.length === 1 && [2, 3, 4].map(num => {
+              const firstImg = filteredImages[0];
+              if (!firstImg?.src) return null;
+
+              // Solo intentar si cumple el patrón -1 o _1
+              if (!firstImg.src.match(/[-_]1\.(jpg|jpeg|png|webp)$/i)) return null;
+
+              const guessedSrc = firstImg.src.replace(/([-_])1(\.(?:jpg|jpeg|png|webp))$/i, `$1${num}$2`);
+
+              return (
+                <div key={`guessed-${num}`} className="gallery-item">
+                  <picture>
+                    <img
+                      src={guessedSrc}
+                      alt={`${product.name} vista ${num}`}
+                      referrerPolicy="no-referrer"
+                      loading="lazy"
+                      onError={(e) => {
+                        // Si falla la adivinanza, ocultamos el contenedor completo
+                        const target = e.target as HTMLImageElement;
+                        const container = target.closest('.gallery-item') as HTMLElement;
+                        if (container) container.style.display = 'none';
+                      }}
+                    />
+                  </picture>
+                </div>
+              );
+            })}
           </div>
           {filteredImages.length > 1 && (
             <div className="gallery-dots">
@@ -345,32 +382,34 @@ export default function ProductDetail({ initialProduct }: Props) {
                 )}
               </div>
 
-              <div className="quantity-selector-container">
-                <label>Cantidad:</label>
-                <div className="quantity-controls">
-                  <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>−</button>
-                  <span>{quantity}</span>
-                  <button onClick={() => setQuantity(quantity + 1)}>+</button>
+              <div className="product-purchase-row">
+                <div className="quantity-selector-container">
+                  <label>Cantidad:</label>
+                  <div className="quantity-controls">
+                    <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>−</button>
+                    <span>{quantity}</span>
+                    <button onClick={() => setQuantity(quantity + 1)}>+</button>
+                  </div>
                 </div>
-              </div>
 
-              <div className="product-actions-grid">
-                <button
-                  className="btn-action btn-fill"
-                  onClick={handleAddToCart}
-                >
-                  Añadir al Carrito
-                </button>
-                <button
-                  className="btn-action btn-outline-thick"
-                  onClick={() => {
-                    if (handleAddToCart()) {
-                      window.location.href = '/checkout';
-                    }
-                  }}
-                >
-                  Comprar Ahora
-                </button>
+                <div className="product-actions-grid">
+                  <button
+                    className="btn-action btn-fill"
+                    onClick={handleAddToCart}
+                  >
+                    Añadir al Carrito
+                  </button>
+                  <button
+                    className="btn-action btn-outline-thick"
+                    onClick={() => {
+                      if (handleAddToCart()) {
+                        window.location.href = '/checkout';
+                      }
+                    }}
+                  >
+                    Comprar Ahora
+                  </button>
+                </div>
               </div>
 
               <div className="product-details-dropdowns">
@@ -463,7 +502,7 @@ export default function ProductDetail({ initialProduct }: Props) {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
+            margin-bottom: 0rem;
             gap: 1rem;
         }
         .detail-favorite-btn {
@@ -505,23 +544,29 @@ export default function ProductDetail({ initialProduct }: Props) {
         .gallery-item img { width: 100%; height: auto; display: block; object-fit: cover; }
         .gallery-dots { display: none; }
         .product-info-sidebar { width: 50%; background: #fff; }
-        .sidebar-inner { padding: 4rem 15% 5rem; height: 100%; }
+        .sidebar-inner { padding: 2rem 15% 5rem; height: 100%; }
         .sidebar-content { position: sticky; top: 140px; }
-        .product-category { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 1rem; }
-        .product-title { font-family: var(--font-products); font-size: 1.8rem; color: #000; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
-        .product-price { font-size: 1rem; color: #A98B68; margin-bottom: 2rem; font-weight: 400; }
+        .product-category { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 0rem; }
+        .product-title { font-family: var(--font-products); font-size: 1.8rem; color: #000; margin-bottom: 0rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
+        .product-price { font-size: 1rem; color: #A98B68; margin-bottom: 0rem; font-weight: 400; }
         
+        .product-purchase-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 1rem;
+            margin: 1rem 0 1rem;
+        }
         .quantity-selector-container {
-            margin-bottom: 2rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
         }
         .quantity-selector-container label {
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: #888;
+            white-space: nowrap;
         }
         .quantity-controls {
             display: flex;
@@ -554,14 +599,19 @@ export default function ProductDetail({ initialProduct }: Props) {
             font-weight: 600;
         }
 
-        .product-actions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 3rem; }
-        .btn-action { padding: 1.1rem 0.5rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s; border-radius: 2px; font-family: var(--font-paragraphs); border: 1.5px solid var(--color-green); }
+        .product-actions-grid { 
+          display: grid; 
+          grid-template-columns: 1fr 1fr; 
+          gap: 1rem; 
+          flex: 1;
+        }
+        .btn-action { padding: 1rem 0.5rem; font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s; border-radius: 2px; font-family: var(--font-paragraphs); border: 1.5px solid var(--color-green); }
         .btn-fill { background-color: var(--color-green); color: #fff; }
         .btn-outline-thick { background-color: #fff; color: var(--color-green); border: 1px solid var(--color-green) !important; }
         .btn-action:hover:not(.disabled) { opacity: 0.8; transform: translateY(-2px); }
         .btn-action.disabled { background-color: #eee; border-color: #eee; color: #999; cursor: not-allowed; }
-        .product-short-description { font-size: 0.85rem; color: #555; line-height: 1.7; margin-bottom: 3rem; }
-        .selector-group { margin-bottom: 1.5rem; }
+        .product-short-description { font-size: 0.85rem; color: #555; line-height: 1.7; margin-bottom: 1rem; }
+        .selector-group { margin-bottom: 0.5rem; }
         .selector-group label { display: block; font-size: 0.75rem; text-transform: uppercase; color: #888; margin-bottom: 0px; letter-spacing: 1px; }
         .label-row-between { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; }
         .color-dot-btn { background: none; border: none; padding: 4px; cursor: pointer; border: 1px solid transparent; border-radius: 50%; transition: all 0.2s; position: relative; }
@@ -616,7 +666,7 @@ export default function ProductDetail({ initialProduct }: Props) {
             .size-guide-table { font-size: 0.75rem; }
             .size-guide-table th, .size-guide-table td { padding: 0.8rem 1rem; }
         }
-        .product-details-dropdowns { border-top: 1px solid #eee; margin-top: 4rem; }
+        .product-details-dropdowns { border-top: 1px solid #eee; margin-top: 2rem; }
         summary { list-style: none; padding: 1.5rem 0; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
         summary::after { content: '+'; color: #999; font-size: 1.2rem; font-weight: 300; }
         details[open] summary::after { content: '−'; }
@@ -668,6 +718,16 @@ export default function ProductDetail({ initialProduct }: Props) {
           .sidebar-inner { padding: 3rem 1.5rem; }
           .sidebar-content { position: static; }
           .product-actions-grid { grid-template-columns: 1fr 1fr; }
+          .product-purchase-row {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 1rem;
+          }
+          .quantity-selector-container {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+          }
         }
       `}</style>
     </div>
