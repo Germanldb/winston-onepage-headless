@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
+import ScrollRevealBanner from "../components/ScrollRevealBanner.astro";
 import ProductGrid from "../components/ProductGrid";
 import About from "../components/About.astro";
 import Footer from "../components/Footer.astro";
@@ -12,7 +13,16 @@ import Footer from "../components/Footer.astro";
 
 	<main>
 		<Hero />
+
 		<ProductGrid client:load />
+
+		<ScrollRevealBanner
+			imageUrl="https://winstonandharrystore.com/wp-content/uploads/banner-winston-and-harry-look-completo.jpg"
+			title="Look Completo"
+			description="Descubre la elegancia en cada detalle. Calzado artesanal de lujo diseñado para quienes aprecian la excelencia."
+			pretitle="Winston & Harry"
+		/>
+
 		<About />
 	</main>
 
@@ -26,6 +36,6 @@ import Footer from "../components/Footer.astro";
 	}
 
 	main {
-		overflow-x: hidden;
+		/* Eliminamos overflow-x para permitir que position: sticky funcione en los componentes hijos */
 	}
 </style>
