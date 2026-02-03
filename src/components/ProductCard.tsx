@@ -158,9 +158,11 @@ export default function ProductCard({ product }: Props) {
         if (hoverImageRaw) return null;
         if (!mainImage?.src) return null;
 
-        // Patrones comunes: nombre-1.jpg -> nombre-2.jpg, nombre_1.jpg -> nombre_2.jpg
-        if (mainImage.src.match(/[-_]1\.(jpg|jpeg|png|webp)$/i)) {
-            return mainImage.src.replace(/([-_])1(\.(?:jpg|jpeg|png|webp))$/i, '$12$2');
+        // Patrones comunes: nombre-1.jpg -> nombre-2.jpg
+        // Si tiene sufijo de WordPress (-e123...), lo quitamos para buscar la imagen original limpia
+        if (mainImage.src.match(/[-_]1(-e\d+)?\.(jpg|jpeg|png|webp)$/i)) {
+            // Reemplazamos el 1 por 2 y eliminamos cualquier sufijo -e...
+            return mainImage.src.replace(/([-_])1(?:-e\d+)?(\.(?:jpg|jpeg|png|webp))$/i, '$12$2');
         }
         return null;
     }, [mainImage, hoverImageRaw]);
@@ -196,16 +198,13 @@ export default function ProductCard({ product }: Props) {
                         </div>
 
                         <picture className="primary-image">
-                            {mainImage?.src && (
-                                <source srcSet={mainImage.src + '.webp'} type="image/webp" />
-                            )}
                             <img
                                 key={mainImage?.src}
                                 src={mainImage?.src || 'https://via.placeholder.com/300x400?text=Zapato'}
                                 alt={mainImage?.alt || product.name}
+                                className="fade-in reveal-on-scroll is-visible"
                                 loading="lazy"
                                 referrerPolicy="no-referrer"
-                                className="fade-in"
                                 onError={(e) => {
                                     const target = e.target as HTMLImageElement;
                                     target.onerror = null;
@@ -216,10 +215,10 @@ export default function ProductCard({ product }: Props) {
 
                         {effectiveHoverSrc && (
                             <picture className="hover-image">
-                                <source srcSet={effectiveHoverSrc + '.webp'} type="image/webp" />
                                 <img
                                     src={effectiveHoverSrc}
                                     alt={hoverImageRaw?.alt || product.name}
+                                    className="reveal-on-scroll is-visible"
                                     loading="lazy"
                                     referrerPolicy="no-referrer"
                                     onError={(e) => {
@@ -297,6 +296,8 @@ export default function ProductCard({ product }: Props) {
           background: #fff;
           display: flex;
           flex-direction: column;
+          width: 100%;
+          min-width: 0;
         }
 
         .product-image {

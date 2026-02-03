@@ -139,11 +139,12 @@ export default function ProductGrid() {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 0.2rem;
+          width: 100%;
         }
 
-        @media (max-width: 1200px) { .grid-4x3 { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 768px) { .grid-4x3 { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 480px) { .grid-4x3 { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 1200px) { .grid-4x3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        @media (max-width: 768px) { .grid-4x3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 480px) { .grid-4x3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
         .load-more-container { margin-top: 4rem; display: flex; justify-content: center; }
         .error-container { text-align: center; padding: 4rem 0; }

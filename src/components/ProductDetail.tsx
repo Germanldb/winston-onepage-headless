@@ -246,6 +246,7 @@ export default function ProductDetail({ initialProduct }: Props) {
                   <img
                     src={img.src}
                     alt={img.alt || product.name}
+                    className="reveal-on-scroll is-visible"
                     referrerPolicy="no-referrer"
                     loading={index === 0 ? "eager" : "lazy"}
                     onError={(e) => {
@@ -263,10 +264,11 @@ export default function ProductDetail({ initialProduct }: Props) {
               const firstImg = filteredImages[0];
               if (!firstImg?.src) return null;
 
-              // Solo intentar si cumple el patrón -1 o _1
-              if (!firstImg.src.match(/[-_]1\.(jpg|jpeg|png|webp)$/i)) return null;
+              // Solo intentar si cumple el patrón -1 o _1 (con o sin sufijo WP)
+              if (!firstImg.src.match(/[-_]1(?:-e\d+)?\.(jpg|jpeg|png|webp)$/i)) return null;
 
-              const guessedSrc = firstImg.src.replace(/([-_])1(\.(?:jpg|jpeg|png|webp))$/i, `$1${num}$2`);
+              // Quitamos el sufijo -e... para buscar la imagen limpia
+              const guessedSrc = firstImg.src.replace(/([-_])1(?:-e\d+)?(\.(?:jpg|jpeg|png|webp))$/i, `$1${num}$2`);
 
               return (
                 <div key={`guessed-${num}`} className="gallery-item">
@@ -274,6 +276,7 @@ export default function ProductDetail({ initialProduct }: Props) {
                     <img
                       src={guessedSrc}
                       alt={`${product.name} vista ${num}`}
+                      className="reveal-on-scroll is-visible"
                       referrerPolicy="no-referrer"
                       loading="lazy"
                       onError={(e) => {
@@ -323,7 +326,7 @@ export default function ProductDetail({ initialProduct }: Props) {
                 </button>
               </div>
 
-              <span className="product-category">Colección Artesanal</span>
+
               <h1 className="product-title">{product.name}</h1>
               <p className="product-price">{formatPrice(product.prices.price)}</p>
 
