@@ -319,7 +319,7 @@ import { Image } from "astro:assets";
                 itemEl.className = "cart-item-drawer";
                 itemEl.innerHTML = `
                     <div class="cart-item-img">
-                        <img src="${item.image}" alt="${item.name}" referrerpolicy="no-referrer">
+                        <img src="${item.image}" alt="${item.name}" referrerpolicy="no-referrer" onerror="this.src='https://via.placeholder.com/300x400?text=Sin+Imagen'">
                     </div>
                     <div class="cart-item-details">
                         <div class="cart-item-header">
@@ -834,11 +834,11 @@ import { Image } from "astro:assets";
 
     .cart-item-name {
         font-family: var(--font-products);
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         text-transform: uppercase;
-        color: var(--color-green);
+        color: #121212;
         letter-spacing: 0.5px;
-        font-weight: 400;
+        font-weight: 300;
     }
 
     .remove-item {
@@ -876,8 +876,8 @@ import { Image } from "astro:assets";
     }
 
     .cart-item-price-qty span {
-        color: #a98b68;
-        font-weight: 600;
+        color: #a3a3a3;
+        font-weight: 400;
     }
 
     .empty-cart-msg {

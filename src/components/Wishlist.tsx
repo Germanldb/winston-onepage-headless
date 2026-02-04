@@ -79,21 +79,17 @@ export default function Wishlist() {
             {favorites.map(product => (
                 <div key={product.id} className="wishlist-item">
                     <div className="item-image">
-                        <picture>
-                            {product.images[0]?.src && (
-                                <source srcSet={product.images[0].src + '.webp'} type="image/webp" />
-                            )}
-                            <img
-                                src={product.images[0]?.src || 'https://via.placeholder.com/150'}
-                                alt={product.images[0]?.alt || product.name}
-                                loading="lazy"
-                                onError={(e) => {
-                                    const target = e.target as HTMLImageElement;
-                                    target.onerror = null;
-                                    target.src = 'https://via.placeholder.com/150?text=Sin+Imagen';
-                                }}
-                            />
-                        </picture>
+                        <img
+                            src={product.images[0]?.src || 'https://via.placeholder.com/300x400?text=Sin+Imagen'}
+                            alt={product.images[0]?.alt || product.name}
+                            loading="lazy"
+                            referrerPolicy="no-referrer"
+                            onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.onerror = null;
+                                target.src = 'https://via.placeholder.com/300x400?text=Sin+Imagen';
+                            }}
+                        />
                     </div>
 
                     <div className="item-details">
@@ -125,7 +121,7 @@ export default function Wishlist() {
                 .wishlist-item {
                     display: flex;
                     align-items: center;
-                    border: 1px solid #eee; /* Light border like the example */
+                    border: 1px solid #f0f0f0;
                     padding: 1rem;
                     background: #fff;
                     transition: box-shadow 0.3s ease;
@@ -137,10 +133,10 @@ export default function Wishlist() {
                 }
 
                 .item-image {
-                    width: 120px;
-                    height: 120px;
+                    width: 100px;
+                    height: 100px;
                     flex-shrink: 0;
-                    background: #f9f9f9;
+                    background: #f6f6f6;
                 }
 
                 .item-image img {
@@ -159,25 +155,30 @@ export default function Wishlist() {
                 .item-details h3 {
                     margin: 0;
                     font-family: var(--font-products, sans-serif);
-                    font-size: 1.1rem;
+                    font-size: 0.85rem;
                     text-transform: uppercase;
+                    font-weight: 300;
+                    letter-spacing: 0.5px;
                 }
 
                 .item-details h3 a {
-                    color: #333;
+                    color: #121212;
                     text-decoration: none;
                 }
 
                 .item-price {
-                    font-weight: 700;
-                    color: var(--color-black, #000);
-                    font-size: 1.2rem;
+                    font-weight: 400;
+                    color: #a3a3a3;
+                    font-size: 0.85rem;
+                    font-family: var(--font-products, sans-serif);
                 }
 
                 .stock-status {
-                    color: var(--color-green, #155338);
-                    font-size: 0.85rem;
-                    font-weight: 500;
+                    color: #708090;
+                    font-size: 0.75rem;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
                 }
 
                 /* Mobile Actions hidden on desktop */
