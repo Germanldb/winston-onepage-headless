@@ -17,6 +17,7 @@ const { imageUrl, imageAlt = "", title, description, pretitle } = Astro.props;
                 src={imageUrl}
                 alt={imageAlt}
                 class="lv-reveal-image"
+                data-reveal-image
                 loading="eager"
             />
             <div class="lv-reveal-overlay" data-reveal-overlay></div>
@@ -47,7 +48,8 @@ const { imageUrl, imageAlt = "", title, description, pretitle } = Astro.props;
         margin: 0;
         padding: 0;
         background-color: #000;
-        /* Aseguramos que no haya overflow que rompa el sticky */
+        /* Aseguramos que no haya overflow que rompa el sticky y z-index menor para que pase por detrás */
+        z-index: 1;
     }
 
     .lv-reveal-sticky {
@@ -60,7 +62,7 @@ const { imageUrl, imageAlt = "", title, description, pretitle } = Astro.props;
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 5; /* Por debajo del header si este es fixed */
+        z-index: 1;
     }
 
     .lv-reveal-media {
@@ -78,6 +80,8 @@ const { imageUrl, imageAlt = "", title, description, pretitle } = Astro.props;
         object-fit: cover;
         object-position: center;
         display: block;
+        transform-origin: center center;
+        will-change: transform;
     }
 
     .lv-reveal-overlay {
@@ -88,10 +92,10 @@ const { imageUrl, imageAlt = "", title, description, pretitle } = Astro.props;
         height: 100%;
         background: linear-gradient(
             to top,
-            rgba(0, 0, 0, 0.6) 0%,
-            rgba(0, 0, 0, 0.5) 40%,
-            rgba(0, 0, 0, 0.2) 75%,
-            rgba(0, 0, 0, 0) 90%
+            rgba(0, 0, 0, 0.7) 0%,
+            rgba(0, 0, 0, 0.6) 40%,
+            rgba(0, 0, 0, 0.4) 75%,
+            rgba(0, 0, 0, 0.2) 90%
         );
         opacity: 0;
         z-index: 2;
@@ -164,6 +168,9 @@ const { imageUrl, imageAlt = "", title, description, pretitle } = Astro.props;
             const content = container.querySelector(
                 "[data-reveal-content]",
             ) as HTMLElement;
+            const image = container.querySelector(
+                "[data-reveal-image]",
+            ) as HTMLElement;
 
             if (!overlay || !content) return;
 
@@ -191,6 +198,13 @@ const { imageUrl, imageAlt = "", title, description, pretitle } = Astro.props;
 
                 content.style.transform = `translateY(${translateY}px)`;
                 content.style.opacity = Math.min(1, contentOpacity).toString();
+
+                // 3. Zoom sutil (Scale 1.0 -> 1.1)
+                // Empieza suave y aumenta con el scroll
+                if (image) {
+                    const scale = 1 + progress * 0.1;
+                    image.style.transform = `scale(${scale})`;
+                }
             };
 
             // Listener para scroll optimizado
