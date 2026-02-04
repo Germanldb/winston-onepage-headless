@@ -92,8 +92,8 @@ const { imageUrl, imageAlt = "", title, description, pretitle } = Astro.props;
         height: 100%;
         background: linear-gradient(
             to top,
-            rgba(0, 0, 0, 0.7) 0%,
-            rgba(0, 0, 0, 0.6) 40%,
+            rgba(0, 0, 0, 0.6) 0%,
+            rgba(0, 0, 0, 0.5) 40%,
             rgba(0, 0, 0, 0.4) 75%,
             rgba(0, 0, 0, 0.2) 90%
         );
@@ -186,15 +186,14 @@ const { imageUrl, imageAlt = "", title, description, pretitle } = Astro.props;
                 let progress = scrollDist / scrollableDist;
                 progress = Math.max(0, Math.min(1, progress));
 
-                // 1. Overlay Fade In (Desde el 5% al 70% del scroll)
-                const overlayOpacity = Math.max(0, (progress - 0.05) / 0.65);
+                // 1. Overlay Fade In (Desde el 0% al 40% del scroll) - Más rápido
+                const overlayOpacity = Math.max(0, (progress - 0) / 0.4);
                 overlay.style.opacity = Math.min(1, overlayOpacity).toString();
 
-                // 2. Texto Sube (Desde el 15% al 90% del scroll)
-                const contentProgress = Math.max(0, (progress - 0.15) / 0.75);
-                const translateY =
-                    300 - Math.min(1, contentProgress * 1.5) * 300;
-                const contentOpacity = Math.min(1, contentProgress * 2.5);
+                // 2. Texto Sube (Desde el 5% al 50% del scroll) - Más rápido e inmediato
+                const contentProgress = Math.max(0, (progress - 0.02) / 0.45);
+                const translateY = 300 - Math.min(1, contentProgress * 2) * 300; // Multiplicador *2 para subir más rápido
+                const contentOpacity = Math.min(1, contentProgress * 3); // Opacidad sube más rápido
 
                 content.style.transform = `translateY(${translateY}px)`;
                 content.style.opacity = Math.min(1, contentOpacity).toString();

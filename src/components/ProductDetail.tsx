@@ -710,21 +710,54 @@ export default function ProductDetail({ initialProduct }: Props) {
 
         @media (max-width: 992px) {
           .product-breadcrumbs { margin-top: 0; margin-bottom: 1.5rem; font-size: 0.75rem; }
-          .product-detail-split { flex-direction: column; }
-          .product-gallery-container { width: 100%; order: 1; }
-          .product-gallery { flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-          .gallery-item { flex: 0 0 100%; scroll-snap-align: center; }
-          .gallery-dots { display: flex; justify-content: center; gap: 6px; position: absolute; bottom: 20px; left: 0; right: 0; z-index: 5; }
-          .dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(0,0,0,0.2); transition: all 0.3s; }
+          .product-detail-split { flex-direction: column; position: relative; background: #fff; }
+          .product-gallery-container { 
+            width: 100%; 
+            order: 1; 
+            position: sticky; 
+            top: 0; 
+            aspect-ratio: 1 / 1; 
+            z-index: 1;
+            background: #f8f8f8;
+          }
+          .product-gallery { 
+            flex-direction: row; 
+            overflow-x: auto; 
+            scroll-snap-type: x mandatory; 
+            scrollbar-width: none; 
+            height: 100%;
+          }
+          .gallery-item { 
+            flex: 0 0 100%; 
+            scroll-snap-align: center; 
+            height: 100%;
+          }
+          .gallery-item img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
+          .gallery-dots { display: flex; justify-content: center; gap: 6px; position: absolute; bottom: 40px; left: 0; right: 0; z-index: 5; }
+          .dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(0,0,0,0.2); transition: all 0.3s; }
           .dot.active { background: #000; transform: scale(1.2); }
-          .product-info-sidebar { width: 100%; order: 2; }
-          .sidebar-inner { padding: 3rem 1.5rem; }
+          
+          .product-info-sidebar { 
+            width: 100%; 
+            order: 2; 
+            position: relative; 
+            z-index: 10; 
+            background: #fff; 
+            margin-top: -30px; 
+            box-shadow: 0 -15px 30px rgba(0,0,0,0.08);
+          }
+          .sidebar-inner { padding: 2.5rem 1.5rem 5rem; }
           .sidebar-content { position: static; }
+          
           .product-actions-grid { grid-template-columns: 1fr 1fr; }
           .product-purchase-row {
             flex-direction: column;
             align-items: stretch;
-            gap: 1rem;
+            gap: 1.5rem;
           }
           .quantity-selector-container {
             flex-direction: row;

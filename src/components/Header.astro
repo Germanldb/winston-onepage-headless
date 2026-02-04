@@ -373,14 +373,16 @@ import { Image } from "astro:assets";
             const count = favorites.length;
             countSpans.forEach((span) => {
                 if (!span) return;
+                const isMobile = span.id.includes("mobile");
                 if (count > 0) {
                     span.textContent = count.toString();
-                    span.style.display = "flex";
+                    span.style.display = isMobile ? "inline" : "flex";
                 } else {
-                    span.style.display = "none";
-                    if (span.id === "fav-count-mobile") {
+                    if (isMobile) {
                         span.textContent = "0";
                         span.style.display = "inline";
+                    } else {
+                        span.style.display = "none";
                     }
                 }
             });
@@ -404,14 +406,16 @@ import { Image } from "astro:assets";
 
             cartCountSpans.forEach((span) => {
                 if (!span) return;
+                const isMobile = span.id.includes("mobile");
                 if (count > 0) {
                     span.textContent = count.toString();
-                    span.style.display = "flex";
+                    span.style.display = isMobile ? "inline" : "flex";
                 } else {
-                    span.style.display = "none";
-                    if (span.id === "cart-count-mobile") {
+                    if (isMobile) {
                         span.textContent = "0";
                         span.style.display = "inline";
+                    } else {
+                        span.style.display = "none";
                     }
                 }
             });
@@ -1024,7 +1028,7 @@ import { Image } from "astro:assets";
         }
         .menu-footer,
         .cart-drawer-footer {
-            padding: 2rem;
+            padding: 2rem 2rem 5rem 2rem;
         }
         .mobile-link {
             font-size: 0.8rem;
