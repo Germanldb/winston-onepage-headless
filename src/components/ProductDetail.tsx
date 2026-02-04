@@ -779,6 +779,9 @@ function getColorCode(slug: string): string {
     'verde': '#155338',
     'vino': '#722F37',
     'vinotinto': '#722F37',
+    'vino-tinto': '#722F37',
+    'vino tinto': '#722F37',
+    'burgundy': '#722F37',
     'tabaco': '#8B5A2B',
     'cognac': '#9A463D',
     'rojo': '#C41E3A'
