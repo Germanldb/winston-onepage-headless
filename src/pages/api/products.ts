@@ -53,10 +53,14 @@ export const GET: APIRoute = async ({ request }) => {
 
         // 2. LISTADO PARA EL HOME (Paginación Manual Segura para Vercel)
         const response = await fetch(
-            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=100&_random=${Math.random()}`,
+            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=100&orderby=date&order=desc`,
             {
                 method: 'GET',
-                headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' }
+                headers: {
+                    'Cache-Control': 'no-cache, no-store, must-revalidate',
+                    'Pragma': 'no-cache',
+                    'Expires': '0'
+                }
             }
         );
 

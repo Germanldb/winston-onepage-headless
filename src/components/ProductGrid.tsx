@@ -43,7 +43,7 @@ export default function ProductGrid() {
     try {
       setLoading(true);
       // El proxy ya nos devuelve 15 zapatos filtrados
-      const response = await fetch(`/api/products?page=${pageNumber}`);
+      const response = await fetch(`/api/products?page=${pageNumber}&t=${Date.now()}`);
 
       if (!response.ok) throw new Error('Error al cargar zapatos');
 
