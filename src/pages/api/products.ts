@@ -51,9 +51,12 @@ export const GET: APIRoute = async ({ request }) => {
             });
         }
 
-        // 2. LISTADO PARA EL HOME (Paginación Manual Segura para Vercel)
-        const response = await fetch(
-            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=100&orderby=date&order=desc`,
+        // 2. LISTADO PARA EL HOME - Usamos paginación directa de WC para mayor consistencia
+        const wcPage = page;
+        const wcPerPage = 12;
+
+        const wcResponse = await fetch(
+            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=${wcPerPage}&page=${wcPage}&orderby=date&order=desc&_cv=${Date.now()}`,
             {
                 method: 'GET',
                 headers: {
@@ -64,13 +67,9 @@ export const GET: APIRoute = async ({ request }) => {
             }
         );
 
-        if (!response.ok) return new Response(JSON.stringify({ error: 'API Error' }), { status: response.status });
+        if (!wcResponse.ok) return new Response(JSON.stringify({ error: 'API Error' }), { status: wcResponse.status });
 
-        const allShoes = await response.json();
-
-        // Paginamos nosotros manualmente para evitar errores de caché de Vercel/WooCommerce
-        const start = (page - 1) * 12;
-        const resultProducts = allShoes.slice(start, start + 12);
+        const resultProducts = await wcResponse.json();
 
         return new Response(JSON.stringify(resultProducts), {
             status: 200,
