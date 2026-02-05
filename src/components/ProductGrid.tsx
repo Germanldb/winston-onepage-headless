@@ -48,6 +48,7 @@ export default function ProductGrid() {
       if (!response.ok) throw new Error('Error al cargar zapatos');
 
       const data = await response.json();
+      console.log(`Página ${pageNumber} recibida:`, data.map((p: any) => p.id));
 
       if (data.length < 12) {
         setHasMore(false);
@@ -57,13 +58,14 @@ export default function ProductGrid() {
         setProducts(data);
       } else {
         setProducts(prev => {
-          // Evitar duplicados por ID
           const existingIds = new Set(prev.map(p => p.id));
           const newProducts = data.filter((p: Product) => !existingIds.has(p.id));
 
           if (newProducts.length === 0 && data.length > 0) {
-            console.warn("API devolvió productos duplicados para la página", pageNumber);
-            setHasMore(false); // Si todos son duplicados, no hay más reales que cargar
+            console.error("API devolvió productos duplicados para la página", pageNumber);
+            console.log("IDs existentes:", Array.from(existingIds));
+            console.log("IDs nuevos recibidos:", data.map((p: any) => p.id));
+            setHasMore(false);
           }
 
           return [...prev, ...newProducts];
@@ -81,7 +83,9 @@ export default function ProductGrid() {
   }, []);
 
   const loadMore = () => {
-    const nextPage = page + 1;
+    // SALTANDO PÁGINA 2: Si estamos en la 1, vamos a la 3
+    const nextPage = page === 1 ? 3 : page + 1;
+    console.log(`Solicitando siguiente página: ${nextPage}`);
     setPage(nextPage);
     fetchProducts(nextPage);
   };
