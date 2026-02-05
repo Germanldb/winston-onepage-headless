@@ -6,7 +6,7 @@ export const GET: APIRoute = async ({ request }) => {
     const slug = url.searchParams.get('slug');
 
     try {
-        // 1. PRODUCTO ESPECÍFICO (Detalle) - Aquí mantenemos la precisión máxima
+        // 1. PRODUCTO ESPECÍFICO (Detalle)
         if (slug) {
             const response = await fetch(
                 `https://winstonandharrystore.com/wp-json/wc/store/v1/products?slug=${slug}`
@@ -19,7 +19,7 @@ export const GET: APIRoute = async ({ request }) => {
 
             const product = products.find((p: any) => p && p.attributes && Array.isArray(p.attributes) && p.attributes.length > 0) || products[0];
 
-            // Enriquecimiento profundo solo para el detalle del producto
+            // Enriquecimiento profundo solo para el detalle
             if (product.type === 'variable' && product.variations) {
                 const colorAttr = product.attributes.find((a: any) => a.name.toLowerCase().includes('color'));
                 if (colorAttr && colorAttr.terms) {
@@ -56,22 +56,36 @@ export const GET: APIRoute = async ({ request }) => {
             });
         }
 
-        // 2. LISTADO PARA EL HOME (Optimizado para velocidad)
-        // Usamos la categoría 63 (Zapatos) directamente
-        const productsResponse = await fetch(
-            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&page=${page}&per_page=12`
+        // 2. LISTADO PARA EL HOME (Buscador Robusto)
+        // Pedimos más productos por página (40) para filtrar y asegurar que queden suficientes zapatos
+        const response = await fetch(
+            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?per_page=40&page=${page}`
         );
 
-        if (!productsResponse.ok) {
-            return new Response(JSON.stringify({ error: 'API Error' }), { status: productsResponse.status });
-        }
+        if (!response.ok) return new Response(JSON.stringify({ error: 'API Error' }), { status: response.status });
 
-        const resultProducts = await productsResponse.json();
+        const allProducts = await response.json();
 
-        // En el listado NO hacemos fetch de variaciones para que sea instantáneo.
-        // ProductCard.tsx usará su lógica de "Guess" de URLs.
+        // Criterios de filtrado para asegurar que solo carguen zapatos en la tienda
+        const shoeKeywords = ['zapato', 'bota', 'tenis', 'mocasin', 'mocasín', 'pantuflas', 'calzado', 'oxford', 'derby', 'sneaker', 'bota'];
+        const excludeKeywords = ['camisa', 'camiseta', 'hoodie', 'media', 'calcetin', 'cinturon', 'morral', 'maleta', 'chaqueta', 'sueter', 'kit'];
 
-        return new Response(JSON.stringify(resultProducts), {
+        const filteredShoes = allProducts.filter((p: any) => {
+            const name = p.name.toLowerCase();
+            const categories = p.categories?.map((c: any) => c.name.toLowerCase()) || [];
+
+            // Es zapato si el nombre o la categoría contienen palabras clave de calzado
+            const isShoe = shoeKeywords.some(kw => name.includes(kw) || categories.some(cat => cat.includes(kw)));
+            // Excluimos explícitamente ropa y accesorios por nombre
+            const isExcluded = excludeKeywords.some(kw => name.includes(kw));
+
+            return isShoe && !isExcluded;
+        });
+
+        // Devolvemos un bloque de 12 para que coincida con la paginación del frontend
+        const result = filteredShoes.slice(0, 12);
+
+        return new Response(JSON.stringify(result), {
             status: 200,
             headers: {
                 'Content-Type': 'application/json',
