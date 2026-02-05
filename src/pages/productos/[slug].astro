@@ -4,7 +4,9 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import ProductDetail from "../../components/ProductDetail";
 
-export const prerender = false; // Queremos que sea dinámico para manejar la API de WordPress en tiempo real
+export const isr = {
+    expiration: 3600, // Revalidar cada 60 minutos en segundo plano (SWR)
+};
 
 const { slug } = Astro.params;
 

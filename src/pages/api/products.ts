@@ -54,7 +54,7 @@ export const GET: APIRoute = async ({ request }) => {
                 headers: {
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*',
-                    'Cache-Control': 'public, max-age=3600'
+                    'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=3600'
                 }
             });
         }
@@ -152,7 +152,7 @@ export const GET: APIRoute = async ({ request }) => {
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                'Cache-Control': 'public, max-age=3600'
+                'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=3600'
             }
         });
     } catch (error) {

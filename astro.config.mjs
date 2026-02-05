@@ -7,7 +7,9 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   integrations: [react()],
   output: 'server',
-  adapter: vercel(),
+  adapter: vercel({
+    isr: true,
+  }),
   image: {
     domains: ["winstonandharrystore.com"],
   },
