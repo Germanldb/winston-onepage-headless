@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 
-export const GET: APIRoute = async ({ request }) => {
+export const ALL: APIRoute = async ({ request }) => {
     const url = new URL(request.url);
     const pageStr = url.searchParams.get('p') || url.searchParams.get('page') || '1';
     const page = parseInt(pageStr);
@@ -77,9 +77,12 @@ export const GET: APIRoute = async ({ request }) => {
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
-                'CDN-Cache-Control': 'no-store',
-                'Vercel-CDN-Cache-Control': 'no-store'
+                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0',
+                'Pragma': 'no-cache',
+                'Expires': '0',
+                'Surrogate-Control': 'no-store',
+                'Vercel-CDN-Cache-Control': 'no-store',
+                'CDN-Cache-Control': 'no-store'
             }
         });
 

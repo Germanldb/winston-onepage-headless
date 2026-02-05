@@ -42,8 +42,11 @@ export default function ProductGrid() {
   const fetchProducts = async (pageNumber: number) => {
     try {
       setLoading(true);
-      // Usamos el parámetro 'p' para evitar bloqueos de caché de Vercel en 'page'
-      const response = await fetch(`/api/products?p=${pageNumber}&t=${Date.now()}`);
+      // Usamos POST para que Vercel nunca cachee el listado
+      const response = await fetch(`/api/products?p=${pageNumber}&t=${Date.now()}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+      });
 
       if (!response.ok) throw new Error('Error al cargar zapatos');
 
