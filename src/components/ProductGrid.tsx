@@ -34,46 +34,19 @@ interface Product {
 
 export default function ProductGrid() {
   const [products, setProducts] = useState<Product[]>([]);
-  const [page, setPage] = useState(1);
+  const [visibleCount, setVisibleCount] = useState(12);
   const [loading, setLoading] = useState(true);
-  const [hasMore, setHasMore] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchProducts = async (pageNumber: number) => {
+  const fetchProducts = async () => {
     try {
       setLoading(true);
-      // Usamos POST para que Vercel nunca cachee el listado
-      const response = await fetch(`/api/products?p=${pageNumber}&t=${Date.now()}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
-      });
-
+      // Solo una petición con todos los datos
+      const response = await fetch(`/api/products?t=${Date.now()}`);
       if (!response.ok) throw new Error('Error al cargar zapatos');
 
       const data = await response.json();
-      console.log(`Página ${pageNumber} recibida:`, data.map((p: any) => p.id));
-
-      if (data.length < 12) {
-        setHasMore(false);
-      }
-
-      if (pageNumber === 1) {
-        setProducts(data);
-      } else {
-        setProducts(prev => {
-          const existingIds = new Set(prev.map(p => p.id));
-          const newProducts = data.filter((p: Product) => !existingIds.has(p.id));
-
-          if (newProducts.length === 0 && data.length > 0) {
-            console.error("API devolvió productos duplicados para la página", pageNumber);
-            console.log("IDs existentes:", Array.from(existingIds));
-            console.log("IDs nuevos recibidos:", data.map((p: any) => p.id));
-            setHasMore(false);
-          }
-
-          return [...prev, ...newProducts];
-        });
-      }
+      setProducts(data);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error desconocido');
     } finally {
@@ -82,21 +55,21 @@ export default function ProductGrid() {
   };
 
   useEffect(() => {
-    fetchProducts(1);
+    fetchProducts();
   }, []);
 
   const loadMore = () => {
-    const nextPage = page + 1;
-    console.log(`Solicitando página: ${nextPage}`);
-    setPage(nextPage);
-    fetchProducts(nextPage);
+    setVisibleCount(prev => prev + 12);
   };
+
+  const displayedProducts = products.slice(0, visibleCount);
+  const hasMore = visibleCount < products.length;
 
   if (error) {
     return (
       <div className="error-container">
         <p>{error}</p>
-        <button onClick={() => fetchProducts(1)} className="btn">Reintentar</button>
+        <button onClick={() => fetchProducts()} className="btn">Reintentar</button>
       </div>
     );
   }
@@ -113,7 +86,7 @@ export default function ProductGrid() {
         </div>
 
         <div className="grid-4x3">
-          {products.map((product) => (
+          {displayedProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
@@ -121,7 +94,7 @@ export default function ProductGrid() {
         {!loading && products.length === 0 && (
           <div className="empty-state">
             <p>No se encontraron zapatos en esta colección.</p>
-            <button onClick={() => fetchProducts(1)} className="btn btn-outline">Actualizar</button>
+            <button onClick={() => fetchProducts()} className="btn btn-outline">Actualizar</button>
           </div>
         )}
 

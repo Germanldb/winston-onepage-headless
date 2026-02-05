@@ -52,36 +52,27 @@ export const ALL: APIRoute = async ({ request }) => {
             });
         }
 
-        // 2. LISTADO PARA EL HOME - Usamos offset en lugar de page para ver si WooCommerce/Vercel responden mejor
-        const wcPerPage = 12;
-        const wcOffset = (page - 1) * wcPerPage;
-
+        // 2. LISTADO PARA EL HOME - Cargamos todo de una vez para evitar errores de caché en la paginación de Vercel
         const wcResponse = await fetch(
-            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=${wcPerPage}&offset=${wcOffset}&orderby=date&order=desc&_r=${Math.random()}`,
+            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=100&orderby=date&order=desc&_force=${Date.now()}`,
             {
                 method: 'GET',
                 headers: {
                     'Cache-Control': 'no-cache, no-store, must-revalidate',
-                    'Pragma': 'no-cache',
-                    'Expires': '0'
                 }
             }
         );
 
         if (!wcResponse.ok) return new Response(JSON.stringify({ error: 'API Error' }), { status: wcResponse.status });
 
-        const resultProducts = await wcResponse.json();
+        const allProducts = await wcResponse.json();
 
-        return new Response(JSON.stringify(resultProducts), {
+        return new Response(JSON.stringify(allProducts), {
             status: 200,
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0',
-                'Pragma': 'no-cache',
-                'Expires': '0',
-                'Surrogate-Control': 'no-store',
-                'Vercel-CDN-Cache-Control': 'no-store',
+                'Cache-Control': 'no-store, no-cache, must-revalidate',
                 'CDN-Cache-Control': 'no-store'
             }
         });
