@@ -51,12 +51,12 @@ export const GET: APIRoute = async ({ request }) => {
             });
         }
 
-        // 2. LISTADO PARA EL HOME - Usamos paginación directa de WC para mayor consistencia
-        const wcPage = page;
+        // 2. LISTADO PARA EL HOME - Usamos offset en lugar de page para ver si WooCommerce/Vercel responden mejor
         const wcPerPage = 12;
+        const wcOffset = (page - 1) * wcPerPage;
 
         const wcResponse = await fetch(
-            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=${wcPerPage}&page=${wcPage}&orderby=date&order=desc&_cv=${Date.now()}`,
+            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=${wcPerPage}&offset=${wcOffset}&orderby=date&order=desc&_cv=${Date.now()}`,
             {
                 method: 'GET',
                 headers: {
