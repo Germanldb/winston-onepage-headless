@@ -6,7 +6,7 @@ export const GET: APIRoute = async ({ request }) => {
     const slug = url.searchParams.get('slug');
 
     try {
-        // 1. PRODUCTO ESPECÍFICO (Detalle)
+        // 1. PRODUCTO ESPECÍFICO (Detalle) - Máxima precisión
         if (slug) {
             const response = await fetch(
                 `https://winstonandharrystore.com/wp-json/wc/store/v1/products?slug=${slug}`
@@ -19,7 +19,6 @@ export const GET: APIRoute = async ({ request }) => {
 
             const product = products.find((p: any) => p && p.attributes && Array.isArray(p.attributes) && p.attributes.length > 0) || products[0];
 
-            // Enriquecimiento profundo solo para el detalle
             if (product.type === 'variable' && product.variations) {
                 const colorAttr = product.attributes.find((a: any) => a.name.toLowerCase().includes('color'));
                 if (colorAttr && colorAttr.terms) {
@@ -56,41 +55,22 @@ export const GET: APIRoute = async ({ request }) => {
             });
         }
 
-        // 2. LISTADO PARA EL HOME (Buscador Robusto)
-        // Pedimos más productos por página (40) para filtrar y asegurar que queden suficientes zapatos
+        // 2. LISTADO PARA EL HOME (Limpio por Categoría 63: Zapatos)
         const response = await fetch(
-            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?per_page=40&page=${page}`
+            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=12&page=${page}&_cb=${Date.now()}`,
+            { headers: { 'Cache-Control': 'no-cache' } }
         );
 
         if (!response.ok) return new Response(JSON.stringify({ error: 'API Error' }), { status: response.status });
 
-        const allProducts = await response.json();
+        const resultProducts = await response.json();
 
-        // Criterios de filtrado para asegurar que solo carguen zapatos en la tienda
-        const shoeKeywords = ['zapato', 'bota', 'tenis', 'mocasin', 'mocasín', 'pantuflas', 'calzado', 'oxford', 'derby', 'sneaker', 'bota'];
-        const excludeKeywords = ['camisa', 'camiseta', 'hoodie', 'media', 'calcetin', 'cinturon', 'morral', 'maleta', 'chaqueta', 'sueter', 'kit'];
-
-        const filteredShoes = allProducts.filter((p: any) => {
-            const name = p.name.toLowerCase();
-            const categories = p.categories?.map((c: any) => c.name.toLowerCase()) || [];
-
-            // Es zapato si el nombre o la categoría contienen palabras clave de calzado
-            const isShoe = shoeKeywords.some(kw => name.includes(kw) || categories.some(cat => cat.includes(kw)));
-            // Excluimos explícitamente ropa y accesorios por nombre
-            const isExcluded = excludeKeywords.some(kw => name.includes(kw));
-
-            return isShoe && !isExcluded;
-        });
-
-        // Devolvemos un bloque de 12 para que coincida con la paginación del frontend
-        const result = filteredShoes.slice(0, 12);
-
-        return new Response(JSON.stringify(result), {
+        return new Response(JSON.stringify(resultProducts), {
             status: 200,
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=3600'
+                'Cache-Control': 'no-cache, no-store, must-revalidate',
+                'Access-Control-Allow-Origin': '*'
             }
         });
 
