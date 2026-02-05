@@ -17,18 +17,20 @@ export const GET: APIRoute = async ({ request }) => {
             const products = await response.json();
             if (products.length === 0) return new Response(JSON.stringify({ error: 'Not found' }), { status: 404 });
 
-            const product = products.find((p: any) => p.attributes && p.attributes.length > 0) || products[0];
+            const product = products.find((p: any) => p && p.attributes && Array.isArray(p.attributes) && p.attributes.length > 0) || products[0];
+
+            if (!product) return new Response(JSON.stringify({ error: 'Product data malformed' }), { status: 500 });
 
             // ENRIQUECIMIENTO: Traer imágenes de variaciones
-            if (product.type === 'variable' && product.variations) {
-                const colorAttr = product.attributes.find((a: any) => a.name.toLowerCase().includes('color'));
-                if (colorAttr) {
+            if (product.type === 'variable' && product.variations && Array.isArray(product.attributes)) {
+                const colorAttr = product.attributes.find((a: any) => a && a.name && a.name.toLowerCase().includes('color'));
+                if (colorAttr && Array.isArray(colorAttr.terms)) {
                     const variationImages: any = {};
                     const colors = colorAttr.terms.map((t: any) => t.slug);
 
                     await Promise.all(colors.map(async (colorSlug: string) => {
                         const variation = product.variations.find((v: any) =>
-                            v.attributes.some((attr: any) => attr.value.toLowerCase() === colorSlug.toLowerCase())
+                            v.attributes && Array.isArray(v.attributes) && v.attributes.some((attr: any) => attr.value && attr.value.toLowerCase() === colorSlug.toLowerCase())
                         );
 
                         if (variation) {
@@ -108,13 +110,13 @@ export const GET: APIRoute = async ({ request }) => {
         // ENRIQUECIMIENTO (Común para ambos métodos)
         // Traer imágenes de variaciones para mostrar los colores correctamente en la tarjeta
         await Promise.all(resultProducts.map(async (product: any) => {
-            if (product.type === 'variable' && product.variations) {
+            if (product && product.type === 'variable' && product.variations && Array.isArray(product.attributes)) {
                 const colorAttr = product.attributes.find((a: any) =>
-                    a.name.toLowerCase().includes('color') ||
-                    a.taxonomy?.includes('color')
+                    a && a.name && (a.name.toLowerCase().includes('color') ||
+                        (a.taxonomy && a.taxonomy.includes('color')))
                 );
 
-                if (colorAttr && colorAttr.terms) {
+                if (colorAttr && Array.isArray(colorAttr.terms)) {
                     const variationImages: any = {};
                     const colors = colorAttr.terms.map((t: any) => t.slug);
 
@@ -123,9 +125,9 @@ export const GET: APIRoute = async ({ request }) => {
                         const colorName = colorTerm?.name || "";
 
                         const variation = product.variations.find((v: any) =>
-                            v.attributes.some((attr: any) =>
-                                (attr.name.toLowerCase().includes('color') || attr.taxonomy?.includes('color')) &&
-                                (attr.value.toLowerCase() === colorSlug.toLowerCase() ||
+                            v.attributes && Array.isArray(v.attributes) && v.attributes.some((attr: any) =>
+                                attr.name && (attr.name.toLowerCase().includes('color') || (attr.taxonomy && attr.taxonomy.includes('color'))) &&
+                                attr.value && (attr.value.toLowerCase() === colorSlug.toLowerCase() ||
                                     attr.value.toLowerCase() === colorName.toLowerCase())
                             )
                         );
@@ -156,6 +158,7 @@ export const GET: APIRoute = async ({ request }) => {
             }
         });
     } catch (error) {
-        return new Response(JSON.stringify({ error: 'Internal Server Error' }), { status: 500 });
+        console.error('API Error:', error);
+        return new Response(JSON.stringify({ error: 'Internal Server Error', details: error instanceof Error ? error.message : String(error) }), { status: 500 });
     }
 };
