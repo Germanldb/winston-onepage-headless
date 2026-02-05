@@ -2,11 +2,12 @@ import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = async ({ request }) => {
     const url = new URL(request.url);
-    const pageStr = url.searchParams.get('page') || '1';
+    const pageStr = url.searchParams.get('p') || url.searchParams.get('page') || '1';
     const page = parseInt(pageStr);
     const slug = url.searchParams.get('slug');
 
     try {
+        // ... (resto del código del producto individual se mantiene)
         // 1. DETALLE DEL PRODUCTO
         if (slug) {
             const res = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products?slug=${slug}`);
@@ -56,7 +57,7 @@ export const GET: APIRoute = async ({ request }) => {
         const wcOffset = (page - 1) * wcPerPage;
 
         const wcResponse = await fetch(
-            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=${wcPerPage}&offset=${wcOffset}&orderby=date&order=desc&_cv=${Date.now()}`,
+            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=${wcPerPage}&offset=${wcOffset}&orderby=date&order=desc&_r=${Math.random()}`,
             {
                 method: 'GET',
                 headers: {

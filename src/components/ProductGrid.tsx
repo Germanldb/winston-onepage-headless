@@ -42,8 +42,8 @@ export default function ProductGrid() {
   const fetchProducts = async (pageNumber: number) => {
     try {
       setLoading(true);
-      // El proxy ya nos devuelve 15 zapatos filtrados
-      const response = await fetch(`/api/products?page=${pageNumber}&t=${Date.now()}`);
+      // Usamos el parámetro 'p' para evitar bloqueos de caché de Vercel en 'page'
+      const response = await fetch(`/api/products?p=${pageNumber}&t=${Date.now()}`);
 
       if (!response.ok) throw new Error('Error al cargar zapatos');
 
@@ -83,9 +83,8 @@ export default function ProductGrid() {
   }, []);
 
   const loadMore = () => {
-    // SALTANDO PÁGINA 2: Si estamos en la 1, vamos a la 3
-    const nextPage = page === 1 ? 3 : page + 1;
-    console.log(`Solicitando siguiente página: ${nextPage}`);
+    const nextPage = page + 1;
+    console.log(`Solicitando página: ${nextPage}`);
     setPage(nextPage);
     fetchProducts(nextPage);
   };
