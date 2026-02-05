@@ -2,24 +2,20 @@ import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = async ({ request }) => {
     const url = new URL(request.url);
-    const page = url.searchParams.get('page') || '1';
+    const pageStr = url.searchParams.get('page') || '1';
+    const page = parseInt(pageStr);
     const slug = url.searchParams.get('slug');
 
     try {
-        // 1. PRODUCTO ESPECÍFICO (Detalle) - Máxima precisión
+        // 1. DETALLE DEL PRODUCTO
         if (slug) {
-            const response = await fetch(
-                `https://winstonandharrystore.com/wp-json/wc/store/v1/products?slug=${slug}`
-            );
+            const res = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products?slug=${slug}`);
+            if (!res.ok) return new Response(JSON.stringify({ error: 'Not found' }), { status: 404 });
 
-            if (!response.ok) return new Response(JSON.stringify({ error: 'Not found' }), { status: 404 });
+            const data = await res.json();
+            const product = data.find((p: any) => p && p.attributes && Array.isArray(p.attributes) && p.attributes.length > 0) || data[0];
 
-            const products = await response.json();
-            if (products.length === 0) return new Response(JSON.stringify({ error: 'Not found' }), { status: 404 });
-
-            const product = products.find((p: any) => p && p.attributes && Array.isArray(p.attributes) && p.attributes.length > 0) || products[0];
-
-            if (product.type === 'variable' && product.variations) {
+            if (product && product.type === 'variable' && product.variations) {
                 const colorAttr = product.attributes.find((a: any) => a.name.toLowerCase().includes('color'));
                 if (colorAttr && colorAttr.terms) {
                     const variationImages: any = {};
@@ -55,22 +51,31 @@ export const GET: APIRoute = async ({ request }) => {
             });
         }
 
-        // 2. LISTADO PARA EL HOME (Limpio por Categoría 63: Zapatos)
+        // 2. LISTADO PARA EL HOME (Paginación Manual Segura para Vercel)
         const response = await fetch(
-            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=12&page=${page}&_cb=${Date.now()}`,
-            { headers: { 'Cache-Control': 'no-cache' } }
+            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=100&_random=${Math.random()}`,
+            {
+                method: 'GET',
+                headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' }
+            }
         );
 
         if (!response.ok) return new Response(JSON.stringify({ error: 'API Error' }), { status: response.status });
 
-        const resultProducts = await response.json();
+        const allShoes = await response.json();
+
+        // Paginamos nosotros manualmente para evitar errores de caché de Vercel/WooCommerce
+        const start = (page - 1) * 12;
+        const resultProducts = allShoes.slice(start, start + 12);
 
         return new Response(JSON.stringify(resultProducts), {
             status: 200,
             headers: {
                 'Content-Type': 'application/json',
-                'Cache-Control': 'no-cache, no-store, must-revalidate',
-                'Access-Control-Allow-Origin': '*'
+                'Access-Control-Allow-Origin': '*',
+                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+                'CDN-Cache-Control': 'no-store',
+                'Vercel-CDN-Cache-Control': 'no-store'
             }
         });
 
