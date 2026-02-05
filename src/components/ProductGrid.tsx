@@ -56,7 +56,18 @@ export default function ProductGrid() {
       if (pageNumber === 1) {
         setProducts(data);
       } else {
-        setProducts(prev => [...prev, ...data]);
+        setProducts(prev => {
+          // Evitar duplicados por ID
+          const existingIds = new Set(prev.map(p => p.id));
+          const newProducts = data.filter((p: Product) => !existingIds.has(p.id));
+
+          if (newProducts.length === 0 && data.length > 0) {
+            console.warn("API devolvió productos duplicados para la página", pageNumber);
+            setHasMore(false); // Si todos son duplicados, no hay más reales que cargar
+          }
+
+          return [...prev, ...newProducts];
+        });
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error desconocido');
