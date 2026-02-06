@@ -4,10 +4,5 @@
             "path": "/api/warm-cache",
             "schedule": "0 5 * * *"
         }
-    ],
-    "functions": {
-        "api/warm-cache.ts": {
-            "maxDuration": 60
-        }
-    }
+    ]
 }
