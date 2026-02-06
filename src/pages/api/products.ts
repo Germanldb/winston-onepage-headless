@@ -47,19 +47,17 @@ export const ALL: APIRoute = async ({ request }) => {
                 headers: {
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*',
-                    'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=3600'
+                    'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=604800'
                 }
             });
         }
 
-        // 2. LISTADO PARA EL HOME - Cargamos todo de una vez para evitar errores de caché en la paginación de Vercel
+        // 2. LISTADO PARA EL HOME - Aplicamos caché agresivo para evitar los 8s de espera
         const wcResponse = await fetch(
-            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=100&orderby=date&order=desc&_force=${Date.now()}`,
+            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=100&orderby=date&order=desc`,
             {
                 method: 'GET',
-                headers: {
-                    'Cache-Control': 'no-cache, no-store, must-revalidate',
-                }
+                // Eliminamos la cache-control de la petición externa para que Vercel pueda cachear la respuesta
             }
         );
 
@@ -72,8 +70,7 @@ export const ALL: APIRoute = async ({ request }) => {
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                'Cache-Control': 'no-store, no-cache, must-revalidate',
-                'CDN-Cache-Control': 'no-store'
+                'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=604800'
             }
         });
 

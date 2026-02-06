@@ -6,7 +6,7 @@ import Footer from "../../components/Footer.astro";
 import ProductDetail from "../../components/ProductDetail";
 
 export const isr = {
-    expiration: 3600, // 1 hora de caché
+    expiration: 86400, // 24 horas de caché (Cero esperas de 8s)
 };
 
 const { slug } = Astro.params;

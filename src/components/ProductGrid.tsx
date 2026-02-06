@@ -41,12 +41,26 @@ export default function ProductGrid() {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      // Solo una petición con todos los datos
-      const response = await fetch(`/api/products?t=${Date.now()}`);
+      // Eliminamos el timestamp para permitir que el caché de Vercel funcione
+      const response = await fetch('/api/products');
       if (!response.ok) throw new Error('Error al cargar zapatos');
 
-      const data = await response.json();
-      setProducts(data);
+      const data: Product[] = await response.json();
+
+      // Filtro de seguridad para evitar duplicados que rompan el grid (Duplicate Keys)
+      setProducts(prev => {
+        const result: Product[] = [];
+        const seenIds: { [key: number]: boolean } = {};
+
+        // Unimos los actuales y los nuevos, filtrando duplicados por ID
+        [...prev, ...data].forEach(p => {
+          if (!seenIds[p.id]) {
+            seenIds[p.id] = true;
+            result.push(p);
+          }
+        });
+        return result;
+      });
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error desconocido');
     } finally {
