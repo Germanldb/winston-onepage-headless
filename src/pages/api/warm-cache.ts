@@ -46,20 +46,24 @@ export const GET: APIRoute = async ({ request }) => {
             ...slugs.map(slug => `${origin}/productos/${slug}`)
         ];
 
-        console.log(`Iniciando visita a ${allUrlsToWarm.length} enlaces secuencialmente...`);
+        console.log(`Iniciando visita a ${allUrlsToWarm.length} enlaces en modo express...`);
 
-        // 3. Ejecutamos las visitas secuencialmente con un pequeño retraso
-        // para no saturar el servidor de WooCommerce y evitar baneos de IP.
+        // 3. Ejecutamos las visitas en LOTES (Chunks)
+        // Procesamos de 50 en 50 para ir muy rápido
         const results = [];
-        for (const url of allUrlsToWarm) {
-            try {
-                const res = await fetch(url, { method: 'HEAD' });
-                results.push({ url, status: res.status });
-                // Pequeña pausa de 100ms entre peticiones
-                await new Promise(r => setTimeout(r, 100));
-            } catch (e) {
-                results.push({ url, status: 'error' });
-            }
+        const chunkSize = 50;
+
+        for (let i = 0; i < allUrlsToWarm.length; i += chunkSize) {
+            const chunk = allUrlsToWarm.slice(i, i + chunkSize);
+            const chunkResults = await Promise.allSettled(
+                chunk.map(async (url) => {
+                    const res = await fetch(url, { method: 'HEAD' });
+                    return { url, status: res.status };
+                })
+            );
+            results.push(...chunkResults);
+            // Pausa de 100ms entre lotes (modo express)
+            await new Promise(r => setTimeout(r, 100));
         }
 
         return new Response(JSON.stringify({
