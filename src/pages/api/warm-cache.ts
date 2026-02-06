@@ -9,10 +9,10 @@ export const GET: APIRoute = async ({ request }) => {
     // para pruebas, o validamos que el origin sea el mismo.
 
     try {
-        console.log('--- Iniciando Calentamiento de Caché (100 productos) ---');
+        console.log('--- Iniciando Calentamiento de Caché (24 productos) ---');
 
-        // 1. Obtenemos los 100 productos principales
-        const response = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products?per_page=100`);
+        // 1. Obtenemos los 24 productos principales (Modo Prueba)
+        const response = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products?per_page=24`);
         if (!response.ok) throw new Error('No se pudo obtener el catálogo de WooCommerce');
 
         const products = await response.json();

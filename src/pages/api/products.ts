@@ -52,9 +52,9 @@ export const ALL: APIRoute = async ({ request }) => {
             });
         }
 
-        // 2. LISTADO PARA EL HOME - Aplicamos caché agresivo para evitar los 8s de espera
+        // 2. LISTADO PARA EL HOME - Limitamos a 24 para la prueba
         const wcResponse = await fetch(
-            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=100&orderby=date&order=desc`,
+            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=24&orderby=date&order=desc`,
             {
                 method: 'GET',
                 // Eliminamos la cache-control de la petición externa para que Vercel pueda cachear la respuesta
