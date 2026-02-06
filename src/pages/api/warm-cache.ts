@@ -9,30 +9,16 @@ export const GET: APIRoute = async ({ request }) => {
     // para pruebas, o validamos que el origin sea el mismo.
 
     try {
-        console.log('--- Iniciando Calentamiento de Caché Total (Warmer) ---');
-        const slugs: string[] = [];
-        let page = 1;
-        let hasMore = true;
+        console.log('--- Iniciando Calentamiento de Caché (Modo Propuesta - 24 productos) ---');
 
-        // 1. Obtenemos TODOS los productos de WooCommerce (paginando)
-        while (hasMore) {
-            const res = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products?per_page=100&page=${page}`);
-            if (!res.ok) {
-                hasMore = false;
-                break;
-            }
-            const data = await res.json();
-            if (data.length === 0) {
-                hasMore = false;
-            } else {
-                data.forEach((p: any) => { if (p.slug) slugs.push(p.slug); });
-                page++;
-            }
-            // Límite de seguridad para evitar bucles infinitos
-            if (page > 10) hasMore = false;
-        }
+        // 1. Obtenemos solo los 24 productos principales para no saturar la cuenta free
+        const response = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products?per_page=24`);
+        if (!response.ok) throw new Error('No se pudo obtener el catálogo de WooCommerce');
 
-        console.log(`Páginas de productos encontradas: ${slugs.length}.`);
+        const products = await response.json();
+        const slugs = products.map((p: any) => p.slug);
+
+        console.log(`Páginas de productos a calentar: ${slugs.length}.`);
 
         // 2. Definimos todas las rutas críticas de la web
         const criticalRoutes = [
