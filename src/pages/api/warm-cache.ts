@@ -46,16 +46,21 @@ export const GET: APIRoute = async ({ request }) => {
             ...slugs.map(slug => `${origin}/productos/${slug}`)
         ];
 
-        console.log(`Iniciando visita a ${allUrlsToWarm.length} enlaces...`);
+        console.log(`Iniciando visita a ${allUrlsToWarm.length} enlaces secuencialmente...`);
 
-        // 3. Ejecutamos las visitas
-        // Usamos HEAD para no descargar todo el HTML y ser más rápidos
-        const results = await Promise.allSettled(
-            allUrlsToWarm.map(async (url) => {
+        // 3. Ejecutamos las visitas secuencialmente con un pequeño retraso
+        // para no saturar el servidor de WooCommerce y evitar baneos de IP.
+        const results = [];
+        for (const url of allUrlsToWarm) {
+            try {
                 const res = await fetch(url, { method: 'HEAD' });
-                return { url, status: res.status };
-            })
-        );
+                results.push({ url, status: res.status });
+                // Pequeña pausa de 100ms entre peticiones
+                await new Promise(r => setTimeout(r, 100));
+            } catch (e) {
+                results.push({ url, status: 'error' });
+            }
+        }
 
         return new Response(JSON.stringify({
             success: true,
