@@ -14,7 +14,7 @@ export const ALL: APIRoute = async ({ request }) => {
             if (!res.ok) return new Response(JSON.stringify({ error: 'Not found' }), { status: 404 });
 
             const data = await res.json();
-            const product = data.find((p: any) => p && p.attributes && Array.isArray(p.attributes) && p.attributes.length > 0) || data[0];
+            let product = data.find((p: any) => p && p.attributes && Array.isArray(p.attributes) && p.attributes.length > 0) || data[0];
 
             if (product && product.type === 'variable' && product.variations) {
                 const colorAttr = product.attributes.find((a: any) => a.name.toLowerCase().includes('color'));
@@ -42,6 +42,9 @@ export const ALL: APIRoute = async ({ request }) => {
                 }
             }
 
+            // Optimizamos las imágenes del producto
+            product = optimizeImages(product);
+
             return new Response(JSON.stringify(product), {
                 status: 200,
                 headers: {
@@ -54,16 +57,15 @@ export const ALL: APIRoute = async ({ request }) => {
 
         // 2. LISTADO PARA EL HOME - Limitamos a 24 para la prueba
         const wcResponse = await fetch(
-            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=24&orderby=date&order=desc`,
-            {
-                method: 'GET',
-                // Eliminamos la cache-control de la petición externa para que Vercel pueda cachear la respuesta
-            }
+            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=24&orderby=date&order=desc`
         );
 
         if (!wcResponse.ok) return new Response(JSON.stringify({ error: 'API Error' }), { status: wcResponse.status });
 
-        const allProducts = await wcResponse.json();
+        let allProducts = await wcResponse.json();
+
+        // Optimizamos las imágenes de toda la lista
+        allProducts = optimizeImages(allProducts);
 
         return new Response(JSON.stringify(allProducts), {
             status: 200,
@@ -79,3 +81,31 @@ export const ALL: APIRoute = async ({ request }) => {
         return new Response(JSON.stringify({ error: 'Internal Server Error' }), { status: 500 });
     }
 };
+
+/**
+ * Función auxiliar para añadir .webp a las URLs de imágenes de WordPress de forma recursiva.
+ */
+function optimizeImages(data: any): any {
+    if (!data) return data;
+
+    if (Array.isArray(data)) {
+        return data.map(item => optimizeImages(item));
+    }
+
+    if (typeof data === 'object') {
+        const newData = { ...data };
+        for (const key in newData) {
+            if (key === 'src' && typeof newData[key] === 'string') {
+                // Solo si es una URL de WordPress y no tiene ya .webp
+                if (newData[key].includes('wp-content/uploads') && !newData[key].toLowerCase().endsWith('.webp')) {
+                    newData[key] = `${newData[key]}.webp`;
+                }
+            } else {
+                newData[key] = optimizeImages(newData[key]);
+            }
+        }
+        return newData;
+    }
+
+    return data;
+}
