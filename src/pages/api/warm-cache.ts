@@ -9,36 +9,59 @@ export const GET: APIRoute = async ({ request }) => {
     // para pruebas, o validamos que el origin sea el mismo.
 
     try {
-        console.log('--- Iniciando Calentamiento de Caché (Warmer) ---');
+        console.log('--- Iniciando Calentamiento de Caché Total (Warmer) ---');
+        const slugs: string[] = [];
+        let page = 1;
+        let hasMore = true;
 
-        // 1. Obtenemos los productos actuales de WooCommerce (los primeros 100)
-        const response = await fetch('https://winstonandharrystore.com/wp-json/wc/store/v1/products?per_page=100');
-        if (!response.ok) throw new Error('No se pudo obtener la lista de productos de WooCommerce');
+        // 1. Obtenemos TODOS los productos de WooCommerce (paginando)
+        while (hasMore) {
+            const res = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products?per_page=100&page=${page}`);
+            if (!res.ok) {
+                hasMore = false;
+                break;
+            }
+            const data = await res.json();
+            if (data.length === 0) {
+                hasMore = false;
+            } else {
+                data.forEach((p: any) => { if (p.slug) slugs.push(p.slug); });
+                page++;
+            }
+            // Límite de seguridad para evitar bucles infinitos
+            if (page > 10) hasMore = false;
+        }
 
-        const products = await response.json();
-        const slugs = products.map((p: any) => p.slug);
+        console.log(`Páginas de productos encontradas: ${slugs.length}.`);
 
-        console.log(`Zapatos encontrados: ${slugs.length}. Visitando enlaces...`);
+        // 2. Definimos todas las rutas críticas de la web
+        const criticalRoutes = [
+            '/',                    // Home
+            '/lista-de-deseos',     // Wishlist
+            '/api/products',        // API de productos (Home grid)
+        ];
 
-        // 2. Ejecutamos las visitas en paralelo
-        // No esperamos el cuerpo de la respuesta para no agotar el tiempo de ejecución (Timeout)
-        // Solo nos interesa que Vercel reciba la petición y dispare el ISR.
+        const allUrlsToWarm = [
+            ...criticalRoutes.map(route => `${origin}${route}`),
+            ...slugs.map(slug => `${origin}/productos/${slug}`)
+        ];
+
+        console.log(`Iniciando visita a ${allUrlsToWarm.length} enlaces...`);
+
+        // 3. Ejecutamos las visitas
+        // Usamos HEAD para no descargar todo el HTML y ser más rápidos
         const results = await Promise.allSettled(
-            slugs.map(async (slug) => {
-                const productUrl = `${origin}/productos/${slug}`;
-                const res = await fetch(productUrl, {
-                    method: 'HEAD', // HEAD es más rápido, solo queremos que Vercel procese el route
-                });
-                return { slug, status: res.status };
+            allUrlsToWarm.map(async (url) => {
+                const res = await fetch(url, { method: 'HEAD' });
+                return { url, status: res.status };
             })
         );
 
-        // 3. También calentamos el endpoint de la API principal que usa el Home
-        await fetch(`${origin}/api/products`, { method: 'HEAD' });
-
         return new Response(JSON.stringify({
             success: true,
-            message: `Caché calentado para ${slugs.length} productos`,
+            total_links: allUrlsToWarm.length,
+            products: slugs.length,
+            message: `Caché calentado con éxito para toda la tienda`,
             timestamp: new Date().toISOString()
         }), {
             status: 200,
