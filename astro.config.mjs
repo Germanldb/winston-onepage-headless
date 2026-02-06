@@ -10,6 +10,7 @@ export default defineConfig({
   adapter: vercel({
     isr: true,
   }),
+  prefetch: true,
   image: {
     domains: ["winstonandharrystore.com"],
   },

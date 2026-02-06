@@ -10,6 +10,7 @@
             loop
             playsinline
             poster="/images/hero-poster.webp"
+            preload="metadata"
         >
             <source src="/videos/hero-video.mp4" type="video/mp4" />
         </video>
@@ -21,6 +22,8 @@
         src="/images/hero-overlay.png"
         alt="Eleva tu estilo sin límites"
         class="hero-overlay-img"
+        loading="eager"
+        fetchpriority="high"
     />
 </section>
 
