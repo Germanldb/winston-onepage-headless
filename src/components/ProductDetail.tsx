@@ -358,7 +358,16 @@ export default function ProductDetail({ initialProduct }: Props) {
                   <div className="selector-group">
                     <div className="label-row-between">
                       <label>Talla: <strong>{sizeAttribute?.terms.find(t => t.slug === selectedSize)?.name || ''}</strong></label>
-                      <button className="size-guide-dark" onClick={() => setShowSizeGuide(true)}>GUÍA DE TALLAS</button>
+                      <button className="size-guide-dark" onClick={() => setShowSizeGuide(true)}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"></path>
+                          <path d="m14.5 12.5 2-2"></path>
+                          <path d="m11.5 9.5 2-2"></path>
+                          <path d="m8.5 6.5 2-2"></path>
+                          <path d="m17.5 15.5 2-2"></path>
+                        </svg>
+                        <span>GUÍA DE TALLAS</span>
+                      </button>
                     </div>
                     <div className="size-options">
                       {sizeAttribute.terms.map((term) => {
@@ -377,8 +386,10 @@ export default function ProductDetail({ initialProduct }: Props) {
                     </div>
                     {currentSizeInfo && (
                       <div className="selected-size-info-box">
-                        <p>El tamaño etiquetado en el artículo es <strong>{currentSizeInfo.wh}</strong>, igual que <strong>US {currentSizeInfo.us}</strong> y <strong>EU {currentSizeInfo.eu}</strong>.</p>
-                        <p className="size-length-detail">Largo del pie: <strong>{currentSizeInfo.cm} cm</strong></p>
+                        <p>
+                          El tamaño etiquetado en el artículo es <strong>{currentSizeInfo.wh}</strong>, igual que <strong>US {currentSizeInfo.us}</strong> y <strong>EU {currentSizeInfo.eu}</strong>
+                          <span className="size-length-detail"> (Largo del pie: <strong>{currentSizeInfo.cm} cm</strong>)</span>.
+                        </p>
                       </div>
                     )}
                   </div>
@@ -550,14 +561,14 @@ export default function ProductDetail({ initialProduct }: Props) {
         .sidebar-inner { padding: 2rem 15% 5rem; height: 100%; }
         .sidebar-content { position: sticky; top: 140px; }
         .product-category { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 0rem; }
-        .product-title { font-family: var(--font-products); font-size: 1.8rem; color: #000; margin-bottom: 0rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
-        .product-price { font-size: 1rem; color: #A98B68; margin-bottom: 0rem; font-weight: 400; }
+        .product-title { font-family: var(--font-products); font-size: 1.5rem; color: #000; margin-bottom: 0rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
+        .product-price { font-size: 1.8rem; color: #A98B68; margin-bottom: 0rem; font-weight: 400;}
         
         .product-purchase-row {
             display: flex;
             align-items: flex-end;
             gap: 1rem;
-            margin: 1rem 0 1rem;
+            margin: 1rem 0 0rem;
         }
         .quantity-selector-container {
             display: flex;
@@ -608,28 +619,29 @@ export default function ProductDetail({ initialProduct }: Props) {
           gap: 1rem; 
           flex: 1;
         }
-        .btn-action { padding: 1rem 0.5rem; font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s; border-radius: 2px; font-family: var(--font-paragraphs); border: 1.5px solid var(--color-green); }
+        .btn-action { padding: 0.8rem 0.5rem; font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s; border-radius: 2px; font-family: var(--font-paragraphs); border: 1.5px solid var(--color-green); }
         .btn-fill { background-color: var(--color-green); color: #fff; }
         .btn-outline-thick { background-color: #fff; color: var(--color-green); border: 1px solid var(--color-green) !important; }
         .btn-action:hover:not(.disabled) { opacity: 0.8; transform: translateY(-2px); }
         .btn-action.disabled { background-color: #eee; border-color: #eee; color: #999; cursor: not-allowed; }
-        .product-short-description { font-size: 0.85rem; color: #555; line-height: 1.7; margin-bottom: 1rem; }
+        .product-short-description { font-size: 0.85rem; color: #555; line-height: 1.7; margin-bottom: 0.5rem; }
         .selector-group { margin-bottom: 0.5rem; }
         .selector-group label { display: block; font-size: 0.75rem; text-transform: uppercase; color: #888; margin-bottom: 0px; letter-spacing: 1px; }
-        .label-row-between { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; }
+        .label-row-between { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0rem; }
         .color-dot-btn { background: none; border: none; padding: 4px; cursor: pointer; border: 1px solid transparent; border-radius: 50%; transition: all 0.2s; position: relative; }
         .color-dot-btn.active { border-color: #000; }
         .color-dot-btn.out-of-stock { opacity: 0.4; }
         .color-dot { display: block; width: 24px; height: 24px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.05); }
-        .size-options { display: flex; flex-wrap: wrap; gap: 0.8rem; }
-        .size-box-btn { min-width: 48px; height: 48px; border: 1px solid #eee; background: #fff; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; border-radius: 2px; position: relative; color: #121212; }
+        .size-options { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .size-box-btn { min-width: 30px; height: 30px; border: 1px solid #eee; background: #fff; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; border-radius: 2px; position: relative; color: #121212; }
         .size-box-btn.active { background: #000; color: #fff; border-color: #000; }
         .size-box-btn.out-of-stock { background-color: #fcfcfc; color: #ddd; border-color: #f1f1f1; }
-        .size-guide-dark { background: none; border: none; text-decoration: underline; color: #000; font-weight: 700; cursor: pointer; font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; padding: 0; }
-        
+        .size-guide-dark { background: none; border: none; color: #000; font-weight: 700; cursor: pointer; font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; padding: 0; display: flex; align-items: center; gap: 6px; }
+        .size-guide-dark span { text-decoration: underline; }
+        .dropdown-inner{padding: 5px;}
         .selected-size-info-box {
-            margin-top: 1.5rem;
-            padding: 1.2rem;
+            margin-top: 0.5rem;
+            padding: 1rem;
             background-color: #f8f8f8;
             border-radius: 4px;
             font-size: 0.85rem;
@@ -639,7 +651,7 @@ export default function ProductDetail({ initialProduct }: Props) {
         }
         .selected-size-info-box p { margin: 0; }
         .selected-size-info-box strong { color: #A98B68; }
-        .size-length-detail { margin-top: 0.4rem !important; color: #666; font-size: 0.8rem; }
+        .size-length-detail { color: #666; font-size: 0.8rem; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(5px); }
             to { opacity: 1; transform: translateY(0); }
@@ -669,8 +681,9 @@ export default function ProductDetail({ initialProduct }: Props) {
             .size-guide-table { font-size: 0.75rem; }
             .size-guide-table th, .size-guide-table td { padding: 0.8rem 1rem; }
         }
-        .product-details-dropdowns { border-top: 1px solid #eee; margin-top: 2rem; }
-        summary { list-style: none; padding: 1.5rem 0; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .product-details-dropdowns { margin-top: 1rem;}
+        .product-details-dropdowns details{ border-top: 1px solid #eee; border-bottom: 1px solid #eee;}
+        summary { list-style: none; padding: 0.5rem 0; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
         summary::after { content: '+'; color: #999; font-size: 1.2rem; font-weight: 300; }
         details[open] summary::after { content: '−'; }
         
