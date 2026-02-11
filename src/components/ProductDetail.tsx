@@ -902,7 +902,7 @@ export default function ProductDetail({ initialProduct }: Props) {
             .size-guide-table { font-size: 0.75rem; }
             .size-guide-table th, .size-guide-table td { padding: 0.8rem 1rem; }
         }
-        .product-details-dropdowns { margin-top: 1rem;}
+        .product-details-dropdowns { margin-top: 0.5rem;}
         .product-details-dropdowns details{ border-top: 1px solid #eee; border-bottom: 1px solid #eee;}
         summary { list-style: none; padding: 0.5rem 0; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
         summary::after { content: '+'; color: #999; font-size: 1.2rem; font-weight: 300; }
@@ -1043,7 +1043,7 @@ export default function ProductDetail({ initialProduct }: Props) {
 
         .addi-container {
             margin-top: 0.5rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0rem;
             padding: 8px 0px;
             display: flex;
             align-items: center;
