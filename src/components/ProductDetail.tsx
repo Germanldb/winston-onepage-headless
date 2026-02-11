@@ -123,7 +123,10 @@ export default function ProductDetail({ initialProduct }: Props) {
 
   /* Restaurando lógica de filtrado de imágenes por color */
   const filteredImages = useMemo(() => {
+    // Si NO hay color seleccionado, mostrar TODAS las imágenes (producto principal + variaciones)
+    // Si NO hay color seleccionado, mostrar solo las predeterminadas
     if (!selectedColor) return product.images;
+
     const colorSlug = selectedColor.toLowerCase();
 
     // 1. Prioridad: Mapa de imágenes de variaciones (API)
@@ -259,16 +262,21 @@ export default function ProductDetail({ initialProduct }: Props) {
               </div>
             ))}
 
-            {/* Smart Gallery Expansion: Si solo hay 1 imagen filtrada, intentamos adivinar las siguientes (2, 3, 4) */}
-            {filteredImages.length === 1 && [2, 3, 4].map(num => {
+            {/* Smart Gallery Expansion: Intentamos completar la galería si faltan fotos (hasta la 9) */}
+            {[2, 3, 4, 5, 6, 7, 8, 9].map(num => {
               const firstImg = filteredImages[0];
               if (!firstImg?.src) return null;
 
               // Solo intentar si cumple el patrón -1 o _1 (con o sin sufijo WP)
-              if (!firstImg.src.match(/[-_]1(?:-e\d+)?\.(jpg|jpeg|png|webp)$/i)) return null;
+              const match = firstImg.src.match(/[-_]1(?:-e\d+)?\.(jpg|jpeg|png|webp)$/i);
+              if (!match) return null;
 
               // Quitamos el sufijo -e... para buscar la imagen limpia
               const guessedSrc = firstImg.src.replace(/([-_])1(?:-e\d+)?(\.(?:jpg|jpeg|png|webp))$/i, `$1${num}$2`);
+
+              // EVITAR DUPLICADOS: Si la imagen ya existe en filteredImages (por ID o SRC aproximado), no la renderizamos
+              const alreadyExists = filteredImages.some(img => img.src && (img.src === guessedSrc || img.src.includes(guessedSrc.split('/').pop() || '')));
+              if (alreadyExists) return null;
 
               return (
                 <div key={`guessed-${num}`} className="gallery-item">
@@ -552,14 +560,23 @@ export default function ProductDetail({ initialProduct }: Props) {
             font-weight: 500;
         }
 
-        .product-detail-split { display: flex; flex-direction: row; }
+        .product-detail-split { display: flex; flex-direction: row; align-items: stretch; }
         .product-gallery-container { width: 50%; position: relative; }
         .product-gallery { display: flex; flex-direction: column; background: #f8f8f8; }
         .gallery-item img { width: 100%; height: auto; display: block; object-fit: cover; }
         .gallery-dots { display: none; }
-        .product-info-sidebar { width: 50%; background: #fff; }
-        .sidebar-inner { padding: 2rem 15% 5rem; height: 100%; }
-        .sidebar-content { position: sticky; top: 140px; }
+        .product-info-sidebar { width: 50%; background: #fff; position: relative; }
+        .sidebar-inner { padding: 2rem 10% 5rem; height: 100%; }
+        .sidebar-content { 
+            position: sticky; 
+            top: 20px; 
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge */
+            padding-right: 5px; /* Prevent content jump */
+        }
+        .sidebar-content::-webkit-scrollbar { display: none; }
         .product-category { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 0rem; }
         .product-title { font-family: var(--font-products); font-size: 1.5rem; color: #000; margin-bottom: 0rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
         .product-price { font-size: 1.8rem; color: #A98B68; margin-bottom: 0rem; font-weight: 400;}
