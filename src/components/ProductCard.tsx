@@ -41,6 +41,16 @@ export default function ProductCard({ product }: Props) {
     const [isFavorite, setIsFavorite] = useState(false);
     const [selectedColor, setSelectedColor] = useState<string | null>(null);
     const [hoveredColor, setHoveredColor] = useState<string | null>(null);
+    const [isCardHovered, setIsCardHovered] = useState(false);
+    const [failedSyntheticColors, setFailedSyntheticColors] = useState<string[]>([]);
+
+    // Reset state when product changes
+    useEffect(() => {
+        setFailedSyntheticColors([]);
+        setSelectedColor(null);
+        setHoveredColor(null);
+        setIsCardHovered(false);
+    }, [product.id]);
 
     useEffect(() => {
         const favorites = JSON.parse(localStorage.getItem('wh_favorites') || '[]');
@@ -79,7 +89,7 @@ export default function ProductCard({ product }: Props) {
             return product.variation_images_map[colorSlug];
         }
 
-        // 2. Fallback: Filtrado robusto (el mismo de ProductDetail)
+        // 2. Fallback: Filtrado robusto
         const colorTerm = colorAttribute?.terms.find(t => t.slug === activeColor);
         const colorName = colorTerm?.name.toLowerCase() || "";
 
@@ -98,13 +108,11 @@ export default function ProductCard({ product }: Props) {
 
         if (matches.length > 0) return matches;
 
-        // 3. Fallback Avanzado: Predicción de URL (Si no hay match, intentamos construir la URL cambiando el color)
-        // Ejemplo: .../Chuka-Vino-1.jpg -> .../Chuka-Negro-1.jpg
-        if (product.images.length > 0 && colorAttribute) {
+        // 3. Fallback Avanzado: Predicción de URL
+        if (product.images.length > 0 && colorAttribute && !failedSyntheticColors.includes(activeColor)) {
             const baseImage = product.images[0];
             const baseSrc = baseImage.src;
 
-            // Buscar qué color está presente en la imagen base
             const colorInUrl = colorAttribute.terms.find(t =>
                 baseSrc.toLowerCase().includes(t.slug.toLowerCase()) ||
                 baseSrc.toLowerCase().includes(t.name.toLowerCase())
@@ -112,69 +120,66 @@ export default function ProductCard({ product }: Props) {
 
             if (colorInUrl) {
                 const colorToReplace = baseSrc.match(new RegExp(colorInUrl.name, 'i')) ? colorInUrl.name : colorInUrl.slug;
-                // Determinamos el formato (Mayúscula/Minúscula) basado en lo que encontramos
                 const isCapitalized = colorToReplace[0] === colorToReplace[0].toUpperCase();
 
                 let newColorStr = activeColor;
-                // Buscamos el nombre nice del color activo
                 const activeColorTerm = colorAttribute.terms.find(t => t.slug === activeColor);
-                if (activeColorTerm) newColorStr = activeColorTerm.name; // Usamos el nombre ('Negro' en vez de 'negro' si está disponible)
+                if (activeColorTerm) newColorStr = activeColorTerm.name;
 
-                // Ajustamos capitalización del nuevo color para que coincida con el estilo de la URL
                 if (isCapitalized) {
                     newColorStr = newColorStr.charAt(0).toUpperCase() + newColorStr.slice(1).toLowerCase();
                 } else {
                     newColorStr = newColorStr.toLowerCase();
                 }
 
-                // Reemplazamos el color antiguo por el nuevo (case insensitive regex)
-                let newSrc = baseSrc.replace(new RegExp(colorToReplace, 'i'), newColorStr);
+                // Reemplazo global e insensible a mayúsculas para el color
+                let newSrc = baseSrc.replace(new RegExp(colorToReplace, 'gi'), newColorStr);
+                // Limpiar sufijos de edición de WP si existen
+                newSrc = newSrc.replace(/-e\d+(?=\.[a-z0-9.]+$)/i, '');
 
-                // LIMPIEZA DE URL: Quitamos sufijos raros de WP (ej. -e123456...) para apuntar al archivo original limpio
-                // Patrón: -e[digitos] antes de la extensión. Opcional.
-                newSrc = newSrc.replace(/-e\d+(?=\.(jpg|jpeg|png|webp))/i, '');
-
-                // Creamos imagen sintética
-                const syntheticImage = {
+                return [{
                     ...baseImage,
-                    id: 999999, // ID falso
+                    id: 999999,
                     src: newSrc,
                     alt: `${product.name} ${newColorStr}`
-                };
-
-                return [syntheticImage];
+                }];
             }
         }
 
         return product.images;
-    }, [activeColor, product.images, colorAttribute, product.variation_images_map]);
+    }, [activeColor, product.images, colorAttribute, product.variation_images_map, failedSyntheticColors]);
 
     const mainImage = displayImages[0] || product.images[0];
-
-    // Smart Guess: Si no hay segunda imagen oficial para el color, intentamos adivinarla
     const hoverImageRaw = displayImages[1];
 
     const guessedHoverSrc = useMemo(() => {
         if (hoverImageRaw) return null;
         if (!mainImage?.src) return null;
 
-        // Patrones comunes: nombre-1.jpg -> nombre-2.jpg
-        // Si tiene sufijo de WordPress (-e123...), lo quitamos para buscar la imagen original limpia
-        if (mainImage.src.match(/[-_]1(-e\d+)?\.(jpg|jpeg|png|webp)$/i)) {
-            // Reemplazamos el 1 por 2 y eliminamos cualquier sufijo -e...
-            return mainImage.src.replace(/([-_])1(?:-e\d+)?(\.(?:jpg|jpeg|png|webp))$/i, '$12$2');
+        const src = mainImage.src;
+        // Caso 1: Patrón oficial Winstonandharry (Cambiar -1 por -2)
+        const patternWith1 = /([-_])1(.*?)(?=\.[a-z0-9.]+$)/i;
+        if (src.match(patternWith1)) {
+            return src.replace(patternWith1, '$12$2');
         }
-        return null;
+
+        // Caso 2: Intento a ciegas si no hay -1, añadimos -2 (ej: zapato.jpg -> zapato-2.jpg)
+        const extensionPattern = /(?=\.[a-z0-9.]+$)/i;
+        return src.replace(extensionPattern, '-2');
     }, [mainImage, hoverImageRaw]);
 
     const [isHoverImageValid, setIsHoverImageValid] = useState(true);
-
-    // Reset validation when image changes
-    useEffect(() => {
-        setIsHoverImageValid(true);
-    }, [guessedHoverSrc, hoverImageRaw]);
+    const [hoverImageLoaded, setHoverImageLoaded] = useState(false);
 
     const effectiveHoverSrc = hoverImageRaw?.src || (isHoverImageValid ? guessedHoverSrc : null);
+
+    useEffect(() => {
+        setIsHoverImageValid(true);
+        setHoverImageLoaded(false);
+    }, [effectiveHoverSrc]);
+
+    // El hover solo se activa si el ratón está encima Y la imagen está cargada y es válida
+    const isHoverActive = isCardHovered && !!effectiveHoverSrc && isHoverImageValid && hoverImageLoaded;
 
     const regularPrice = parseInt(product.prices.regular_price);
     const price = parseInt(product.prices.price);
@@ -185,10 +190,14 @@ export default function ProductCard({ product }: Props) {
     const currencySymbol = product.prices.currency_prefix || product.prices.currency_symbol;
 
     return (
-        <div className="product-card">
+        <div
+            className="product-card"
+            onMouseEnter={() => setIsCardHovered(true)}
+            onMouseLeave={() => setIsCardHovered(false)}
+        >
             <div className="card-content">
                 <a href={`/productos/${product.slug}${selectedColor ? `?color=${selectedColor}` : ''}`} className="image-link">
-                    <div className="product-image">
+                    <div className={`product-image ${isHoverActive ? 'hover-active' : ''}`}>
                         <div className="badges-container">
                             {isSale && (
                                 <span className="badge badge-sale">
@@ -208,23 +217,29 @@ export default function ProductCard({ product }: Props) {
                                 onError={(e) => {
                                     const target = e.target as HTMLImageElement;
                                     target.onerror = null;
-                                    target.src = 'https://via.placeholder.com/300x400?text=Sin+Imagen';
+
+                                    // Si la predicción falló, la marcamos como inválida para este color y producto
+                                    if (mainImage?.id === 999999 && activeColor) {
+                                        setFailedSyntheticColors(prev => [...prev, activeColor]);
+                                    } else {
+                                        target.src = 'https://via.placeholder.com/300x400?text=Sin+Imagen';
+                                    }
                                 }}
                             />
                         </picture>
 
-                        {effectiveHoverSrc && (
-                            <picture className="hover-image">
+                        {effectiveHoverSrc && isHoverImageValid && (
+                            <picture className="hover-image" style={{ opacity: hoverImageLoaded ? undefined : 0 }}>
                                 <img
                                     src={effectiveHoverSrc}
                                     alt={hoverImageRaw?.alt || product.name}
                                     className="reveal-on-scroll is-visible"
                                     loading="lazy"
                                     referrerPolicy="no-referrer"
-                                    onError={(e) => {
-                                        // Si la imagen adivinada falla, ocultamos el hover
-                                        e.currentTarget.style.display = 'none';
+                                    onLoad={() => setHoverImageLoaded(true)}
+                                    onError={() => {
                                         setIsHoverImageValid(false);
+                                        setHoverImageLoaded(false);
                                     }}
                                 />
                             </picture>
@@ -363,8 +378,9 @@ export default function ProductCard({ product }: Props) {
         .badge-sale { background-color: #A98B68; }
 
         .product-card:hover .product-image img { transform: scale(1.05); }
-        .product-card:hover .hover-image { opacity: 1; }
-        .product-card:hover .product-image img:not(.hover-image img) { opacity: 0; } /* Opcional: Ocultar la principal si la hover es sólida */
+        .product-image.hover-active .hover-image { opacity: 1; }
+        .product-image.hover-active .primary-image img { opacity: 0; } 
+        /* Si no hay hover activo (cargando o error), la principal se queda */
 
         .product-info { 
             padding: 20px 0.5rem; 

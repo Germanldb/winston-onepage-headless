@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 
 interface Product {
   id: number;
@@ -161,7 +161,6 @@ export default function ProductDetail({ initialProduct }: Props) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
   const [zoomPosition, setZoomPosition] = useState({ x: 50, y: 50 });
   const [verifiedGuessedImages, setVerifiedGuessedImages] = useState<string[]>([]);
 
@@ -248,18 +247,35 @@ export default function ProductDetail({ initialProduct }: Props) {
 
 
 
+  const galleryRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     setActiveImageIndex(0);
-    const gallery = document.querySelector('.product-gallery');
-    if (gallery) gallery.scrollLeft = 0;
+    if (galleryRef.current) galleryRef.current.scrollLeft = 0;
   }, [filteredImages]);
 
-  // Trigger animation when lightbox index changes
-  useEffect(() => {
-    setIsAnimating(true);
-    const timer = setTimeout(() => setIsAnimating(false), 300); // Duración de la animación
-    return () => clearTimeout(timer);
-  }, [lightboxIndex]);
+  const slideTo = (index: number) => {
+    if (galleryRef.current) {
+      const width = galleryRef.current.offsetWidth;
+      galleryRef.current.scrollTo({
+        left: index * width,
+        behavior: 'smooth'
+      });
+      setActiveImageIndex(index);
+    }
+  };
+
+  const nextSlide = () => {
+    const nextIndex = (activeImageIndex + 1) % galleryDOMImages.length;
+    slideTo(nextIndex);
+  };
+
+  const prevSlide = () => {
+    const prevIndex = (activeImageIndex - 1 + galleryDOMImages.length) % galleryDOMImages.length;
+    slideTo(prevIndex);
+  };
+
+
 
   const isCombinationAvailable = (color: string | null, size: string | null) => {
     if (!product.variations || product.variations.length === 0) return true;
@@ -338,7 +354,7 @@ export default function ProductDetail({ initialProduct }: Props) {
     <div className="product-detail">
       <div className="product-detail-split">
         <div className="product-gallery-container" id="main-gallery">
-          <div className="product-gallery" onScroll={handleScroll}>
+          <div className="product-gallery" onScroll={handleScroll} ref={galleryRef}>
             {filteredImages.map((img, index) => (
               <div key={img.id || index} className="gallery-item">
                 <picture>
@@ -404,12 +420,25 @@ export default function ProductDetail({ initialProduct }: Props) {
               );
             })}
           </div>
-          {filteredImages.length > 1 && (
-            <div className="gallery-dots">
-              {filteredImages.map((_, i) => (
-                <span key={i} className={`dot ${i === activeImageIndex ? 'active' : ''}`}></span>
-              ))}
-            </div>
+          {galleryDOMImages.length > 1 && (
+            <>
+              <button className="gallery-nav prev" onClick={prevSlide} aria-label="Imagen anterior">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+              </button>
+              <button className="gallery-nav next" onClick={nextSlide} aria-label="Siguiente imagen">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+              </button>
+              <div className="gallery-dots">
+                {galleryDOMImages.map((_, i) => (
+                  <button
+                    key={i}
+                    className={`dot ${i === activeImageIndex ? 'active' : ''}`}
+                    onClick={() => slideTo(i)}
+                    aria-label={`Ir a imagen ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </>
           )}
         </div>
 
@@ -596,13 +625,23 @@ export default function ProductDetail({ initialProduct }: Props) {
           </button>
 
           <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-            <div className="lightbox-image-wrapper" onMouseMove={handleMouseMove} onTouchMove={handleTouchMove}>
-              <img
-                src={galleryDOMImages[lightboxIndex]?.src}
-                alt={galleryDOMImages[lightboxIndex]?.alt}
-                className={`lightbox-img ${isZoomed ? 'zoomed' : ''} ${isAnimating ? 'fade-enter' : ''}`}
-                style={isZoomed ? { transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`, transform: 'scale(2)' } : {}}
-              />
+            <div
+              className="lightbox-slider"
+              style={{ transform: `translateX(-${lightboxIndex * 100}%)` }}
+            >
+              {galleryDOMImages.map((img, i) => (
+                <div key={i} className="lightbox-slide">
+                  <div className="lightbox-image-wrapper" onMouseMove={handleMouseMove} onTouchMove={handleTouchMove}>
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className={`lightbox-img ${isZoomed && lightboxIndex === i ? 'zoomed' : ''}`}
+                      style={isZoomed && lightboxIndex === i ? { transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`, transform: 'scale(2)' } : {}}
+                      onDragStart={(e) => e.preventDefault()}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -708,7 +747,7 @@ export default function ProductDetail({ initialProduct }: Props) {
         .product-gallery-container { width: 50%; position: relative; }
         .product-gallery { display: flex; flex-direction: column; background: #f8f8f8; }
         .gallery-item img { width: 100%; height: auto; display: block; object-fit: cover; }
-        .gallery-dots { display: none; }
+        .gallery-dots, .gallery-nav { display: none; }
         .product-info-sidebar { width: 50%; background: #fff; position: relative; }
         .sidebar-inner { padding: 2rem 10% 5rem; height: 100%; }
         .sidebar-content { 
@@ -886,12 +925,11 @@ export default function ProductDetail({ initialProduct }: Props) {
 
         @media (max-width: 992px) {
           .product-breadcrumbs { margin-top: 0; margin-bottom: 1.5rem; font-size: 0.75rem; }
-          .product-detail-split { flex-direction: column; position: relative; background: #fff; }
+          .product-detail-split { display: block; position: relative; }
           .product-gallery-container { 
             width: 100%; 
-            order: 1; 
-            position: sticky; 
-            top: 0; 
+            position: sticky !important; 
+            top: 65px !important; 
             aspect-ratio: 1 / 1; 
             z-index: 1;
             background: #f8f8f8;
@@ -902,6 +940,7 @@ export default function ProductDetail({ initialProduct }: Props) {
             scroll-snap-type: x mandatory; 
             scrollbar-width: none; 
             height: 100%;
+            -webkit-overflow-scrolling: touch;
           }
           .gallery-item { 
             flex: 0 0 100%; 
@@ -913,21 +952,61 @@ export default function ProductDetail({ initialProduct }: Props) {
             width: 100%;
             object-fit: cover;
           }
-          .gallery-dots { display: flex; justify-content: center; gap: 6px; position: absolute; bottom: 40px; left: 0; right: 0; z-index: 5; }
-          .dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(0,0,0,0.2); transition: all 0.3s; }
+          .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 5;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+          }
+          .gallery-nav.prev { left: 15px; }
+          .gallery-nav.next { right: 15px; }
+          .gallery-dots { 
+            display: flex; 
+            justify-content: center; 
+            gap: 8px; 
+            position: absolute; 
+            bottom: 20px; 
+            left: 0; 
+            right: 0; 
+            z-index: 5; 
+          }
+          .dot { 
+            width: 8px; 
+            height: 8px; 
+            border-radius: 50%; 
+            background: rgba(0,0,0,0.2); 
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: all 0.3s; 
+          }
           .dot.active { background: #000; transform: scale(1.2); }
           
           .product-info-sidebar { 
             width: 100%; 
-            order: 2; 
-            position: relative; 
+            position: relative !important; 
             z-index: 10; 
             background: #fff; 
             margin-top: -30px; 
+            border-radius: 0px;
             box-shadow: 0 -15px 30px rgba(0,0,0,0.08);
           }
           .sidebar-inner { padding: 2.5rem 1.5rem 5rem; }
-          .sidebar-content { position: static; }
+          .sidebar-content { 
+            position: static !important; 
+            max-height: none !important; 
+            overflow: visible !important;
+          }
           
           .product-actions-grid { grid-template-columns: 1fr 1fr; }
           .product-purchase-row {
@@ -1014,11 +1093,28 @@ export default function ProductDetail({ initialProduct }: Props) {
         .lightbox-content {
           width: 100%;
           height: 100%;
+          overflow: hidden;
+          position: relative;
+          pointer-events: none;
+        }
+
+        .lightbox-slider {
+          display: flex;
+          height: 100%;
+          width: 100%;
+          transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          will-change: transform;
+          pointer-events: none;
+        }
+
+        .lightbox-slide {
+          flex: 0 0 100%;
+          width: 100%;
+          height: 100%;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 0;
-          pointer-events: none; /* Dejar pasar clicks al overlay */
+          pointer-events: none;
         }
         
         .lightbox-image-wrapper {
@@ -1027,7 +1123,7 @@ export default function ProductDetail({ initialProduct }: Props) {
           display: flex;
           align-items: center;
           justify-content: center;
-          pointer-events: auto; /* Reactivar clicks en la imagen */
+          pointer-events: auto;
         }
         
         .lightbox-img {
@@ -1035,13 +1131,8 @@ export default function ProductDetail({ initialProduct }: Props) {
           max-height: 100vh;
           object-fit: contain;
           box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-          background: #fff; /* Fondo blanco si la imagen es transparente */
-          transition: transform 0.1s ease-out, opacity 0.3s ease-out; /* Smooth zoom transition and opacity */
-        }
-        
-        .lightbox-img.fade-enter {
-            opacity: 0;
-            transform: scale(0.95);
+          background: #fff;
+          transition: transform 0.2s ease-out;
         }
         
         .lightbox-img.zoomed {
@@ -1084,7 +1175,8 @@ function getColorCode(slug: string): string {
     'burgundy': '#722F37',
     'tabaco': '#8B5A2B',
     'cognac': '#9A463D',
-    'rojo': '#C41E3A'
+    'rojo': '#C41E3A',
+    'beige': '#F5F5DC'
   };
   return colors[slug.toLowerCase()] || '#ddd';
 }
