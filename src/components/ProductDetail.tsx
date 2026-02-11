@@ -572,6 +572,16 @@ export default function ProductDetail({ initialProduct }: Props) {
                 </div>
               </div>
 
+              <div className="addi-container">
+                <div className="addi-content">
+                  <img src="https://framerusercontent.com/images/z1k7Q8vHsCRiRHF6UqTSfumiSHU.svg" alt="Addi" className="addi-icon" />
+                  <span className="addi-text">
+                    Paga con <span className="addi-brand">Addi</span> en <strong>hasta 6 cuotas</strong>.
+                    <a href="https://co.addi.com/" target="_blank" rel="noopener noreferrer" className="addi-link">Pide un cupo</a>
+                  </span>
+                </div>
+              </div>
+
               <div className="product-details-dropdowns">
                 <details open>
                   <summary>Descripción y Detalles</summary>
@@ -1019,6 +1029,65 @@ export default function ProductDetail({ initialProduct }: Props) {
             align-items: center;
             justify-content: space-between;
           }
+        }
+
+
+        .addi-container {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            padding: 8px 0px;
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            transition: all 0.3s;
+        }
+        .addi-container:hover {
+            border-color: #0068ff;
+            box-shadow: 0 2px 8px rgba(0, 104, 255, 0.1);
+        }
+        .addi-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: #333;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        .addi-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            border-radius: 6px; 
+        }
+        .addi-brand {
+            color: #0068ff; 
+            font-weight: 800;
+        }
+        .addi-text {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        .addi-text strong {
+            font-weight: 700;
+        }
+        .addi-link {
+            color: #0068ff;
+            text-decoration: underline;
+            margin-left: 2px;
+            white-space: nowrap;
+             font-weight: 600;
+             cursor: pointer;
+        }
+        @media (max-width: 480px) {
+            .addi-content { gap: 8px; font-size: 0.75rem; }
+            .addi-icon { width: 20px; height: 20px; }
+        }
+
+        @media (max-width: 992px) {
+            .addi-container { margin-top: 0.5rem; }
         }
 
         /* Lightbox Styles (Global) */
