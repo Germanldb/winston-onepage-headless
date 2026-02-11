@@ -619,6 +619,15 @@ export default function ProductDetail({ initialProduct }: Props) {
                   </div>
                 </details>
               </div>
+              <div className="store-locator-container">
+                <a href="#" className="store-locator-link">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  Clic AQUÍ para buscar una tienda cerca de ti
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -1088,6 +1097,29 @@ export default function ProductDetail({ initialProduct }: Props) {
 
         @media (max-width: 992px) {
             .addi-container { margin-top: 0.5rem; }
+        }
+
+        .store-locator-container {
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;        }
+        .store-locator-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #121212;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .store-locator-link svg {
+            color: var(--color-green);
+        }
+        .store-locator-link:hover {
+            color: var(--color-green);
+            text-decoration: underline;
         }
 
         /* Lightbox Styles (Global) */
