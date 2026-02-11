@@ -118,12 +118,10 @@ export default function ProductDetail({ initialProduct }: Props) {
       !c.name.toLowerCase().includes('regalo') &&
       !c.name.toLowerCase().includes('grande')
     );
-    return cat || product.categories[0];
   }, [product.categories]);
 
   /* Restaurando lógica de filtrado de imágenes por color */
   const filteredImages = useMemo(() => {
-    // Si NO hay color seleccionado, mostrar TODAS las imágenes (producto principal + variaciones)
     // Si NO hay color seleccionado, mostrar solo las predeterminadas
     if (!selectedColor) return product.images;
 
@@ -159,11 +157,109 @@ export default function ProductDetail({ initialProduct }: Props) {
     return product.images;
   }, [selectedColor, product.images, colorAttribute, product.variation_images_map]);
 
+  /* State for Lightbox Gallery */
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [zoomPosition, setZoomPosition] = useState({ x: 50, y: 50 });
+  const [verifiedGuessedImages, setVerifiedGuessedImages] = useState<string[]>([]);
+
+  // Reset verified images when color changes
+  useEffect(() => {
+    setVerifiedGuessedImages([]);
+  }, [selectedColor, product.name]);
+
+  const handleGuessedImageLoad = (src: string) => {
+    setVerifiedGuessedImages(prev => {
+      if (prev.includes(src)) return prev;
+      return [...prev, src];
+    });
+  };
+
+  const galleryDOMImages = useMemo(() => {
+    // Base images
+    const images = filteredImages.map(img => ({ src: img.src, alt: img.alt || product.name }));
+
+    // Append Verified Guessed images
+    verifiedGuessedImages.forEach((src, index) => {
+      // Avoid duplicates if they somehow exist in filteredImages
+      const exists = images.some(img => img.src === src);
+      if (!exists) {
+        // Extract number from src for alt text if possible, e.g. -2.jpg
+        const match = src.match(/[-_](\d+)(?:-e\d+)?\.(jpg|jpeg|png|webp)$/i);
+        const num = match ? match[1] : (index + 2);
+        images.push({ src: src, alt: `${product.name} vista ${num}` });
+      }
+    });
+
+    return images;
+  }, [filteredImages, verifiedGuessedImages, product.name]);
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setIsZoomed(false); // Reset zoom on close
+    document.body.style.overflow = '';
+  };
+
+  const nextImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (isZoomed) {
+      setIsZoomed(false); // Reset zoom on slide change
+    }
+    setLightboxIndex((prev) => (prev + 1) % galleryDOMImages.length);
+  };
+
+  const prevImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (isZoomed) {
+      setIsZoomed(false); // Reset zoom on slide change
+    }
+    setLightboxIndex((prev) => (prev - 1 + galleryDOMImages.length) % galleryDOMImages.length);
+  };
+
+  const toggleZoom = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsZoomed(!isZoomed);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isZoomed) return;
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+    setZoomPosition({ x, y });
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isZoomed) return;
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const touch = e.touches[0];
+    const x = ((touch.clientX - left) / width) * 100;
+    const y = ((touch.clientY - top) / height) * 100;
+    setZoomPosition({ x, y });
+  };
+
+
+
   useEffect(() => {
     setActiveImageIndex(0);
     const gallery = document.querySelector('.product-gallery');
     if (gallery) gallery.scrollLeft = 0;
   }, [filteredImages]);
+
+  // Trigger animation when lightbox index changes
+  useEffect(() => {
+    setIsAnimating(true);
+    const timer = setTimeout(() => setIsAnimating(false), 300); // Duración de la animación
+    return () => clearTimeout(timer);
+  }, [lightboxIndex]);
 
   const isCombinationAvailable = (color: string | null, size: string | null) => {
     if (!product.variations || product.variations.length === 0) return true;
@@ -249,9 +345,10 @@ export default function ProductDetail({ initialProduct }: Props) {
                   <img
                     src={img.src}
                     alt={img.alt || product.name}
-                    className="reveal-on-scroll is-visible"
+                    className="reveal-on-scroll is-visible cursor-zoom"
                     referrerPolicy="no-referrer"
                     loading={index === 0 ? "eager" : "lazy"}
+                    onClick={() => openLightbox(index)}
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       target.onerror = null;
@@ -262,6 +359,7 @@ export default function ProductDetail({ initialProduct }: Props) {
               </div>
             ))}
 
+            {/* Smart Gallery Expansion: Intentamos completar la galería si faltan fotos (hasta la 9) */}
             {/* Smart Gallery Expansion: Intentamos completar la galería si faltan fotos (hasta la 9) */}
             {[2, 3, 4, 5, 6, 7, 8, 9].map(num => {
               const firstImg = filteredImages[0];
@@ -284,9 +382,16 @@ export default function ProductDetail({ initialProduct }: Props) {
                     <img
                       src={guessedSrc}
                       alt={`${product.name} vista ${num}`}
-                      className="reveal-on-scroll is-visible"
+                      className="reveal-on-scroll is-visible cursor-zoom"
                       referrerPolicy="no-referrer"
                       loading="lazy"
+                      onClick={() => {
+                        const verifiedIndex = verifiedGuessedImages.indexOf(guessedSrc);
+                        if (verifiedIndex !== -1) {
+                          openLightbox(filteredImages.length + verifiedIndex);
+                        }
+                      }}
+                      onLoad={() => handleGuessedImageLoad(guessedSrc)}
                       onError={(e) => {
                         // Si falla la adivinanza, ocultamos el contenedor completo
                         const target = e.target as HTMLImageElement;
@@ -400,6 +505,10 @@ export default function ProductDetail({ initialProduct }: Props) {
                         </p>
                       </div>
                     )}
+                    <div className="size-help-link">
+                      <span>¿No encuentras tu talla? </span>
+                      <a href="#" target="_blank" rel="noopener noreferrer">Te ayudamos</a>
+                    </div>
                   </div>
                 )}
               </div>
@@ -475,6 +584,41 @@ export default function ProductDetail({ initialProduct }: Props) {
           </div>
         </div>
       </div>
+
+      {lightboxOpen && (
+        <div className="lightbox-overlay" onClick={closeLightbox}>
+          <button className="lightbox-close" onClick={closeLightbox}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+          </button>
+
+          <button className="lightbox-nav prev" onClick={prevImage}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+          </button>
+
+          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <div className="lightbox-image-wrapper" onMouseMove={handleMouseMove} onTouchMove={handleTouchMove}>
+              <img
+                src={galleryDOMImages[lightboxIndex]?.src}
+                alt={galleryDOMImages[lightboxIndex]?.alt}
+                className={`lightbox-img ${isZoomed ? 'zoomed' : ''} ${isAnimating ? 'fade-enter' : ''}`}
+                style={isZoomed ? { transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`, transform: 'scale(2)' } : {}}
+              />
+            </div>
+          </div>
+
+          <button className="lightbox-nav next" onClick={nextImage}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+          </button>
+
+          <button className="lightbox-zoom-indicator" onClick={toggleZoom}>
+            {isZoomed ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="M8 11h6" /></svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /><path d="M11 8v6" /><path d="M8 11h6" /></svg>
+            )}
+          </button>
+        </div>
+      )}
 
       {showSizeGuide && (
         <div className="size-guide-modal-overlay" onClick={() => setShowSizeGuide(false)}>
@@ -669,6 +813,8 @@ export default function ProductDetail({ initialProduct }: Props) {
         .selected-size-info-box p { margin: 0; }
         .selected-size-info-box strong { color: #A98B68; }
         .size-length-detail { color: #666; font-size: 0.8rem; }
+        .size-help-link { margin-top: 0.8rem; font-size: 0.8rem; color: #555; }
+        .size-help-link a { color: var(--color-green); text-decoration: underline; font-weight: 600; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(5px); }
             to { opacity: 1; transform: translateY(0); }
@@ -794,6 +940,130 @@ export default function ProductDetail({ initialProduct }: Props) {
             align-items: center;
             justify-content: space-between;
           }
+        }
+
+        /* Lightbox Styles (Global) */
+        .cursor-zoom { cursor: zoom-in; }
+        .lightbox-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(255, 255, 255, 0.9); /* Gris claro semitransparente como referencia */
+          backdrop-filter: blur(2px);
+          z-index: 10000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          animation: fadeIn 0.3s ease-out;
+        }
+        
+        /* Botones Flotantes Circulares */
+        .lightbox-close,
+        .lightbox-nav,
+        .lightbox-zoom-indicator {
+          background: #fff;
+          border: none;
+          border-radius: 50%;
+          width: 44px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          color: #121212;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+          transition: transform 0.2s, box-shadow 0.2s;
+          position: absolute;
+          z-index: 10002;
+        }
+
+        .lightbox-close {
+          top: 25px;
+          right: 25px;
+        }
+        
+        .lightbox-nav.prev {
+          left: 25px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        
+        .lightbox-nav.next {
+          right: 25px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        .lightbox-zoom-indicator {
+          bottom: 25px;
+          left: 25px;
+          pointer-events: auto; /* Ensure clickable */
+        }
+
+        .lightbox-close:hover,
+        .lightbox-nav:hover {
+          transform: translateY(-50%) scale(1.1);
+          box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+        .lightbox-close:hover {
+           transform: scale(1.1); /* Close button doesn't have translateY center */
+        }
+
+        .lightbox-content {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0;
+          pointer-events: none; /* Dejar pasar clicks al overlay */
+        }
+        
+        .lightbox-image-wrapper {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          pointer-events: auto; /* Reactivar clicks en la imagen */
+        }
+        
+        .lightbox-img {
+          max-width: 100vw;
+          max-height: 100vh;
+          object-fit: contain;
+          box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+          background: #fff; /* Fondo blanco si la imagen es transparente */
+          transition: transform 0.1s ease-out, opacity 0.3s ease-out; /* Smooth zoom transition and opacity */
+        }
+        
+        .lightbox-img.fade-enter {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        
+        .lightbox-img.zoomed {
+            cursor: zoom-out;
+            max-width: none;
+            max-height: none;
+            /* width: 100%; height: 100%; controlled by transform */
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-img {
+                max-width: 100vw;
+                max-height: 80vh;
+            }
+            .lightbox-nav, .lightbox-zoom-indicator {
+                width: 36px;
+                height: 36px;
+            }
+            .lightbox-nav.prev { left: 10px; }
+            .lightbox-nav.next { right: 10px; }
+            .lightbox-close { top: 15px; right: 15px; width: 36px; height: 36px; }
+            .lightbox-zoom-indicator { bottom: 15px; left: 15px; }
         }
       `}</style>
     </div>
