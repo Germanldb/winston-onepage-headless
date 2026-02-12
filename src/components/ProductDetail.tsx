@@ -180,15 +180,29 @@ export default function ProductDetail({ initialProduct }: Props) {
     // Base images
     const images = filteredImages.map(img => ({ src: img.src, alt: img.alt || product.name }));
 
-    // Append Verified Guessed images
-    verifiedGuessedImages.forEach((src, index) => {
-      // Avoid duplicates if they somehow exist in filteredImages
-      const exists = images.some(img => img.src === src);
-      if (!exists) {
-        // Extract number from src for alt text if possible, e.g. -2.jpg
-        const match = src.match(/[-_](\d+)(?:-e\d+)?\.(jpg|jpeg|png|webp)$/i);
-        const num = match ? match[1] : (index + 2);
-        images.push({ src: src, alt: `${product.name} vista ${num}` });
+    // Append Verified Guessed images IN ORDER (2 to 9)
+    // This ensures that if 3 loads before 2, 2 still comes before 3 in the final array if both exist
+    // matching the DOM order which iterates 2..9
+    const potentialNumbers = [2, 3, 4, 5, 6, 7, 8, 9, 10]; // Added 10 to range
+
+    potentialNumbers.forEach(num => {
+      // We need to reconstruct the src to check against verifiedGuessedImages
+      // This is a bit inefficient (re-deriving src) but guarantees order.
+      // Alternatively, we filter verifiedGuessedImages.
+
+      // Simpler approach: Filter verifiedGuessedImages based on their numeric sequence
+      // We find the one that matches this 'num'
+      const match = verifiedGuessedImages.find(src => {
+        const m = src.match(/[-_](\d+)(?:-e\d+)?\.(jpg|jpeg|png|webp)$/i);
+        return m && parseInt(m[1], 10) === num;
+      });
+
+      if (match) {
+        // Check for duplicates
+        const exists = images.some(img => img.src === match);
+        if (!exists) {
+          images.push({ src: match, alt: `${product.name} vista ${num}` });
+        }
       }
     });
 
@@ -355,6 +369,7 @@ export default function ProductDetail({ initialProduct }: Props) {
       <div className="product-detail-split">
         <div className="product-gallery-container" id="main-gallery">
           <div className="product-gallery" onScroll={handleScroll} ref={galleryRef}>
+            {/* 1. Main Carousel: Renders confirmed images from filteredImages */}
             {filteredImages.map((img, index) => (
               <div key={img.id || index} className="gallery-item">
                 <picture>
@@ -367,7 +382,6 @@ export default function ProductDetail({ initialProduct }: Props) {
                     onClick={() => openLightbox(index)}
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
-                      target.onerror = null;
                       target.src = 'https://via.placeholder.com/1200x1200?text=Winston+%26+Harry';
                     }}
                   />
@@ -376,21 +390,22 @@ export default function ProductDetail({ initialProduct }: Props) {
             ))}
 
             {/* Smart Gallery Expansion: Intentamos completar la galería si faltan fotos (hasta la 9) */}
-            {/* Smart Gallery Expansion: Intentamos completar la galería si faltan fotos (hasta la 9) */}
-            {[2, 3, 4, 5, 6, 7, 8, 9].map(num => {
+            {[2, 3, 4, 5, 6, 7, 8].map(num => {
               const firstImg = filteredImages[0];
               if (!firstImg?.src) return null;
 
-              // Solo intentar si cumple el patrón -1 o _1 (con o sin sufijo WP)
               const match = firstImg.src.match(/[-_]1(?:-e\d+)?\.(jpg|jpeg|png|webp)$/i);
               if (!match) return null;
 
-              // Quitamos el sufijo -e... para buscar la imagen limpia
               const guessedSrc = firstImg.src.replace(/([-_])1(?:-e\d+)?(\.(?:jpg|jpeg|png|webp))$/i, `$1${num}$2`);
 
-              // EVITAR DUPLICADOS: Si la imagen ya existe en filteredImages (por ID o SRC aproximado), no la renderizamos
-              const alreadyExists = filteredImages.some(img => img.src && (img.src === guessedSrc || img.src.includes(guessedSrc.split('/').pop() || '')));
-              if (alreadyExists) return null;
+              // avoid checking if already verified to ensure we keep the img tag for loading? 
+              // No, if it's verified, it's in galleryDOMImages, so we don't need to discover it again.
+              if (verifiedGuessedImages.includes(guessedSrc)) return null;
+
+              // Avoid checking duplicates against filteredImages strictly inside the loop to fail fast?
+              // The galleryDOMImages logic handles duplicates.
+              // We just need to trigger handleGuessedImageLoad.
 
               return (
                 <div key={`guessed-${num}`} className="gallery-item">
@@ -420,25 +435,18 @@ export default function ProductDetail({ initialProduct }: Props) {
               );
             })}
           </div>
+
           {galleryDOMImages.length > 1 && (
-            <>
-              <button className="gallery-nav prev" onClick={prevSlide} aria-label="Imagen anterior">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
-              </button>
-              <button className="gallery-nav next" onClick={nextSlide} aria-label="Siguiente imagen">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-              </button>
-              <div className="gallery-dots">
-                {galleryDOMImages.map((_, i) => (
-                  <button
-                    key={i}
-                    className={`dot ${i === activeImageIndex ? 'active' : ''}`}
-                    onClick={() => slideTo(i)}
-                    aria-label={`Ir a imagen ${i + 1}`}
-                  />
-                ))}
-              </div>
-            </>
+            <div className="gallery-dots">
+              {galleryDOMImages.map((_, i) => (
+                <button
+                  key={i}
+                  className={`dot ${i === activeImageIndex ? 'active' : ''}`}
+                  onClick={() => slideTo(i)}
+                  aria-label={`Ir a imagen ${i + 1}`}
+                />
+              ))}
+            </div>
           )}
         </div>
 
@@ -766,8 +774,34 @@ export default function ProductDetail({ initialProduct }: Props) {
         .product-gallery-container { width: 50%; position: relative; }
         .product-gallery { display: flex; flex-direction: column; background: #f8f8f8; }
         .gallery-item img { width: 100%; height: auto; display: block; object-fit: cover; }
-        .gallery-dots, .gallery-nav { display: none; }
+        .gallery-nav { display: none; }
+
+        .gallery-dots {
+            display: none;
+            justify-content: center;
+            gap: 8px;
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            pointer-events: none;
+        }
+        .dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            pointer-events: auto;
+        }
+        .dot.active { background: #000; transform: scale(1); border-color: #000; }
+
         .product-info-sidebar { width: 50%; background: #fff; position: relative; }
+
         .sidebar-inner { padding: 2rem 10% 5rem; height: 100%; }
         .sidebar-content { 
             position: sticky; 
@@ -953,6 +987,10 @@ export default function ProductDetail({ initialProduct }: Props) {
             z-index: 1;
             background: #f8f8f8;
           }
+          .gallery-dots {
+             display: flex;
+             bottom: 50px; /* Lift dots above the overlapping sidebar on mobile */
+          }
           .product-gallery { 
             flex-direction: row; 
             overflow-x: auto; 
@@ -989,27 +1027,6 @@ export default function ProductDetail({ initialProduct }: Props) {
           }
           .gallery-nav.prev { left: 15px; }
           .gallery-nav.next { right: 15px; }
-          .gallery-dots { 
-            display: flex; 
-            justify-content: center; 
-            gap: 8px; 
-            position: absolute; 
-            bottom: 20px; 
-            left: 0; 
-            right: 0; 
-            z-index: 5; 
-          }
-          .dot { 
-            width: 8px; 
-            height: 8px; 
-            border-radius: 50%; 
-            background: rgba(0,0,0,0.2); 
-            border: none;
-            padding: 0;
-            cursor: pointer;
-            transition: all 0.3s; 
-          }
-          .dot.active { background: #000; transform: scale(1.2); }
           
           .product-info-sidebar { 
             width: 100%; 
@@ -1249,8 +1266,8 @@ export default function ProductDetail({ initialProduct }: Props) {
                 max-height: 80vh;
             }
             .lightbox-nav, .lightbox-zoom-indicator {
-                width: 36px;
-                height: 36px;
+                width: 25px;
+                height: 25px;
             }
             .lightbox-nav.prev { left: 10px; }
             .lightbox-nav.next { right: 10px; }
