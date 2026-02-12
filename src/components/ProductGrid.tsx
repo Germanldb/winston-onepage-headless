@@ -90,7 +90,7 @@ export default function ProductGrid() {
 
   return (
     <section id="tienda" className="tienda">
-      <div className="container">
+      <div className="container" style={{ padding: '0px !important' }}>
         <div className="section-title">
           <span className="subtitle">ACCESORIOS Y ZAPATOS DE CUERO PARA HOMBRE</span>
           <h2>LOS FAVORITOS</h2>
@@ -142,7 +142,7 @@ export default function ProductGrid() {
         .grid-4x3 {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 0.2rem;
+          gap: 0rem;
           width: 100%;
         }
 

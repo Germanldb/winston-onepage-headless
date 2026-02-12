@@ -383,7 +383,7 @@ export default function ProductCard({ product }: Props) {
         /* Si no hay hover activo (cargando o error), la principal se queda */
 
         .product-info { 
-            padding: 20px 0.5rem; 
+            padding: 10px 0.5rem; 
         }
 
         .info-top-row {
