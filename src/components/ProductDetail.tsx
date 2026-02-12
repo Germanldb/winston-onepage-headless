@@ -176,29 +176,21 @@ export default function ProductDetail({ initialProduct }: Props) {
     });
   };
 
+  // Rango máximo de fotos adicionales que intentaremos adivinar de WooCommerce
+  const GUESSED_PHOTO_RANGE = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
   const galleryDOMImages = useMemo(() => {
     // Base images
     const images = filteredImages.map(img => ({ src: img.src, alt: img.alt || product.name }));
 
-    // Append Verified Guessed images IN ORDER (2 to 9)
-    // This ensures that if 3 loads before 2, 2 still comes before 3 in the final array if both exist
-    // matching the DOM order which iterates 2..9
-    const potentialNumbers = [2, 3, 4, 5, 6, 7, 8, 9, 10]; // Added 10 to range
-
-    potentialNumbers.forEach(num => {
-      // We need to reconstruct the src to check against verifiedGuessedImages
-      // This is a bit inefficient (re-deriving src) but guarantees order.
-      // Alternatively, we filter verifiedGuessedImages.
-
-      // Simpler approach: Filter verifiedGuessedImages based on their numeric sequence
-      // We find the one that matches this 'num'
+    // Append Verified Guessed images IN ORDER
+    GUESSED_PHOTO_RANGE.forEach(num => {
       const match = verifiedGuessedImages.find(src => {
         const m = src.match(/[-_](\d+)(?:-e\d+)?\.(jpg|jpeg|png|webp)$/i);
         return m && parseInt(m[1], 10) === num;
       });
 
       if (match) {
-        // Check for duplicates
         const exists = images.some(img => img.src === match);
         if (!exists) {
           images.push({ src: match, alt: `${product.name} vista ${num}` });
@@ -208,6 +200,12 @@ export default function ProductDetail({ initialProduct }: Props) {
 
     return images;
   }, [filteredImages, verifiedGuessedImages, product.name]);
+
+  // Función dinámica encargada de contar las fotos disponibles (WooCommerce + Cargadas)
+  // Esta es la función que solicitaste para calcular dinámicamente cuántos puntos mostrar.
+  const getGalleryCount = () => {
+    return galleryDOMImages.length;
+  };
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index);
@@ -389,23 +387,20 @@ export default function ProductDetail({ initialProduct }: Props) {
               </div>
             ))}
 
-            {/* Smart Gallery Expansion: Intentamos completar la galería si faltan fotos (hasta la 9) */}
-            {[2, 3, 4, 5, 6, 7, 8].map(num => {
+            {/* Smart Gallery Expansion: Intentamos completar la galería dinámicamente */}
+            {GUESSED_PHOTO_RANGE.map(num => {
               const firstImg = filteredImages[0];
               if (!firstImg?.src) return null;
 
+              // Solo intentar si cumple el patrón -1 o _1
               const match = firstImg.src.match(/[-_]1(?:-e\d+)?\.(jpg|jpeg|png|webp)$/i);
               if (!match) return null;
 
               const guessedSrc = firstImg.src.replace(/([-_])1(?:-e\d+)?(\.(?:jpg|jpeg|png|webp))$/i, `$1${num}$2`);
 
-              // avoid checking if already verified to ensure we keep the img tag for loading? 
-              // No, if it's verified, it's in galleryDOMImages, so we don't need to discover it again.
-              if (verifiedGuessedImages.includes(guessedSrc)) return null;
-
-              // Avoid checking duplicates against filteredImages strictly inside the loop to fail fast?
-              // The galleryDOMImages logic handles duplicates.
-              // We just need to trigger handleGuessedImageLoad.
+              // Evitamos duplicados si la imagen ya está en las iniciales de WooCommerce
+              const alreadyExists = filteredImages.some(img => img.src && (img.src === guessedSrc || img.src.includes(guessedSrc.split('/').pop() || '')));
+              if (alreadyExists) return null;
 
               return (
                 <div key={`guessed-${num}`} className="gallery-item">
@@ -424,7 +419,7 @@ export default function ProductDetail({ initialProduct }: Props) {
                       }}
                       onLoad={() => handleGuessedImageLoad(guessedSrc)}
                       onError={(e) => {
-                        // Si falla la adivinanza, ocultamos el contenedor completo
+                        // Si la foto no existe en WooCommerce, ocultamos este slide
                         const target = e.target as HTMLImageElement;
                         const container = target.closest('.gallery-item') as HTMLElement;
                         if (container) container.style.display = 'none';
@@ -436,11 +431,11 @@ export default function ProductDetail({ initialProduct }: Props) {
             })}
           </div>
 
-          {galleryDOMImages.length > 1 && (
+          {getGalleryCount() > 1 && (
             <div className="gallery-dots">
-              {galleryDOMImages.map((_, i) => (
+              {Array.from({ length: getGalleryCount() }).map((_, i) => (
                 <button
-                  key={i}
+                  key={`dot-${i}`}
                   className={`dot ${i === activeImageIndex ? 'active' : ''}`}
                   onClick={() => slideTo(i)}
                   aria-label={`Ir a imagen ${i + 1}`}
