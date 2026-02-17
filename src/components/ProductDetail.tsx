@@ -64,6 +64,34 @@ export default function ProductDetail({ initialProduct }: Props) {
     attr.terms.some(t => !isNaN(Number(t.name)))
   );
 
+  // Ordenar las tallas numéricamente o por orden de ropa (XS, S, M, L, XL, XXL)
+  if (sizeAttribute) {
+    const sizeOrder: Record<string, number> = {
+      'xs': 1, 's': 2, 'm': 3, 'l': 4, 'xl': 5, 'xxl': 6, '2xl': 6, 'xxxl': 7, '3xl': 7
+    };
+
+    sizeAttribute.terms.sort((a, b) => {
+      const nameA = a.name.toLowerCase().trim();
+      const nameB = b.name.toLowerCase().trim();
+
+      // Prioridad 1: Orden predefinido de ropa
+      if (sizeOrder[nameA] && sizeOrder[nameB]) {
+        return sizeOrder[nameA] - sizeOrder[nameB];
+      }
+
+      // Prioridad 2: Orden numérico (Zapatos)
+      const valA = parseFloat(nameA.replace(',', '.'));
+      const valB = parseFloat(nameB.replace(',', '.'));
+
+      if (!isNaN(valA) && !isNaN(valB)) {
+        return valA - valB;
+      }
+
+      // Prioridad 3: Alfabético (Fallback)
+      return nameA.localeCompare(nameB);
+    });
+  }
+
   const hasSize = !!sizeAttribute;
 
   const colorAttribute = product.attributes?.find(attr =>

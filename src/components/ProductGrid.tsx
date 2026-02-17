@@ -144,6 +144,7 @@ export default function ProductGrid() {
           grid-template-columns: repeat(4, 1fr);
           gap: 0rem;
           width: 100%;
+          
         }
 
         @media (max-width: 1200px) { .grid-4x3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
