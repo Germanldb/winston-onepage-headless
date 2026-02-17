@@ -32,6 +32,7 @@ interface Product {
   }[];
   variation_images_map?: Record<string, any[]>;
   related_products?: any[];
+  fbt_products?: any[];
 }
 
 interface Props {
@@ -56,6 +57,7 @@ export default function ProductDetail({ initialProduct }: Props) {
   const [showSizeGuide, setShowSizeGuide] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [isFavorite, setIsFavorite] = useState(false);
+  const [fbtEnabledStatus, setFbtEnabledStatus] = useState<boolean[]>([true, true]);
 
   const product = initialProduct;
 
@@ -386,6 +388,72 @@ export default function ProductDetail({ initialProduct }: Props) {
     return true;
   };
 
+  const handleAddBothToCart = () => {
+    if (!selectedColor) {
+      alert('Por favor, selecciona un color para el producto principal.');
+      return;
+    }
+    if (hasSize && !selectedSize) {
+      alert('Por favor, selecciona una talla para el producto principal.');
+      return;
+    }
+
+    const itemsToAdd = [];
+
+    // FBT products
+    if (product.fbt_products) {
+      product.fbt_products.forEach((p, index) => {
+        if (fbtEnabledStatus[index]) {
+          itemsToAdd.push({
+            id: p.id,
+            name: p.name,
+            price: parseInt(p.prices.price) / (10 ** p.prices.currency_minor_unit),
+            color: null,
+            size: null,
+            quantity: 1,
+            image: p.images[0]?.src
+          });
+        }
+      });
+    }
+
+    const cart = JSON.parse(localStorage.getItem('wh_cart') || '[]');
+
+    itemsToAdd.forEach(newItem => {
+      const existingItemIndex = cart.findIndex((item: any) =>
+        item.id === newItem.id && item.color === newItem.color && item.size === newItem.size
+      );
+
+      if (existingItemIndex > -1) {
+        cart[existingItemIndex].quantity += 1;
+      } else {
+        cart.push(newItem);
+      }
+    });
+
+    localStorage.setItem('wh_cart', JSON.stringify(cart));
+    window.dispatchEvent(new Event('cart-updated'));
+    window.dispatchEvent(new Event('open-cart-drawer'));
+  };
+
+  const fbtTotalPrice = useMemo(() => {
+    let total = 0;
+    if (product.fbt_products) {
+      product.fbt_products.forEach((p, index) => {
+        if (fbtEnabledStatus[index]) total += parseInt(p.prices.price);
+      });
+    }
+    return total;
+  }, [fbtEnabledStatus, product, product.fbt_products]);
+
+  const toggleFbtStatus = (index: number) => {
+    setFbtEnabledStatus(prev => {
+      const next = [...prev];
+      next[index] = !next[index];
+      return next;
+    });
+  };
+
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const scrollLeft = e.currentTarget.scrollLeft;
     const width = e.currentTarget.offsetWidth;
@@ -666,6 +734,53 @@ export default function ProductDetail({ initialProduct }: Props) {
           </div>
         </div>
       </div>
+
+      {/* SECCIÓN FRECUENTEMENTE COMPRADOS JUNTOS (FBT) */}
+      {product.fbt_products && product.fbt_products.length > 0 && (
+        <section className="fbt-new-section">
+          <div className="fbt-fullwidth-container">
+            <h2 className="fbt-title-premium">El Complemento Ideal</h2>
+            <div className="fbt-bundle-grid">
+              <div className="fbt-visual-row">
+                {product.fbt_products.map((p, idx) => (
+                  <div key={p.id} className="fbt-bundle-step">
+                    {idx > 0 && <span className="fbt-math-plus">+</span>}
+                    <div className={`fbt-item ${!fbtEnabledStatus[idx] ? 'inactive' : ''}`}>
+                      <div className="fbt-thumb">
+                        <img src={p.images[0]?.src} alt={p.name} />
+                        <button
+                          className="fbt-checkbox-btn"
+                          onClick={() => toggleFbtStatus(idx)}
+                        >
+                          {fbtEnabledStatus[idx] ? '✓' : ''}
+                        </button>
+                      </div>
+                      <div className="fbt-item-meta">
+                        <a href={`/productos/${p.slug}`} className="fbt-item-name">{p.name}</a>
+                        <span className="fbt-item-price-small">{formatPrice(p.prices.price)}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="fbt-action-card">
+                <div className="fbt-total-row">
+                  <span className="label">Total sugerido:</span>
+                  <span className="value">{formatPrice(fbtTotalPrice.toString())}</span>
+                </div>
+                <button
+                  className="fbt-submit-btn"
+                  onClick={handleAddBothToCart}
+                  disabled={!fbtEnabledStatus.some(s => s)}
+                >
+                  Añadir la colección al carrito
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* SECCIÓN COMPLETA TU LOOK (Premium Related Products) */}
       {product.related_products && product.related_products.length > 0 && (
@@ -1313,6 +1428,195 @@ export default function ProductDetail({ initialProduct }: Props) {
             .lightbox-nav.next { right: 10px; }
             .lightbox-close { top: 15px; right: 15px; width: 36px; height: 36px; }
             .lightbox-zoom-indicator { bottom: 15px; left: 15px; }
+        }
+
+        /* --- FBT PREMIUM NEW SECTION --- */
+        .fbt-new-section {
+          padding: 8rem 0;
+          background-color: #f9f9f9;
+          border-top: 1px solid #12121208;
+          width: 100vw;
+          margin-left: calc(50% - 50vw);
+          position: relative;
+        }
+        .fbt-fullwidth-container {
+          width: 100%;
+          max-width: 1440px;
+          margin: 0 auto;
+          padding: 0 4rem;
+        }
+        .fbt-title-premium {
+          font-family: var(--font-products);
+          font-size: 1.1rem;
+          font-weight: 500;
+          color: var(--color-green);
+          margin-bottom: 3rem;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          text-align: center;
+        }
+        .fbt-bundle-grid {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 3rem;
+          width: 100%;
+        }
+        .fbt-visual-row {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 2rem;
+          width: 100%;
+        }
+        .fbt-bundle-step {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 2rem;
+        }
+        .fbt-math-plus {
+          font-size: 2rem;
+          color: #155338;
+          font-weight: 300;
+          margin-top: -30px; /* Aligned with thumbs */
+        }
+        .fbt-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+          width: 280px;
+          transition: all 0.4s ease;
+        }
+        .fbt-item.inactive { opacity: 0.3; filter: grayscale(1); }
+        .fbt-thumb {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 1/1;
+          background: #fdfdfd;
+          border: 1px solid #eee;
+          overflow: hidden;
+        }
+        .fbt-thumb img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.6s ease;
+        }
+        .fbt-thumb:hover img { transform: scale(1.05); }
+        
+        .fbt-checkbox-btn {
+          position: absolute;
+          bottom: 10px;
+          right: 10px;
+          width: 24px;
+          height: 24px;
+          background: var(--color-green);
+          color: #fff;
+          border: none;
+          border-radius: 50%;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+          transition: all 0.3s ease;
+        }
+        .fbt-item.inactive .fbt-checkbox-btn {
+          background: #eee;
+          color: transparent;
+          box-shadow: none;
+        }
+
+        .fbt-item-meta {
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          gap: 0.2rem;
+          width: 100%;
+        }
+        .fbt-item-name {
+          font-size: 0.75rem;
+          font-family: var(--font-products);
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          color: #121212;
+          text-decoration: none;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .fbt-item-price-small {
+          font-size: 0.8rem;
+          color: #888;
+          font-family: var(--font-products);
+        }
+
+        .fbt-action-card {
+          background: #fbfbfb;
+          padding: 2.5rem;
+          border-radius: 4px;
+          display: flex;
+          flex-direction: column;
+          gap: 1.2rem;
+          min-width: 300px;
+          border: 1px solid #f0f0f0;
+        }
+        .fbt-total-row {
+          display: flex;
+          flex-direction: column;
+          gap: 0.4rem;
+        }
+        .fbt-total-row .label { font-size: 0.8rem; color: #777; text-transform: uppercase; letter-spacing: 1px; }
+        .fbt-total-row .value { font-size: 1.6rem; color: var(--color-green); font-family: var(--font-products); font-weight: 500; }
+        
+        .fbt-submit-btn {
+          background: var(--color-green);
+          color: #fff;
+          border: none;
+          padding: 1.2rem;
+          font-family: var(--font-headings);
+          font-size: 0.85rem;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+        .fbt-submit-btn:hover:not(:disabled) {
+          background: var(--color-beige);
+          transform: translateY(-2px);
+        }
+        .fbt-submit-btn:disabled {
+          background: #eee;
+          color: #aaa;
+          cursor: not-allowed;
+        }
+        .fbt-note {
+          font-size: 0.75rem;
+          color: #999;
+          margin: 0;
+          font-style: italic;
+        }
+
+        @media (max-width: 900px) {
+          .fbt-bundle-grid { gap: 3rem; flex-wrap: wrap; justify-content: center; }
+          .fbt-action-card { width: 100%; min-width: 0; padding: 2rem; }
+          .fbt-visual-row { width: 100%; justify-content: center; }
+        }
+
+        @media (max-width: 600px) {
+            .fbt-new-section { padding: 4rem 0; }
+            .fbt-fullwidth-container { padding: 0 1.5rem; }
+            .fbt-visual-row { gap: 1rem; }
+            .fbt-bundle-step { gap: 1rem; }
+            .fbt-item { width: 45%; min-width: 140px; }
+            .fbt-math-plus { font-size: 1.2rem; }
+            .fbt-item-name { font-size: 0.7rem; }
+            .fbt-action-card { padding: 1.5rem; }
+            .fbt-title-premium { margin-bottom: 2rem; }
         }
 
         /* --- STYLES FOR RELATED PRODUCTS (PREMIUM) --- */
