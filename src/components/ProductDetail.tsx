@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
+import ProductCard from './ProductCard';
 
 interface Product {
   id: number;
@@ -30,6 +31,7 @@ interface Product {
     image?: { id: number; src: string; alt: string };
   }[];
   variation_images_map?: Record<string, any[]>;
+  related_products?: any[];
 }
 
 interface Props {
@@ -118,6 +120,7 @@ export default function ProductDetail({ initialProduct }: Props) {
       !c.name.toLowerCase().includes('regalo') &&
       !c.name.toLowerCase().includes('grande')
     );
+    return cat;
   }, [product.categories]);
 
   /* Restaurando lógica de filtrado de imágenes por color */
@@ -635,6 +638,20 @@ export default function ProductDetail({ initialProduct }: Props) {
           </div>
         </div>
       </div>
+
+      {/* SECCIÓN COMPLETA TU LOOK (Premium Related Products) */}
+      {product.related_products && product.related_products.length > 0 && (
+        <section className="related-products-section">
+          <div className="related-section-header">
+            <h2 className="related-title">COMPLETA TU LOOK</h2>
+          </div>
+          <div className="related-grid">
+            {product.related_products.map((item: any) => (
+              <ProductCard key={item.id} product={item} />
+            ))}
+          </div>
+        </section>
+      )}
 
       {lightboxOpen && (
         <div className="lightbox-overlay" onClick={closeLightbox}>
@@ -1268,6 +1285,36 @@ export default function ProductDetail({ initialProduct }: Props) {
             .lightbox-nav.next { right: 10px; }
             .lightbox-close { top: 15px; right: 15px; width: 36px; height: 36px; }
             .lightbox-zoom-indicator { bottom: 15px; left: 15px; }
+        }
+
+        /* --- STYLES FOR RELATED PRODUCTS (PREMIUM) --- */
+        .related-products-section {
+          padding: 8rem 0;
+          background-color: #fcfcfc;
+          border-top: 1px solid #eee;
+          margin-top: 4rem;
+        }
+        .related-section-header {
+          text-align: center;
+          margin-bottom: 4rem;
+        }
+        .related-title {
+          font-size: 1.5rem;
+          color: var(--color-green);
+          font-family: var(--font-headings);
+          font-weight: 500;
+        }
+        .related-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 0rem;
+          width: 100%;
+          margin: 0 auto;
+        }
+
+        @media (max-width: 992px) {
+          .related-grid { grid-template-columns: repeat(2, 1fr); }
+          .related-products-section { padding: 5rem 0; }
         }
       `}</style>
     </div>
