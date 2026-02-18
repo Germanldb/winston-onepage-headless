@@ -787,7 +787,7 @@ export default function ProductDetail({ initialProduct }: Props) {
 
               <div className="fbt-action-card">
                 <div className="fbt-total-row">
-                  <span className="label">Total sugerido:</span>
+                  <span className="label">Total:</span>
                   <span className="value">{formatPrice(fbtTotalPrice.toString())}</span>
                 </div>
                 <button
