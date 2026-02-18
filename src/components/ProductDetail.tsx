@@ -1524,8 +1524,8 @@ export default function ProductDetail({ initialProduct }: Props) {
             .fbt-fullwidth-container { padding: 0 1.5rem; }
             .fbt-visual-row { gap: 1rem; width: 100%; }
             .fbt-bundle-step { gap: 1rem; }
-            .fbt-card-isla { width: 48%; min-width: 0; }
-            .fbt-math-plus { font-size: 1.2rem; margin-top: -30px; }
+            .fbt-card-isla { width: 100%; min-width: 0; }
+            .fbt-math-plus { font-size: 1.2rem; margin-top: -30px; display: none;}
             .fbt-item-name { font-size: 0.7rem; }
             .fbt-action-card { padding: 1.5rem; }
             .fbt-title-premium { margin-bottom: 2rem; }
@@ -1536,11 +1536,11 @@ export default function ProductDetail({ initialProduct }: Props) {
           padding: 8rem 0;
           background-color: #fcfcfc;
           border-top: 1px solid #eee;
-          margin-top: 4rem;
+          margin-top: 0rem;
         }
         .related-section-header {
           text-align: center;
-          margin-bottom: 4rem;
+          margin: 2rem 0rem;
         }
         .related-title {
           font-size: 1.5rem;
@@ -1558,7 +1558,7 @@ export default function ProductDetail({ initialProduct }: Props) {
 
         @media (max-width: 992px) {
           .related-grid { grid-template-columns: repeat(2, 1fr); }
-          .related-products-section { padding: 5rem 0; }
+          .related-products-section { padding: 0rem 0; }
         }
       `}</style>
     </div>
