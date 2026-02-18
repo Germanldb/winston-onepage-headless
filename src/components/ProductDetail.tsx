@@ -57,8 +57,8 @@ export default function ProductDetail({ initialProduct }: Props) {
   const [showSizeGuide, setShowSizeGuide] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [isFavorite, setIsFavorite] = useState(false);
-  const [fbtEnabledStatus, setFbtEnabledStatus] = useState<boolean[]>([true, true]);
-
+  // Eliminamos el estado de selección individual para simplificar y usar ProductCard
+  // Ahora el 'Total' será siempre de los complementos mostrados.
   const product = initialProduct;
 
   const sizeAttribute = product.attributes?.find(attr =>
@@ -400,20 +400,18 @@ export default function ProductDetail({ initialProduct }: Props) {
 
     const itemsToAdd: any[] = [];
 
-    // FBT products
+    // FBT products - Se agregan todos los que están en la "isla"
     if (product.fbt_products) {
-      product.fbt_products.forEach((p, index) => {
-        if (fbtEnabledStatus[index]) {
-          itemsToAdd.push({
-            id: p.id,
-            name: p.name,
-            price: parseInt(p.prices.price) / (10 ** p.prices.currency_minor_unit),
-            color: null,
-            size: null,
-            quantity: 1,
-            image: p.images[0]?.src
-          });
-        }
+      product.fbt_products.forEach((p) => {
+        itemsToAdd.push({
+          id: p.id,
+          name: p.name,
+          price: parseInt(p.prices.price) / (10 ** p.prices.currency_minor_unit),
+          color: null,
+          size: null,
+          quantity: 1,
+          image: p.images[0]?.src
+        });
       });
     }
 
@@ -439,21 +437,14 @@ export default function ProductDetail({ initialProduct }: Props) {
   const fbtTotalPrice = useMemo(() => {
     let total = 0;
     if (product.fbt_products) {
-      product.fbt_products.forEach((p, index) => {
-        if (fbtEnabledStatus[index]) total += parseInt(p.prices.price);
+      product.fbt_products.forEach((p) => {
+        total += parseInt(p.prices.price);
       });
     }
     return total;
-  }, [fbtEnabledStatus, product, product.fbt_products]);
+  }, [product, product.fbt_products]);
 
-  const toggleFbtStatus = (index: number) => {
-    setFbtEnabledStatus(prev => {
-      const next = [...prev];
-      next[index] = !next[index];
-      return next;
-    });
-  };
-
+  // Se elimina toggleFbtStatus ya que usaremos ProductCard directamente
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const scrollLeft = e.currentTarget.scrollLeft;
     const width = e.currentTarget.offsetWidth;
@@ -735,7 +726,7 @@ export default function ProductDetail({ initialProduct }: Props) {
         </div>
       </div>
 
-      {/* SECCIÓN FRECUENTEMENTE COMPRADOS JUNTOS (FBT) */}
+      {/* SECCIÓN EL COMPLEMENTO IDEAL (Uso de ProductCard para consistencia) */}
       {product.fbt_products && product.fbt_products.length > 0 && (
         <section className="fbt-new-section">
           <div className="fbt-fullwidth-container">
@@ -745,41 +736,8 @@ export default function ProductDetail({ initialProduct }: Props) {
                 {product.fbt_products.map((p, idx) => (
                   <div key={p.id} className="fbt-bundle-step">
                     {idx > 0 && <span className="fbt-math-plus">+</span>}
-                    <div className={`fbt-item ${!fbtEnabledStatus[idx] ? 'inactive' : ''}`}>
-                      <div className="fbt-thumb">
-                        <img
-                          src={p.images[0]?.src || 'https://via.placeholder.com/300x400?text=Cargando...'}
-                          alt={p.name}
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            let currentSrc = target.src;
-
-                            // 1. Quitar .webp si falló
-                            if (currentSrc.endsWith('.webp')) {
-                              currentSrc = currentSrc.replace('.webp', '');
-                            }
-
-                            // 2. Limpiar sufijo -e123... si existe
-                            const cleanSrc = currentSrc.replace(/-e\d+(?=\.(jpg|jpeg|png))/i, '');
-
-                            if (cleanSrc !== target.src) {
-                              target.src = cleanSrc;
-                            } else {
-                              target.src = 'https://via.placeholder.com/300x400?text=Sin+Imagen';
-                            }
-                          }}
-                        />
-                        <button
-                          className="fbt-checkbox-btn"
-                          onClick={() => toggleFbtStatus(idx)}
-                        >
-                          {fbtEnabledStatus[idx] ? '✓' : ''}
-                        </button>
-                      </div>
-                      <div className="fbt-item-meta">
-                        <a href={`/productos/${p.slug}`} className="fbt-item-name">{p.name}</a>
-                        <span className="fbt-item-price-small">{formatPrice(p.prices.price)}</span>
-                      </div>
+                    <div className="fbt-card-isla">
+                      <ProductCard product={p} />
                     </div>
                   </div>
                 ))}
@@ -787,13 +745,12 @@ export default function ProductDetail({ initialProduct }: Props) {
 
               <div className="fbt-action-card">
                 <div className="fbt-total-row">
-                  <span className="label">Total:</span>
+                  <span className="label">Total por ambos:</span>
                   <span className="value">{formatPrice(fbtTotalPrice.toString())}</span>
                 </div>
                 <button
                   className="fbt-submit-btn"
                   onClick={handleAddBothToCart}
-                  disabled={!fbtEnabledStatus.some(s => s)}
                 >
                   Añadir la colección al carrito
                 </button>
@@ -979,9 +936,9 @@ export default function ProductDetail({ initialProduct }: Props) {
         .product-info-sidebar { width: 50%; background: #fff; position: relative; }
 
         .sidebar-inner { padding: 2rem 10% 5rem; height: 100%; }
-        .sidebar-content { 
-            position: sticky; 
-            top: 20px; 
+        .sidebar-content {
+            position: sticky;
+            top: 20px;
             max-height: calc(100vh - 40px);
             overflow-y: auto;
             scrollbar-width: none; /* Firefox */
@@ -992,7 +949,7 @@ export default function ProductDetail({ initialProduct }: Props) {
         .product-category { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 0rem; }
         .product-title { font-family: var(--font-products); font-size: 1.5rem; color: #000; margin-bottom: 0rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
         .product-price { font-size: 1.8rem; color: #A98B68; margin-bottom: 0rem; font-weight: 400;}
-        
+
         .product-purchase-row {
             display: flex;
             align-items: flex-end;
@@ -1042,10 +999,10 @@ export default function ProductDetail({ initialProduct }: Props) {
             font-weight: 600;
         }
 
-        .product-actions-grid { 
-          display: grid; 
-          grid-template-columns: 1fr 1fr; 
-          gap: 1rem; 
+        .product-actions-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
           flex: 1;
         }
         .btn-action { padding: 0.8rem 0.5rem; font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s; border-radius: 2px; font-family: var(--font-paragraphs); border: 1.5px solid var(--color-green); }
@@ -1093,11 +1050,11 @@ export default function ProductDetail({ initialProduct }: Props) {
         .modal-close { position: absolute; top: 15px; right: 15px; background: #f5f5f5; border: none; font-size: 1.2rem; cursor: pointer; color: #333; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 10; transition: background 0.2s; }
         .modal-close:hover { background: #eee; }
         .size-guide-modal-content h2 { font-family: var(--font-products); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2rem; text-align: center; color: var(--color-green); font-size: 1.5rem; }
-        
-        .table-responsive { 
-            width: 100%; 
-            overflow-x: auto; 
-            -webkit-overflow-scrolling: touch; 
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
             border: 1px solid #eee;
             border-radius: 4px;
         }
@@ -1105,7 +1062,7 @@ export default function ProductDetail({ initialProduct }: Props) {
         .size-guide-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; min-width: 500px; }
         .size-guide-table th { background: #f9f9f9; padding: 1rem 0.5rem; text-align: center; font-weight: 700; color: var(--color-green); font-family: var(--font-products); border-bottom: 2px solid #eee; white-space: nowrap; }
         .size-guide-table td { padding: 1rem 0.5rem; text-align: center; border-bottom: 1px solid #eee; color: #666; }
-        
+
         @media (max-width: 768px) {
             .size-guide-modal-content { padding: 2.5rem 1rem 1.5rem; }
             .size-guide-modal-content h2 { font-size: 1.2rem; margin-bottom: 1.5rem; }
@@ -1117,7 +1074,7 @@ export default function ProductDetail({ initialProduct }: Props) {
         summary { list-style: none; padding: 0.5rem 0; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
         summary::after { content: '+'; color: #999; font-size: 1.2rem; font-weight: 300; }
         details[open] summary::after { content: '−'; }
-        
+
         .additional-info-container {
             display: flex;
             flex-direction: column;
@@ -1155,11 +1112,11 @@ export default function ProductDetail({ initialProduct }: Props) {
         @media (max-width: 992px) {
           .product-breadcrumbs { margin-top: 0; margin-bottom: 1.5rem; font-size: 0.75rem; }
           .product-detail-split { display: block; position: relative; }
-          .product-gallery-container { 
-            width: 100%; 
-            position: sticky !important; 
-            top: 65px !important; 
-            aspect-ratio: 1 / 1; 
+          .product-gallery-container {
+            width: 100%;
+            position: sticky !important;
+            top: 65px !important;
+            aspect-ratio: 1 / 1;
             z-index: 1;
             background: #f8f8f8;
           }
@@ -1167,17 +1124,17 @@ export default function ProductDetail({ initialProduct }: Props) {
              display: flex;
              bottom: 50px; /* Lift dots above the overlapping sidebar on mobile */
           }
-          .product-gallery { 
-            flex-direction: row; 
-            overflow-x: auto; 
-            scroll-snap-type: x mandatory; 
-            scrollbar-width: none; 
+          .product-gallery {
+            flex-direction: row;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
             height: 100%;
             -webkit-overflow-scrolling: touch;
           }
-          .gallery-item { 
-            flex: 0 0 100%; 
-            scroll-snap-align: center; 
+          .gallery-item {
+            flex: 0 0 100%;
+            scroll-snap-align: center;
             height: 100%;
           }
           .gallery-item img {
@@ -1203,23 +1160,23 @@ export default function ProductDetail({ initialProduct }: Props) {
           }
           .gallery-nav.prev { left: 15px; }
           .gallery-nav.next { right: 15px; }
-          
-          .product-info-sidebar { 
-            width: 100%; 
-            position: relative !important; 
-            z-index: 10; 
-            background: #fff; 
-            margin-top: -30px; 
+
+          .product-info-sidebar {
+            width: 100%;
+            position: relative !important;
+            z-index: 10;
+            background: #fff;
+            margin-top: -30px;
             border-radius: 0px;
             box-shadow: 0 -15px 30px rgba(0,0,0,0.08);
           }
           .sidebar-inner { padding: 2.5rem 1.5rem 5rem; }
-          .sidebar-content { 
-            position: static !important; 
-            max-height: none !important; 
+          .sidebar-content {
+            position: static !important;
+            max-height: none !important;
             overflow: visible !important;
           }
-          
+
           .product-actions-grid { grid-template-columns: 1fr 1fr; }
           .product-purchase-row {
             flex-direction: column;
@@ -1260,10 +1217,10 @@ export default function ProductDetail({ initialProduct }: Props) {
             width: 24px;
             height: 24px;
             flex-shrink: 0;
-            border-radius: 6px; 
+            border-radius: 6px;
         }
         .addi-brand {
-            color: #0068ff; 
+            color: #0068ff;
             font-weight: 800;
         }
         .addi-text {
@@ -1331,7 +1288,7 @@ export default function ProductDetail({ initialProduct }: Props) {
           justify-content: center;
           animation: fadeIn 0.3s ease-out;
         }
-        
+
         /* Botones Flotantes Circulares */
         .lightbox-close,
         .lightbox-nav,
@@ -1356,13 +1313,13 @@ export default function ProductDetail({ initialProduct }: Props) {
           top: 25px;
           right: 25px;
         }
-        
+
         .lightbox-nav.prev {
           left: 25px;
           top: 50%;
           transform: translateY(-50%);
         }
-        
+
         .lightbox-nav.next {
           right: 25px;
           top: 50%;
@@ -1410,7 +1367,7 @@ export default function ProductDetail({ initialProduct }: Props) {
           justify-content: center;
           pointer-events: none;
         }
-        
+
         .lightbox-image-wrapper {
           width: 100%;
           height: 100%;
@@ -1419,7 +1376,7 @@ export default function ProductDetail({ initialProduct }: Props) {
           justify-content: center;
           pointer-events: auto;
         }
-        
+
         .lightbox-img {
           max-width: 100vw;
           max-height: 100vh;
@@ -1428,7 +1385,7 @@ export default function ProductDetail({ initialProduct }: Props) {
           background: #fff;
           transition: transform 0.2s ease-out;
         }
-        
+
         .lightbox-img.zoomed {
             cursor: zoom-out;
             max-width: none;
@@ -1497,82 +1454,18 @@ export default function ProductDetail({ initialProduct }: Props) {
           gap: 2rem;
         }
         .fbt-math-plus {
-          font-size: 2rem;
+          font-size: 2.5rem;
           color: #155338;
           font-weight: 300;
-          margin-top: -40px; /* Alineado con el área de imagen */
+          margin-top: -60px; /* Centrado respecto a las cards */
         }
-        .fbt-item {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 1.2rem;
-          width: 260px;
-          transition: all 0.4s ease;
+        .fbt-card-isla {
+          width: 280px;
+          background: #fff;
+          transition: transform 0.4s ease;
         }
-        .fbt-item.inactive { opacity: 0.3; filter: grayscale(1); }
-        .fbt-thumb {
-          position: relative;
-          width: 100%;
-          aspect-ratio: 1/1;
-          background: #fdfdfd;
-          border: 1px solid #eee;
-          overflow: hidden;
-        }
-        .fbt-thumb img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.6s ease;
-        }
-        .fbt-thumb:hover img { transform: scale(1.05); }
-        
-        .fbt-checkbox-btn {
-          position: absolute;
-          bottom: 10px;
-          right: 10px;
-          width: 24px;
-          height: 24px;
-          background: var(--color-green);
-          color: #fff;
-          border: none;
-          border-radius: 50%;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 12px;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-          transition: all 0.3s ease;
-        }
-        .fbt-item.inactive .fbt-checkbox-btn {
-          background: #eee;
-          color: transparent;
-          box-shadow: none;
-        }
-
-        .fbt-item-meta {
-          text-align: center;
-          display: flex;
-          flex-direction: column;
-          gap: 0.2rem;
-          width: 100%;
-        }
-        .fbt-item-name {
-          font-size: 0.75rem;
-          font-family: var(--font-products);
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          color: #121212;
-          text-decoration: none;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-        .fbt-item-price-small {
-          font-size: 0.8rem;
-          color: #888;
-          font-family: var(--font-products);
+        .fbt-card-isla:hover {
+          transform: translateY(-5px);
         }
 
         .fbt-action-card {
@@ -1631,8 +1524,7 @@ export default function ProductDetail({ initialProduct }: Props) {
             .fbt-fullwidth-container { padding: 0 1.5rem; }
             .fbt-visual-row { gap: 1rem; width: 100%; }
             .fbt-bundle-step { gap: 1rem; }
-            .fbt-item { width: 48%; min-width: 0; }
-            .fbt-thumb { border-radius: 4px; }
+            .fbt-card-isla { width: 48%; min-width: 0; }
             .fbt-math-plus { font-size: 1.2rem; margin-top: -30px; }
             .fbt-item-name { font-size: 0.7rem; }
             .fbt-action-card { padding: 1.5rem; }

@@ -13,15 +13,13 @@ Este archivo resume los últimos cambios realizados para mantener la sincronía 
 ## Archivos Editados Recientemente y su Propósito
 
 - **src/components/ProductDetail.tsx**: 
-    - Se implementó la sección **"El Complemento Ideal"** (Frecuentemente comprados juntos).
-    - Diseño full-width, centrado y con estética premium alineada a la marca.
-    - Lógica de "Bundle" que permite añadir múltiples artículos al carrito simultáneamente.
-    - Optimización móvil para mostrar los complementos de forma compacta y accesible.
-    - Sincronización dinámica de galería de imágenes y puntos del slider.
-
+    - **Refactorización de "El Complemento Ideal":** Se simplificó la sección para utilizar el componente estándar `ProductCard`. Esto garantiza que todas las optimizaciones de imágenes (WebP, fallbacks, limpieza de sufijos) funcionen perfectamente y de forma consistente con el resto del sitio.
+    - **Simplificación de UX:** Se eliminó la selección individual por producto para ofrecer una experiencia de "Colección Completa" más directa y evitar errores visuales.
+    - **Optimización de Imágenes:** Se centralizó la lógica de carga en `ProductCard`, eliminando el código redundante de `ProductDetail.tsx`.
 - **src/pages/productos/[slug].astro**:
-    - Se actualizó la lógica de fetching para extraer complementos específicos basados en categorías (suéteres, chaquetas, medias, accesorios).
-    - Se excluye el producto actual de las sugerencias de complemento para evitar duplicidad.
+    - Se actualizó la lógica de fetching para extraer complementos específicos basados en categorías.
+    - **Lógica de Balanceo:** Ahora selecciona obligatoriamente un producto de "alto valor" (Chaqueta, Camisa o Suéter) y uno de "bajo valor" (Accesorio o Media), creando una propuesta de look más completa y equilibrada.
+    - Se excluye el producto actual de las sugerencias para evitar duplicados.
 
 - **src/components/ProductGrid.tsx** y **src/pages/index.astro**:
     - Ajustes en el grid de la página de inicio para una estética premium tipo Louis Vuitton.

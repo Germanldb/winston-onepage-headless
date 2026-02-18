@@ -76,45 +76,93 @@ try {
             try {
                 // IDs proporcionados por el usuario para complementos
                 const fbtCategoryIds = [951, 952, 250, 251, 126];
+                const shoeCats = [63, 64, 65, 66, 67, 68, 69, 70]; // Zapatos
+                const clothingCats = [951, 952, 251, 1022];        // Suéteres, Chaquetas, Camisas, Prendas
+                const accessoryCats = [250, 126, 172];             // Medias, Accesorios, Reatas/Correas
                 
-                // Fetching a larger pool (50) to allow randomization and filtering
-                const relatedRes = await fetchWithRetry(
-                    `https://winstonandharrystore.com/wp-json/wc/store/v1/products?per_page=50&orderby=date`
-                );
+                // Fetching a larger pool AND specifically shoes to guarantee results
+                // Esto asegura que siempre tengamos calzado disponible para recomendar
+                const [relatedRes, shoesRes] = await Promise.all([
+                    fetchWithRetry(`https://winstonandharrystore.com/wp-json/wc/store/v1/products?per_page=60&orderby=date`),
+                    fetchWithRetry(`https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=20`)
+                ]);
                 
                 if (relatedRes && relatedRes.ok) {
-                    const relatedData = await relatedRes.json();
+                    const relatedDataRaw = await relatedRes.json();
+                    let shoeDataRaw = [];
+                    if (shoesRes && shoesRes.ok) shoeDataRaw = await shoesRes.json();
                     
-                    // 1. Pool para "Completa tu look" (lo que teníamos antes, evitando zapatos)
+                    // Combinamos y eliminamos duplicados
+                    const combinedPool = [...relatedDataRaw, ...shoeDataRaw];
+                    const relatedData = Array.from(new Map(combinedPool.map(item => [item.id, item])).values());
+                    
+                    // Detección robusta de la categoría actual (ID + Nombre)
+                    const currentCats = product.categories?.map((c: any) => c.id) || [];
+                    const pName = product.name.toLowerCase();
+                    
+                    const isCurrentShoe = currentCats.some((id: any) => shoeCats.includes(id)) || 
+                                          pName.includes('zapato') || pName.includes('mocasín') || pName.includes('tenis');
+                    
+                    const isCurrentClothing = currentCats.some((id: any) => clothingCats.includes(id)) || 
+                                              pName.includes('chaqueta') || pName.includes('sueter') || pName.includes('suéter') || pName.includes('camisa');
+                    
+                    const isCurrentAccessory = currentCats.some((id: any) => accessoryCats.includes(id)) || 
+                                               pName.includes('media') || pName.includes('accesorio') || pName.includes('reata');
+
+                    // 1. Pool para "Completa tu look" (evitamos zapatos si es calzado)
                     let lookPool = relatedData.filter((p: any) => {
                         if (p.id === product.id) return false;
                         const isZapato = p.categories?.some((c: any) => 
                             c.name.toLowerCase().includes('zapato') ||
                             c.slug.toLowerCase().includes('zapato') ||
                             c.name.toLowerCase().includes('calzado')
-                        );
-                        return !isZapato;
+                        ) || p.name.toLowerCase().includes('zapato');
+
+                        if (isCurrentShoe) return !isZapato; 
+                        return true;
                     });
 
                     relatedProducts = lookPool
                         .sort(() => Math.random() - 0.5)
                         .slice(0, 4);
 
-                    // 2. Selección para "Frecuentemente Comprado Juntos" (FBT)
-                    // Buscamos específicamente en las categorías de accesorios/ropa enviadas
-                    let fbtPool = relatedData.filter((p: any) => {
-                        if (p.id === product.id) return false;
-                        // Aseguramos que tenga imágenes y pertenezca a las categorías desead
-                        const hasImages = p.images && p.images.length > 0;
-                        return hasImages && p.categories?.some((c: any) => fbtCategoryIds.includes(c.id));
-                    });
+                    // 2. Selección para "El Complemento Ideal" (FBT) - Lógica Contextual Estricta
+                    let poolA: any[] = []; // Slot 1 (Zapatos o Ropa)
+                    let poolB: any[] = []; // Slot 2 (Accesorio/Media)
 
-                    if (fbtPool.length > 0) {
-                        // Tomamos 2 productos diferentes para optimizar el layout móvil
-                        // Usamos la versión inteligente de optimizeImages que limpia sufijos -e123...
-                        const shuffled = fbtPool.sort(() => Math.random() - 0.5);
-                        fbtProducts = shuffled.slice(0, 2).map((p: any) => optimizeImages(p));
+                    if (isCurrentShoe) {
+                      // CASO ZAPATO -> RECOMENDAR ROPA + ACCESORIO
+                      poolA = relatedData.filter((p: any) => p.id !== product.id && p.images?.[0] && (p.categories?.some((c: any) => clothingCats.includes(c.id)) || p.name.toLowerCase().includes('chaqueta') || p.name.toLowerCase().includes('sueter')));
+                      poolB = relatedData.filter((p: any) => p.id !== product.id && p.images?.[0] && (p.categories?.some((c: any) => accessoryCats.includes(c.id)) || p.name.toLowerCase().includes('media')));
+                    } else {
+                      // CASO ROPA O ACCESORIO -> RECOMENDAR SIEMPRE ZAPATO + (Ropa o Accesorio)
+                      poolA = relatedData.filter((p: any) => p.id !== product.id && p.images?.[0] && (p.categories?.some((c: any) => shoeCats.includes(c.id)) || p.name.toLowerCase().includes('zapato') || p.name.toLowerCase().includes('mocasín')));
+                      
+                      if (isCurrentClothing) {
+                        poolB = relatedData.filter((p: any) => p.id !== product.id && p.images?.[0] && (p.categories?.some((c: any) => accessoryCats.includes(c.id)) || p.name.toLowerCase().includes('media')));
+                      } else {
+                        poolB = relatedData.filter((p: any) => p.id !== product.id && p.images?.[0] && (p.categories?.some((c: any) => clothingCats.includes(c.id)) || p.name.toLowerCase().includes('chaqueta')));
+                      }
                     }
+
+                    const finalFbt: any[] = [];
+                    // Slot A (Zapato obligatorio si no estoy en calzado)
+                    if (poolA.length > 0) {
+                        finalFbt.push(poolA[Math.floor(Math.random() * poolA.length)]);
+                    }
+                    // Slot B
+                    const poolB_filtered = poolB.filter(p => !finalFbt.some(f => f.id === p.id));
+                    if (poolB_filtered.length > 0) {
+                        finalFbt.push(poolB_filtered[Math.floor(Math.random() * poolB_filtered.length)]);
+                    }
+
+                    // Relleno si no llegamos a 2
+                    if (finalFbt.length < 2) {
+                        const leftover = relatedData.filter(p => p.id !== product.id && p.images?.[0] && !finalFbt.some(f => f.id === p.id));
+                        if (leftover.length > 0) finalFbt.push(leftover[Math.floor(Math.random() * leftover.length)]);
+                    }
+
+                    fbtProducts = finalFbt.slice(0, 2).map((p: any) => optimizeImages(p));
 
                     // Fallback: Si no hay suficientes complementos para el look, mostramos cualquier otro
                     if (relatedProducts.length < 2) {
