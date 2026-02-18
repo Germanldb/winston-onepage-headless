@@ -10,7 +10,7 @@ export const ALL: APIRoute = async ({ request }) => {
         // ... (resto del código del producto individual se mantiene)
         // 1. DETALLE DEL PRODUCTO
         if (slug) {
-            const res = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products?slug=${slug}`);
+            const res = await fetch(`https://darkorchid-jaguar-439640.hostingersite.com/wp-json/wc/store/v1/products?slug=${slug}`);
             if (!res.ok) return new Response(JSON.stringify({ error: 'Not found' }), { status: 404 });
 
             const data = await res.json();
@@ -28,7 +28,7 @@ export const ALL: APIRoute = async ({ request }) => {
                         );
                         if (variation) {
                             try {
-                                const varRes = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products/${variation.id}`);
+                                const varRes = await fetch(`https://darkorchid-jaguar-439640.hostingersite.com/wp-json/wc/store/v1/products/${variation.id}`);
                                 if (varRes.ok) {
                                     const varData = await varRes.json();
                                     if (varData.images && varData.images.length > 0) {
@@ -57,7 +57,7 @@ export const ALL: APIRoute = async ({ request }) => {
 
         // 2. LISTADO PARA EL HOME - Limitamos a 24 para la prueba
         const wcResponse = await fetch(
-            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=24&orderby=date&order=desc`
+            `https://darkorchid-jaguar-439640.hostingersite.com/wp-json/wc/store/v1/products?category=63&per_page=24&orderby=date&order=desc`
         );
 
         if (!wcResponse.ok) return new Response(JSON.stringify({ error: 'API Error' }), { status: wcResponse.status });
