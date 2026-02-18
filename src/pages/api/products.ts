@@ -98,7 +98,9 @@ function optimizeImages(data: any): any {
             if (key === 'src' && typeof newData[key] === 'string') {
                 // Solo si es una URL de WordPress y no tiene ya .webp
                 if (newData[key].includes('wp-content/uploads') && !newData[key].toLowerCase().endsWith('.webp')) {
-                    newData[key] = `${newData[key]}.webp`;
+                    // Limpieza de sufijos de edición de WordPress (-e1755...)
+                    let cleanSrc = newData[key].replace(/-e\d+(?=\.(jpg|jpeg|png))/i, '');
+                    newData[key] = `${cleanSrc}.webp`;
                 }
             } else {
                 newData[key] = optimizeImages(newData[key]);

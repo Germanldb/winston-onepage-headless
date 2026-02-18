@@ -23,7 +23,10 @@ function optimizeImages(data: any): any {
         for (const key in newData) {
             if (key === 'src' && typeof newData[key] === 'string') {
                 if (newData[key].includes('wp-content/uploads') && !newData[key].toLowerCase().endsWith('.webp')) {
-                    newData[key] = `${newData[key]}.webp`;
+                    // Limpieza de sufijos de edición de WordPress (-e1755...)
+                    // Esto evita 404s ya que el .webp se genera sobre el nombre base
+                    let cleanSrc = newData[key].replace(/-e\d+(?=\.(jpg|jpeg|png))/i, '');
+                    newData[key] = `${cleanSrc}.webp`;
                 }
             } else {
                 newData[key] = optimizeImages(newData[key]);
@@ -101,13 +104,16 @@ try {
                     // Buscamos específicamente en las categorías de accesorios/ropa enviadas
                     let fbtPool = relatedData.filter((p: any) => {
                         if (p.id === product.id) return false;
-                        return p.categories?.some((c: any) => fbtCategoryIds.includes(c.id));
+                        // Aseguramos que tenga imágenes y pertenezca a las categorías desead
+                        const hasImages = p.images && p.images.length > 0;
+                        return hasImages && p.categories?.some((c: any) => fbtCategoryIds.includes(c.id));
                     });
 
                     if (fbtPool.length > 0) {
                         // Tomamos 2 productos diferentes para optimizar el layout móvil
+                        // Usamos la versión inteligente de optimizeImages que limpia sufijos -e123...
                         const shuffled = fbtPool.sort(() => Math.random() - 0.5);
-                        fbtProducts = shuffled.slice(0, 2).map(p => optimizeImages(p));
+                        fbtProducts = shuffled.slice(0, 2).map((p: any) => optimizeImages(p));
                     }
 
                     // Fallback: Si no hay suficientes complementos para el look, mostramos cualquier otro

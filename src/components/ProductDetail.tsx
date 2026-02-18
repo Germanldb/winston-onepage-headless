@@ -398,7 +398,7 @@ export default function ProductDetail({ initialProduct }: Props) {
       return;
     }
 
-    const itemsToAdd = [];
+    const itemsToAdd: any[] = [];
 
     // FBT products
     if (product.fbt_products) {
@@ -747,7 +747,28 @@ export default function ProductDetail({ initialProduct }: Props) {
                     {idx > 0 && <span className="fbt-math-plus">+</span>}
                     <div className={`fbt-item ${!fbtEnabledStatus[idx] ? 'inactive' : ''}`}>
                       <div className="fbt-thumb">
-                        <img src={p.images[0]?.src} alt={p.name} />
+                        <img
+                          src={p.images[0]?.src || 'https://via.placeholder.com/300x400?text=Cargando...'}
+                          alt={p.name}
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            let currentSrc = target.src;
+
+                            // 1. Quitar .webp si falló
+                            if (currentSrc.endsWith('.webp')) {
+                              currentSrc = currentSrc.replace('.webp', '');
+                            }
+
+                            // 2. Limpiar sufijo -e123... si existe
+                            const cleanSrc = currentSrc.replace(/-e\d+(?=\.(jpg|jpeg|png))/i, '');
+
+                            if (cleanSrc !== target.src) {
+                              target.src = cleanSrc;
+                            } else {
+                              target.src = 'https://via.placeholder.com/300x400?text=Sin+Imagen';
+                            }
+                          }}
+                        />
                         <button
                           className="fbt-checkbox-btn"
                           onClick={() => toggleFbtStatus(idx)}
@@ -1457,10 +1478,10 @@ export default function ProductDetail({ initialProduct }: Props) {
         }
         .fbt-bundle-grid {
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
           align-items: center;
           justify-content: center;
-          gap: 3rem;
+          gap: 4rem;
           width: 100%;
         }
         .fbt-visual-row {
@@ -1468,7 +1489,6 @@ export default function ProductDetail({ initialProduct }: Props) {
           align-items: center;
           justify-content: center;
           gap: 2rem;
-          width: 100%;
         }
         .fbt-bundle-step {
           display: flex;
@@ -1480,14 +1500,14 @@ export default function ProductDetail({ initialProduct }: Props) {
           font-size: 2rem;
           color: #155338;
           font-weight: 300;
-          margin-top: -30px; /* Aligned with thumbs */
+          margin-top: -40px; /* Alineado con el área de imagen */
         }
         .fbt-item {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 1rem;
-          width: 280px;
+          gap: 1.2rem;
+          width: 260px;
           transition: all 0.4s ease;
         }
         .fbt-item.inactive { opacity: 0.3; filter: grayscale(1); }
@@ -1571,7 +1591,7 @@ export default function ProductDetail({ initialProduct }: Props) {
           gap: 0.4rem;
         }
         .fbt-total-row .label { font-size: 0.8rem; color: #777; text-transform: uppercase; letter-spacing: 1px; }
-        .fbt-total-row .value { font-size: 1.6rem; color: var(--color-green); font-family: var(--font-products); font-weight: 500; }
+        .fbt-total-row .value { font-size: 1.6rem; color: var(--color-green); font-family: var(--font-paragraph); font-weight: 500; }
         
         .fbt-submit-btn {
           background: var(--color-green);
@@ -1601,19 +1621,19 @@ export default function ProductDetail({ initialProduct }: Props) {
           font-style: italic;
         }
 
-        @media (max-width: 900px) {
-          .fbt-bundle-grid { gap: 3rem; flex-wrap: wrap; justify-content: center; }
-          .fbt-action-card { width: 100%; min-width: 0; padding: 2rem; }
-          .fbt-visual-row { width: 100%; justify-content: center; }
+        @media (max-width: 1100px) {
+          .fbt-bundle-grid { flex-direction: column; gap: 3rem; }
+          .fbt-action-card { width: 100%; max-width: 500px; min-width: 0; padding: 2rem; }
         }
 
         @media (max-width: 600px) {
             .fbt-new-section { padding: 4rem 0; }
             .fbt-fullwidth-container { padding: 0 1.5rem; }
-            .fbt-visual-row { gap: 1rem; }
+            .fbt-visual-row { gap: 1rem; width: 100%; }
             .fbt-bundle-step { gap: 1rem; }
-            .fbt-item { width: 45%; min-width: 140px; }
-            .fbt-math-plus { font-size: 1.2rem; }
+            .fbt-item { width: 48%; min-width: 0; }
+            .fbt-thumb { border-radius: 4px; }
+            .fbt-math-plus { font-size: 1.2rem; margin-top: -30px; }
             .fbt-item-name { font-size: 0.7rem; }
             .fbt-action-card { padding: 1.5rem; }
             .fbt-title-premium { margin-bottom: 2rem; }

@@ -218,8 +218,20 @@ export default function ProductCard({ product }: Props) {
                                     const target = e.target as HTMLImageElement;
                                     target.onerror = null;
 
-                                    // Si la predicción falló, la marcamos como inválida para este color y producto
-                                    if (mainImage?.id === 999999 && activeColor) {
+                                    let currentSrc = target.src;
+
+                                    // 1. Intentar quitar .webp
+                                    if (currentSrc.endsWith('.webp')) {
+                                        currentSrc = currentSrc.replace('.webp', '');
+                                    }
+
+                                    // 2. Limpiar sufijo de edición -e123...
+                                    const cleanSrc = currentSrc.replace(/-e\d+(?=\.(jpg|jpeg|png))/i, '');
+
+                                    if (cleanSrc !== target.src) {
+                                        target.src = cleanSrc;
+                                    } else if (mainImage?.id === 999999 && activeColor) {
+                                        // Si la predicción falló totalmente
                                         setFailedSyntheticColors(prev => [...prev, activeColor]);
                                     } else {
                                         target.src = 'https://via.placeholder.com/300x400?text=Sin+Imagen';
