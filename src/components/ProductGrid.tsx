@@ -90,7 +90,7 @@ export default function ProductGrid() {
 
   return (
     <section id="tienda" className="tienda">
-      <div className="container" style={{ padding: '0px !important' }}>
+      <div className="container-full">
         <div className="section-title">
           <span className="subtitle">ACCESORIOS Y ZAPATOS DE CUERO PARA HOMBRE</span>
           <h2>LOS FAVORITOS</h2>
@@ -128,7 +128,8 @@ export default function ProductGrid() {
       </div>
 
       <style>{`
-        .tienda { background-color: #fff; padding: 4rem 0; }
+        .tienda { background-color: #fff; padding: 4rem 0; width: 100%; }
+        .container-full { width: 100%; padding: 0; }
         .section-title { text-align: center; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; padding: 0 1rem; }
         .subtitle { font-size: 0.8rem; color: #999; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 0.5rem; font-family: var(--font-paragraphs); }
         .section-title h2 { font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--color-green); line-height: 1; }

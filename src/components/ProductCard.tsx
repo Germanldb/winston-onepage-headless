@@ -82,11 +82,16 @@ export default function ProductCard({ product }: Props) {
     const displayImages = useMemo(() => {
         if (!activeColor) return product.images;
 
-        const colorSlug = activeColor.toLowerCase();
+        const colorSlug = activeColor.toLowerCase().trim();
 
         // 1. Prioridad: Mapa de imágenes de variaciones (Enriquecido por la API)
-        if (product.variation_images_map && product.variation_images_map[colorSlug]) {
-            return product.variation_images_map[colorSlug];
+        if (product.variation_images_map) {
+            const matchedKey = Object.keys(product.variation_images_map).find(
+                key => key.toLowerCase().trim() === colorSlug
+            );
+            if (matchedKey && product.variation_images_map[matchedKey]) {
+                return product.variation_images_map[matchedKey];
+            }
         }
 
         // 2. Fallback: Filtrado robusto
@@ -108,41 +113,66 @@ export default function ProductCard({ product }: Props) {
 
         if (matches.length > 0) return matches;
 
-        // 3. Fallback Avanzado: Predicción de URL
+        // 3. Fallback Avanzado: Predicción de URL (Basado en la convención de Winston & Harry)
         if (product.images.length > 0 && colorAttribute && !failedSyntheticColors.includes(activeColor)) {
             const baseImage = product.images[0];
             const baseSrc = baseImage.src;
 
+            // Buscamos qué color tiene la imagen base en su nombre de archivo
             const colorInUrl = colorAttribute.terms.find(t =>
                 baseSrc.toLowerCase().includes(t.slug.toLowerCase()) ||
                 baseSrc.toLowerCase().includes(t.name.toLowerCase())
             );
 
             if (colorInUrl) {
-                const colorToReplace = baseSrc.match(new RegExp(colorInUrl.name, 'i')) ? colorInUrl.name : colorInUrl.slug;
-                const isCapitalized = colorToReplace[0] === colorToReplace[0].toUpperCase();
-
-                let newColorStr = activeColor;
                 const activeColorTerm = colorAttribute.terms.find(t => t.slug === activeColor);
-                if (activeColorTerm) newColorStr = activeColorTerm.name;
+                if (activeColorTerm) {
+                    const colorToReplace = baseSrc.match(new RegExp(colorInUrl.name, 'i')) ? colorInUrl.name : colorInUrl.slug;
+                    const newColorName = activeColorTerm.name;
+                    const newColorSlug = activeColorTerm.slug;
 
-                if (isCapitalized) {
-                    newColorStr = newColorStr.charAt(0).toUpperCase() + newColorStr.slice(1).toLowerCase();
-                } else {
-                    newColorStr = newColorStr.toLowerCase();
+                    // Probamos reemplazo con Nombre (ej: Negro) y si falla el navegador el onError lo detectará
+                    // Pero para ser más seguros, intentamos mantener el casing original
+                    const isCapitalized = colorToReplace[0] === colorToReplace[0].toUpperCase();
+                    let finalNewColor = newColorName;
+                    if (isCapitalized) {
+                        finalNewColor = finalNewColor.charAt(0).toUpperCase() + finalNewColor.slice(1).toLowerCase();
+                    } else {
+                        finalNewColor = finalNewColor.toLowerCase();
+                    }
+
+                    const predictedImages = [];
+                    // Imagen 1 (Principal)
+                    let src1 = baseSrc.replace(new RegExp(colorToReplace, 'gi'), finalNewColor);
+                    predictedImages.push({
+                        ...baseImage,
+                        id: 999999,
+                        src: src1,
+                        alt: `${product.name} ${finalNewColor}`
+                    });
+
+                    // Imagen 2 (Hover - Intento inteligente)
+                    let src2 = src1;
+                    const patternWith1 = /([-_])1(.*?)(?=\.[a-z0-9.]+$)/i;
+                    if (src2.match(patternWith1)) {
+                        src2 = src2.replace(patternWith1, '$12$2');
+                    } else {
+                        // Si no tiene -1, probamos añadir -2 antes de la extensión
+                        const extensionPattern = /(?=\.[a-z0-9.]+$)/i;
+                        src2 = src2.replace(extensionPattern, '-2');
+                    }
+
+                    if (src2 !== src1) {
+                        predictedImages.push({
+                            ...baseImage,
+                            id: 999999 + 1,
+                            src: src2,
+                            alt: `${product.name} ${finalNewColor} vista 2`
+                        });
+                    }
+
+                    return predictedImages;
                 }
-
-                // Reemplazo global e insensible a mayúsculas para el color
-                let newSrc = baseSrc.replace(new RegExp(colorToReplace, 'gi'), newColorStr);
-                // Limpiar sufijos de edición de WP si existen
-                newSrc = newSrc.replace(/-e\d+(?=\.[a-z0-9.]+$)/i, '');
-
-                return [{
-                    ...baseImage,
-                    id: 999999,
-                    src: newSrc,
-                    alt: `${product.name} ${newColorStr}`
-                }];
             }
         }
 
@@ -153,7 +183,6 @@ export default function ProductCard({ product }: Props) {
     const hoverImageRaw = displayImages[1];
 
     const guessedHoverSrc = useMemo(() => {
-        if (hoverImageRaw) return null;
         if (!mainImage?.src) return null;
 
         const src = mainImage.src;
@@ -166,20 +195,26 @@ export default function ProductCard({ product }: Props) {
         // Caso 2: Intento a ciegas si no hay -1, añadimos -2 (ej: zapato.jpg -> zapato-2.jpg)
         const extensionPattern = /(?=\.[a-z0-9.]+$)/i;
         return src.replace(extensionPattern, '-2');
-    }, [mainImage, hoverImageRaw]);
+    }, [mainImage]);
 
     const [isHoverImageValid, setIsHoverImageValid] = useState(true);
-    const [hoverImageLoaded, setHoverImageLoaded] = useState(false);
+    const [hoverImageSrc, setHoverImageSrc] = useState<string | null>(null);
 
-    const effectiveHoverSrc = hoverImageRaw?.src || (isHoverImageValid ? guessedHoverSrc : null);
+    // Prioridad de hover: 
+    // 1. Segunda imagen del set actual (ej: variantes predichas)
+    // 2. Imagen predicha (-2) de la principal actual
+    const baseHoverSrc = (displayImages.length > 1 ? displayImages[1].src : null) || guessedHoverSrc;
+    const effectiveHoverSrc = hoverImageSrc || baseHoverSrc;
 
     useEffect(() => {
         setIsHoverImageValid(true);
-        setHoverImageLoaded(false);
-    }, [effectiveHoverSrc]);
+        setHoverImageSrc(baseHoverSrc);
+    }, [baseHoverSrc, activeColor]);
 
-    // El hover solo se activa si el ratón está encima Y la imagen está cargada y es válida
-    const isHoverActive = isCardHovered && !!effectiveHoverSrc && isHoverImageValid && hoverImageLoaded;
+    // El hover funciona si hay una imagen src válida
+    // Si displayImages[1] existe, lo usamos directamente
+    // Si no, usamos guessedHoverSrc que predice la URL -2
+    const isHoverActive = isCardHovered && !!effectiveHoverSrc;
 
     const regularPrice = parseInt(product.prices.regular_price);
     const price = parseInt(product.prices.price);
@@ -220,9 +255,11 @@ export default function ProductCard({ product }: Props) {
 
                                     let currentSrc = target.src;
 
-                                    // 1. Intentar quitar .webp
-                                    if (currentSrc.endsWith('.webp')) {
-                                        currentSrc = currentSrc.replace('.webp', '');
+                                    // 1. Intentar quitar .webp (case insensitive)
+                                    if (currentSrc.toLowerCase().endsWith('.webp')) {
+                                        currentSrc = currentSrc.replace(/\.webp$/i, '');
+                                        target.src = currentSrc;
+                                        return;
                                     }
 
                                     // 2. Limpiar sufijo de edición -e123...
@@ -240,18 +277,28 @@ export default function ProductCard({ product }: Props) {
                             />
                         </picture>
 
-                        {effectiveHoverSrc && isHoverImageValid && (
-                            <picture className="hover-image" style={{ opacity: hoverImageLoaded ? undefined : 0 }}>
+                        {effectiveHoverSrc && (
+                            <picture className="hover-image">
                                 <img
                                     src={effectiveHoverSrc}
                                     alt={hoverImageRaw?.alt || product.name}
                                     className="reveal-on-scroll is-visible"
                                     loading="lazy"
                                     referrerPolicy="no-referrer"
-                                    onLoad={() => setHoverImageLoaded(true)}
-                                    onError={() => {
-                                        setIsHoverImageValid(false);
-                                        setHoverImageLoaded(false);
+                                    onError={(e) => {
+                                        const target = e.target as HTMLImageElement;
+                                        const currentSrc = target.src;
+                                        
+                                        // Si falla con .webp, intentar sin .webp
+                                        if (currentSrc.toLowerCase().endsWith('.webp')) {
+                                            const srcWithoutWebp = currentSrc.replace(/\.webp$/i, '');
+                                            target.src = srcWithoutWebp;
+                                        } else if (guessedHoverSrc && effectiveHoverSrc !== guessedHoverSrc) {
+                                            // Si es la imagen de variation y falla, intentar con guessedHoverSrc
+                                            setHoverImageSrc(guessedHoverSrc);
+                                        } else {
+                                            setIsHoverImageValid(false);
+                                        }
                                     }}
                                 />
                             </picture>

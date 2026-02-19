@@ -55,14 +55,46 @@ export const ALL: APIRoute = async ({ request }) => {
             });
         }
 
-        // 2. LISTADO PARA EL HOME - Limitamos a 24 para la prueba
         const wcResponse = await fetch(
-            `https://darkorchid-jaguar-439640.hostingersite.com/wp-json/wc/store/v1/products?category=63&per_page=24&orderby=date&order=desc`
+            `https://darkorchid-jaguar-439640.hostingersite.com/wp-json/wc/store/v1/products?category=63&per_page=100&orderby=date&order=desc`
         );
 
         if (!wcResponse.ok) return new Response(JSON.stringify({ error: 'API Error' }), { status: wcResponse.status });
 
         let allProducts = await wcResponse.json();
+
+        // Para productos variables, obtener el mapa de imágenes de variaciones por color
+        allProducts = await Promise.all(allProducts.map(async (product: any) => {
+            if (product.type === 'variable' && product.variations && product.variations.length > 0) {
+                const colorAttr = product.attributes?.find((a: any) => a.name.toLowerCase().includes('color'));
+                if (colorAttr && colorAttr.terms) {
+                    const variationImages: any = {};
+                    const colors = colorAttr.terms.map((t: any) => t.slug);
+
+                    await Promise.all(colors.map(async (colorSlug: string) => {
+                        const normalizedColorSlug = colorSlug.toLowerCase().trim();
+                        const variation = product.variations.find((v: any) =>
+                            v.attributes && v.attributes.some((attr: any) => 
+                                attr.value.toLowerCase().trim() === normalizedColorSlug
+                            )
+                        );
+                        if (variation) {
+                            try {
+                                const varRes = await fetch(`https://darkorchid-jaguar-439640.hostingersite.com/wp-json/wc/store/v1/products/${variation.id}`);
+                                if (varRes.ok) {
+                                    const varData = await varRes.json();
+                                    if (varData.images && varData.images.length > 0) {
+                                        variationImages[colorSlug] = varData.images;
+                                    }
+                                }
+                            } catch (e) { }
+                        }
+                    }));
+                    product.variation_images_map = variationImages;
+                }
+            }
+            return product;
+        }));
 
         // Optimizamos las imágenes de toda la lista
         allProducts = optimizeImages(allProducts);
