@@ -6,8 +6,13 @@ interface Product {
   name: string;
   description: string;
   short_description: string;
+  slug: string;
+  permalink: string;
   prices: {
     price: string;
+    regular_price: string;
+    sale_price: string;
+    price_range: any;
     currency_code: string;
     currency_symbol: string;
     currency_minor_unit: number;
@@ -57,9 +62,22 @@ export default function ProductDetail({ initialProduct }: Props) {
   const [showSizeGuide, setShowSizeGuide] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [isFavorite, setIsFavorite] = useState(false);
-  // Eliminamos el estado de selección individual para simplificar y usar ProductCard
-  // Ahora el 'Total' será siempre de los complementos mostrados.
   const product = initialProduct;
+  const [selectedFbtIds, setSelectedFbtIds] = useState<number[]>([]);
+
+  useEffect(() => {
+    if (product.fbt_products) {
+      setSelectedFbtIds([product.id, ...product.fbt_products.map((p: any) => p.id)]);
+    } else {
+      setSelectedFbtIds([product.id]);
+    }
+  }, [product.id, product.fbt_products]);
+
+  const toggleFbtSelection = (id: number) => {
+    setSelectedFbtIds(prev =>
+      prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
+    );
+  };
 
   const sizeAttribute = product.attributes?.find(attr =>
     attr.name.toLowerCase().includes('talla') ||
@@ -389,30 +407,49 @@ export default function ProductDetail({ initialProduct }: Props) {
   };
 
   const handleAddBothToCart = () => {
-    if (!selectedColor) {
-      alert('Por favor, selecciona un color para el producto principal.');
-      return;
-    }
-    if (hasSize && !selectedSize) {
-      alert('Por favor, selecciona una talla para el producto principal.');
-      return;
-    }
-
     const itemsToAdd: any[] = [];
 
-    // FBT products - Se agregan todos los que están en la "isla"
+    // Main product if selected
+    if (selectedFbtIds.includes(product.id)) {
+      if (!selectedColor) {
+        alert('Por favor, selecciona un color para el producto principal.');
+        return;
+      }
+      if (hasSize && !selectedSize) {
+        alert('Por favor, selecciona una talla para el producto principal.');
+        return;
+      }
+      itemsToAdd.push({
+        id: product.id,
+        name: product.name,
+        price: parseInt(product.prices.price) / (10 ** product.prices.currency_minor_unit),
+        color: selectedColor,
+        size: selectedSize,
+        quantity: quantity,
+        image: filteredImages[0]?.src || product.images[0]?.src
+      });
+    }
+
+    // FBT products if selected
     if (product.fbt_products) {
       product.fbt_products.forEach((p) => {
-        itemsToAdd.push({
-          id: p.id,
-          name: p.name,
-          price: parseInt(p.prices.price) / (10 ** p.prices.currency_minor_unit),
-          color: null,
-          size: null,
-          quantity: 1,
-          image: p.images[0]?.src
-        });
+        if (selectedFbtIds.includes(p.id)) {
+          itemsToAdd.push({
+            id: p.id,
+            name: p.name,
+            price: parseInt(p.prices.price) / (10 ** p.prices.currency_minor_unit),
+            color: null,
+            size: null,
+            quantity: 1,
+            image: p.images[0]?.src
+          });
+        }
       });
+    }
+
+    if (itemsToAdd.length === 0) {
+      alert('Por favor, selecciona al menos un producto del complemento.');
+      return;
     }
 
     const cart = JSON.parse(localStorage.getItem('wh_cart') || '[]');
@@ -423,7 +460,7 @@ export default function ProductDetail({ initialProduct }: Props) {
       );
 
       if (existingItemIndex > -1) {
-        cart[existingItemIndex].quantity += 1;
+        cart[existingItemIndex].quantity += newItem.quantity;
       } else {
         cart.push(newItem);
       }
@@ -436,13 +473,18 @@ export default function ProductDetail({ initialProduct }: Props) {
 
   const fbtTotalPrice = useMemo(() => {
     let total = 0;
+    if (selectedFbtIds.includes(product.id)) {
+      total += parseInt(product.prices.price);
+    }
     if (product.fbt_products) {
       product.fbt_products.forEach((p) => {
-        total += parseInt(p.prices.price);
+        if (selectedFbtIds.includes(p.id)) {
+          total += parseInt(p.prices.price);
+        }
       });
     }
     return total;
-  }, [product, product.fbt_products]);
+  }, [product, product.fbt_products, selectedFbtIds]);
 
   // Se elimina toggleFbtStatus ya que usaremos ProductCard directamente
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
@@ -733,11 +775,25 @@ export default function ProductDetail({ initialProduct }: Props) {
             <h2 className="fbt-title-premium">El Complemento Ideal</h2>
             <div className="fbt-bundle-grid">
               <div className="fbt-visual-row">
+                <div className="fbt-bundle-step">
+                  <div className="fbt-card-isla">
+                    <ProductCard
+                      product={product}
+                      isSelected={selectedFbtIds.includes(product.id)}
+                      onSelectionToggle={toggleFbtSelection}
+                    />
+                  </div>
+                </div>
+
                 {product.fbt_products.map((p, idx) => (
                   <div key={p.id} className="fbt-bundle-step">
-                    {idx > 0 && <span className="fbt-math-plus">+</span>}
+                    <span className="fbt-math-plus">+</span>
                     <div className="fbt-card-isla">
-                      <ProductCard product={p} />
+                      <ProductCard
+                        product={p}
+                        isSelected={selectedFbtIds.includes(p.id)}
+                        onSelectionToggle={toggleFbtSelection}
+                      />
                     </div>
                   </div>
                 ))}
@@ -745,14 +801,14 @@ export default function ProductDetail({ initialProduct }: Props) {
 
               <div className="fbt-action-card">
                 <div className="fbt-total-row">
-                  <span className="label">Total por ambos:</span>
+                  <span className="label">Total por los seleccionados:</span>
                   <span className="value">{formatPrice(fbtTotalPrice.toString())}</span>
                 </div>
                 <button
                   className="fbt-submit-btn"
                   onClick={handleAddBothToCart}
                 >
-                  Añadir la colección al carrito
+                  Añadir seleccionados al carrito
                 </button>
               </div>
             </div>

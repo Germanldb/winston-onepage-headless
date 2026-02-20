@@ -26,7 +26,7 @@ interface Product {
         name: string;
         terms: { id: number; name: string; slug: string }[];
     }[];
-    variations: {
+    variations?: {
         id: number;
         attributes: { name: string; value: string }[];
     }[];
@@ -35,9 +35,11 @@ interface Product {
 
 interface Props {
     product: Product;
+    isSelected?: boolean;
+    onSelectionToggle?: (id: number) => void;
 }
 
-export default function ProductCard({ product }: Props) {
+export default function ProductCard({ product, isSelected, onSelectionToggle }: Props) {
     const [isFavorite, setIsFavorite] = useState(false);
     const [selectedColor, setSelectedColor] = useState<string | null>(null);
     const [hoveredColor, setHoveredColor] = useState<string | null>(null);
@@ -288,7 +290,7 @@ export default function ProductCard({ product }: Props) {
                                     onError={(e) => {
                                         const target = e.target as HTMLImageElement;
                                         const currentSrc = target.src;
-                                        
+
                                         // Si falla con .webp, intentar sin .webp
                                         if (currentSrc.toLowerCase().endsWith('.webp')) {
                                             const srcWithoutWebp = currentSrc.replace(/\.webp$/i, '');
@@ -313,6 +315,25 @@ export default function ProductCard({ product }: Props) {
                         </button>
                     </div>
                 </a>
+
+                {onSelectionToggle && (
+                    <div
+                        className={`selection-overlay ${isSelected ? 'selected' : ''}`}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            onSelectionToggle(product.id);
+                        }}
+                    >
+                        <div className="check-button">
+                            {isSelected ? (
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                            ) : null}
+                        </div>
+                    </div>
+                )}
 
                 <div className="product-info">
                     <div className="info-top-row">
@@ -520,6 +541,40 @@ export default function ProductCard({ product }: Props) {
             bottom: 0;
             border: 1px solid #121212;
             border-radius: 50%;
+        }
+
+        .selection-overlay {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            z-index: 20;
+            cursor: pointer;
+        }
+
+        .check-button {
+            width: 24px;
+            height: 24px;
+            background: #fff;
+            border: 1.5px solid #121212;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            color: #fff;
+        }
+
+        .selection-overlay.selected .check-button {
+            background: #155338;
+            border-color: #155338;
+        }
+
+        .check-button svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .selection-overlay:hover .check-button {
+            transform: scale(1.1);
         }
 
         .fade-in { animation: fadeIn 0.4s ease-out; }

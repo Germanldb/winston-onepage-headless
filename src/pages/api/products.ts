@@ -10,7 +10,7 @@ export const ALL: APIRoute = async ({ request }) => {
         // ... (resto del código del producto individual se mantiene)
         // 1. DETALLE DEL PRODUCTO
         if (slug) {
-            const res = await fetch(`https://darkorchid-jaguar-439640.hostingersite.com/wp-json/wc/store/v1/products?slug=${slug}`);
+            const res = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products?slug=${slug}`);
             if (!res.ok) return new Response(JSON.stringify({ error: 'Not found' }), { status: 404 });
 
             const data = await res.json();
@@ -28,7 +28,7 @@ export const ALL: APIRoute = async ({ request }) => {
                         );
                         if (variation) {
                             try {
-                                const varRes = await fetch(`https://darkorchid-jaguar-439640.hostingersite.com/wp-json/wc/store/v1/products/${variation.id}`);
+                                const varRes = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products/${variation.id}`);
                                 if (varRes.ok) {
                                     const varData = await varRes.json();
                                     if (varData.images && varData.images.length > 0) {
@@ -56,7 +56,7 @@ export const ALL: APIRoute = async ({ request }) => {
         }
 
         const wcResponse = await fetch(
-            `https://darkorchid-jaguar-439640.hostingersite.com/wp-json/wc/store/v1/products?category=63&per_page=100&orderby=date&order=desc`
+            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=63&per_page=100&orderby=date&order=desc`
         );
 
         if (!wcResponse.ok) return new Response(JSON.stringify({ error: 'API Error' }), { status: wcResponse.status });
@@ -74,13 +74,13 @@ export const ALL: APIRoute = async ({ request }) => {
                     await Promise.all(colors.map(async (colorSlug: string) => {
                         const normalizedColorSlug = colorSlug.toLowerCase().trim();
                         const variation = product.variations.find((v: any) =>
-                            v.attributes && v.attributes.some((attr: any) => 
+                            v.attributes && v.attributes.some((attr: any) =>
                                 attr.value.toLowerCase().trim() === normalizedColorSlug
                             )
                         );
                         if (variation) {
                             try {
-                                const varRes = await fetch(`https://darkorchid-jaguar-439640.hostingersite.com/wp-json/wc/store/v1/products/${variation.id}`);
+                                const varRes = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products/${variation.id}`);
                                 if (varRes.ok) {
                                     const varData = await varRes.json();
                                     if (varData.images && varData.images.length > 0) {
