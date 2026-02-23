@@ -393,6 +393,7 @@ export default function ProductCard({ product, isSelected, onSelectionToggle }: 
           flex-direction: column;
           width: 100%;
           min-width: 0;
+          position: relative;
         }
 
         .product-image {
@@ -545,7 +546,7 @@ export default function ProductCard({ product, isSelected, onSelectionToggle }: 
 
         .selection-overlay {
             position: absolute;
-            bottom: 10px;
+            top: 10px;
             left: 10px;
             z-index: 20;
             cursor: pointer;

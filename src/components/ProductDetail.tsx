@@ -507,11 +507,32 @@ export default function ProductDetail({ initialProduct }: Props) {
                     src={img.src}
                     alt={img.alt || product.name}
                     className="reveal-on-scroll is-visible cursor-zoom"
-                    referrerPolicy="no-referrer"
                     loading={index === 0 ? "eager" : "lazy"}
                     onClick={() => openLightbox(index)}
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      const currentSrc = target.src;
+
+                      // 1. Si es .webp, quitar .webp para volver al formato original (ej: .jpg.webp → .jpg)
+                      if (currentSrc.toLowerCase().endsWith('.webp')) {
+                        const originalSrc = currentSrc.replace(/\.webp$/i, '');
+                        target.onerror = () => {
+                          target.onerror = null;
+                          target.src = 'https://via.placeholder.com/1200x1200?text=Winston+%26+Harry';
+                        };
+                        target.src = originalSrc;
+                        return;
+                      }
+
+                      // 2. Limpiar sufijo de edición WordPress (-e123...)
+                      const cleanSrc = currentSrc.replace(/-e\d+(?=\.(jpg|jpeg|png))/i, '');
+                      if (cleanSrc !== currentSrc) {
+                        target.src = cleanSrc;
+                        return;
+                      }
+
+                      // 3. Último recurso: placeholder
                       target.src = 'https://via.placeholder.com/1200x1200?text=Winston+%26+Harry';
                     }}
                   />
@@ -541,7 +562,6 @@ export default function ProductDetail({ initialProduct }: Props) {
                       src={guessedSrc}
                       alt={`${product.name} vista ${num}`}
                       className="reveal-on-scroll is-visible cursor-zoom"
-                      referrerPolicy="no-referrer"
                       loading="lazy"
                       onClick={() => {
                         const verifiedIndex = verifiedGuessedImages.indexOf(guessedSrc);

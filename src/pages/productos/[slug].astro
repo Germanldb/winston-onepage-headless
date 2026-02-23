@@ -41,14 +41,18 @@ let product: any = null;
 let error: any = null;
 
 // Función de ayuda para reintentar peticiones fallidas (Robustez)
-async function fetchWithRetry(url: string, options = {}, retries = 2) {
+async function fetchWithRetry(url: string, options = {}, retries = 1) {
     for (let i = 0; i <= retries; i++) {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 8000); // 8s timeout
         try {
-            const res = await fetch(url, options);
+            const res = await fetch(url, { ...options, signal: controller.signal });
+            clearTimeout(timeoutId);
             if (res.ok) return res;
             if (res.status === 404) return res; // No reintentar si no existe
             console.warn(`Intento ${i + 1} fallido (${res.status}) para: ${url}`);
         } catch (e) {
+            clearTimeout(timeoutId);
             if (i === retries) throw e;
             console.warn(`Error de red en intento ${i + 1}, reintentando...`);
         }
@@ -162,7 +166,7 @@ try {
                         if (leftover.length > 0) finalFbt.push(leftover[Math.floor(Math.random() * leftover.length)]);
                     }
 
-                    fbtProducts = finalFbt.slice(0, 2).map((p: any) => optimizeImages(p));
+                    fbtProducts = finalFbt.slice(0, 1).map((p: any) => optimizeImages(p));
 
                     // Fallback: Si no hay suficientes complementos para el look, mostramos cualquier otro
                     if (relatedProducts.length < 2) {
