@@ -840,7 +840,7 @@ export default function ProductDetail({ initialProduct }: Props) {
       {product.related_products && product.related_products.length > 0 && (
         <section className="related-products-section">
           <div className="related-section-header">
-            <h2 className="related-title">COMPLETA TU LOOK</h2>
+            <h2 className="fbt-title-premium">COMPLETA TU LOOK</h2>
           </div>
           <div className="related-grid">
             {product.related_products.map((item: any) => (
@@ -1486,7 +1486,7 @@ export default function ProductDetail({ initialProduct }: Props) {
 
         /* --- FBT PREMIUM NEW SECTION --- */
         .fbt-new-section {
-          padding: 8rem 0;
+          padding: 2rem 0;
           background-color: #f9f9f9;
           border-top: 1px solid #12121208;
           width: 100vw;
@@ -1504,7 +1504,7 @@ export default function ProductDetail({ initialProduct }: Props) {
           font-size: 1.1rem;
           font-weight: 500;
           color: var(--color-green);
-          margin-bottom: 3rem;
+          margin-bottom: 2rem;
           text-transform: uppercase;
           letter-spacing: 2px;
           text-align: center;
@@ -1536,7 +1536,7 @@ export default function ProductDetail({ initialProduct }: Props) {
           margin-top: -60px; /* Centrado respecto a las cards */
         }
         .fbt-card-isla {
-          width: 280px;
+          width: 320px;
           background: #fff;
           transition: transform 0.4s ease;
         }
@@ -1596,7 +1596,7 @@ export default function ProductDetail({ initialProduct }: Props) {
         }
 
         @media (max-width: 600px) {
-            .fbt-new-section { padding: 4rem 0; }
+            .fbt-new-section { padding: 2rem 0; }
             .fbt-fullwidth-container { padding: 0 1.5rem; }
             .fbt-visual-row { gap: 1rem; width: 100%; }
             .fbt-bundle-step { gap: 1rem; }
@@ -1609,14 +1609,14 @@ export default function ProductDetail({ initialProduct }: Props) {
 
         /* --- STYLES FOR RELATED PRODUCTS (PREMIUM) --- */
         .related-products-section {
-          padding: 8rem 0;
+          padding: 2rem 0;
           background-color: #fcfcfc;
           border-top: 1px solid #eee;
           margin-top: 0rem;
         }
         .related-section-header {
           text-align: center;
-          margin: 2rem 0rem;
+          margin: 0rem 0rem;
         }
         .related-title {
           font-size: 1.5rem;
@@ -1634,7 +1634,7 @@ export default function ProductDetail({ initialProduct }: Props) {
 
         @media (max-width: 992px) {
           .related-grid { grid-template-columns: repeat(2, 1fr); }
-          .related-products-section { padding: 0rem 0; }
+          .related-products-section { padding: 2rem 0; }
         }
       `}</style>
     </div>
