@@ -3,6 +3,32 @@ import { Image } from "astro:assets";
 ---
 
 <footer id="footer" class="footer">
+    <!-- Barra Newsletter -->
+    <div class="footer-newsletter-bar">
+        <div class="container newsletter-container">
+            <div class="newsletter-left">
+                <span class="newsletter-text"
+                    >SUSCRÍBETE Y OBTEN 10% DE DESCUENTO</span
+                >
+                <button class="newsletter-button">SUSCRIBIRME</button>
+            </div>
+            <div class="newsletter-social">
+                <a href="#" class="social-square" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" class="social-square" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+                <a href="#" class="social-square" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-square" aria-label="Threads">
+                    <i class="fa-brands fa-threads"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <div class="container footer-grid">
         <!-- Columna 1: Logo e Info -->
         <div class="footer-column brand-info">
@@ -84,8 +110,10 @@ import { Image } from "astro:assets";
     <div class="footer-bottom">
         <div class="container">
             <p>
-                WINSTON & HARRY 2020 UN DESARROLLO DE <span class="agency"
-                    >GO-Agency.</span
+                WINSTON & HARRY 2026 UN DESARROLLO DE <a
+                    href="https://goestrategiacreativa.com/"
+                    target="_blank"
+                    class="agency">GO Agency.</a
                 >
             </p>
         </div>
@@ -129,15 +157,86 @@ import { Image } from "astro:assets";
     .footer {
         background-color: #fff;
         color: #666;
-        padding: 5rem 0 0;
-        border-top: 1px solid #f0f0f0;
+        padding: 0;
         font-family: var(--font-paragraphs);
+    }
+
+    .footer-newsletter-bar {
+        background-color: var(--color-green, #155338);
+        padding: 1.5rem 0;
+    }
+
+    .newsletter-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .newsletter-left {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .newsletter-text {
+        color: #fff;
+        font-family: var(--font-titles);
+        font-weight: 700;
+        letter-spacing: 1px;
+        font-size: 1.1rem;
+    }
+
+    .newsletter-button {
+        background-color: var(--color-beige, #b1915f);
+        color: #fff;
+        border: none;
+        padding: 0.8rem 3rem;
+        font-family: var(--font-paragraphs);
+        font-weight: 600;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: var(--transition-smooth, top 0.3s ease);
+        letter-spacing: 1px;
+    }
+
+    .newsletter-button:hover {
+        background-color: #fff;
+        color: var(--color-beige, #b1915f);
+    }
+
+    .newsletter-social {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .social-square {
+        width: 35px;
+        height: 35px;
+        background-color: var(--color-beige, #b1915f);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.8rem;
+        transition: var(--transition-smooth, all 0.3s);
+        border-radius: 4px;
+        text-decoration: none;
+    }
+
+    .social-square:hover {
+        background-color: #fff;
+        color: var(--color-green, #155338);
     }
 
     .footer-grid {
         display: grid;
         grid-template-columns: 1.5fr 1fr 1fr 1fr;
         gap: 2rem;
+        padding-top: 5rem;
         padding-bottom: 4rem;
     }
 
@@ -216,7 +315,7 @@ import { Image } from "astro:assets";
     }
 
     .agency {
-        color: #f7a228; /* Color naranja de la imagen */
+        color: var(--color-beige, #b1915f);
         font-weight: bold;
     }
 
