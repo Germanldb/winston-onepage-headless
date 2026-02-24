@@ -10,7 +10,9 @@ import { Image } from "astro:assets";
                 <span class="newsletter-text"
                     >SUSCRÍBETE Y OBTEN 10% DE DESCUENTO</span
                 >
-                <button class="newsletter-button">SUSCRIBIRME</button>
+                <button id="newsletter-toggle" class="newsletter-button"
+                    >SUSCRIBIRME</button
+                >
             </div>
             <div class="newsletter-social">
                 <a href="#" class="social-square" aria-label="Instagram">
@@ -25,6 +27,75 @@ import { Image } from "astro:assets";
                 <a href="#" class="social-square" aria-label="Threads">
                     <i class="fa-brands fa-threads"></i>
                 </a>
+            </div>
+        </div>
+
+        <!-- Formulario Suscripción Acordeón -->
+        <div id="newsletter-form-container" class="newsletter-form-container">
+            <div class="container">
+                <form id="subscribe-form" class="subscribe-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="reg-email">Correo Electrónico *</label>
+                            <input
+                                type="email"
+                                id="reg-email"
+                                name="email"
+                                required
+                                placeholder="tu@email.com"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-phone"
+                                >Número de teléfono móvil *</label
+                            >
+                            <input
+                                type="tel"
+                                id="reg-phone"
+                                name="phone"
+                                required
+                                placeholder="+57 --- --- ----"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-fname">Nombre *</label>
+                            <input
+                                type="text"
+                                id="reg-fname"
+                                name="first_name"
+                                required
+                                placeholder="Tu nombre"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-lname">Apellido *</label>
+                            <input
+                                type="text"
+                                id="reg-lname"
+                                name="last_name"
+                                required
+                                placeholder="Tu apellido"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-checkbox">
+                        <input
+                            type="checkbox"
+                            id="reg-privacy"
+                            name="privacy"
+                            required
+                        />
+                        <label for="reg-privacy"
+                            >Autorizo el tratamiento de mis datos personales
+                            teniendo en cuenta la Política de Tratamiento de
+                            Datos de Winston & Harry. Aplican T&C</label
+                        >
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="form-submit">ENVIAR</button
+                        >
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -151,6 +222,44 @@ import { Image } from "astro:assets";
     scrollBtn.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
+
+    // Toggle Formulario Newsletter
+    const newsletterToggle = document.getElementById("newsletter-toggle");
+    const newsletterForm = document.getElementById("newsletter-form-container");
+
+    if (newsletterToggle && newsletterForm) {
+        newsletterToggle.addEventListener("click", () => {
+            newsletterForm.classList.toggle("open");
+            if (newsletterForm.classList.contains("open")) {
+                newsletterToggle.textContent = "CERRAR";
+            } else {
+                newsletterToggle.textContent = "SUSCRIBIRME";
+            }
+        });
+    }
+
+    const subscribeForm = document.getElementById("subscribe-form");
+    if (subscribeForm) {
+        subscribeForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            // Simulación de envío
+            const btn = subscribeForm.querySelector(".form-submit");
+            const originalText = btn.textContent;
+            btn.textContent = "ENVIANDO...";
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert(
+                    "¡Gracias por suscribirte! Pronto recibirás nuestras novedades.",
+                );
+                subscribeForm.reset();
+                newsletterForm.classList.remove("open");
+                newsletterToggle.textContent = "SUSCRIBIRME";
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }, 1500);
+        });
+    }
 </script>
 
 <style>
@@ -361,6 +470,139 @@ import { Image } from "astro:assets";
     @media (max-width: 600px) {
         .footer-grid {
             grid-template-columns: 1fr;
+        }
+    }
+
+    /* Estilos Formulario Newsletter */
+    .newsletter-form-container {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+            max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+            padding 0.6s ease;
+        background-color: var(--color-green, #155338);
+    }
+
+    .newsletter-form-container.open {
+        max-height: 800px;
+        padding: 2rem 0rem;
+    }
+
+    .subscribe-form {
+        padding: 2.5rem 15rem;
+        color: #fff;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .form-group label {
+        font-family: var(--font-titles);
+        font-size: 0.75rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--color-beige);
+    }
+
+    .form-group input {
+        background: rgba(255, 255, 255);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 1rem;
+        color: #fff;
+        font-family: var(--font-paragraphs);
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        border-radius: 0;
+    }
+
+    .form-group input:focus {
+        outline: none;
+        border-color: var(--color-beige);
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .form-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        margin-bottom: 3rem;
+        max-width: 865px;
+    }
+
+    .form-checkbox input {
+        margin-top: 0rem;
+        accent-color: var(--color-beige);
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+    }
+
+    .form-checkbox label {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.6;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    .form-checkbox input:checked + label {
+        color: #fff;
+    }
+
+    .form-actions {
+        display: flex;
+        justify-content: center;
+    }
+
+    .form-submit {
+        background-color: var(--color-beige, #b1915f);
+        color: #fff;
+        border: none;
+        padding: 1.2rem 5rem;
+        font-family: var(--font-titles);
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        letter-spacing: 3px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        text-transform: uppercase;
+    }
+
+    .form-submit:hover {
+        background-color: #fff;
+        color: var(--color-green);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-submit:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    @media (max-width: 768px) {
+        .form-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .newsletter-form-container.open {
+            max-height: 1200px;
+        }
+
+        .form-submit {
+            width: 100%;
         }
     }
 </style>
