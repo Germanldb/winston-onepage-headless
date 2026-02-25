@@ -32,35 +32,56 @@ interface Product {
   variation_images_map?: Record<string, any[]>;
 }
 
+const CATEGORIES = [
+  { id: 63, name: 'Zapatos', slug: 'zapatos' },
+  { id: 249, name: 'Ropa', slug: 'ropa' },
+  { id: 190, name: 'Maletas', slug: 'maletas' }
+];
+
 export default function ProductGrid() {
   const [products, setProducts] = useState<Product[]>([]);
+  const [activeCategory, setActiveCategory] = useState(CATEGORIES[0]);
   const [visibleCount, setVisibleCount] = useState(12);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isHeaderHidden, setIsHeaderHidden] = useState(false);
 
-  const fetchProducts = async () => {
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      // Mismo comportamiento que el Header.astro para sincronización perfecta
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsHeaderHidden(true);
+      } else {
+        setIsHeaderHidden(false);
+      }
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const fetchProducts = async (categoryId: number) => {
     try {
       setLoading(true);
-      // Eliminamos el timestamp para permitir que el caché de Vercel funcione
-      const response = await fetch('/api/products');
-      if (!response.ok) throw new Error('Error al cargar zapatos');
+      setError(null);
+
+      const response = await fetch(`/api/products?category=${categoryId}`);
+      if (!response.ok) throw new Error('Error al cargar productos');
 
       const data: Product[] = await response.json();
 
-      // Filtro de seguridad para evitar duplicados que rompan el grid (Duplicate Keys)
-      setProducts(prev => {
-        const result: Product[] = [];
-        const seenIds: { [key: number]: boolean } = {};
-
-        // Unimos los actuales y los nuevos, filtrando duplicados por ID
-        [...prev, ...data].forEach(p => {
-          if (!seenIds[p.id]) {
-            seenIds[p.id] = true;
-            result.push(p);
-          }
-        });
-        return result;
+      const seenIds = new Set<number>();
+      const filteredData = data.filter(p => {
+        if (seenIds.has(p.id)) return false;
+        seenIds.add(p.id);
+        return true;
       });
+
+      setProducts(filteredData);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error desconocido');
     } finally {
@@ -69,21 +90,23 @@ export default function ProductGrid() {
   };
 
   useEffect(() => {
-    fetchProducts();
-  }, []);
-
-  const loadMore = () => {
-    setVisibleCount(prev => prev + 12);
-  };
+    fetchProducts(activeCategory.id);
+    setVisibleCount(12); // Reset count when category changes
+  }, [activeCategory]);
 
   const displayedProducts = products.slice(0, visibleCount);
-  const hasMore = visibleCount < products.length;
+
+  const handleCategoryChange = (category: typeof CATEGORIES[0]) => {
+    if (category.id === activeCategory.id) return;
+    setProducts([]);
+    setActiveCategory(category);
+  };
 
   if (error) {
     return (
       <div className="error-container">
         <p>{error}</p>
-        <button onClick={() => fetchProducts()} className="btn">Reintentar</button>
+        <button onClick={() => fetchProducts(activeCategory.id)} className="btn">Reintentar</button>
       </div>
     );
   }
@@ -95,8 +118,22 @@ export default function ProductGrid() {
           <span className="subtitle">ACCESORIOS Y ZAPATOS DE CUERO PARA HOMBRE</span>
           <h2>LOS FAVORITOS</h2>
           <p className="description">
-            En un mundo en el que todos tratamos de encajar, la única forma de diferenciarnos es honrando nuestras diferencias reflejadas en nuestra personalidad.
+            Ropa, zapatos 100 % cuero y accesorios diseñados para hombres contemporáneos que valoran la calidad, el detalle y el carácter.
           </p>
+        </div>
+
+        <div className={`category-filters-wrapper ${isHeaderHidden ? 'is-hidden-top' : ''}`}>
+          <div className="category-filters">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat.id}
+                className={`filter-btn ${activeCategory.id === cat.id ? 'active' : ''}`}
+                onClick={() => handleCategoryChange(cat)}
+              >
+                {cat.name}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="grid-4x3">
@@ -107,8 +144,8 @@ export default function ProductGrid() {
 
         {!loading && products.length === 0 && (
           <div className="empty-state">
-            <p>No se encontraron zapatos en esta colección.</p>
-            <button onClick={() => fetchProducts()} className="btn btn-outline">Actualizar</button>
+            <p>No se encontraron productos en esta colección.</p>
+            <button onClick={() => fetchProducts(activeCategory.id)} className="btn btn-outline">Actualizar</button>
           </div>
         )}
 
@@ -118,11 +155,20 @@ export default function ProductGrid() {
           </div>
         )}
 
-        {hasMore && !loading && (
+        {!loading && products.length > 0 && (
           <div className="load-more-container">
-            <button onClick={loadMore} className="btn btn-outline">
-              Ver más zapatos
-            </button>
+            {visibleCount < 24 && products.length > 12 ? (
+              <button
+                onClick={() => setVisibleCount(24)}
+                className="btn btn-outline"
+              >
+                Ver más {activeCategory.name.toLowerCase()}
+              </button>
+            ) : (
+              <a href={`/categoria/${activeCategory.slug}`} className="btn btn-outline">
+                Ver toda la colección de {activeCategory.name.toLowerCase()}
+              </a>
+            )}
           </div>
         )}
       </div>
@@ -130,14 +176,72 @@ export default function ProductGrid() {
       <style>{`
         .tienda { background-color: #fff; padding: 4rem 0; width: 100%; }
         .container-full { width: 100%; padding: 0; }
-        .section-title { text-align: center; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; padding: 0 1rem; }
+        .section-title { text-align: center; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; padding: 0 1rem; }
         .subtitle { font-size: 0.8rem; color: #999; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 0.5rem; font-family: var(--font-paragraphs); }
-        .section-title h2 { font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--color-green); line-height: 1; }
-        .description { font-size: 0.8rem; color: #666; line-height: 1.6; font-family: var(--font-paragraphs); }
+        .section-title h2 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--color-green); line-height: 1; letter-spacing: 4px; font-weight: 700; }
+        .description { font-size: 0.85rem; color: #333; line-height: 1.6; font-family: var(--font-paragraphs); max-width: 600px; margin: 0 auto; }
+
+        .category-filters-wrapper {
+          position: sticky;
+          top: 80px; 
+          z-index: 90;
+          background-color: #fff;
+          padding: 1.5rem 0;
+          margin-bottom: 2rem;
+          transition: top 0.3s ease-in-out;
+        }
+
+        .category-filters-wrapper.is-hidden-top {
+          top: 0;
+        }
+
+        .category-filters {
+          display: flex;
+          justify-content: center;
+          gap: 1rem;
+          max-width: 1600px;
+          margin: 0 auto;
+          padding: 0 1rem;
+        }
+
+        .filter-btn {
+          flex: 1;
+          max-width: 250px;
+          padding: 1rem 2rem;
+          border: none;
+          background-color: #e0e0e0;
+          color: #155338;
+          font-family: var(--font-paragraphs);
+          font-size: 0.8rem;
+          font-weight: 600;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+          background-color: #155338;
+          color: #fff;
+        }
+
+        .filter-btn:hover:not(.active) {
+          background-color: #d0d0d0;
+        }
 
         @media (max-width: 768px) {
-          .section-title h2 { font-size: 1.15rem; }
+          .section-title h2 { font-size: 1.25rem; }
           .description { font-size: 0.75rem; }
+          .category-filters { 
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+          }
+          .filter-btn { 
+            width: 100%;
+            max-width: 100%;
+          }
+          .category-filters-wrapper { top: 64px; } 
         }
 
         .grid-4x3 {
@@ -145,7 +249,6 @@ export default function ProductGrid() {
           grid-template-columns: repeat(4, 1fr);
           gap: 0rem;
           width: 100%;
-          
         }
 
         @media (max-width: 1200px) { .grid-4x3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
@@ -154,9 +257,27 @@ export default function ProductGrid() {
 
         .load-more-container { margin-top: 4rem; display: flex; justify-content: center; }
         .error-container { text-align: center; padding: 4rem 0; }
-        .loading-spinner { display: flex; justify-content: center; margin-top: 3rem; }
+        .loading-spinner { display: flex; justify-content: center; margin: 4rem 0; }
         .spinner { width: 40px; height: 40px; border: 4px solid rgba(21, 83, 56, 0.1); border-left-color: var(--color-green); border-radius: 50%; animation: spin 1s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
+
+        .btn-outline {
+          border: 1px solid var(--color-green);
+          background: transparent;
+          color: var(--color-green);
+          padding: 0.8rem 2.5rem;
+          text-decoration: none;
+          text-transform: uppercase;
+          font-size: 0.8rem;
+          letter-spacing: 2px;
+          font-weight: 600;
+          transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+          background: var(--color-green);
+          color: #fff;
+        }
       `}</style>
     </section>
   );

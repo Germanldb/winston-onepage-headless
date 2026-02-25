@@ -12,23 +12,24 @@ Este archivo resume los últimos cambios realizados para mantener la sincronía 
 
 ## Archivos Editados Recientemente y su Propósito
 
-- **src/components/ProductDetail.tsx**: 
-    - **Refactorización de "El Complemento Ideal":** Se simplificó la sección para utilizar el componente estándar `ProductCard`. Esto garantiza que todas las optimizaciones de imágenes (WebP, fallbacks, limpieza de sufijos) funcionen perfectamente y de forma consistente con el resto del sitio.
-    - **Simplificación de UX:** Se eliminó la selección individual por producto para ofrecer una experiencia de "Colección Completa" más directa y evitar errores visuales.
-    - **Optimización de Imágenes:** Se centralizó la lógica de carga en `ProductCard`, eliminando el código redundante de `ProductDetail.tsx`.
-- **src/pages/productos/[slug].astro**:
-    - Se actualizó la lógica de fetching para extraer complementos específicos basados en categorías.
-    - **Lógica de Balanceo:** Ahora selecciona obligatoriamente un producto de "alto valor" (Chaqueta, Camisa o Suéter) y uno de "bajo valor" (Accesorio o Media), creando una propuesta de look más completa y equilibrada.
-    - Se excluye el producto actual de las sugerencias para evitar duplicados.
-
-- **src/components/ProductGrid.tsx** y **src/pages/index.astro**:
-    - Ajustes en el grid de la página de inicio para una estética premium tipo Louis Vuitton.
+- **src/components/ProductGrid.tsx**:
+    - **Filtros Dinámicos de Categoría:** Se implementó una barra de navegación tipo "Categoría" con botones para Zapatos (ID 63), Ropa (ID 249) y Maletas (ID 190).
+    - **Barra Sticky Inteligente:** La sección de filtros ahora es fija (`sticky`) y sincronizada con el Header; se ajusta dinámicamente (`top: 80px` o `top: 0`) según la visibilidad del menú para evitar huecos visuales.
+    - **Carga Progresiva (12 -> 24 -> Enlace):** Se optimizó el renderizado inicial mostrando primero 12 productos (4x3), cargando 24 tras el primer clic en "Ver más", y redirigiendo a la página de categoría completa en el siguiente paso. Esto mejora el rendimiento del DOM y la experiencia de navegación profunda.
+- **src/pages/api/products.ts**:
+    - **Parámetro de Categoría:** Se actualizó el endpoint para aceptar un parámetro `category`, permitiendo el filtrado desde el frontend.
+    - **Optimización de Velocidad:** Se eliminó la carga pesada de variaciones en el listado masivo para evitar *timeouts* en categorías grandes (como Ropa), delegando la visualización de colores a la lógica de predicción del cliente.
+- **src/components/Header.astro**:
+    - **Fix de Logo:** Se reemplazó el componente `<Image />` por una etiqueta `<img>` estándar para evitar bloqueos por parte del servicio de optimización de imágenes ante ráfagas de tráfico, asegurando que el branding sea siempre visible.
 
 ## Estado Actual
-- El sistema de venta cruzada ("El Complemento Ideal") está activo y funcional.
-- Las sugerencias son dinámicas y se basan en un pool de categorías seleccionadas.
-- La galería móvil es 100% dinámica y soporta "adivinación" de hasta 12 imágenes.
-- El diseño general del sitio mantiene una línea de alta gama con enfoque en la conversión.
+- **Navegación por Categorías:** Totalmente funcional en el Home con transición suave.
+- **Optimización de Grid:** Sistema de carga por etapas (12/24/Enlace) activo.
+- **Header y Filtros Sincronizados:** El comportamiento sticky del grid responde a la visibilidad del Header.
+- **API Optimizada:** Capaz de manejar categorías con altos volúmenes de productos sin errores de servidor.
+- El sistema de venta cruzada ("El Complemento Ideal") sigue activo y funcional.
+- La galería móvil es 100% dinámica y soporta "adivinación" de imágenes.
+- El diseño general mantiene la estética de alta gama Louis Vuitton con enfoque en conversión.
 
 ## Sistema de Diseño y Línea Gráfica (Winston & Harry)
 
