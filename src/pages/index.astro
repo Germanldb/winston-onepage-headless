@@ -17,7 +17,6 @@ import FeaturesBanner from "../components/FeaturesBanner.astro";
 
 		<div class="content-wrapper">
 			<FeaturesBanner />
-			<ProductGrid client:load />
 
 			<ScrollRevealBanner
 				imageUrl="/images/banner-look-completo.webp"
@@ -25,6 +24,8 @@ import FeaturesBanner from "../components/FeaturesBanner.astro";
 				description="Cada prenda está pensada para integrarse a tu forma de vestir y a tu ritmo. Descubre ropa que suma, combina y se adapta a tu día. chaquetas, camisas y suéteres."
 				pretitle="Winston & Harry"
 			/>
+
+			<ProductGrid client:load />
 
 			<About />
 		</div>
