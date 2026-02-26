@@ -308,7 +308,7 @@ import { Image } from "astro:assets";
         font-size: 0.9rem;
         cursor: pointer;
         transition: var(--transition-smooth, top 0.3s ease);
-        letter-spacing: 1px;
+        letter-spacing: 3px;
     }
 
     .newsletter-button:hover {
@@ -463,7 +463,38 @@ import { Image } from "astro:assets";
     @media (max-width: 992px) {
         .footer-grid {
             grid-template-columns: repeat(2, 1fr);
-            padding: 0 2rem 4rem;
+            padding: 2rem;
+        }
+        .newsletter-text {
+            color: #fff;
+            font-family: var(--font-titles);
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 0.98em;
+        }
+
+        .newsletter-left {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-button {
+            width: 100%;
+        }
+        .subscribe-form {
+            padding: 0rem !important;
+            color: #fff;
+        }
+        .form-group {
+            gap: 0.5rem;
+        }
+        .form-submit {
+            padding: 2rem;
+        }
+        .form-checkbox {
+            margin-bottom: 1rem !important;
         }
     }
 
@@ -599,10 +630,12 @@ import { Image } from "astro:assets";
 
         .newsletter-form-container.open {
             max-height: 1200px;
+            padding: 2rem 0rem 0rem 0rem !important;
         }
 
         .form-submit {
             width: 100%;
+            padding: 1rem;
         }
     }
 </style>

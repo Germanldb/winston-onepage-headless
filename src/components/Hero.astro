@@ -29,14 +29,16 @@
 
 <style>
     .hero {
-        position: relative;
+        position: sticky;
+        top: 90px; /* Altura del header en desktop */
+        margin-top: 90px; /* Para que no empiece debajo del header fixed */
         height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
         background-color: #000;
-        margin-top: 90px;
+        z-index: 1;
     }
 
     .video-background {
@@ -92,6 +94,7 @@
         .hero {
             height: auto;
             aspect-ratio: 16 / 9;
+            top: 65px; /* Altura del header en mobile */
             margin-top: 65px;
         }
 
