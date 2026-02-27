@@ -140,7 +140,7 @@ export default function LookSection() {
             <style>{`
                 .look-of-the-week {
                     background-color: #fcfcfc;
-                    padding: 6rem 1rem;
+                    padding: 2rem 1rem;
                 }
                 .look-wrapper {
                     max-width: 1400px;
@@ -188,9 +188,10 @@ export default function LookSection() {
                 .look-title {
                     color: #155338;
                     font-family: var(--font-titles);
-                    font-size: 1.8rem;
-                    letter-spacing: 6px;
+                    font-size: 1.25rem;
+                    letter-spacing: 2px;
                     text-transform: uppercase;
+                    margin-top: 1.5rem;
                     margin-bottom: 1.5rem;
                 }
                 .look-intro {
@@ -272,9 +273,127 @@ export default function LookSection() {
                 }
 
                 @media (max-width: 1024px) {
-                    .look-grid { grid-template-columns: 1fr; }
-                    .look-product-card-container { width: 180px; }
-                    .products-row { flex-wrap: wrap; }
+                    .products-row {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        grid-auto-rows: 1fr;
+                        gap: 0;
+                        padding: 0;
+                        width: 100%;
+                        margin-bottom: 0px;
+                    }
+                    .look-of-the-week {
+                        background-color:#fcfcfc;
+                        padding: 2rem 0rem;
+                        width: 100%;
+                        overflow: hidden;
+                    }
+                    .look-wrapper {
+                        width: 100%;
+                        max-width: 100%;
+                        margin: 0;
+                        box-shadow: none;
+                        border: none;
+                        background: transparent;
+                    }
+                    .look-grid { 
+                        display: flex;
+                        flex-direction: column;
+                        min-height: auto;
+                    }
+                    .look-content-container { 
+                        padding: 0; 
+                        width: 100%;
+                    }
+                    .look-header {
+                        width: 100%;
+                        margin: 0 0 2rem 0;
+                        padding: 0 1.5rem;
+                    }
+                    .products-row { 
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        grid-auto-rows: 1fr;
+                        gap: 0;
+                        padding: 0;
+                        width: 100%;
+                    }
+                    .look-product-item-wrapper {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        border-bottom: 1px solid #f0f0f0;
+                        border-right: 1px solid #f0f0f0;
+                    }
+                    .look-product-item-wrapper:nth-child(2n) {
+                        border-right: none;
+                    }
+                    .look-product-card-container { 
+                        width: 100%;
+                        flex: 1;
+                        display: flex;
+                    }
+                    /* Forzamos el estiramiento de todos los niveles del componente ProductCard */
+                    .look-product-card-container .product-card {
+                        flex: 1;
+                        display: flex !important;
+                        flex-direction: column !important;
+                        height: 100% !important;
+                        background: #fff;
+                    }
+                    .look-product-card-container .card-content {
+                        flex: 1 !important;
+                        display: flex !important;
+                        flex-direction: column !important;
+                        height: 100% !important;
+                    }
+                    .look-product-card-container .product-info {
+                        flex: 1 !important;
+                        display: grid !important;
+                        grid-template-areas: 
+                            "name name"
+                            "price colors";
+                        grid-template-columns: 1fr auto;
+                        align-items: stretch;
+                        text-align: left;
+                        padding: 10px 0.8rem !important;
+                        gap: 0px !important;
+                    }
+                    .look-product-card-container .info-top-row {
+                        display: contents !important; /* Permite que h3 y colores sean hermanos directos del precio en el grid */
+                    }
+                    .look-product-card-container .product-info h3 {
+                        grid-area: name;
+                        margin: 0;
+                    }
+                    .look-product-card-container .product-info h3 a {
+                        font-family: var(--font-products);
+                        font-size: 0.8rem;
+                        line-height: 1.2;
+                        display: block;
+                        min-height: 2.4em;
+                    }
+                    .look-product-card-container .card-colors {
+                        grid-area: colors;
+                        gap: 5px !important;
+                        justify-content: flex-end;
+                    }
+                    .look-product-card-container .price {
+                        grid-area: price;
+                        font-size: 0.8rem;
+                        margin: 0 !important;
+                        padding: 0 !important;
+                    }
+                    .product-plus {
+                         display: none;
+                    }
+                    .total-summary-card {
+                        width: 100%;
+                        margin: 0;
+                        padding: 1.5rem 0.5rem;
+                        border: none;
+                        
+                    }
                 }
             `}</style>
         </section>

@@ -233,9 +233,10 @@ export default function ProductGrid() {
           .section-title h2 { font-size: 1.25rem; }
           .description { font-size: 0.75rem; }
           .category-filters { 
-            flex-direction: column;
+            /*flex-direction: column;*/
             align-items: center;
             gap: 1rem;
+            transform: scale(0.8);
           }
           .filter-btn { 
             width: 100%;
