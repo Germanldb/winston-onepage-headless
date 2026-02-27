@@ -7,6 +7,7 @@ import ProductGrid from "../components/ProductGrid";
 import About from "../components/About.astro";
 import Footer from "../components/Footer.astro";
 import FeaturesBanner from "../components/FeaturesBanner.astro";
+import LookOfTheWeek from "../components/LookOfTheWeek.astro";
 ---
 
 <Layout title="Winston & Harry | Calzado Artesanal de Lujo">
@@ -17,16 +18,14 @@ import FeaturesBanner from "../components/FeaturesBanner.astro";
 
 		<div class="content-wrapper">
 			<FeaturesBanner />
-
 			<ScrollRevealBanner
 				imageUrl="/images/banner-look-completo.webp"
 				title="Estilo que se construye con intención"
 				description="Cada prenda está pensada para integrarse a tu forma de vestir y a tu ritmo. Descubre ropa que suma, combina y se adapta a tu día. chaquetas, camisas y suéteres."
 				pretitle="Winston & Harry"
 			/>
-
 			<ProductGrid client:load />
-
+			<LookOfTheWeek />
 			<About />
 		</div>
 	</main>
