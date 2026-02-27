@@ -2,6 +2,23 @@
 
 Este archivo resume los últimos cambios realizados para mantener la sincronía entre diferentes estaciones de trabajo.
 
+## Últimos Cambios (26 de Febrero, 2026)
+
+### 1. Corrección de Espacio en Blanco en Hero (Scroll Bug)
+- **Problema:** Al hacer scroll hacia abajo, el menú se ocultaba pero la sección Hero mantenía un desplazamiento superior de 90px, dejando un hueco blanco visible.
+- **Solución:** 
+    - Se actualizó `Header.astro` para inyectar la clase `is-header-hidden` al `body` cuando el menú se oculta.
+    - Se modificó `Hero.astro` para que su posición `sticky` cambie de `top: 90px` a `top: 0` dinámicamente mediante una transición fluida.
+    - Esto permite que el video de fondo ocupe el 100% de la pantalla útil tan pronto como el menú desaparece.
+
+### 2. Nueva Sección de Categorías (CategoryGrid)
+- **Implementación:** Se creó el componente `CategoryGrid.astro` con 4 bloques principales: Ropa, Zapatos, Maletas y Accesorios.
+- **Estética premium:** 
+    - Títulos y etiquetas en estilo Louis Vuitton (`Verde #155338`, `Bold 700`, `Antonio`).
+    - Subtítulos alineados con la nueva visión: "Todo lo que necesita el hombre colombiano que viste con criterio".
+    - Efectos de hover con zoom en imágenes y cambio de color a beige Winston.
+- **Ajustes de Diseño:** Se redujo el padding excesivo para mejorar la compresión vertical y se ajustó el tamaño de los títulos a `1.5rem` para mayor elegancia.
+
 ## Últimos 5 Commits
 
 1. **4978d4e** - *Adicion de la seccion el complemento ideal* (Hoy)

@@ -39,6 +39,11 @@
         overflow: hidden;
         background-color: #000;
         z-index: 1;
+        transition: top 0.3s ease-in-out;
+    }
+
+    :global(body.is-header-hidden) .hero {
+        top: 0;
     }
 
     .video-background {
@@ -96,6 +101,11 @@
             aspect-ratio: 16 / 9;
             top: 65px; /* Altura del header en mobile */
             margin-top: 65px;
+            transition: top 0.3s ease-in-out;
+        }
+
+        :global(body.is-header-hidden) .hero {
+            top: 0;
         }
 
         .hero-overlay-img {

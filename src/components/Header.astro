@@ -442,8 +442,10 @@ import { Image } from "astro:assets";
     window.addEventListener("scroll", () => {
         if (window.scrollY > lastScrollY && window.scrollY > 100) {
             header?.classList.add("header-hidden");
+            document.body.classList.add("is-header-hidden");
         } else {
             header?.classList.remove("header-hidden");
+            document.body.classList.remove("is-header-hidden");
         }
         lastScrollY = window.scrollY;
     });

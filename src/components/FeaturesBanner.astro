@@ -129,6 +129,7 @@ import { Image } from "astro:assets";
         }
         .feature-item {
             min-width: 150px;
+            transform: scale(0.9);
         }
     }
 
@@ -139,7 +140,8 @@ import { Image } from "astro:assets";
         .features-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem 1rem;
+            gap: 1rem 1rem;
+            padding: 0;
         }
         .feature-text span {
             font-size: 0.65rem;
