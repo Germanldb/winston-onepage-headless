@@ -96,7 +96,7 @@ export default function ProductCard({ product, isSelected, onSelectionToggle }: 
             }
         }
 
-        // 2. Fallback: Filtrado robusto
+        // 2. Fallback: Filtrado robusto en el set de imágenes ya presente
         const colorTerm = colorAttribute?.terms.find(t => t.slug === activeColor);
         const colorName = colorTerm?.name.toLowerCase() || "";
 
@@ -117,63 +117,43 @@ export default function ProductCard({ product, isSelected, onSelectionToggle }: 
 
         // 3. Fallback Avanzado: Predicción de URL (Basado en la convención de Winston & Harry)
         if (product.images.length > 0 && colorAttribute && !failedSyntheticColors.includes(activeColor)) {
-            const baseImage = product.images[0];
-            const baseSrc = baseImage.src;
+            const baseImg = product.images[0];
+            const baseSrc = baseImg.src;
 
-            // Buscamos qué color tiene la imagen base en su nombre de archivo
+            // Intentamos detectar qué color tiene la imagen base para reemplazarlo
             const colorInUrl = colorAttribute.terms.find(t =>
                 baseSrc.toLowerCase().includes(t.slug.toLowerCase()) ||
                 baseSrc.toLowerCase().includes(t.name.toLowerCase())
             );
 
             if (colorInUrl) {
-                const activeColorTerm = colorAttribute.terms.find(t => t.slug === activeColor);
-                if (activeColorTerm) {
-                    const colorToReplace = baseSrc.match(new RegExp(colorInUrl.name, 'i')) ? colorInUrl.name : colorInUrl.slug;
-                    const newColorName = activeColorTerm.name;
-                    const newColorSlug = activeColorTerm.slug;
+                // Caso especial: El color base es el mismo que el seleccionado
+                if (colorInUrl.slug === activeColor) return product.images;
 
-                    // Probamos reemplazo con Nombre (ej: Negro) y si falla el navegador el onError lo detectará
-                    // Pero para ser más seguros, intentamos mantener el casing original
-                    const isCapitalized = colorToReplace[0] === colorToReplace[0].toUpperCase();
-                    let finalNewColor = newColorName;
+                // Intentamos encontrar el color en el URL para ver qué casing usa
+                const match = baseSrc.match(new RegExp(colorInUrl.slug, 'i')) || baseSrc.match(new RegExp(colorInUrl.name, 'i'));
+
+                if (match) {
+                    const matchedText = match[0];
+                    const isCapitalized = matchedText[0] === matchedText[0].toUpperCase();
+
+                    // Preparamos el reemplazo con el mismo casing si es posible
+                    let replacement = activeColor;
                     if (isCapitalized) {
-                        finalNewColor = finalNewColor.charAt(0).toUpperCase() + finalNewColor.slice(1).toLowerCase();
-                    } else {
-                        finalNewColor = finalNewColor.toLowerCase();
+                        replacement = activeColor.charAt(0).toUpperCase() + activeColor.slice(1).toLowerCase();
                     }
 
-                    const predictedImages = [];
-                    // Imagen 1 (Principal)
-                    let src1 = baseSrc.replace(new RegExp(colorToReplace, 'gi'), finalNewColor);
-                    predictedImages.push({
-                        ...baseImage,
-                        id: 999999,
-                        src: src1,
-                        alt: `${product.name} ${finalNewColor}`
-                    });
+                    try {
+                        const regex = new RegExp(matchedText, 'g'); // Solo reemplazamos lo que encontramos exactamente
+                        const newSrc = baseSrc.replace(regex, replacement);
 
-                    // Imagen 2 (Hover - Intento inteligente)
-                    let src2 = src1;
-                    const patternWith1 = /([-_])1(.*?)(?=\.[a-z0-9.]+$)/i;
-                    if (src2.match(patternWith1)) {
-                        src2 = src2.replace(patternWith1, '$12$2');
-                    } else {
-                        // Si no tiene -1, probamos añadir -2 antes de la extensión
-                        const extensionPattern = /(?=\.[a-z0-9.]+$)/i;
-                        src2 = src2.replace(extensionPattern, '-2');
-                    }
-
-                    if (src2 !== src1) {
-                        predictedImages.push({
-                            ...baseImage,
-                            id: 999999 + 1,
-                            src: src2,
-                            alt: `${product.name} ${finalNewColor} vista 2`
-                        });
-                    }
-
-                    return predictedImages;
+                        if (newSrc !== baseSrc) {
+                            return [{
+                                ...baseImg,
+                                src: newSrc
+                            }];
+                        }
+                    } catch (e) { }
                 }
             }
         }

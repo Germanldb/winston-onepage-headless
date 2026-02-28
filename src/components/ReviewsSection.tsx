@@ -328,7 +328,7 @@ export default function ReviewsSection() {
                         margin-bottom: 0.5rem;
                     }
                     .card-right {
-                        width: 100%;
+                        width: 150px;
                     }
                     .nav-btn.next {
                         right: 5px;
@@ -481,7 +481,7 @@ export default function ReviewsSection() {
                         padding-right: 0;
                     }
                     .card-right {
-                        width: 110px;
+                        width: 150px;
                     }
                     .product-thumb {
                         width: 75px;

@@ -1,7 +1,30 @@
 import type { APIRoute } from 'astro';
 
+// Cache in-memory
+let cachedReviews: any[] | null = null;
+let lastFetchTime = 0;
+const CACHE_DURATION = 1000 * 60 * 60; // 1 Hora
+
 export const GET: APIRoute = async ({ url }) => {
     try {
+        const now = Date.now();
+
+        // Si tenemos cache y no ha expirado, devolvemos directo
+        if (cachedReviews && (now - lastFetchTime < CACHE_DURATION)) {
+            // Mezclamos lo que ya tenemos cacheado para dar variedad
+            const shuffled = [...cachedReviews].sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, 10);
+
+            return new Response(JSON.stringify(selected), {
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate'
+                }
+            });
+        }
+
         const response = await fetch(
             `https://winstonandharrystore.com/wp-json/wc/store/v1/products/reviews?per_page=100`
         );
@@ -21,11 +44,8 @@ export const GET: APIRoute = async ({ url }) => {
         });
         const uniqueReviews = Array.from(uniqueMap.values());
 
-        // Mezclar y tomar 10 de las únicas
-        const shuffled = uniqueReviews.sort(() => 0.5 - Math.random());
-        const selected = shuffled.slice(0, 10);
-
-        const optimizedReviews = await Promise.all(selected.map(async (review: any) => {
+        // Procesar todas las reseñas únicas para tener la "base" optimizada en cache
+        const processedReviews = await Promise.all(uniqueReviews.map(async (review: any) => {
             // Intentar obtener el slug del producto si no viene (el Store API suele no traerlo)
             // Si viene en review.product_slug o similar lo usamos
             if (!review.product_slug && review.product_id) {
@@ -50,14 +70,20 @@ export const GET: APIRoute = async ({ url }) => {
             return review;
         }));
 
-        return new Response(JSON.stringify(optimizedReviews), {
+        // Guardar en cache global
+        cachedReviews = processedReviews;
+        lastFetchTime = now;
+
+        // Mezclar y tomar 10 para esta respuesta inicial
+        const shuffled = [...processedReviews].sort(() => 0.5 - Math.random());
+        const selected = shuffled.slice(0, 10);
+
+        return new Response(JSON.stringify(selected), {
             status: 200,
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
-                'Pragma': 'no-cache',
-                'Expires': '0'
+                'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400'
             }
         });
 
