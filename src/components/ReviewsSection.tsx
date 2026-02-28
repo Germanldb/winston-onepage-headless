@@ -27,6 +27,9 @@ export default function ReviewsSection() {
     const minSwipeDistance = 50;
 
     useEffect(() => {
+        // Precargamos las reseñas inmediatamente al montar el componente, 
+        // sin esperar a que entre en el viewport (Astro client:visible ya maneja la hidratación, 
+        // pero queremos que los datos estén listos lo antes posible).
         const fetchReviews = async () => {
             try {
                 const res = await fetch('/api/reviews');
@@ -89,8 +92,8 @@ export default function ReviewsSection() {
     const onTouchEnd = () => {
         if (!touchStart || !touchEnd) return;
         const distance = touchStart - touchEnd;
-        const isLeftSwipe = distance > minSwipeDistance;
-        const isRightSwipe = distance < -minSwipeDistance;
+        const isLeftSwipe = distance > 50;
+        const isRightSwipe = distance < -50;
 
         if (isLeftSwipe) {
             nextSlide();
@@ -99,19 +102,11 @@ export default function ReviewsSection() {
         }
     };
 
-    if (loading || reviews.length === 0) {
-        return (
-            <section className="reviews-section loading">
-                <div className="spinner"></div>
-            </section>
-        );
-    }
-
     const perPage = isMobile ? 1 : 3;
     const translateX = currentIndex * (100 / perPage);
 
     return (
-        <section className="reviews-section">
+        <section className={`reviews-section ${loading ? 'is-loading' : 'is-ready'}`}>
             <div className="container-reviews">
                 <div className="section-header">
                     <h2>Lo que dicen quienes eligieron<br />Winston & Harry</h2>
@@ -122,92 +117,92 @@ export default function ReviewsSection() {
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
                 >
-                    <button className="nav-btn prev" onClick={prevSlide} aria-label="Previous">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m15 18-6-6 6-6" /></svg>
-                    </button>
-
-                    <div
-                        className="slider-viewport"
-                        ref={sliderRef}
-                        onTouchStart={onTouchStart}
-                        onTouchMove={onTouchMove}
-                        onTouchEnd={onTouchEnd}
-                    >
-                        <div
-                            className="slider-track"
-                            style={{ transform: `translateX(-${translateX}%)` }}
-                        >
-                            {reviews.map((review) => (
-                                <div key={review.id} className="review-card-wrapper">
-                                    <div className="review-card">
-                                        <div className="card-left">
-                                            <h3 className="reviewer-name">{review.reviewer}</h3>
-                                            <div
-                                                className="review-text"
-                                                dangerouslySetInnerHTML={{ __html: review.review }}
-                                            />
-                                        </div>
-
-                                        <div className="card-right">
-                                            <div className="stars">
-                                                {[...Array(5)].map((_, i) => (
-                                                    <span key={i} className={`star ${i < review.rating ? 'filled' : ''}`}>★</span>
-                                                ))}
-                                            </div>
-
-                                            <div className="product-info-column">
-                                                <span className="valoro-label">VALORÓ</span>
-                                                <a
-                                                    href={review.product_slug ? `/productos/${review.product_slug}` : '#'}
-                                                    className="product-link"
-                                                >
-                                                    {review.product_image && (
-                                                        <img
-                                                            src={review.product_image.src}
-                                                            alt={review.product_image.alt || review.product_name}
-                                                            className="product-thumb"
-                                                            referrerPolicy="no-referrer"
-                                                            onError={(e) => {
-                                                                const target = e.target as HTMLImageElement;
-                                                                target.onerror = null;
-
-                                                                let currentSrc = target.src;
-
-                                                                // 1. Si falló el .webp, intentar volver al original
-                                                                if (currentSrc.toLowerCase().endsWith('.webp')) {
-                                                                    // Intentamos quitar el .webp final
-                                                                    // Si era .jpg.webp -> .jpg
-                                                                    const fallback = currentSrc.replace(/\.webp$/i, '');
-                                                                    if (fallback !== currentSrc) {
-                                                                        target.src = fallback;
-                                                                        return;
-                                                                    }
-                                                                }
-
-                                                                // 2. Limpiar sufijos de edición de WP -e158...
-                                                                const cleanSrc = currentSrc.replace(/-e\d+(?=\.(jpg|jpeg|png))/i, '');
-                                                                if (cleanSrc !== target.src) {
-                                                                    target.src = cleanSrc;
-                                                                } else {
-                                                                    // 3. Placeholder final
-                                                                    target.src = 'https://via.placeholder.com/300?text=Winston+%26+Harry';
-                                                                }
-                                                            }}
-                                                        />
-                                                    )}
-                                                    <span className="product-name">{review.product_name}</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
+                    {loading ? (
+                        <div className="reviews-placeholder">
+                            <div className="spinner"></div>
                         </div>
-                    </div>
+                    ) : (
+                        <>
+                            <button className="nav-btn prev" onClick={prevSlide} aria-label="Previous">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m15 18-6-6 6-6" /></svg>
+                            </button>
 
-                    <button className="nav-btn next" onClick={nextSlide} aria-label="Next">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m9 18 6-6-6-6" /></svg>
-                    </button>
+                            <div
+                                className="slider-viewport"
+                                ref={sliderRef}
+                                onTouchStart={onTouchStart}
+                                onTouchMove={onTouchMove}
+                                onTouchEnd={onTouchEnd}
+                            >
+                                <div
+                                    className="slider-track"
+                                    style={{ transform: `translateX(-${translateX}%)` }}
+                                >
+                                    {reviews.map((review) => (
+                                        <div key={review.id} className="review-card-wrapper fade-in">
+                                            <div className="review-card">
+                                                <div className="card-left">
+                                                    <h3 className="reviewer-name">{review.reviewer}</h3>
+                                                    <div
+                                                        className="review-text"
+                                                        dangerouslySetInnerHTML={{ __html: review.review }}
+                                                    />
+                                                </div>
+
+                                                <div className="card-right">
+                                                    <div className="stars">
+                                                        {[...Array(5)].map((_, i) => (
+                                                            <span key={i} className={`star ${i < review.rating ? 'filled' : ''}`}>★</span>
+                                                        ))}
+                                                    </div>
+
+                                                    <div className="product-info-column">
+                                                        <span className="valoro-label">VALORÓ</span>
+                                                        <a
+                                                            href={review.product_slug ? `/productos/${review.product_slug}` : '#'}
+                                                            className="product-link"
+                                                        >
+                                                            {review.product_image && (
+                                                                <img
+                                                                    src={review.product_image.src}
+                                                                    alt={review.product_image.alt || review.product_name}
+                                                                    className="product-thumb"
+                                                                    referrerPolicy="no-referrer"
+                                                                    onError={(e) => {
+                                                                        const target = e.target as HTMLImageElement;
+                                                                        target.onerror = null;
+                                                                        let currentSrc = target.src;
+                                                                        if (currentSrc.toLowerCase().endsWith('.webp')) {
+                                                                            const fallback = currentSrc.replace(/\.webp$/i, '');
+                                                                            if (fallback !== currentSrc) {
+                                                                                target.src = fallback;
+                                                                                return;
+                                                                            }
+                                                                        }
+                                                                        const cleanSrc = currentSrc.replace(/-e\d+(?=\.(jpg|jpeg|png))/i, '');
+                                                                        if (cleanSrc !== target.src) {
+                                                                            target.src = cleanSrc;
+                                                                        } else {
+                                                                            target.src = 'https://via.placeholder.com/300?text=Winston+%26+Harry';
+                                                                        }
+                                                                    }}
+                                                                />
+                                                            )}
+                                                            <span className="product-name">{review.product_name}</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <button className="nav-btn next" onClick={nextSlide} aria-label="Next">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m9 18 6-6-6-6" /></svg>
+                            </button>
+                        </>
+                    )}
                 </div>
             </div>
 
@@ -537,6 +532,23 @@ export default function ReviewsSection() {
                 }
 
                 @keyframes spin { to { transform: rotate(360deg); } }
+
+                .fade-in {
+                    animation: fadeIn 0.8s ease forwards;
+                }
+
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translateY(10px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+
+                .reviews-placeholder {
+                    width: 100%;
+                    height: 300px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
             `}</style>
         </section>
     );

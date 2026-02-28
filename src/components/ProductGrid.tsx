@@ -40,18 +40,66 @@ const CATEGORIES = [
 
 export default function ProductGrid() {
   const [products, setProducts] = useState<Product[]>([]);
+  const [categoryCache, setCategoryCache] = useState<Record<number, Product[]>>({});
   const [activeCategory, setActiveCategory] = useState(CATEGORIES[0]);
   const [visibleCount, setVisibleCount] = useState(12);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
 
+  // Precarga inicial de todas las categorías para eliminar el loader al cambiar pestañas
+  useEffect(() => {
+    const prefetchCategories = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        // Hacemos las peticiones en paralelo
+        const results = await Promise.all(
+          CATEGORIES.map(async (cat) => {
+            const res = await fetch(`/api/products?category=${cat.id}`);
+            if (!res.ok) return { id: cat.id, data: [] };
+            const data: Product[] = await res.json();
+
+            // De-duplicación de seguridad
+            const seenIds = new Set<number>();
+            const filteredData = data.filter(p => {
+              if (seenIds.has(p.id)) return false;
+              seenIds.add(p.id);
+              return true;
+            });
+
+            return { id: cat.id, data: filteredData };
+          })
+        );
+
+        // Guardamos todo en el cache local
+        const newCache: Record<number, Product[]> = {};
+        results.forEach(res => {
+          newCache[res.id] = res.data;
+        });
+
+        setCategoryCache(newCache);
+
+        // Establecemos los productos iniciales (Zapatos)
+        if (newCache[activeCategory.id]) {
+          setProducts(newCache[activeCategory.id]);
+        }
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Error al precargar colecciones');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    prefetchCategories();
+  }, []);
+
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      // Mismo comportamiento que el Header.astro para sincronización perfecta
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setIsHeaderHidden(true);
       } else {
@@ -65,6 +113,7 @@ export default function ProductGrid() {
   }, []);
 
   const fetchProducts = async (categoryId: number) => {
+    // Esta función ahora solo se usa para reintentos o refrescos manuales
     try {
       setLoading(true);
       setError(null);
@@ -73,7 +122,6 @@ export default function ProductGrid() {
       if (!response.ok) throw new Error('Error al cargar productos');
 
       const data: Product[] = await response.json();
-
       const seenIds = new Set<number>();
       const filteredData = data.filter(p => {
         if (seenIds.has(p.id)) return false;
@@ -82,6 +130,7 @@ export default function ProductGrid() {
       });
 
       setProducts(filteredData);
+      setCategoryCache(prev => ({ ...prev, [categoryId]: filteredData }));
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error desconocido');
     } finally {
@@ -89,18 +138,22 @@ export default function ProductGrid() {
     }
   };
 
-  useEffect(() => {
-    fetchProducts(activeCategory.id);
-    setVisibleCount(12); // Reset count when category changes
-  }, [activeCategory]);
-
-  const displayedProducts = products.slice(0, visibleCount);
-
   const handleCategoryChange = (category: typeof CATEGORIES[0]) => {
     if (category.id === activeCategory.id) return;
-    setProducts([]);
+
     setActiveCategory(category);
+    setVisibleCount(12);
+
+    // Si ya lo tenemos en cache, lo mostramos de inmediato (Sin loader)
+    if (categoryCache[category.id]) {
+      setProducts(categoryCache[category.id]);
+    } else {
+      // Si por algún motivo no se precargó, lo traemos
+      fetchProducts(category.id);
+    }
   };
+
+  const displayedProducts = products.slice(0, visibleCount);
 
   if (error) {
     return (
@@ -233,7 +286,6 @@ export default function ProductGrid() {
           .section-title h2 { font-size: 1.25rem; }
           .description { font-size: 0.75rem; }
           .category-filters { 
-            /*flex-direction: column;*/
             align-items: center;
             gap: 1rem;
             transform: scale(0.8);

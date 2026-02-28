@@ -23,6 +23,11 @@ Este archivo resume los últimos cambios realizados para mantener la sincronía 
 ### 4. Sincronización de Precios (IVA COP)
 - **Precisión Financiera:** La API REST v3 devuelve precios base; se ajustó el mapeador para calcular el precio inclusivo de IVA (19% para Colombia) garantizando consistencia con los precios mostrados en la tienda original.
 
+### 5. Experiencia de Navegación "Zero Latency" (Prefetching)
+- **ProductGrid Proactivo:** Se implementó un sistema de precarga en el cliente que descarga las colecciones de "Ropa" y "Maletas" en segundo plano mientras el usuario ve la primera categoría. Esto elimina los tiempos de espera y loaders al cambiar de pestaña.
+- **Reviews en Background:** Las reseñas ahora se cargan preventivamente apenas se monta la página, asegurando que cuando el usuario llegue al footer, el contenido ya esté listo para mostrarse con una animación `fade-in`.
+- **Calentamiento de Caché (Warm Cache):** Se actualizó el script de calentamiento para cubrir 96 productos (antes 24), asegurando que el servidor tenga lista la mayoría del catálogo principal.
+
 ---
 
 ## Últimos Cambios (26 de Febrero, 2026)
@@ -63,7 +68,12 @@ Este archivo resume los últimos cambios realizados para mantener la sincronía 
     - **Fix de Logo:** Se reemplazó el componente `<Image />` por una etiqueta `<img>` estándar para evitar bloqueos por parte del servicio de optimización de imágenes ante ráfagas de tráfico, asegurando que el branding sea siempre visible.
 
 ## Estado Actual
-- **Infraestructura de Datos:** Migrada al 100% a WooCommerce REST API v3 con autenticación por clave.
+- **Optimización de Experiencia "Zero Latency":** Implementación de precarga proactiva (Client-side Prefetching) en el Home.
+    - **ProductGrid:** Ahora descarga todas las categorías (Zapatos, Ropa, Maletas) al inicio. El cambio de pestañas es instantáneo y sin loader.
+    - **Reviews:** Las reseñas se cargan preventivamente en segundo plano con una animación de entrada `fade-in` elegante.
+    - **Warm Cache:** Se aumentó el rango de calentamiento de caché de 24 a 96 productos para maximizar la velocidad inicial.
+
+- **Infraestructura de Datos (v3):** Migración completa a WooCommerce REST API v3 con autenticación protegida.
 - **Rendimiento:** Sistema de cache de doble capa activo (Memoria + Browser). Tiempos de carga reducidos en >70%.
 - **Precisión de Variantes:** Variaciones de color y tallas sincronizadas perfectamente, incluyendo soporte para caracteres especiales (ej. Café).
 - **Consistencia de Precios:** Precios en COP con IVA incluido sincronizados con la tienda base.
