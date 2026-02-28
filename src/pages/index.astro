@@ -9,6 +9,7 @@ import Footer from "../components/Footer.astro";
 import FeaturesBanner from "../components/FeaturesBanner.astro";
 import LookOfTheWeek from "../components/LookOfTheWeek.astro";
 import CategoryGrid from "../components/CategoryGrid.astro";
+import ReviewsSection from "../components/ReviewsSection";
 ---
 
 <Layout title="Winston & Harry | Calzado Artesanal de Lujo">
@@ -29,6 +30,7 @@ import CategoryGrid from "../components/CategoryGrid.astro";
 			<ProductGrid client:load />
 			<LookOfTheWeek />
 			<About />
+			<ReviewsSection client:visible />
 		</div>
 	</main>
 
