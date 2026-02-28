@@ -166,6 +166,33 @@ export default function ReviewsSection() {
                                                             src={review.product_image.src}
                                                             alt={review.product_image.alt || review.product_name}
                                                             className="product-thumb"
+                                                            referrerPolicy="no-referrer"
+                                                            onError={(e) => {
+                                                                const target = e.target as HTMLImageElement;
+                                                                target.onerror = null;
+
+                                                                let currentSrc = target.src;
+
+                                                                // 1. Si falló el .webp, intentar volver al original
+                                                                if (currentSrc.toLowerCase().endsWith('.webp')) {
+                                                                    // Intentamos quitar el .webp final
+                                                                    // Si era .jpg.webp -> .jpg
+                                                                    const fallback = currentSrc.replace(/\.webp$/i, '');
+                                                                    if (fallback !== currentSrc) {
+                                                                        target.src = fallback;
+                                                                        return;
+                                                                    }
+                                                                }
+
+                                                                // 2. Limpiar sufijos de edición de WP -e158...
+                                                                const cleanSrc = currentSrc.replace(/-e\d+(?=\.(jpg|jpeg|png))/i, '');
+                                                                if (cleanSrc !== target.src) {
+                                                                    target.src = cleanSrc;
+                                                                } else {
+                                                                    // 3. Placeholder final
+                                                                    target.src = 'https://via.placeholder.com/300?text=Winston+%26+Harry';
+                                                                }
+                                                            }}
                                                         />
                                                     )}
                                                     <span className="product-name">{review.product_name}</span>
@@ -257,6 +284,7 @@ export default function ReviewsSection() {
                     display: flex;
                     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
                     width: 100%;
+                    align-items: stretch; /* Por defecto estirar en desktop */
                 }
 
                 .review-card-wrapper {
@@ -269,43 +297,50 @@ export default function ReviewsSection() {
                 }
 
                 @media (max-width: 768px) {
+                    .slider-track {
+                        align-items: center; /* En móvil permitir que cada una tenga su altura */
+                    }
                     .review-card-wrapper { flex: 0 0 100%; }
                     .container-reviews { padding: 0 0rem; }
                     .reviews-section { padding: 4rem 0; }
                     .review-card {
                         background: #F5F5F5;
-                        padding: 1rem 2rem;
-                        height: 100%;
+                        padding: 1.5rem;
+                        height: auto;
                         display: flex;
                         flex-direction: column !important;
-                        justify-content: space-between !important;
-                        gap: 0rem !important;
+                        gap: 1rem !important;
                         box-shadow: none;
                         border: none;
                         border-radius: 12px;
-                        align-content: center;
                         align-items: center;
+                        text-align: center;
                     }
                     .product-info-column {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
-                        width: 450px !important;
+                        width: 100% !important;
                     }
                     .product-thumb {
-                        width: 250px !important;
-                        height: 250px !important;
+                        width: 150px !important;
+                        height: 150px !important;
+                        margin-bottom: 0.5rem;
                     }
                     .card-right {
-                        width: 295px;
+                        width: 100%;
                     }
                     .nav-btn.next {
-                        right: 7px;
-                        transform: scale(0.5);
+                        right: 5px;
+                        transform: scale(0.6) translateY(-50%);
                     }
                     .nav-btn.prev {
-                        left: 7px;
-                        transform: scale(0.5);
+                        left: 5px;
+                        transform: scale(0.6) translateY(-50%);
+                    }
+                    .review-text {
+                        -webkit-line-clamp: unset;
+                        overflow: visible;
                     }
                     .section-header h2 {
                         color: var(--color-green);
@@ -446,7 +481,7 @@ export default function ReviewsSection() {
                         padding-right: 0;
                     }
                     .card-right {
-                        width: 90px;
+                        width: 110px;
                     }
                     .product-thumb {
                         width: 75px;

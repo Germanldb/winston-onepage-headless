@@ -12,13 +12,17 @@ export const GET: APIRoute = async ({ url }) => {
 
         const allReviews = await response.json();
 
-        // Log to see what fields are available
-        if (allReviews.length > 0) {
-            console.log('Review Object Sample:', JSON.stringify(allReviews[0], null, 2));
-        }
+        // De-duplicar por ID (usando un Map para asegurar unicidad)
+        const uniqueMap = new Map();
+        allReviews.forEach((review: any) => {
+            if (!uniqueMap.has(review.id)) {
+                uniqueMap.set(review.id, review);
+            }
+        });
+        const uniqueReviews = Array.from(uniqueMap.values());
 
-        // Mezclar y tomar 10
-        const shuffled = allReviews.sort(() => 0.5 - Math.random());
+        // Mezclar y tomar 10 de las únicas
+        const shuffled = uniqueReviews.sort(() => 0.5 - Math.random());
         const selected = shuffled.slice(0, 10);
 
         const optimizedReviews = await Promise.all(selected.map(async (review: any) => {
