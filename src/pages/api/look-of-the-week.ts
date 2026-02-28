@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { getProductById } from "../../lib/woocommerce";
 
 // Cache in-memory
 let cachedLook: any = null;
@@ -16,7 +17,7 @@ export const GET: APIRoute = async () => {
                 headers: {
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*',
-                    'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate'
+                    'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400'
                 }
             });
         }
@@ -48,49 +49,11 @@ export const GET: APIRoute = async () => {
 
         // Procesamos los productos para extraer variaciones e imágenes (Mapa de colores)
         const products = await Promise.all(productIds.map(async (id) => {
-            try {
-                const pRes = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products/${id}`);
-                if (!pRes.ok) return null;
-
-                let product = await pRes.json();
-
-                // SI el producto es variable, necesitamos cargar sus variaciones para el mapa de colores
-                if (product.type === 'variable' && product.variations) {
-                    const colorAttr = product.attributes.find((a: any) => a.name.toLowerCase().includes('color'));
-                    if (colorAttr && colorAttr.terms) {
-                        const variationImages: any = {};
-                        const colors = colorAttr.terms.map((t: any) => t.slug);
-
-                        await Promise.all(colors.map(async (colorSlug: string) => {
-                            // Encontramos la variación por color. A veces es .value, a veces .option
-                            const variation = product.variations.find((v: any) =>
-                                v.attributes && v.attributes.some((attr: any) =>
-                                    (attr.value?.toLowerCase() === colorSlug.toLowerCase()) ||
-                                    (attr.option?.toLowerCase() === colorSlug.toLowerCase())
-                                )
-                            );
-
-                            if (variation) {
-                                try {
-                                    const varRes = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products/${variation.id}`);
-                                    if (varRes.ok) {
-                                        const varData = await varRes.json();
-                                        if (varData.images && varData.images.length > 0) {
-                                            variationImages[colorSlug] = varData.images;
-                                        }
-                                    }
-                                } catch (e) { }
-                            }
-                        }));
-                        product.variation_images_map = variationImages;
-                    }
-                }
-
+            let product = await getProductById(id);
+            if (product) {
                 return optimizeImages(product);
-            } catch (e) {
-                console.error(`Error processing product ${id}:`, e);
-                return null;
             }
+            return null;
         }));
 
         const result = {
@@ -110,7 +73,7 @@ export const GET: APIRoute = async () => {
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate'
+                'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400'
             }
         });
 

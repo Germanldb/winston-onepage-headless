@@ -69,7 +69,7 @@ export default function ProductGrid() {
       setLoading(true);
       setError(null);
 
-      const response = await fetch(`/api/products?category=${categoryId}&v=${Date.now()}`);
+      const response = await fetch(`/api/products?category=${categoryId}`);
       if (!response.ok) throw new Error('Error al cargar productos');
 
       const data: Product[] = await response.json();

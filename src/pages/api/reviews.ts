@@ -20,7 +20,7 @@ export const GET: APIRoute = async ({ url }) => {
                 headers: {
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*',
-                    'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate'
+                    'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400'
                 }
             });
         }

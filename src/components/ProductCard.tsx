@@ -46,6 +46,37 @@ export default function ProductCard({ product, isSelected, onSelectionToggle }: 
     const [isCardHovered, setIsCardHovered] = useState(false);
     const [failedSyntheticColors, setFailedSyntheticColors] = useState<string[]>([]);
 
+    // Estado para datos enriquecidos (variaciones) cargados bajo demanda
+    const [enrichedProduct, setEnrichedProduct] = useState<any>(null);
+    const [isFetchingVariations, setIsFetchingVariations] = useState(false);
+
+    // Efecto para cargar variaciones ON-DEMAND cuando el usuario interactúa
+    useEffect(() => {
+        const active = hoveredColor || selectedColor;
+        if (!active || enrichedProduct || isFetchingVariations) return;
+
+        // Si el producto ya tiene mapa de variaciones, no hacemos nada
+        if (product.variation_images_map && Object.keys(product.variation_images_map).length > 0) return;
+
+        const fetchFullProduct = async () => {
+            setIsFetchingVariations(true);
+            try {
+                // El endpoint individual devuelve variaciones completas
+                const res = await fetch(`/api/products?slug=${product.slug}`);
+                if (res.ok) {
+                    const fullData = await res.json();
+                    if (fullData && fullData.variation_images_map) {
+                        setEnrichedProduct(fullData);
+                    }
+                }
+            } catch (e) { } finally {
+                setIsFetchingVariations(false);
+            }
+        };
+
+        fetchFullProduct();
+    }, [hoveredColor, selectedColor, product.slug, product.variation_images_map]);
+
     // Reset state when product changes
     useEffect(() => {
         setFailedSyntheticColors([]);
@@ -82,25 +113,32 @@ export default function ProductCard({ product, isSelected, onSelectionToggle }: 
     const activeColor = hoveredColor || selectedColor;
 
     const displayImages = useMemo(() => {
-        if (!activeColor) return product.images;
+        const currentProduct = enrichedProduct || product;
+        const active = hoveredColor || selectedColor;
+        if (!active) return currentProduct.images;
 
-        const colorSlug = activeColor.toLowerCase().trim();
+        const colorSlug = active.toLowerCase().trim();
 
-        // 1. Prioridad: Mapa de imágenes de variaciones (Enriquecido por la API)
-        if (product.variation_images_map) {
-            const matchedKey = Object.keys(product.variation_images_map).find(
-                key => key.toLowerCase().trim() === colorSlug
+        // 1. Prioridad: Mapa de imágenes de variaciones (API Enriquecida)
+        if (currentProduct.variation_images_map) {
+            const matchedKey = Object.keys(currentProduct.variation_images_map).find(
+                key => {
+                    const k = key.toLowerCase().trim();
+                    return k === colorSlug ||
+                        (colorSlug === 'vinotinto' && k === 'vino') ||
+                        (colorSlug === 'vino' && k === 'vinotinto');
+                }
             );
-            if (matchedKey && product.variation_images_map[matchedKey]) {
-                return product.variation_images_map[matchedKey];
+            if (matchedKey && currentProduct.variation_images_map[matchedKey]) {
+                return currentProduct.variation_images_map[matchedKey];
             }
         }
 
-        // 2. Fallback: Filtrado robusto en el set de imágenes ya presente
-        const colorTerm = colorAttribute?.terms.find(t => t.slug === activeColor);
+        // 2. Fallback: Filtrado robusto
+        const colorTerm = colorAttribute?.terms.find(t => t.slug === active);
         const colorName = colorTerm?.name.toLowerCase() || "";
 
-        const matches = product.images.filter(img => {
+        const matches = currentProduct.images.filter(img => {
             const src = (img.src || "").toLowerCase();
             const alt = (img.alt || "").toLowerCase();
             const name = (img.name || "").toLowerCase();
@@ -110,56 +148,59 @@ export default function ProductCard({ product, isSelected, onSelectionToggle }: 
                 src.includes(`-${colorName}`) ||
                 src.includes(`_${colorName}`) ||
                 alt.includes(colorName) ||
-                name.includes(colorName);
+                name.includes(colorName) ||
+                (colorSlug.includes('vino') && src.includes('vino')) ||
+                (colorSlug.includes('vinotinto') && src.includes('vinotinto'));
         });
 
         if (matches.length > 0) return matches;
 
-        // 3. Fallback Avanzado: Predicción de URL (Basado en la convención de Winston & Harry)
-        if (product.images.length > 0 && colorAttribute && !failedSyntheticColors.includes(activeColor)) {
-            const baseImg = product.images[0];
+        // 3. Fallback Avanzado: Predicción de URL
+        if (currentProduct.images.length > 0 && colorAttribute && !failedSyntheticColors.includes(active)) {
+            const baseImg = currentProduct.images[0];
             const baseSrc = baseImg.src;
 
-            // Intentamos detectar qué color tiene la imagen base para reemplazarlo
-            const colorInUrl = colorAttribute.terms.find(t =>
-                baseSrc.toLowerCase().includes(t.slug.toLowerCase()) ||
-                baseSrc.toLowerCase().includes(t.name.toLowerCase())
-            );
+            // Detección Fuzzy del color en el URL
+            const colorInUrl = colorAttribute.terms.find(t => {
+                const ts = t.slug.toLowerCase();
+                const tn = t.name.toLowerCase();
+                const s = baseSrc.toLowerCase();
+                return s.includes(ts) || s.includes(tn) || (ts.includes('vino') && s.includes('vino'));
+            });
 
             if (colorInUrl) {
-                // Caso especial: El color base es el mismo que el seleccionado
-                if (colorInUrl.slug === activeColor) return product.images;
+                if (colorInUrl.slug === active) return currentProduct.images;
 
                 // Intentamos encontrar el color en el URL para ver qué casing usa
-                const match = baseSrc.match(new RegExp(colorInUrl.slug, 'i')) || baseSrc.match(new RegExp(colorInUrl.name, 'i'));
+                const match = baseSrc.match(new RegExp(colorInUrl.slug, 'i')) ||
+                    baseSrc.match(new RegExp(colorInUrl.name, 'i')) ||
+                    baseSrc.match(/vino/i);
 
                 if (match) {
                     const matchedText = match[0];
                     const isCapitalized = matchedText[0] === matchedText[0].toUpperCase();
 
-                    // Preparamos el reemplazo con el mismo casing si es posible
-                    let replacement = activeColor;
-                    if (isCapitalized) {
-                        replacement = activeColor.charAt(0).toUpperCase() + activeColor.slice(1).toLowerCase();
+                    let replacement = active;
+                    if (active === 'vinotinto' && matchedText.toLowerCase() === 'vino') {
+                        replacement = isCapitalized ? 'Vino' : 'vino';
+                    } else if (isCapitalized) {
+                        replacement = active.charAt(0).toUpperCase() + active.slice(1).toLowerCase();
                     }
 
                     try {
-                        const regex = new RegExp(matchedText, 'g'); // Solo reemplazamos lo que encontramos exactamente
+                        const regex = new RegExp(matchedText, 'g');
                         const newSrc = baseSrc.replace(regex, replacement);
 
                         if (newSrc !== baseSrc) {
-                            return [{
-                                ...baseImg,
-                                src: newSrc
-                            }];
+                            return [{ ...baseImg, isSynthetic: true, src: newSrc }];
                         }
                     } catch (e) { }
                 }
             }
         }
 
-        return product.images;
-    }, [activeColor, product.images, colorAttribute, product.variation_images_map, failedSyntheticColors]);
+        return currentProduct.images;
+    }, [selectedColor, hoveredColor, product, enrichedProduct, colorAttribute, failedSyntheticColors]);
 
     const mainImage = displayImages[0] || product.images[0];
     const hoverImageRaw = displayImages[1];
@@ -249,11 +290,14 @@ export default function ProductCard({ product, isSelected, onSelectionToggle }: 
 
                                     if (cleanSrc !== target.src) {
                                         target.src = cleanSrc;
-                                    } else if (mainImage?.id === 999999 && activeColor) {
-                                        // Si la predicción falló totalmente
+                                    } else if ((mainImage as any)?.isSynthetic && activeColor) {
+                                        // Si la predicción falló totalmente, bloqueamos ese color para este producto
                                         setFailedSyntheticColors(prev => [...prev, activeColor]);
+                                        // Y forzamos el regreso a la imagen original inmediatamente
+                                        target.src = product.images[0]?.src || '';
                                     } else {
-                                        target.src = 'https://via.placeholder.com/300x400?text=Sin+Imagen';
+                                        // Fallback final
+                                        target.src = 'https://via.placeholder.com/300x400?text=Zapato';
                                     }
                                 }}
                             />

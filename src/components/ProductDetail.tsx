@@ -199,14 +199,57 @@ export default function ProductDetail({ initialProduct }: Props) {
         src.includes(`-${colorName}`) ||
         src.includes(`_${colorName}`) ||
         alt.includes(colorName) ||
-        name.includes(colorName);
+        name.includes(colorName) ||
+        (colorSlug.includes('vino') && src.includes('vino')) ||
+        (colorSlug.includes('vinotinto') && src.includes('vinotinto'));
     });
 
     if (matches.length > 0) return matches;
 
-    // 3. Last resort: Si no encontramos nada específico, mostrar todo
+    // 3. Fallback Avanzado: Predicción de URL (Basado en la convención de Winston & Harry)
+    if (product.images.length > 0 && colorAttribute) {
+      const baseImg = product.images[0];
+      const baseSrc = baseImg.src;
+
+      // Intentamos detectar qué color tiene la imagen base para reemplazarlo
+      const colorInUrl = colorAttribute.terms.find(t =>
+        baseSrc.toLowerCase().includes(t.slug.toLowerCase()) ||
+        baseSrc.toLowerCase().includes(t.name.toLowerCase()) ||
+        (t.slug.toLowerCase().includes('vino') && baseSrc.toLowerCase().includes('vino'))
+      );
+
+      if (colorInUrl) {
+        if (colorInUrl.slug === selectedColor) return product.images;
+
+        const match = baseSrc.match(new RegExp(colorInUrl.slug, 'i')) ||
+          baseSrc.match(new RegExp(colorInUrl.name, 'i')) ||
+          baseSrc.match(/vino/i);
+
+        if (match) {
+          const matchedText = match[0];
+          const isCapitalized = matchedText[0] === matchedText[0].toUpperCase();
+
+          let replacement = selectedColor;
+          if (selectedColor === 'vinotinto' && matchedText.toLowerCase() === 'vino') {
+            replacement = isCapitalized ? 'Vino' : 'vino';
+          } else if (isCapitalized) {
+            replacement = selectedColor.charAt(0).toUpperCase() + selectedColor.slice(1).toLowerCase();
+          }
+
+          try {
+            const regex = new RegExp(matchedText, 'g');
+            const newSrc = baseSrc.replace(regex, replacement);
+
+            if (newSrc !== baseSrc) {
+              return [{ ...baseImg, src: newSrc }];
+            }
+          } catch (e) { }
+        }
+      }
+    }
+
     return product.images;
-  }, [selectedColor, product.images, colorAttribute, product.variation_images_map]);
+  }, [selectedColor, product.images, product.variation_images_map, colorAttribute]);
 
   /* State for Lightbox Gallery */
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -344,13 +387,15 @@ export default function ProductDetail({ initialProduct }: Props) {
     if (!product.variations || product.variations.length === 0) return true;
 
     return product.variations.some(variation => {
-      const vColor = variation.attributes.find(a =>
+      const colorAttr = variation.attributes.find(a =>
         a.name.toLowerCase().includes('color') || a.name === 'Pa_selecciona-el-color'
-      )?.value.toLowerCase();
+      );
+      const vColor = (colorAttr?.value || colorAttr?.option)?.toLowerCase();
 
-      const vSize = variation.attributes.find(a =>
+      const sizeAttr = variation.attributes.find(a =>
         a.name.toLowerCase().includes('talla') || a.name === 'Pa_selecciona-una-talla'
-      )?.value.toLowerCase();
+      );
+      const vSize = (sizeAttr?.value || sizeAttr?.option)?.toLowerCase();
 
       const matchesColor = !color || vColor === color.toLowerCase();
       const matchesSize = !size || vSize === size.toLowerCase();

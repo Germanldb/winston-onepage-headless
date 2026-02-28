@@ -24,98 +24,60 @@ product.variation_images_map: Record<string, Image[]>
 
 ## Flujo de Imágenes
 
+## Flujo de Imágenes (Actualizado)
+
 ### Cambio de Color (seleccionar color)
-1. **Prioridad 1:** Usar `variation_images_map[colorSlug]` desde la API
-2. **Fallback 2:** Buscar en `product.images` por nombre de archivo que contenga el color
-3. **Fallback 3:** Predecir URL cambiando el color en el nombre del archivo
+1. **Prioridad 1:** Usar `variation_images_map[colorSlug]` desde la API.
+2. **Prioridad 2 (NUEVO):** Si el mapa de variaciones está vacío, realizar un **On-Demand Fetch** al endpoint individual (`/api/products?slug=...`) para obtener el mapa real.
+3. **Fallback 3:** Buscar en `product.images` por nombre de archivo que contenga el color (Fuzzy matching: "Vino" matchea "Vinotinto").
+4. **Fallback 4 (Synthetic):** Predecir URL sustituyendo el color base por el seleccionado en el nombre del archivo (con **Smart Casing**).
 
-### Hover (imagen -2)
-1. **Prioridad 1:** Segunda imagen del set actual (`displayImages[1]`)
-2. **Fallback 2:** Predecir URL cambiando `-1` por `-2` en el nombre
+## Mejoras Recientes (Sistema Robusto)
 
-## Patrones de URL Esperados
+### 1. Carga Bajo Demanda (On-Demand Fetching)
+Para optimizar el rendimiento, el grid principal no carga todas las variaciones de todos los productos de entrada. 
+- Al hacer **hover** o **click** en un color, el `ProductCard` detecta si faltan datos enriquecidos.
+- Si faltan, lanza una petición `fetch` silenciosa al API por el detalle del producto.
+- Una vez recibidos, el `variation_images_map` se activa y muestra las fotos 100% reales.
 
-### Convenciones de Winston & Harry
-- **Imagen principal:** `{nombre}-{color}-Winstonandharry-1.jpg`
-- **Imagen hover:** `{nombre}-{color}-Winstonandharry-2.jpg`
-- **Más imágenes:** `-3`, `-4`, etc.
+### 2. Smart Casing (Sensibilidad a Mayúsculas)
+Los servidores de imágenes de Winston & Harry a veces usan `Color` (Mayúscula) y otras `color` (minúscula).
+- El sistema detecta el casing original en la URL base.
+- Si el color original estaba capitalizado (ej: `.../Zapato-Cafe.jpg`), la predicción usará `.../Zapato-Negro.jpg`.
+- Esto evita errores 404 en servidores Linux que son sensibles a mayúsculas.
 
-### Transformaciones Automáticas
+### 3. Recuperación Automática (Anti-Rectángulo Blanco)
+Si una predicción de imagen sintética falla (da error 404):
+- El componente `onError` detecta que es una imagen generada.
+- Bloquea ese color para ese producto específico (`failedSyntheticColors`).
+- **Forza el regreso inmediato** a la imagen original del producto en lugar de mostrar un error o un placeholder.
 
-La API (`/api/products.ts`) aplica `optimizeImages()`:
-1. Añade `.webp` a todas las URLs de WordPress
-2. Limpia sufijos de edición de WordPress (`-e12345...`)
+### 4. Fuzzy Matching (Vino vs Vinotinto)
+- El sistema de filtrado y predicción ahora entiende que `Vino`, `Vinotinto` y `Vino Florantik` son términos relacionados. 
+- Si un archivo se llama `...-Vino-1.jpg` y el atributo es `vinotinto`, el sistema hace el match correctamente.
 
-```typescript
-// Ejemplo:
-// Input: https://.../Cumberland-II-Cognac-Winstonandharry-2.jpg
-// Output: https://.../Cumberland-II-Cognac-Winstonandharry-2.jpg.webp
-```
+## Diagnóstico de Problemas (Actualizado)
 
-## Fallbacks Implementados
-
-### 1. Error de .webp en imagen
-Si una imagen con `.webp` falla:
-- Quitar `.webp` e intentar de nuevo
-- Esto funciona tanto para imagen principal como hover
-
-### 2. Imagen hover no encontrada
-- Si `displayImages[1]` (segunda imagen) falla, intentar con `guessedHoverSrc`
-- `guessedHoverSrc` predice la URL cambiando `-1` por `-2`
-
-### 3. Predicción de color
-Si no hay imágenes para un color específico:
-- Busca el color en el nombre de archivo de la imagen base
-- Reemplaza el color antiguo por el nuevo
-
-## Diagnóstico de Problemas
-
-### "El cambio de color no funciona"
-1. Verificar que la API retorne `variation_images_map`:
-   - Ir a `/api/products` en el navegador
-   - Buscar `variation_images_map` en un producto variable
-   - Si está vacío o no existe → problema en la API
-
-2. Verificar que los `terms` del atributo color coincidan con los atributos de las variaciones:
-   - `product.attributes` → términos de color (slugs como "negro", "cafe")
-   - `product.variations[].attributes` → valores de cada variación
-
-### "El hover muestra imagen rota"
-1. Inspect element → buscar la URL de la imagen hover
-2. Si termina en `.webp`, probar la URL sin `.webp` en otra pestaña
-3. Si la imagen sin `.webp` funciona → el fallback debería haber actuado
-4. Verificar que la imagen `-2` exista en el servidor
-
-### "La imagen principal no carga"
-1. Inspect element → ver la URL
-2. Probar en el navegador directamente
-3. Verificar si tiene `.webp` innecesario o sufijos `-e123...`
+### "El cambio de color no funciona o se queda la misma foto"
+1. **Verificar Consola**: Si ves errores de red, puede que el On-Demand Fetch esté fallando.
+2. **Atributos de Variación**: La API ahora es más robusta y busca tanto en el campo `.value` como en `.option` de la respuesta de WooCommerce.
 
 ## Archivos Clave
 
 | Archivo | Responsabilidad |
 |---------|-----------------|
-| `/api/products.ts` | Genera `variation_images_map` para la lista |
-| `/src/components/ProductCard.tsx` | Lógica de displayImages, hover, fallbacks |
-| `/src/components/ProductGrid.tsx` | Carga productos de la API |
+| `/api/products.ts` | Genera `variation_images_map` (ahora busca en `value` y `option`). |
+| `/src/components/ProductCard.tsx` | Lógica central: On-demand fetch, fuzzy matching, smart casing y recuperación de errores. |
 
-## Variables de Estado Relevantes
+## Variables de Estado Relevantes (ProductCard.tsx)
 
 ```typescript
-// En ProductCard.tsx
-const [selectedColor, setSelectedColor]    // Color seleccionado click
-const [hoveredColor, setHoveredColor]     // Color en hover (sin click)
-const [activeColor] = hoveredColor || selectedColor  // Color activo
-const [displayImages, setDisplayImages]   // Imágenes según color activo
-const [isHoverImageValid, setIsHoverImageValid] // Si la hover carga bien
+const [enrichedProduct]      // Datos completos (variaciones) cargados tras interacción
+const [isFetchingVariations] // Estado de carga del fetch on-demand
+const [failedSyntheticColors] // Lista de colores que dieron 404 (para no volver a intentarlos)
 ```
 
 ## Notas Importantes
 
-1. **El cache de Vercel** puede servir datos antiguos. Si cambios en la API no se reflejan:
-   - Hacer hard refresh (`Ctrl+Shift+R`)
-   - Verificar headers de cache en la response
-
-2. **La API solo retorna variaciones** para productos de la categoría 63 (configurado en `api/products.ts`)
-
-3. **El hover requiere** que `isHoverActive` sea true Y que `effectiveHoverSrc` tenga valor
+1. **Hard Refresh**: Si los cambios en el código de la API no se ven, usa `Ctrl+F5`. Hemos configurado cabeceras `no-store` temporalmente en desarrollo para facilitar las pruebas.
+2. **Prioridad sobre Placeholder**: El sistema ahora prioriza mostrar la imagen base del producto antes que un placeholder genérico si la variante falla.

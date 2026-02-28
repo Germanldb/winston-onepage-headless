@@ -1,8 +1,12 @@
 ---
 import { Image } from "astro:assets";
+import ReviewsSection from "./ReviewsSection";
 ---
 
 <footer id="footer" class="footer">
+    <!-- Reviews Section moved to footer -->
+    <ReviewsSection client:visible />
+
     <!-- Barra Newsletter -->
     <div class="footer-newsletter-bar">
         <div class="container newsletter-container">
