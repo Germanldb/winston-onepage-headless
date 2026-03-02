@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
+import { addCartItem } from '../store/cartStore';
 import ProductCard from './ProductCard';
 
 interface Product {
@@ -386,16 +387,16 @@ export default function ProductDetail({ initialProduct }: Props) {
   const isCombinationAvailable = (color: string | null, size: string | null) => {
     if (!product.variations || product.variations.length === 0) return true;
 
-    return product.variations.some(variation => {
-      const colorAttr = variation.attributes.find(a =>
+    return product.variations.some((variation: any) => {
+      const colorAttr = variation.attributes.find((a: any) =>
         a.name.toLowerCase().includes('color') || a.name === 'Pa_selecciona-el-color'
       );
-      const vColor = (colorAttr?.value || colorAttr?.option)?.toLowerCase();
+      const vColor = ((colorAttr as any)?.value || (colorAttr as any)?.option)?.toLowerCase();
 
-      const sizeAttr = variation.attributes.find(a =>
+      const sizeAttr = variation.attributes.find((a: any) =>
         a.name.toLowerCase().includes('talla') || a.name === 'Pa_selecciona-una-talla'
       );
-      const vSize = (sizeAttr?.value || sizeAttr?.option)?.toLowerCase();
+      const vSize = ((sizeAttr as any)?.value || (sizeAttr as any)?.option)?.toLowerCase();
 
       const matchesColor = !color || vColor === color.toLowerCase();
       const matchesSize = !size || vSize === size.toLowerCase();
@@ -424,30 +425,28 @@ export default function ProductDetail({ initialProduct }: Props) {
       return false;
     }
 
-    const cartItem = {
-      id: product.id,
+    // Identificar variation ID si es posible
+    const matchingVar = product.variations?.find(v => {
+      const vColor = v.attributes.find((a: any) => a.name.toLowerCase().includes('color'))?.value || (v.attributes.find((a: any) => a.name.toLowerCase().includes('color')) as any)?.option;
+      const vSize = v.attributes.find((a: any) => a.name.toLowerCase().includes('talla'))?.value || (v.attributes.find((a: any) => a.name.toLowerCase().includes('talla')) as any)?.option;
+      return (!vColor || vColor.toLowerCase() === selectedColor.toLowerCase()) &&
+        (!hasSize || !vSize || vSize.toLowerCase() === selectedSize?.toLowerCase());
+    });
+
+    const attrs: Record<string, string> = { Color: selectedColor };
+    if (selectedSize) attrs.Talla = selectedSize;
+
+    addCartItem({
+      productId: product.id,
+      variationId: matchingVar?.id,
       name: product.name,
       price: parseInt(product.prices.price) / (10 ** product.prices.currency_minor_unit),
-      color: selectedColor,
-      size: selectedSize,
       quantity: quantity,
-      image: filteredImages[0]?.src || product.images[0]?.src
-    };
+      image: filteredImages[0]?.src || product.images[0]?.src,
+      attributes: attrs,
+      slug: product.slug
+    });
 
-    const cart = JSON.parse(localStorage.getItem('wh_cart') || '[]');
-    const existingItemIndex = cart.findIndex((item: any) =>
-      item.id === cartItem.id && item.color === cartItem.color && item.size === cartItem.size
-    );
-
-    if (existingItemIndex > -1) {
-      cart[existingItemIndex].quantity += quantity;
-    } else {
-      cart.push(cartItem);
-    }
-
-    localStorage.setItem('wh_cart', JSON.stringify(cart));
-    window.dispatchEvent(new Event('cart-updated'));
-    window.dispatchEvent(new Event('open-cart-drawer'));
     return true;
   };
 
@@ -464,29 +463,43 @@ export default function ProductDetail({ initialProduct }: Props) {
         alert('Por favor, selecciona una talla para el producto principal.');
         return;
       }
+      const attrs: Record<string, string> = { Color: selectedColor };
+      if (selectedSize) attrs.Talla = selectedSize;
+
       itemsToAdd.push({
-        id: product.id,
+        productId: product.id,
         name: product.name,
         price: parseInt(product.prices.price) / (10 ** product.prices.currency_minor_unit),
-        color: selectedColor,
-        size: selectedSize,
         quantity: quantity,
-        image: filteredImages[0]?.src || product.images[0]?.src
+        image: filteredImages[0]?.src || product.images[0]?.src,
+        attributes: attrs,
+        slug: product.slug
       });
     }
 
     // FBT products if selected
     if (product.fbt_products) {
-      product.fbt_products.forEach((p) => {
+      product.fbt_products.forEach((p: any) => {
         if (selectedFbtIds.includes(p.id)) {
+          // Find variations if needed
+          const fbtHasSize = p.attributes?.some((a: any) => a.name.toLowerCase() === 'pa_selecciona-una-talla' || a.name.toLowerCase() === 'talla');
+          if (fbtHasSize && !selectedSize) {
+            alert(`Por favor, selecciona una talla para el producto adicional: ${p.name}`);
+            return;
+          }
+
+          const fbtColor = p.attributes?.find((a: any) => a.name.toLowerCase().includes('color'))?.options?.[0] || 'Por Defecto';
+          const attrs: Record<string, string> = { Color: fbtColor };
+          if (fbtHasSize && selectedSize) attrs.Talla = selectedSize;
+
           itemsToAdd.push({
-            id: p.id,
+            productId: p.id,
             name: p.name,
             price: parseInt(p.prices.price) / (10 ** p.prices.currency_minor_unit),
-            color: null,
-            size: null,
             quantity: 1,
-            image: p.images[0]?.src
+            image: p.images[0]?.src || '',
+            attributes: attrs,
+            slug: p.slug
           });
         }
       });
@@ -497,23 +510,7 @@ export default function ProductDetail({ initialProduct }: Props) {
       return;
     }
 
-    const cart = JSON.parse(localStorage.getItem('wh_cart') || '[]');
-
-    itemsToAdd.forEach(newItem => {
-      const existingItemIndex = cart.findIndex((item: any) =>
-        item.id === newItem.id && item.color === newItem.color && item.size === newItem.size
-      );
-
-      if (existingItemIndex > -1) {
-        cart[existingItemIndex].quantity += newItem.quantity;
-      } else {
-        cart.push(newItem);
-      }
-    });
-
-    localStorage.setItem('wh_cart', JSON.stringify(cart));
-    window.dispatchEvent(new Event('cart-updated'));
-    window.dispatchEvent(new Event('open-cart-drawer'));
+    itemsToAdd.forEach(item => addCartItem(item));
   };
 
   const fbtTotalPrice = useMemo(() => {

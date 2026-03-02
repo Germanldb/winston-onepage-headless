@@ -29,7 +29,7 @@ export const GET: APIRoute = async ({ request }) => {
 
         const allUrlsToWarm = [
             ...criticalRoutes.map(route => `${origin}${route}`),
-            ...slugs.map(slug => `${origin}/productos/${slug}`)
+            ...slugs.map((slug: string) => `${origin}/productos/${slug}`)
         ];
 
         console.log(`Iniciando visita a ${allUrlsToWarm.length} enlaces en modo express...`);

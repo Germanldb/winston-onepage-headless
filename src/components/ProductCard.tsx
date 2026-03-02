@@ -138,7 +138,7 @@ export default function ProductCard({ product, isSelected, onSelectionToggle }: 
         const colorTerm = colorAttribute?.terms.find(t => t.slug === active);
         const colorName = colorTerm?.name.toLowerCase() || "";
 
-        const matches = currentProduct.images.filter(img => {
+        const matches = currentProduct.images.filter((img: any) => {
             const src = (img.src || "").toLowerCase();
             const alt = (img.alt || "").toLowerCase();
             const name = (img.name || "").toLowerCase();
