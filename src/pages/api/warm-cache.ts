@@ -12,7 +12,7 @@ export const GET: APIRoute = async ({ request }) => {
         console.log('--- Iniciando Calentamiento de Caché (24 productos) ---');
 
         // 1. Obtenemos los 24 productos principales (Modo Prueba)
-        const response = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products?per_page=24`);
+        const response = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products?per_page=96`);
         if (!response.ok) throw new Error('No se pudo obtener el catálogo de WooCommerce');
 
         const products = await response.json();
@@ -29,7 +29,7 @@ export const GET: APIRoute = async ({ request }) => {
 
         const allUrlsToWarm = [
             ...criticalRoutes.map(route => `${origin}${route}`),
-            ...slugs.map(slug => `${origin}/productos/${slug}`)
+            ...slugs.map((slug: string) => `${origin}/productos/${slug}`)
         ];
 
         console.log(`Iniciando visita a ${allUrlsToWarm.length} enlaces en modo express...`);

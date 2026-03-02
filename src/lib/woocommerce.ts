@@ -1,0 +1,260 @@
+/**
+ * WooCommerce REST API Client for Winston & Harry
+ * Using ck/cs credentials for full access and better data processing.
+ */
+
+const CK = "ck_28661c4aff0fc02b97a607862895fc40a187e867";
+const CS = "cs_deb208f164b96724a90b64bf0f762a713251b7a2";
+const BASE_URL = "https://winstonandharrystore.com/wp-json/wc/v3";
+
+// Sistema de Cache en Memoria (SSR & API)
+const cache: Record<string, { data: any, timestamp: number }> = {};
+const DEFAULT_TTL = 1000 * 60 * 60; // 1 Hora por defecto
+
+function getCached(key: string) {
+    const entry = cache[key];
+    if (entry && (Date.now() - entry.timestamp < DEFAULT_TTL)) {
+        return entry.data;
+    }
+    return null;
+}
+
+function setCached(key: string, data: any) {
+    cache[key] = { data, timestamp: Date.now() };
+}
+
+/**
+ * Normaliza un texto para generar un slug válido (sin acentos, espacios -> guiones)
+ */
+function normalizeSlug(text: string): string {
+    if (!text) return "";
+    return text
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "") // Quitar acentos
+        .replace(/\s+/g, '-')           // Espacios a guiones
+        .replace(/[^\w-]+/g, '');       // Quitar caracteres especiales
+}
+
+/**
+ * Generic Fetcher with Basic Auth
+ */
+async function wcFetch(path: string, options: RequestInit = {}) {
+    const url = `${BASE_URL}${path}${path.includes('?') ? '&' : '?'}consumer_key=${CK}&consumer_secret=${CS}`;
+
+    // Some servers prefer URL params for WC API, others prefer Basic Auth header.
+    // We will use URL params as it's generally more compatible with WP setups.
+    const res = await fetch(url, {
+        ...options,
+        headers: {
+            'Accept': 'application/json',
+            ...(options.headers || {})
+        }
+    });
+
+    if (!res.ok) {
+        throw new Error(`WC API Error: ${res.status} ${res.statusText}`);
+    }
+
+    return res.json();
+}
+
+/**
+ * Maps wc/v3 structure to wc/store/v1 structure for frontend compatibility
+ */
+function mapV3ToStore(p: any) {
+    if (!p) return null;
+
+    // WooCommerce v3 doesn't return tax-inclusive price by default in some setups.
+    // We detect if we need to add IVA (19% in Colombia usually) or use the display price.
+    // Actually, Store API returns 825000 while v3 returns 693277.3109.
+    // This confirms v3 is returning base price.
+    // We will calculate the inclusive price for consistency with Store API which our frontend uses.
+    const hasTax = p.tax_status === 'taxable';
+    const rawPrice = parseFloat(p.price || "0");
+    const inclusivePrice = hasTax ? Math.round(rawPrice * 1.19) : Math.round(rawPrice);
+
+    return {
+        id: p.id,
+        name: p.name,
+        slug: p.slug,
+        permalink: p.permalink,
+        type: p.type,
+        status: p.status,
+        description: p.description,
+        short_description: p.short_description,
+        prices: {
+            price: inclusivePrice.toString(),
+            regular_price: p.regular_price ? Math.round(parseFloat(p.regular_price) * (hasTax ? 1.19 : 1)).toString() : "",
+            sale_price: p.sale_price ? Math.round(parseFloat(p.sale_price) * (hasTax ? 1.19 : 1)).toString() : "",
+            currency_code: "COP", // Winston & Harry is COP
+            currency_symbol: "$",
+            currency_minor_unit: 0, // We use 0 for COP as per Store API check
+            currency_prefix: "$",
+            price_range: null // Optional
+        },
+        images: p.images.map((img: any) => ({
+            id: img.id,
+            src: img.src,
+            alt: img.alt || p.name,
+            name: img.name
+        })),
+        attributes: p.attributes.map((attr: any) => ({
+            id: attr.id,
+            name: attr.name,
+            slug: attr.slug,
+            terms: attr.options.map((opt: string, idx: number) => ({
+                id: idx, // Dummy ID as slugs are not in main product object in v3
+                name: opt,
+                slug: normalizeSlug(opt) // Generate normalized slug
+            }))
+        })),
+        categories: p.categories.map((cat: any) => ({
+            id: cat.id,
+            name: cat.name,
+            slug: cat.slug
+        })),
+        // Placeholders for relational data if needed
+        upsell_ids: p.upsell_ids,
+        cross_sell_ids: p.cross_sell_ids,
+        variations: p.variations_data || null
+    };
+}
+
+/**
+ * Fetch Product by ID with all its variations
+ */
+export async function getProductById(id: number | string) {
+    const cacheKey = `p_id_${id}`;
+    const cached = getCached(cacheKey);
+    if (cached) return cached;
+
+    try {
+        const product = await wcFetch(`/products/${id}`);
+        if (!product) return null;
+
+        // Fetch Variations data if it's a variable product
+        if (product.type === 'variable' && product.variations.length > 0) {
+            const variations = await wcFetch(`/products/${product.id}/variations?per_page=100`);
+
+            const variationImagesMap: Record<string, any[]> = {};
+            variations.forEach((v: any) => {
+                const colorAttr = v.attributes.find((a: any) =>
+                    a.slug === 'pa_selecciona-el-color' ||
+                    a.name.toLowerCase().includes('color')
+                );
+
+                if (colorAttr && v.image) {
+                    const colorSlug = normalizeSlug(colorAttr.option);
+                    variationImagesMap[colorSlug] = [{
+                        id: v.image.id,
+                        src: v.image.src,
+                        alt: v.image.alt || colorAttr.option
+                    }];
+                }
+            });
+
+            product.variations_data = variations.map((v: any) => ({
+                id: v.id,
+                attributes: v.attributes.map((a: any) => ({
+                    name: a.name,
+                    value: normalizeSlug(a.option)
+                })),
+                price: v.price,
+                stock_status: v.stock_status,
+                image: v.image
+            }));
+
+            product.variation_images_map = variationImagesMap;
+        }
+
+        const result = mapV3ToStore(product);
+        setCached(cacheKey, result);
+        return result;
+    } catch (error) {
+        console.error(`Error fetching product by ID ${id}:`, error);
+        return null;
+    }
+}
+
+/**
+ * Fetch Product by Slug with all its variations in one go!
+ */
+export async function getProductBySlug(slug: string) {
+    const cacheKey = `p_slug_${slug}`;
+    const cached = getCached(cacheKey);
+    if (cached) return cached;
+
+    try {
+        const products = await wcFetch(`/products?slug=${slug}`);
+        if (!products || products.length === 0) return null;
+
+        const product = products[0];
+
+        // Fetch Variations data if it's a variable product
+        if (product.type === 'variable' && product.variations.length > 0) {
+            // We can fetch all variations in one call!
+            const variations = await wcFetch(`/products/${product.id}/variations?per_page=100`);
+
+            // Map variations to a searchable map for the frontend
+            const variationImagesMap: Record<string, any[]> = {};
+
+            variations.forEach((v: any) => {
+                // Find color attribute
+                const colorAttr = v.attributes.find((a: any) =>
+                    a.slug === 'pa_selecciona-el-color' ||
+                    a.name.toLowerCase().includes('color')
+                );
+
+                if (colorAttr && v.image) {
+                    const colorSlug = normalizeSlug(colorAttr.option);
+                    // Store images for this color
+                    variationImagesMap[colorSlug] = [{
+                        id: v.image.id,
+                        src: v.image.src,
+                        alt: v.image.alt || colorAttr.option
+                    }];
+                }
+            });
+
+            product.variations_data = variations.map((v: any) => ({
+                id: v.id,
+                attributes: v.attributes.map((a: any) => ({
+                    name: a.name,
+                    value: normalizeSlug(a.option) // Normalize for frontend slug match
+                })),
+                price: v.price,
+                stock_status: v.stock_status,
+                image: v.image
+            }));
+
+            product.variation_images_map = variationImagesMap;
+        }
+
+        const result = mapV3ToStore(product);
+        setCached(cacheKey, result);
+        return result;
+    } catch (error) {
+        console.error("Error fetching product by slug:", error);
+        throw error;
+    }
+}
+
+/**
+ * Fetch List of Products by Category for Grid
+ */
+export async function getProductsByCategory(categoryId: string, perPage = 100, page = 1) {
+    const cacheKey = `cat_${categoryId}_${perPage}_${page}`;
+    const cached = getCached(cacheKey);
+    if (cached) return cached;
+
+    try {
+        const products = await wcFetch(`/products?category=${categoryId}&per_page=${perPage}&page=${page}&status=publish`);
+        const result = products.map(mapV3ToStore);
+        setCached(cacheKey, result);
+        return result;
+    } catch (error) {
+        console.error("Error fetching products by category:", error);
+        throw error;
+    }
+}

@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { getProductBySlug, getProductsByCategory } from '../../lib/woocommerce';
 
 export const GET: APIRoute = async ({ url }) => {
     const pageStr = url.searchParams.get('p') || url.searchParams.get('page') || '1';
@@ -6,42 +7,15 @@ export const GET: APIRoute = async ({ url }) => {
     const slug = url.searchParams.get('slug');
 
     try {
-        // ... (resto del código del producto individual se mantiene)
-        // 1. DETALLE DEL PRODUCTO
+        // 1. DETALLE DEL PRODUCTO INDIVIDUAL
         if (slug) {
-            const res = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products?slug=${slug}`);
-            if (!res.ok) return new Response(JSON.stringify({ error: 'Not found' }), { status: 404 });
+            let product = await getProductBySlug(slug);
 
-            const data = await res.json();
-            let product = data.find((p: any) => p && p.attributes && Array.isArray(p.attributes) && p.attributes.length > 0) || data[0];
-
-            if (product && product.type === 'variable' && product.variations) {
-                const colorAttr = product.attributes.find((a: any) => a.name.toLowerCase().includes('color'));
-                if (colorAttr && colorAttr.terms) {
-                    const variationImages: any = {};
-                    const colors = colorAttr.terms.map((t: any) => t.slug);
-
-                    await Promise.all(colors.map(async (colorSlug: string) => {
-                        const variation = product.variations.find((v: any) =>
-                            v.attributes && v.attributes.some((attr: any) => attr.value.toLowerCase() === colorSlug.toLowerCase())
-                        );
-                        if (variation) {
-                            try {
-                                const varRes = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products/${variation.id}`);
-                                if (varRes.ok) {
-                                    const varData = await varRes.json();
-                                    if (varData.images && varData.images.length > 0) {
-                                        variationImages[colorSlug] = varData.images;
-                                    }
-                                }
-                            } catch (e) { }
-                        }
-                    }));
-                    product.variation_images_map = variationImages;
-                }
+            if (!product) {
+                return new Response(JSON.stringify({ error: 'Not found' }), { status: 404 });
             }
 
-            // Optimizamos las imágenes del producto
+            // Optimizamos las imágenes del producto (añadimos .webp)
             product = optimizeImages(product);
 
             return new Response(JSON.stringify(product), {
@@ -54,18 +28,9 @@ export const GET: APIRoute = async ({ url }) => {
             });
         }
 
+        // 2. LISTADO POR CATEGORÍA
         const category = url.searchParams.get('category') || '63';
-
-        const wcResponse = await fetch(
-            `https://winstonandharrystore.com/wp-json/wc/store/v1/products?category=${category}&per_page=100&orderby=date&order=desc`
-        );
-
-        if (!wcResponse.ok) return new Response(JSON.stringify({ error: 'API Error' }), { status: wcResponse.status });
-
-        let allProducts = await wcResponse.json();
-
-        // Para la lista, no procesamos variaciones para evitar timeout. 
-        // El ProductCard tiene lógica de fallback para predecir las imágenes de colores.
+        let allProducts = await getProductsByCategory(category, 100, page);
 
         // Optimizamos las imágenes de toda la lista
         allProducts = optimizeImages(allProducts);
@@ -75,9 +40,7 @@ export const GET: APIRoute = async ({ url }) => {
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
-                'Pragma': 'no-cache',
-                'Expires': '0'
+                'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400'
             }
         });
 
