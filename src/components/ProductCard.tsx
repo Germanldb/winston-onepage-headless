@@ -337,6 +337,31 @@ export default function ProductCard({ product, isSelected, onSelectionToggle }: 
                                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                             </svg>
                         </button>
+
+                        {colorAttribute && (
+                            <div className="card-colors-overlay">
+                                {colorAttribute.terms.map((term) => (
+                                    <button
+                                        key={term.id}
+                                        type="button"
+                                        className={`color-swatch-btn ${selectedColor === term.slug ? 'active' : ''}`}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+                                            setSelectedColor(term.slug);
+                                        }}
+                                        onMouseEnter={() => setHoveredColor(term.slug)}
+                                        onMouseLeave={() => setHoveredColor(null)}
+                                        title={term.name}
+                                    >
+                                        <span
+                                            className="color-circle"
+                                            style={{ backgroundColor: getColorCode(term.slug) }}
+                                        />
+                                    </button>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </a>
 
@@ -364,31 +389,6 @@ export default function ProductCard({ product, isSelected, onSelectionToggle }: 
                         <h3>
                             <a href={`/productos/${product.slug}${selectedColor ? `?color=${selectedColor}` : ''}`}>{product.name}</a>
                         </h3>
-
-                        {colorAttribute && (
-                            <div className="card-colors">
-                                {colorAttribute.terms.map((term) => (
-                                    <button
-                                        key={term.id}
-                                        type="button"
-                                        className={`color-swatch-btn ${selectedColor === term.slug ? 'active' : ''}`}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            e.stopPropagation();
-                                            setSelectedColor(term.slug);
-                                        }}
-                                        onMouseEnter={() => setHoveredColor(term.slug)}
-                                        onMouseLeave={() => setHoveredColor(null)}
-                                        title={term.name}
-                                    >
-                                        <span
-                                            className="color-circle"
-                                            style={{ backgroundColor: getColorCode(term.slug) }}
-                                        />
-                                    </button>
-                                ))}
-                            </div>
-                        )}
                     </div>
 
                     <p className="price">
@@ -527,10 +527,23 @@ export default function ProductCard({ product, isSelected, onSelectionToggle }: 
         .old-price { text-decoration: line-through; color: #ccc; }
         .sale-price { color: var(--color-beige); font-weight: 500; }
 
-        .card-colors {
+        .card-colors-overlay {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
             display: flex;
-            gap: 2px;
+            gap: 6px;
             align-items: center;
+            z-index: 15;
+            background: transparent;
+            padding: 5px 10px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .card-colors-overlay {
+            background: rgba(255, 255, 255, 0.0);
+            border-color: #fff;
         }
 
         .color-swatch-btn {
@@ -541,21 +554,22 @@ export default function ProductCard({ product, isSelected, onSelectionToggle }: 
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: transform 0.2s ease;
             position: relative;
-            width: 19px;
-            height: 19px;
+            width: 15px;
+            height: 15px;
         }
 
         .color-circle {
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
-            border: 1px solid rgba(0,0,0,0.1);
+            border: 1.5px solid #fff;
             display: block;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .color-swatch-btn:hover .color-circle { transform: scale(1.1); }
+        .color-swatch-btn:hover .color-circle { transform: scale(1.15); }
         
         .color-swatch-btn.active::after {
             content: '';
@@ -564,7 +578,7 @@ export default function ProductCard({ product, isSelected, onSelectionToggle }: 
             left: 0;
             right: 0;
             bottom: 0;
-            border: 1px solid #121212;
+            border: 1.5px solid #121212;
             border-radius: 50%;
         }
 
