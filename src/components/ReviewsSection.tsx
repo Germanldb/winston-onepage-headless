@@ -27,15 +27,28 @@ export default function ReviewsSection() {
     const minSwipeDistance = 50;
 
     useEffect(() => {
-        // Precargamos las reseñas inmediatamente al montar el componente, 
-        // sin esperar a que entre en el viewport (Astro client:visible ya maneja la hidratación, 
-        // pero queremos que los datos estén listos lo antes posible).
         const fetchReviews = async () => {
             try {
+                // SWR: Primero intentamos cargar de localStorage para carga instantánea
+                const localData = localStorage.getItem('wh_cached_reviews');
+                if (localData) {
+                    try {
+                        const parsed = JSON.parse(localData);
+                        if (Array.isArray(parsed) && parsed.length > 0) {
+                            setReviews(parsed);
+                            setLoading(false); // Ya tenemos algo que mostrar
+                        }
+                    } catch (e) {
+                        console.error("Error parsing local reviews:", e);
+                    }
+                }
+
                 const res = await fetch('/api/reviews');
                 if (res.ok) {
                     const data = await res.json();
                     setReviews(data);
+                    // Guardar en local para la próxima vez
+                    localStorage.setItem('wh_cached_reviews', JSON.stringify(data));
                 }
             } catch (e) {
                 console.error("Error fetching reviews:", e);

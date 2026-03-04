@@ -45,26 +45,34 @@ export const GET: APIRoute = async ({ url }) => {
         const uniqueReviews = Array.from(uniqueMap.values());
 
         // Procesar todas las reseñas únicas para tener la "base" optimizada en cache
+        const productCache = new Map();
+
         const processedReviews = await Promise.all(uniqueReviews.map(async (review: any) => {
             // Intentar obtener el slug del producto si no viene (el Store API suele no traerlo)
-            // Si viene en review.product_slug o similar lo usamos
             if (!review.product_slug && review.product_id) {
-                try {
-                    const pRes = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products/${review.product_id}`);
-                    if (pRes.ok) {
-                        const product = await pRes.json();
-                        review.product_slug = product.slug;
+                // Si ya buscamos este producto antes en este ciclo, lo usamos
+                if (productCache.has(review.product_id)) {
+                    review.product_slug = productCache.get(review.product_id);
+                } else {
+                    try {
+                        const pRes = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products/${review.product_id}`);
+                        if (pRes.ok) {
+                            const product = await pRes.json();
+                            review.product_slug = product.slug;
+                            productCache.set(review.product_id, product.slug);
+                        }
+                    } catch (e) {
+                        console.error("Error fetching product slug:", e);
                     }
-                } catch (e) {
-                    console.error("Error fetching product slug:", e);
                 }
             }
 
             if (review.product_image && review.product_image.src) {
                 let src = review.product_image.src;
-                if (src.includes('wp-content/uploads') && !src.toLowerCase().endsWith('.webp')) {
-                    let cleanSrc = src.replace(/-e\d+(?=\.(jpg|jpeg|png))/i, '');
-                    review.product_image.src = `${cleanSrc}.webp`;
+                // Dejar de forzar .webp si puede fallar, pero limpiar URLs de WP
+                if (src.includes('wp-content/uploads')) {
+                    let cleanSrc = src.replace(/-e\d+(?=\.(jpg|jpeg|png|webp))/i, '');
+                    review.product_image.src = cleanSrc;
                 }
             }
             return review;

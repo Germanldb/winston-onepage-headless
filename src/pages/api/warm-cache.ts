@@ -25,6 +25,7 @@ export const GET: APIRoute = async ({ request }) => {
             '/',                    // Home
             '/lista-de-deseos',     // Wishlist
             '/api/products',        // API de productos (Home grid)
+            '/api/reviews',         // API de reviews (Home section)
         ];
 
         const allUrlsToWarm = [

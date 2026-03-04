@@ -4,12 +4,20 @@
 
 <section id="inicio" class="hero">
     <div class="video-background">
+        <!-- New Background Image (Fallback for video) -->
+        <img
+            src="/images/banner-winston-and-harry-maletas.png"
+            alt="Winston & Harry - Ropa y Zapatos de Cuero"
+            class="hero-bg-image"
+            loading="eager"
+            fetchpriority="high"
+        />
         <video
             autoplay
             muted
             loop
             playsinline
-            poster="/images/hero-poster.webp"
+            poster="/images/banner-winston-and-harry-maletas.png"
             preload="metadata"
         >
             <source src="/videos/hero-video.mp4" type="video/mp4" />
@@ -17,14 +25,23 @@
         <div class="overlay"></div>
     </div>
 
-    <!-- Overlay Image "Eleva tu estilo sin límites" -->
-    <img
-        src="/images/hero-overlay.png"
-        alt="Eleva tu estilo sin límites"
-        class="hero-overlay-img"
-        loading="eager"
-        fetchpriority="high"
-    />
+    <div class="hero-content">
+        <h1 class="hero-title">
+            Ropa y Zapatos de Cuero para Hombre en Colombia, Hechos a Mano y
+            Diseñados para Durar.
+        </h1>
+        <p class="hero-subtitle">
+            Camisas, chaquetas, trajes, jeans, zapatos de cuero artesanal,
+            maletas y accesorios. Todo bajo un mismo sello colombiano. De pies a
+            cabeza.
+        </p>
+        <div class="hero-actions">
+            <a href="/productos" class="btn-primary">Explorar Colección</a>
+            <a href="/sobre-nosotros" class="btn-secondary"
+                >Conoce Nuestra Historia</a
+            >
+        </div>
+    </div>
 </section>
 
 <style>
@@ -61,8 +78,18 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.3);
+        background: rgba(21, 83, 56, 0.5); /* #155338 Overlay at 50% */
         z-index: 1;
+    }
+
+    .hero-bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
     }
 
     .video-background video {
@@ -71,53 +98,123 @@
         object-fit: cover;
     }
 
-    .hero-overlay-img {
-        position: absolute;
-        bottom: 150px;
-        left: 50%;
-        transform: translateX(-50%);
+    .hero-content {
+        position: relative;
         z-index: 10;
-        width: 60%;
-        max-width: 400px;
-        opacity: 0;
+        text-align: center;
+        max-width: 900px;
+        padding: 0 2rem;
+        margin-top: 15vh; /* Adjust position */
         animation: fadeInUp 1.5s ease-out forwards;
-        animation-delay: 0.5s; /* Pequeño retraso para que cargue primero el video */
+    }
+
+    .hero-title {
+        font-family: var(--font-titles, "Playfair Display", serif);
+        color: #fff;
+        font-size: clamp(1.8rem, 5vw, 3.2rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-subtitle {
+        font-family: var(--font-paragraphs, "Helvetica", sans-serif);
+        color: rgba(255, 255, 255, 0.9);
+        font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+        max-width: 700px;
+        margin: 0 auto 3.5rem;
+        line-height: 1.6;
+        text-transform: none;
+        letter-spacing: 0.5px;
+    }
+
+    .hero-actions {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 1rem 2.5rem;
+        font-family: var(--font-titles, sans-serif);
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-decoration: none;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        border-radius: 2px;
+        min-width: 240px;
+    }
+
+    .btn-primary {
+        background-color: #155338;
+        color: #fff;
+        border: 1px solid #155338;
+    }
+
+    .btn-primary:hover {
+        background-color: transparent;
+        border-color: #fff;
+    }
+
+    .btn-secondary {
+        background-color: #a98b68;
+        color: #fff;
+        border: 1px solid #a98b68;
+    }
+
+    .btn-secondary:hover {
+        background-color: transparent;
+        border-color: #fff;
     }
 
     @keyframes fadeInUp {
         0% {
             opacity: 0;
-            transform: translate(-50%, 50px);
+            transform: translateY(40px);
         }
         100% {
             opacity: 1;
-            transform: translate(-50%, 0);
+            transform: translateY(0);
         }
     }
 
     @media (max-width: 992px) {
         .hero {
-            height: auto;
-            aspect-ratio: 16 / 9;
-            top: 65px; /* Altura del header en mobile */
+            height: 90vh; /* Better for mobile */
+            top: 65px;
             margin-top: 65px;
-            transition: top 0.3s ease-in-out;
         }
 
-        :global(body.is-header-hidden) .hero {
-            top: 0;
+        .hero-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
         }
 
-        .hero-overlay-img {
-            max-width: 400px;
-            bottom: 20px;
+        .hero-subtitle {
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            width: 100%;
+            min-width: unset;
         }
     }
 
     @media (max-width: 480px) {
-        .hero-overlay-img {
-            max-width: 160px;
-            bottom: 15px;
+        .hero-title {
+            font-size: 1.6rem;
+        }
+        .hero-content {
+            padding: 0 1.5rem;
+            margin-top: 10vh;
         }
     }
 </style>

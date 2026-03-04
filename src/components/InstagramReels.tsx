@@ -95,9 +95,8 @@ export default function InstagramReels() {
                                 </div>
                             </div>
                             <div className="reel-info">
-                                <h3 className="reel-blog-tag">BLOG</h3>
                                 <p className="reel-blog-text">
-                                    Ropa, zapatos 100 % cuero y accesorios diseñados para hombres contemporáneos que valoran la calidad, el detalle y el carácter.
+                                    {reel.caption}
                                 </p>
                             </div>
                         </a>
@@ -225,11 +224,16 @@ export default function InstagramReels() {
                     font-size: 0.75rem;
                     color: #666;
                     line-height: 1.6;
-                    max-width: 250px;
+                    max-width: 320px;
                     margin: 0 auto;
                     font-family: 'Helvetica', 'Arial', sans-serif;
                     text-transform: none;
                     letter-spacing: normal;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
 
                 .reel-skeleton {
