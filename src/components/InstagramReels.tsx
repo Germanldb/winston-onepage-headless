@@ -14,6 +14,7 @@ interface Post {
         };
     };
     likeCount?: number;
+    timestamp: string;
 }
 
 export default function InstagramReels() {
@@ -23,15 +24,27 @@ export default function InstagramReels() {
     useEffect(() => {
         const fetchReels = async () => {
             try {
-                const res = await fetch('https://feeds.behold.so/RVqh8VIima5lSF9u1b3q');
+                const res = await fetch('https://feeds.behold.so/RVqh8VIima5lSF9u1b3q?limit=20');
                 if (res.ok) {
                     const data = await res.json();
-                    // Filter for reels and take the last 3
                     const allPosts = data.posts || [];
-                    const filteredReels = allPosts
-                        .filter((post: Post) => post.isReel || post.mediaType === 'VIDEO')
-                        .slice(0, 3);
-                    setReels(filteredReels);
+
+                    // Find all reels/videos
+                    const reelsOnly = allPosts.filter((post: Post) => post.isReel || post.mediaType === 'VIDEO');
+
+                    let finalSelection = reelsOnly.slice(0, 3);
+
+                    // If we have fewer than 3 reels, pull in the most recent non-reel posts to fill the gaps
+                    if (finalSelection.length < 3) {
+                        const nonReels = allPosts.filter((post: Post) => !(post.isReel || post.mediaType === 'VIDEO'));
+                        const needed = 3 - finalSelection.length;
+                        finalSelection = [...finalSelection, ...nonReels.slice(0, needed)];
+                    }
+
+                    // Sort by date (newest first) to maintain a natural feed look
+                    finalSelection.sort((a: Post, b: Post) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+
+                    setReels(finalSelection);
                 }
             } catch (e) {
                 console.error("Error fetching reels:", e);
@@ -63,9 +76,9 @@ export default function InstagramReels() {
         <section className="instagram-reels-section">
             <div className="container">
                 <div className="reels-section-header">
-                    <h2 className="reels-section-title">BLOG</h2>
+                    <h2 className="reels-section-title">El estilo tiene reglas, Conócelas.</h2>
                     <p className="reels-section-description">
-                        Ropa, zapatos 100 % cuero y accesorios diseñados para hombres contemporáneos que valoran la calidad, el detalle y el carácter.
+                        Guías de estilo, limpieza de zapatos de cuero y gamuza y todo lo que necesitas para vestir mejor. Contenido hecho para el hombre colombiano que quiere entender lo que lleva puesto.
                     </p>
                 </div>
                 <div className="reels-grid">

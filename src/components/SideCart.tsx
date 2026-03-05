@@ -67,7 +67,7 @@ export default function SideCart() {
                 <div className="cart-items modern-scroll">
                     {items.length === 0 ? (
                         <div className="empty-cart">
-                            <p>Tu carrito está vacío</p>
+                            <h2 style={{ textAlign: 'center', margin: '80% 0px' }}>Tu carrito está vacío</h2>
                             <button className="btn-buy" onClick={handleClose}>Seguir Comprando</button>
                         </div>
                     ) : (
