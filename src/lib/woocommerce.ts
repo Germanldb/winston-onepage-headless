@@ -37,26 +37,41 @@ function normalizeSlug(text: string): string {
 }
 
 /**
- * Generic Fetcher with Basic Auth
+ * Generic Fetcher with Basic Auth and Retry Logic
  */
-async function wcFetch(path: string, options: RequestInit = {}) {
+async function wcFetch(path: string, options: RequestInit = {}, retries = 3, delay = 1000) {
     const url = `${BASE_URL}${path}${path.includes('?') ? '&' : '?'}consumer_key=${CK}&consumer_secret=${CS}`;
 
-    // Some servers prefer URL params for WC API, others prefer Basic Auth header.
-    // We will use URL params as it's generally more compatible with WP setups.
-    const res = await fetch(url, {
-        ...options,
-        headers: {
-            'Accept': 'application/json',
-            ...(options.headers || {})
+    for (let i = 0; i < retries; i++) {
+        try {
+            const res = await fetch(url, {
+                ...options,
+                headers: {
+                    'Accept': 'application/json',
+                    ...(options.headers || {})
+                }
+            });
+
+            if (res.status === 503 || res.status === 429) {
+                // Server overloaded or rate limited, wait and retry
+                console.warn(`WC API Warning: ${res.status}. Retrying in ${delay}ms... (Attempt ${i + 1}/${retries})`);
+                await new Promise(r => setTimeout(r, delay));
+                delay *= 2; // Exponential backoff
+                continue;
+            }
+
+            if (!res.ok) {
+                throw new Error(`WC API Error: ${res.status} ${res.statusText}`);
+            }
+
+            return await res.json();
+        } catch (error: any) {
+            if (i === retries - 1) throw error;
+            console.warn(`WC API Error: ${error.message}. Retrying in ${delay}ms... (Attempt ${i + 1}/${retries})`);
+            await new Promise(r => setTimeout(r, delay));
+            delay *= 2;
         }
-    });
-
-    if (!res.ok) {
-        throw new Error(`WC API Error: ${res.status} ${res.statusText}`);
     }
-
-    return res.json();
 }
 
 /**
@@ -288,5 +303,31 @@ export async function getProductsByCategory(categoryId: string | number, perPage
     } catch (error) {
         console.error("Error fetching products by category:", error);
         throw error;
+    }
+}
+/**
+ * Fetch a WordPress Page by ID
+ */
+export async function getPageById(id: number | string) {
+    const cacheKey = `page_id_${id}`;
+    const cached = getCached(cacheKey);
+    if (cached) return cached;
+
+    try {
+        // En este caso usamos el endpoint nativo de WP para páginas, no el de WC
+        // El dominio es el mismo: winstonandharrystore.com/wp-json/wp/v2/pages
+        const wpBase = "https://winstonandharrystore.com/wp-json/wp/v2";
+        const res = await fetch(`${wpBase}/pages/${id}`);
+
+        if (!res.ok) {
+            throw new Error(`WP API Error: ${res.status}`);
+        }
+
+        const page = await res.json();
+        setCached(cacheKey, page);
+        return page;
+    } catch (error) {
+        console.error(`Error fetching page by ID ${id}:`, error);
+        return null;
     }
 }

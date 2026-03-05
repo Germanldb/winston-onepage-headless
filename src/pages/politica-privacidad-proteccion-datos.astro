@@ -1,0 +1,100 @@
+---
+import LegalLayout from "../layouts/LegalLayout.astro";
+import { getPageById } from "../lib/woocommerce";
+
+const page = await getPageById(1629);
+
+if (!page) {
+    console.error("FAILED TO FETCH PAGE 1629");
+} else {
+    console.log("FETCHED PAGE 1629:", page.title?.rendered);
+}
+
+const title = page?.title?.rendered || "POLÍTICA DE PRIVACIDAD";
+const content =
+    page?.content?.rendered ||
+    "<p>Error al cargar el contenido. Por favor intenta de nuevo más tarde.</p>";
+---
+
+<LegalLayout
+    title={title}
+    subtitle="WINSTON & HARRY es respetuosa del uso de los datos personales que le suministran sus clientes. Conoce nuestra política de protección de datos."
+>
+    <div class="wp-content" set:html={content} />
+</LegalLayout>
+
+<style is:global>
+    /* Estilos para el contenido que viene de WordPress / Elementor */
+    .wp-content {
+        word-break: break-word;
+    }
+
+    /* Reset de Elementor: Quitamos anchos fijos y layouts complejos */
+    .wp-content .elementor-section,
+    .wp-content .elementor-container,
+    .wp-content .elementor-column,
+    .wp-content .elementor-widget-wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+        border: none !important;
+    }
+
+    /* Targeteamos los headers y párrafos sin importar la profundidad de Elementor */
+    .wp-content h1,
+    .wp-content h2,
+    .wp-content h3,
+    .wp-content h4 {
+        font-size: 1.1rem;
+        margin: 3rem 0 1.5rem;
+        color: var(--color-green);
+        border-bottom: 1px solid #f0f0f0;
+        padding-bottom: 0.75rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-family: var(--font-titles);
+        font-weight: 700;
+        display: block;
+    }
+
+    .wp-content p {
+        margin-bottom: 1.5rem;
+        color: #555;
+        line-height: 1.8;
+        font-size: 0.95rem;
+        display: block;
+    }
+
+    .wp-content ul,
+    .wp-content ol {
+        margin-bottom: 2rem;
+        padding-left: 1.5rem;
+        list-style: disc; /* Aseguramos que se vean las viñetas */
+    }
+
+    .wp-content li {
+        margin-bottom: 1rem;
+        color: #555;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+
+    .wp-content strong {
+        color: var(--color-black);
+        font-weight: 700;
+    }
+
+    .wp-content a {
+        color: var(--color-beige);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+
+    /* Ocultar elementos visuales vacíos de Elementor */
+    .wp-content .elementor-spacer,
+    .wp-content .elementor-divider {
+        display: none !important;
+    }
+</style>

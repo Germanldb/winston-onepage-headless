@@ -90,23 +90,23 @@ const { title } = Astro.props;
             }, observerOptions);
 
             function observeNewElements() {
-                const elementsToReveal = document.querySelectorAll("img");
+                const elementsToReveal = document.querySelectorAll(
+                    ".reveal-on-scroll, img",
+                );
 
                 elementsToReveal.forEach((el) => {
                     // Skip already processed elements (no DOM modification needed)
                     if (processedElements.has(el)) return;
                     processedElements.add(el);
 
-                    // *** CRITICAL: Never touch images inside React client components ***
-                    // Astro wraps all client: components in <astro-island>.
-                    // Modifying classList here causes React hydration mismatches.
-                    if (el.closest("astro-island")) return;
-
-                    // Skip images already visible
+                    // Skip images already visible (if any)
                     if (el.classList.contains("is-visible")) return;
 
-                    // Only add reveal animation to static Astro images
-                    el.classList.add("reveal-on-scroll");
+                    // If it's an image and not in an astro-island, add class if not present
+                    if (el.tagName === "IMG" && !el.closest("astro-island")) {
+                        el.classList.add("reveal-on-scroll");
+                    }
+
                     observer.observe(el);
                 });
             }

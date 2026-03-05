@@ -4,47 +4,48 @@ export const GET: APIRoute = async ({ request }) => {
     const url = new URL(request.url);
     const origin = url.origin;
 
-    // Solo activamos si viene de un Cron de Vercel o tenemos autorización simple
-    // Vercel añade un header de autorización secreto si se configura, pero por ahora lo dejamos libre
-    // para pruebas, o validamos que el origin sea el mismo.
-
     try {
-        console.log('--- Iniciando Calentamiento de Caché (Catálogo Completo) ---');
+        console.log('--- Iniciando Calentamiento de Caché (Optimizado) ---');
 
-        // 1. Obtenemos TODOS los productos paginando (Máximo 100 por página)
-        let allProducts: any[] = [];
-        let page = 1;
-        let hasMore = true;
+        // 1. Obtenemos la primera página para saber el total
+        console.log('Obteniendo catálogo de WooCommerce...');
+        const firstResponse = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products?per_page=100&page=1`);
 
-        console.log('Obteniendo catálogo completo de WooCommerce...');
+        if (!firstResponse.ok) {
+            throw new Error(`Error obteniendo productos: ${firstResponse.status}`);
+        }
 
-        while (hasMore && page <= 15) { // Límite de 15 páginas (1500 productos) por seguridad
-            const response = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products?per_page=100&page=${page}`);
-            if (!response.ok) {
-                console.error(`Error en página ${page}: ${response.status}`);
-                break;
+        const totalPagesHeader = firstResponse.headers.get('X-WP-TotalPages');
+        const totalPages = Math.min(parseInt(totalPagesHeader || '1'), 10); // Limitamos a 10 páginas (1000 productos) para velocidad
+
+        let allProducts = await firstResponse.json();
+        console.log(`Página 1 cargada. Total páginas detectadas: ${totalPagesHeader}.`);
+
+        // 2. Cargamos el resto de páginas en PARALELO
+        if (totalPages > 1) {
+            const pageRequests = [];
+            for (let p = 2; p <= totalPages; p++) {
+                pageRequests.push(
+                    fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products?per_page=100&page=${p}`)
+                        .then(res => res.ok ? res.json() : [])
+                        .catch(() => [])
+                );
             }
-
-            const chunk = await response.json();
-            if (!Array.isArray(chunk) || chunk.length === 0) {
-                hasMore = false;
-            } else {
-                allProducts.push(...chunk);
-                console.log(`Página ${page} cargada: ${chunk.length} productos.`);
-                page++;
-            }
+            const otherPages = await Promise.all(pageRequests);
+            otherPages.forEach(chunk => {
+                if (Array.isArray(chunk)) allProducts.push(...chunk);
+            });
         }
 
         const slugs = allProducts.map((p: any) => p.slug);
-
         console.log(`Total de productos encontrados: ${slugs.length}.`);
 
-        // 2. Definimos todas las rutas críticas de la web
+        // 3. Definimos todas las rutas críticas
         const criticalRoutes = [
-            '/',                    // Home
-            '/lista-de-deseos',     // Wishlist
-            '/api/products',        // API de productos (Home grid)
-            '/api/reviews',         // API de reviews (Home section)
+            '/',
+            '/lista-de-deseos',
+            '/api/products',
+            '/api/reviews',
         ];
 
         const allUrlsToWarm = [
@@ -52,35 +53,40 @@ export const GET: APIRoute = async ({ request }) => {
             ...slugs.map((slug: string) => `${origin}/productos/${slug}`)
         ];
 
-        console.log(`Iniciando visita a ${allUrlsToWarm.length} enlaces en modo express...`);
+        console.log(`Iniciando visita a ${allUrlsToWarm.length} enlaces en paralelo total...`);
 
-        // 3. Ejecutamos las visitas en LOTES (Chunks)
-        // Procesamos de 50 en 50 para ir muy rápido
+        // 4. Ejecutamos las visitas en lotes controlados para no saturar WordPress
+        const CHUNK_SIZE = 20;
         const results = [];
-        const chunkSize = 50;
 
-        for (let i = 0; i < allUrlsToWarm.length; i += chunkSize) {
-            const chunk = allUrlsToWarm.slice(i, i + chunkSize);
+        for (let i = 0; i < allUrlsToWarm.length; i += CHUNK_SIZE) {
+            const chunk = allUrlsToWarm.slice(i, i + CHUNK_SIZE);
             const chunkResults = await Promise.allSettled(
-                chunk.map(async (url) => {
-                    const res = await fetch(url, { method: 'HEAD' });
-                    return { url, status: res.status };
-                })
+                chunk.map(url => fetch(url, {
+                    method: 'HEAD',
+                    headers: { 'User-Agent': 'Vercel-Cache-Warmer' }
+                }))
             );
             results.push(...chunkResults);
-            // Pausa de 100ms entre lotes (modo express)
-            await new Promise(r => setTimeout(r, 100));
+
+            // Pausa para dejar respirar al servidor
+            if (i + CHUNK_SIZE < allUrlsToWarm.length) {
+                await new Promise(r => setTimeout(r, 250));
+            }
         }
 
         return new Response(JSON.stringify({
             success: true,
             total_links: allUrlsToWarm.length,
             products: slugs.length,
-            message: `Caché calentado con éxito para toda la tienda`,
+            message: `Cache warming completed for ${slugs.length} products and critical routes.`,
             timestamp: new Date().toISOString()
         }), {
             status: 200,
-            headers: { 'Content-Type': 'application/json' }
+            headers: {
+                'Content-Type': 'application/json',
+                'Cache-Control': 'no-store'
+            }
         });
 
     } catch (error: any) {
@@ -94,3 +100,4 @@ export const GET: APIRoute = async ({ request }) => {
         });
     }
 };
+

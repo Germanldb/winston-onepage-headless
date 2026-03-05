@@ -1,0 +1,165 @@
+---
+import Layout from "./Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+    title: string;
+    subtitle?: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<Layout title={title}>
+    <Header />
+    <main class="legal-page">
+        <section class="legal-header">
+            <div class="container header-container">
+                <h1 class="legal-title">{title}</h1>
+                {subtitle && <p class="legal-subtitle">{subtitle}</p>}
+            </div>
+        </section>
+
+        <section class="legal-content">
+            <div class="container content-container">
+                <div class="legal-box">
+                    <slot />
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .legal-page {
+        padding-top: 100px; /* Space for fixed header */
+        background-color: #f4f4f4;
+    }
+
+    .legal-header {
+        background-color: #e8d5b7; /* Refined beige to match image */
+        padding: 6rem 0 10rem;
+        text-align: center;
+        position: relative;
+    }
+
+    .header-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .legal-title {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        color: var(--color-green);
+        letter-spacing: 0.2em;
+        font-family: var(--font-titles);
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .legal-subtitle {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 0.85rem;
+        color: #555;
+        line-height: 1.6;
+        text-transform: none;
+        letter-spacing: normal;
+        text-align: center;
+    }
+
+    .legal-content {
+        margin-top: -4rem;
+        padding-bottom: 8rem;
+        position: relative;
+        z-index: 10;
+    }
+
+    .content-container {
+        max-width: 1200px;
+        padding: 0 2rem;
+    }
+
+    .legal-box {
+        background: #ffffff;
+        padding: 5rem;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+        border-radius: 2px;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    /* Inner Content Styling */
+    :global(.legal-box h2) {
+        font-size: 1.1rem;
+        margin: 3rem 0 1.5rem;
+        color: var(--color-green);
+        border-bottom: 1px solid #f0f0f0;
+        padding-bottom: 0.75rem;
+        letter-spacing: 2px;
+    }
+
+    :global(.legal-box p) {
+        margin-bottom: 1.5rem;
+        color: #555;
+        line-height: 1.8;
+        font-size: 0.95rem;
+    }
+
+    :global(.legal-box strong) {
+        color: var(--color-black);
+    }
+
+    :global(.legal-box ul, .legal-box ol) {
+        margin-bottom: 2rem;
+        padding-left: 1.5rem;
+    }
+
+    :global(.legal-box li) {
+        margin-bottom: 1rem;
+        color: #555;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+
+    :global(.legal-box a) {
+        color: var(--color-beige);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+
+    :global(.legal-box a:hover) {
+        color: var(--color-green);
+    }
+
+    @media (max-width: 768px) {
+        .legal-page {
+            padding-top: 80px;
+        }
+
+        .legal-header {
+            padding: 4rem 1rem 8rem;
+        }
+
+        .legal-title {
+            font-size: 2.2rem;
+            letter-spacing: 0.1em;
+        }
+
+        .legal-subtitle {
+            font-size: 0.85rem;
+        }
+
+        .legal-content {
+            margin-top: -4rem;
+        }
+
+        .legal-box {
+            padding: 3rem 1.5rem;
+        }
+    }
+</style>
