@@ -3,9 +3,13 @@
  * Using ck/cs credentials for full access and better data processing.
  */
 
-const CK = "ck_28661c4aff0fc02b97a607862895fc40a187e867";
-const CS = "cs_deb208f164b96724a90b64bf0f762a713251b7a2";
-const BASE_URL = "https://winstonandharrystore.com/wp-json/wc/v3";
+const CK = import.meta.env.WC_CONSUMER_KEY || "ck_28661c4aff0fc02b97a607862895fc40a187e867";
+const CS = import.meta.env.WC_CONSUMER_SECRET || "cs_deb208f164b96724a90b64bf0f762a713251b7a2";
+const BASE_URL = `${import.meta.env.WC_URL || "https://tienda.winstonandharrystore.com"}/wp-json/wc/v3`;
+
+const WP_APP_USER = import.meta.env.WP_APP_USER || "Astro Headless";
+const WP_APP_PASS = import.meta.env.WP_APP_PASS || "fyWY ELGb lMsk XtlY y4Gy e18p";
+const basicAuthHeader = `Basic ${btoa(`${WP_APP_USER}:${WP_APP_PASS}`)}`;
 
 // Sistema de Cache en Memoria (SSR & API)
 const cache: Record<string, { data: any, timestamp: number }> = {};
@@ -48,6 +52,7 @@ async function wcFetch(path: string, options: RequestInit = {}, retries = 3, del
                 ...options,
                 headers: {
                     'Accept': 'application/json',
+                    'Authorization': basicAuthHeader,
                     ...(options.headers || {})
                 }
             });
@@ -344,8 +349,13 @@ export async function getPageById(id: number | string) {
     try {
         // En este caso usamos el endpoint nativo de WP para páginas, no el de WC
         // El dominio es el mismo: winstonandharrystore.com/wp-json/wp/v2/pages
-        const wpBase = "https://winstonandharrystore.com/wp-json/wp/v2";
-        const res = await fetch(`${wpBase}/pages/${id}`);
+        const wpBase = `${import.meta.env.WC_URL || "https://tienda.winstonandharrystore.com"}/wp-json/wp/v2`;
+        const res = await fetch(`${wpBase}/pages/${id}`, {
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': basicAuthHeader
+            }
+        });
 
         if (!res.ok) {
             throw new Error(`WP API Error: ${res.status}`);
@@ -357,5 +367,35 @@ export async function getPageById(id: number | string) {
     } catch (error) {
         console.error(`Error fetching page by ID ${id}:`, error);
         return null;
+    }
+}
+
+/**
+ * Fetch a WordPress Menu by Slug
+ */
+export async function getMenu(slug: string) {
+    const cacheKey = `menu_${slug}`;
+    const cached = getCached(cacheKey);
+    if (cached) return cached;
+
+    try {
+        const wpBase = `${import.meta.env.WC_URL || "https://tienda.winstonandharrystore.com"}/wp-json/wh/v1`;
+        const res = await fetch(`${wpBase}/menu/${slug}`, {
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': basicAuthHeader
+            }
+        });
+
+        if (!res.ok) {
+            throw new Error(`WP Menu API Error: ${res.status}`);
+        }
+
+        const menu = await res.json();
+        setCached(cacheKey, menu);
+        return menu;
+    } catch (error) {
+        console.error(`Error fetching menu ${slug}:`, error);
+        return [];
     }
 }

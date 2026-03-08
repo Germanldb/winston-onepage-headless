@@ -1,5 +1,25 @@
 Este archivo resume los últimos cambios realizados para mantener la sincronía entre diferentes estaciones de trabajo.
 
+## Últimos Cambios (7 de Marzo, 2026)
+
+### 1. Migración Dinámica de Páginas Legales
+- **Conexión Headless:** Las páginas de Política de Privacidad, Cookies y Envíos ahora consumen su contenido dinámicamente desde el core de WordPress vía REST (`getPageById`).
+- **LegalLayout.astro:** Se creó un layout unificado para envolver el contenido legal.
+    - Se extrae automáticamente el primer párrafo de WordPress (sin etiquetas `<p>`) para utilizarlo como subtítulo estilizado en la cabecera beige.
+    - Se consolidaron los estilos globales (`.wp-content`) reseteando márgenes, aplicando tipografía secundaria y alineación a la izquierda estricta para sobreescribir estilos en línea que provienen del editor clásico de WP.
+- **Términos y Condiciones:** Por discrepancias estructurales mayores en el HTML de origen en WP, esta página se implementó con contenido "hardcodeado" (fijo) en Astro para garantizar 100% de apego a la Guía de Estilos.
+
+### 2. Componente Banner de Cookies
+- **Creación de `CookieBanner.astro`:** Inyección global en el `Layout.astro` principal.
+- Función persistente (`localStorage: cookiesAccepted`) en Vanilla JavaScript (se carga con `astro:page-load` de ViewTransitions).
+- Estética limpia, barra inferior blanca con botón de llamado a la acción verde corporativo.
+
+### 3. Header Dinámico y Seguridad API Rest
+- **Menú desde WordPress:** Se añadió un endpoint personalizado (`wh/v1/menu/`) en `wordpress_setup.php` para exponer los menús nativos. El `Header.astro` ahora itera este arreglo para pintar los enlaces principales.
+- **Autenticación (Application Passwords):**
+    - Al implementar filtros custom de seguridad (401/403) en WordPress para bloquear accesos anónimos a las APIs, las llamas internas de Astro se caían (Look of the Week y Menús).
+    - **Solución:** Se integraron el `WP_APP_USER` y `WP_APP_PASS` en el archivo `.env`. Las funciones utilitarias en `woocommerce.ts` y en la API propia de Astro (`looks`) ahora arman un token Basic (usando `btoa`) e inyectan el *Header* de `Authorization` para pasar impecablemente por los firewalls de WordPress.
+
 ## Últimos Cambios (4 de Marzo, 2026)
 
 ### 1. Estandarización de Interfaz y Guía de Estilos

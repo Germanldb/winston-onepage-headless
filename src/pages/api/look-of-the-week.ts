@@ -22,7 +22,16 @@ export const GET: APIRoute = async () => {
             });
         }
 
-        const response = await fetch('https://winstonandharrystore.com/wp-json/wp/v2/look-semana?per_page=1&_embed');
+        const WP_APP_USER = import.meta.env.WP_APP_USER || "Astro Headless";
+        const WP_APP_PASS = import.meta.env.WP_APP_PASS || "fyWY ELGb lMsk XtlY y4Gy e18p";
+        const basicAuthHeader = `Basic ${btoa(`${WP_APP_USER}:${WP_APP_PASS}`)}`;
+
+        const wpBase = import.meta.env.WC_URL || "https://tienda.winstonandharrystore.com";
+        const response = await fetch(`${wpBase}/wp-json/wp/v2/look-semana?per_page=1&_embed`, {
+            headers: {
+                'Authorization': basicAuthHeader
+            }
+        });
 
         if (!response.ok) {
             return new Response(JSON.stringify({ error: 'Failed to fetch look of the week' }), {

@@ -10,7 +10,7 @@ export function redirectToCheckout(path: string = '/') {
     const items = Object.values($cartItems).map(value => JSON.parse(value));
 
     // Dominio de WordPress donde está el WooCommerce real
-    const wpDomain = 'https://winstonandharrystore.com';
+    const wpDomain = 'https://tienda.winstonandharrystore.com';
 
     if (items.length === 0) {
         window.location.href = `${wpDomain}${path}`;

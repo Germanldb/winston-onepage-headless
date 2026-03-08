@@ -1,57 +1,27 @@
 ---
 import LegalLayout from "../layouts/LegalLayout.astro";
+import { getPageById } from "../lib/woocommerce";
+
+const page = await getPageById(14680);
+
+let title = "POLÍTICA DE COOKIES";
+let subtitle = "";
+let content = "<p>Error al cargar el contenido.</p>";
+
+if (page) {
+    title = page.title?.rendered || title;
+    const rawContent = page.content?.rendered || "";
+
+    const parts = rawContent.split(/<\/p>/);
+    if (parts.length > 0) {
+        subtitle = parts[0].replace(/<p[^>]*>/g, "").trim();
+        content = parts.slice(1).join("</p>");
+    } else {
+        content = rawContent;
+    }
+}
 ---
 
-<LegalLayout
-    title="POLÍTICA DE COOKIES"
-    subtitle="Nuestra página web utiliza cookies para analizar la navegación de usuarios. Al navegar en ella, estás aceptando nuestra política de cookies."
->
-    <p>
-        COMERCIAL IREGUI S.A.S. (en adelante “WINSTON & HARRY”), informa a los
-        usuarios del sitio web www.winstonandharrystore.com sobre el uso de
-        cookies en su plataforma para mejorar la experiencia de usuario y
-        analizar el tráfico.
-    </p>
-
-    <h2>¿QUÉ SON LAS COOKIES?</h2>
-    <p>
-        Las cookies son pequeños archivos de texto que los sitios web almacenan
-        en su ordenador, teléfono inteligente o tableta cuando usted los visita.
-        Estos archivos permiten al sitio web "recordar" sus acciones o
-        preferencias a lo largo del tiempo.
-    </p>
-
-    <h2>TIPOS DE COOKIES QUE UTILIZAMOS</h2>
-    <ul>
-        <li>
-            <strong>Cookies técnicas:</strong> Son aquellas que permiten al usuario
-            la navegación a través de una página web y la utilización de las diferentes
-            opciones o servicios que en ella existan.
-        </li>
-        <li>
-            <strong>Cookies de personalización:</strong> Permiten al usuario acceder
-            al servicio con algunas características de carácter general predefinidas
-            en función de una serie de criterios.
-        </li>
-        <li>
-            <strong>Cookies de análisis:</strong> Permiten al responsable de las mismas
-            el seguimiento y análisis del comportamiento de los usuarios de los sitios
-            web a los que están vinculadas.
-        </li>
-    </ul>
-
-    <h2>GESTIÓN DE COOKIES</h2>
-    <p>
-        El usuario tiene la posibilidad de configurar su navegador para ser
-        avisado en pantalla de la recepción de cookies y para impedir la
-        instalación de cookies en su disco duro. Por favor, consulte las
-        instrucciones y manuales de su navegador para ampliar esta información.
-    </p>
-
-    <h2>CONSENTIMIENTO</h2>
-    <p>
-        Al navegar y continuar en nuestro Sitio Web estará consititiendo el uso
-        de las cookies antes enunciadas, por los periodos señalados y en las
-        condiciones contenidas en la presente Política de Cookies.
-    </p>
+<LegalLayout title={title} subtitle={subtitle}>
+    <div class="wp-content" set:html={content} />
 </LegalLayout>

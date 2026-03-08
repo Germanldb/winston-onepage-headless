@@ -17,7 +17,7 @@ const { title, subtitle } = Astro.props;
         <section class="legal-header">
             <div class="container header-container">
                 <h1 class="legal-title">{title}</h1>
-                {subtitle && <p class="legal-subtitle">{subtitle}</p>}
+                {subtitle && <p class="legal-subtitle" set:html={subtitle} />}
             </div>
         </section>
 
@@ -34,37 +34,37 @@ const { title, subtitle } = Astro.props;
 
 <style>
     .legal-page {
-        padding-top: 100px; /* Space for fixed header */
+        padding-top: 90px; /* Space for fixed header */
         background-color: #f4f4f4;
     }
 
     .legal-header {
-        background-color: #e8d5b7; /* Refined beige to match image */
-        padding: 6rem 0 10rem;
+        background-color: #ebe3d7; /* Refined beige to match image */
+        padding: 4rem 2rem;
         text-align: center;
         position: relative;
     }
 
     .header-container {
-        max-width: 900px;
+        max-width: 950px;
         margin: 0 auto;
-        padding: 0 1rem;
+        padding: 0rem;
     }
 
     .legal-title {
-        font-size: 3rem;
+        font-size: 1.25rem;
         margin-bottom: 2rem;
         color: var(--color-green);
-        letter-spacing: 0.2em;
+        letter-spacing: 2px;
         font-family: var(--font-titles);
         font-weight: 700;
         text-transform: uppercase;
     }
 
     .legal-subtitle {
-        max-width: 800px;
+        max-width: 900px;
         margin: 0 auto;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         color: #555;
         line-height: 1.6;
         text-transform: none;
@@ -72,11 +72,25 @@ const { title, subtitle } = Astro.props;
         text-align: center;
     }
 
+    .legal-subtitle a {
+        color: var(--color-green, #155338);
+        text-decoration: underline;
+        font-weight: 500;
+    }
+
+    .legal-subtitle strong,
+    .legal-subtitle b {
+        font-weight: 700;
+        color: var(--color-black, #121212);
+    }
+
     .legal-content {
-        margin-top: -4rem;
-        padding-bottom: 8rem;
+        margin-top: 0rem;
+        padding-bottom: 2rem;
+        padding-top: 2rem;
         position: relative;
         z-index: 10;
+        background-color: #f3efe7;
     }
 
     .content-container {
@@ -86,54 +100,93 @@ const { title, subtitle } = Astro.props;
 
     .legal-box {
         background: #ffffff;
-        padding: 5rem;
+        padding: 1rem;
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
         border-radius: 2px;
         max-width: 1100px;
         margin: 0 auto;
     }
 
-    /* Inner Content Styling */
-    :global(.legal-box h2) {
-        font-size: 1.1rem;
+    /* Estilos globales para contenido de WordPress dentro de páginas legales */
+    :global(.wp-content) {
+        word-break: break-word;
+        max-width: 900px;
+        margin: 0 auto;
+        font-family: var(--font-body, "Helvetica", "Arial", sans-serif);
+        text-align: left; /* Aseguramos alineación a la izquierda */
+    }
+
+    :global(.wp-content h1),
+    :global(.wp-content h2),
+    :global(.wp-content h3),
+    :global(.wp-content h4) {
+        font-family: var(--font-titles, "darkmode-off", "Antonio", sans-serif);
+        font-size: 1.25rem;
         margin: 3rem 0 1.5rem;
-        color: var(--color-green);
+        color: var(--color-green, #155338);
         border-bottom: 1px solid #f0f0f0;
         padding-bottom: 0.75rem;
         letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 700;
+        display: block;
     }
 
-    :global(.legal-box p) {
+    :global(.wp-content p) {
         margin-bottom: 1.5rem;
-        color: #555;
+        color: var(--color-black, #121212);
         line-height: 1.8;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        display: block;
+        text-align: left !important;
     }
 
-    :global(.legal-box strong) {
-        color: var(--color-black);
-    }
-
-    :global(.legal-box ul, .legal-box ol) {
+    :global(.wp-content ul),
+    :global(.wp-content ol) {
         margin-bottom: 2rem;
         padding-left: 1.5rem;
+        list-style: disc;
     }
 
-    :global(.legal-box li) {
+    :global(.wp-content li) {
         margin-bottom: 1rem;
-        color: #555;
+        color: var(--color-black, #121212);
         line-height: 1.6;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 
-    :global(.legal-box a) {
-        color: var(--color-beige);
+    :global(.wp-content strong) {
+        color: var(--color-black, #121212);
+        font-weight: 700;
+    }
+
+    :global(.wp-content a) {
+        color: var(--color-beige, #b1915f);
         text-decoration: underline;
         text-underline-offset: 4px;
+        transition: opacity 0.3s;
     }
 
-    :global(.legal-box a:hover) {
-        color: var(--color-green);
+    :global(.wp-content a:hover) {
+        opacity: 0.7;
+    }
+
+    /* Reset de Elementor */
+    :global(.wp-content .elementor-section),
+    :global(.wp-content .elementor-container),
+    :global(.wp-content .elementor-column),
+    :global(.wp-content .elementor-widget-wrap) {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+        border: none !important;
+    }
+
+    :global(.wp-content .elementor-spacer),
+    :global(.wp-content .elementor-divider) {
+        display: none !important;
     }
 
     @media (max-width: 768px) {

@@ -1,42 +1,29 @@
 ---
 import LegalLayout from "../layouts/LegalLayout.astro";
+import { getPageById } from "../lib/woocommerce";
+
+const page = await getPageById(14599);
+
+let title = "POLÍTICAS DE ENVÍO";
+let subtitle = "";
+let content = "<p>Error al cargar el contenido.</p>";
+
+if (page) {
+    title = page.title?.rendered || title;
+    const rawContent = page.content?.rendered || "";
+
+    const parts = rawContent.split(/<\/p>/);
+    if (parts.length > 0) {
+        // Obtenemos el primer párrafo y quitamos el tag de apertura <p> si existe
+        subtitle = parts[0].replace(/<p[^>]*>/g, "").trim();
+        // El resto vuelve a ser el contenido
+        content = parts.slice(1).join("</p>");
+    } else {
+        content = rawContent;
+    }
+}
 ---
 
-<LegalLayout
-    title="COSTOS DE ENVÍO"
-    subtitle="Conoce aquí nuestras políticas y costos de envío. Enviamos todos nuestros productos a cualquier parte de Colombia y el resto del mundo."
->
-    <h2>1. ENVÍOS NACIONALES</h2>
-    <p>
-        a. Los costos de envío para Colombia, se calcularán según la cantidad de
-        productos a enviar y la ciudad de destino.
-    </p>
-    <p>
-        b. El tiempo de entrega es de máximo 5 días hábiles a partir de la
-        confirmación de la transacción.
-    </p>
-
-    <h2>2. ENVÍOS INTERNACIONALES</h2>
-    <p>
-        a. Los costos de envío varían según el destino final del pedido y sus
-        características.
-    </p>
-    <p>
-        b. El cliente tendrá que tener en cuenta y asumir el costo de aranceles
-        e impuestos que se puedan generar a causa del envío. Adicionalmente, es
-        probable que estos costos sean exigidos por las autoridades locales
-        antes de entregar el producto al destino final.
-    </p>
-    <p>c. El tiempo de entrega variará según el destino de la entrega:</p>
-    <ul>
-        <li>Américas: 25 días hábiles.</li>
-        <li>Europa: 45 días hábiles.</li>
-        <li>África: 60 días hábiles.</li>
-        <li>Asia: 80 días hábiles.</li>
-    </ul>
-
-    <p>
-        Para mayor información comunícate con nosotros desde la sección de
-        Contacto.
-    </p>
+<LegalLayout title={title} subtitle={subtitle}>
+    <div class="wp-content" set:html={content} />
 </LegalLayout>

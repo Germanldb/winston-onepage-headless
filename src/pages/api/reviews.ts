@@ -26,7 +26,7 @@ export const GET: APIRoute = async ({ url }) => {
         }
 
         const response = await fetch(
-            `https://winstonandharrystore.com/wp-json/wc/store/v1/products/reviews?per_page=100`
+            `https://tienda.winstonandharrystore.com/wp-json/wc/store/v1/products/reviews?per_page=100`
         );
 
         if (!response.ok) {
@@ -55,7 +55,7 @@ export const GET: APIRoute = async ({ url }) => {
                     review.product_slug = productCache.get(review.product_id);
                 } else {
                     try {
-                        const pRes = await fetch(`https://winstonandharrystore.com/wp-json/wc/store/v1/products/${review.product_id}`);
+                        const pRes = await fetch(`https://tienda.winstonandharrystore.com/wp-json/wc/store/v1/products/${review.product_id}`);
                         if (pRes.ok) {
                             const product = await pRes.json();
                             review.product_slug = product.slug;

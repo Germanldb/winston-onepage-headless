@@ -93,62 +93,83 @@ function look_semana_meta_box_callback($post)
     $producto_2 = get_post_meta($post->ID, '_look_producto_2', true);
 
     ?>
-        <style>
-            .look-flex-container { display: flex; gap: 20px; align-items: start; margin-bottom: 20px; }
-            .look-col { flex: 1; }
-            .look-media-preview { margin-top: 10px; max-width: 200px; display: block; border: 1px solid #ccc; }
-            .look-media-preview:not([src]) { display: none; }
-        </style>
+    <style>
+        .look-flex-container {
+            display: flex;
+            gap: 20px;
+            align-items: start;
+            margin-bottom: 20px;
+        }
 
-        <div class="look-flex-container">
-            <!-- Columna Izquierda: Titulo Custom -->
-            <div class="look-col">
-                <label for="look_titulo_personalizado"><strong>Título del Look:</strong></label><br>
-                <input type="text" id="look_titulo_personalizado" name="look_titulo_personalizado" value="<?php echo esc_attr($titulo_personalizado); ?>" style="width:100%; height: 40px; margin-top: 10px;">
-                <p class="description">Este título aparecerá en el banner frontal.</p>
+        .look-col {
+            flex: 1;
+        }
+
+        .look-media-preview {
+            margin-top: 10px;
+            max-width: 200px;
+            display: block;
+            border: 1px solid #ccc;
+        }
+
+        .look-media-preview:not([src]) {
+            display: none;
+        }
+    </style>
+
+    <div class="look-flex-container">
+        <!-- Columna Izquierda: Titulo Custom -->
+        <div class="look-col">
+            <label for="look_titulo_personalizado"><strong>Título del Look:</strong></label><br>
+            <input type="text" id="look_titulo_personalizado" name="look_titulo_personalizado"
+                value="<?php echo esc_attr($titulo_personalizado); ?>" style="width:100%; height: 40px; margin-top: 10px;">
+            <p class="description">Este título aparecerá en el banner frontal.</p>
+        </div>
+
+        <!-- Columna Derecha: WYSIWYG -->
+        <div class="look-col">
+            <label for="look_descripcion"><strong>Descripción:</strong></label>
+            <div style="margin-top: 10px;">
+                <?php wp_editor($description, 'look_descripcion', array('textarea_name' => 'look_descripcion', 'media_buttons' => false, 'textarea_rows' => 5)); ?>
             </div>
+        </div>
+    </div>
 
-            <!-- Columna Derecha: WYSIWYG -->
-            <div class="look-col">
-                <label for="look_descripcion"><strong>Descripción:</strong></label>
-                <div style="margin-top: 10px;">
-                    <?php wp_editor($description, 'look_descripcion', array('textarea_name' => 'look_descripcion', 'media_buttons' => false, 'textarea_rows' => 5)); ?>
-                </div>
+    <hr>
+
+    <div class="look-flex-container">
+        <!-- Campo Imagen con Selector -->
+        <div class="look-col">
+            <label><strong>Imagen del Look (Media):</strong></label><br>
+            <div style="margin-top: 10px;">
+                <input type="hidden" id="look_imagen_id" name="look_imagen_id" value="<?php echo esc_attr($imagen_id); ?>">
+                <img id="look_img_preview" src="<?php echo esc_attr($imagen_url); ?>" class="look-media-preview">
+                <button type="button" class="button button-secondary" id="look_upload_btn">Seleccionar Imagen</button>
+                <button type="button" class="button button-link-delete" id="look_remove_btn"
+                    style="<?php echo !$imagen_id ? 'display:none;' : ''; ?>">Quitar</button>
             </div>
         </div>
 
-        <hr>
+        <!-- IDs de Productos -->
+        <div class="look-col">
+            <label for="look_producto_1"><strong>ID Producto 1 (WC):</strong></label><br>
+            <input type="number" id="look_producto_1" name="look_producto_1" value="<?php echo esc_attr($producto_1); ?>"
+                style="width:100px; margin-top:5px;"><br><br>
 
-        <div class="look-flex-container">
-            <!-- Campo Imagen con Selector -->
-            <div class="look-col">
-                <label><strong>Imagen del Look (Media):</strong></label><br>
-                <div style="margin-top: 10px;">
-                    <input type="hidden" id="look_imagen_id" name="look_imagen_id" value="<?php echo esc_attr($imagen_id); ?>">
-                    <img id="look_img_preview" src="<?php echo esc_attr($imagen_url); ?>" class="look-media-preview">
-                    <button type="button" class="button button-secondary" id="look_upload_btn">Seleccionar Imagen</button>
-                    <button type="button" class="button button-link-delete" id="look_remove_btn" style="<?php echo !$imagen_id ? 'display:none;' : ''; ?>">Quitar</button>
-                </div>
-            </div>
-
-            <!-- IDs de Productos -->
-            <div class="look-col">
-                <label for="look_producto_1"><strong>ID Producto 1 (WC):</strong></label><br>
-                <input type="number" id="look_producto_1" name="look_producto_1" value="<?php echo esc_attr($producto_1); ?>" style="width:100px; margin-top:5px;"><br><br>
-            
-                <label for="look_producto_2"><strong>ID Producto 2 (WC):</strong></label><br>
-                <input type="number" id="look_producto_2" name="look_producto_2" value="<?php echo esc_attr($producto_2); ?>" style="width:100px; margin-top:5px;">
-            </div>
+            <label for="look_producto_2"><strong>ID Producto 2 (WC):</strong></label><br>
+            <input type="number" id="look_producto_2" name="look_producto_2" value="<?php echo esc_attr($producto_2); ?>"
+                style="width:100px; margin-top:5px;">
         </div>
+    </div>
 
-        <script>
-        jQuery(document).ready(function($){
+    <script>
+        jQuery(document).ready(function ($) {
             var frame;
-            $('#look_upload_btn').on('click', function(e) {
+            $('#look_upload_btn').on('click', function (e) {
                 e.preventDefault();
                 if (frame) { frame.open(); return; }
                 frame = wp.media({ title: 'Seleccionar Imagen del Look', button: { text: 'Usar esta imagen' }, multiple: false });
-                frame.on('select', function() {
+                frame.on('select', function () {
                     var attachment = frame.state().get('selection').first().toJSON();
                     $('#look_imagen_id').val(attachment.id);
                     $('#look_img_preview').attr('src', attachment.url).show();
@@ -156,15 +177,15 @@ function look_semana_meta_box_callback($post)
                 });
                 frame.open();
             });
-            $('#look_remove_btn').on('click', function(e) {
+            $('#look_remove_btn').on('click', function (e) {
                 e.preventDefault();
                 $('#look_imagen_id').val('');
                 $('#look_img_preview').hide();
                 $(this).hide();
             });
         });
-        </script>
-        <?php
+    </script>
+    <?php
 }
 
 function look_semana_save_meta_box_data($post_id)
@@ -213,3 +234,38 @@ function look_semana_register_rest_fields()
     ));
 }
 add_action('rest_api_init', 'look_semana_register_rest_fields');
+
+/**
+ * Expose WordPress Menus to REST API
+ * Endpoint: /wp-json/wh/v1/menu/<slug>
+ */
+function wh_get_menu_items_by_slug($request)
+{
+    $menu_slug = $request->get_param('slug');
+    $menu_items = wp_get_nav_menu_items($menu_slug);
+
+    if (empty($menu_items)) {
+        return new WP_Error('no_menu', 'Menu not found', array('status' => 404));
+    }
+
+    $formatted_items = array();
+    foreach ($menu_items as $item) {
+        $formatted_items[] = array(
+            'id' => $item->ID,
+            'title' => $item->title,
+            'url' => $item->url,
+            'order' => $item->menu_order,
+            'parent' => $item->menu_item_parent
+        );
+    }
+
+    return rest_ensure_response($formatted_items);
+}
+
+add_action('rest_api_init', function () {
+    register_rest_route('wh/v1', '/menu/(?P<slug>[a-zA-Z0-9-]+)', array(
+        'methods' => 'GET',
+        'callback' => 'wh_get_menu_items_by_slug',
+        'permission_callback' => '__return_true'
+    ));
+});

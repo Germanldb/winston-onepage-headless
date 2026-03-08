@@ -1,5 +1,9 @@
 ---
 import { Image } from "astro:assets";
+import { getMenu } from "../lib/woocommerce";
+
+// El slug de WordPress para "Menú principal" comúnmente es "menu-principal"
+const menuItems = await getMenu("menu-principal");
 ---
 
 <header class="header">
@@ -52,7 +56,7 @@ import { Image } from "astro:assets";
         <!-- Parte Central: Logo -->
         <a href="/" class="logo">
             <img
-                src="https://winstonandharrystore.com/wp-content/uploads/2020/12/logo-w-h-vertical.png"
+                src="https://tienda.winstonandharrystore.com/wp-content/uploads/2020/12/logo-w-h-vertical.png"
                 alt="Winston & Harry Logo"
                 width="400"
                 height="400"
@@ -139,10 +143,45 @@ import { Image } from "astro:assets";
 
 <div class="mobile-nav" id="mobile-nav">
     <ul class="mobile-links">
-        <li><a href="/" class="mobile-link">Inicio</a></li>
-        <li><a href="/#tienda" class="mobile-link">Tienda</a></li>
-        <li><a href="/#nosotros" class="mobile-link">Nosotros</a></li>
-        <li><a href="/#contacto" class="mobile-link">Contacto</a></li>
+        {
+            menuItems && menuItems.length > 0 ? (
+                menuItems.map((item: any) => (
+                    <li>
+                        <a
+                            href={item.url.replace(
+                                "https://tienda.winstonandharrystore.com",
+                                "",
+                            )}
+                            class="mobile-link"
+                            set:html={item.title}
+                        />
+                    </li>
+                ))
+            ) : (
+                <>
+                    <li>
+                        <a href="/" class="mobile-link">
+                            Inicio
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/#tienda" class="mobile-link">
+                            Tienda
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/#nosotros" class="mobile-link">
+                            Nosotros
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/#contacto" class="mobile-link">
+                            Contacto
+                        </a>
+                    </li>
+                </>
+            )
+        }
     </ul>
 
     <div class="mobile-actions">
