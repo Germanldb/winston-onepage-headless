@@ -38,14 +38,21 @@ const CATEGORIES = [
   { id: '190', name: 'Maletas', slug: 'maletas' }
 ];
 
-export default function ProductGrid({ initialProducts = [] }: { initialProducts?: Product[] }) {
-  const [products, setProducts] = useState<Product[]>(initialProducts);
-  const [categoryCache, setCategoryCache] = useState<Record<string | number, Product[]>>({
-    '63': initialProducts
-  });
+export default function ProductGrid({ 
+  initialProducts = [], 
+  initialCache = null 
+}: { 
+  initialProducts?: Product[]; 
+  initialCache?: Record<string | number, Product[]> | null;
+}) {
+  const defaultCache = initialCache || { '63': initialProducts };
+  const defaultProducts = initialCache ? (initialCache['63'] || []) : initialProducts;
+
+  const [products, setProducts] = useState<Product[]>(defaultProducts);
+  const [categoryCache, setCategoryCache] = useState<Record<string | number, Product[]>>(defaultCache);
   const [activeCategory, setActiveCategory] = useState(CATEGORIES[0]);
   const [visibleCount, setVisibleCount] = useState(12);
-  const [loading, setLoading] = useState(initialProducts.length === 0);
+  const [loading, setLoading] = useState(!initialCache && initialProducts.length === 0);
   const [error, setError] = useState<string | null>(null);
   const [categorySlugs, setCategorySlugs] = useState<Record<string, string>>({
     '63': 'zapatos',
@@ -54,8 +61,12 @@ export default function ProductGrid({ initialProducts = [] }: { initialProducts?
   });
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
 
-  // Precarga inicial de todas las categorías para eliminar el loader al cambiar pestañas
+  // Precarga inicial de todas las categorías (omitida si initialCache viene precargado de forma estática en el build)
   useEffect(() => {
+    if (initialCache && Object.keys(initialCache).length >= 3) {
+      return; // Skip client-side fetch since all category data was loaded statically during build!
+    }
+
     const prefetchCategories = async () => {
       try {
         if (initialProducts.length === 0) setLoading(true);
@@ -63,7 +74,7 @@ export default function ProductGrid({ initialProducts = [] }: { initialProducts?
 
         // 1. Obtener la información real de las categorías (para los slugs actualizados)
         try {
-          const catRes = await fetch('/api/categories'); // Usar un endpoint que devuelva categorías
+          const catRes = await fetch('/api/categories');
           if (catRes.ok) {
             const allCats = await catRes.json();
             const newSlugs: Record<string, string> = { ...categorySlugs };
@@ -99,7 +110,6 @@ export default function ProductGrid({ initialProducts = [] }: { initialProducts?
           })
         );
 
-        // Guardamos todo en el cache local
         const newCache: Record<string | number, Product[]> = {};
         results.forEach(res => {
           newCache[res.id] = res.data;
@@ -107,7 +117,6 @@ export default function ProductGrid({ initialProducts = [] }: { initialProducts?
 
         setCategoryCache(newCache);
 
-        // Establecemos los productos iniciales (Zapatos)
         if (newCache[activeCategory.id]) {
           setProducts(newCache[activeCategory.id]);
         }
@@ -119,7 +128,7 @@ export default function ProductGrid({ initialProducts = [] }: { initialProducts?
     };
 
     prefetchCategories();
-  }, []);
+  }, [initialCache]);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;

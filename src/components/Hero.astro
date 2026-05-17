@@ -2,21 +2,38 @@
 import { getHeroSlides } from "../lib/hero";
 import { getOptimizedUrl, getImageSrcSet } from "../utils/image";
 
-// Fetch dynamic data
-const result = await getHeroSlides();
-const allSlides = result.slides || [];
-const slots = result.slots || 1;
+interface Props {
+    slides?: any[];
+    slots?: number;
+}
 
-// Limitamos las diapositivas al número de "slots" definido
-const displaySlides = allSlides.slice(0, slots);
+const { slides: propSlides, slots: propSlots } = Astro.props;
 
-// Si no hay diapositivas, usamos una por defecto para no romper el diseño
+let displaySlides = [];
+let slots = 1;
+
+if (propSlides && Array.isArray(propSlides)) {
+    displaySlides = propSlides.slice(0, propSlots || 1);
+    slots = propSlots || 1;
+} else {
+    try {
+        const result = await getHeroSlides();
+        const allSlides = result.slides || [];
+        slots = result.slots || 1;
+        displaySlides = allSlides.slice(0, slots);
+    } catch (e) {
+        console.warn("[Hero] Fallback load failed:", e);
+    }
+}
+
+// Si no hay diapositivas, usamos la versión WebP estática optimizada por defecto
 const finalSlides = displaySlides.length > 0 ? displaySlides : [
     {
         title: "Ropa y Zapatos de Cuero para Hombre",
         subtitle: "Hechos a mano en Colombia y diseñados para durar.",
-        media_url: "/videos/hero-video.mp4",
-        is_video: true,
+        media_url: "/images/banner-winston-and-harry-maletas-desktop.webp",
+        media_url_mobile: "/images/banner-winston-and-harry-maletas-mobile.webp",
+        is_video: false,
         btn1_title: "Explorar Colección",
         btn1_link: "/tienda",
         btn2_title: "Conoce Nuestra Historia",
@@ -27,7 +44,7 @@ const finalSlides = displaySlides.length > 0 ? displaySlides : [
 
 <section id="inicio" class="hero swiper hero-slider">
     <div class="swiper-wrapper">
-        {finalSlides.map((slide) => (
+        {finalSlides.map((slide, idx) => (
             <div class="swiper-slide">
                 <div class="image-background">
                     {slide.is_video ? (
@@ -36,20 +53,23 @@ const finalSlides = displaySlides.length > 0 ? displaySlides : [
                             autoplay
                             muted
                             playsinline
-                            poster="/images/banner-winston-and-harry-maletas.png"
+                            poster="/images/banner-winston-and-harry-maletas-desktop.webp"
                         >
                             <source src={slide.media_url} type="video/mp4" />
                         </video>
                     ) : (
-                        <img 
-                            src={getOptimizedUrl(slide.media_url, { width: 1920 })} 
-                            srcset={getImageSrcSet(slide.media_url, [800, 1200, 1920])}
-                            sizes="100vw"
-                            class="hero-bg-image" 
-                            alt={slide.title}
-                            loading="eager"
-                            decoding="sync"
-                        />
+                        <picture>
+                            <source media="(max-width: 767px)" srcset={slide.media_url_mobile || "/images/banner-winston-and-harry-maletas-mobile.webp"} />
+                            <source media="(min-width: 768px)" srcset={slide.media_url || "/images/banner-winston-and-harry-maletas-desktop.webp"} />
+                            <img 
+                                src={slide.media_url || "/images/banner-winston-and-harry-maletas-desktop.webp"} 
+                                class="hero-bg-image" 
+                                alt={slide.title}
+                                fetchpriority={idx === 0 ? "high" : "auto"}
+                                loading={idx === 0 ? "eager" : "lazy"}
+                                decoding="sync"
+                            />
+                        </picture>
                     )}
                     <div class="overlay"></div>
                 </div>
@@ -74,14 +94,13 @@ const finalSlides = displaySlides.length > 0 ? displaySlides : [
     <div class="swiper-pagination"></div>
 </section>
 
-<!-- Swiper dependencies -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- Swiper dependencies - Non-blocking -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'" />
 
 <script is:inline>
     function initHeroSlider() {
         const swiperEl = document.querySelector('.hero-slider');
-        if (!swiperEl) return;
+        if (!swiperEl || !window.Swiper) return;
 
         const swiper = new Swiper('.hero-slider', {
             effect: 'fade',
@@ -113,34 +132,50 @@ const finalSlides = displaySlides.length > 0 ? displaySlides : [
             const video = activeSlide?.querySelector('video');
 
             if (video) {
-                // Si hay video, detenemos el autoplay de Swiper
                 instance.autoplay.stop();
-                
-                // Nos aseguramos de que el video empiece desde el inicio
                 video.currentTime = 0;
                 video.play().catch(() => {});
 
-                // Cuando el video termine, pasamos al siguiente slide y reactivamos autoplay
                 video.onended = () => {
                     instance.slideNext();
                     instance.autoplay.start();
                 };
             } else {
-                // Si es imagen, nos aseguramos de que el autoplay esté activo
                 instance.autoplay.start();
             }
         }
     }
 
-    // Inicializar en carga y en transiciones de página
-    document.addEventListener('astro:page-load', initHeroSlider);
-    if (!window.swiperInitialized) {
-        initHeroSlider();
-        window.swiperInitialized = true;
+    // Carga diferida de Swiper JS en idle para no bloquear la interactividad inicial
+    function loadSwiperDeferred() {
+        if (window.Swiper) {
+            initHeroSlider();
+            return;
+        }
+        const script = document.createElement('script');
+        script.src = "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js";
+        script.onload = () => {
+            initHeroSlider();
+        };
+        document.head.appendChild(script);
     }
+
+    if (window.requestIdleCallback) {
+        window.requestIdleCallback(loadSwiperDeferred);
+    } else {
+        setTimeout(loadSwiperDeferred, 1000);
+    }
+
+    document.addEventListener('astro:page-load', () => {
+        if (window.Swiper) {
+            initHeroSlider();
+        } else {
+            loadSwiperDeferred();
+        }
+    });
 </script>
 
-<style>
+<style is:inline>
     .hero {
         position: sticky;
         top: 90px;
@@ -153,7 +188,7 @@ const finalSlides = displaySlides.length > 0 ? displaySlides : [
         transition: top 0.3s ease-in-out;
     }
 
-    :global(body.is-header-hidden) .hero {
+    body.is-header-hidden .hero {
         top: 0;
     }
 
@@ -200,7 +235,7 @@ const finalSlides = displaySlides.length > 0 ? displaySlides : [
         text-align: center;
         max-width: 900px;
         padding: 0 2rem;
-        margin-top: 25vh; /* Ajustado para que se vea mejor centrado en el slider */
+        margin-top: 25vh;
         animation: fadeInUp 1.5s ease-out forwards;
     }
 
@@ -269,17 +304,16 @@ const finalSlides = displaySlides.length > 0 ? displaySlides : [
         transform: translateY(-3px);
     }
 
-    /* Estilos Swiper */
     .swiper-pagination {
         bottom: 40px !important;
     }
 
-    :global(.swiper-pagination-bullet) {
+    .swiper-pagination-bullet {
         background: #fff !important;
         opacity: 0.5;
     }
 
-    :global(.swiper-pagination-bullet-active) {
+    .swiper-pagination-bullet-active {
         background: var(--color-beige) !important;
         opacity: 1;
         width: 30px;

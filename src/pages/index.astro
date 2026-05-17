@@ -11,36 +11,48 @@ import LookOfTheWeek from "../components/LookOfTheWeek.astro";
 import CategoryGrid from "../components/CategoryGrid.astro";
 import BlogHome from "../components/BlogHome.astro";
 import { getHomeSEO, getProductsByCategory } from "../lib/woocommerce";
-
-export const prerender = false;
+import { getHeroSlides } from "../lib/hero";
+import { getLookOfTheWeekData } from "../lib/look";
 
 const homeSeo = await getHomeSEO();
-const initialProducts = await getProductsByCategory(
-	"63",
-	24,
-	1,
-	"popularity",
-	"desc",
-);
+
+// Pre-cargar las 3 categorías principales para evitar peticiones del lado del cliente
+const productsZapatos = await getProductsByCategory("63", 24, 1, "popularity", "desc");
+const productsRopa = await getProductsByCategory("249", 24, 1, "popularity", "desc");
+const productsMaletas = await getProductsByCategory("190", 24, 1, "popularity", "desc");
+
+const initialCache = {
+	'63': productsZapatos,
+	'249': productsRopa,
+	'190': productsMaletas
+};
+
+// Pre-cargar el Hero Banner CPT en build-time
+const heroResult = await getHeroSlides();
+const heroSlides = heroResult.slides || [];
+const heroSlots = heroResult.slots || 1;
+
+// Pre-cargar el Look of the Week en build-time
+const lookData = await getLookOfTheWeekData();
 ---
 
 <Layout title={homeSeo?.title} seoData={homeSeo}>
 	<Header />
 
 	<main>
-		<Hero />
+		<Hero slides={heroSlides} slots={heroSlots} />
 
 		<div class="content-wrapper">
 			<FeaturesBanner />
 			<CategoryGrid />
-			<ProductGrid client:load initialProducts={initialProducts} />
+			<ProductGrid client:load initialProducts={productsZapatos} initialCache={initialCache} />
 			<ScrollRevealBanner
 				imageUrl="/images/banner-look-completo.webp"
 				title="Estilo que se construye con intención"
 				description="Cada prenda está pensada para integrarse a tu forma de vestir y a tu ritmo. Descubre ropa que suma, combina y se adapta a tu día. chaquetas, camisas y suéteres."
 				pretitle="Winston & Harry"
 			/>
-			<LookOfTheWeek />
+			<LookOfTheWeek initialData={lookData} />
 			<About />
 		</div>
 	</main>

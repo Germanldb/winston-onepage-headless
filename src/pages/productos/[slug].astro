@@ -162,11 +162,19 @@ try {
     console.error("Error crítico en [slug].astro:", e);
     error = "Hubo un problema de conexión.";
 }
-
 if (!product && !error) {
     return Astro.redirect("/404");
 }
-const seoData = {     title: `${product?.name} | Winston & Harry`,     description: product?.short_description?.replace(/<[^>]+>/g, "") || product?.description?.replace(/<[^>]+>/g, "") || `Descubre ${product?.name} en Winston & Harry.`,     opengraph_title: `${product?.name} | Winston & Harry`,     opengraph_description: product?.short_description?.replace(/<[^>]+>/g, "") || `Descubre ${product?.name} en Winston & Harry.`,     opengraph_image: product?.images?.[0]?.src || null,     opengraph_type: "website" };
+
+// SEO Bridge: Conexión dinámica con metadatos de RankMath / Yoast / WooCommerce
+const seoData = {
+    title: product?.yoast_head_json?.title || product?.rank_math_seo?.title || `${product?.name} | Winston & Harry`,
+    description: product?.yoast_head_json?.description || product?.rank_math_seo?.description || product?.short_description?.replace(/<[^>]+>/g, "") || product?.description?.replace(/<[^>]+>/g, "") || `Descubre ${product?.name} en Winston & Harry.`,
+    opengraph_title: product?.yoast_head_json?.og_title || product?.rank_math_seo?.og_title || `${product?.name} | Winston & Harry`,
+    opengraph_description: product?.yoast_head_json?.og_description || product?.rank_math_seo?.og_description || product?.short_description?.replace(/<[^>]+>/g, "") || `Descubre ${product?.name} en Winston & Harry.`,
+    opengraph_image: product?.yoast_head_json?.og_image || product?.rank_math_seo?.og_image || product?.images?.[0]?.src || null,
+    opengraph_type: "website"
+};
 
 Astro.response.headers.set('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate=43200');
 ---
