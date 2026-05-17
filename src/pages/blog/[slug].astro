@@ -132,11 +132,19 @@ const seoData = {
               {reelUrl && (
                 <div class="reel-play-overlay">
                   <span class="reel-play-platform">
-                    {embed.type === "tiktok"
-                      ? "♪ TikTok"
-                      : embed.type === "youtube"
-                        ? "▶ YouTube"
-                        : "▶ Instagram"}
+                    {embed.type === "tiktok" ? (
+                      <>
+                        <i class="fa-brands fa-tiktok" style="margin-right: 5px;"></i> TikTok
+                      </>
+                    ) : embed.type === "youtube" ? (
+                      <>
+                        <i class="fa-brands fa-youtube" style="margin-right: 5px;"></i> YouTube
+                      </>
+                    ) : (
+                      <>
+                        <i class="fa-brands fa-instagram" style="margin-right: 5px;"></i> Instagram
+                      </>
+                    )}
                   </span>
                   <span class="reel-play-btn">▶</span>
                 </div>
@@ -179,11 +187,19 @@ const seoData = {
               rel="noopener noreferrer"
               class="btn-reel"
             >
-              {embed.type === "tiktok"
-                ? "♪ Ver en TikTok"
-                : embed.type === "youtube"
-                  ? "▶ Ver en YouTube"
-                  : "▶ Ver en Instagram"}
+              {embed.type === "tiktok" ? (
+                <>
+                  <i class="fa-brands fa-tiktok" style="margin-right: 8px;"></i> Ver en TikTok
+                </>
+              ) : embed.type === "youtube" ? (
+                <>
+                  <i class="fa-brands fa-youtube" style="margin-right: 8px;"></i> Ver en YouTube
+                </>
+              ) : (
+                <>
+                  <i class="fa-brands fa-instagram" style="margin-right: 8px;"></i> Ver en Instagram
+                </>
+              )}
             </a>
           )
         }

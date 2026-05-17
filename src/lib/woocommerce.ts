@@ -725,19 +725,104 @@ export const ASTRO_TO_WP_SLUG_MAP: Record<string, string> = {
 };
 
 export const STRICT_CATEGORIES = [
-    { id: 195, slug: 'mocasines-cuero-hombre', name: 'Mocasines' },
-    { id: 63,  slug: 'zapatos-cuero-hombre', name: 'Zapatos' },
-    { id: 194, slug: 'botas-cuero-hombre', name: 'Botas' },
-    { id: 249, slug: 'ropa-hombre-colombia', name: 'Ropa' },
-    { id: 190, slug: 'maletas-morrales-cuero', name: 'Maletas y Morrales' },
-    { id: 126, slug: 'accesorios-hombre', name: 'Accesorios' },
-    { id: 192, slug: 'tenis-hombre', name: 'Tenis' },
-    { id: 948, slug: 'outlet-zapatos-ropa', name: 'Outlet' },
-    { id: 431, slug: 'pantuflas-cuero-hombre', name: 'Pantuflas' },
-    { id: 438, slug: 'tallas-grandes-zapatos-hombre', name: 'Tallas Grandes' },
-    { id: 422, slug: 'zapatos-hechos-colombia-hombre', name: 'Línea Colombia' },
-    { id: 193, slug: 'zapatos-cordon-hombre', name: 'Zapatos de Cordón' },
-    { id: 196, slug: 'zapatos-hebilla-hombre', name: 'Zapatos de Hebilla' }
+    { 
+        id: 195, 
+        slug: 'mocasines-cuero-hombre', 
+        name: 'Mocasines',
+        description: 'Nuestros mocasines de cuero para hombre combinan elegancia clásica y comodidad excepcional. Perfectos para un estilo casual-elegante y uso de diario.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-zapatos-mocasines-m.jpg'
+    },
+    { 
+        id: 63,  
+        slug: 'zapatos-cuero-hombre', 
+        name: 'Zapatos',
+        description: 'Nuestros zapatos de cuero están hechos para hombres que valoran el diseño, la comodidad y la calidad en cada detalle. Encuentra Oxford, Derby, Botas, Tenis y más.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-zapatos-cat-m.jpg'
+    },
+    { 
+        id: 194, 
+        slug: 'botas-cuero-hombre', 
+        name: 'Botas',
+        description: 'Botas de cuero para hombre con la máxima durabilidad y estilo atemporal. Diseñadas para acompañarte a donde vayas con confort y resistencia.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-zapatos-botas-m.jpg'
+    },
+    { 
+        id: 249, 
+        slug: 'ropa-hombre-colombia', 
+        name: 'Ropa',
+        description: 'Descubre nuestra colección de ropa de cuero y materiales premium para hombre. Chaquetas, polos, camisetas y más, hechos en Colombia con diseño exclusivo.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-ropa-m.jpg'
+    },
+    { 
+        id: 190, 
+        slug: 'maletas-morrales-cuero', 
+        name: 'Maletas y Morrales',
+        description: 'Morrales, maletines y maletas de viaje de cuero legítimo para hombre. Piezas exclusivas, espaciosas y con un diseño sofisticado que te acompaña en cada viaje.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-maletas-m.jpg'
+    },
+    { 
+        id: 126, 
+        slug: 'accesorios-hombre', 
+        name: 'Accesorios',
+        description: 'Detalles que marcan la diferencia: cinturones, billeteras, tarjeteros y otros accesorios de cuero premium que complementan tu estilo personal.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-accesorios-m.jpg'
+    },
+    { 
+        id: 192, 
+        slug: 'tenis-hombre', 
+        name: 'Tenis',
+        description: 'Nuestros tenis de cuero combinan la comodidad del calzado casual con la distinción y resistencia del cuero legítimo. Perfectos para el día a día.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-zapatos-tenis-m.jpg'
+    },
+    { 
+        id: 948, 
+        slug: 'outlet-zapatos-ropa', 
+        name: 'Outlet',
+        description: 'Aprovecha precios especiales en nuestras últimas piezas de temporadas anteriores. La misma calidad de cuero artesanal de Winston & Harry a un precio de oportunidad.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-outlet-m.jpg'
+    },
+    { 
+        id: 431, 
+        slug: 'pantuflas-cuero-hombre', 
+        name: 'Pantuflas',
+        description: 'Descansa en casa con la máxima distinción. Pantuflas de cuero extra suave y acolchadas para el máximo confort y descanso de tus pies.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-pantuflas-m.jpg'
+    },
+    { 
+        id: 438, 
+        slug: 'tallas-grandes-zapatos-hombre', 
+        name: 'Tallas Grandes',
+        description: 'Zapatos de cuero artesanal disponibles en tallas grandes (44 a 46). Diseños exclusivos con la misma comodidad y calidad que nos caracteriza.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-tallas-grandes-m.jpg'
+    },
+    { 
+        id: 422, 
+        slug: 'zapatos-hechos-colombia-hombre', 
+        name: 'Línea Colombia',
+        description: 'Edición especial de calzado artesanal que exalta la tradición zapatera colombiana. 100% hecho a mano con materiales nacionales de calidad premium.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-linea-colombia-m.jpg'
+    },
+    { 
+        id: 193, 
+        slug: 'zapatos-cordon-hombre', 
+        name: 'Zapatos de Cordón',
+        description: 'Nuestros zapatos de cordón están hechos para hombres que valoran una forma más clásica de vestir bien. Diseños versátiles, cómodos y bien hechos para acompañar looks más pulidos sin perder naturalidad.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-zapatos-de-cordon-m.jpg'
+    },
+    { 
+        id: 196, 
+        slug: 'zapatos-hebilla-hombre', 
+        name: 'Zapatos de Hebilla',
+        description: 'Los zapatos de hebilla tienen algo especial: se sienten elegantes, distintos y llenos de intención. Son para hombres que disfrutan vestir bien y cuidar cada detalle.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-zapatos-hebilla-m.jpg'
+    },
+    { 
+        id: 187, 
+        slug: 'collares-cuero-perro', 
+        name: 'Collares para Perro',
+        description: 'Collares de cuero legítimo para perros. Duraderos, resistentes y con acabados finos para consentir a tu mejor amigo de cuatro patas con la máxima sofisticación.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-collares-perros-m.jpg'
+    }
 ];
 
 export function mapAstroToWpSlug(slug: string): string {
@@ -777,7 +862,8 @@ export async function getCategoryBySlug(slug: string) {
             name: strictMatch.name,
             slug: strictMatch.slug,
             parent: 0,
-            image: null,
+            description: strictMatch.description || "",
+            image: strictMatch.image ? { src: strictMatch.image } : null,
             meta_data: []
         };
         setStaticCached(cacheKey, result);

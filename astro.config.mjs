@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
+import partytown from '@astrojs/partytown';
 import { loadEnv } from 'vite';
 
 // Cargamos variables del .env (sin hardcoding)
@@ -52,7 +53,8 @@ const mappedCategories = [
   'zapatos-hebilla-hombre',
   'cinturones-cuero-hombre',
   'billeteras-tarjeteros-cuero',
-  'chaquetas-cuero-hombre'
+  'chaquetas-cuero-hombre',
+  'collares-cuero-perro'
 ];
 const categoryPages = mappedCategories.map(slug => `https://www.winstonandharrystore.com/categoria/${slug}`);
 
@@ -64,6 +66,11 @@ export default defineConfig({
     react(),
     sitemap({
       customPages: allSitemapPages
+    }),
+    partytown({
+      config: {
+        forward: ['dataLayer.push', 'fbq']
+      }
     })
   ],
   redirects: {
