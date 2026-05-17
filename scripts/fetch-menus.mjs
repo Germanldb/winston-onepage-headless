@@ -9,6 +9,47 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import dns from 'dns';
+
+// Resolver global de DNS públicas (Google / Cloudflare) para tienda.winstonandharrystore.com
+// Esto soluciona los problemas de envenenamiento de DNS local o enrutadores locales que devuelven IPs inactivas.
+if (dns && typeof dns.lookup === 'function') {
+    const resolver = new dns.Resolver();
+    try {
+        resolver.setServers(['8.8.8.8', '1.1.1.1']);
+        const originalLookup = dns.lookup;
+        dns.lookup = function(hostname, options, callback) {
+            let actualOptions = options;
+            let actualCallback = callback;
+            
+            if (typeof options === 'function') {
+                actualCallback = options;
+                actualOptions = {};
+            }
+            
+            if (hostname === 'tienda.winstonandharrystore.com') {
+                resolver.resolve4(hostname, (err, addresses) => {
+                    if (err || !addresses || addresses.length === 0) {
+                        originalLookup(hostname, actualOptions, actualCallback);
+                    } else {
+                        if (actualOptions.all) {
+                            const results = addresses.map(addr => ({ address: addr, family: 4 }));
+                            actualCallback(null, results);
+                        } else {
+                            actualCallback(null, addresses[0], 4);
+                        }
+                    }
+                });
+            } else {
+                originalLookup(hostname, options, callback);
+            }
+        };
+    } catch (e) {
+        if (typeof dns.setDefaultResultOrder === 'function') {
+            dns.setDefaultResultOrder('ipv4first');
+        }
+    }
+}
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');

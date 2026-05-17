@@ -3,6 +3,48 @@
  * Using ck/cs credentials for full access and better data processing.
  */
 
+import dns from 'node:dns';
+
+// Resolver global de DNS públicas (Google / Cloudflare) para tienda.winstonandharrystore.com
+// Esto soluciona los problemas de envenenamiento de DNS local o enrutadores locales que devuelven IPs inactivas.
+if (dns && typeof dns.lookup === 'function') {
+    const resolver = new dns.Resolver();
+    try {
+        resolver.setServers(['8.8.8.8', '1.1.1.1']);
+        const originalLookup = dns.lookup;
+        dns.lookup = function(hostname, options, callback) {
+            let actualOptions = options;
+            let actualCallback = callback;
+            
+            if (typeof options === 'function') {
+                actualCallback = options;
+                actualOptions = {};
+            }
+            
+            if (hostname === 'tienda.winstonandharrystore.com') {
+                resolver.resolve4(hostname, (err, addresses) => {
+                    if (err || !addresses || addresses.length === 0) {
+                        originalLookup(hostname, actualOptions, actualCallback);
+                    } else {
+                        if (actualOptions.all) {
+                            const results = addresses.map(addr => ({ address: addr, family: 4 }));
+                            actualCallback(null, results);
+                        } else {
+                            actualCallback(null, addresses[0], 4);
+                        }
+                    }
+                });
+            } else {
+                originalLookup(hostname, options, callback);
+            }
+        };
+    } catch (e) {
+        if (typeof dns.setDefaultResultOrder === 'function') {
+            dns.setDefaultResultOrder('ipv4first');
+        }
+    }
+}
+
 const getEnv = (key: string) => {
     const metaEnv = (typeof import.meta !== 'undefined' && import.meta.env) ? import.meta.env : {};
     return metaEnv[key] || 
@@ -78,6 +120,39 @@ function normalizeQuery(text: string): string {
     return text.trim().toLowerCase();
 }
 
+async function getBuildCache(url: string): Promise<any> {
+    try {
+        const fs = await import('node:fs');
+        const path = await import('node:path');
+        const cacheDir = path.join(process.cwd(), 'public', 'data', 'build-cache');
+        const safeName = url.replace(/[^a-zA-Z0-9]/g, '_') + '.json';
+        const cachePath = path.join(cacheDir, safeName);
+        if (fs.existsSync(cachePath)) {
+            const dataStr = fs.readFileSync(cachePath, 'utf-8');
+            return JSON.parse(dataStr);
+        }
+    } catch (e) {
+        // Ignorar
+    }
+    return null;
+}
+
+async function setBuildCache(url: string, data: any) {
+    try {
+        const fs = await import('node:fs');
+        const path = await import('node:path');
+        const cacheDir = path.join(process.cwd(), 'public', 'data', 'build-cache');
+        if (!fs.existsSync(cacheDir)) {
+            fs.mkdirSync(cacheDir, { recursive: true });
+        }
+        const safeName = url.replace(/[^a-zA-Z0-9]/g, '_') + '.json';
+        const cachePath = path.join(cacheDir, safeName);
+        fs.writeFileSync(cachePath, JSON.stringify(data, null, 2), 'utf-8');
+    } catch (e) {
+        // Ignorar
+    }
+}
+
 export async function wcFetch(path: string, options: RequestInit = {}, retries = 3, delay = 1500) {
     // Leemos las claves en RUNTIME
     const CK = (getEnv('WC_CONSUMER_KEY') || getEnv('WP_CONSUMER_KEY') || "").trim();
@@ -150,7 +225,11 @@ export async function wcFetch(path: string, options: RequestInit = {}, retries =
     for (let i = 0; i < retries; i++) {
         try {
             const startTime = Date.now();
-            const res = await fetch(url, { ...options, headers });
+            const res = await fetch(url, { 
+                ...options, 
+                headers,
+                signal: AbortSignal.timeout(30000)
+            });
             const endTime = Date.now();
             
             // Log removed for production
@@ -174,14 +253,28 @@ export async function wcFetch(path: string, options: RequestInit = {}, retries =
             }
 
             const text = await res.text();
+            let parsed = null;
             try {
-                return JSON.parse(text);
+                parsed = JSON.parse(text);
             } catch (e) {
                 const cleaned = text.substring(text.indexOf('{'));
-                return JSON.parse(cleaned);
+                parsed = JSON.parse(cleaned);
             }
+
+            if (parsed) {
+                await setBuildCache(url, parsed);
+            }
+            return parsed;
         } catch (error: any) {
-            if (i === retries - 1) throw error;
+            if (i === retries - 1) {
+                // Si falla el último intento, buscamos en el caché de build
+                const cachedData = await getBuildCache(url);
+                if (cachedData) {
+                    console.warn(`[WC API] ⚠️ Conexión fallida para ${url.split('?')[0]}. Usando Caché de Build local.`);
+                    return cachedData;
+                }
+                throw error;
+            }
             console.warn(`[WC API] Intento ${i+1} fallido: ${error.message}`);
             await new Promise(r => setTimeout(r, delay));
             delay *= 2;
@@ -615,20 +708,65 @@ export async function getProductById(id: number | string) {
     }
 }
 
+export const ASTRO_TO_WP_SLUG_MAP: Record<string, string> = {
+    'mocasines-cuero-hombre': 'mocasin',
+    'zapatos-cuero-hombre': 'zapatos',
+    'botas-cuero-hombre': 'botas',
+    'ropa-hombre-colombia': 'ropa',
+    'maletas-morrales-cuero': 'maletas',
+    'accesorios-hombre': 'accesorios',
+    'tenis-hombre': 'tenis',
+    'outlet-zapatos-ropa': 'outlet',
+    'pantuflas-cuero-hombre': 'pantuflas',
+    'tallas-grandes-zapatos-hombre': 'tallas-grandes',
+    'zapatos-hechos-colombia-hombre': 'linea-colombia',
+    'zapatos-cordon-hombre': 'zapatos-de-cordon',
+    'zapatos-hebilla-hombre': 'zapatos-de-hebilla'
+};
+
+export const STRICT_CATEGORIES = [
+    { id: 195, slug: 'mocasines-cuero-hombre', name: 'Mocasines' },
+    { id: 63,  slug: 'zapatos-cuero-hombre', name: 'Zapatos' },
+    { id: 194, slug: 'botas-cuero-hombre', name: 'Botas' },
+    { id: 249, slug: 'ropa-hombre-colombia', name: 'Ropa' },
+    { id: 190, slug: 'maletas-morrales-cuero', name: 'Maletas y Morrales' },
+    { id: 126, slug: 'accesorios-hombre', name: 'Accesorios' },
+    { id: 192, slug: 'tenis-hombre', name: 'Tenis' },
+    { id: 948, slug: 'outlet-zapatos-ropa', name: 'Outlet' },
+    { id: 431, slug: 'pantuflas-cuero-hombre', name: 'Pantuflas' },
+    { id: 438, slug: 'tallas-grandes-zapatos-hombre', name: 'Tallas Grandes' },
+    { id: 422, slug: 'zapatos-hechos-colombia-hombre', name: 'Línea Colombia' },
+    { id: 193, slug: 'zapatos-cordon-hombre', name: 'Zapatos de Cordón' },
+    { id: 196, slug: 'zapatos-hebilla-hombre', name: 'Zapatos de Hebilla' }
+];
+
+export function mapAstroToWpSlug(slug: string): string {
+    return ASTRO_TO_WP_SLUG_MAP[slug] || slug;
+}
+
+export function mapWpToAstroSlug(wpSlug: string): string {
+    const entry = Object.entries(ASTRO_TO_WP_SLUG_MAP).find(([_, wp]) => wp === wpSlug);
+    return entry ? entry[0] : wpSlug;
+}
+
 export async function getCategoryBySlug(slug: string) {
+    const mappedSlug = mapAstroToWpSlug(slug);
     const cacheKey = `cat_slug_${slug}`;
     const cached = getStaticCached(cacheKey);
     if (cached) return cached;
 
     try {
-        const categories = await wcFetch(`/products/categories?slug=${slug}`);
+        const categories = await wcFetch(`/products/categories?slug=${mappedSlug}`);
         if (!categories || categories.length === 0) return null;
         
-        const result = categories[0];
+        const result = {
+            ...categories[0],
+            slug: slug // Sobrescribimos con el slug de Astro para consistencia frontend
+        };
         setStaticCached(cacheKey, result);
         return result;
     } catch (error: any) {
-        console.error(`Error fetching category by slug ${slug}:`, error.message);
+        console.error(`Error fetching category by slug ${slug} (mapped: ${mappedSlug}):`, error.message);
         return null;
     }
 }

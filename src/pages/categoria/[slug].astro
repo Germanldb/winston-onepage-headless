@@ -11,18 +11,90 @@ import {
     getAttributeTerms,
     getCategoryById,
     PUBLIC_WP_URL,
+    wcFetch,
+    getAllProducts,
+    ASTRO_TO_WP_SLUG_MAP,
+    mapWpToAstroSlug,
+    STRICT_CATEGORIES
 } from "../../lib/woocommerce";
 import FilteredProductList from "../../components/FilteredProductList";
 
-export const prerender = false;
-export const isr = {
-    expiration: 86400, // 24 horas (revalidación bajo demanda)
-};
+export async function getStaticPaths() {
+    const fs = await import('node:fs');
+    const path = await import('node:path');
+    
+    // 1. Mapeo Estricto: usar únicamente los slugs y categorías de Astro definidos
+    const astroSlugsToGen = STRICT_CATEGORIES;
+
+    // Directorio de salida para los catálogos estáticos
+    const catalogDir = path.join(process.cwd(), 'public', 'data', 'catalog');
+    if (!fs.existsSync(catalogDir)) {
+        fs.mkdirSync(catalogDir, { recursive: true });
+    }
+
+    // 2. Pre-generar los archivos JSON de catálogo para cada categoría
+    console.log(`[SSG Total] Iniciando pre-generación de catálogos estáticos para ${astroSlugsToGen.length} categorías...`);
+    
+    // También agregamos "all" para la tienda completa
+    const categoriesToGen = [...astroSlugsToGen, { id: 'all', slug: 'tienda', name: 'Tienda' }];
+
+    for (const cat of categoriesToGen) {
+        try {
+            console.log(`[SSG Total] Pre-generando catálogo para: ${cat.slug}`);
+            // Paginamos hasta obtener todos los productos de esta categoría
+            let page = 1;
+            let hasMore = true;
+            
+            while (hasMore) {
+                let products = [];
+                if (cat.id === 'all') {
+                    products = await getAllProducts(16, page, 'popularity', 'desc', false);
+                } else {
+                    products = await getProductsByCategory(cat.id, 16, page, 'popularity', 'desc', false);
+                }
+
+                // Guardamos la página en JSON usando el slug de Astro
+                const filePath = path.join(catalogDir, `${cat.slug}-p${page}.json`);
+                fs.writeFileSync(filePath, JSON.stringify(products, null, 2), 'utf-8');
+
+                if (products.length === 0) {
+                    hasMore = false;
+                } else {
+                    page++;
+                }
+
+                // Límite de seguridad para evitar bucles infinitos en build-time
+                if (page > 20) break;
+
+                // Breve retardo para no saturar al servidor en páginas consecutivas de la misma categoría
+                await new Promise(r => setTimeout(r, 300));
+            }
+
+            // Guardamos siempre una página final vacía para garantizar que el scroll infinito sepa cuándo detenerse
+            const emptyFilePath = path.join(catalogDir, `${cat.slug}-p${page}.json`);
+            if (!fs.existsSync(emptyFilePath)) {
+                fs.writeFileSync(emptyFilePath, JSON.stringify([], null, 2), 'utf-8');
+            }
+
+            // Retardo entre categorías para dar respiro al servidor
+            await new Promise(r => setTimeout(r, 500));
+
+        } catch (catErr: any) {
+            console.error(`[SSG Total] Error pre-generando catálogo para ${cat.slug}:`, catErr.message);
+        }
+    }
+
+    console.log("[SSG Total] ✓ Catálogos estáticos pre-generados exitosamente.");
+
+    return astroSlugsToGen.map(cat => ({
+        params: { slug: cat.slug }
+    }));
+}
 
 const { slug } = Astro.params;
-const sortParam = Astro.url.searchParams.get("sort") || "destacado";
-const colorParam = Astro.url.searchParams.get("color") || null;
-const tallaParam = Astro.url.searchParams.get("talla") || null;
+const sortParam = "destacado";
+const colorParam = null;
+const tallaParam = null;
 
 // Mapeo del param de URL a los parámetros de la API WooCommerce
 const SORT_OPTIONS = [
@@ -94,15 +166,33 @@ try {
             console.warn("Error fetching public WP category:", e);
         }
 
-        // 3. Cargamos los productos iniciales
-        products = await getProductsByCategory(
-            category.id,
-            16,
-            1,
-            activeSort.orderBy,
-            activeSort.order,
-            activeSort.onSale
-        );
+        // 3. Cargamos los productos iniciales (leemos del JSON pre-generado localmente para evitar llamadas repetidas a WooCommerce)
+        try {
+            const fs = await import('node:fs');
+            const path = await import('node:path');
+            const filePath = path.join(process.cwd(), 'public', 'data', 'catalog', `${slug}-p1.json`);
+            if (fs.existsSync(filePath)) {
+                products = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+            } else {
+                products = await getProductsByCategory(
+                    category.id,
+                    16,
+                    1,
+                    activeSort.orderBy,
+                    activeSort.order,
+                    activeSort.onSale
+                );
+            }
+        } catch (err) {
+            products = await getProductsByCategory(
+                category.id,
+                16,
+                1,
+                activeSort.orderBy,
+                activeSort.order,
+                activeSort.onSale
+            );
+        }
 
         // 4. Cargamos subcategorías REALES para el panel de filtros lateral
         let currentSubcats = await getChildCategories(category.id);

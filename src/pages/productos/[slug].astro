@@ -3,12 +3,83 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import ProductDetail from "../../components/ProductDetail";
-import { getProductBySlug, getProductsPool } from "../../lib/woocommerce";
+import { getProductBySlug, getProductsPool, getAllProducts, wcFetch } from "../../lib/woocommerce";
+import fs from 'node:fs';
+import path from 'node:path';
 
-export const prerender = false;
-export const isr = {
-    expiration: 86400, // 24 horas (revalidación forzada vía Webhook)
-};
+export async function getStaticPaths() {
+    const fs = await import('node:fs');
+    const path = await import('node:path');
+    
+    // Directorio de salida para detalles de producto
+    const productsDir = path.join(process.cwd(), 'public', 'data', 'products');
+    if (!fs.existsSync(productsDir)) {
+        fs.mkdirSync(productsDir, { recursive: true });
+    }
+
+    let allProducts: any[] = [];
+    let page = 1;
+    let hasMore = true;
+
+    console.log("[SSG Total] Obteniendo lista de todos los productos para getStaticPaths...");
+
+    while (hasMore) {
+        try {
+            // Obtenemos los productos de la API usando getAllProducts
+            const products = await getAllProducts(100, page);
+            if (Array.isArray(products) && products.length > 0) {
+                allProducts = [...allProducts, ...products];
+                page++;
+            } else {
+                hasMore = false;
+            }
+        } catch (e: any) {
+            console.error(`[getStaticPaths - Productos] Error en página ${page}:`, e.message);
+            hasMore = false;
+        }
+        
+        // Límite de seguridad
+        if (page > 15) break;
+    }
+
+    console.log(`[SSG Total] Encontrados ${allProducts.length} productos. Pre-generando JSONs de variaciones y detalles...`);
+
+    // 2. Pre-generar los archivos JSON de detalle para cada producto (CON CONCURRENCIA CONTROLADA A 5 EN PARALELO Y DESCANSO DE 200ms)
+    const CONCURRENCY = 5;
+    const chunks: any[][] = [];
+    for (let i = 0; i < allProducts.length; i += CONCURRENCY) {
+        chunks.push(allProducts.slice(i, i + CONCURRENCY));
+    }
+
+    console.log(`[SSG Total] Iniciando pre-generación en ${chunks.length} lotes de ${CONCURRENCY} productos en paralelo...`);
+
+    let completedCount = 0;
+    for (const chunk of chunks) {
+        await Promise.all(chunk.map(async (p) => {
+            if (!p.slug) return;
+            try {
+                // Obtenemos el producto completo (con variaciones y WPC media)
+                const fullProduct = await getProductBySlug(p.slug);
+                if (fullProduct) {
+                    const filePath = path.join(productsDir, `${p.slug}.json`);
+                    fs.writeFileSync(filePath, JSON.stringify(fullProduct, null, 2), 'utf-8');
+                }
+            } catch (err: any) {
+                console.error(`[SSG Total] Error guardando JSON para producto ${p.slug}:`, err.message);
+            }
+        }));
+        completedCount += chunk.length;
+        console.log(`[SSG Total] Progreso: ${completedCount}/${allProducts.length} productos procesados.`);
+        // Descanso de 200ms entre bloques para dar respiro al servidor
+        await new Promise(r => setTimeout(r, 200));
+    }
+
+    console.log("[SSG Total] ✓ JSONs de productos pre-generados exitosamente.");
+
+    return allProducts.filter(p => p.slug).map(p => ({
+        params: { slug: p.slug }
+    }));
+}
 
 const { slug } = Astro.params;
 
@@ -16,8 +87,14 @@ let product: any = null;
 let error: any = null;
 
 try {
-    // 1. Fetch usando la nueva utilidad optimizada (REST API v3)
-    product = await getProductBySlug(slug as string);
+    // 1. Cargar el producto desde el JSON pre-generado localmente para evitar llamadas repetidas a la red durante el renderizado
+    const jsonPath = path.join(process.cwd(), 'public', 'data', 'products', `${slug}.json`);
+    if (fs.existsSync(jsonPath)) {
+        product = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
+    } else {
+        // Fallback dinámico si no existe el archivo (p. ej. en desarrollo)
+        product = await getProductBySlug(slug as string);
+    }
     
     if (product) {
         // --- FETCH RELATED PRODUCTS & FBT ---
