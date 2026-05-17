@@ -1015,22 +1015,19 @@ export async function getProductsByCategory(
     try {
         const ids = finalId.toString().split(',').map(id => id.trim()).filter(Boolean);
 
-        // Pre-cargamos todos los IDs de subcategorías descendientes para que la validación estricta no excluya
-        // productos asignados a subcategorías cuando se visita una categoría padre (ej: zapatos-cuero-hombre).
-        const allowedIds = new Set<string>();
-        for (const id of ids) {
-            allowedIds.add(id.toString());
-            try {
-                // Buscamos subcategorías directas del padre para habilitar su paso por el filtro de seguridad
-                const childCats = await wcFetch(`/products/categories?parent=${id}&per_page=50`);
-                if (Array.isArray(childCats)) {
-                    childCats.forEach((c: any) => {
-                        allowedIds.add(c.id.toString());
-                    });
-                }
-            } catch (e: any) {
-                console.warn(`[getProductsByCategory] Error resolviendo subcategorías de ${id}:`, e.message);
+        // Cargamos el mapa de relaciones padre-hijo desde la API de WooCommerce (muy rápido y cacheable)
+        const parentMap = new Map<string, string>();
+        try {
+            const categoriesData = await wcFetch("/products/categories?per_page=100");
+            if (Array.isArray(categoriesData)) {
+                categoriesData.forEach((c: any) => {
+                    if (c.parent !== undefined && c.parent !== null && c.parent !== 0) {
+                        parentMap.set(c.id.toString(), c.parent.toString());
+                    }
+                });
             }
+        } catch (e: any) {
+            console.warn("[getProductsByCategory] Error resolviendo mapa de parentesco de categorías:", e.message);
         }
 
         const fetchCategory = async (id: string) => {
@@ -1050,8 +1047,15 @@ export async function getProductsByCategory(
                               console.log(`[DEBUG] Producto: ${p.name} (ID: ${p.id}) | Categorías:`, JSON.stringify(categories));
                               
                               const categoryMatch = categories.some((c: any) => {
-                                  const catId = typeof c === 'object' ? c.id : c;
-                                  return allowedIds.has(catId?.toString());
+                                  const catId = (typeof c === 'object' ? c.id : c)?.toString();
+                                  if (!catId) return false;
+                                  
+                                  // Comprobación 1: Coincidencia directa con el ID solicitado
+                                  if (catId === id.toString()) return true;
+                                  
+                                  // Comprobación 2: Comprobar si el parent de la categoría del producto es el ID solicitado
+                                  const parentId = parentMap.get(catId);
+                                  return parentId === id.toString();
                               });
 
                               return categoryMatch;
