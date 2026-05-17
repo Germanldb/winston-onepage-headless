@@ -1,24 +1,28 @@
 ---
 // About.astro
+interface Props {
+    videoUrl?: string;
+}
+
+const { videoUrl = "/videos/hero-video.mp4" } = Astro.props;
 ---
 
-<section id="nosotros" class="about-lv-hero">
-    <div class="video-container js-about-video-container">
-        <!-- Imagen de fachada de alta calidad como fondo -->
-        <div class="video-bg-facade"></div>
+<section id="nosotros" class="about-lv-hero js-about-section">
+    <div class="video-container">
+        <!-- Video HTML5 nativo y optimizado con precarga controlada -->
+        <video 
+            class="about-native-video js-about-video"
+            preload="none"
+            muted
+            loop
+            playsinline
+            poster="https://img.youtube.com/vi/XGnN4DTsdD8/maxresdefault.jpg"
+        >
+            <source src={videoUrl} type="video/mp4" />
+        </video>
         
         <!-- Overlay sutil para legibilidad -->
         <div class="video-overlay"></div>
-
-        <!-- Botón de Play Elegante y Pulsante -->
-        <button class="about-play-btn" aria-label="Reproducir video de presentación">
-            <span class="about-play-ring"></span>
-            <i class="fa-solid fa-play"></i>
-        </button>
-
-        <div class="iframe-wrapper js-about-iframe-wrapper">
-            <!-- Iframe inyectado dinámicamente al hacer clic -->
-        </div>
     </div>
 
     <div class="container about-text-overlay">
@@ -39,30 +43,39 @@
 </section>
 
 <script>
-    function setupAboutVideo() {
-        const container = document.querySelector('.js-about-video-container');
-        const wrapper = document.querySelector('.js-about-iframe-wrapper');
+    function setupAboutVideoObserver() {
+        const section = document.querySelector('.js-about-section');
+        const video = document.querySelector('.js-about-video') as HTMLVideoElement;
 
-        if (container && wrapper) {
-            container.addEventListener('click', () => {
-                if (container.classList.contains('video-playing')) return;
+        if (!section || !video) return;
 
-                wrapper.innerHTML = `
-                    <iframe
-                        src="https://www.youtube.com/embed/XGnN4DTsdD8?autoplay=1&mute=0&controls=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                    ></iframe>
-                `;
-                container.classList.add('video-playing');
+        // Intersection Observer para reproducción autónoma eficiente
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // Cuando entra en pantalla, reproduce el video nativo
+                    video.play()
+                        .then(() => {
+                            video.classList.add('is-playing');
+                        })
+                        .catch((err) => {
+                            console.warn("[About Video] Auto-play no permitido o cancelado:", err);
+                        });
+                } else {
+                    // Cuando sale de pantalla, pausa el video para ahorrar CPU y RAM
+                    video.pause();
+                }
             });
-        }
+        }, {
+            threshold: 0.15 // Dispara cuando el 15% de la sección es visible
+        });
+
+        observer.observe(section);
     }
 
-    // Initialize setup
-    setupAboutVideo();
-    document.addEventListener('astro:page-load', setupAboutVideo);
+    // Inicialización del observer para soporte SSR y Astro transitions
+    setupAboutVideoObserver();
+    document.addEventListener('astro:page-load', setupAboutVideoObserver);
 </script>
 
 <style>
@@ -85,23 +98,28 @@
         width: 100%;
         height: 100%;
         z-index: 0;
-        cursor: pointer;
-    }
-
-    .video-bg-facade {
-        position: absolute;
-        inset: 0;
         background-image: url('https://img.youtube.com/vi/XGnN4DTsdD8/maxresdefault.jpg');
         background-size: cover;
         background-position: center;
-        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
-        z-index: 1;
-        opacity: 0.75;
+        background-repeat: no-repeat;
     }
 
-    .video-container:hover .video-bg-facade {
-        transform: scale(1.03);
-        opacity: 0.9;
+    /* Video nativo que cubre todo el fondo */
+    .about-native-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+        opacity: 0;
+        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Animación fluida de fundido cuando el video inicia reproducción */
+    .about-native-video.is-playing {
+        opacity: 0.75; /* Opacidad elegante para conservar legibilidad del texto */
     }
 
     .video-overlay {
@@ -110,116 +128,23 @@
         left: 0;
         width: 100%;
         height: 100%;
-        /* Gradiente para proteger el texto en la esquina inferior izquierda */
+        /* Gradiente premium para proteger el texto */
         background: radial-gradient(
             circle at 10% 90%,
-            rgba(0, 0, 0, 0.5) 0%,
-            rgba(0, 0, 0, 0.15) 50%,
+            rgba(0, 0, 0, 0.65) 0%,
+            rgba(0, 0, 0, 0.25) 50%,
             transparent 100%
         );
-        z-index: 2;
-    }
-
-    /* Pulsing Play Button Styling */
-    .about-play-btn {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        background-color: rgba(21, 83, 56, 0.9); /* Verde Winston */
-        border: 2px solid #fff;
-        color: #fff;
-        font-size: 1.5rem;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 3;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
-
-    .about-play-btn i {
-        margin-left: 6px; /* Centrar el icono de play */
-        transition: transform 0.4s ease;
-    }
-
-    /* Pulsing Outer Ring */
-    .about-play-ring {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        border: 2px solid rgba(255, 255, 255, 0.6);
-        animation: pulse-ring 2s infinite ease-out;
-        z-index: -1;
-    }
-
-    @keyframes pulse-ring {
-        0% {
-            transform: translate(-50%, -50%) scale(0.95);
-            opacity: 0.9;
-        }
-        100% {
-            transform: translate(-50%, -50%) scale(1.5);
-            opacity: 0;
-        }
-    }
-
-    .video-container:hover .about-play-btn {
-        background-color: #c5a880; /* Beige Winston */
-        transform: translate(-50%, -50%) scale(1.1);
-        box-shadow: 0 15px 35px rgba(197, 168, 128, 0.5);
-    }
-
-    .video-container:hover .about-play-btn i {
-        transform: scale(1.15);
-    }
-
-    .iframe-wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        display: none;
-    }
-
-    .iframe-wrapper iframe {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 100vw;
-        height: 56.25vw;
-        min-height: 100vh;
-        min-width: 177.77vh;
-        transform: translate(-50%, -50%);
-        z-index: 5;
-    }
-
-    /* Active Video State Styles */
-    .video-container.video-playing .iframe-wrapper {
-        display: block;
-    }
-
-    .video-container.video-playing .video-bg-facade,
-    .video-container.video-playing .video-overlay,
-    .video-container.video-playing .about-play-btn {
-        opacity: 0;
+        z-index: 1;
         pointer-events: none;
-        transition: opacity 0.5s ease;
     }
 
     .about-text-overlay {
         position: relative;
-        z-index: 10; /* Mayor que el iframe */
+        z-index: 10; /* Mayor que el overlay */
         width: 100%;
         padding: 0 4rem;
-        pointer-events: none; /* Permite hacer clic en el video de fondo */
+        pointer-events: none; /* Permite scroll natural */
     }
 
     .about-content-corner {
@@ -236,6 +161,7 @@
         text-transform: uppercase;
         letter-spacing: 2px;
         color: #fff;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
 
     .about-description {
@@ -244,8 +170,9 @@
         line-height: 1.6;
         font-weight: 300;
         margin-bottom: 2rem;
-        color: rgba(255, 255, 255, 0.85);
+        color: rgba(255, 255, 255, 0.9);
         letter-spacing: 0.01em;
+        text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
     }
 
     @media (max-width: 768px) {

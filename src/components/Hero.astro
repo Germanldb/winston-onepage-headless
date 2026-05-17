@@ -59,7 +59,7 @@ const finalSlides = displaySlides.length > 0 ? displaySlides : [
                         </video>
                     ) : (
                         <picture>
-                            <source media="(max-width: 767px)" srcset={slide.media_url_mobile || "/images/banner-winston-and-harry-maletas-mobile.webp"} />
+                            <source media="(max-width: 767px)" srcset={slide.media_url_mobile || slide.mobile_image || slide.image_mobile || "/images/banner-winston-and-harry-maletas-mobile.webp"} />
                             <source media="(min-width: 768px)" srcset={slide.media_url || "/images/banner-winston-and-harry-maletas-desktop.webp"} />
                             <img 
                                 src={slide.media_url || "/images/banner-winston-and-harry-maletas-desktop.webp"} 

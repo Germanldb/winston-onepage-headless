@@ -1490,23 +1490,31 @@ export async function getAttributeTerms(attributeId: number | string) {
 }
 
 /**
- * Fetch Home SEO tags using WordPress Page ID 83750
+ * Obtiene todos los datos de la página de Home (ID 83750) de WordPress, incluyendo campos ACF
  */
-export async function getHomeSEO() {
+export async function getHomePageData() {
     try {
         const url = `${PUBLIC_WP_URL}/wp-json/wp/v2/pages/83750`;
         const res = await fetch(url, { signal: AbortSignal.timeout(5000) });
-        
         if (res.ok) {
-            const data = await res.json();
-            // Retorna los datos estructurados tal cual los da RankMath para WP
-            if (data.yoast_head_json || data.rank_math_seo) {
-                return data.yoast_head_json || data.rank_math_seo;
-            }
+            return await res.json();
         }
     } catch (e) {
-        console.warn("[WP API] Error fetching Home SEO from page 83750:", e);
+        console.warn("[WP API] Error fetching Home page data from 83750:", e);
     }
     return null;
 }
+
+/**
+ * Fetch Home SEO tags using WordPress Page ID 83750
+ */
+export async function getHomeSEO() {
+    const data = await getHomePageData();
+    if (data) {
+        // Retorna los datos estructurados tal cual los da RankMath o Yoast para WP
+        return data.yoast_head_json || data.rank_math_seo || null;
+    }
+    return null;
+}
+
 

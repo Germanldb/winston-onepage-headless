@@ -10,11 +10,16 @@ import FeaturesBanner from "../components/FeaturesBanner.astro";
 import LookOfTheWeek from "../components/LookOfTheWeek.astro";
 import CategoryGrid from "../components/CategoryGrid.astro";
 import BlogHome from "../components/BlogHome.astro";
-import { getHomeSEO, getProductsByCategory } from "../lib/woocommerce";
+import { getHomePageData, getProductsByCategory } from "../lib/woocommerce";
 import { getHeroSlides } from "../lib/hero";
 import { getLookOfTheWeekData } from "../lib/look";
 
-const homeSeo = await getHomeSEO();
+// Pre-cargar todos los datos de la página del Home en una única petición (ID 83750)
+const homePage = await getHomePageData();
+const homeSeo = homePage?.yoast_head_json || homePage?.rank_math_seo || null;
+
+// Extraer el video mp4 de fondo con múltiples fallbacks redundantes para máxima robustez
+const aboutVideoUrl = homePage?.acf?.video_mp4_fondo || homePage?.acf?.about_video_url || "/videos/hero-video.mp4";
 
 // Pre-cargar las 3 categorías principales para evitar peticiones del lado del cliente
 const productsZapatos = await getProductsByCategory("63", 24, 1, "popularity", "desc");
@@ -53,7 +58,7 @@ const lookData = await getLookOfTheWeekData();
 				pretitle="Winston & Harry"
 			/>
 			<LookOfTheWeek initialData={lookData} />
-			<About />
+			<About videoUrl={aboutVideoUrl} />
 		</div>
 	</main>
 
