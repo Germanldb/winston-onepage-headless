@@ -1017,18 +1017,28 @@ export async function getProductsByCategory(
 
         const fetchCategory = async (id: string) => {
             try {
-                // PRIORIDAD: Store API (Pública, mucho más rápida y cacheable en el server de WP)
-                const storeUrl = `${PUBLIC_WP_URL}/wp-json/wc/store/v1/products?category=${id}&per_page=${perPage}&page=${page}&orderby=${orderBy}&order=${order}${onSale ? '&on_sale=true' : ''}&stock_status=instock`;
-                const storeRes = await fetch(storeUrl);
-                
-                if (storeRes.ok) {
-                    const data = await storeRes.json();
-                    return Array.isArray(data) ? data.map((p: any) => mapV3ToStore(p)).filter(p => p !== null) : [];
-                }
-                
-                // Fallback: Si Store API falla, usamos v3 (Autenticada)
+                // Usamos EXCLUSIVAMENTE la API v3 Autenticada.
+                // La Store API v1 ignoraba silenciosamente el parámetro `category`
+                // y devolvía el catálogo general, causando el bug de mezcla de categorías.
                 const data = await wcFetch(`/products?category=${id}&per_page=${perPage}&page=${page}&orderby=${orderBy}&order=${order}&status=publish&stock_status=instock${onSale ? '&on_sale=true' : ''}${attribute ? `&attribute=${attribute}` : ''}${attributeTerm ? `&attribute_term=${attributeTerm}` : ''}`);
-                return Array.isArray(data) ? data : [];
+
+                return Array.isArray(data) 
+                    ? data.map((p: any) => mapV3ToStore(p))
+                          .filter(p => {
+                              if (!p) return false;
+                              
+                              const categories = p.categories || [];
+                              // Log para ver qué recibe Vercel realmente (Míralo en los Logs de Vercel)
+                              console.log(`[DEBUG] Producto: ${p.name} (ID: ${p.id}) | Categorías:`, JSON.stringify(categories));
+                              
+                              const categoryMatch = categories.some((c: any) => {
+                                  const catId = typeof c === 'object' ? c.id : c;
+                                  return catId?.toString() === id.toString();
+                              });
+
+                              return categoryMatch;
+                          })
+                    : [];
             } catch (err: any) {
                 console.warn(`[getProductsByCategory] Error en fetch para id ${id}:`, err.message);
                 return [];
@@ -1042,12 +1052,10 @@ export async function getProductsByCategory(
         for (const list of results) {
             if (Array.isArray(list)) {
                 for (const p of list) {
+                    // Los productos ya vienen mapeados de fetchCategory
                     if (p && (p.id || p.id === 0) && !seenIds.has(p.id)) {
-                        const mapped = mapV3ToStore(p);
-                        if (mapped) {
-                            seenIds.add(p.id);
-                            combined.push(mapped);
-                        }
+                        seenIds.add(p.id);
+                        combined.push(p);
                     }
                 }
             }
