@@ -60,8 +60,8 @@ const seo = rawSeo || {
 <!doctype html>
 <html lang="es">
     <head>
-        <!-- Google Tag Manager -->
-        <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        <!-- Google Tag Manager (Partytown) -->
+        <script type="text/partytown">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
@@ -72,17 +72,11 @@ const seo = rawSeo || {
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="canonical" href={seo.canonical} />
-
-        <link rel="preconnect" href="https://use.typekit.net" crossorigin />
         <link rel="dns-prefetch" href={PUBLIC_WP_URL} />
-        <link rel="stylesheet" href="https://use.typekit.net/lpl0lgn.css" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
+        
+        <!-- Fuentes auto-hospedadas en local (Cero CDNs de bloqueo) -->
+        <link rel="stylesheet" href="/fonts/typekit/typekit.css" />
+        <link rel="stylesheet" href="/fonts/font-awesome/all.css" />
 
         <meta name="generator" content={Astro.generator} />
         <meta name="google-site-verification" content="9RFMzj77V6PFsieDNbn9QYGFbmVvJHT0-R5uT1Rn7UM" />
@@ -114,8 +108,8 @@ const seo = rawSeo || {
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRK6FQ5N"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
-        <SideCart client:load />
-        <SearchDrawer client:load />
+        <SideCart client:idle />
+        <SearchDrawer client:idle />
         <slot />
         <CookieBanner />
     </body>

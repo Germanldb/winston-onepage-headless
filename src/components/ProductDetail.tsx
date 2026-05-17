@@ -105,7 +105,8 @@ export default function ProductDetail({ initialProduct }: Props) {
     const fetchFullProduct = async () => {
       setIsFetchingVariations(true);
       try {
-        const res = await fetch(`/api/products?slug=${product.slug}&t=${Date.now()}`);
+        // Cargamos desde el JSON estático pre-generado
+        const res = await fetch(`/data/products/${product.slug}.json`);
         if (res.ok) {
           const fullData = await res.json();
           if (fullData && fullData.variations) {
@@ -113,7 +114,7 @@ export default function ProductDetail({ initialProduct }: Props) {
           }
         }
       } catch (e) {
-        console.error("[ProductDetail] Error fetching enriched data:", e);
+        console.error("[ProductDetail] Error fetching enriched data from static JSON:", e);
       } finally {
         setIsFetchingVariations(false);
       }

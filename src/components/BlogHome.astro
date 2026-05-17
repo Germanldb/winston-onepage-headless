@@ -156,11 +156,19 @@ function getEmbedInfo(url: string) {
                     {isReel && (
                       <div class="blog-card__reel-overlay">
                         <span class="blog-card__platform-badge">
-                          {embed.type === "tiktok"
-                            ? "♪ TikTok"
-                            : embed.type === "youtube"
-                              ? "▶ YouTube"
-                              : "▶ Instagram"}
+                          {embed.type === "tiktok" ? (
+                            <>
+                              <i class="fa-brands fa-tiktok" style="margin-right: 5px; font-size: 0.85em;"></i> TikTok
+                            </>
+                          ) : embed.type === "youtube" ? (
+                            <>
+                              <i class="fa-brands fa-youtube" style="margin-right: 5px; font-size: 0.85em;"></i> YouTube
+                            </>
+                          ) : (
+                            <>
+                              <i class="fa-brands fa-instagram" style="margin-right: 5px; font-size: 0.85em;"></i> Instagram
+                            </>
+                          )}
                         </span>
                         <button
                           class="blog-card__play-btn js-open-video-modal"

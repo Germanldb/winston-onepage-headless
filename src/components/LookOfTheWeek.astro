@@ -1,5 +1,21 @@
 ---
 import LookSection from "./LookSection";
+import { getLookOfTheWeekData } from "../lib/look";
+
+interface Props {
+    initialData?: any;
+}
+
+const { initialData: propData } = Astro.props;
+
+let lookData = propData;
+if (!lookData) {
+    try {
+        lookData = await getLookOfTheWeekData();
+    } catch (e) {
+        console.warn("[LookOfTheWeek Astro] Error fetching look in build-time:", e);
+    }
+}
 ---
 
-<LookSection client:load />
+<LookSection client:idle initialData={lookData} />

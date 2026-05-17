@@ -52,10 +52,28 @@ export const GET: APIRoute = async ({ url }) => {
         const attributeTerm = url.searchParams.get('attribute_term') || undefined;
 
         let allProducts = [];
-        if (!categoryParam || categoryParam === 'all') {
-            allProducts = await getAllProducts(perPage, page, orderBy, order, onSale);
-        } else {
-            allProducts = await getProductsByCategory(categoryParam, perPage, page, orderBy, order, onSale, attribute, attributeTerm);
+        try {
+            if (!categoryParam || categoryParam === 'all') {
+                allProducts = await getAllProducts(perPage, page, orderBy, order, onSale);
+            } else {
+                allProducts = await getProductsByCategory(categoryParam, perPage, page, orderBy, order, onSale, attribute, attributeTerm);
+            }
+        } catch (fetchErr: any) {
+            console.warn(`[API Products] WooCommerce fetch failed, attempting local catalog fallback:`, fetchErr.message);
+            try {
+                const fs = await import('node:fs');
+                const path = await import('node:path');
+                const catSlug = categoryParam === 'all' || !categoryParam ? 'tienda' : categoryParam;
+                const filePath = path.join(process.cwd(), 'public', 'data', 'catalog', `${catSlug}-p${page}.json`);
+                if (fs.existsSync(filePath)) {
+                    allProducts = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+                    console.log(`[API Products] Loaded fallback static catalog for ${catSlug} page ${page}`);
+                } else {
+                    throw fetchErr;
+                }
+            } catch (fsErr) {
+                throw fetchErr;
+            }
         }
         console.log(`[API Products] Returning ${allProducts?.length || 0} products (Page: ${page}, PerPage: ${perPage})`);
 

@@ -1,21 +1,28 @@
 ---
+// About.astro
+interface Props {
+    videoUrl?: string;
+}
 
+const { videoUrl = "/videos/hero-video.mp4" } = Astro.props;
 ---
 
-<section id="nosotros" class="about-lv-hero">
+<section id="nosotros" class="about-lv-hero js-about-section">
     <div class="video-container">
+        <!-- Video HTML5 nativo y optimizado con precarga controlada -->
+        <video 
+            class="about-native-video js-about-video"
+            preload="none"
+            muted
+            loop
+            playsinline
+            poster="https://img.youtube.com/vi/XGnN4DTsdD8/maxresdefault.jpg"
+        >
+            <source src={videoUrl} type="video/mp4" />
+        </video>
+        
         <!-- Overlay sutil para legibilidad -->
         <div class="video-overlay"></div>
-
-        <div class="iframe-wrapper">
-            <iframe
-                src="https://www.youtube.com/embed/XGnN4DTsdD8?autoplay=1&mute=1&loop=1&playlist=XGnN4DTsdD8&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&playsinline=1"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-            >
-            </iframe>
-        </div>
     </div>
 
     <div class="container about-text-overlay">
@@ -31,11 +38,45 @@
                 obra única, confeccionada por manos colombianas que transforman
                 los cueros más finos en piezas de arte para tus pies.
             </p>
-
-            <!-- <a href="#tienda" class="discover-link">Descubrir colección</a> -->
         </div>
     </div>
 </section>
+
+<script>
+    function setupAboutVideoObserver() {
+        const section = document.querySelector('.js-about-section');
+        const video = document.querySelector('.js-about-video') as HTMLVideoElement;
+
+        if (!section || !video) return;
+
+        // Intersection Observer para reproducción autónoma eficiente
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // Cuando entra en pantalla, reproduce el video nativo
+                    video.play()
+                        .then(() => {
+                            video.classList.add('is-playing');
+                        })
+                        .catch((err) => {
+                            console.warn("[About Video] Auto-play no permitido o cancelado:", err);
+                        });
+                } else {
+                    // Cuando sale de pantalla, pausa el video para ahorrar CPU y RAM
+                    video.pause();
+                }
+            });
+        }, {
+            threshold: 0.15 // Dispara cuando el 15% de la sección es visible
+        });
+
+        observer.observe(section);
+    }
+
+    // Inicialización del observer para soporte SSR y Astro transitions
+    setupAboutVideoObserver();
+    document.addEventListener('astro:page-load', setupAboutVideoObserver);
+</script>
 
 <style>
     .about-lv-hero {
@@ -57,6 +98,28 @@
         width: 100%;
         height: 100%;
         z-index: 0;
+        background-image: url('https://img.youtube.com/vi/XGnN4DTsdD8/maxresdefault.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    /* Video nativo que cubre todo el fondo */
+    .about-native-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+        opacity: 0;
+        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Animación fluida de fundido cuando el video inicia reproducción */
+    .about-native-video.is-playing {
+        opacity: 0.75; /* Opacidad elegante para conservar legibilidad del texto */
     }
 
     .video-overlay {
@@ -65,44 +128,27 @@
         left: 0;
         width: 100%;
         height: 100%;
-        /* Gradiente para proteger el texto en la esquina inferior izquierda */
+        /* Gradiente premium para proteger el texto */
         background: radial-gradient(
             circle at 10% 90%,
-            rgba(0, 0, 0, 0.45) 0%,
-            rgba(0, 0, 0, 0.1) 50%,
+            rgba(0, 0, 0, 0.65) 0%,
+            rgba(0, 0, 0, 0.25) 50%,
             transparent 100%
         );
-        z-index: 2;
-    }
-
-    .iframe-wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
+        z-index: 1;
         pointer-events: none;
-    }
-
-    .iframe-wrapper iframe {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 100vw;
-        height: 56.25vw;
-        min-height: 100vh;
-        min-width: 177.77vh;
-        transform: translate(-50%, -50%);
-        opacity: 0.9;
     }
 
     .about-text-overlay {
         position: relative;
-        z-index: 3;
+        z-index: 10; /* Mayor que el overlay */
         width: 100%;
         padding: 0 4rem;
+        pointer-events: none; /* Permite scroll natural */
     }
 
     .about-content-corner {
-        max-width: 420px; /* Tamaño similar al del ejemplo de Louis Vuitton */
+        max-width: 420px;
         color: #fff;
     }
 
@@ -115,6 +161,7 @@
         text-transform: uppercase;
         letter-spacing: 2px;
         color: #fff;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
 
     .about-description {
@@ -123,24 +170,9 @@
         line-height: 1.6;
         font-weight: 300;
         margin-bottom: 2rem;
-        color: rgba(255, 255, 255, 0.85);
+        color: rgba(255, 255, 255, 0.9);
         letter-spacing: 0.01em;
-    }
-
-    .discover-link {
-        font-family: var(--font-paragraphs);
-        font-size: 0.8rem;
-        font-weight: 400;
-        color: #fff;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-        padding-bottom: 4px;
-        transition: border-color 0.3s ease;
-        text-transform: capitalize;
-    }
-
-    .discover-link:hover {
-        border-bottom-color: #fff;
+        text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
     }
 
     @media (max-width: 768px) {

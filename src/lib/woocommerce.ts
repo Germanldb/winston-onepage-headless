@@ -3,6 +3,48 @@
  * Using ck/cs credentials for full access and better data processing.
  */
 
+import dns from 'node:dns';
+
+// Resolver global de DNS públicas (Google / Cloudflare) para tienda.winstonandharrystore.com
+// Esto soluciona los problemas de envenenamiento de DNS local o enrutadores locales que devuelven IPs inactivas.
+if (dns && typeof dns.lookup === 'function') {
+    const resolver = new dns.Resolver();
+    try {
+        resolver.setServers(['8.8.8.8', '1.1.1.1']);
+        const originalLookup = dns.lookup;
+        dns.lookup = function(hostname, options, callback) {
+            let actualOptions = options;
+            let actualCallback = callback;
+            
+            if (typeof options === 'function') {
+                actualCallback = options;
+                actualOptions = {};
+            }
+            
+            if (hostname === 'tienda.winstonandharrystore.com') {
+                resolver.resolve4(hostname, (err, addresses) => {
+                    if (err || !addresses || addresses.length === 0) {
+                        originalLookup(hostname, actualOptions, actualCallback);
+                    } else {
+                        if (actualOptions.all) {
+                            const results = addresses.map(addr => ({ address: addr, family: 4 }));
+                            actualCallback(null, results);
+                        } else {
+                            actualCallback(null, addresses[0], 4);
+                        }
+                    }
+                });
+            } else {
+                originalLookup(hostname, options, callback);
+            }
+        };
+    } catch (e) {
+        if (typeof dns.setDefaultResultOrder === 'function') {
+            dns.setDefaultResultOrder('ipv4first');
+        }
+    }
+}
+
 const getEnv = (key: string) => {
     const metaEnv = (typeof import.meta !== 'undefined' && import.meta.env) ? import.meta.env : {};
     return metaEnv[key] || 
@@ -78,6 +120,39 @@ function normalizeQuery(text: string): string {
     return text.trim().toLowerCase();
 }
 
+async function getBuildCache(url: string): Promise<any> {
+    try {
+        const fs = await import('node:fs');
+        const path = await import('node:path');
+        const cacheDir = path.join(process.cwd(), 'public', 'data', 'build-cache');
+        const safeName = url.replace(/[^a-zA-Z0-9]/g, '_') + '.json';
+        const cachePath = path.join(cacheDir, safeName);
+        if (fs.existsSync(cachePath)) {
+            const dataStr = fs.readFileSync(cachePath, 'utf-8');
+            return JSON.parse(dataStr);
+        }
+    } catch (e) {
+        // Ignorar
+    }
+    return null;
+}
+
+async function setBuildCache(url: string, data: any) {
+    try {
+        const fs = await import('node:fs');
+        const path = await import('node:path');
+        const cacheDir = path.join(process.cwd(), 'public', 'data', 'build-cache');
+        if (!fs.existsSync(cacheDir)) {
+            fs.mkdirSync(cacheDir, { recursive: true });
+        }
+        const safeName = url.replace(/[^a-zA-Z0-9]/g, '_') + '.json';
+        const cachePath = path.join(cacheDir, safeName);
+        fs.writeFileSync(cachePath, JSON.stringify(data, null, 2), 'utf-8');
+    } catch (e) {
+        // Ignorar
+    }
+}
+
 export async function wcFetch(path: string, options: RequestInit = {}, retries = 3, delay = 1500) {
     // Leemos las claves en RUNTIME
     const CK = (getEnv('WC_CONSUMER_KEY') || getEnv('WP_CONSUMER_KEY') || "").trim();
@@ -150,7 +225,11 @@ export async function wcFetch(path: string, options: RequestInit = {}, retries =
     for (let i = 0; i < retries; i++) {
         try {
             const startTime = Date.now();
-            const res = await fetch(url, { ...options, headers });
+            const res = await fetch(url, { 
+                ...options, 
+                headers,
+                signal: AbortSignal.timeout(30000)
+            });
             const endTime = Date.now();
             
             // Log removed for production
@@ -174,14 +253,28 @@ export async function wcFetch(path: string, options: RequestInit = {}, retries =
             }
 
             const text = await res.text();
+            let parsed = null;
             try {
-                return JSON.parse(text);
+                parsed = JSON.parse(text);
             } catch (e) {
                 const cleaned = text.substring(text.indexOf('{'));
-                return JSON.parse(cleaned);
+                parsed = JSON.parse(cleaned);
             }
+
+            if (parsed) {
+                await setBuildCache(url, parsed);
+            }
+            return parsed;
         } catch (error: any) {
-            if (i === retries - 1) throw error;
+            if (i === retries - 1) {
+                // Si falla el último intento, buscamos en el caché de build
+                const cachedData = await getBuildCache(url);
+                if (cachedData) {
+                    console.warn(`[WC API] ⚠️ Conexión fallida para ${url.split('?')[0]}. Usando Caché de Build local.`);
+                    return cachedData;
+                }
+                throw error;
+            }
             console.warn(`[WC API] Intento ${i+1} fallido: ${error.message}`);
             await new Promise(r => setTimeout(r, delay));
             delay *= 2;
@@ -615,22 +708,170 @@ export async function getProductById(id: number | string) {
     }
 }
 
+export const ASTRO_TO_WP_SLUG_MAP: Record<string, string> = {
+    'mocasines-cuero-hombre': 'mocasin',
+    'zapatos-cuero-hombre': 'zapatos',
+    'botas-cuero-hombre': 'botas',
+    'ropa-hombre-colombia': 'ropa',
+    'maletas-morrales-cuero': 'maletas',
+    'accesorios-hombre': 'accesorios',
+    'tenis-hombre': 'tenis',
+    'outlet-zapatos-ropa': 'outlet',
+    'pantuflas-cuero-hombre': 'pantuflas',
+    'tallas-grandes-zapatos-hombre': 'tallas-grandes',
+    'zapatos-hechos-colombia-hombre': 'linea-colombia',
+    'zapatos-cordon-hombre': 'zapatos-de-cordon',
+    'zapatos-hebilla-hombre': 'zapatos-de-hebilla'
+};
+
+export const STRICT_CATEGORIES = [
+    { 
+        id: 195, 
+        slug: 'mocasines-cuero-hombre', 
+        name: 'Mocasines',
+        description: 'Nuestros mocasines de cuero para hombre combinan elegancia clásica y comodidad excepcional. Perfectos para un estilo casual-elegante y uso de diario.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-zapatos-mocasines-m.jpg'
+    },
+    { 
+        id: 63,  
+        slug: 'zapatos-cuero-hombre', 
+        name: 'Zapatos',
+        description: 'Nuestros zapatos de cuero están hechos para hombres que valoran el diseño, la comodidad y la calidad en cada detalle. Encuentra Oxford, Derby, Botas, Tenis y más.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-zapatos-cat-m.jpg'
+    },
+    { 
+        id: 194, 
+        slug: 'botas-cuero-hombre', 
+        name: 'Botas',
+        description: 'Botas de cuero para hombre con la máxima durabilidad y estilo atemporal. Diseñadas para acompañarte a donde vayas con confort y resistencia.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-zapatos-botas-m.jpg'
+    },
+    { 
+        id: 249, 
+        slug: 'ropa-hombre-colombia', 
+        name: 'Ropa',
+        description: 'Descubre nuestra colección de ropa de cuero y materiales premium para hombre. Chaquetas, polos, camisetas y más, hechos en Colombia con diseño exclusivo.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-ropa-m.jpg'
+    },
+    { 
+        id: 190, 
+        slug: 'maletas-morrales-cuero', 
+        name: 'Maletas y Morrales',
+        description: 'Morrales, maletines y maletas de viaje de cuero legítimo para hombre. Piezas exclusivas, espaciosas y con un diseño sofisticado que te acompaña en cada viaje.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-maletas-m.jpg'
+    },
+    { 
+        id: 126, 
+        slug: 'accesorios-hombre', 
+        name: 'Accesorios',
+        description: 'Detalles que marcan la diferencia: cinturones, billeteras, tarjeteros y otros accesorios de cuero premium que complementan tu estilo personal.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-accesorios-m.jpg'
+    },
+    { 
+        id: 192, 
+        slug: 'tenis-hombre', 
+        name: 'Tenis',
+        description: 'Nuestros tenis de cuero combinan la comodidad del calzado casual con la distinción y resistencia del cuero legítimo. Perfectos para el día a día.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-zapatos-tenis-m.jpg'
+    },
+    { 
+        id: 948, 
+        slug: 'outlet-zapatos-ropa', 
+        name: 'Outlet',
+        description: 'Aprovecha precios especiales en nuestras últimas piezas de temporadas anteriores. La misma calidad de cuero artesanal de Winston & Harry a un precio de oportunidad.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-outlet-m.jpg'
+    },
+    { 
+        id: 431, 
+        slug: 'pantuflas-cuero-hombre', 
+        name: 'Pantuflas',
+        description: 'Descansa en casa con la máxima distinción. Pantuflas de cuero extra suave y acolchadas para el máximo confort y descanso de tus pies.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-pantuflas-m.jpg'
+    },
+    { 
+        id: 438, 
+        slug: 'tallas-grandes-zapatos-hombre', 
+        name: 'Tallas Grandes',
+        description: 'Zapatos de cuero artesanal disponibles en tallas grandes (44 a 46). Diseños exclusivos con la misma comodidad y calidad que nos caracteriza.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-tallas-grandes-m.jpg'
+    },
+    { 
+        id: 422, 
+        slug: 'zapatos-hechos-colombia-hombre', 
+        name: 'Línea Colombia',
+        description: 'Edición especial de calzado artesanal que exalta la tradición zapatera colombiana. 100% hecho a mano con materiales nacionales de calidad premium.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-linea-colombia-m.jpg'
+    },
+    { 
+        id: 193, 
+        slug: 'zapatos-cordon-hombre', 
+        name: 'Zapatos de Cordón',
+        description: 'Nuestros zapatos de cordón están hechos para hombres que valoran una forma más clásica de vestir bien. Diseños versátiles, cómodos y bien hechos para acompañar looks más pulidos sin perder naturalidad.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-zapatos-de-cordon-m.jpg'
+    },
+    { 
+        id: 196, 
+        slug: 'zapatos-hebilla-hombre', 
+        name: 'Zapatos de Hebilla',
+        description: 'Los zapatos de hebilla tienen algo especial: se sienten elegantes, distintos y llenos de intención. Son para hombres que disfrutan vestir bien y cuidar cada detalle.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-zapatos-hebilla-m.jpg'
+    },
+    { 
+        id: 187, 
+        slug: 'collares-cuero-perro', 
+        name: 'Collares para Perro',
+        description: 'Collares de cuero legítimo para perros. Duraderos, resistentes y con acabados finos para consentir a tu mejor amigo de cuatro patas con la máxima sofisticación.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-collares-perros-m.jpg'
+    }
+];
+
+export function mapAstroToWpSlug(slug: string): string {
+    return ASTRO_TO_WP_SLUG_MAP[slug] || slug;
+}
+
+export function mapWpToAstroSlug(wpSlug: string): string {
+    const entry = Object.entries(ASTRO_TO_WP_SLUG_MAP).find(([_, wp]) => wp === wpSlug);
+    return entry ? entry[0] : wpSlug;
+}
+
 export async function getCategoryBySlug(slug: string) {
+    const mappedSlug = mapAstroToWpSlug(slug);
     const cacheKey = `cat_slug_${slug}`;
     const cached = getStaticCached(cacheKey);
     if (cached) return cached;
 
     try {
-        const categories = await wcFetch(`/products/categories?slug=${slug}`);
-        if (!categories || categories.length === 0) return null;
-        
-        const result = categories[0];
-        setStaticCached(cacheKey, result);
-        return result;
+        const categories = await wcFetch(`/products/categories?slug=${mappedSlug}`);
+        if (categories && categories.length > 0) {
+            const result = {
+                ...categories[0],
+                slug: slug // Sobrescribimos con el slug de Astro para consistencia frontend
+            };
+            setStaticCached(cacheKey, result);
+            return result;
+        }
     } catch (error: any) {
-        console.error(`Error fetching category by slug ${slug}:`, error.message);
-        return null;
+        console.error(`Error fetching category by slug ${slug} (mapped: ${mappedSlug}):`, error.message);
     }
+
+    // FALLBACK ESTÁTICO RESILIENTE DE SEGURIDAD (CERO-RED)
+    const strictMatch = STRICT_CATEGORIES.find(c => c.slug === slug || c.slug === mappedSlug);
+    if (strictMatch) {
+        const result = {
+            id: strictMatch.id,
+            name: strictMatch.name,
+            slug: strictMatch.slug,
+            parent: 0,
+            description: strictMatch.description || "",
+            image: strictMatch.image ? { src: strictMatch.image } : null,
+            meta_data: []
+        };
+        setStaticCached(cacheKey, result);
+        console.log(`[getCategoryBySlug] Usando fallback local estático para la categoría: ${slug}`);
+        return result;
+    }
+
+    return null;
 }
 
 export async function getCategoryById(id: number) {
@@ -1016,22 +1257,19 @@ export async function getProductsByCategory(
     try {
         const ids = finalId.toString().split(',').map(id => id.trim()).filter(Boolean);
 
-        // Pre-cargamos todos los IDs de subcategorías descendientes para que la validación estricta no excluya
-        // productos asignados a subcategorías cuando se visita una categoría padre (ej: zapatos-cuero-hombre).
-        const allowedIds = new Set<string>();
-        for (const id of ids) {
-            allowedIds.add(id.toString());
-            try {
-                // Buscamos subcategorías directas del padre para habilitar su paso por el filtro de seguridad
-                const childCats = await wcFetch(`/products/categories?parent=${id}&per_page=50`);
-                if (Array.isArray(childCats)) {
-                    childCats.forEach((c: any) => {
-                        allowedIds.add(c.id.toString());
-                    });
-                }
-            } catch (e: any) {
-                console.warn(`[getProductsByCategory] Error resolviendo subcategorías de ${id}:`, e.message);
+        // Cargamos el mapa de relaciones padre-hijo desde la API de WooCommerce (muy rápido y cacheable)
+        const parentMap = new Map<string, string>();
+        try {
+            const categoriesData = await wcFetch("/products/categories?per_page=100");
+            if (Array.isArray(categoriesData)) {
+                categoriesData.forEach((c: any) => {
+                    if (c.parent !== undefined && c.parent !== null && c.parent !== 0) {
+                        parentMap.set(c.id.toString(), c.parent.toString());
+                    }
+                });
             }
+        } catch (e: any) {
+            console.warn("[getProductsByCategory] Error resolviendo mapa de parentesco de categorías:", e.message);
         }
 
         const fetchCategory = async (id: string) => {
@@ -1051,8 +1289,15 @@ export async function getProductsByCategory(
                               console.log(`[DEBUG] Producto: ${p.name} (ID: ${p.id}) | Categorías:`, JSON.stringify(categories));
                               
                               const categoryMatch = categories.some((c: any) => {
-                                  const catId = typeof c === 'object' ? c.id : c;
-                                  return allowedIds.has(catId?.toString());
+                                  const catId = (typeof c === 'object' ? c.id : c)?.toString();
+                                  if (!catId) return false;
+                                  
+                                  // Comprobación 1: Coincidencia directa con el ID solicitado
+                                  if (catId === id.toString()) return true;
+                                  
+                                  // Comprobación 2: Comprobar si el parent de la categoría del producto es el ID solicitado
+                                  const parentId = parentMap.get(catId);
+                                  return parentId === id.toString();
                               });
 
                               return categoryMatch;
@@ -1245,23 +1490,31 @@ export async function getAttributeTerms(attributeId: number | string) {
 }
 
 /**
- * Fetch Home SEO tags using WordPress Page ID 83750
+ * Obtiene todos los datos de la página de Home (ID 83750) de WordPress, incluyendo campos ACF
  */
-export async function getHomeSEO() {
+export async function getHomePageData() {
     try {
         const url = `${PUBLIC_WP_URL}/wp-json/wp/v2/pages/83750`;
         const res = await fetch(url, { signal: AbortSignal.timeout(5000) });
-        
         if (res.ok) {
-            const data = await res.json();
-            // Retorna los datos estructurados tal cual los da RankMath para WP
-            if (data.yoast_head_json || data.rank_math_seo) {
-                return data.yoast_head_json || data.rank_math_seo;
-            }
+            return await res.json();
         }
     } catch (e) {
-        console.warn("[WP API] Error fetching Home SEO from page 83750:", e);
+        console.warn("[WP API] Error fetching Home page data from 83750:", e);
     }
     return null;
 }
+
+/**
+ * Fetch Home SEO tags using WordPress Page ID 83750
+ */
+export async function getHomeSEO() {
+    const data = await getHomePageData();
+    if (data) {
+        // Retorna los datos estructurados tal cual los da RankMath o Yoast para WP
+        return data.yoast_head_json || data.rank_math_seo || null;
+    }
+    return null;
+}
+
 

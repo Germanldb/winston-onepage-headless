@@ -215,10 +215,30 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
             params.append('per_page', '16');
             if (currentSort.onSale) params.append('on_sale', 'true');
 
-            const response = await fetch(`/api/products?${params.toString()}`);
-            if (!response.ok) throw new Error('Error al cargar productos');
+            // --- INTENTO CARGA ESTÁTICA ---
+            const isDefaultSort = currentSort.key === 'destacado' && !currentSort.onSale;
+            let data = null;
 
-            const data = await response.json();
+            if (isDefaultSort) {
+                const catSlug = category?.slug || 'tienda';
+                const staticUrl = `/data/catalog/${catSlug}-p${pageNum}.json`;
+                try {
+                    const staticRes = await fetch(staticUrl);
+                    if (staticRes.ok) {
+                        data = await staticRes.json();
+                        console.log(`[FilteredProductList] Loaded static catalog from ${staticUrl}`);
+                    }
+                } catch (staticErr: any) {
+                    console.warn(`[FilteredProductList] Failed to load static catalog, falling back to API:`, staticErr.message);
+                }
+            }
+
+            if (!data) {
+                const response = await fetch(`/api/products?${params.toString()}`);
+                if (!response.ok) throw new Error('Error al cargar productos');
+                data = await response.json();
+            }
+
             const newProducts = Array.isArray(data) ? data : [];
 
             if (append) {

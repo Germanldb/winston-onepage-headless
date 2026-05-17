@@ -9,13 +9,17 @@ interface LookData {
     products: any[];
 }
 
-export default function LookSection() {
-    const [data, setData] = useState<LookData | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [selectedIds, setSelectedIds] = useState<number[]>([]);
+export default function LookSection({ initialData = null }: { initialData?: LookData | null }) {
+    const [data, setData] = useState<LookData | null>(initialData);
+    const [loading, setLoading] = useState(!initialData);
+    const [selectedIds, setSelectedIds] = useState<number[]>(
+        initialData?.products ? initialData.products.map((p: any) => p.id) : []
+    );
     const [lookVariations, setLookVariations] = useState<Record<number, { color: string | null, size: string | null, variationId?: number | null }>>({});
 
     useEffect(() => {
+        if (initialData) return; // Skip client-side fetch if data was pre-rendered statically
+
         const fetchLook = async () => {
             try {
                 const res = await fetch('/api/look-of-the-week');
@@ -33,7 +37,7 @@ export default function LookSection() {
             }
         };
         fetchLook();
-    }, []);
+    }, [initialData]);
 
     const toggleSelection = useCallback((id: number) => {
         setSelectedIds(prev => prev.includes(id) ? prev.filter(sid => sid !== id) : [...prev, id]);

@@ -88,9 +88,8 @@ export default function ProductCard({ product, isSelected, onSelectionToggle, on
         const fetchFullProduct = async () => {
             setIsFetchingVariations(true);
             try {
-
-                // Add timestamp to bypass cache and ensure fresh price data
-                const res = await fetch(`/api/products?slug=${product.slug}&t=${Date.now()}`);
+                // Cargamos desde el JSON estático pre-generado
+                const res = await fetch(`/data/products/${product.slug}.json`);
                 if (res.ok) {
                     const fullData = await res.json();
                     if (fullData && fullData.prices) {

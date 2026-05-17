@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
+import partytown from '@astrojs/partytown';
 import { loadEnv } from 'vite';
 
 // Cargamos variables del .env (sin hardcoding)
@@ -36,12 +37,40 @@ async function getDynamicProductPages() {
 
 const productPages = await getDynamicProductPages();
 
+const mappedCategories = [
+  'zapatos-cuero-hombre',
+  'mocasines-cuero-hombre',
+  'botas-cuero-hombre',
+  'ropa-hombre-colombia',
+  'maletas-morrales-cuero',
+  'accesorios-hombre',
+  'tenis-hombre',
+  'outlet-zapatos-ropa',
+  'pantuflas-cuero-hombre',
+  'tallas-grandes-zapatos-hombre',
+  'zapatos-hechos-colombia-hombre',
+  'zapatos-cordon-hombre',
+  'zapatos-hebilla-hombre',
+  'cinturones-cuero-hombre',
+  'billeteras-tarjeteros-cuero',
+  'chaquetas-cuero-hombre',
+  'collares-cuero-perro'
+];
+const categoryPages = mappedCategories.map(slug => `https://www.winstonandharrystore.com/categoria/${slug}`);
+
+const allSitemapPages = [...productPages, ...categoryPages];
+
 export default defineConfig({
   site: 'https://www.winstonandharrystore.com',
   integrations: [
     react(),
     sitemap({
-      customPages: productPages
+      customPages: allSitemapPages
+    }),
+    partytown({
+      config: {
+        forward: ['dataLayer.push', 'fbq']
+      }
     })
   ],
   redirects: {
