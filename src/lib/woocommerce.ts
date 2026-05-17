@@ -4,8 +4,9 @@
  */
 
 const getEnv = (key: string) => {
-    return import.meta.env[key] || 
-           import.meta.env[`PUBLIC_${key}`] || 
+    const metaEnv = (typeof import.meta !== 'undefined' && import.meta.env) ? import.meta.env : {};
+    return metaEnv[key] || 
+           metaEnv[`PUBLIC_${key}`] || 
            (typeof process !== 'undefined' ? process.env[key] : undefined) || 
            (typeof process !== 'undefined' ? process.env[`PUBLIC_${key}`] : undefined);
 };
