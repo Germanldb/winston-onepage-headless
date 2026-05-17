@@ -757,18 +757,35 @@ export async function getCategoryBySlug(slug: string) {
 
     try {
         const categories = await wcFetch(`/products/categories?slug=${mappedSlug}`);
-        if (!categories || categories.length === 0) return null;
-        
-        const result = {
-            ...categories[0],
-            slug: slug // Sobrescribimos con el slug de Astro para consistencia frontend
-        };
-        setStaticCached(cacheKey, result);
-        return result;
+        if (categories && categories.length > 0) {
+            const result = {
+                ...categories[0],
+                slug: slug // Sobrescribimos con el slug de Astro para consistencia frontend
+            };
+            setStaticCached(cacheKey, result);
+            return result;
+        }
     } catch (error: any) {
         console.error(`Error fetching category by slug ${slug} (mapped: ${mappedSlug}):`, error.message);
-        return null;
     }
+
+    // FALLBACK ESTÁTICO RESILIENTE DE SEGURIDAD (CERO-RED)
+    const strictMatch = STRICT_CATEGORIES.find(c => c.slug === slug || c.slug === mappedSlug);
+    if (strictMatch) {
+        const result = {
+            id: strictMatch.id,
+            name: strictMatch.name,
+            slug: strictMatch.slug,
+            parent: 0,
+            image: null,
+            meta_data: []
+        };
+        setStaticCached(cacheKey, result);
+        console.log(`[getCategoryBySlug] Usando fallback local estático para la categoría: ${slug}`);
+        return result;
+    }
+
+    return null;
 }
 
 export async function getCategoryById(id: number) {

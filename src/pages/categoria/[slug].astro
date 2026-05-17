@@ -15,6 +15,7 @@ import {
     getAllProducts,
     ASTRO_TO_WP_SLUG_MAP,
     mapWpToAstroSlug,
+    mapAstroToWpSlug,
     STRICT_CATEGORIES
 } from "../../lib/woocommerce";
 import FilteredProductList from "../../components/FilteredProductList";
@@ -53,9 +54,15 @@ export async function getStaticPaths() {
                     products = await getProductsByCategory(cat.id, 16, page, 'popularity', 'desc', false);
                 }
 
-                // Guardamos la página en JSON usando el slug de Astro
+                // Guardamos la página en JSON usando el slug de Astro y el slug de WooCommerce
                 const filePath = path.join(catalogDir, `${cat.slug}-p${page}.json`);
                 fs.writeFileSync(filePath, JSON.stringify(products, null, 2), 'utf-8');
+
+                const wpSlug = mapAstroToWpSlug(cat.slug);
+                if (wpSlug !== cat.slug) {
+                    const wpFilePath = path.join(catalogDir, `${wpSlug}-p${page}.json`);
+                    fs.writeFileSync(wpFilePath, JSON.stringify(products, null, 2), 'utf-8');
+                }
 
                 if (products.length === 0) {
                     hasMore = false;
@@ -74,6 +81,14 @@ export async function getStaticPaths() {
             const emptyFilePath = path.join(catalogDir, `${cat.slug}-p${page}.json`);
             if (!fs.existsSync(emptyFilePath)) {
                 fs.writeFileSync(emptyFilePath, JSON.stringify([], null, 2), 'utf-8');
+            }
+
+            const wpSlug = mapAstroToWpSlug(cat.slug);
+            if (wpSlug !== cat.slug) {
+                const emptyWpFilePath = path.join(catalogDir, `${wpSlug}-p${page}.json`);
+                if (!fs.existsSync(emptyWpFilePath)) {
+                    fs.writeFileSync(emptyWpFilePath, JSON.stringify([], null, 2), 'utf-8');
+                }
             }
 
             // Retardo entre categorías para dar respiro al servidor
