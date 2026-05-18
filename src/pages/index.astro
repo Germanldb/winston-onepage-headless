@@ -18,8 +18,8 @@ import { getLookOfTheWeekData } from "../lib/look";
 const homePage = await getHomePageData();
 const homeSeo = homePage?.yoast_head_json || homePage?.rank_math_seo || null;
 
-// Extraer el video mp4 de fondo con múltiples fallbacks redundantes para máxima robustez
-const aboutVideoUrl = homePage?.acf?.video_mp4_fondo || homePage?.acf?.about_video_url || "/videos/hero-video.mp4";
+// Extraer el video mp4 de fondo de WordPress (si existe)
+const aboutVideoUrl = homePage?.acf?.video_mp4_fondo || homePage?.acf?.about_video_url || "";
 
 // Pre-cargar las 3 categorías principales para evitar peticiones del lado del cliente
 const productsZapatos = await getProductsByCategory("63", 24, 1, "popularity", "desc");

@@ -4,22 +4,30 @@ interface Props {
     videoUrl?: string;
 }
 
-const { videoUrl = "/videos/hero-video.mp4" } = Astro.props;
+const { videoUrl } = Astro.props;
+
+// Determinar si hay un video nativo real y funcional (.mp4 directo)
+const hasNativeVideo = videoUrl && videoUrl.trim() !== "" && videoUrl.endsWith(".mp4") && !videoUrl.includes("youtube.com") && !videoUrl.includes("youtu.be");
 ---
 
 <section id="nosotros" class="about-lv-hero js-about-section">
     <div class="video-container">
-        <!-- Video HTML5 nativo y optimizado con precarga controlada -->
-        <video 
-            class="about-native-video js-about-video"
-            preload="none"
-            muted
-            loop
-            playsinline
-            poster="https://img.youtube.com/vi/XGnN4DTsdD8/maxresdefault.jpg"
-        >
-            <source src={videoUrl} type="video/mp4" />
-        </video>
+        {hasNativeVideo ? (
+            <!-- Video HTML5 nativo y optimizado con precarga controlada para máximo score PSI -->
+            <video 
+                class="about-native-video js-about-video"
+                preload="none"
+                muted
+                loop
+                playsinline
+                poster="https://img.youtube.com/vi/XGnN4DTsdD8/maxresdefault.jpg"
+            >
+                <source src={videoUrl} type="video/mp4" />
+            </video>
+        ) : (
+            <!-- Imagen estática optimizada de portada (Evita bloqueos de YouTube y asegura PSI 100/100) -->
+            <div class="about-poster-image" style="background-image: url('https://img.youtube.com/vi/XGnN4DTsdD8/maxresdefault.jpg');"></div>
+        )}
         
         <!-- Overlay sutil para legibilidad -->
         <div class="video-overlay"></div>
@@ -44,30 +52,26 @@ const { videoUrl = "/videos/hero-video.mp4" } = Astro.props;
 
 <script>
     function setupAboutVideoObserver() {
-        const section = document.querySelector('.js-about-section');
+        const section = document.querySelector('.js-about-section') as HTMLElement;
         const video = document.querySelector('.js-about-video') as HTMLVideoElement;
-
         if (!section || !video) return;
 
-        // Intersection Observer para reproducción autónoma eficiente
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    // Cuando entra en pantalla, reproduce el video nativo
                     video.play()
                         .then(() => {
                             video.classList.add('is-playing');
                         })
                         .catch((err) => {
-                            console.warn("[About Video] Auto-play no permitido o cancelado:", err);
+                            console.warn("[About Video] Auto-play falló:", err);
                         });
                 } else {
-                    // Cuando sale de pantalla, pausa el video para ahorrar CPU y RAM
                     video.pause();
                 }
             });
         }, {
-            threshold: 0.15 // Dispara cuando el 15% de la sección es visible
+            threshold: 0.15
         });
 
         observer.observe(section);
@@ -98,28 +102,53 @@ const { videoUrl = "/videos/hero-video.mp4" } = Astro.props;
         width: 100%;
         height: 100%;
         z-index: 0;
-        background-image: url('https://img.youtube.com/vi/XGnN4DTsdD8/maxresdefault.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
     }
 
-    /* Video nativo que cubre todo el fondo */
-    .about-native-video {
+    /* Imagen estática optimizada de portada */
+    .about-poster-image {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        z-index: 0;
-        opacity: 0;
-        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 2;
+        opacity: 1;
+        transition: opacity 0.8s ease-in-out;
     }
 
-    /* Animación fluida de fundido cuando el video inicia reproducción */
-    .about-native-video.is-playing {
-        opacity: 0.75; /* Opacidad elegante para conservar legibilidad del texto */
+    .about-poster-image.is-hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* Contenedor responsivo y centrado para el reproductor de YouTube */
+    .about-youtube-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100vw;
+        height: 56.25vw; /* Ratio 16:9 */
+        min-height: 100vh;
+        min-width: 177.77vh; /* Ratio 16:9 */
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+    }
+
+    .about-youtube-wrapper.is-loaded {
+        opacity: 1;
+    }
+
+    .about-youtube-wrapper iframe {
+        width: 100% !important;
+        height: 100% !important;
+        border: none;
+        pointer-events: none;
     }
 
     .video-overlay {
