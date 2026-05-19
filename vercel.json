@@ -62,6 +62,46 @@
   ],
   "redirects": [
     {
+      "source": "/zapatos",
+      "destination": "/categoria/zapatos-cuero-hombre",
+      "permanent": true
+    },
+    {
+      "source": "/zapatos/",
+      "destination": "/categoria/zapatos-cuero-hombre",
+      "permanent": true
+    },
+    {
+      "source": "/botas",
+      "destination": "/categoria/botas-cuero-hombre",
+      "permanent": true
+    },
+    {
+      "source": "/botas/",
+      "destination": "/categoria/botas-cuero-hombre",
+      "permanent": true
+    },
+    {
+      "source": "/ropa",
+      "destination": "/categoria/ropa-hombre-colombia",
+      "permanent": true
+    },
+    {
+      "source": "/ropa/",
+      "destination": "/categoria/ropa-hombre-colombia",
+      "permanent": true
+    },
+    {
+      "source": "/tienda",
+      "destination": "/categoria/zapatos-cuero-hombre",
+      "permanent": true
+    },
+    {
+      "source": "/tienda/",
+      "destination": "/categoria/zapatos-cuero-hombre",
+      "permanent": true
+    },
+    {
       "source": "/shop",
       "destination": "/tienda",
       "permanent": true
