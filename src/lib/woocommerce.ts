@@ -313,6 +313,20 @@ export async function getProductsPool() {
 function mapV3ToStore(p: any) {
     if (!p) return null;
 
+    const cleanDescription = (html: string | undefined | null): string => {
+        if (!html) return "";
+        let cleaned = html;
+        // 1. Transformación de Dominio: reemplazar dominio backend por público
+        cleaned = cleaned.replace(/https:\/\/tienda\.winstonandharrystore\.com/g, 'https://www.winstonandharrystore.com');
+        // 3. Normalización de Base: /product/ a /productos/ y /product-category/ a /categoria/
+        cleaned = cleaned.replace(/\/product\/([^\/]+)/g, '/productos/$1');
+        cleaned = cleaned.replace(/\/product-category\/([^\/]+)/g, '/categoria/$1');
+        return cleaned;
+    };
+
+    p.description = cleanDescription(p.description);
+    p.short_description = cleanDescription(p.short_description);
+
     // Detect if it's a Store API product (v1 or similar)
     const isStoreApi = !!(p.prices && p.prices.currency_code);
     if (isStoreApi) {
@@ -822,6 +836,41 @@ export const STRICT_CATEGORIES = [
         name: 'Collares para Perro',
         description: 'Collares de cuero legítimo para perros. Duraderos, resistentes y con acabados finos para consentir a tu mejor amigo de cuatro patas con la máxima sofisticación.',
         image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-collares-perros-m.jpg'
+    },
+    {
+        id: 955,
+        slug: 'sueteres-chalecos-hombre',
+        name: 'Suéteres y Chalecos',
+        description: 'Suéteres y chalecos tejidos y de materiales premium. Diseños versátiles para combinar confort y estilo en días fríos.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-ropa-m.jpg'
+    },
+    {
+        id: 954,
+        slug: 'polos-camisetas-hombre',
+        name: 'Polos y Camisetas',
+        description: 'Polos y camisetas hechas con los algodones más finos y horma perfecta. Básico premium e indispensable para tu día a día.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-ropa-m.jpg'
+    },
+    {
+        id: 251,
+        slug: 'medias-hombre',
+        name: 'Medias',
+        description: 'Medias de diseño premium con el ajuste y suavidad perfectos para acompañar tus zapatos Winston & Harry.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-ropa-m.jpg'
+    },
+    {
+        id: 956,
+        slug: 'camisas-algodon-hombre',
+        name: 'Camisas',
+        description: 'Camisas de algodón de la más alta calidad con acabados impecables para un look elegante y natural.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-ropa-m.jpg'
+    },
+    {
+        id: 952,
+        slug: 'chaquetas-hombre',
+        name: 'Chaquetas',
+        description: 'Chaquetas hechas a mano con diseño atemporal. Una tercera pieza clave para elevar cualquier atuendo.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-ropa-m.jpg'
     }
 ];
 
