@@ -1,0 +1,266 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="404 Página No Encontrada | Winston & Harry">
+    <Header />
+
+    <main class="error-404-container">
+        <div class="error-backdrop"></div>
+        <div class="error-content-card">
+            <span class="error-badge">ERROR 404</span>
+            <h1 class="error-title">ESTILO FUERA DE RUTA</h1>
+            <p class="error-description">
+                El enlace que has seguido o la ruta que has ingresado no se encuentra disponible. 
+                Nuestros maestros artesanos cuidan cada detalle en nuestros zapatos, y queremos cuidar también de tu experiencia de navegación.
+            </p>
+            
+            <div class="error-helper-section">
+                <h2>¿Qué estabas buscando?</h2>
+                <div class="error-navigation-grid">
+                    <a href="/categoria/zapatos-cuero-hombre" class="error-nav-link">
+                        <span class="nav-title">Calzado de Cuero</span>
+                        <span class="nav-arrow">→</span>
+                    </a>
+                    <a href="/categoria/ropa-hombre-colombia" class="error-nav-link">
+                        <span class="nav-title">Ropa Masculina</span>
+                        <span class="nav-arrow">→</span>
+                    </a>
+                    <a href="/categoria/maletas-morrales-cuero" class="error-nav-link">
+                        <span class="nav-title">Morrales y Maletas</span>
+                        <span class="nav-arrow">→</span>
+                    </a>
+                    <a href="/categoria/accesorios-hombre" class="error-nav-link">
+                        <span class="nav-title">Accesorios Finos</span>
+                        <span class="nav-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="error-actions">
+                <a href="/" class="btn-primary-elegant">VOLVER AL INICIO</a>
+                <a href="/contacto" class="btn-secondary-elegant">SOPORTE Y AYUDA</a>
+            </div>
+        </div>
+    </main>
+
+    <Footer />
+</Layout>
+
+<style is:global>
+    .error-404-container {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 120px 2rem 80px 2rem;
+        background-color: #0b1512; /* Verde ultra oscuro luxury */
+        background-image: radial-gradient(circle at center, #10241f 0%, #0b1512 100%);
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .error-backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.05;
+        background-image: url('https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-zapatos-mocasines-m.jpg');
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+        filter: grayscale(1) blur(4px);
+    }
+
+    .error-content-card {
+        max-width: 700px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 4rem;
+        border-radius: 4px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        text-align: center;
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .error-badge {
+        display: inline-block;
+        font-family: var(--font-paragraphs);
+        font-size: 0.75rem;
+        letter-spacing: 3px;
+        color: #d1b894; /* Color beige/dorado W&H */
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        border-bottom: 1px solid rgba(209, 184, 148, 0.3);
+        padding-bottom: 4px;
+    }
+
+    .error-title {
+        font-family: var(--font-titles);
+        font-size: 2.2rem;
+        letter-spacing: 4px;
+        color: #ffffff !important;
+        margin: 0 0 1.5rem 0;
+        line-height: 1.2;
+        text-transform: uppercase;
+    }
+
+    .error-description {
+        font-family: var(--font-paragraphs);
+        font-size: 0.95rem;
+        line-height: 1.8;
+        color: #b0b8b5;
+        margin: 0 auto 3rem auto;
+        max-width: 580px;
+    }
+
+    .error-helper-section {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 2rem;
+        margin-bottom: 3rem;
+        text-align: left;
+    }
+
+    .error-helper-section h2 {
+        font-family: var(--font-titles);
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+        color: #ffffff;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+    }
+
+    .error-navigation-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .error-nav-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        text-decoration: none !important;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    .error-nav-link:hover {
+        background: rgba(209, 184, 148, 0.06);
+        border-color: rgba(209, 184, 148, 0.3);
+    }
+
+    .error-nav-link .nav-title {
+        font-family: var(--font-paragraphs);
+        font-size: 0.85rem;
+        color: #ffffff;
+        letter-spacing: 0.5px;
+        transition: color 0.3s ease;
+    }
+
+    .error-nav-link:hover .nav-title {
+        color: #d1b894;
+    }
+
+    .error-nav-link .nav-arrow {
+        color: #d1b894;
+        font-size: 1rem;
+        transition: transform 0.3s ease;
+    }
+
+    .error-nav-link:hover .nav-arrow {
+        transform: translateX(4px);
+    }
+
+    .error-actions {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .btn-primary-elegant {
+        display: inline-block;
+        background-color: #d1b894;
+        color: #0b1512 !important;
+        font-family: var(--font-paragraphs);
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        padding: 1.2rem 2.5rem;
+        border-radius: 2px;
+        text-decoration: none !important;
+        transition: all 0.3s ease;
+        border: 1px solid #d1b894;
+    }
+
+    .btn-primary-elegant:hover {
+        background-color: transparent;
+        color: #d1b894 !important;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-secondary-elegant {
+        display: inline-block;
+        background-color: transparent;
+        color: #ffffff !important;
+        font-family: var(--font-paragraphs);
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        padding: 1.2rem 2.5rem;
+        border-radius: 2px;
+        text-decoration: none !important;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-secondary-elegant:hover {
+        border-color: #ffffff;
+        background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .error-content-card {
+            padding: 2.5rem 1.5rem;
+        }
+        .error-title {
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+        }
+        .error-navigation-grid {
+            grid-template-columns: 1fr;
+        }
+        .error-actions {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .btn-primary-elegant, .btn-secondary-elegant {
+            width: 100%;
+            text-align: center;
+        }
+    }
+</style>

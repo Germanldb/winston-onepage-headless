@@ -25,7 +25,12 @@ async function getDynamicProductPages() {
       if (!Array.isArray(products) || products.length === 0) break;
 
       products.forEach(p => {
-        allUrls.push(`https://www.winstonandharrystore.com/productos/${p.slug}`);
+        if (p && p.slug && typeof p.slug === 'string') {
+          const cleanSlug = p.slug.trim();
+          if (cleanSlug && !cleanSlug.includes('undefined') && !cleanSlug.includes('null') && !cleanSlug.includes('[object')) {
+            allUrls.push(`https://www.winstonandharrystore.com/productos/${cleanSlug}`);
+          }
+        }
       });
       page++;
     }
@@ -72,6 +77,16 @@ export default defineConfig({
     sitemap({
       customPages: allSitemapPages,
       serialize(item) {
+        // Validación inicial para prevenir elementos nulos o vacíos en el build
+        if (!item || !item.url || typeof item.url !== 'string') {
+          return undefined;
+        }
+
+        // Filtro estricto para evitar URLs rotas o con basura de errores ('undefined', 'null', '[object')
+        if (item.url.includes('undefined') || item.url.includes('null') || item.url.includes('[object')) {
+          return undefined;
+        }
+
         // 1. Transformación de Dominio: Reemplaza globalmente tienda.winstonandharrystore.com por www.winstonandharrystore.com
         if (item.url.includes('tienda.winstonandharrystore.com')) {
           item.url = item.url.replace('tienda.winstonandharrystore.com', 'www.winstonandharrystore.com');
@@ -100,6 +115,15 @@ export default defineConfig({
         return item;
       },
       filter: (page) => {
+        if (!page || typeof page !== 'string') {
+          return false;
+        }
+
+        // Filtro estricto para evitar indexar páginas con errores de variables en el build
+        if (page.includes('undefined') || page.includes('null') || page.includes('[object')) {
+          return false;
+        }
+
         // 4. Limpieza de Páginas Técnicas: Excluye páginas internas que no deben ser indexadas
         const excludedPatterns = [
           '/wp-json/',
