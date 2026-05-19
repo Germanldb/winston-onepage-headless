@@ -70,6 +70,9 @@ const categoryPages = mappedCategories.map(slug => `https://www.winstonandharrys
 
 const allSitemapPages = [...productPages, ...categoryPages];
 
+// Set para evitar duplicados en el sitemap durante el proceso de generación
+const seenUrls = new Set();
+
 export default defineConfig({
   site: 'https://www.winstonandharrystore.com',
   integrations: [
@@ -111,6 +114,17 @@ export default defineConfig({
             }
           }
         }
+
+        // Unificar URLs eliminando barra diagonal final (trailing slash) excepto si es la raíz
+        if (item.url !== 'https://www.winstonandharrystore.com/' && item.url !== 'https://www.winstonandharrystore.com' && item.url.endsWith('/')) {
+          item.url = item.url.slice(0, -1);
+        }
+
+        // Deduplicar URLs exactas
+        if (seenUrls.has(item.url)) {
+          return undefined;
+        }
+        seenUrls.add(item.url);
 
         return item;
       },

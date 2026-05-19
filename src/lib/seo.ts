@@ -15,14 +15,39 @@ export function sanitizeSEO(seoData: any, currentPath: string, siteUrl: string) 
 
     // 2. Reemplazar subdominio de WP por el Main en descripciones
     const wpUrl = PUBLIC_WP_URL.replace(/\/$/, "");
-    const cleanSiteUrl = siteUrl.replace(/\/$/, "");
+    const cleanSiteUrl = "https://www.winstonandharrystore.com";
     
     const replacementRegex = new RegExp(wpUrl, 'g');
     
     description = description.replace(replacementRegex, cleanSiteUrl);
 
-    // 3. Generar Canonical propio (Ignorar el de RankMath)
-    const canonical = `${cleanSiteUrl}${currentPath === '/' ? '' : currentPath}`;
+    // 3. Generar / Sanitizar Canonical URL
+    let rawCanonical = seoData.canonical || seoData.rank_math_canonical || seoData.yoast_head_json?.canonical || "";
+    let canonical = "";
+
+    if (rawCanonical && typeof rawCanonical === "string") {
+        // Reemplazar subdominio backend o dominio sin www por www.winstonandharrystore.com
+        canonical = rawCanonical
+            .replace(/https?:\/\/tienda\.winstonandharrystore\.com/g, "https://www.winstonandharrystore.com")
+            .replace(/https?:\/\/winstonandharrystore\.com/g, "https://www.winstonandharrystore.com");
+    } else {
+        // Fallback construyendo con la ruta actual
+        let normalizedPath = currentPath;
+        if (normalizedPath !== '/' && normalizedPath.endsWith('/')) {
+            normalizedPath = normalizedPath.slice(0, -1);
+        }
+        canonical = `${cleanSiteUrl}${normalizedPath === '/' ? '' : normalizedPath}`;
+    }
+
+    // Asegurar que use HTTPS y www.
+    if (canonical.includes("winstonandharrystore.com") && !canonical.includes("www.")) {
+        canonical = canonical.replace("winstonandharrystore.com", "www.winstonandharrystore.com");
+    }
+
+    // Quitar la barra inclinada final (trailing slash) excepto si es la raíz
+    if (canonical !== "https://www.winstonandharrystore.com" && canonical !== "https://www.winstonandharrystore.com/" && canonical.endsWith("/")) {
+        canonical = canonical.slice(0, -1);
+    }
 
     // 4. OpenGraph Images (Asegurar que sean absolutas)
     let ogImage = seoData.opengraph_image || seoData.rank_math_og_image || seoData.yoast_head_json?.og_image || "";

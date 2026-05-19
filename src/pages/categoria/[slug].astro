@@ -303,6 +303,7 @@ const mobileBanner = (await getBannerUrl(['imagen_categoria_movil', 'banner_mobi
 
 const categoryTitle = category?.name || "Categoría";
 const categoryDesc = category?.description?.replace(/<[^>]+>/g, "") || "";
+const rawCategoryDescription = category?.description || "";
 
 // Header de depuración para verificar el tiempo de generación en Vercel
 Astro.response.headers.set('X-Generated-At', new Date().toISOString());
@@ -354,17 +355,28 @@ const seoData = {
         )}
 
         {!error && (
-            <!-- Componente React de Filtros y Productos -->
-            <FilteredProductList
-                client:load
-                initialProducts={products}
-                category={category}
-                subcategories={subcategories}
-                colorTerms={colorTerms}
-                tallaTerms={tallaTerms}
-                initialSort={activeSort}
-                navigationTree={navigationTree}
-            />
+            <>
+                <!-- Componente React de Filtros y Productos -->
+                <FilteredProductList
+                    client:load
+                    initialProducts={products}
+                    category={category}
+                    subcategories={subcategories}
+                    colorTerms={colorTerms}
+                    tallaTerms={tallaTerms}
+                    initialSort={activeSort}
+                    navigationTree={navigationTree}
+                />
+
+                {rawCategoryDescription && (
+                    <section class="category-seo-description-section">
+                        <div class="category-seo-container">
+                            <span class="seo-section-label">ACERCA DE LA COLECCIÓN</span>
+                            <article class="category-seo-text wp-content" set:html={rawCategoryDescription} />
+                        </div>
+                    </section>
+                )}
+            </>
         )}
     </main>
 
@@ -1008,6 +1020,64 @@ const seoData = {
     @media (max-width: 480px) {
         .grid-4x3 {
             grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* Estilos de la descripción SEO al final de la página */
+    .category-seo-description-section {
+        background-color: #fcfcfc;
+        border-top: 1px solid #eee;
+        padding: 5rem 2rem;
+        margin-top: 4rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .category-seo-container {
+        max-width: var(--container-max-width);
+        margin: 0 auto;
+    }
+
+    .seo-section-label {
+        display: block;
+        font-family: var(--font-paragraphs);
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        color: var(--color-beige, #b1915f);
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .category-seo-text {
+        font-family: var(--font-paragraphs);
+        font-size: 0.9rem;
+        line-height: 1.8;
+        color: #555;
+    }
+
+    .category-seo-text p {
+        margin-bottom: 1.5rem;
+    }
+
+    .category-seo-text h2, 
+    .category-seo-text h3 {
+        font-family: var(--font-titles);
+        color: var(--color-green, #155338);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+        .category-seo-description-section {
+            padding: 4rem 1.5rem;
+            margin-top: 3rem;
+        }
+        .category-seo-text {
+            font-size: 0.85rem;
+            line-height: 1.7;
         }
     }
 </style>

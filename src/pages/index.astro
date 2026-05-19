@@ -19,7 +19,7 @@ const homePage = await getHomePageData();
 const homeSeo = homePage?.yoast_head_json || homePage?.rank_math_seo || null;
 
 // Extraer el video mp4 de fondo de WordPress (si existe)
-const aboutVideoUrl = homePage?.acf?.video_mp4_fondo || homePage?.acf?.about_video_url || "";
+const aboutVideoUrl = homePage?.acf?.video_mp4_fondo || homePage?.acf?.about_video_url || "https://tienda.winstonandharrystore.com/wp-content/uploads/WINSTON-HARRY-STORE.mp4";
 
 // Pre-cargar las 3 categorías principales para evitar peticiones del lado del cliente
 const productsZapatos = await getProductsByCategory("63", 24, 1, "popularity", "desc");
