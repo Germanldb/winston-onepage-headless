@@ -54,7 +54,12 @@ const mappedCategories = [
   'cinturones-cuero-hombre',
   'billeteras-tarjeteros-cuero',
   'chaquetas-cuero-hombre',
-  'collares-cuero-perro'
+  'collares-cuero-perro',
+  'sueteres-chalecos-hombre',
+  'polos-camisetas-hombre',
+  'medias-hombre',
+  'camisas-algodon-hombre',
+  'chaquetas-hombre'
 ];
 const categoryPages = mappedCategories.map(slug => `https://www.winstonandharrystore.com/categoria/${slug}`);
 
@@ -65,7 +70,70 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
-      customPages: allSitemapPages
+      customPages: allSitemapPages,
+      serialize(item) {
+        // 1. Transformación de Dominio: Reemplaza globalmente tienda.winstonandharrystore.com por www.winstonandharrystore.com
+        if (item.url.includes('tienda.winstonandharrystore.com')) {
+          item.url = item.url.replace('tienda.winstonandharrystore.com', 'www.winstonandharrystore.com');
+        }
+
+        // 3. Normalización de Base: Asegúrate de que todos los productos usen el prefijo /productos/ y las categorías el prefijo /categoria/
+        // Eliminando los prefijos por defecto de WooCommerce (/product/ o /product-category/)
+        if (item.url.includes('/product/')) {
+          item.url = item.url.replace('/product/', '/productos/');
+        }
+        if (item.url.includes('/product-category/')) {
+          item.url = item.url.replace('/product-category/', '/categoria/');
+        }
+
+        // 2. Filtro de Exclusión de Categorías no mapeadas
+        if (item.url.includes('/categoria/')) {
+          const match = item.url.match(/\/categoria\/([^\/]+)/);
+          if (match && match[1]) {
+            const catSlug = match[1];
+            if (!mappedCategories.includes(catSlug)) {
+              return undefined; // Excluye esta categoría del sitemap
+            }
+          }
+        }
+
+        return item;
+      },
+      filter: (page) => {
+        // 4. Limpieza de Páginas Técnicas: Excluye páginas internas que no deben ser indexadas
+        const excludedPatterns = [
+          '/wp-json/',
+          '/wp-admin/',
+          '/wp-content/',
+          '/xmlrpc',
+          '/api/',
+          '/cart/',
+          '/checkout/',
+          '/my-account/',
+          '/mi-cuenta/',
+          'lost-password',
+          'edit-account',
+          'uncategorized',
+          'sin-categorizar'
+        ];
+
+        if (excludedPatterns.some(pattern => page.includes(pattern))) {
+          return false;
+        }
+
+        // Filtro estricto adicional para categorías no mapeadas en la fase de descubrimiento inicial
+        if (page.includes('/categoria/')) {
+          const match = page.match(/\/categoria\/([^\/]+)/);
+          if (match && match[1]) {
+            const catSlug = match[1];
+            if (!mappedCategories.includes(catSlug)) {
+              return false;
+            }
+          }
+        }
+
+        return true;
+      }
     }),
     partytown({
       config: {
