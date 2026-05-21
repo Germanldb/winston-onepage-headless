@@ -8,6 +8,7 @@
     "prebuild": "node scripts/fetch-menus.mjs",
     "build": "astro build",
     "preview": "astro preview",
+    "dev:local": "astro dev --port 4322",
     "astro": "astro"
   },
   "dependencies": {
