@@ -213,10 +213,10 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
             params.append('order', currentSort.order);
             params.append('page', pageNum.toString());
             params.append('per_page', '16');
-            if (currentSort.onSale) params.append('on_sale', 'true');
+            if (currentSort.onSale || category?.slug === 'sale') params.append('on_sale', 'true');
 
             // --- INTENTO CARGA ESTÁTICA ---
-            const isDefaultSort = currentSort.key === 'destacado' && !currentSort.onSale;
+            const isDefaultSort = (currentSort.key === 'destacado' && !currentSort.onSale) || (category?.slug === 'sale' && currentSort.key === 'descuentos');
             let data = null;
 
             if (isDefaultSort) {
@@ -433,7 +433,7 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
                             <ul className="dropdown-list">
                                 {subcategories.map((cat: any) => (
                                     <li key={cat.slug}>
-                                        <a href={`/categoria/${cat.slug}`}>{cat.name}</a>
+                                        <a href={category?.slug === 'sale' ? `/categoria/${cat.slug}?sort=descuentos` : `/categoria/${cat.slug}`}>{cat.name}</a>
                                     </li>
                                 ))}
                             </ul>

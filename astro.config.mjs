@@ -9,9 +9,19 @@ import { loadEnv } from 'vite';
 // Cargamos variables del .env (sin hardcoding)
 const { WC_CONSUMER_KEY, WC_CONSUMER_SECRET, WC_URL } = loadEnv(process.env.NODE_ENV || 'development', process.cwd(), '');
 
+import fs from "node:fs";
+import path from "node:path";
+
 /** Función para obtener todas las URLs de productos dinámicamente */
 async function getDynamicProductPages() {
   if (!WC_CONSUMER_KEY || !WC_CONSUMER_SECRET) return [];
+
+  const cachePath = path.join(process.cwd(), '.astro-sitemap-cache.json');
+  if (process.env.NODE_ENV !== 'production' && fs.existsSync(cachePath)) {
+      try {
+          return JSON.parse(fs.readFileSync(cachePath, 'utf-8'));
+      } catch (e) {}
+  }
 
   const baseUrl = (WC_URL || "https://tienda.winstonandharrystore.com").replace(/\/$/, "");
   let allUrls = [];
@@ -36,6 +46,10 @@ async function getDynamicProductPages() {
     }
   } catch (e) {
     console.warn("[Sitemap] Error cargando productos:", e.message);
+  }
+  
+  if (process.env.NODE_ENV !== 'production') {
+      fs.writeFileSync(cachePath, JSON.stringify(allUrls), 'utf-8');
   }
   return allUrls;
 }
@@ -68,7 +82,7 @@ const mappedCategories = [
 ];
 const categoryPages = mappedCategories.map(slug => `https://www.winstonandharrystore.com/categoria/${slug}`);
 
-const allSitemapPages = [...productPages, ...categoryPages];
+const allSitemapPages = [...productPages, ...categoryPages, 'https://www.winstonandharrystore.com/sale'];
 
 export default defineConfig({
   site: 'https://www.winstonandharrystore.com',
@@ -84,6 +98,11 @@ export default defineConfig({
 
         // Filtro estricto para evitar URLs rotas o con basura de errores ('undefined', 'null', '[object')
         if (item.url.includes('undefined') || item.url.includes('null') || item.url.includes('[object')) {
+          return undefined;
+        }
+
+        // Exclusión total: Nunca permitir query strings en el sitemap
+        if (item.url.includes('?')) {
           return undefined;
         }
 
@@ -121,6 +140,11 @@ export default defineConfig({
 
         // Filtro estricto para evitar indexar páginas con errores de variables en el build
         if (page.includes('undefined') || page.includes('null') || page.includes('[object')) {
+          return false;
+        }
+
+        // Exclusión total de URLs parametrizadas
+        if (page.includes('?')) {
           return false;
         }
 

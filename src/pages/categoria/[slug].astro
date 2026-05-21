@@ -47,16 +47,28 @@ export async function getStaticPaths() {
             let hasMore = true;
             
             while (hasMore) {
-                let products = [];
-                if (cat.id === 'all') {
-                    products = await getAllProducts(16, page, 'popularity', 'desc', false);
-                } else {
-                    products = await getProductsByCategory(cat.id, 16, page, 'popularity', 'desc', false);
+                let products = null;
+                const filePath = path.join(catalogDir, `${cat.slug}-p${page}.json`);
+
+                // Cache local en desarrollo para evitar cuelgues y navegación lenta
+                if (import.meta.env.DEV && fs.existsSync(filePath)) {
+                    try {
+                        products = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+                    } catch (e) {
+                        products = null;
+                    }
                 }
 
-                // Guardamos la página en JSON usando el slug de Astro y el slug de WooCommerce
-                const filePath = path.join(catalogDir, `${cat.slug}-p${page}.json`);
-                fs.writeFileSync(filePath, JSON.stringify(products, null, 2), 'utf-8');
+                if (!products) {
+                    if (cat.id === 'all') {
+                        products = await getAllProducts(16, page, 'popularity', 'desc', false);
+                    } else {
+                        products = await getProductsByCategory(cat.id, 16, page, 'popularity', 'desc', false);
+                    }
+                    // Guardamos la página en JSON
+                    fs.writeFileSync(filePath, JSON.stringify(products, null, 2), 'utf-8');
+                }
+
 
                 const wpSlug = mapAstroToWpSlug(cat.slug);
                 if (wpSlug !== cat.slug) {
@@ -342,10 +354,10 @@ const seoData = {
             <div class="banner-overlay"></div>
             <div class="banner-content">
                 <h1 style="color:#fff">{categoryTitle}</h1>
-                {categoryDesc && <p set:html={categoryDesc} />}
+                <p set:html={categoryDesc} />
             </div>
         </section>
-
+        
         {error && (
             <div class="error-container">
                 <p class="error-msg">{error}</p>
@@ -354,7 +366,6 @@ const seoData = {
         )}
 
         {!error && (
-            <!-- Componente React de Filtros y Productos -->
             <FilteredProductList
                 client:load
                 initialProducts={products}
