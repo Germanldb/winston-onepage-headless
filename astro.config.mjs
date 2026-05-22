@@ -94,45 +94,106 @@ export default defineConfig({
     sitemap({
       customPages: allSitemapPages,
       serialize(item) {
-        if (!item || !item.url || typeof item.url !== 'string') return undefined;
-        if (item.url.includes('undefined') || item.url.includes('null') || item.url.includes('[object')) return undefined;
-        if (item.url.includes('?')) return undefined;
+        // Validación inicial para prevenir elementos nulos o vacíos en el build
+        if (!item || !item.url || typeof item.url !== 'string') {
+          return undefined;
+        }
+
+        // Filtro estricto para evitar URLs rotas o con basura de errores ('undefined', 'null', '[object')
+        if (item.url.includes('undefined') || item.url.includes('null') || item.url.includes('[object')) {
+          return undefined;
+        }
+
+        // Exclusión total: Nunca permitir query strings en el sitemap
+        if (item.url.includes('?')) {
+          return undefined;
+        }
+
+        // 1. Transformación de Dominio: Reemplaza globalmente tienda.winstonandharrystore.com por www.winstonandharrystore.com
         if (item.url.includes('tienda.winstonandharrystore.com')) {
           item.url = item.url.replace('tienda.winstonandharrystore.com', 'www.winstonandharrystore.com');
         }
-        if (item.url.includes('/product/')) item.url = item.url.replace('/product/', '/productos/');
-        if (item.url.includes('/product-category/')) item.url = item.url.replace('/product-category/', '/categoria/');
+
+        // 3. Normalización de Base: Asegúrate de que todos los productos usen el prefijo /productos/ y las categorías el prefijo /categoria/
+        // Eliminando los prefijos por defecto de WooCommerce (/product/ o /product-category/)
+        if (item.url.includes('/product/')) {
+          item.url = item.url.replace('/product/', '/productos/');
+        }
+        if (item.url.includes('/product-category/')) {
+          item.url = item.url.replace('/product-category/', '/categoria/');
+        }
+
+        // 2. Filtro de Exclusión de Categorías no mapeadas
         if (item.url.includes('/categoria/')) {
           const match = item.url.match(/\/categoria\/([^\/]+)/);
           if (match && match[1]) {
             const catSlug = match[1];
-            if (!mappedCategories.includes(catSlug)) return undefined;
+            if (!mappedCategories.includes(catSlug)) {
+              return undefined; // Excluye esta categoría del sitemap
+            }
           }
         }
+
+        // Unificar URLs eliminando barra diagonal final (trailing slash) excepto si es la raíz
         if (item.url !== 'https://www.winstonandharrystore.com/' && item.url !== 'https://www.winstonandharrystore.com' && item.url.endsWith('/')) {
           item.url = item.url.slice(0, -1);
         }
-        if (seenUrls.has(item.url)) return undefined;
+
+        // Deduplicar URLs exactas
+        if (seenUrls.has(item.url)) {
+          return undefined;
+        }
         seenUrls.add(item.url);
+
         return item;
       },
       filter: (page) => {
-        if (!page || typeof page !== 'string') return false;
-        if (page.includes('undefined') || page.includes('null') || page.includes('[object')) return false;
-        if (page.includes('?')) return false;
+        if (!page || typeof page !== 'string') {
+          return false;
+        }
+
+        // Filtro estricto para evitar indexar páginas con errores de variables en el build
+        if (page.includes('undefined') || page.includes('null') || page.includes('[object')) {
+          return false;
+        }
+
+        // Exclusión total de URLs parametrizadas
+        if (page.includes('?')) {
+          return false;
+        }
+
+        // 4. Limpieza de Páginas Técnicas: Excluye páginas internas que no deben ser indexadas
         const excludedPatterns = [
-          '/wp-json/', '/wp-admin/', '/wp-content/', '/xmlrpc', '/api/',
-          '/cart/', '/checkout/', '/my-account/', '/mi-cuenta/',
-          'lost-password', 'edit-account', 'uncategorized', 'sin-categorizar'
+          '/wp-json/',
+          '/wp-admin/',
+          '/wp-content/',
+          '/xmlrpc',
+          '/api/',
+          '/cart/',
+          '/checkout/',
+          '/my-account/',
+          '/mi-cuenta/',
+          'lost-password',
+          'edit-account',
+          'uncategorized',
+          'sin-categorizar'
         ];
-        if (excludedPatterns.some(pattern => page.includes(pattern))) return false;
+
+        if (excludedPatterns.some(pattern => page.includes(pattern))) {
+          return false;
+        }
+
+        // Filtro estricto adicional para categorías no mapeadas en la fase de descubrimiento inicial
         if (page.includes('/categoria/')) {
           const match = page.match(/\/categoria\/([^\/]+)/);
           if (match && match[1]) {
             const catSlug = match[1];
-            if (!mappedCategories.includes(catSlug)) return false;
+            if (!mappedCategories.includes(catSlug)) {
+              return false;
+            }
           }
         }
+
         return true;
       }
     }),
@@ -149,17 +210,9 @@ export default defineConfig({
     '/review-retiro': 'https://g.page/r/CSKXwQ5l5zSpEBM/review',
   },
   output: 'static',
-  
-  // OPTIMIZACIÓN 1: Conectar el adaptador con el optimizador de imágenes del Edge de Vercel
   adapter: vercel({
-    maxDuration: 300,
-    imagesConfig: {
-      sizes: [320, 640, 760, 1024, 1280],
-      domains: ["winstonandharrystore.com", "staging.winstonandharrystore.com", "tienda.winstonandharrystore.com"],
-      minimumCacheTTL: 31536000, // Fuerza a Vercel a guardar las imágenes optimizadas por 1 año en su caché global
-    },
+    maxDuration: 300
   }),
-  
   security: {
     checkOrigin: false
   },
@@ -168,13 +221,7 @@ export default defineConfig({
     prefetchAll: true,
     defaultStrategy: 'hover'
   },
-  
-  // OPTIMIZACIÓN 2: Configuración nativa del core de imágenes de Astro para el build estático
   image: {
     domains: ["winstonandharrystore.com", "staging.winstonandharrystore.com", "tienda.winstonandharrystore.com"],
-    remotePatterns: [
-      { protocol: 'https', hostname: 'tienda.winstonandharrystore.com' },
-      { protocol: 'https', hostname: 'winstonandharrystore.com' }
-    ]
   },
 });
