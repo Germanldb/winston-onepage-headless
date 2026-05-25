@@ -773,12 +773,12 @@ export default function ProductDetail({ initialProduct }: Props) {
     // GA4 + Meta add_to_cart
     const price = parseFloat(String(currentProduct?.prices?.price || currentProduct?.price || '0')) || 0;
     if (typeof window !== 'undefined') {
-      if (typeof (window as any).gtag === 'function') {
-        (window as any).gtag('event', 'add_to_cart', {
-          currency: 'COP', value: price,
-          items: [{ item_id: String(currentProduct.id), item_name: currentProduct.name, price, quantity: 1 }]
-        });
-      }
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      (window as any).dataLayer.push({
+        event: 'add_to_cart',
+        currency: 'COP', value: price,
+        items: [{ item_id: String(currentProduct.id), item_name: currentProduct.name, price, quantity: 1 }]
+      });
       if (typeof (window as any).fbq === 'function') {
         (window as any).fbq('track', 'AddToCart', {
           content_ids: [String(currentProduct.id)], content_type: 'product', value: price, currency: 'COP'
