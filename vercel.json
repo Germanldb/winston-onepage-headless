@@ -103,22 +103,22 @@
     },
     {
       "source": "/shop",
-      "destination": "/tienda",
+      "destination": "/categoria/zapatos-cuero-hombre",
       "permanent": true
     },
     {
       "source": "/Shop",
-      "destination": "/tienda",
+      "destination": "/categoria/zapatos-cuero-hombre",
       "permanent": true
     },
     {
       "source": "/shop/",
-      "destination": "/tienda",
+      "destination": "/categoria/zapatos-cuero-hombre",
       "permanent": true
     },
     {
       "source": "/Shop/",
-      "destination": "/tienda",
+      "destination": "/categoria/zapatos-cuero-hombre",
       "permanent": true
     },
     {
@@ -423,12 +423,12 @@
     },
     {
       "source": "/product-category/menos-350000/",
-      "destination": "/tienda",
+      "destination": "/categoria/zapatos-cuero-hombre",
       "permanent": true
     },
     {
       "source": "/product-category/menos-350000",
-      "destination": "/tienda",
+      "destination": "/categoria/zapatos-cuero-hombre",
       "permanent": true
     },
     {
@@ -488,12 +488,12 @@
     },
     {
       "source": "/product-tag/:slug/",
-      "destination": "/tienda",
+      "destination": "/categoria/zapatos-cuero-hombre",
       "permanent": true
     },
     {
       "source": "/product-tag/:slug",
-      "destination": "/tienda",
+      "destination": "/categoria/zapatos-cuero-hombre",
       "permanent": true
     },
     {

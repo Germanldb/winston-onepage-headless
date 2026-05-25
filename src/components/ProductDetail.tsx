@@ -773,6 +773,7 @@ export default function ProductDetail({ initialProduct }: Props) {
     // GA4 + Meta add_to_cart
     const price = parseFloat(String(currentProduct?.prices?.price || currentProduct?.price || '0')) || 0;
     if (typeof window !== 'undefined') {
+      console.log('[GTM Debug] Ejecutando dataLayer.push add_to_cart', price);
       (window as any).dataLayer = (window as any).dataLayer || [];
       (window as any).dataLayer.push({
         event: 'add_to_cart',

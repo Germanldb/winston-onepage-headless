@@ -176,7 +176,13 @@ export default defineConfig({
           'lost-password',
           'edit-account',
           'uncategorized',
-          'sin-categorizar'
+          'sin-categorizar',
+          '/carrito',
+          '/buscar',
+          '/gracias',
+          '/lista-de-deseos',
+          '/productos/producto',
+          '/tienda'
         ];
 
         if (excludedPatterns.some(pattern => page.includes(pattern))) {
@@ -208,6 +214,10 @@ export default defineConfig({
     '/review-palatino': 'https://g.page/r/CVqAdcaz3jkUEBM/review',
     '/review-santabarbara': 'https://g.page/r/CfogiOsEUdgVEBM/review',
     '/review-retiro': 'https://g.page/r/CSKXwQ5l5zSpEBM/review',
+    '/categoria/pantalones-jeans-hombre': '/categoria/ropa-hombre-colombia',
+    '/categoria/trajes-blazers-hombre': '/categoria/ropa-hombre-colombia',
+    '/productos/limpiador-en-seco': '/categoria/accesorios-hombre',
+    '/productos/sueter-tejido-escalera-negro': '/categoria/sueteres-chalecos-hombre',
   },
   output: 'static',
   adapter: vercel({
