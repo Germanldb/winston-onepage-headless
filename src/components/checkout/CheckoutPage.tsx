@@ -73,6 +73,14 @@ export default function CheckoutPage() {
     const [submitting, setSubmitting] = useState(false);
     const [serverError, setServerError] = useState('');
 
+    useEffect(() => {
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        (window as any).dataLayer.push({
+            event: 'begin_checkout',
+            currency: 'COP',
+        });
+    }, []);
+
     // Pre-llenar con datos del usuario si está logueado
     useEffect(() => {
         if (session.user_email) {
