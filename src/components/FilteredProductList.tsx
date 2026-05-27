@@ -209,14 +209,14 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
             if (category.id && category.id !== 'all') {
                 params.append('category', category.id.toString());
             }
-            params.append('orderby', currentSort.orderBy);
+            params.append('orderby', currentSort.orderBy || 'id');
             params.append('order', currentSort.order);
             params.append('page', pageNum.toString());
             params.append('per_page', '16');
             if (currentSort.onSale || category?.slug === 'sale') params.append('on_sale', 'true');
 
             // --- INTENTO CARGA ESTÁTICA ---
-            const isDefaultSort = (currentSort.key === 'destacado' && !currentSort.onSale) || (category?.slug === 'sale' && currentSort.key === 'descuentos');
+            const isDefaultSort = false;
             let data = null;
 
             if (isDefaultSort) {
@@ -251,7 +251,8 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
                 setAllFetchedProducts(newProducts);
             }
 
-            if (newProducts.length === 0) {
+            // Si la página llegó vacía o incompleta (menos de 16), ya no hay más productos por cargar
+            if (newProducts.length === 0 || newProducts.length < 16) {
                 setHasMore(false);
             } else {
                 setHasMore(true);
