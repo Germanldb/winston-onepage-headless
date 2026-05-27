@@ -108,6 +108,7 @@ try {
             const accessoryCats = [126, 172, 190];             
             
             // Usamos el pool de productos con caché de 10 minutos (Optimizado)
+            // Usamos el pool de productos con caché de 10 minutos (Optimizado)
             const rawProducts = await getProductsPool();
             
             if (rawProducts && rawProducts.length > 0) {
@@ -279,11 +280,14 @@ Astro.response.headers.set('Cache-Control', 'public, s-maxage=86400, stale-while
         var productId = el.getAttribute('data-product-id');
         var productName = el.getAttribute('data-product-name');
         var price = parseFloat(el.getAttribute('data-product-price')) || 0;
-        if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-          window.gtag('event', 'view_item', {
+        if (typeof window !== 'undefined') {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ ecommerce: null }); 
+          window.dataLayer.push({
+            event: 'view_item',
             currency: 'COP',
             value: price,
-            items: [{ item_id: productId, item_name: productName, price: price, quantity: 1 }]
+            items: [{ item_id: String(productId), item_name: productName, price: price, quantity: 1 }]
           });
         }
       }
