@@ -2,6 +2,16 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import { PUBLIC_WP_URL, wcFetch } from '../../lib/woocommerce';
 
+/** Timeout helper: rejects after ms miliseconds */
+function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
+    return Promise.race([
+        promise,
+        new Promise<T>((_, reject) =>
+            setTimeout(() => reject(new Error(`Timeout after ${ms}ms`)), ms)
+        )
+    ]);
+}
+
 export const GET: APIRoute = async ({ url }) => {
     const query = (url.searchParams.get('q') || '').trim();
     const perPage = parseInt(url.searchParams.get('per_page') || '20');
@@ -14,114 +24,115 @@ export const GET: APIRoute = async ({ url }) => {
     }
 
     try {
-        // Búsqueda principal via WC REST API v3 (autenticada) — mucho más completa que Store API
-        // porque Store API /search solo busca en títulos (campo name), mientras que v3 también
-        // busca en sku, descripción y permite `search_columns`.
         const encoded = encodeURIComponent(query);
-
-        // 1. Intentamos primero con Store API (más rápida, sin auth)
         let products: any[] = [];
-        try {
-            const storeRes = await fetch(
-                `${PUBLIC_WP_URL}/wp-json/wc/store/v1/products?search=${encoded}&per_page=${perPage}`
-            );
-            if (storeRes.ok) {
-                const storeData = await storeRes.json();
-                if (Array.isArray(storeData) && storeData.length > 0) {
-                    products = storeData;
+
+        // ── PASO 1: Búsqueda por SKU (referencia exacta) ─────────────────────
+        // Si el término no tiene espacios, asumimos que puede ser una referencia
+        // (ej: "WS-001", "Bolton"). El endpoint ?sku= de WC v3 es exacto y rápido.
+        if (!query.includes(' ')) {
+            try {
+                const skuData = await withTimeout(
+                    wcFetch(`/products?sku=${encoded}&status=publish&per_page=10`),
+                    2500
+                );
+                if (Array.isArray(skuData) && skuData.length > 0) {
+                    // SKU encontrado: normalizar y retornar de inmediato
+                    const normalized = normalizeProducts(skuData, false);
+                    return new Response(JSON.stringify(normalized), {
+                        status: 200,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Cache-Control': 'public, s-maxage=120, stale-while-revalidate=600'
+                        }
+                    });
                 }
-            }
-        } catch (_) { /* silent fallback */ }
+            } catch (_) { /* Si falla SKU, continúa con búsqueda normal */ }
+        }
 
-
-        // 2. Si Store API no devuelve muchos resultados, intentamos v3 y taxonomías
-        if (products.length < perPage) {
-            const [v3Data, categories, tags] = await Promise.all([
+        // ── PASO 2: Búsqueda de texto — Store API + v3 en paralelo ───────────
+        // Ambas peticiones arrancan al mismo tiempo, la más rápida "gana"
+        const [storeResult, v3Result] = await Promise.allSettled([
+            withTimeout(
+                fetch(`${PUBLIC_WP_URL}/wp-json/wc/store/v1/products?search=${encoded}&per_page=${perPage}`).then(r => r.ok ? r.json() : []),
+                3000
+            ),
+            withTimeout(
                 wcFetch(`/products?search=${encoded}&per_page=${perPage}&status=publish`),
-                wcFetch(`/products/categories?search=${encoded}&per_page=5`),
-                wcFetch(`/products/tags?search=${encoded}&per_page=5`)
-            ]);
+                3000
+            )
+        ]);
 
-            // Agregar productos de v3
-            if (Array.isArray(v3Data)) {
-                const seenIds = new Set(products.map(p => p.id));
-                v3Data.forEach((p: any) => {
-                    if (!seenIds.has(p.id)) {
-                        products.push(p);
-                        seenIds.add(p.id);
-                    }
-                });
-            }
+        const seenIds = new Set<number>();
 
-            // Si aún hay espacio, buscar productos por categoría o tag coincidentes
-            if (products.length < perPage) {
-                const extraTasks = [];
-                
-                if (Array.isArray(categories) && categories.length > 0) {
-                    extraTasks.push(wcFetch(`/products?category=${categories[0].id}&per_page=10&status=publish&stock_status=instock`));
+        // Procesar Store API (sin auth, más rápida)
+        if (storeResult.status === 'fulfilled' && Array.isArray(storeResult.value)) {
+            storeResult.value.forEach((p: any) => {
+                if (!seenIds.has(p.id)) {
+                    products.push({ ...p, _source: 'store' });
+                    seenIds.add(p.id);
                 }
-                
-                if (Array.isArray(tags) && tags.length > 0) {
-                    extraTasks.push(wcFetch(`/products?tag=${tags[0].id}&per_page=10&status=publish&stock_status=instock`));
+            });
+        }
+
+        // Procesar v3 (con auth, busca también en SKU y descripción)
+        if (v3Result.status === 'fulfilled' && Array.isArray(v3Result.value)) {
+            v3Result.value.forEach((p: any) => {
+                if (!seenIds.has(p.id)) {
+                    products.push({ ...p, _source: 'v3' });
+                    seenIds.add(p.id);
+                }
+            });
+        }
+
+        // ── PASO 3: Solo si hay pocos resultados, busca en taxonomías ────────
+        if (products.length < 3) {
+            try {
+                const [categories, tags] = await Promise.allSettled([
+                    withTimeout(wcFetch(`/products/categories?search=${encoded}&per_page=3`), 2000),
+                    withTimeout(wcFetch(`/products/tags?search=${encoded}&per_page=3`), 2000)
+                ]);
+
+                const extraTasks: Promise<any>[] = [];
+
+                if (categories.status === 'fulfilled' && Array.isArray(categories.value) && categories.value.length > 0) {
+                    extraTasks.push(
+                        withTimeout(
+                            wcFetch(`/products?category=${categories.value[0].id}&per_page=8&status=publish&stock_status=instock`),
+                            2000
+                        )
+                    );
+                }
+
+                if (tags.status === 'fulfilled' && Array.isArray(tags.value) && tags.value.length > 0) {
+                    extraTasks.push(
+                        withTimeout(
+                            wcFetch(`/products?tag=${tags.value[0].id}&per_page=8&status=publish&stock_status=instock`),
+                            2000
+                        )
+                    );
                 }
 
                 if (extraTasks.length > 0) {
-                    const extraData = await Promise.all(extraTasks);
-                    const seenIds = new Set(products.map(p => p.id));
-                    extraData.forEach((list: any) => {
-                        if (Array.isArray(list)) {
-                            list.forEach((p: any) => {
+                    const extraResults = await Promise.allSettled(extraTasks);
+                    extraResults.forEach(r => {
+                        if (r.status === 'fulfilled' && Array.isArray(r.value)) {
+                            r.value.forEach((p: any) => {
                                 if (!seenIds.has(p.id)) {
-                                    products.push(p);
+                                    products.push({ ...p, _source: 'v3' });
                                     seenIds.add(p.id);
                                 }
                             });
                         }
                     });
                 }
-            }
+            } catch (_) { /* Taxonomías fallaron, ignorar */ }
         }
 
-
-        // Normalizar la respuesta para el frontend
-        const normalized = products.map((p: any) => {
-            // Detectar si ya viene de Store API (tiene p.prices.currency_code)
-            const isStoreApi = !!(p.prices?.currency_code);
-
-            const minorUnit = isStoreApi ? (p.prices?.currency_minor_unit ?? 0) : 0;
-            const divisor = Math.pow(10, minorUnit);
-
-            let price = '0';
-            let regularPrice = '0';
-
-            if (isStoreApi) {
-                // Store API devuelve precios en unidades menores (centavos)
-                const rawPrice = p.prices?.price || p.prices?.regular_price || '0';
-                price = Math.round(Number(rawPrice) / divisor).toString();
-                regularPrice = Math.round(Number(p.prices?.regular_price || rawPrice) / divisor).toString();
-            } else {
-                // v3 devuelve precios normales
-                const hasTax = p.tax_status === 'taxable';
-                const mult = hasTax ? 1.19 : 1;
-                price = Math.round(parseFloat(p.price || p.regular_price || '0') * mult).toString();
-                regularPrice = Math.round(parseFloat(p.regular_price || p.price || '0') * mult).toString();
-            }
-
-            const firstImage = isStoreApi
-                ? (p.images?.[0]?.src || '')
-                : (p.images?.[0]?.src || '');
-
-            return {
-                id: p.id,
-                name: p.name,
-                slug: p.slug,
-                price,
-                regular_price: regularPrice,
-                on_sale: isStoreApi ? (p.prices?.sale_price && p.prices.sale_price !== p.prices.price) : (p.on_sale || false),
-                image: firstImage,
-                categories: (p.categories || []).map((c: any) => ({ id: c.id, name: c.name, slug: c.slug })),
-            };
-        }).filter((p: any) => p.id && p.name);
+        const normalized = products
+            .slice(0, perPage)
+            .map(p => normalizeProduct(p, p._source === 'store'))
+            .filter((p: any) => p.id && p.name);
 
         return new Response(JSON.stringify(normalized), {
             status: 200,
@@ -139,3 +150,41 @@ export const GET: APIRoute = async ({ url }) => {
         });
     }
 };
+
+function normalizeProduct(p: any, isStoreApi: boolean): any {
+    const minorUnit = isStoreApi ? (p.prices?.currency_minor_unit ?? 0) : 0;
+    const divisor = Math.pow(10, minorUnit);
+
+    let price = '0';
+    let regularPrice = '0';
+
+    if (isStoreApi) {
+        const rawPrice = p.prices?.price || p.prices?.regular_price || '0';
+        price = Math.round(Number(rawPrice) / divisor).toString();
+        regularPrice = Math.round(Number(p.prices?.regular_price || rawPrice) / divisor).toString();
+    } else {
+        const hasTax = p.tax_status === 'taxable';
+        const mult = hasTax ? 1.19 : 1;
+        price = Math.round(parseFloat(p.price || p.regular_price || '0') * mult).toString();
+        regularPrice = Math.round(parseFloat(p.regular_price || p.price || '0') * mult).toString();
+    }
+
+    return {
+        id: p.id,
+        name: p.name,
+        slug: p.slug,
+        price,
+        regular_price: regularPrice,
+        on_sale: isStoreApi
+            ? (p.prices?.sale_price && p.prices.sale_price !== p.prices.price)
+            : (p.on_sale || false),
+        image: p.images?.[0]?.src || '',
+        categories: (p.categories || []).map((c: any) => ({ id: c.id, name: c.name, slug: c.slug })),
+    };
+}
+
+function normalizeProducts(products: any[], isStoreApi: boolean): any[] {
+    return products
+        .map(p => normalizeProduct(p, isStoreApi))
+        .filter((p: any) => p.id && p.name);
+}

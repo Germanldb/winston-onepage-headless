@@ -1,0 +1,89 @@
+{
+  "id": 27884,
+  "name": "Bono de Regalo",
+  "slug": "bono-de-regalo",
+  "permalink": "https://tienda.winstonandharrystore.com/product/bono-de-regalo/",
+  "type": "simple",
+  "status": "publish",
+  "description": "",
+  "short_description": "",
+  "prices": {
+    "price": "0",
+    "regular_price": "0",
+    "sale_price": "",
+    "currency_code": "COP",
+    "currency_symbol": "$",
+    "currency_minor_unit": 0,
+    "currency_prefix": "$",
+    "price_range": null
+  },
+  "images": [
+    {
+      "id": 27922,
+      "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2022/12/bono-de-regalo-Winston-and-harry.jpg",
+      "alt": "Bono de Regalo",
+      "name": "bono-de-regalo-Winston-and-harry"
+    }
+  ],
+  "attributes": [
+    {
+      "id": 0,
+      "name": "Gift Card Amount",
+      "slug": "Gift Card Amount",
+      "terms": [
+        {
+          "id": 0,
+          "name": "Otra cantidad",
+          "slug": "otra-cantidad"
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": 343,
+      "name": "Bono de Regalo",
+      "slug": "bono-regalo-hombre"
+    },
+    {
+      "id": 424,
+      "name": "Ideas de regalo",
+      "slug": "ideas-regalo-hombre"
+    },
+    {
+      "id": 920,
+      "name": "Menos de $200,000",
+      "slug": "menos-de-200000"
+    },
+    {
+      "id": 921,
+      "name": "Menos de $350,000",
+      "slug": "menos-de-350000"
+    },
+    {
+      "id": 922,
+      "name": "Menos de $499,000",
+      "slug": "menos-de-499000"
+    }
+  ],
+  "category_ids": [
+    343,
+    424,
+    920,
+    921,
+    922
+  ],
+  "tags": [],
+  "variation_ids": [],
+  "on_sale": false,
+  "featured": false,
+  "upsell_ids": [],
+  "cross_sell_ids": [],
+  "variations": null,
+  "variation_images_map": null,
+  "stock_status": "instock",
+  "manage_stock": false,
+  "stock_quantity": null,
+  "yoast_head_json": null,
+  "rank_math_seo": null
+}

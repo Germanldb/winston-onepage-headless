@@ -9,6 +9,12 @@ const menuCustomer = await getMenu("atencion-al-cliente");
 const menuAbout = await getMenu("nosotros");
 const menuLegal = await getMenu("legal");
 
+interface Props {
+    hideBlog?: boolean;
+}
+
+const { hideBlog = false } = Astro.props;
+
 function flattenCategoryUrl(url: string) {
     if (!url) return "/";
 
@@ -40,7 +46,7 @@ function flattenCategoryUrl(url: string) {
     <ReviewsSection client:visible />
 
     <!-- Blog Section -->
-    <BlogHome />
+    { !hideBlog && <BlogHome /> }
 
     <!-- Instagram Reels Section -->
     <InstagramReels client:visible />

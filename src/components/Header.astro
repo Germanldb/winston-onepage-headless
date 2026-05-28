@@ -185,6 +185,17 @@ function flattenCategoryUrl(url: string) {
 
 <div class="mobile-nav" id="mobile-nav">
     <ul class="mobile-links">
+        <li class="menu-item">
+            <div class="menu-link-wrapper">
+                <a
+                    href="/regalos-dia-del-padre"
+                    class="mobile-link campaign-menu-link"
+                >
+                    REGALOS DÍA DEL PADRE
+                </a>
+            </div>
+        </li>
+        <hr class="menu-separator" />
         {
             menuTree && menuTree.length > 0 ? (
                 (() => {
@@ -197,91 +208,95 @@ function flattenCategoryUrl(url: string) {
                         )
                     );
 
-                    return menuTree.map((item: any, index: number) => {
-                        const isCollares = item.title && (
-                            item.title.toLowerCase() === 'collares para perro' || 
-                            item.title.toLowerCase() === 'collares de cuero para perro' ||
-                            item.title.toLowerCase() === 'collares' ||
-                            item.title.toLowerCase() === 'mascotas'
-                        );
-                        const isLastAndNoCollares = !hasCollares && index === menuTree.length - 1;
-                        const shouldRenderSaleAfter = isCollares || isLastAndNoCollares;
+                    return (
+                        <>
+                            {menuTree.map((item: any, index: number) => {
+                                const isCollares = item.title && (
+                                    item.title.toLowerCase() === 'collares para perro' || 
+                                    item.title.toLowerCase() === 'collares de cuero para perro' ||
+                                    item.title.toLowerCase() === 'collares' ||
+                                    item.title.toLowerCase() === 'mascotas'
+                                );
+                                const isLastAndNoCollares = !hasCollares && index === menuTree.length - 1;
+                                const shouldRenderSaleAfter = isCollares || isLastAndNoCollares;
 
-                        return (
-                            <>
-                                <li
-                                    class={`menu-item ${item.children.length > 0 ? "has-submenu" : ""}`}
-                                >
-                                    <div class="menu-link-wrapper">
-                                        <a
-                                            href={flattenCategoryUrl(item.url)}
-                                            class="mobile-link"
-                                            set:html={item.title}
-                                        />
-                                        {item.children.length > 0 && (
-                                            <button
-                                                class="submenu-toggle"
-                                                aria-expanded="false"
-                                                aria-label={`Abrir submenú de ${item.title}`}
-                                            >
-                                                <svg
-                                                    viewBox="0 0 24 24"
-                                                    width="16"
-                                                    height="16"
-                                                    stroke="currentColor"
-                                                    stroke-width="1.5"
-                                                    fill="none"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                >
-                                                    <polyline points="6 9 12 15 18 9" />
-                                                </svg>
-                                            </button>
-                                        )}
-                                    </div>
-                                    {item.children.length > 0 && (
-                                        <ul class="submenu">
-                                            {item.children.map((child: any) => (
-                                                <li>
-                                                    <a
-                                                        href={flattenCategoryUrl(child.url)}
-                                                        class="mobile-sublink"
-                                                        set:html={child.title}
-                                                    />
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    )}
-                                </li>
-                                {shouldRenderSaleAfter && (
+                                return (
                                     <>
-                                        <hr class="menu-separator" />
-                                        <li class="menu-item">
+                                        <li
+                                            class={`menu-item ${item.children.length > 0 ? "has-submenu" : ""}`}
+                                        >
                                             <div class="menu-link-wrapper">
                                                 <a
-                                                    href="/sale"
-                                                    class="mobile-link text-red-600 font-bold sale-menu-link"
-                                                >
-                                                    SALE
-                                                </a>
+                                                    href={flattenCategoryUrl(item.url)}
+                                                    class="mobile-link"
+                                                    set:html={item.title}
+                                                />
+                                                {item.children.length > 0 && (
+                                                    <button
+                                                        class="submenu-toggle"
+                                                        aria-expanded="false"
+                                                        aria-label={`Abrir submenú de ${item.title}`}
+                                                    >
+                                                        <svg
+                                                            viewBox="0 0 24 24"
+                                                            width="16"
+                                                            height="16"
+                                                            stroke="currentColor"
+                                                            stroke-width="1.5"
+                                                            fill="none"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                        >
+                                                            <polyline points="6 9 12 15 18 9" />
+                                                        </svg>
+                                                    </button>
+                                                )}
                                             </div>
+                                            {item.children.length > 0 && (
+                                                <ul class="submenu">
+                                                    {item.children.map((child: any) => (
+                                                        <li>
+                                                            <a
+                                                                href={flattenCategoryUrl(child.url)}
+                                                                class="mobile-sublink"
+                                                                set:html={child.title}
+                                                            />
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            )}
                                         </li>
-                                        <hr class="menu-separator" />
-                                        <li class="menu-item">
-                                            <div class="menu-link-wrapper">
-                                                <a
-                                                    href="https://www.winstonandharrystore.com/blog"
-                                                    class="mobile-link font-bold blog-menu-link"
-                                                >
-                                                    BLOG
-                                                </a>
-                                            </div>
-                                        </li>
+                                        {shouldRenderSaleAfter && (
+                                            <>
+                                                <hr class="menu-separator" />
+                                                <li class="menu-item">
+                                                    <div class="menu-link-wrapper">
+                                                        <a
+                                                            href="/sale"
+                                                            class="mobile-link text-red-600 font-bold sale-menu-link"
+                                                        >
+                                                            SALE
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <hr class="menu-separator" />
+                                                <li class="menu-item">
+                                                    <div class="menu-link-wrapper">
+                                                        <a
+                                                            href="https://www.winstonandharrystore.com/blog"
+                                                            class="mobile-link font-bold blog-menu-link"
+                                                        >
+                                                            BLOG
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                            </>
+                                        )}
                                     </>
-                                )}
-                            </>
-                        );
-                    });
+                                );
+                            })}
+                        </>
+                    );
                 })()
             ) : (
                 <>
@@ -596,7 +611,7 @@ function flattenCategoryUrl(url: string) {
     }
 
     .header-hidden {
-        transform: translateY(-100%);
+        transform: translateY(calc(-100% - var(--global-banner-height, 0px)));
     }
 
     .header-inner {
@@ -779,10 +794,10 @@ function flattenCategoryUrl(url: string) {
     /* Mobile Nav Drawer - LV STYLE BELOW HEADER */
     .mobile-nav {
         position: fixed;
-        top: 75px; /* Altura estimada del header */
+        top: calc(75px + var(--global-banner-height, 0px));
         left: 0;
         width: 30%;
-        height: calc(100vh - 75px);
+        height: calc(100vh - 75px - var(--global-banner-height, 0px));
         background-color: #fff;
         transform: translateY(-100%);
         transition:
@@ -950,8 +965,8 @@ function flattenCategoryUrl(url: string) {
 
     @media (max-width: 768px) {
         .mobile-nav {
-            top: 65px; /* Ajuste para mobile */
-            height: calc(100vh - 65px);
+            top: calc(65px + var(--global-banner-height, 0px));
+            height: calc(100vh - 65px - var(--global-banner-height, 0px));
             width: 100%;
         }
         .header-actions-desktop {
@@ -1268,6 +1283,11 @@ function flattenCategoryUrl(url: string) {
 
     .sale-menu-link {
         color: #d32f2f !important;
+        font-weight: 700 !important;
+    }
+
+    .campaign-menu-link {
+        color: #155338 !important;
         font-weight: 700 !important;
     }
 </style>

@@ -82,7 +82,7 @@ const mappedCategories = [
 ];
 const categoryPages = mappedCategories.map(slug => `https://www.winstonandharrystore.com/categoria/${slug}`);
 
-const allSitemapPages = [...productPages, ...categoryPages, 'https://www.winstonandharrystore.com/sale'];
+const allSitemapPages = [...productPages, ...categoryPages, 'https://www.winstonandharrystore.com/sale', 'https://www.winstonandharrystore.com/regalos-dia-del-padre'];
 
 // Set para evitar duplicados en el sitemap durante el proceso de generación
 const seenUrls = new Set();

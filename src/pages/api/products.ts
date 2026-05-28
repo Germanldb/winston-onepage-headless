@@ -50,13 +50,14 @@ export const GET: APIRoute = async ({ url }) => {
         const onSale = url.searchParams.get('on_sale') === 'true';
         const attribute = url.searchParams.get('attribute') || undefined;
         const attributeTerm = url.searchParams.get('attribute_term') || undefined;
+        const maxPrice = url.searchParams.get('max_price') || undefined;
 
         let allProducts = [];
         try {
             if (!categoryParam || categoryParam === 'all') {
-                allProducts = await getAllProducts(perPage, page, orderBy, order, onSale);
+                allProducts = await getAllProducts(perPage, page, orderBy, order, onSale, maxPrice);
             } else {
-                allProducts = await getProductsByCategory(categoryParam, perPage, page, orderBy, order, onSale, attribute, attributeTerm);
+                allProducts = await getProductsByCategory(categoryParam, perPage, page, orderBy, order, onSale, attribute, attributeTerm, maxPrice);
             }
         } catch (fetchErr: any) {
             console.warn(`[API Products] WooCommerce fetch failed, attempting local catalog fallback:`, fetchErr.message);

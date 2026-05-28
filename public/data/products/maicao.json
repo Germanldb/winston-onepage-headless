@@ -1,0 +1,5058 @@
+{
+  "id": 29526,
+  "name": "Maicao",
+  "slug": "maicao",
+  "permalink": "https://tienda.winstonandharrystore.com/product/maicao/",
+  "type": "variable",
+  "status": "publish",
+  "description": "<p>• Hecho a mano 100% por artesanos colombianos.<br />\n• Capellada en gamuza.<br />\n• Forro interior en cuero para mayor frescura.<br />\n• Un estilo con textura que combinando tradición y modernidad.<br />\n• Su construcción y su plantilla en espuma de latex, generan mayor comodidad y cuidado a tu salud.<br />\n• Suela en goma muy liviana.<br />\n• Los mejores materiales para mayor durabilidad.</p>\n",
+  "short_description": "<p>• Hecho mano 100% por artesanos colombianos<br />\n• Forro en cuero para mayor frescura.<br />\n• Capellada en gamuza.<br />\n• Un estilo clasico con un toque moderno.</p>\n",
+  "prices": {
+    "price": "399840",
+    "regular_price": "666400",
+    "sale_price": "",
+    "currency_code": "COP",
+    "currency_symbol": "$",
+    "currency_minor_unit": 0,
+    "currency_prefix": "$",
+    "price_range": null
+  },
+  "images": [
+    {
+      "id": 29516,
+      "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/IMG_3672.jpg",
+      "alt": "Maicao",
+      "name": "IMG_3672"
+    },
+    {
+      "id": 29517,
+      "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/IMG_3673.jpg",
+      "alt": "Maicao",
+      "name": "IMG_3673"
+    },
+    {
+      "id": 29518,
+      "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/IMG_3674.jpg",
+      "alt": "Maicao",
+      "name": "IMG_3674"
+    }
+  ],
+  "attributes": [
+    {
+      "id": 3,
+      "name": "Selecciona el Color",
+      "slug": "pa_selecciona-el-color",
+      "terms": [
+        {
+          "id": 0,
+          "name": "Café",
+          "slug": "cafe"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Selecciona una Talla",
+      "slug": "pa_selecciona-una-talla",
+      "terms": [
+        {
+          "id": 0,
+          "name": "37",
+          "slug": "37"
+        },
+        {
+          "id": 1,
+          "name": "38",
+          "slug": "38"
+        },
+        {
+          "id": 2,
+          "name": "39",
+          "slug": "39"
+        },
+        {
+          "id": 3,
+          "name": "40",
+          "slug": "40"
+        },
+        {
+          "id": 4,
+          "name": "41",
+          "slug": "41"
+        },
+        {
+          "id": 5,
+          "name": "42",
+          "slug": "42"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Suela",
+      "slug": "pa_suela",
+      "terms": [
+        {
+          "id": 0,
+          "name": "Goma",
+          "slug": "goma"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Capellada",
+      "slug": "pa_capellada",
+      "terms": [
+        {
+          "id": 0,
+          "name": "100% Gamuza",
+          "slug": "100-gamuza"
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": 422,
+      "name": "Línea Colombia",
+      "slug": "zapatos-hechos-colombia-hombre"
+    },
+    {
+      "id": 923,
+      "name": "Más de $500,000",
+      "slug": "mas-de-500000"
+    },
+    {
+      "id": 195,
+      "name": "Mocasines",
+      "slug": "mocasines-cuero-hombre"
+    },
+    {
+      "id": 438,
+      "name": "Tallas Grandes",
+      "slug": "tallas-grandes-zapatos-hombre"
+    },
+    {
+      "id": 63,
+      "name": "Zapatos",
+      "slug": "zapatos-cuero-hombre"
+    },
+    {
+      "id": 410,
+      "name": "Zapatos y Maletas",
+      "slug": "zapatos-maletas-cuero-hombre"
+    }
+  ],
+  "category_ids": [
+    422,
+    923,
+    195,
+    438,
+    63,
+    410
+  ],
+  "tags": [
+    {
+      "id": 426,
+      "name": "Colección - Semana Santa",
+      "slug": "coleccion-semana-santa"
+    }
+  ],
+  "variation_ids": [
+    29528,
+    29529,
+    29530,
+    29531,
+    29532,
+    29533,
+    29534,
+    29535,
+    29536
+  ],
+  "on_sale": false,
+  "featured": false,
+  "upsell_ids": [
+    24163,
+    24164,
+    24166,
+    24167
+  ],
+  "cross_sell_ids": [],
+  "variations": [
+    {
+      "id": 29536,
+      "type": "variation",
+      "date_created": "2023-06-09T19:58:04",
+      "date_created_gmt": "2023-06-09T19:58:04",
+      "date_modified": "2026-05-07T23:15:31",
+      "date_modified_gmt": "2026-05-07T23:15:31",
+      "description": "",
+      "permalink": "https://tienda.winstonandharrystore.com/product/maicao/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=45",
+      "sku": "7500804045",
+      "global_unique_id": "",
+      "price": "666400",
+      "regular_price": "666400",
+      "sale_price": "",
+      "date_on_sale_from": null,
+      "date_on_sale_from_gmt": null,
+      "date_on_sale_to": null,
+      "date_on_sale_to_gmt": null,
+      "on_sale": false,
+      "status": "publish",
+      "purchasable": true,
+      "virtual": false,
+      "downloadable": false,
+      "downloads": [],
+      "download_limit": 0,
+      "download_expiry": 0,
+      "tax_status": "taxable",
+      "tax_class": "",
+      "manage_stock": true,
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
+      "backorders": "no",
+      "backorders_allowed": false,
+      "backordered": false,
+      "low_stock_amount": null,
+      "weight": "",
+      "dimensions": {
+        "length": "",
+        "width": "",
+        "height": ""
+      },
+      "shipping_class": "",
+      "shipping_class_id": 0,
+      "image": {
+        "id": 29516,
+        "date_created": "2023-06-09T19:49:18",
+        "date_created_gmt": "2023-06-09T19:49:18",
+        "date_modified": "2023-06-09T19:49:18",
+        "date_modified_gmt": "2023-06-09T19:49:18",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/IMG_3672.jpg",
+        "name": "IMG_3672",
+        "alt": ""
+      },
+      "attributes": [
+        {
+          "id": 3,
+          "name": "Selecciona el Color",
+          "slug": "pa_selecciona-el-color",
+          "option": "Café",
+          "value": "Café"
+        },
+        {
+          "id": 4,
+          "name": "Selecciona una Talla",
+          "slug": "pa_selecciona-una-talla",
+          "option": "45",
+          "value": "45"
+        }
+      ],
+      "menu_order": 0,
+      "meta_data": [
+        {
+          "id": 1145186,
+          "key": "_product_360_image_gallery",
+          "value": ""
+        },
+        {
+          "id": 1145187,
+          "key": "_woodmart_single_product_style",
+          "value": ""
+        },
+        {
+          "id": 1145188,
+          "key": "_woodmart_thums_position",
+          "value": ""
+        },
+        {
+          "id": 1145189,
+          "key": "_woodmart_product_design",
+          "value": ""
+        },
+        {
+          "id": 1145190,
+          "key": "_woodmart_extra_content",
+          "value": ""
+        },
+        {
+          "id": 1145191,
+          "key": "_woodmart_extra_position",
+          "value": ""
+        },
+        {
+          "id": 1145192,
+          "key": "_elementor_data",
+          "value": ""
+        },
+        {
+          "id": 1145193,
+          "key": "_elementor_edit_mode",
+          "value": ""
+        },
+        {
+          "id": 1145194,
+          "key": "_elementor_version",
+          "value": ""
+        },
+        {
+          "id": 1145195,
+          "key": "_wp_page_template",
+          "value": ""
+        },
+        {
+          "id": 1145196,
+          "key": "_elementor_template_type",
+          "value": ""
+        },
+        {
+          "id": 1145197,
+          "key": "_oembed_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 1145198,
+          "key": "_oembed_time_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 1145199,
+          "key": "slide_template",
+          "value": ""
+        },
+        {
+          "id": 1145200,
+          "key": "_jet_woo_template",
+          "value": ""
+        },
+        {
+          "id": 1145201,
+          "key": "_template_type",
+          "value": ""
+        },
+        {
+          "id": 1145202,
+          "key": "_selectproduct_layout",
+          "value": ""
+        },
+        {
+          "id": 1145203,
+          "key": "_saleflash_text",
+          "value": ""
+        },
+        {
+          "id": 1145204,
+          "key": "woolentor_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 1145205,
+          "key": "_yoast_wpseo_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 1145206,
+          "key": "_yoast_wpseo_content_score",
+          "value": ""
+        },
+        {
+          "id": 1145207,
+          "key": "_dp_original",
+          "value": ""
+        },
+        {
+          "id": 1145208,
+          "key": "_wp_old_date",
+          "value": ""
+        },
+        {
+          "id": 1145209,
+          "key": "_oembed_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 1145210,
+          "key": "_oembed_time_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 1145211,
+          "key": "woodmart_sguide_select",
+          "value": ""
+        },
+        {
+          "id": 1145212,
+          "key": "woodmart_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 1145213,
+          "key": "rs_page_bg_color",
+          "value": ""
+        },
+        {
+          "id": 1145214,
+          "key": "_woodmart_whb_header",
+          "value": ""
+        },
+        {
+          "id": 1145215,
+          "key": "_woodmart_main_layout",
+          "value": ""
+        },
+        {
+          "id": 1145216,
+          "key": "_woodmart_sidebar_width",
+          "value": ""
+        },
+        {
+          "id": 1145217,
+          "key": "_woodmart_custom_sidebar",
+          "value": ""
+        },
+        {
+          "id": 1145218,
+          "key": "_woodmart_product-background",
+          "value": ""
+        },
+        {
+          "id": 1145219,
+          "key": "_woodmart_product_custom_tab_title",
+          "value": ""
+        },
+        {
+          "id": 1145220,
+          "key": "_woodmart_product_custom_tab_content",
+          "value": ""
+        },
+        {
+          "id": 1145221,
+          "key": "_woodmart_new_label_date",
+          "value": ""
+        },
+        {
+          "id": 1145222,
+          "key": "_woodmart_swatches_attribute",
+          "value": ""
+        },
+        {
+          "id": 1145223,
+          "key": "_woodmart_product_video",
+          "value": ""
+        },
+        {
+          "id": 1145224,
+          "key": "_woodmart_product_hashtag",
+          "value": ""
+        },
+        {
+          "id": 1145225,
+          "key": "_last_editor_used_jetpack",
+          "value": ""
+        },
+        {
+          "id": 1145226,
+          "key": "_oembed_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 1145227,
+          "key": "_oembed_time_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 1145228,
+          "key": "wd_additional_variation_images_data",
+          "value": "29517, 19518"
+        },
+        {
+          "id": 1145229,
+          "key": "_yoast_wpseo_estimated-reading-time-minutes",
+          "value": ""
+        },
+        {
+          "id": 1145230,
+          "key": "_elementor_pro_version",
+          "value": ""
+        },
+        {
+          "id": 1145231,
+          "key": "_oembed_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 1145232,
+          "key": "_oembed_time_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 1145234,
+          "key": "_wc_facebook_commerce_enabled",
+          "value": ""
+        },
+        {
+          "id": 1145236,
+          "key": "_wc_facebook_sync_enabled",
+          "value": "yes"
+        },
+        {
+          "id": 1145237,
+          "key": "fb_visibility",
+          "value": "yes"
+        },
+        {
+          "id": 1145238,
+          "key": "fb_product_description",
+          "value": ""
+        },
+        {
+          "id": 1145239,
+          "key": "_wc_facebook_product_image_source",
+          "value": "product"
+        },
+        {
+          "id": 1145240,
+          "key": "fb_product_image",
+          "value": ""
+        },
+        {
+          "id": 1145241,
+          "key": "fb_product_price",
+          "value": ""
+        },
+        {
+          "id": 1145242,
+          "key": "_woosea_exclude_product",
+          "value": ""
+        },
+        {
+          "id": 1145243,
+          "key": "_yoast_wpseo_wordproof_timestamp",
+          "value": ""
+        },
+        {
+          "id": 1145244,
+          "key": "_yoast_wpseo_focuskw",
+          "value": ""
+        },
+        {
+          "id": 1145245,
+          "key": "_yoast_wpseo_metadesc",
+          "value": ""
+        },
+        {
+          "id": 1145246,
+          "key": "_yoast_wpseo_title",
+          "value": ""
+        },
+        {
+          "id": 1145247,
+          "key": "_yoast_wpseo_linkdex",
+          "value": ""
+        },
+        {
+          "id": 1145248,
+          "key": "_yoast_wpseo_meta-robots-noindex",
+          "value": ""
+        },
+        {
+          "id": 1145249,
+          "key": "rank_math_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 1145250,
+          "key": "rank_math_title",
+          "value": ""
+        },
+        {
+          "id": 1145251,
+          "key": "rank_math_description",
+          "value": ""
+        },
+        {
+          "id": 1145252,
+          "key": "rank_math_focus_keyword",
+          "value": ""
+        },
+        {
+          "id": 1145253,
+          "key": "rank_math_news_sitemap_robots",
+          "value": ""
+        },
+        {
+          "id": 1145255,
+          "key": "rank_math_seo_score",
+          "value": ""
+        },
+        {
+          "id": 1145256,
+          "key": "rank_math_primary_fb_product_set",
+          "value": ""
+        },
+        {
+          "id": 1145257,
+          "key": "hubwoo_ecomm_invalid_pro",
+          "value": ""
+        },
+        {
+          "id": 1145258,
+          "key": "hubwoo_ecomm_pro_id",
+          "value": ""
+        },
+        {
+          "id": 1145259,
+          "key": "_rank_math_gtin_code",
+          "value": ""
+        },
+        {
+          "id": 1145260,
+          "key": "woodmart_price_unit_of_measure",
+          "value": ""
+        },
+        {
+          "id": 1145261,
+          "key": "_woodmart_new_label",
+          "value": ""
+        },
+        {
+          "id": 1145262,
+          "key": "_woodmart_related_off",
+          "value": ""
+        },
+        {
+          "id": 1145263,
+          "key": "_woodmart_hide_tabs_titles",
+          "value": ""
+        },
+        {
+          "id": 1145264,
+          "key": "_woodmart_product_custom_tab_content_type",
+          "value": ""
+        },
+        {
+          "id": 1145265,
+          "key": "_woodmart_product_custom_tab_html_block",
+          "value": ""
+        },
+        {
+          "id": 1145266,
+          "key": "_woodmart_product_custom_tab_title_2",
+          "value": ""
+        },
+        {
+          "id": 1145267,
+          "key": "_woodmart_product_custom_tab_content_type_2",
+          "value": ""
+        },
+        {
+          "id": 1145268,
+          "key": "_woodmart_product_custom_tab_content_2",
+          "value": ""
+        },
+        {
+          "id": 1145269,
+          "key": "_woodmart_product_custom_tab_html_block_2",
+          "value": ""
+        },
+        {
+          "id": 1145270,
+          "key": "_pwgc_exclude_tax",
+          "value": "0"
+        },
+        {
+          "id": 1145271,
+          "key": "_pwgc_exclude_shipping",
+          "value": "0"
+        },
+        {
+          "id": 1145272,
+          "key": "hubwoo_product_synced",
+          "value": ""
+        },
+        {
+          "id": 1360978,
+          "key": "_woodmart_exclude_show_single_variation",
+          "value": ""
+        },
+        {
+          "id": 2217101,
+          "key": "_last_change_time",
+          "value": "1778195731"
+        },
+        {
+          "id": 2313103,
+          "key": "wpcvi_images",
+          "value": "29517,19518"
+        }
+      ],
+      "name": "Café, 45",
+      "parent_id": 29526,
+      "_links": {
+        "self": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526/variations/29536",
+            "targetHints": {
+              "allow": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526/variations"
+          }
+        ],
+        "up": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526"
+          }
+        ]
+      }
+    },
+    {
+      "id": 29535,
+      "type": "variation",
+      "date_created": "2023-06-09T19:58:04",
+      "date_created_gmt": "2023-06-09T19:58:04",
+      "date_modified": "2026-05-07T23:15:31",
+      "date_modified_gmt": "2026-05-07T23:15:31",
+      "description": "",
+      "permalink": "https://tienda.winstonandharrystore.com/product/maicao/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=44",
+      "sku": "7500804044",
+      "global_unique_id": "",
+      "price": "666400",
+      "regular_price": "666400",
+      "sale_price": "",
+      "date_on_sale_from": null,
+      "date_on_sale_from_gmt": null,
+      "date_on_sale_to": null,
+      "date_on_sale_to_gmt": null,
+      "on_sale": false,
+      "status": "publish",
+      "purchasable": true,
+      "virtual": false,
+      "downloadable": false,
+      "downloads": [],
+      "download_limit": 0,
+      "download_expiry": 0,
+      "tax_status": "taxable",
+      "tax_class": "",
+      "manage_stock": true,
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
+      "backorders": "no",
+      "backorders_allowed": false,
+      "backordered": false,
+      "low_stock_amount": null,
+      "weight": "",
+      "dimensions": {
+        "length": "",
+        "width": "",
+        "height": ""
+      },
+      "shipping_class": "",
+      "shipping_class_id": 0,
+      "image": {
+        "id": 29516,
+        "date_created": "2023-06-09T19:49:18",
+        "date_created_gmt": "2023-06-09T19:49:18",
+        "date_modified": "2023-06-09T19:49:18",
+        "date_modified_gmt": "2023-06-09T19:49:18",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/IMG_3672.jpg",
+        "name": "IMG_3672",
+        "alt": ""
+      },
+      "attributes": [
+        {
+          "id": 3,
+          "name": "Selecciona el Color",
+          "slug": "pa_selecciona-el-color",
+          "option": "Café",
+          "value": "Café"
+        },
+        {
+          "id": 4,
+          "name": "Selecciona una Talla",
+          "slug": "pa_selecciona-una-talla",
+          "option": "44",
+          "value": "44"
+        }
+      ],
+      "menu_order": 0,
+      "meta_data": [
+        {
+          "id": 1145075,
+          "key": "_product_360_image_gallery",
+          "value": ""
+        },
+        {
+          "id": 1145076,
+          "key": "_woodmart_single_product_style",
+          "value": ""
+        },
+        {
+          "id": 1145077,
+          "key": "_woodmart_thums_position",
+          "value": ""
+        },
+        {
+          "id": 1145078,
+          "key": "_woodmart_product_design",
+          "value": ""
+        },
+        {
+          "id": 1145079,
+          "key": "_woodmart_extra_content",
+          "value": ""
+        },
+        {
+          "id": 1145080,
+          "key": "_woodmart_extra_position",
+          "value": ""
+        },
+        {
+          "id": 1145081,
+          "key": "_elementor_data",
+          "value": ""
+        },
+        {
+          "id": 1145082,
+          "key": "_elementor_edit_mode",
+          "value": ""
+        },
+        {
+          "id": 1145083,
+          "key": "_elementor_version",
+          "value": ""
+        },
+        {
+          "id": 1145084,
+          "key": "_wp_page_template",
+          "value": ""
+        },
+        {
+          "id": 1145085,
+          "key": "_elementor_template_type",
+          "value": ""
+        },
+        {
+          "id": 1145086,
+          "key": "_oembed_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 1145087,
+          "key": "_oembed_time_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 1145088,
+          "key": "slide_template",
+          "value": ""
+        },
+        {
+          "id": 1145089,
+          "key": "_jet_woo_template",
+          "value": ""
+        },
+        {
+          "id": 1145090,
+          "key": "_template_type",
+          "value": ""
+        },
+        {
+          "id": 1145091,
+          "key": "_selectproduct_layout",
+          "value": ""
+        },
+        {
+          "id": 1145092,
+          "key": "_saleflash_text",
+          "value": ""
+        },
+        {
+          "id": 1145093,
+          "key": "woolentor_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 1145094,
+          "key": "_yoast_wpseo_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 1145095,
+          "key": "_yoast_wpseo_content_score",
+          "value": ""
+        },
+        {
+          "id": 1145096,
+          "key": "_dp_original",
+          "value": ""
+        },
+        {
+          "id": 1145097,
+          "key": "_wp_old_date",
+          "value": ""
+        },
+        {
+          "id": 1145098,
+          "key": "_oembed_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 1145099,
+          "key": "_oembed_time_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 1145100,
+          "key": "woodmart_sguide_select",
+          "value": ""
+        },
+        {
+          "id": 1145101,
+          "key": "woodmart_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 1145102,
+          "key": "rs_page_bg_color",
+          "value": ""
+        },
+        {
+          "id": 1145103,
+          "key": "_woodmart_whb_header",
+          "value": ""
+        },
+        {
+          "id": 1145104,
+          "key": "_woodmart_main_layout",
+          "value": ""
+        },
+        {
+          "id": 1145105,
+          "key": "_woodmart_sidebar_width",
+          "value": ""
+        },
+        {
+          "id": 1145106,
+          "key": "_woodmart_custom_sidebar",
+          "value": ""
+        },
+        {
+          "id": 1145107,
+          "key": "_woodmart_product-background",
+          "value": ""
+        },
+        {
+          "id": 1145108,
+          "key": "_woodmart_product_custom_tab_title",
+          "value": ""
+        },
+        {
+          "id": 1145109,
+          "key": "_woodmart_product_custom_tab_content",
+          "value": ""
+        },
+        {
+          "id": 1145110,
+          "key": "_woodmart_new_label_date",
+          "value": ""
+        },
+        {
+          "id": 1145111,
+          "key": "_woodmart_swatches_attribute",
+          "value": ""
+        },
+        {
+          "id": 1145112,
+          "key": "_woodmart_product_video",
+          "value": ""
+        },
+        {
+          "id": 1145113,
+          "key": "_woodmart_product_hashtag",
+          "value": ""
+        },
+        {
+          "id": 1145114,
+          "key": "_last_editor_used_jetpack",
+          "value": ""
+        },
+        {
+          "id": 1145115,
+          "key": "_oembed_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 1145116,
+          "key": "_oembed_time_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 1145117,
+          "key": "wd_additional_variation_images_data",
+          "value": "29517, 19518"
+        },
+        {
+          "id": 1145118,
+          "key": "_yoast_wpseo_estimated-reading-time-minutes",
+          "value": ""
+        },
+        {
+          "id": 1145119,
+          "key": "_elementor_pro_version",
+          "value": ""
+        },
+        {
+          "id": 1145120,
+          "key": "_oembed_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 1145121,
+          "key": "_oembed_time_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 1145123,
+          "key": "_wc_facebook_commerce_enabled",
+          "value": ""
+        },
+        {
+          "id": 1145125,
+          "key": "_wc_facebook_sync_enabled",
+          "value": "yes"
+        },
+        {
+          "id": 1145126,
+          "key": "fb_visibility",
+          "value": "yes"
+        },
+        {
+          "id": 1145127,
+          "key": "fb_product_description",
+          "value": ""
+        },
+        {
+          "id": 1145128,
+          "key": "_wc_facebook_product_image_source",
+          "value": "product"
+        },
+        {
+          "id": 1145129,
+          "key": "fb_product_image",
+          "value": ""
+        },
+        {
+          "id": 1145130,
+          "key": "fb_product_price",
+          "value": ""
+        },
+        {
+          "id": 1145131,
+          "key": "_woosea_exclude_product",
+          "value": ""
+        },
+        {
+          "id": 1145132,
+          "key": "_yoast_wpseo_wordproof_timestamp",
+          "value": ""
+        },
+        {
+          "id": 1145133,
+          "key": "_yoast_wpseo_focuskw",
+          "value": ""
+        },
+        {
+          "id": 1145134,
+          "key": "_yoast_wpseo_metadesc",
+          "value": ""
+        },
+        {
+          "id": 1145135,
+          "key": "_yoast_wpseo_title",
+          "value": ""
+        },
+        {
+          "id": 1145136,
+          "key": "_yoast_wpseo_linkdex",
+          "value": ""
+        },
+        {
+          "id": 1145137,
+          "key": "_yoast_wpseo_meta-robots-noindex",
+          "value": ""
+        },
+        {
+          "id": 1145138,
+          "key": "rank_math_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 1145139,
+          "key": "rank_math_title",
+          "value": ""
+        },
+        {
+          "id": 1145140,
+          "key": "rank_math_description",
+          "value": ""
+        },
+        {
+          "id": 1145141,
+          "key": "rank_math_focus_keyword",
+          "value": ""
+        },
+        {
+          "id": 1145142,
+          "key": "rank_math_news_sitemap_robots",
+          "value": ""
+        },
+        {
+          "id": 1145144,
+          "key": "rank_math_seo_score",
+          "value": ""
+        },
+        {
+          "id": 1145145,
+          "key": "rank_math_primary_fb_product_set",
+          "value": ""
+        },
+        {
+          "id": 1145146,
+          "key": "hubwoo_ecomm_invalid_pro",
+          "value": ""
+        },
+        {
+          "id": 1145147,
+          "key": "hubwoo_ecomm_pro_id",
+          "value": ""
+        },
+        {
+          "id": 1145148,
+          "key": "_rank_math_gtin_code",
+          "value": ""
+        },
+        {
+          "id": 1145149,
+          "key": "woodmart_price_unit_of_measure",
+          "value": ""
+        },
+        {
+          "id": 1145150,
+          "key": "_woodmart_new_label",
+          "value": ""
+        },
+        {
+          "id": 1145151,
+          "key": "_woodmart_related_off",
+          "value": ""
+        },
+        {
+          "id": 1145152,
+          "key": "_woodmart_hide_tabs_titles",
+          "value": ""
+        },
+        {
+          "id": 1145153,
+          "key": "_woodmart_product_custom_tab_content_type",
+          "value": ""
+        },
+        {
+          "id": 1145154,
+          "key": "_woodmart_product_custom_tab_html_block",
+          "value": ""
+        },
+        {
+          "id": 1145155,
+          "key": "_woodmart_product_custom_tab_title_2",
+          "value": ""
+        },
+        {
+          "id": 1145156,
+          "key": "_woodmart_product_custom_tab_content_type_2",
+          "value": ""
+        },
+        {
+          "id": 1145157,
+          "key": "_woodmart_product_custom_tab_content_2",
+          "value": ""
+        },
+        {
+          "id": 1145158,
+          "key": "_woodmart_product_custom_tab_html_block_2",
+          "value": ""
+        },
+        {
+          "id": 1145159,
+          "key": "_pwgc_exclude_tax",
+          "value": "0"
+        },
+        {
+          "id": 1145160,
+          "key": "_pwgc_exclude_shipping",
+          "value": "0"
+        },
+        {
+          "id": 1145161,
+          "key": "hubwoo_product_synced",
+          "value": ""
+        },
+        {
+          "id": 1360977,
+          "key": "_woodmart_exclude_show_single_variation",
+          "value": ""
+        },
+        {
+          "id": 2217099,
+          "key": "_last_change_time",
+          "value": "1778195731"
+        },
+        {
+          "id": 2313102,
+          "key": "wpcvi_images",
+          "value": "29517,19518"
+        }
+      ],
+      "name": "Café, 44",
+      "parent_id": 29526,
+      "_links": {
+        "self": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526/variations/29535",
+            "targetHints": {
+              "allow": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526/variations"
+          }
+        ],
+        "up": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526"
+          }
+        ]
+      }
+    },
+    {
+      "id": 29534,
+      "type": "variation",
+      "date_created": "2023-06-09T19:58:04",
+      "date_created_gmt": "2023-06-09T19:58:04",
+      "date_modified": "2026-05-08T21:42:00",
+      "date_modified_gmt": "2026-05-08T21:42:00",
+      "description": "",
+      "permalink": "https://tienda.winstonandharrystore.com/product/maicao/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=43",
+      "sku": "7500804043",
+      "global_unique_id": "",
+      "price": "399840",
+      "regular_price": "666400",
+      "sale_price": "336000",
+      "date_on_sale_from": null,
+      "date_on_sale_from_gmt": null,
+      "date_on_sale_to": null,
+      "date_on_sale_to_gmt": null,
+      "on_sale": true,
+      "status": "publish",
+      "purchasable": true,
+      "virtual": false,
+      "downloadable": false,
+      "downloads": [],
+      "download_limit": 0,
+      "download_expiry": 0,
+      "tax_status": "taxable",
+      "tax_class": "",
+      "manage_stock": true,
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
+      "backorders": "no",
+      "backorders_allowed": false,
+      "backordered": false,
+      "low_stock_amount": null,
+      "weight": "",
+      "dimensions": {
+        "length": "",
+        "width": "",
+        "height": ""
+      },
+      "shipping_class": "",
+      "shipping_class_id": 0,
+      "image": {
+        "id": 29516,
+        "date_created": "2023-06-09T19:49:18",
+        "date_created_gmt": "2023-06-09T19:49:18",
+        "date_modified": "2023-06-09T19:49:18",
+        "date_modified_gmt": "2023-06-09T19:49:18",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/IMG_3672.jpg",
+        "name": "IMG_3672",
+        "alt": ""
+      },
+      "attributes": [
+        {
+          "id": 3,
+          "name": "Selecciona el Color",
+          "slug": "pa_selecciona-el-color",
+          "option": "Café",
+          "value": "Café"
+        },
+        {
+          "id": 4,
+          "name": "Selecciona una Talla",
+          "slug": "pa_selecciona-una-talla",
+          "option": "43",
+          "value": "43"
+        }
+      ],
+      "menu_order": 0,
+      "meta_data": [
+        {
+          "id": 1144964,
+          "key": "_product_360_image_gallery",
+          "value": ""
+        },
+        {
+          "id": 1144965,
+          "key": "_woodmart_single_product_style",
+          "value": ""
+        },
+        {
+          "id": 1144966,
+          "key": "_woodmart_thums_position",
+          "value": ""
+        },
+        {
+          "id": 1144967,
+          "key": "_woodmart_product_design",
+          "value": ""
+        },
+        {
+          "id": 1144968,
+          "key": "_woodmart_extra_content",
+          "value": ""
+        },
+        {
+          "id": 1144969,
+          "key": "_woodmart_extra_position",
+          "value": ""
+        },
+        {
+          "id": 1144970,
+          "key": "_elementor_data",
+          "value": ""
+        },
+        {
+          "id": 1144971,
+          "key": "_elementor_edit_mode",
+          "value": ""
+        },
+        {
+          "id": 1144972,
+          "key": "_elementor_version",
+          "value": ""
+        },
+        {
+          "id": 1144973,
+          "key": "_wp_page_template",
+          "value": ""
+        },
+        {
+          "id": 1144974,
+          "key": "_elementor_template_type",
+          "value": ""
+        },
+        {
+          "id": 1144975,
+          "key": "_oembed_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 1144976,
+          "key": "_oembed_time_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 1144977,
+          "key": "slide_template",
+          "value": ""
+        },
+        {
+          "id": 1144978,
+          "key": "_jet_woo_template",
+          "value": ""
+        },
+        {
+          "id": 1144979,
+          "key": "_template_type",
+          "value": ""
+        },
+        {
+          "id": 1144980,
+          "key": "_selectproduct_layout",
+          "value": ""
+        },
+        {
+          "id": 1144981,
+          "key": "_saleflash_text",
+          "value": ""
+        },
+        {
+          "id": 1144982,
+          "key": "woolentor_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 1144983,
+          "key": "_yoast_wpseo_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 1144984,
+          "key": "_yoast_wpseo_content_score",
+          "value": ""
+        },
+        {
+          "id": 1144985,
+          "key": "_dp_original",
+          "value": ""
+        },
+        {
+          "id": 1144986,
+          "key": "_wp_old_date",
+          "value": ""
+        },
+        {
+          "id": 1144987,
+          "key": "_oembed_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 1144988,
+          "key": "_oembed_time_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 1144989,
+          "key": "woodmart_sguide_select",
+          "value": ""
+        },
+        {
+          "id": 1144990,
+          "key": "woodmart_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 1144991,
+          "key": "rs_page_bg_color",
+          "value": ""
+        },
+        {
+          "id": 1144992,
+          "key": "_woodmart_whb_header",
+          "value": ""
+        },
+        {
+          "id": 1144993,
+          "key": "_woodmart_main_layout",
+          "value": ""
+        },
+        {
+          "id": 1144994,
+          "key": "_woodmart_sidebar_width",
+          "value": ""
+        },
+        {
+          "id": 1144995,
+          "key": "_woodmart_custom_sidebar",
+          "value": ""
+        },
+        {
+          "id": 1144996,
+          "key": "_woodmart_product-background",
+          "value": ""
+        },
+        {
+          "id": 1144997,
+          "key": "_woodmart_product_custom_tab_title",
+          "value": ""
+        },
+        {
+          "id": 1144998,
+          "key": "_woodmart_product_custom_tab_content",
+          "value": ""
+        },
+        {
+          "id": 1144999,
+          "key": "_woodmart_new_label_date",
+          "value": ""
+        },
+        {
+          "id": 1145000,
+          "key": "_woodmart_swatches_attribute",
+          "value": ""
+        },
+        {
+          "id": 1145001,
+          "key": "_woodmart_product_video",
+          "value": ""
+        },
+        {
+          "id": 1145002,
+          "key": "_woodmart_product_hashtag",
+          "value": ""
+        },
+        {
+          "id": 1145003,
+          "key": "_last_editor_used_jetpack",
+          "value": ""
+        },
+        {
+          "id": 1145004,
+          "key": "_oembed_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 1145005,
+          "key": "_oembed_time_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 1145006,
+          "key": "wd_additional_variation_images_data",
+          "value": "29517, 19518"
+        },
+        {
+          "id": 1145007,
+          "key": "_yoast_wpseo_estimated-reading-time-minutes",
+          "value": ""
+        },
+        {
+          "id": 1145008,
+          "key": "_elementor_pro_version",
+          "value": ""
+        },
+        {
+          "id": 1145009,
+          "key": "_oembed_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 1145010,
+          "key": "_oembed_time_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 1145011,
+          "key": "fb_product_group_id",
+          "value": ""
+        },
+        {
+          "id": 1145012,
+          "key": "_wc_facebook_commerce_enabled",
+          "value": ""
+        },
+        {
+          "id": 1145013,
+          "key": "fb_product_item_id",
+          "value": ""
+        },
+        {
+          "id": 1145014,
+          "key": "_wc_facebook_sync_enabled",
+          "value": "yes"
+        },
+        {
+          "id": 1145015,
+          "key": "fb_visibility",
+          "value": "yes"
+        },
+        {
+          "id": 1145016,
+          "key": "fb_product_description",
+          "value": ""
+        },
+        {
+          "id": 1145017,
+          "key": "_wc_facebook_product_image_source",
+          "value": "product"
+        },
+        {
+          "id": 1145018,
+          "key": "fb_product_image",
+          "value": ""
+        },
+        {
+          "id": 1145019,
+          "key": "fb_product_price",
+          "value": ""
+        },
+        {
+          "id": 1145020,
+          "key": "_woosea_exclude_product",
+          "value": ""
+        },
+        {
+          "id": 1145021,
+          "key": "_yoast_wpseo_wordproof_timestamp",
+          "value": ""
+        },
+        {
+          "id": 1145022,
+          "key": "_yoast_wpseo_focuskw",
+          "value": ""
+        },
+        {
+          "id": 1145023,
+          "key": "_yoast_wpseo_metadesc",
+          "value": ""
+        },
+        {
+          "id": 1145024,
+          "key": "_yoast_wpseo_title",
+          "value": ""
+        },
+        {
+          "id": 1145025,
+          "key": "_yoast_wpseo_linkdex",
+          "value": ""
+        },
+        {
+          "id": 1145026,
+          "key": "_yoast_wpseo_meta-robots-noindex",
+          "value": ""
+        },
+        {
+          "id": 1145027,
+          "key": "rank_math_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 1145028,
+          "key": "rank_math_title",
+          "value": ""
+        },
+        {
+          "id": 1145029,
+          "key": "rank_math_description",
+          "value": ""
+        },
+        {
+          "id": 1145030,
+          "key": "rank_math_focus_keyword",
+          "value": ""
+        },
+        {
+          "id": 1145031,
+          "key": "rank_math_news_sitemap_robots",
+          "value": ""
+        },
+        {
+          "id": 1145033,
+          "key": "rank_math_seo_score",
+          "value": ""
+        },
+        {
+          "id": 1145034,
+          "key": "rank_math_primary_fb_product_set",
+          "value": ""
+        },
+        {
+          "id": 1145035,
+          "key": "hubwoo_ecomm_invalid_pro",
+          "value": ""
+        },
+        {
+          "id": 1145036,
+          "key": "hubwoo_ecomm_pro_id",
+          "value": ""
+        },
+        {
+          "id": 1145037,
+          "key": "_rank_math_gtin_code",
+          "value": ""
+        },
+        {
+          "id": 1145038,
+          "key": "woodmart_price_unit_of_measure",
+          "value": ""
+        },
+        {
+          "id": 1145039,
+          "key": "_woodmart_new_label",
+          "value": ""
+        },
+        {
+          "id": 1145040,
+          "key": "_woodmart_related_off",
+          "value": ""
+        },
+        {
+          "id": 1145041,
+          "key": "_woodmart_hide_tabs_titles",
+          "value": ""
+        },
+        {
+          "id": 1145042,
+          "key": "_woodmart_product_custom_tab_content_type",
+          "value": ""
+        },
+        {
+          "id": 1145043,
+          "key": "_woodmart_product_custom_tab_html_block",
+          "value": ""
+        },
+        {
+          "id": 1145044,
+          "key": "_woodmart_product_custom_tab_title_2",
+          "value": ""
+        },
+        {
+          "id": 1145045,
+          "key": "_woodmart_product_custom_tab_content_type_2",
+          "value": ""
+        },
+        {
+          "id": 1145046,
+          "key": "_woodmart_product_custom_tab_content_2",
+          "value": ""
+        },
+        {
+          "id": 1145047,
+          "key": "_woodmart_product_custom_tab_html_block_2",
+          "value": ""
+        },
+        {
+          "id": 1145048,
+          "key": "_pwgc_exclude_tax",
+          "value": "0"
+        },
+        {
+          "id": 1145049,
+          "key": "_pwgc_exclude_shipping",
+          "value": "0"
+        },
+        {
+          "id": 1145050,
+          "key": "hubwoo_product_synced",
+          "value": ""
+        },
+        {
+          "id": 1360976,
+          "key": "_woodmart_exclude_show_single_variation",
+          "value": ""
+        },
+        {
+          "id": 2217097,
+          "key": "_last_change_time",
+          "value": "1778184334"
+        },
+        {
+          "id": 2313101,
+          "key": "wpcvi_images",
+          "value": "29517,19518"
+        }
+      ],
+      "name": "Café, 43",
+      "parent_id": 29526,
+      "_links": {
+        "self": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526/variations/29534",
+            "targetHints": {
+              "allow": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526/variations"
+          }
+        ],
+        "up": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526"
+          }
+        ]
+      }
+    },
+    {
+      "id": 29533,
+      "type": "variation",
+      "date_created": "2023-06-09T19:58:04",
+      "date_created_gmt": "2023-06-09T19:58:04",
+      "date_modified": "2026-05-08T21:42:00",
+      "date_modified_gmt": "2026-05-08T21:42:00",
+      "description": "",
+      "permalink": "https://tienda.winstonandharrystore.com/product/maicao/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=42",
+      "sku": "7500804042",
+      "global_unique_id": "",
+      "price": "399840",
+      "regular_price": "666400",
+      "sale_price": "336000",
+      "date_on_sale_from": null,
+      "date_on_sale_from_gmt": null,
+      "date_on_sale_to": null,
+      "date_on_sale_to_gmt": null,
+      "on_sale": true,
+      "status": "publish",
+      "purchasable": true,
+      "virtual": false,
+      "downloadable": false,
+      "downloads": [],
+      "download_limit": 0,
+      "download_expiry": 0,
+      "tax_status": "taxable",
+      "tax_class": "",
+      "manage_stock": true,
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
+      "backorders": "no",
+      "backorders_allowed": false,
+      "backordered": false,
+      "low_stock_amount": null,
+      "weight": "",
+      "dimensions": {
+        "length": "",
+        "width": "",
+        "height": ""
+      },
+      "shipping_class": "",
+      "shipping_class_id": 0,
+      "image": {
+        "id": 29516,
+        "date_created": "2023-06-09T19:49:18",
+        "date_created_gmt": "2023-06-09T19:49:18",
+        "date_modified": "2023-06-09T19:49:18",
+        "date_modified_gmt": "2023-06-09T19:49:18",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/IMG_3672.jpg",
+        "name": "IMG_3672",
+        "alt": ""
+      },
+      "attributes": [
+        {
+          "id": 3,
+          "name": "Selecciona el Color",
+          "slug": "pa_selecciona-el-color",
+          "option": "Café",
+          "value": "Café"
+        },
+        {
+          "id": 4,
+          "name": "Selecciona una Talla",
+          "slug": "pa_selecciona-una-talla",
+          "option": "42",
+          "value": "42"
+        }
+      ],
+      "menu_order": 0,
+      "meta_data": [
+        {
+          "id": 1144853,
+          "key": "_product_360_image_gallery",
+          "value": ""
+        },
+        {
+          "id": 1144854,
+          "key": "_woodmart_single_product_style",
+          "value": ""
+        },
+        {
+          "id": 1144855,
+          "key": "_woodmart_thums_position",
+          "value": ""
+        },
+        {
+          "id": 1144856,
+          "key": "_woodmart_product_design",
+          "value": ""
+        },
+        {
+          "id": 1144857,
+          "key": "_woodmart_extra_content",
+          "value": ""
+        },
+        {
+          "id": 1144858,
+          "key": "_woodmart_extra_position",
+          "value": ""
+        },
+        {
+          "id": 1144859,
+          "key": "_elementor_data",
+          "value": ""
+        },
+        {
+          "id": 1144860,
+          "key": "_elementor_edit_mode",
+          "value": ""
+        },
+        {
+          "id": 1144861,
+          "key": "_elementor_version",
+          "value": ""
+        },
+        {
+          "id": 1144862,
+          "key": "_wp_page_template",
+          "value": ""
+        },
+        {
+          "id": 1144863,
+          "key": "_elementor_template_type",
+          "value": ""
+        },
+        {
+          "id": 1144864,
+          "key": "_oembed_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 1144865,
+          "key": "_oembed_time_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 1144866,
+          "key": "slide_template",
+          "value": ""
+        },
+        {
+          "id": 1144867,
+          "key": "_jet_woo_template",
+          "value": ""
+        },
+        {
+          "id": 1144868,
+          "key": "_template_type",
+          "value": ""
+        },
+        {
+          "id": 1144869,
+          "key": "_selectproduct_layout",
+          "value": ""
+        },
+        {
+          "id": 1144870,
+          "key": "_saleflash_text",
+          "value": ""
+        },
+        {
+          "id": 1144871,
+          "key": "woolentor_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 1144872,
+          "key": "_yoast_wpseo_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 1144873,
+          "key": "_yoast_wpseo_content_score",
+          "value": ""
+        },
+        {
+          "id": 1144874,
+          "key": "_dp_original",
+          "value": ""
+        },
+        {
+          "id": 1144875,
+          "key": "_wp_old_date",
+          "value": ""
+        },
+        {
+          "id": 1144876,
+          "key": "_oembed_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 1144877,
+          "key": "_oembed_time_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 1144878,
+          "key": "woodmart_sguide_select",
+          "value": ""
+        },
+        {
+          "id": 1144879,
+          "key": "woodmart_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 1144880,
+          "key": "rs_page_bg_color",
+          "value": ""
+        },
+        {
+          "id": 1144881,
+          "key": "_woodmart_whb_header",
+          "value": ""
+        },
+        {
+          "id": 1144882,
+          "key": "_woodmart_main_layout",
+          "value": ""
+        },
+        {
+          "id": 1144883,
+          "key": "_woodmart_sidebar_width",
+          "value": ""
+        },
+        {
+          "id": 1144884,
+          "key": "_woodmart_custom_sidebar",
+          "value": ""
+        },
+        {
+          "id": 1144885,
+          "key": "_woodmart_product-background",
+          "value": ""
+        },
+        {
+          "id": 1144886,
+          "key": "_woodmart_product_custom_tab_title",
+          "value": ""
+        },
+        {
+          "id": 1144887,
+          "key": "_woodmart_product_custom_tab_content",
+          "value": ""
+        },
+        {
+          "id": 1144888,
+          "key": "_woodmart_new_label_date",
+          "value": ""
+        },
+        {
+          "id": 1144889,
+          "key": "_woodmart_swatches_attribute",
+          "value": ""
+        },
+        {
+          "id": 1144890,
+          "key": "_woodmart_product_video",
+          "value": ""
+        },
+        {
+          "id": 1144891,
+          "key": "_woodmart_product_hashtag",
+          "value": ""
+        },
+        {
+          "id": 1144892,
+          "key": "_last_editor_used_jetpack",
+          "value": ""
+        },
+        {
+          "id": 1144893,
+          "key": "_oembed_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 1144894,
+          "key": "_oembed_time_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 1144895,
+          "key": "wd_additional_variation_images_data",
+          "value": "29517, 19518"
+        },
+        {
+          "id": 1144896,
+          "key": "_yoast_wpseo_estimated-reading-time-minutes",
+          "value": ""
+        },
+        {
+          "id": 1144897,
+          "key": "_elementor_pro_version",
+          "value": ""
+        },
+        {
+          "id": 1144898,
+          "key": "_oembed_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 1144899,
+          "key": "_oembed_time_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 1144900,
+          "key": "fb_product_group_id",
+          "value": ""
+        },
+        {
+          "id": 1144901,
+          "key": "_wc_facebook_commerce_enabled",
+          "value": ""
+        },
+        {
+          "id": 1144902,
+          "key": "fb_product_item_id",
+          "value": ""
+        },
+        {
+          "id": 1144903,
+          "key": "_wc_facebook_sync_enabled",
+          "value": "yes"
+        },
+        {
+          "id": 1144904,
+          "key": "fb_visibility",
+          "value": "yes"
+        },
+        {
+          "id": 1144905,
+          "key": "fb_product_description",
+          "value": ""
+        },
+        {
+          "id": 1144906,
+          "key": "_wc_facebook_product_image_source",
+          "value": "product"
+        },
+        {
+          "id": 1144907,
+          "key": "fb_product_image",
+          "value": ""
+        },
+        {
+          "id": 1144908,
+          "key": "fb_product_price",
+          "value": ""
+        },
+        {
+          "id": 1144909,
+          "key": "_woosea_exclude_product",
+          "value": ""
+        },
+        {
+          "id": 1144910,
+          "key": "_yoast_wpseo_wordproof_timestamp",
+          "value": ""
+        },
+        {
+          "id": 1144911,
+          "key": "_yoast_wpseo_focuskw",
+          "value": ""
+        },
+        {
+          "id": 1144912,
+          "key": "_yoast_wpseo_metadesc",
+          "value": ""
+        },
+        {
+          "id": 1144913,
+          "key": "_yoast_wpseo_title",
+          "value": ""
+        },
+        {
+          "id": 1144914,
+          "key": "_yoast_wpseo_linkdex",
+          "value": ""
+        },
+        {
+          "id": 1144915,
+          "key": "_yoast_wpseo_meta-robots-noindex",
+          "value": ""
+        },
+        {
+          "id": 1144916,
+          "key": "rank_math_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 1144917,
+          "key": "rank_math_title",
+          "value": ""
+        },
+        {
+          "id": 1144918,
+          "key": "rank_math_description",
+          "value": ""
+        },
+        {
+          "id": 1144919,
+          "key": "rank_math_focus_keyword",
+          "value": ""
+        },
+        {
+          "id": 1144920,
+          "key": "rank_math_news_sitemap_robots",
+          "value": ""
+        },
+        {
+          "id": 1144922,
+          "key": "rank_math_seo_score",
+          "value": ""
+        },
+        {
+          "id": 1144923,
+          "key": "rank_math_primary_fb_product_set",
+          "value": ""
+        },
+        {
+          "id": 1144924,
+          "key": "hubwoo_ecomm_invalid_pro",
+          "value": ""
+        },
+        {
+          "id": 1144925,
+          "key": "hubwoo_ecomm_pro_id",
+          "value": ""
+        },
+        {
+          "id": 1144926,
+          "key": "_rank_math_gtin_code",
+          "value": ""
+        },
+        {
+          "id": 1144927,
+          "key": "woodmart_price_unit_of_measure",
+          "value": ""
+        },
+        {
+          "id": 1144928,
+          "key": "_woodmart_new_label",
+          "value": ""
+        },
+        {
+          "id": 1144929,
+          "key": "_woodmart_related_off",
+          "value": ""
+        },
+        {
+          "id": 1144930,
+          "key": "_woodmart_hide_tabs_titles",
+          "value": ""
+        },
+        {
+          "id": 1144931,
+          "key": "_woodmart_product_custom_tab_content_type",
+          "value": ""
+        },
+        {
+          "id": 1144932,
+          "key": "_woodmart_product_custom_tab_html_block",
+          "value": ""
+        },
+        {
+          "id": 1144933,
+          "key": "_woodmart_product_custom_tab_title_2",
+          "value": ""
+        },
+        {
+          "id": 1144934,
+          "key": "_woodmart_product_custom_tab_content_type_2",
+          "value": ""
+        },
+        {
+          "id": 1144935,
+          "key": "_woodmart_product_custom_tab_content_2",
+          "value": ""
+        },
+        {
+          "id": 1144936,
+          "key": "_woodmart_product_custom_tab_html_block_2",
+          "value": ""
+        },
+        {
+          "id": 1144937,
+          "key": "_pwgc_exclude_tax",
+          "value": "0"
+        },
+        {
+          "id": 1144938,
+          "key": "_pwgc_exclude_shipping",
+          "value": "0"
+        },
+        {
+          "id": 1144939,
+          "key": "hubwoo_product_synced",
+          "value": ""
+        },
+        {
+          "id": 1360975,
+          "key": "_woodmart_exclude_show_single_variation",
+          "value": ""
+        },
+        {
+          "id": 2217095,
+          "key": "_last_change_time",
+          "value": "1778184334"
+        },
+        {
+          "id": 2313100,
+          "key": "wpcvi_images",
+          "value": "29517,19518"
+        }
+      ],
+      "name": "Café, 42",
+      "parent_id": 29526,
+      "_links": {
+        "self": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526/variations/29533",
+            "targetHints": {
+              "allow": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526/variations"
+          }
+        ],
+        "up": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526"
+          }
+        ]
+      }
+    },
+    {
+      "id": 29532,
+      "type": "variation",
+      "date_created": "2023-06-09T19:58:04",
+      "date_created_gmt": "2023-06-09T19:58:04",
+      "date_modified": "2026-05-08T21:42:00",
+      "date_modified_gmt": "2026-05-08T21:42:00",
+      "description": "",
+      "permalink": "https://tienda.winstonandharrystore.com/product/maicao/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=41",
+      "sku": "7500804041",
+      "global_unique_id": "",
+      "price": "399840",
+      "regular_price": "666400",
+      "sale_price": "336000",
+      "date_on_sale_from": null,
+      "date_on_sale_from_gmt": null,
+      "date_on_sale_to": null,
+      "date_on_sale_to_gmt": null,
+      "on_sale": true,
+      "status": "publish",
+      "purchasable": true,
+      "virtual": false,
+      "downloadable": false,
+      "downloads": [],
+      "download_limit": 0,
+      "download_expiry": 0,
+      "tax_status": "taxable",
+      "tax_class": "",
+      "manage_stock": true,
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
+      "backorders": "no",
+      "backorders_allowed": false,
+      "backordered": false,
+      "low_stock_amount": null,
+      "weight": "",
+      "dimensions": {
+        "length": "",
+        "width": "",
+        "height": ""
+      },
+      "shipping_class": "",
+      "shipping_class_id": 0,
+      "image": {
+        "id": 29516,
+        "date_created": "2023-06-09T19:49:18",
+        "date_created_gmt": "2023-06-09T19:49:18",
+        "date_modified": "2023-06-09T19:49:18",
+        "date_modified_gmt": "2023-06-09T19:49:18",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/IMG_3672.jpg",
+        "name": "IMG_3672",
+        "alt": ""
+      },
+      "attributes": [
+        {
+          "id": 3,
+          "name": "Selecciona el Color",
+          "slug": "pa_selecciona-el-color",
+          "option": "Café",
+          "value": "Café"
+        },
+        {
+          "id": 4,
+          "name": "Selecciona una Talla",
+          "slug": "pa_selecciona-una-talla",
+          "option": "41",
+          "value": "41"
+        }
+      ],
+      "menu_order": 0,
+      "meta_data": [
+        {
+          "id": 1144742,
+          "key": "_product_360_image_gallery",
+          "value": ""
+        },
+        {
+          "id": 1144743,
+          "key": "_woodmart_single_product_style",
+          "value": ""
+        },
+        {
+          "id": 1144744,
+          "key": "_woodmart_thums_position",
+          "value": ""
+        },
+        {
+          "id": 1144745,
+          "key": "_woodmart_product_design",
+          "value": ""
+        },
+        {
+          "id": 1144746,
+          "key": "_woodmart_extra_content",
+          "value": ""
+        },
+        {
+          "id": 1144747,
+          "key": "_woodmart_extra_position",
+          "value": ""
+        },
+        {
+          "id": 1144748,
+          "key": "_elementor_data",
+          "value": ""
+        },
+        {
+          "id": 1144749,
+          "key": "_elementor_edit_mode",
+          "value": ""
+        },
+        {
+          "id": 1144750,
+          "key": "_elementor_version",
+          "value": ""
+        },
+        {
+          "id": 1144751,
+          "key": "_wp_page_template",
+          "value": ""
+        },
+        {
+          "id": 1144752,
+          "key": "_elementor_template_type",
+          "value": ""
+        },
+        {
+          "id": 1144753,
+          "key": "_oembed_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 1144754,
+          "key": "_oembed_time_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 1144755,
+          "key": "slide_template",
+          "value": ""
+        },
+        {
+          "id": 1144756,
+          "key": "_jet_woo_template",
+          "value": ""
+        },
+        {
+          "id": 1144757,
+          "key": "_template_type",
+          "value": ""
+        },
+        {
+          "id": 1144758,
+          "key": "_selectproduct_layout",
+          "value": ""
+        },
+        {
+          "id": 1144759,
+          "key": "_saleflash_text",
+          "value": ""
+        },
+        {
+          "id": 1144760,
+          "key": "woolentor_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 1144761,
+          "key": "_yoast_wpseo_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 1144762,
+          "key": "_yoast_wpseo_content_score",
+          "value": ""
+        },
+        {
+          "id": 1144763,
+          "key": "_dp_original",
+          "value": ""
+        },
+        {
+          "id": 1144764,
+          "key": "_wp_old_date",
+          "value": ""
+        },
+        {
+          "id": 1144765,
+          "key": "_oembed_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 1144766,
+          "key": "_oembed_time_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 1144767,
+          "key": "woodmart_sguide_select",
+          "value": ""
+        },
+        {
+          "id": 1144768,
+          "key": "woodmart_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 1144769,
+          "key": "rs_page_bg_color",
+          "value": ""
+        },
+        {
+          "id": 1144770,
+          "key": "_woodmart_whb_header",
+          "value": ""
+        },
+        {
+          "id": 1144771,
+          "key": "_woodmart_main_layout",
+          "value": ""
+        },
+        {
+          "id": 1144772,
+          "key": "_woodmart_sidebar_width",
+          "value": ""
+        },
+        {
+          "id": 1144773,
+          "key": "_woodmart_custom_sidebar",
+          "value": ""
+        },
+        {
+          "id": 1144774,
+          "key": "_woodmart_product-background",
+          "value": ""
+        },
+        {
+          "id": 1144775,
+          "key": "_woodmart_product_custom_tab_title",
+          "value": ""
+        },
+        {
+          "id": 1144776,
+          "key": "_woodmart_product_custom_tab_content",
+          "value": ""
+        },
+        {
+          "id": 1144777,
+          "key": "_woodmart_new_label_date",
+          "value": ""
+        },
+        {
+          "id": 1144778,
+          "key": "_woodmart_swatches_attribute",
+          "value": ""
+        },
+        {
+          "id": 1144779,
+          "key": "_woodmart_product_video",
+          "value": ""
+        },
+        {
+          "id": 1144780,
+          "key": "_woodmart_product_hashtag",
+          "value": ""
+        },
+        {
+          "id": 1144781,
+          "key": "_last_editor_used_jetpack",
+          "value": ""
+        },
+        {
+          "id": 1144782,
+          "key": "_oembed_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 1144783,
+          "key": "_oembed_time_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 1144784,
+          "key": "wd_additional_variation_images_data",
+          "value": "29517, 19518"
+        },
+        {
+          "id": 1144785,
+          "key": "_yoast_wpseo_estimated-reading-time-minutes",
+          "value": ""
+        },
+        {
+          "id": 1144786,
+          "key": "_elementor_pro_version",
+          "value": ""
+        },
+        {
+          "id": 1144787,
+          "key": "_oembed_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 1144788,
+          "key": "_oembed_time_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 1144790,
+          "key": "_wc_facebook_commerce_enabled",
+          "value": ""
+        },
+        {
+          "id": 1144792,
+          "key": "_wc_facebook_sync_enabled",
+          "value": "yes"
+        },
+        {
+          "id": 1144793,
+          "key": "fb_visibility",
+          "value": "yes"
+        },
+        {
+          "id": 1144794,
+          "key": "fb_product_description",
+          "value": ""
+        },
+        {
+          "id": 1144795,
+          "key": "_wc_facebook_product_image_source",
+          "value": "product"
+        },
+        {
+          "id": 1144796,
+          "key": "fb_product_image",
+          "value": ""
+        },
+        {
+          "id": 1144797,
+          "key": "fb_product_price",
+          "value": ""
+        },
+        {
+          "id": 1144798,
+          "key": "_woosea_exclude_product",
+          "value": ""
+        },
+        {
+          "id": 1144799,
+          "key": "_yoast_wpseo_wordproof_timestamp",
+          "value": ""
+        },
+        {
+          "id": 1144800,
+          "key": "_yoast_wpseo_focuskw",
+          "value": ""
+        },
+        {
+          "id": 1144801,
+          "key": "_yoast_wpseo_metadesc",
+          "value": ""
+        },
+        {
+          "id": 1144802,
+          "key": "_yoast_wpseo_title",
+          "value": ""
+        },
+        {
+          "id": 1144803,
+          "key": "_yoast_wpseo_linkdex",
+          "value": ""
+        },
+        {
+          "id": 1144804,
+          "key": "_yoast_wpseo_meta-robots-noindex",
+          "value": ""
+        },
+        {
+          "id": 1144805,
+          "key": "rank_math_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 1144806,
+          "key": "rank_math_title",
+          "value": ""
+        },
+        {
+          "id": 1144807,
+          "key": "rank_math_description",
+          "value": ""
+        },
+        {
+          "id": 1144808,
+          "key": "rank_math_focus_keyword",
+          "value": ""
+        },
+        {
+          "id": 1144809,
+          "key": "rank_math_news_sitemap_robots",
+          "value": ""
+        },
+        {
+          "id": 1144811,
+          "key": "rank_math_seo_score",
+          "value": ""
+        },
+        {
+          "id": 1144812,
+          "key": "rank_math_primary_fb_product_set",
+          "value": ""
+        },
+        {
+          "id": 1144813,
+          "key": "hubwoo_ecomm_invalid_pro",
+          "value": ""
+        },
+        {
+          "id": 1144814,
+          "key": "hubwoo_ecomm_pro_id",
+          "value": ""
+        },
+        {
+          "id": 1144815,
+          "key": "_rank_math_gtin_code",
+          "value": ""
+        },
+        {
+          "id": 1144816,
+          "key": "woodmart_price_unit_of_measure",
+          "value": ""
+        },
+        {
+          "id": 1144817,
+          "key": "_woodmart_new_label",
+          "value": ""
+        },
+        {
+          "id": 1144818,
+          "key": "_woodmart_related_off",
+          "value": ""
+        },
+        {
+          "id": 1144819,
+          "key": "_woodmart_hide_tabs_titles",
+          "value": ""
+        },
+        {
+          "id": 1144820,
+          "key": "_woodmart_product_custom_tab_content_type",
+          "value": ""
+        },
+        {
+          "id": 1144821,
+          "key": "_woodmart_product_custom_tab_html_block",
+          "value": ""
+        },
+        {
+          "id": 1144822,
+          "key": "_woodmart_product_custom_tab_title_2",
+          "value": ""
+        },
+        {
+          "id": 1144823,
+          "key": "_woodmart_product_custom_tab_content_type_2",
+          "value": ""
+        },
+        {
+          "id": 1144824,
+          "key": "_woodmart_product_custom_tab_content_2",
+          "value": ""
+        },
+        {
+          "id": 1144825,
+          "key": "_woodmart_product_custom_tab_html_block_2",
+          "value": ""
+        },
+        {
+          "id": 1144826,
+          "key": "_pwgc_exclude_tax",
+          "value": "0"
+        },
+        {
+          "id": 1144827,
+          "key": "_pwgc_exclude_shipping",
+          "value": "0"
+        },
+        {
+          "id": 1144828,
+          "key": "hubwoo_product_synced",
+          "value": ""
+        },
+        {
+          "id": 1360974,
+          "key": "_woodmart_exclude_show_single_variation",
+          "value": ""
+        },
+        {
+          "id": 2217093,
+          "key": "_last_change_time",
+          "value": "1778184334"
+        },
+        {
+          "id": 2313099,
+          "key": "wpcvi_images",
+          "value": "29517,19518"
+        }
+      ],
+      "name": "Café, 41",
+      "parent_id": 29526,
+      "_links": {
+        "self": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526/variations/29532",
+            "targetHints": {
+              "allow": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526/variations"
+          }
+        ],
+        "up": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526"
+          }
+        ]
+      }
+    },
+    {
+      "id": 29531,
+      "type": "variation",
+      "date_created": "2023-06-09T19:58:04",
+      "date_created_gmt": "2023-06-09T19:58:04",
+      "date_modified": "2026-05-08T21:42:00",
+      "date_modified_gmt": "2026-05-08T21:42:00",
+      "description": "",
+      "permalink": "https://tienda.winstonandharrystore.com/product/maicao/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=40",
+      "sku": "7500804040",
+      "global_unique_id": "",
+      "price": "399840",
+      "regular_price": "666400",
+      "sale_price": "336000",
+      "date_on_sale_from": null,
+      "date_on_sale_from_gmt": null,
+      "date_on_sale_to": null,
+      "date_on_sale_to_gmt": null,
+      "on_sale": true,
+      "status": "publish",
+      "purchasable": true,
+      "virtual": false,
+      "downloadable": false,
+      "downloads": [],
+      "download_limit": 0,
+      "download_expiry": 0,
+      "tax_status": "taxable",
+      "tax_class": "",
+      "manage_stock": true,
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
+      "backorders": "no",
+      "backorders_allowed": false,
+      "backordered": false,
+      "low_stock_amount": null,
+      "weight": "",
+      "dimensions": {
+        "length": "",
+        "width": "",
+        "height": ""
+      },
+      "shipping_class": "",
+      "shipping_class_id": 0,
+      "image": {
+        "id": 29516,
+        "date_created": "2023-06-09T19:49:18",
+        "date_created_gmt": "2023-06-09T19:49:18",
+        "date_modified": "2023-06-09T19:49:18",
+        "date_modified_gmt": "2023-06-09T19:49:18",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/IMG_3672.jpg",
+        "name": "IMG_3672",
+        "alt": ""
+      },
+      "attributes": [
+        {
+          "id": 3,
+          "name": "Selecciona el Color",
+          "slug": "pa_selecciona-el-color",
+          "option": "Café",
+          "value": "Café"
+        },
+        {
+          "id": 4,
+          "name": "Selecciona una Talla",
+          "slug": "pa_selecciona-una-talla",
+          "option": "40",
+          "value": "40"
+        }
+      ],
+      "menu_order": 0,
+      "meta_data": [
+        {
+          "id": 1144631,
+          "key": "_product_360_image_gallery",
+          "value": ""
+        },
+        {
+          "id": 1144632,
+          "key": "_woodmart_single_product_style",
+          "value": ""
+        },
+        {
+          "id": 1144633,
+          "key": "_woodmart_thums_position",
+          "value": ""
+        },
+        {
+          "id": 1144634,
+          "key": "_woodmart_product_design",
+          "value": ""
+        },
+        {
+          "id": 1144635,
+          "key": "_woodmart_extra_content",
+          "value": ""
+        },
+        {
+          "id": 1144636,
+          "key": "_woodmart_extra_position",
+          "value": ""
+        },
+        {
+          "id": 1144637,
+          "key": "_elementor_data",
+          "value": ""
+        },
+        {
+          "id": 1144638,
+          "key": "_elementor_edit_mode",
+          "value": ""
+        },
+        {
+          "id": 1144639,
+          "key": "_elementor_version",
+          "value": ""
+        },
+        {
+          "id": 1144640,
+          "key": "_wp_page_template",
+          "value": ""
+        },
+        {
+          "id": 1144641,
+          "key": "_elementor_template_type",
+          "value": ""
+        },
+        {
+          "id": 1144642,
+          "key": "_oembed_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 1144643,
+          "key": "_oembed_time_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 1144644,
+          "key": "slide_template",
+          "value": ""
+        },
+        {
+          "id": 1144645,
+          "key": "_jet_woo_template",
+          "value": ""
+        },
+        {
+          "id": 1144646,
+          "key": "_template_type",
+          "value": ""
+        },
+        {
+          "id": 1144647,
+          "key": "_selectproduct_layout",
+          "value": ""
+        },
+        {
+          "id": 1144648,
+          "key": "_saleflash_text",
+          "value": ""
+        },
+        {
+          "id": 1144649,
+          "key": "woolentor_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 1144650,
+          "key": "_yoast_wpseo_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 1144651,
+          "key": "_yoast_wpseo_content_score",
+          "value": ""
+        },
+        {
+          "id": 1144652,
+          "key": "_dp_original",
+          "value": ""
+        },
+        {
+          "id": 1144653,
+          "key": "_wp_old_date",
+          "value": ""
+        },
+        {
+          "id": 1144654,
+          "key": "_oembed_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 1144655,
+          "key": "_oembed_time_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 1144656,
+          "key": "woodmart_sguide_select",
+          "value": ""
+        },
+        {
+          "id": 1144657,
+          "key": "woodmart_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 1144658,
+          "key": "rs_page_bg_color",
+          "value": ""
+        },
+        {
+          "id": 1144659,
+          "key": "_woodmart_whb_header",
+          "value": ""
+        },
+        {
+          "id": 1144660,
+          "key": "_woodmart_main_layout",
+          "value": ""
+        },
+        {
+          "id": 1144661,
+          "key": "_woodmart_sidebar_width",
+          "value": ""
+        },
+        {
+          "id": 1144662,
+          "key": "_woodmart_custom_sidebar",
+          "value": ""
+        },
+        {
+          "id": 1144663,
+          "key": "_woodmart_product-background",
+          "value": ""
+        },
+        {
+          "id": 1144664,
+          "key": "_woodmart_product_custom_tab_title",
+          "value": ""
+        },
+        {
+          "id": 1144665,
+          "key": "_woodmart_product_custom_tab_content",
+          "value": ""
+        },
+        {
+          "id": 1144666,
+          "key": "_woodmart_new_label_date",
+          "value": ""
+        },
+        {
+          "id": 1144667,
+          "key": "_woodmart_swatches_attribute",
+          "value": ""
+        },
+        {
+          "id": 1144668,
+          "key": "_woodmart_product_video",
+          "value": ""
+        },
+        {
+          "id": 1144669,
+          "key": "_woodmart_product_hashtag",
+          "value": ""
+        },
+        {
+          "id": 1144670,
+          "key": "_last_editor_used_jetpack",
+          "value": ""
+        },
+        {
+          "id": 1144671,
+          "key": "_oembed_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 1144672,
+          "key": "_oembed_time_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 1144673,
+          "key": "wd_additional_variation_images_data",
+          "value": "29517, 19518"
+        },
+        {
+          "id": 1144674,
+          "key": "_yoast_wpseo_estimated-reading-time-minutes",
+          "value": ""
+        },
+        {
+          "id": 1144675,
+          "key": "_elementor_pro_version",
+          "value": ""
+        },
+        {
+          "id": 1144676,
+          "key": "_oembed_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 1144677,
+          "key": "_oembed_time_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 1144679,
+          "key": "_wc_facebook_commerce_enabled",
+          "value": ""
+        },
+        {
+          "id": 1144681,
+          "key": "_wc_facebook_sync_enabled",
+          "value": "yes"
+        },
+        {
+          "id": 1144682,
+          "key": "fb_visibility",
+          "value": "yes"
+        },
+        {
+          "id": 1144683,
+          "key": "fb_product_description",
+          "value": ""
+        },
+        {
+          "id": 1144684,
+          "key": "_wc_facebook_product_image_source",
+          "value": "product"
+        },
+        {
+          "id": 1144685,
+          "key": "fb_product_image",
+          "value": ""
+        },
+        {
+          "id": 1144686,
+          "key": "fb_product_price",
+          "value": ""
+        },
+        {
+          "id": 1144687,
+          "key": "_woosea_exclude_product",
+          "value": ""
+        },
+        {
+          "id": 1144688,
+          "key": "_yoast_wpseo_wordproof_timestamp",
+          "value": ""
+        },
+        {
+          "id": 1144689,
+          "key": "_yoast_wpseo_focuskw",
+          "value": ""
+        },
+        {
+          "id": 1144690,
+          "key": "_yoast_wpseo_metadesc",
+          "value": ""
+        },
+        {
+          "id": 1144691,
+          "key": "_yoast_wpseo_title",
+          "value": ""
+        },
+        {
+          "id": 1144692,
+          "key": "_yoast_wpseo_linkdex",
+          "value": ""
+        },
+        {
+          "id": 1144693,
+          "key": "_yoast_wpseo_meta-robots-noindex",
+          "value": ""
+        },
+        {
+          "id": 1144694,
+          "key": "rank_math_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 1144695,
+          "key": "rank_math_title",
+          "value": ""
+        },
+        {
+          "id": 1144696,
+          "key": "rank_math_description",
+          "value": ""
+        },
+        {
+          "id": 1144697,
+          "key": "rank_math_focus_keyword",
+          "value": ""
+        },
+        {
+          "id": 1144698,
+          "key": "rank_math_news_sitemap_robots",
+          "value": ""
+        },
+        {
+          "id": 1144700,
+          "key": "rank_math_seo_score",
+          "value": ""
+        },
+        {
+          "id": 1144701,
+          "key": "rank_math_primary_fb_product_set",
+          "value": ""
+        },
+        {
+          "id": 1144702,
+          "key": "hubwoo_ecomm_invalid_pro",
+          "value": ""
+        },
+        {
+          "id": 1144703,
+          "key": "hubwoo_ecomm_pro_id",
+          "value": ""
+        },
+        {
+          "id": 1144704,
+          "key": "_rank_math_gtin_code",
+          "value": ""
+        },
+        {
+          "id": 1144705,
+          "key": "woodmart_price_unit_of_measure",
+          "value": ""
+        },
+        {
+          "id": 1144706,
+          "key": "_woodmart_new_label",
+          "value": ""
+        },
+        {
+          "id": 1144707,
+          "key": "_woodmart_related_off",
+          "value": ""
+        },
+        {
+          "id": 1144708,
+          "key": "_woodmart_hide_tabs_titles",
+          "value": ""
+        },
+        {
+          "id": 1144709,
+          "key": "_woodmart_product_custom_tab_content_type",
+          "value": ""
+        },
+        {
+          "id": 1144710,
+          "key": "_woodmart_product_custom_tab_html_block",
+          "value": ""
+        },
+        {
+          "id": 1144711,
+          "key": "_woodmart_product_custom_tab_title_2",
+          "value": ""
+        },
+        {
+          "id": 1144712,
+          "key": "_woodmart_product_custom_tab_content_type_2",
+          "value": ""
+        },
+        {
+          "id": 1144713,
+          "key": "_woodmart_product_custom_tab_content_2",
+          "value": ""
+        },
+        {
+          "id": 1144714,
+          "key": "_woodmart_product_custom_tab_html_block_2",
+          "value": ""
+        },
+        {
+          "id": 1144715,
+          "key": "_pwgc_exclude_tax",
+          "value": "0"
+        },
+        {
+          "id": 1144716,
+          "key": "_pwgc_exclude_shipping",
+          "value": "0"
+        },
+        {
+          "id": 1144717,
+          "key": "hubwoo_product_synced",
+          "value": ""
+        },
+        {
+          "id": 1360971,
+          "key": "_woodmart_exclude_show_single_variation",
+          "value": ""
+        },
+        {
+          "id": 2217091,
+          "key": "_last_change_time",
+          "value": "1778184334"
+        },
+        {
+          "id": 2313098,
+          "key": "wpcvi_images",
+          "value": "29517,19518"
+        }
+      ],
+      "name": "Café, 40",
+      "parent_id": 29526,
+      "_links": {
+        "self": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526/variations/29531",
+            "targetHints": {
+              "allow": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526/variations"
+          }
+        ],
+        "up": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526"
+          }
+        ]
+      }
+    },
+    {
+      "id": 29530,
+      "type": "variation",
+      "date_created": "2023-06-09T19:58:04",
+      "date_created_gmt": "2023-06-09T19:58:04",
+      "date_modified": "2026-05-08T21:42:00",
+      "date_modified_gmt": "2026-05-08T21:42:00",
+      "description": "",
+      "permalink": "https://tienda.winstonandharrystore.com/product/maicao/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=39",
+      "sku": "7500804039",
+      "global_unique_id": "",
+      "price": "399840",
+      "regular_price": "666400",
+      "sale_price": "336000",
+      "date_on_sale_from": null,
+      "date_on_sale_from_gmt": null,
+      "date_on_sale_to": null,
+      "date_on_sale_to_gmt": null,
+      "on_sale": true,
+      "status": "publish",
+      "purchasable": true,
+      "virtual": false,
+      "downloadable": false,
+      "downloads": [],
+      "download_limit": 0,
+      "download_expiry": 0,
+      "tax_status": "taxable",
+      "tax_class": "",
+      "manage_stock": true,
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
+      "backorders": "no",
+      "backorders_allowed": false,
+      "backordered": false,
+      "low_stock_amount": null,
+      "weight": "",
+      "dimensions": {
+        "length": "",
+        "width": "",
+        "height": ""
+      },
+      "shipping_class": "",
+      "shipping_class_id": 0,
+      "image": {
+        "id": 29516,
+        "date_created": "2023-06-09T19:49:18",
+        "date_created_gmt": "2023-06-09T19:49:18",
+        "date_modified": "2023-06-09T19:49:18",
+        "date_modified_gmt": "2023-06-09T19:49:18",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/IMG_3672.jpg",
+        "name": "IMG_3672",
+        "alt": ""
+      },
+      "attributes": [
+        {
+          "id": 3,
+          "name": "Selecciona el Color",
+          "slug": "pa_selecciona-el-color",
+          "option": "Café",
+          "value": "Café"
+        },
+        {
+          "id": 4,
+          "name": "Selecciona una Talla",
+          "slug": "pa_selecciona-una-talla",
+          "option": "39",
+          "value": "39"
+        }
+      ],
+      "menu_order": 0,
+      "meta_data": [
+        {
+          "id": 1144520,
+          "key": "_product_360_image_gallery",
+          "value": ""
+        },
+        {
+          "id": 1144521,
+          "key": "_woodmart_single_product_style",
+          "value": ""
+        },
+        {
+          "id": 1144522,
+          "key": "_woodmart_thums_position",
+          "value": ""
+        },
+        {
+          "id": 1144523,
+          "key": "_woodmart_product_design",
+          "value": ""
+        },
+        {
+          "id": 1144524,
+          "key": "_woodmart_extra_content",
+          "value": ""
+        },
+        {
+          "id": 1144525,
+          "key": "_woodmart_extra_position",
+          "value": ""
+        },
+        {
+          "id": 1144526,
+          "key": "_elementor_data",
+          "value": ""
+        },
+        {
+          "id": 1144527,
+          "key": "_elementor_edit_mode",
+          "value": ""
+        },
+        {
+          "id": 1144528,
+          "key": "_elementor_version",
+          "value": ""
+        },
+        {
+          "id": 1144529,
+          "key": "_wp_page_template",
+          "value": ""
+        },
+        {
+          "id": 1144530,
+          "key": "_elementor_template_type",
+          "value": ""
+        },
+        {
+          "id": 1144531,
+          "key": "_oembed_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 1144532,
+          "key": "_oembed_time_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 1144533,
+          "key": "slide_template",
+          "value": ""
+        },
+        {
+          "id": 1144534,
+          "key": "_jet_woo_template",
+          "value": ""
+        },
+        {
+          "id": 1144535,
+          "key": "_template_type",
+          "value": ""
+        },
+        {
+          "id": 1144536,
+          "key": "_selectproduct_layout",
+          "value": ""
+        },
+        {
+          "id": 1144537,
+          "key": "_saleflash_text",
+          "value": ""
+        },
+        {
+          "id": 1144538,
+          "key": "woolentor_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 1144539,
+          "key": "_yoast_wpseo_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 1144540,
+          "key": "_yoast_wpseo_content_score",
+          "value": ""
+        },
+        {
+          "id": 1144541,
+          "key": "_dp_original",
+          "value": ""
+        },
+        {
+          "id": 1144542,
+          "key": "_wp_old_date",
+          "value": ""
+        },
+        {
+          "id": 1144543,
+          "key": "_oembed_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 1144544,
+          "key": "_oembed_time_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 1144545,
+          "key": "woodmart_sguide_select",
+          "value": ""
+        },
+        {
+          "id": 1144546,
+          "key": "woodmart_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 1144547,
+          "key": "rs_page_bg_color",
+          "value": ""
+        },
+        {
+          "id": 1144548,
+          "key": "_woodmart_whb_header",
+          "value": ""
+        },
+        {
+          "id": 1144549,
+          "key": "_woodmart_main_layout",
+          "value": ""
+        },
+        {
+          "id": 1144550,
+          "key": "_woodmart_sidebar_width",
+          "value": ""
+        },
+        {
+          "id": 1144551,
+          "key": "_woodmart_custom_sidebar",
+          "value": ""
+        },
+        {
+          "id": 1144552,
+          "key": "_woodmart_product-background",
+          "value": ""
+        },
+        {
+          "id": 1144553,
+          "key": "_woodmart_product_custom_tab_title",
+          "value": ""
+        },
+        {
+          "id": 1144554,
+          "key": "_woodmart_product_custom_tab_content",
+          "value": ""
+        },
+        {
+          "id": 1144555,
+          "key": "_woodmart_new_label_date",
+          "value": ""
+        },
+        {
+          "id": 1144556,
+          "key": "_woodmart_swatches_attribute",
+          "value": ""
+        },
+        {
+          "id": 1144557,
+          "key": "_woodmart_product_video",
+          "value": ""
+        },
+        {
+          "id": 1144558,
+          "key": "_woodmart_product_hashtag",
+          "value": ""
+        },
+        {
+          "id": 1144559,
+          "key": "_last_editor_used_jetpack",
+          "value": ""
+        },
+        {
+          "id": 1144560,
+          "key": "_oembed_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 1144561,
+          "key": "_oembed_time_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 1144562,
+          "key": "wd_additional_variation_images_data",
+          "value": "29517, 19518"
+        },
+        {
+          "id": 1144563,
+          "key": "_yoast_wpseo_estimated-reading-time-minutes",
+          "value": ""
+        },
+        {
+          "id": 1144564,
+          "key": "_elementor_pro_version",
+          "value": ""
+        },
+        {
+          "id": 1144565,
+          "key": "_oembed_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 1144566,
+          "key": "_oembed_time_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 1144568,
+          "key": "_wc_facebook_commerce_enabled",
+          "value": ""
+        },
+        {
+          "id": 1144570,
+          "key": "_wc_facebook_sync_enabled",
+          "value": "yes"
+        },
+        {
+          "id": 1144571,
+          "key": "fb_visibility",
+          "value": "yes"
+        },
+        {
+          "id": 1144572,
+          "key": "fb_product_description",
+          "value": ""
+        },
+        {
+          "id": 1144573,
+          "key": "_wc_facebook_product_image_source",
+          "value": "product"
+        },
+        {
+          "id": 1144574,
+          "key": "fb_product_image",
+          "value": ""
+        },
+        {
+          "id": 1144575,
+          "key": "fb_product_price",
+          "value": ""
+        },
+        {
+          "id": 1144576,
+          "key": "_woosea_exclude_product",
+          "value": ""
+        },
+        {
+          "id": 1144577,
+          "key": "_yoast_wpseo_wordproof_timestamp",
+          "value": ""
+        },
+        {
+          "id": 1144578,
+          "key": "_yoast_wpseo_focuskw",
+          "value": ""
+        },
+        {
+          "id": 1144579,
+          "key": "_yoast_wpseo_metadesc",
+          "value": ""
+        },
+        {
+          "id": 1144580,
+          "key": "_yoast_wpseo_title",
+          "value": ""
+        },
+        {
+          "id": 1144581,
+          "key": "_yoast_wpseo_linkdex",
+          "value": ""
+        },
+        {
+          "id": 1144582,
+          "key": "_yoast_wpseo_meta-robots-noindex",
+          "value": ""
+        },
+        {
+          "id": 1144583,
+          "key": "rank_math_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 1144584,
+          "key": "rank_math_title",
+          "value": ""
+        },
+        {
+          "id": 1144585,
+          "key": "rank_math_description",
+          "value": ""
+        },
+        {
+          "id": 1144586,
+          "key": "rank_math_focus_keyword",
+          "value": ""
+        },
+        {
+          "id": 1144587,
+          "key": "rank_math_news_sitemap_robots",
+          "value": ""
+        },
+        {
+          "id": 1144589,
+          "key": "rank_math_seo_score",
+          "value": ""
+        },
+        {
+          "id": 1144590,
+          "key": "rank_math_primary_fb_product_set",
+          "value": ""
+        },
+        {
+          "id": 1144591,
+          "key": "hubwoo_ecomm_invalid_pro",
+          "value": ""
+        },
+        {
+          "id": 1144592,
+          "key": "hubwoo_ecomm_pro_id",
+          "value": ""
+        },
+        {
+          "id": 1144593,
+          "key": "_rank_math_gtin_code",
+          "value": ""
+        },
+        {
+          "id": 1144594,
+          "key": "woodmart_price_unit_of_measure",
+          "value": ""
+        },
+        {
+          "id": 1144595,
+          "key": "_woodmart_new_label",
+          "value": ""
+        },
+        {
+          "id": 1144596,
+          "key": "_woodmart_related_off",
+          "value": ""
+        },
+        {
+          "id": 1144597,
+          "key": "_woodmart_hide_tabs_titles",
+          "value": ""
+        },
+        {
+          "id": 1144598,
+          "key": "_woodmart_product_custom_tab_content_type",
+          "value": ""
+        },
+        {
+          "id": 1144599,
+          "key": "_woodmart_product_custom_tab_html_block",
+          "value": ""
+        },
+        {
+          "id": 1144600,
+          "key": "_woodmart_product_custom_tab_title_2",
+          "value": ""
+        },
+        {
+          "id": 1144601,
+          "key": "_woodmart_product_custom_tab_content_type_2",
+          "value": ""
+        },
+        {
+          "id": 1144602,
+          "key": "_woodmart_product_custom_tab_content_2",
+          "value": ""
+        },
+        {
+          "id": 1144603,
+          "key": "_woodmart_product_custom_tab_html_block_2",
+          "value": ""
+        },
+        {
+          "id": 1144604,
+          "key": "_pwgc_exclude_tax",
+          "value": "0"
+        },
+        {
+          "id": 1144605,
+          "key": "_pwgc_exclude_shipping",
+          "value": "0"
+        },
+        {
+          "id": 1144606,
+          "key": "hubwoo_product_synced",
+          "value": ""
+        },
+        {
+          "id": 1242531,
+          "key": "fb_product_group_id",
+          "value": ""
+        },
+        {
+          "id": 1242532,
+          "key": "fb_product_item_id",
+          "value": ""
+        },
+        {
+          "id": 1360970,
+          "key": "_woodmart_exclude_show_single_variation",
+          "value": ""
+        },
+        {
+          "id": 2217089,
+          "key": "_last_change_time",
+          "value": "1778184334"
+        },
+        {
+          "id": 2313097,
+          "key": "wpcvi_images",
+          "value": "29517,19518"
+        }
+      ],
+      "name": "Café, 39",
+      "parent_id": 29526,
+      "_links": {
+        "self": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526/variations/29530",
+            "targetHints": {
+              "allow": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526/variations"
+          }
+        ],
+        "up": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526"
+          }
+        ]
+      }
+    },
+    {
+      "id": 29529,
+      "type": "variation",
+      "date_created": "2023-06-09T19:58:04",
+      "date_created_gmt": "2023-06-09T19:58:04",
+      "date_modified": "2026-05-08T21:41:49",
+      "date_modified_gmt": "2026-05-08T21:41:49",
+      "description": "",
+      "permalink": "https://tienda.winstonandharrystore.com/product/maicao/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=38",
+      "sku": "7500804038",
+      "global_unique_id": "",
+      "price": "399840",
+      "regular_price": "666400",
+      "sale_price": "336000",
+      "date_on_sale_from": null,
+      "date_on_sale_from_gmt": null,
+      "date_on_sale_to": null,
+      "date_on_sale_to_gmt": null,
+      "on_sale": true,
+      "status": "publish",
+      "purchasable": true,
+      "virtual": false,
+      "downloadable": false,
+      "downloads": [],
+      "download_limit": 0,
+      "download_expiry": 0,
+      "tax_status": "taxable",
+      "tax_class": "",
+      "manage_stock": true,
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
+      "backorders": "no",
+      "backorders_allowed": false,
+      "backordered": false,
+      "low_stock_amount": null,
+      "weight": "",
+      "dimensions": {
+        "length": "",
+        "width": "",
+        "height": ""
+      },
+      "shipping_class": "",
+      "shipping_class_id": 0,
+      "image": {
+        "id": 29516,
+        "date_created": "2023-06-09T19:49:18",
+        "date_created_gmt": "2023-06-09T19:49:18",
+        "date_modified": "2023-06-09T19:49:18",
+        "date_modified_gmt": "2023-06-09T19:49:18",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/IMG_3672.jpg",
+        "name": "IMG_3672",
+        "alt": ""
+      },
+      "attributes": [
+        {
+          "id": 3,
+          "name": "Selecciona el Color",
+          "slug": "pa_selecciona-el-color",
+          "option": "Café",
+          "value": "Café"
+        },
+        {
+          "id": 4,
+          "name": "Selecciona una Talla",
+          "slug": "pa_selecciona-una-talla",
+          "option": "38",
+          "value": "38"
+        }
+      ],
+      "menu_order": 0,
+      "meta_data": [
+        {
+          "id": 1144409,
+          "key": "_product_360_image_gallery",
+          "value": ""
+        },
+        {
+          "id": 1144410,
+          "key": "_woodmart_single_product_style",
+          "value": ""
+        },
+        {
+          "id": 1144411,
+          "key": "_woodmart_thums_position",
+          "value": ""
+        },
+        {
+          "id": 1144412,
+          "key": "_woodmart_product_design",
+          "value": ""
+        },
+        {
+          "id": 1144413,
+          "key": "_woodmart_extra_content",
+          "value": ""
+        },
+        {
+          "id": 1144414,
+          "key": "_woodmart_extra_position",
+          "value": ""
+        },
+        {
+          "id": 1144415,
+          "key": "_elementor_data",
+          "value": ""
+        },
+        {
+          "id": 1144416,
+          "key": "_elementor_edit_mode",
+          "value": ""
+        },
+        {
+          "id": 1144417,
+          "key": "_elementor_version",
+          "value": ""
+        },
+        {
+          "id": 1144418,
+          "key": "_wp_page_template",
+          "value": ""
+        },
+        {
+          "id": 1144419,
+          "key": "_elementor_template_type",
+          "value": ""
+        },
+        {
+          "id": 1144420,
+          "key": "_oembed_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 1144421,
+          "key": "_oembed_time_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 1144422,
+          "key": "slide_template",
+          "value": ""
+        },
+        {
+          "id": 1144423,
+          "key": "_jet_woo_template",
+          "value": ""
+        },
+        {
+          "id": 1144424,
+          "key": "_template_type",
+          "value": ""
+        },
+        {
+          "id": 1144425,
+          "key": "_selectproduct_layout",
+          "value": ""
+        },
+        {
+          "id": 1144426,
+          "key": "_saleflash_text",
+          "value": ""
+        },
+        {
+          "id": 1144427,
+          "key": "woolentor_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 1144428,
+          "key": "_yoast_wpseo_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 1144429,
+          "key": "_yoast_wpseo_content_score",
+          "value": ""
+        },
+        {
+          "id": 1144430,
+          "key": "_dp_original",
+          "value": ""
+        },
+        {
+          "id": 1144431,
+          "key": "_wp_old_date",
+          "value": ""
+        },
+        {
+          "id": 1144432,
+          "key": "_oembed_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 1144433,
+          "key": "_oembed_time_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 1144434,
+          "key": "woodmart_sguide_select",
+          "value": ""
+        },
+        {
+          "id": 1144435,
+          "key": "woodmart_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 1144436,
+          "key": "rs_page_bg_color",
+          "value": ""
+        },
+        {
+          "id": 1144437,
+          "key": "_woodmart_whb_header",
+          "value": ""
+        },
+        {
+          "id": 1144438,
+          "key": "_woodmart_main_layout",
+          "value": ""
+        },
+        {
+          "id": 1144439,
+          "key": "_woodmart_sidebar_width",
+          "value": ""
+        },
+        {
+          "id": 1144440,
+          "key": "_woodmart_custom_sidebar",
+          "value": ""
+        },
+        {
+          "id": 1144441,
+          "key": "_woodmart_product-background",
+          "value": ""
+        },
+        {
+          "id": 1144442,
+          "key": "_woodmart_product_custom_tab_title",
+          "value": ""
+        },
+        {
+          "id": 1144443,
+          "key": "_woodmart_product_custom_tab_content",
+          "value": ""
+        },
+        {
+          "id": 1144444,
+          "key": "_woodmart_new_label_date",
+          "value": ""
+        },
+        {
+          "id": 1144445,
+          "key": "_woodmart_swatches_attribute",
+          "value": ""
+        },
+        {
+          "id": 1144446,
+          "key": "_woodmart_product_video",
+          "value": ""
+        },
+        {
+          "id": 1144447,
+          "key": "_woodmart_product_hashtag",
+          "value": ""
+        },
+        {
+          "id": 1144448,
+          "key": "_last_editor_used_jetpack",
+          "value": ""
+        },
+        {
+          "id": 1144449,
+          "key": "_oembed_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 1144450,
+          "key": "_oembed_time_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 1144451,
+          "key": "wd_additional_variation_images_data",
+          "value": "29517, 19518"
+        },
+        {
+          "id": 1144452,
+          "key": "_yoast_wpseo_estimated-reading-time-minutes",
+          "value": ""
+        },
+        {
+          "id": 1144453,
+          "key": "_elementor_pro_version",
+          "value": ""
+        },
+        {
+          "id": 1144454,
+          "key": "_oembed_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 1144455,
+          "key": "_oembed_time_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 1144457,
+          "key": "_wc_facebook_commerce_enabled",
+          "value": ""
+        },
+        {
+          "id": 1144459,
+          "key": "_wc_facebook_sync_enabled",
+          "value": "yes"
+        },
+        {
+          "id": 1144460,
+          "key": "fb_visibility",
+          "value": "yes"
+        },
+        {
+          "id": 1144461,
+          "key": "fb_product_description",
+          "value": ""
+        },
+        {
+          "id": 1144462,
+          "key": "_wc_facebook_product_image_source",
+          "value": "product"
+        },
+        {
+          "id": 1144463,
+          "key": "fb_product_image",
+          "value": ""
+        },
+        {
+          "id": 1144464,
+          "key": "fb_product_price",
+          "value": ""
+        },
+        {
+          "id": 1144465,
+          "key": "_woosea_exclude_product",
+          "value": ""
+        },
+        {
+          "id": 1144466,
+          "key": "_yoast_wpseo_wordproof_timestamp",
+          "value": ""
+        },
+        {
+          "id": 1144467,
+          "key": "_yoast_wpseo_focuskw",
+          "value": ""
+        },
+        {
+          "id": 1144468,
+          "key": "_yoast_wpseo_metadesc",
+          "value": ""
+        },
+        {
+          "id": 1144469,
+          "key": "_yoast_wpseo_title",
+          "value": ""
+        },
+        {
+          "id": 1144470,
+          "key": "_yoast_wpseo_linkdex",
+          "value": ""
+        },
+        {
+          "id": 1144471,
+          "key": "_yoast_wpseo_meta-robots-noindex",
+          "value": ""
+        },
+        {
+          "id": 1144472,
+          "key": "rank_math_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 1144473,
+          "key": "rank_math_title",
+          "value": ""
+        },
+        {
+          "id": 1144474,
+          "key": "rank_math_description",
+          "value": ""
+        },
+        {
+          "id": 1144475,
+          "key": "rank_math_focus_keyword",
+          "value": ""
+        },
+        {
+          "id": 1144476,
+          "key": "rank_math_news_sitemap_robots",
+          "value": ""
+        },
+        {
+          "id": 1144478,
+          "key": "rank_math_seo_score",
+          "value": ""
+        },
+        {
+          "id": 1144479,
+          "key": "rank_math_primary_fb_product_set",
+          "value": ""
+        },
+        {
+          "id": 1144480,
+          "key": "hubwoo_ecomm_invalid_pro",
+          "value": ""
+        },
+        {
+          "id": 1144481,
+          "key": "hubwoo_ecomm_pro_id",
+          "value": ""
+        },
+        {
+          "id": 1144482,
+          "key": "_rank_math_gtin_code",
+          "value": ""
+        },
+        {
+          "id": 1144483,
+          "key": "woodmart_price_unit_of_measure",
+          "value": ""
+        },
+        {
+          "id": 1144484,
+          "key": "_woodmart_new_label",
+          "value": ""
+        },
+        {
+          "id": 1144485,
+          "key": "_woodmart_related_off",
+          "value": ""
+        },
+        {
+          "id": 1144486,
+          "key": "_woodmart_hide_tabs_titles",
+          "value": ""
+        },
+        {
+          "id": 1144487,
+          "key": "_woodmart_product_custom_tab_content_type",
+          "value": ""
+        },
+        {
+          "id": 1144488,
+          "key": "_woodmart_product_custom_tab_html_block",
+          "value": ""
+        },
+        {
+          "id": 1144489,
+          "key": "_woodmart_product_custom_tab_title_2",
+          "value": ""
+        },
+        {
+          "id": 1144490,
+          "key": "_woodmart_product_custom_tab_content_type_2",
+          "value": ""
+        },
+        {
+          "id": 1144491,
+          "key": "_woodmart_product_custom_tab_content_2",
+          "value": ""
+        },
+        {
+          "id": 1144492,
+          "key": "_woodmart_product_custom_tab_html_block_2",
+          "value": ""
+        },
+        {
+          "id": 1144493,
+          "key": "_pwgc_exclude_tax",
+          "value": "0"
+        },
+        {
+          "id": 1144494,
+          "key": "_pwgc_exclude_shipping",
+          "value": "0"
+        },
+        {
+          "id": 1144495,
+          "key": "hubwoo_product_synced",
+          "value": ""
+        },
+        {
+          "id": 1360969,
+          "key": "_woodmart_exclude_show_single_variation",
+          "value": ""
+        },
+        {
+          "id": 2217087,
+          "key": "_last_change_time",
+          "value": "1778184334"
+        },
+        {
+          "id": 2313096,
+          "key": "wpcvi_images",
+          "value": "29517,19518"
+        }
+      ],
+      "name": "Café, 38",
+      "parent_id": 29526,
+      "_links": {
+        "self": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526/variations/29529",
+            "targetHints": {
+              "allow": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526/variations"
+          }
+        ],
+        "up": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526"
+          }
+        ]
+      }
+    },
+    {
+      "id": 29528,
+      "type": "variation",
+      "date_created": "2023-06-09T19:58:03",
+      "date_created_gmt": "2023-06-09T19:58:03",
+      "date_modified": "2026-05-08T21:41:48",
+      "date_modified_gmt": "2026-05-08T21:41:48",
+      "description": "",
+      "permalink": "https://tienda.winstonandharrystore.com/product/maicao/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=37",
+      "sku": "7500804037",
+      "global_unique_id": "",
+      "price": "399840",
+      "regular_price": "666400",
+      "sale_price": "336000",
+      "date_on_sale_from": null,
+      "date_on_sale_from_gmt": null,
+      "date_on_sale_to": null,
+      "date_on_sale_to_gmt": null,
+      "on_sale": true,
+      "status": "publish",
+      "purchasable": true,
+      "virtual": false,
+      "downloadable": false,
+      "downloads": [],
+      "download_limit": 0,
+      "download_expiry": 0,
+      "tax_status": "taxable",
+      "tax_class": "",
+      "manage_stock": true,
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
+      "backorders": "no",
+      "backorders_allowed": false,
+      "backordered": false,
+      "low_stock_amount": null,
+      "weight": "",
+      "dimensions": {
+        "length": "",
+        "width": "",
+        "height": ""
+      },
+      "shipping_class": "",
+      "shipping_class_id": 0,
+      "image": {
+        "id": 29516,
+        "date_created": "2023-06-09T19:49:18",
+        "date_created_gmt": "2023-06-09T19:49:18",
+        "date_modified": "2023-06-09T19:49:18",
+        "date_modified_gmt": "2023-06-09T19:49:18",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/IMG_3672.jpg",
+        "name": "IMG_3672",
+        "alt": ""
+      },
+      "attributes": [
+        {
+          "id": 3,
+          "name": "Selecciona el Color",
+          "slug": "pa_selecciona-el-color",
+          "option": "Café",
+          "value": "Café"
+        },
+        {
+          "id": 4,
+          "name": "Selecciona una Talla",
+          "slug": "pa_selecciona-una-talla",
+          "option": "37",
+          "value": "37"
+        }
+      ],
+      "menu_order": 0,
+      "meta_data": [
+        {
+          "id": 1144298,
+          "key": "_product_360_image_gallery",
+          "value": ""
+        },
+        {
+          "id": 1144299,
+          "key": "_woodmart_single_product_style",
+          "value": ""
+        },
+        {
+          "id": 1144300,
+          "key": "_woodmart_thums_position",
+          "value": ""
+        },
+        {
+          "id": 1144301,
+          "key": "_woodmart_product_design",
+          "value": ""
+        },
+        {
+          "id": 1144302,
+          "key": "_woodmart_extra_content",
+          "value": ""
+        },
+        {
+          "id": 1144303,
+          "key": "_woodmart_extra_position",
+          "value": ""
+        },
+        {
+          "id": 1144304,
+          "key": "_elementor_data",
+          "value": ""
+        },
+        {
+          "id": 1144305,
+          "key": "_elementor_edit_mode",
+          "value": ""
+        },
+        {
+          "id": 1144306,
+          "key": "_elementor_version",
+          "value": ""
+        },
+        {
+          "id": 1144307,
+          "key": "_wp_page_template",
+          "value": ""
+        },
+        {
+          "id": 1144308,
+          "key": "_elementor_template_type",
+          "value": ""
+        },
+        {
+          "id": 1144309,
+          "key": "_oembed_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 1144310,
+          "key": "_oembed_time_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 1144311,
+          "key": "slide_template",
+          "value": ""
+        },
+        {
+          "id": 1144312,
+          "key": "_jet_woo_template",
+          "value": ""
+        },
+        {
+          "id": 1144313,
+          "key": "_template_type",
+          "value": ""
+        },
+        {
+          "id": 1144314,
+          "key": "_selectproduct_layout",
+          "value": ""
+        },
+        {
+          "id": 1144315,
+          "key": "_saleflash_text",
+          "value": ""
+        },
+        {
+          "id": 1144316,
+          "key": "woolentor_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 1144317,
+          "key": "_yoast_wpseo_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 1144318,
+          "key": "_yoast_wpseo_content_score",
+          "value": ""
+        },
+        {
+          "id": 1144319,
+          "key": "_dp_original",
+          "value": ""
+        },
+        {
+          "id": 1144320,
+          "key": "_wp_old_date",
+          "value": ""
+        },
+        {
+          "id": 1144321,
+          "key": "_oembed_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 1144322,
+          "key": "_oembed_time_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 1144323,
+          "key": "woodmart_sguide_select",
+          "value": ""
+        },
+        {
+          "id": 1144324,
+          "key": "woodmart_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 1144325,
+          "key": "rs_page_bg_color",
+          "value": ""
+        },
+        {
+          "id": 1144326,
+          "key": "_woodmart_whb_header",
+          "value": ""
+        },
+        {
+          "id": 1144327,
+          "key": "_woodmart_main_layout",
+          "value": ""
+        },
+        {
+          "id": 1144328,
+          "key": "_woodmart_sidebar_width",
+          "value": ""
+        },
+        {
+          "id": 1144329,
+          "key": "_woodmart_custom_sidebar",
+          "value": ""
+        },
+        {
+          "id": 1144330,
+          "key": "_woodmart_product-background",
+          "value": ""
+        },
+        {
+          "id": 1144331,
+          "key": "_woodmart_product_custom_tab_title",
+          "value": ""
+        },
+        {
+          "id": 1144332,
+          "key": "_woodmart_product_custom_tab_content",
+          "value": ""
+        },
+        {
+          "id": 1144333,
+          "key": "_woodmart_new_label_date",
+          "value": ""
+        },
+        {
+          "id": 1144334,
+          "key": "_woodmart_swatches_attribute",
+          "value": ""
+        },
+        {
+          "id": 1144335,
+          "key": "_woodmart_product_video",
+          "value": ""
+        },
+        {
+          "id": 1144336,
+          "key": "_woodmart_product_hashtag",
+          "value": ""
+        },
+        {
+          "id": 1144337,
+          "key": "_last_editor_used_jetpack",
+          "value": ""
+        },
+        {
+          "id": 1144338,
+          "key": "_oembed_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 1144339,
+          "key": "_oembed_time_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 1144340,
+          "key": "wd_additional_variation_images_data",
+          "value": "29517, 19518"
+        },
+        {
+          "id": 1144341,
+          "key": "_yoast_wpseo_estimated-reading-time-minutes",
+          "value": ""
+        },
+        {
+          "id": 1144342,
+          "key": "_elementor_pro_version",
+          "value": ""
+        },
+        {
+          "id": 1144343,
+          "key": "_oembed_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 1144344,
+          "key": "_oembed_time_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 1144346,
+          "key": "_wc_facebook_commerce_enabled",
+          "value": ""
+        },
+        {
+          "id": 1144348,
+          "key": "_wc_facebook_sync_enabled",
+          "value": "yes"
+        },
+        {
+          "id": 1144349,
+          "key": "fb_visibility",
+          "value": "yes"
+        },
+        {
+          "id": 1144350,
+          "key": "fb_product_description",
+          "value": ""
+        },
+        {
+          "id": 1144351,
+          "key": "_wc_facebook_product_image_source",
+          "value": "product"
+        },
+        {
+          "id": 1144352,
+          "key": "fb_product_image",
+          "value": ""
+        },
+        {
+          "id": 1144353,
+          "key": "fb_product_price",
+          "value": ""
+        },
+        {
+          "id": 1144354,
+          "key": "_woosea_exclude_product",
+          "value": ""
+        },
+        {
+          "id": 1144355,
+          "key": "_yoast_wpseo_wordproof_timestamp",
+          "value": ""
+        },
+        {
+          "id": 1144356,
+          "key": "_yoast_wpseo_focuskw",
+          "value": ""
+        },
+        {
+          "id": 1144357,
+          "key": "_yoast_wpseo_metadesc",
+          "value": ""
+        },
+        {
+          "id": 1144358,
+          "key": "_yoast_wpseo_title",
+          "value": ""
+        },
+        {
+          "id": 1144359,
+          "key": "_yoast_wpseo_linkdex",
+          "value": ""
+        },
+        {
+          "id": 1144360,
+          "key": "_yoast_wpseo_meta-robots-noindex",
+          "value": ""
+        },
+        {
+          "id": 1144361,
+          "key": "rank_math_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 1144362,
+          "key": "rank_math_title",
+          "value": ""
+        },
+        {
+          "id": 1144363,
+          "key": "rank_math_description",
+          "value": ""
+        },
+        {
+          "id": 1144364,
+          "key": "rank_math_focus_keyword",
+          "value": ""
+        },
+        {
+          "id": 1144365,
+          "key": "rank_math_news_sitemap_robots",
+          "value": ""
+        },
+        {
+          "id": 1144367,
+          "key": "rank_math_seo_score",
+          "value": ""
+        },
+        {
+          "id": 1144368,
+          "key": "rank_math_primary_fb_product_set",
+          "value": ""
+        },
+        {
+          "id": 1144369,
+          "key": "hubwoo_ecomm_invalid_pro",
+          "value": ""
+        },
+        {
+          "id": 1144370,
+          "key": "hubwoo_ecomm_pro_id",
+          "value": ""
+        },
+        {
+          "id": 1144371,
+          "key": "_rank_math_gtin_code",
+          "value": ""
+        },
+        {
+          "id": 1144372,
+          "key": "woodmart_price_unit_of_measure",
+          "value": ""
+        },
+        {
+          "id": 1144373,
+          "key": "_woodmart_new_label",
+          "value": ""
+        },
+        {
+          "id": 1144374,
+          "key": "_woodmart_related_off",
+          "value": ""
+        },
+        {
+          "id": 1144375,
+          "key": "_woodmart_hide_tabs_titles",
+          "value": ""
+        },
+        {
+          "id": 1144376,
+          "key": "_woodmart_product_custom_tab_content_type",
+          "value": ""
+        },
+        {
+          "id": 1144377,
+          "key": "_woodmart_product_custom_tab_html_block",
+          "value": ""
+        },
+        {
+          "id": 1144378,
+          "key": "_woodmart_product_custom_tab_title_2",
+          "value": ""
+        },
+        {
+          "id": 1144379,
+          "key": "_woodmart_product_custom_tab_content_type_2",
+          "value": ""
+        },
+        {
+          "id": 1144380,
+          "key": "_woodmart_product_custom_tab_content_2",
+          "value": ""
+        },
+        {
+          "id": 1144381,
+          "key": "_woodmart_product_custom_tab_html_block_2",
+          "value": ""
+        },
+        {
+          "id": 1144382,
+          "key": "_pwgc_exclude_tax",
+          "value": "0"
+        },
+        {
+          "id": 1144383,
+          "key": "_pwgc_exclude_shipping",
+          "value": "0"
+        },
+        {
+          "id": 1144384,
+          "key": "hubwoo_product_synced",
+          "value": ""
+        },
+        {
+          "id": 1360968,
+          "key": "_woodmart_exclude_show_single_variation",
+          "value": ""
+        },
+        {
+          "id": 2217084,
+          "key": "_last_change_time",
+          "value": "1778184334"
+        },
+        {
+          "id": 2313104,
+          "key": "wpcvi_images",
+          "value": "29517,19518"
+        }
+      ],
+      "name": "Café, 37",
+      "parent_id": 29526,
+      "_links": {
+        "self": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526/variations/29528",
+            "targetHints": {
+              "allow": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526/variations"
+          }
+        ],
+        "up": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/29526"
+          }
+        ]
+      }
+    }
+  ],
+  "variation_images_map": {
+    "cafe": [
+      {
+        "id": 29516,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/IMG_3672.jpg",
+        "alt": "IMG_3672",
+        "name": "IMG_3672"
+      },
+      {
+        "id": 29517,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/IMG_3673.jpg",
+        "alt": "Maicao"
+      }
+    ]
+  },
+  "stock_status": "instock",
+  "manage_stock": true,
+  "stock_quantity": 1,
+  "yoast_head_json": null,
+  "rank_math_seo": null
+}

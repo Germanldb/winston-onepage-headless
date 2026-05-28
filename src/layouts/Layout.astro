@@ -5,6 +5,7 @@ import SearchDrawer from "../components/SearchDrawer";
 import CookieBanner from "../components/CookieBanner.astro";
 import MetaPixel from "../components/MetaPixel.astro";
 import { PUBLIC_WP_URL } from "../lib/woocommerce";
+import GlobalBanner from "../components/GlobalBanner.astro";
 
 interface Props {
     title?: string;
@@ -123,6 +124,7 @@ const seo = rawSeo || {
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRK6FQ5N"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
+        <GlobalBanner />
         <SideCart client:idle />
         <SearchDrawer client:idle />
         <slot />

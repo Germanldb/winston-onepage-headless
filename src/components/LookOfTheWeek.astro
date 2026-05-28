@@ -4,9 +4,11 @@ import { getLookOfTheWeekData } from "../lib/look";
 
 interface Props {
     initialData?: any;
+    titulo?: string;
+    subtitulo?: string;
 }
 
-const { initialData: propData } = Astro.props;
+const { initialData: propData, titulo, subtitulo } = Astro.props;
 
 let lookData = propData;
 if (!lookData) {
@@ -18,4 +20,4 @@ if (!lookData) {
 }
 ---
 
-<LookSection client:idle initialData={lookData} />
+<LookSection client:idle initialData={lookData} titleOverride={titulo} subtitleOverride={subtitulo} />

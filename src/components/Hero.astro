@@ -5,9 +5,10 @@ import { getOptimizedUrl, getImageSrcSet } from "../utils/image";
 interface Props {
     slides?: any[];
     slots?: number;
+    isH2?: boolean;
 }
 
-const { slides: propSlides, slots: propSlots } = Astro.props;
+const { slides: propSlides, slots: propSlots, isH2 } = Astro.props;
 
 let displaySlides = [];
 let slots = 1;
@@ -75,7 +76,11 @@ const finalSlides = displaySlides.length > 0 ? displaySlides : [
                 </div>
 
                 <div class="hero-content">
-                    <h1 class="hero-title" set:html={slide.title}></h1>
+                    {isH2 ? (
+                        <h2 class="hero-title" set:html={slide.title}></h2>
+                    ) : (
+                        <h1 class="hero-title" set:html={slide.title}></h1>
+                    )}
                     <p class="hero-subtitle" set:html={slide.subtitle}></p>
                     <div class="hero-actions">
                         {slide.btn1_title && (

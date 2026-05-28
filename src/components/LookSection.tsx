@@ -9,7 +9,7 @@ interface LookData {
     products: any[];
 }
 
-export default function LookSection({ initialData = null }: { initialData?: LookData | null }) {
+export default function LookSection({ initialData = null, titleOverride, subtitleOverride }: { initialData?: LookData | null, titleOverride?: string, subtitleOverride?: string }) {
     const [data, setData] = useState<LookData | null>(initialData);
     const [loading, setLoading] = useState(!initialData);
     const [selectedIds, setSelectedIds] = useState<number[]>(
@@ -103,7 +103,10 @@ export default function LookSection({ initialData = null }: { initialData?: Look
 
                     <div className="look-content-col">
                         <div className="look-header">
-                            <h2 className="look-title">{data.look_titulo || 'LOOK DE LA SEMANA'}</h2>
+                            <h2 className="look-title">{titleOverride || data.look_titulo || 'LOOK DE LA SEMANA'}</h2>
+                            {subtitleOverride ? (
+                                <div className="look-desc" style={{marginTop: '-1rem', marginBottom: '1.5rem', fontWeight: 600, color: '#333'}}>{subtitleOverride}</div>
+                            ) : null}
                             <div className="look-desc" dangerouslySetInnerHTML={{ __html: data.look_descripcion }} />
                         </div>
 

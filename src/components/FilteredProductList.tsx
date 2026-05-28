@@ -7,9 +7,66 @@ interface FilteredProductListProps {
     subcategories: any[];
     colorTerms: any[];
     tallaTerms: any[];
-    initialSort: any;
+    customMaxPrice?: number;
+    initialSort?: any;
     navigationTree?: any[];
+    hasStickyTabs?: boolean;
+    topTabs?: React.ReactNode;
 }
+
+const MENU_CATEGORIES = [
+  {
+    name: 'Zapatos',
+    slug: 'zapatos-cuero-hombre',
+    id: '63',
+    subcategories: [
+      { name: 'Mocasines', slug: 'mocasines-hombre-cuero' },
+      { name: 'Oxford y Derby', slug: 'oxford-derby-zapatos-cuero' },
+      { name: 'Tenis', slug: 'tenis-cuero-hombre' },
+      { name: 'Botas', slug: 'botas-cuero-hombre' }
+    ]
+  },
+  {
+    name: 'Ropa',
+    slug: 'ropa-hombre-colombia',
+    id: '249',
+    subcategories: [
+      { name: 'Suéteres y Chalecos', slug: 'sueteres-chalecos-hombre', id: '955' },
+      { name: 'Chaquetas y Blazers', slug: 'chaquetas-blazers-cuero-hombre' },
+      { name: 'Camisas', slug: 'camisas-hombre' },
+      { name: 'Pantalones y Jeans', slug: 'pantalones-jeans-hombre' },
+      { name: 'Camisetas y Polos', slug: 'camisetas-polos-hombre' }
+    ]
+  },
+  {
+    name: 'Maletas y Morrales',
+    slug: 'maletas-morrales-cuero',
+    id: '190',
+    subcategories: [
+      { name: 'Morrales', slug: 'morrales-cuero-hombre' },
+      { name: 'Portafolios', slug: 'portafolios-cuero-hombre' },
+      { name: 'Maletas de Viaje', slug: 'maletas-viaje-cuero' },
+      { name: 'Neceseres', slug: 'neceseres-cuero' },
+      { name: 'Canguros', slug: 'canguros-cuero' }
+    ]
+  },
+  {
+    name: 'Accesorios',
+    slug: 'accesorios-cuero-hombre',
+    id: '220',
+    subcategories: [
+      { name: 'Billeteras', slug: 'billeteras-cuero-hombre' },
+      { name: 'Correas', slug: 'correas-cuero-hombre' },
+      { name: 'Llaveros', slug: 'llaveros-cuero-hombre' }
+    ]
+  },
+  {
+    name: 'Collares para perro',
+    slug: 'collares-cuero-perro',
+    id: 'collares',
+    subcategories: []
+  }
+];
 
 const SORT_OPTIONS = [
     { key: "destacado", label: "Destacado", orderBy: "popularity", order: "desc", onSale: false },
@@ -25,7 +82,9 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
     colorTerms: initialColorTerms = [],
     tallaTerms: initialTallaTerms = [],
     initialSort,
-    navigationTree = []
+    navigationTree = [],
+    hasStickyTabs = false,
+    topTabs
 }) => {
     const [allFetchedProducts, setAllFetchedProducts] = useState(Array.isArray(initialProducts) ? initialProducts : []);
     const [loading, setLoading] = useState(false);
@@ -34,6 +93,29 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
     const [selectedTallas, setSelectedTallas] = useState<string[]>([]);
     const [selectedSubcats, setSelectedSubcats] = useState<string[]>([]);
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
+    const [priceRange, setPriceRange] = useState<[number, number]>([0, 99999999]);
+    const [localPriceRange, setLocalPriceRange] = useState<[string, string]>(['', '']);
+
+    useEffect(() => {
+        const handler = setTimeout(() => {
+            const min = localPriceRange[0] === '' ? 0 : Number(localPriceRange[0]);
+            const max = localPriceRange[1] === '' ? 99999999 : Number(localPriceRange[1]);
+            if (min !== priceRange[0] || max !== priceRange[1]) {
+                setPriceRange([min, max]);
+            }
+        }, 600);
+        return () => clearTimeout(handler);
+    }, [localPriceRange]);
+
+    useEffect(() => {
+        setLocalPriceRange(prev => {
+            const newMin = priceRange[0] === 0 ? '' : priceRange[0].toString();
+            const newMax = priceRange[1] === 99999999 ? '' : priceRange[1].toString();
+            if (prev[0] === newMin && prev[1] === newMax) return prev;
+            return [newMin, newMax];
+        });
+    }, [priceRange[0], priceRange[1]]);
+
     const [error, setError] = useState<string | null>(null);
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [isHeaderHidden, setIsHeaderHidden] = useState(false);
@@ -43,7 +125,8 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
     const [openSections, setOpenSections] = useState<Record<string, boolean>>({
         categories: (category?.slug || "").toLowerCase().includes('accesorios'),
         color: false,
-        talla: false
+        talla: false,
+        precio: false
     });
 
     const isFirstRender = useRef(true);
@@ -137,6 +220,34 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
         return Array.from(collected.values()).sort((a, b) => a.name.localeCompare(b.name));
     }, [allFetchedProducts]);
 
+    const categoriesAccordionData = useMemo(() => {
+        const slug = (category?.slug || "").toLowerCase();
+        const isSpecific = slug !== 'tienda' && slug !== 'sale' && slug !== '';
+        
+        if (isSpecific) {
+            const matched = MENU_CATEGORIES.find(m => m.slug === slug || String(m.id) === String(category?.id));
+            if (matched && matched.subcategories.length > 0) {
+                return {
+                    isSpecific: true,
+                    title: 'Subcategorías',
+                    list: matched.subcategories
+                };
+            } else {
+                return {
+                    isSpecific: true,
+                    title: 'Subcategorías',
+                    list: subcategories && subcategories.length > 0 ? subcategories : []
+                };
+            }
+        } else {
+            return {
+                isSpecific: false,
+                title: 'Categorías y Subcategorías',
+                list: MENU_CATEGORIES
+            };
+        }
+    }, [category, subcategories]);
+
     const toggleSection = (section: string) => {
         setOpenSections(prev => ({ ...prev, [section]: !prev[section] }));
     };
@@ -209,6 +320,9 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
             if (category.id && category.id !== 'all') {
                 params.append('category', category.id.toString());
             }
+            if (category.maxPrice) {
+                params.append('max_price', category.maxPrice.toString());
+            }
             params.append('orderby', currentSort.orderBy || 'id');
             params.append('order', currentSort.order);
             params.append('page', pageNum.toString());
@@ -216,7 +330,7 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
             if (currentSort.onSale || category?.slug === 'sale') params.append('on_sale', 'true');
 
             // --- INTENTO CARGA ESTÁTICA ---
-            const isDefaultSort = false;
+            const isDefaultSort = currentSort.key === 'destacados';
             let data = null;
 
             if (isDefaultSort) {
@@ -260,6 +374,7 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
         } catch (err) {
             console.error("Fetch Error:", err);
             setError('No pudimos actualizar la lista de productos.');
+            setHasMore(false); // Detener el infinite scroll si hay error
         } finally {
             setLoading(false);
             setLoadingMore(false);
@@ -391,8 +506,18 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
             );
         }
 
+        // Filter by Price Range (Bulletproof string parsing)
+        result = result.filter(p => {
+            const rawPrice = p?.prices?.sale_price || p?.prices?.price || p?.prices?.regular_price || p.sale_price || p.price || p.regular_price || "0";
+            // Extrae estrictamente el primer bloque numérico (Evita que rangos "150-180" se concatenen a 150180)
+            const match = rawPrice.toString().replace(/,/g, '').match(/\d+(\.\d+)?/);
+            const price = match ? Math.floor(parseFloat(match[0])) : 0;
+            
+            return price >= priceRange[0] && price <= priceRange[1];
+        });
+
         return result;
-    }, [allFetchedProducts, selectedColors, selectedTallas, selectedSubcats, selectedTags]);
+    }, [allFetchedProducts, selectedColors, selectedTallas, selectedSubcats, selectedTags, priceRange]);
 
     // Update URL effect
     useEffect(() => {
@@ -424,6 +549,7 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
         <>
             {/* Barra Sticky */}
             <div className={`filter-bar-container sticky-filters ${isHeaderHidden ? 'is-hidden-top' : ''}`}>
+                {topTabs}
                 <div className="filter-bar">
                     <div className="filter-left">
                         <div className="category-dropdown">
@@ -566,48 +692,93 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
 
                 <div className="drawer-content">
                     {/* Categorías o Etiquetas dinámicas */}
-                    {(subcategories.length > 0 || ((category.slug || "").toLowerCase().includes('accesorios') && tagTerms.length > 0)) && (
+                    {((category.slug || "").toLowerCase().includes('accesorios') && tagTerms.length > 0) ? (
                         <div className={`filter-group-accordion ${openSections.categories ? 'open' : ''}`}>
                             <button className="accordion-header" onClick={() => toggleSection('categories')}>
-                                {(category.slug || "").toLowerCase().includes('accesorios') ? 'Tipo de Producto' : 'Categorías'}
+                                Tipo de Producto
                                 <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="1.5" fill="none" className="arrow-icon">
                                     <polyline points="6 9 12 15 18 9"></polyline>
                                 </svg>
                             </button>
                             <div className="accordion-body">
                                 <ul className="checklist">
-                                    {(category.slug || "").toLowerCase().includes('accesorios') ? (
-                                        tagTerms.map(tag => (
-                                            <li key={tag.slug}>
-                                                <label className="checkbox-container">
-                                                    <input
-                                                        type="checkbox"
-                                                        checked={selectedTags.includes(tag.slug)}
-                                                        onChange={() => toggleTag(tag.slug)}
-                                                    />
-                                                    <span className="checkmark"></span>
-                                                    <span className="label-text">{tag.name}</span>
-                                                </label>
-                                            </li>
-                                        ))
-                                    ) : (
-                                        subcategories.map(cat => (
-                                            <li key={cat.slug}>
-                                                <label className="checkbox-container">
-                                                    <input
-                                                        type="checkbox"
-                                                        checked={selectedSubcats.includes(cat.slug)}
-                                                        onChange={() => toggleSubcat(cat.slug)}
-                                                    />
-                                                    <span className="checkmark"></span>
-                                                    <span className="label-text">{cat.name}</span>
-                                                </label>
-                                            </li>
-                                        ))
-                                    )}
+                                    {tagTerms.map(tag => (
+                                        <li key={tag.slug}>
+                                            <label className="checkbox-container">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={selectedTags.includes(tag.slug)}
+                                                    onChange={() => toggleTag(tag.slug)}
+                                                />
+                                                <span className="checkmark"></span>
+                                                <span className="label-text">{tag.name}</span>
+                                            </label>
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                         </div>
+                    ) : (
+                        categoriesAccordionData.list.length > 0 && (
+                            <div className={`filter-group-accordion ${openSections.categories ? 'open' : ''}`}>
+                                <button className="accordion-header" onClick={() => toggleSection('categories')}>
+                                    {categoriesAccordionData.title}
+                                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="1.5" fill="none" className="arrow-icon">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                                <div className="accordion-body">
+                                    <ul className="checklist">
+                                        {categoriesAccordionData.isSpecific ? (
+                                            (categoriesAccordionData.list as any[]).map(sub => (
+                                                <li key={sub.slug}>
+                                                    <label className="checkbox-container">
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={selectedSubcats.includes(sub.slug)}
+                                                            onChange={() => toggleSubcat(sub.slug)}
+                                                        />
+                                                        <span className="checkmark"></span>
+                                                        <span className="label-text">{sub.name}</span>
+                                                    </label>
+                                                </li>
+                                            ))
+                                        ) : (
+                                            (categoriesAccordionData.list as any[]).map(mainCat => (
+                                                <li key={mainCat.slug} className="main-cat-li" style={{ marginBottom: '0.8rem' }}>
+                                                    <label className="checkbox-container" style={{ fontWeight: '700' }}>
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={selectedSubcats.includes(mainCat.slug)}
+                                                            onChange={() => toggleSubcat(mainCat.slug)}
+                                                        />
+                                                        <span className="checkmark"></span>
+                                                        <span className="label-text" style={{ fontSize: '0.9rem', color: '#121212' }}>{mainCat.name}</span>
+                                                    </label>
+                                                    {mainCat.subcategories.length > 0 && (
+                                                        <ul className="subcategories-list" style={{ listStyle: 'none', paddingLeft: '1.8rem', marginTop: '0.4rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                                                            {mainCat.subcategories.map((sub: any) => (
+                                                                <li key={sub.slug}>
+                                                                    <label className="checkbox-container small">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            checked={selectedSubcats.includes(sub.slug)}
+                                                                            onChange={() => toggleSubcat(sub.slug)}
+                                                                        />
+                                                                        <span className="checkmark"></span>
+                                                                        <span className="label-text" style={{ color: '#555' }}>{sub.name}</span>
+                                                                    </label>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    )}
+                                                </li>
+                                            ))
+                                        )}
+                                    </ul>
+                                </div>
+                            </div>
+                        )
                     )}
 
                     {/* Colores (Checklist con Swatch) */}
@@ -666,6 +837,36 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
                             </div>
                         </div>
                     )}
+
+                    {/* Rango de Precios (Libre) */}
+                    <div className={`filter-group-accordion ${openSections.precio ? 'open' : ''}`}>
+                        <button className="accordion-header" onClick={() => toggleSection('precio')}>
+                            Precio
+                            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="1.5" fill="none" className="arrow-icon">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div className="accordion-body">
+                            <div className="price-inputs" style={{ display: 'flex', gap: '10px', padding: '10px 0' }}>
+                                <input
+                                    type="number"
+                                    min="0"
+                                    placeholder="Mínimo"
+                                    value={localPriceRange[0]}
+                                    onChange={(e) => setLocalPriceRange([e.target.value, localPriceRange[1]])}
+                                    style={{ width: '100%', padding: '8px', border: '1px solid #e5e7eb', borderRadius: '4px', fontSize: '14px', color: '#000' }}
+                                />
+                                <input
+                                    type="number"
+                                    min="0"
+                                    placeholder="Máximo"
+                                    value={localPriceRange[1]}
+                                    onChange={(e) => setLocalPriceRange([localPriceRange[0], e.target.value])}
+                                    style={{ width: '100%', padding: '8px', border: '1px solid #e5e7eb', borderRadius: '4px', fontSize: '14px', color: '#000' }}
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="drawer-footer-sticky">

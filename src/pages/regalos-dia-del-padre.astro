@@ -1,0 +1,530 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import CampaignCategoryCards from "../components/CampaignCategoryCards.astro";
+import CampaignStickyFavorites from "../components/CampaignStickyFavorites";
+import BannerEditorial from "../components/BannerEditorial.astro";
+import LookOfTheWeek from "../components/LookOfTheWeek.astro";
+import CampaignCommercialBanner from "../components/CampaignCommercialBanner.astro";
+import FeaturesBanner from "../components/FeaturesBanner.astro";
+
+import Footer from "../components/Footer.astro";
+import { getLookOfTheWeekData } from "../lib/look";
+
+const stores = [
+    {
+        name: "C.C. Unicentro",
+        address: "Local 2-99. Bogotá, Colombia.",
+        phone: "+57 314 5453177",
+        phoneUrl: "tel:+573145453177",
+        mapUrl: "https://maps.app.goo.gl/SEm6LxGMjWuCCfQc6",
+        hours: [
+            "Lunes a Sábado: 10:00 am - 8:00 pm",
+            "Domingos: 11:00 am - 6:30 pm",
+        ],
+        image: "/images/store-unicentro.avif",
+    },
+    {
+        name: "C.C. El Retiro",
+        address: "Local 1-115. Bogotá, Colombia.",
+        phone: "+57 310 3075540",
+        phoneUrl: "tel:+573103075540",
+        mapUrl: "https://maps.app.goo.gl/T44a5ifgj7QBpQG69",
+        hours: [
+            "Lunes a Sábado: 10:00 am - 8:00 pm",
+            "Domingos: 11:00 am - 6:30 pm",
+        ],
+        image: "/images/store-retiro.avif",
+    },
+    {
+        name: "C.C. Hacienda Santa Bárbara",
+        address: "Local 2-28 D. Bogotá, Colombia.",
+        phone: "+57 314 2426124",
+        phoneUrl: "tel:+573142426124",
+        mapUrl: "https://maps.app.goo.gl/9kjEpbfGN39Sy9xV8",
+        hours: [
+            "Lunes a Sábado: 10:00 am - 8:00 pm",
+            "Domingos: 11:00 am - 7:00 pm",
+            "Festivos: Cerrado",
+        ],
+        image: "/images/store-hacienda.avif",
+    },
+    {
+        name: "C.C. Palatino",
+        address: "Local 211, Cra. 7 #138-33, Bogotá, Colombia.",
+        phone: "+57 321 6940612",
+        phoneUrl: "tel:+573216940612",
+        mapUrl: "https://maps.app.goo.gl/ArwB2aRxPYy6nFnU8",
+        hours: [
+            "Lunes a Jueves: 10:00 am - 8:00 pm",
+            "Viernes y Sábado: 10:00 am - 9:00 pm",
+            "Domingos: 11:00 am - 7:00 pm",
+        ],
+        image: "/images/store-palatino.avif",
+    },
+];
+
+// SEO Metadata for the landing page
+const landingSeo = {
+    title: "Regalos para el Día del Padre | Winston & Harry",
+    description: "Encuentra el regalo perfecto para papá. Zapatos de cuero, suéteres, chaquetas y accesorios para hombres. Disponible online y en tiendas en Colombia.",
+    canonical: "https://winstonandharrystore.com/regalos-dia-del-padre",
+    ogTitle: "Regalos para el Día del Padre | Winston & Harry",
+    ogDescription: "Para los hombres que dejan huella. Zapatos, suéteres y accesorios W&H.",
+    ogImage: "https://winstonandharrystore.com/images/dia-del-padre/hero-regalos-dia-del-padre-winston-and-harry.jpg",
+    ogType: "website",
+};
+
+// Configuración del Hero para la campaña
+const heroSlides = [{
+    title: "<span style='font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 10px; color: #ffffff;'>Día del Padre · 21 junio 2026</span>LEGACY",
+    subtitle: "Para los hombres que dejan huella",
+    media_url: "/images/dia-del-padre/hero-regalos-dia-del-padre-winston-and-harry.jpg",
+    media_url_mobile: "/images/dia-del-padre/hero-regalos-dia-del-padre-winston-and-harry.jpg",
+    is_video: false,
+    btn1_title: "Ver regalos ↓",
+    btn1_link: "#favoritos-sticky",
+    btn2_title: "Disponible en tiendas",
+    btn2_link: "/contacto"
+}];
+
+// Pre-cargar el Look of the Week en build-time
+const lookData = await getLookOfTheWeekData();
+
+// Pre-cargar todos los productos y colecciones del Día del Padre a nivel de servidor (SSG)
+// Esto evita tiempos de carga lentos del lado del cliente, previene el spinner infinito y elimina cualquier layout shift.
+import { getAllProducts, getProductsByCategory } from "../lib/woocommerce";
+
+const productsAll = await getAllProducts(24, 1, "popularity", "desc");
+const productsPrice = await getProductsByCategory("921", 24, 1, "popularity", "desc", false, undefined, undefined, "300000");
+const productsSueteres = await getProductsByCategory("955", 24, 1, "popularity", "desc");
+const productsZapatos = await getProductsByCategory("63", 24, 1, "popularity", "desc");
+const productsMaletas = await getProductsByCategory("190", 24, 1, "popularity", "desc");
+const productsRopa = await getProductsByCategory("249", 24, 1, "popularity", "desc");
+
+const initialCache = {
+    'all': productsAll,
+    '921': productsPrice,
+    '955': productsSueteres,
+    '63': productsZapatos,
+    '190': productsMaletas,
+    '249': productsRopa
+};
+---
+
+<Layout title={landingSeo.title} description={landingSeo.description} canonical={landingSeo.canonical} seoData={landingSeo} image={landingSeo.ogImage}>
+    <Header />
+
+    <main>
+        <Hero slides={heroSlides} slots={1} isH2={true} />
+
+        <div class="content-wrapper">
+            <FeaturesBanner />
+            
+            <CampaignCategoryCards />
+
+            <CampaignStickyFavorites client:load initialProducts={productsAll} initialCache={initialCache} />
+
+            <BannerEditorial
+                imageUrl="/images/dia-del-padre/banner-legado-dia-del-padre-winston-and-harry.jpg"
+                imageAlt="Legado masculino - Ropa y zapatos hechos a mano para hombre - Winston & Harry"
+                title="Hay hombres que enseñan sin decir demasiado"
+                description="El verdadero legado es una forma de ser"
+                ctaText="Ver regalos para papá ↑"
+                ctaLink="#favoritos-sticky"
+            />
+
+            <LookOfTheWeek initialData={lookData} />
+
+            <CampaignCommercialBanner 
+                title="Para los hombres que dejan huella"
+                subtitle="Zapatos, suéteres, chaquetas y accesorios W&H"
+                ctaPrimaryText="Ver todos los regalos ↑"
+                ctaPrimaryLink="#favoritos-sticky"
+                ctaSecondaryText="Disponible en tiendas · Encuentra tu punto"
+                ctaSecondaryLink="/contacto" 
+            />
+
+
+        </div>
+    </main>
+
+    <Footer hideBlog={true} />
+
+    <!-- Stores Modal for Día del Padre page -->
+    <div id="stores-modal" class="stores-modal-overlay" aria-hidden="true">
+        <div class="stores-modal-container">
+            <button id="close-stores-modal" class="stores-modal-close" aria-label="Cerrar modal">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="stores-modal-header">
+                <span class="modal-pre-title">Nuestras Ubicaciones</span>
+                <h2 class="modal-title">Boutiques Winston & Harry</h2>
+                <p class="modal-subtitle">Visítanos en nuestras tiendas exclusivas y experimenta la maestría del cuero artesanal.</p>
+            </div>
+            <div class="stores-modal-content">
+                <div class="modal-stores-grid">
+                    {stores.map(store => (
+                        <div class="modal-store-card">
+                            <div class="modal-store-image">
+                                <img src={store.image} alt={store.name} />
+                            </div>
+                            <div class="modal-store-info">
+                                <h3 class="modal-store-name">{store.name}</h3>
+                                <div class="modal-store-details">
+                                    <div class="modal-detail-item">
+                                        <span class="modal-detail-label">Dirección</span>
+                                        <p class="modal-detail-value">{store.address}</p>
+                                    </div>
+                                    <div class="modal-detail-item">
+                                        <span class="modal-detail-label">Teléfono</span>
+                                        <a href={store.phoneUrl} class="modal-detail-value link">{store.phone}</a>
+                                    </div>
+                                    <div class="modal-detail-item">
+                                        <span class="modal-detail-label">Horarios</span>
+                                        <div class="modal-hours-list">
+                                            {store.hours.map(hour => (
+                                                <p class="modal-hour-line">{hour}</p>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-store-actions">
+                                    <a href={store.mapUrl} target="_blank" rel="noopener noreferrer" class="modal-btn-map">
+                                        <span>Ver en Google Maps</span>
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                            <polyline points="15 3 21 3 21 9" />
+                                            <line x1="10" y1="14" x2="21" y2="3" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<script is:inline>
+    function initStoresModal() {
+        const modal = document.getElementById('stores-modal');
+        const closeBtn = document.getElementById('close-stores-modal');
+
+        function openModal() {
+            if (!modal) return;
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            if (!modal) return;
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeModal);
+        }
+
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+        }
+
+        // Interceptar clicks a tiendas únicamente en esta página
+        document.addEventListener('click', (e) => {
+            const target = e.target.closest('a, button');
+            if (!target) return;
+
+            const text = (target.textContent || '').toUpperCase();
+            const href = target.getAttribute('href') || '';
+
+            // Solo interceptar si es un botón de tienda y no el del menú burger
+            if (target.classList.contains('burger-menu') || target.closest('.mobile-nav') || target.closest('.header')) {
+                return;
+            }
+
+            if (
+                text.includes('TIENDA') ||
+                href.includes('/tienda') ||
+                (href.includes('/contacto') && text.includes('TIENDA'))
+            ) {
+                e.preventDefault();
+                e.stopPropagation();
+                openModal();
+            }
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initStoresModal);
+    } else {
+        initStoresModal();
+    }
+    document.addEventListener('astro:page-load', initStoresModal);
+</script>
+
+<style is:global>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .content-wrapper {
+        position: relative;
+        z-index: 10;
+        background-color: var(--color-white, #ffffff);
+    }
+
+    /* Dynamic Stores Modal Styles */
+    .stores-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(8px);
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        padding: 2rem;
+    }
+
+    .stores-modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .stores-modal-container {
+        background-color: #ffffff;
+        width: 100%;
+        max-width: 1200px;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+        padding: 4rem 3rem 3rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        transform: scale(0.95);
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .stores-modal-overlay.active .stores-modal-container {
+        transform: scale(1);
+    }
+
+    .stores-modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #121212;
+        padding: 8px;
+        transition: opacity 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .stores-modal-close:hover {
+        opacity: 0.6;
+    }
+
+    .stores-modal-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .modal-pre-title {
+        display: block;
+        font-family: var(--font-paragraphs);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--color-beige, #B1915F);
+        margin-bottom: 0.8rem;
+    }
+
+    .modal-title {
+        font-family: var(--font-titles);
+        font-size: 1.8rem;
+        color: var(--color-green, #155338);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+
+    .modal-subtitle {
+        font-family: var(--font-paragraphs);
+        font-size: 0.85rem;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .modal-stores-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+
+    .modal-store-card {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        border: 1px solid #eee;
+        background-color: #fff;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    }
+
+    .modal-store-image {
+        height: 100%;
+        min-height: 250px;
+        overflow: hidden;
+    }
+
+    .modal-store-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .modal-store-info {
+        padding: 1.5rem 1.8rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .modal-store-name {
+        font-family: var(--font-titles);
+        font-size: 1.15rem;
+        color: var(--color-green, #155338);
+        margin-top: 0;
+        margin-bottom: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-bottom: 1px solid #f0f0f0;
+        padding-bottom: 0.6rem;
+    }
+
+    .modal-store-details {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .modal-detail-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .modal-detail-label {
+        font-family: var(--font-titles);
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        color: #999;
+        letter-spacing: 1px;
+    }
+
+    .modal-detail-value {
+        font-family: var(--font-paragraphs);
+        font-size: 0.78rem;
+        color: #333;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    .modal-detail-value.link {
+        color: var(--color-green, #155338);
+        text-decoration: none;
+        transition: color 0.2s;
+        font-weight: 500;
+    }
+
+    .modal-detail-value.link:hover {
+        color: var(--color-beige, #B1915F);
+    }
+
+    .modal-hours-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.1rem;
+    }
+
+    .modal-hour-line {
+        font-family: var(--font-paragraphs);
+        font-size: 0.75rem;
+        color: #555;
+        margin: 0;
+    }
+
+    .modal-btn-map {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem 1rem;
+        border: 1px solid #e0e0e0;
+        font-family: var(--font-titles);
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #121212;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+
+    .modal-btn-map:hover {
+        background-color: var(--color-green, #155338);
+        color: #fff;
+        border-color: var(--color-green, #155338);
+    }
+
+    @media (max-width: 1024px) {
+        .modal-stores-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        .stores-modal-container {
+            padding: 3rem 2rem 2rem;
+            max-width: 600px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .modal-store-card {
+            grid-template-columns: 1fr;
+        }
+        .modal-store-image {
+            min-height: 180px;
+        }
+        .stores-modal-overlay {
+            padding: 1rem;
+        }
+        .stores-modal-container {
+            padding: 2.5rem 1.2rem 1.2rem;
+        }
+    }
+</style>

@@ -1,0 +1,163 @@
+---
+const cards = [
+    {
+        title: "Algunos regalos se recuerdan",
+        image: "/images/dia-del-padre/regalos-menos-300mil-dia-del-padre-winston-and-harry.jpg",
+        alt: "Regalos para papá menos de 300 mil pesos - Accesorios cuero artesanal hombre - Winston & Harry Colombia",
+        targetTab: "-$300k"
+    },
+    {
+        title: "El tejido que define la presencia",
+        image: "/images/dia-del-padre/sueteres-hombre-dia-del-padre-winston-and-harry.jpg",
+        alt: "Suéteres para hombre Colombia - Regalo Día del Padre - Diseño atemporal Winston & Harry",
+        targetTab: "suéteres"
+    },
+    {
+        title: "La forma de vestir también se hereda",
+        image: "/images/dia-del-padre/ropa-hombre-colombia-dia-del-padre-winston-and-harry.jpg",
+        alt: "Ropa para hombre Colombia - Look completo Día del Padre - Calidad y detalle Winston & Harry",
+        targetTab: "ropa"
+    },
+    {
+        title: "El primer detalle que define al hombre",
+        image: "/images/dia-del-padre/zapatos-cuero-hombre-dia-del-padre-winston-and-harry.jpg",
+        alt: "Zapatos de cuero para hombre Colombia - Mocasines y Oxford Día del Padre - Winston & Harry",
+        targetTab: "calzado"
+    }
+];
+---
+
+<section class="campaign-cards">
+    <div class="cards-grid">
+        {cards.map(card => (
+            <a href="#favoritos-sticky" class="campaign-card" data-tab={card.targetTab}>
+                <div class="card-image-wrapper">
+                    <img src={card.image} alt={card.alt} loading="lazy" decoding="async" />
+                    <div class="card-overlay"></div>
+                    <h3 class="card-title">{card.title}</h3>
+                </div>
+            </a>
+        ))}
+    </div>
+</section>
+
+<style>
+    .campaign-cards {
+        width: 100%;
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 4rem 1rem 1rem 1rem;
+    }
+
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+
+    .campaign-card {
+        display: block;
+        position: relative;
+        aspect-ratio: 3/4;
+        overflow: hidden;
+        text-decoration: none;
+        group: campaign;
+    }
+
+    .card-image-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .card-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+
+    .campaign-card:hover img {
+        transform: scale(1.05);
+    }
+
+    .card-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0) 100%);
+        pointer-events: none;
+    }
+
+    .card-title {
+        position: absolute;
+        bottom: 20px;
+        left: 5%;
+        right: 5%;
+        color: #fff;
+        font-family: var(--font-titles);
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+        line-height: 1.3;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Helps legibility over white placeholders */
+        margin: 0;
+        letter-spacing: 1px;
+    }
+
+    @media (max-width: 1024px) {
+        .cards-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .card-title {
+            font-size: 1rem;
+            bottom: 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .cards-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const cards = document.querySelectorAll('.campaign-card');
+        cards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                const targetTab = card.getAttribute('data-tab');
+                if (targetTab) {
+                    // Update URL params so that FilteredProductList can pick it up
+                    // Or ideally we dispatch an event to the react component, 
+                    // but the simplest way without modifying React heavily is setting the URL parameter
+                    // and simulating a click or state change, or just updating the URL and letting React re-render.
+                    // Actually, setting window.location.hash and adding search param:
+                    
+                    const url = new URL(window.location.href);
+                    // Clear other filters maybe? The brief says "activa el tab correspondiente"
+                    url.searchParams.delete('subcat');
+                    url.searchParams.delete('tag');
+                    url.searchParams.delete('color');
+                    url.searchParams.delete('talla');
+                    
+                    // We don't have standard "tabs" in FilteredProductList, we have categories and price.
+                    // We will handle this custom behavior on the landing page wrapper or let React handle it.
+                    // For now, we set a custom param 'campaigntab' and the wrapper will sync it.
+                    url.searchParams.set('campaigntab', targetTab);
+                    window.history.pushState({}, '', url);
+                    
+                    // Trigger a custom event that the wrapper component can listen to
+                    window.dispatchEvent(new CustomEvent('campaign-tab-changed', { detail: { tab: targetTab } }));
+                }
+            });
+        });
+    });
+</script>

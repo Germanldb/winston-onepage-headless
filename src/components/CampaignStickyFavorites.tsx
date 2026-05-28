@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import ProductCard from './ProductCard';
 
 interface Product {
@@ -6,36 +6,20 @@ interface Product {
   name: string;
   slug: string;
   permalink: string;
-  prices: {
-    price: string;
-    regular_price: string;
-    sale_price: string;
-    price_range: any;
-    currency_code: string;
-    currency_symbol: string;
-    currency_minor_unit: number;
-    currency_prefix: string;
-  };
-  images: {
-    src: string;
-    alt: string;
-  }[];
-  attributes: {
-    id: number;
-    name: string;
-    terms: { id: number; name: string; slug: string }[];
-  }[];
-  variations: {
-    id: number;
-    attributes: { name: string; value: string }[];
-  }[];
+  prices: any;
+  images: { src: string; alt: string; }[];
+  attributes: any[];
+  variations: any[];
   variation_images_map?: Record<string, any[]>;
 }
 
 const CATEGORIES = [
-  { id: '63', name: 'Zapatos', slug: 'zapatos' },
-  { id: '249', name: 'Ropa', slug: 'ropa' },
-  { id: '190', name: 'Maletas', slug: 'maletas' }
+    { id: 'all', name: 'Todos los Regalos', shortName: 'Todos', slug: 'tienda' },
+    { id: '921', name: 'Regalos menos de $350K', shortName: '-$300k', slug: 'menos-de-350000', maxPrice: 300000 },
+    { id: '955', name: 'Suéteres y Chalecos', shortName: 'Suéteres', slug: 'sueteres-chalecos-hombre' },
+    { id: '63', name: 'Zapatos', shortName: 'Calzado', slug: 'zapatos-cuero-hombre' },
+    { id: '190', name: 'Maletas', shortName: 'Maletas', slug: 'maletas-morrales-cuero' },
+    { id: '249', name: 'Ropa', shortName: 'Ropa', slug: 'ropa-hombre-colombia' }
 ];
 
 const SORT_OPTIONS = [
@@ -99,15 +83,53 @@ const MENU_CATEGORIES = [
   }
 ];
 
-export default function ProductGrid({ 
+function getProductMainCategoryOrderIndex(product: any): number {
+  if (!product.categories || !Array.isArray(product.categories)) return 999;
+  
+  const slugs = product.categories.map((c: any) => c.slug.toLowerCase());
+  const names = product.categories.map((c: any) => c.name.toLowerCase());
+  const ids = product.categories.map((c: any) => String(c.id));
+  
+  // 1. Zapatos
+  const isZapato = ids.includes('63') || 
+                   slugs.some(s => s.includes('zapato') || s.includes('calzado') || s.includes('mocas') || s.includes('tenis') || s.includes('oxford') || s.includes('derby') || s.includes('bota')) ||
+                   names.some(n => n.includes('zapato') || n.includes('calzado') || n.includes('mocas') || n.includes('tenis') || n.includes('oxford') || n.includes('derby') || n.includes('bota'));
+  if (isZapato) return 1;
+  
+  // 2. Ropa
+  const isRopa = ids.includes('249') || ids.includes('955') ||
+                 slugs.some(s => s.includes('ropa') || s.includes('sueter') || s.includes('suéter') || s.includes('chaqueta') || s.includes('pantalon') || s.includes('chaleco') || s.includes('camisa') || s.includes('camiseta')) ||
+                 names.some(n => n.includes('ropa') || n.includes('sueter') || n.includes('suéter') || n.includes('chaqueta') || n.includes('pantalon') || n.includes('chaleco') || n.includes('camisa') || n.includes('camiseta'));
+  if (isRopa) return 2;
+  
+  // 3. Maletas y morrales
+  const isMaleta = ids.includes('190') ||
+                   slugs.some(s => s.includes('maleta') || s.includes('morral') || s.includes('portafolio') || s.includes('neceser') || s.includes('bolso') || s.includes('canguro') || s.includes('viaje')) ||
+                   names.some(n => n.includes('maleta') || n.includes('morral') || n.includes('portafolio') || n.includes('neceser') || n.includes('bolso') || n.includes('canguro') || n.includes('viaje'));
+  if (isMaleta) return 3;
+  
+  // 4. Accesorios
+  const isAccesorio = slugs.some(s => s.includes('accesorio') || s.includes('billetera') || s.includes('correa') || s.includes('cinturon') || s.includes('cinturón') || s.includes('llavero') || s.includes('tarjetero') || s.includes('monedero')) ||
+                      names.some(n => n.includes('accesorio') || n.includes('billetera') || n.includes('correa') || n.includes('cinturon') || n.includes('cinturón') || n.includes('llavero') || n.includes('tarjetero') || n.includes('monedero'));
+  if (isAccesorio) return 4;
+  
+  // 5. Collares para perro
+  const isCollar = slugs.some(s => s.includes('collar') || s.includes('perro') || s.includes('mascota') || s.includes('canino')) ||
+                   names.some(n => n.includes('collar') || n.includes('perro') || n.includes('mascota') || n.includes('canino'));
+  if (isCollar) return 5;
+  
+  return 999;
+}
+
+export default function CampaignStickyFavorites({ 
   initialProducts = [], 
   initialCache = null 
 }: { 
   initialProducts?: Product[]; 
   initialCache?: Record<string | number, Product[]> | null;
 }) {
-  const defaultCache = initialCache || { '63': initialProducts };
-  const defaultProducts = initialCache ? (initialCache['63'] || []) : initialProducts;
+  const defaultCache = initialCache || { 'all': initialProducts };
+  const defaultProducts = initialCache ? (initialCache['all'] || []) : initialProducts;
 
   const [products, setProducts] = useState<Product[]>(defaultProducts);
   const [categoryCache, setCategoryCache] = useState<Record<string | number, Product[]>>(defaultCache);
@@ -116,11 +138,18 @@ export default function ProductGrid({
   const [loading, setLoading] = useState(!initialCache && initialProducts.length === 0);
   const [error, setError] = useState<string | null>(null);
   const [categorySlugs, setCategorySlugs] = useState<Record<string, string>>({
-    '63': 'zapatos',
-    '249': 'ropa',
-    '190': 'maletas'
+    '955': 'sueteres-chalecos-hombre',
+    '63': 'zapatos-cuero-hombre',
+    '190': 'maletas-morrales-cuero',
+    '249': 'ropa-hombre-colombia',
+    'all': 'tienda',
+    '921': 'menos-de-350000'
   });
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
+  // Paginación real de API: página actual por categoría y si hay más
+  const [apiPage, setApiPage] = useState<Record<string, number>>({});
+  const [hasMore, setHasMore] = useState<Record<string, boolean>>({});
+  const [loadingMore, setLoadingMore] = useState(false);
 
   // Estados de Filtros Avanzados
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
@@ -141,58 +170,27 @@ export default function ProductGrid({
     setSelectedSubcats(prev => prev.includes(slug) ? prev.filter(s => s !== slug) : [...prev, slug]);
   };
 
-  const categoriesAccordionData = useMemo(() => {
-    let mainCatId = '';
-    if (activeCategory.id === '63') mainCatId = '63';
-    else if (activeCategory.id === '249') mainCatId = '249';
-    else if (activeCategory.id === '190') mainCatId = '190';
-
-    const matched = MENU_CATEGORIES.find(m => m.id === mainCatId || m.slug === activeCategory.slug);
-    
-    if (matched && matched.subcategories.length > 0) {
-      return {
-        title: 'Subcategorías',
-        list: matched.subcategories
-      };
-    }
-    return {
-      title: 'Subcategorías',
-      list: []
-    };
-  }, [activeCategory]);
-
-  // Precarga inicial de todas las categorías
   useEffect(() => {
-    if (initialCache && Object.keys(initialCache).length >= 3) {
-      return;
-    }
+    if (initialCache && Object.keys(initialCache).length >= 6) return;
 
     const prefetchCategories = async () => {
       try {
         if (initialProducts.length === 0) setLoading(true);
         setError(null);
 
-        try {
-          const catRes = await fetch('/api/categories');
-          if (catRes.ok) {
-            const allCats = await catRes.json();
-            const newSlugs: Record<string, string> = { ...categorySlugs };
-            CATEGORIES.forEach(c => {
-                const found = allCats.find((ac: any) => String(ac.id) === String(c.id));
-                if (found) newSlugs[c.id] = found.slug;
-            });
-            setCategorySlugs(newSlugs);
-          }
-        } catch (e) {
-          console.error("Error fetching dynamic slugs:", e);
-        }
-
         const results = await Promise.all(
           CATEGORIES.map(async (cat) => {
-            if (String(cat.id) === '63' && initialProducts.length > 0) {
+            if (String(cat.id) === 'all' && initialProducts.length > 0) {
               return { id: cat.id, data: initialProducts };
             }
-            const res = await fetch(`/api/products?category=${cat.id}&orderby=modified&per_page=24`);
+            
+            let url = cat.id === 'all' 
+                ? `/api/products?orderby=popularity&per_page=24`
+                : `/api/products?category=${cat.id}&orderby=popularity&per_page=24`;
+            
+            if (cat.maxPrice) url += `&max_price=${cat.maxPrice}`;
+
+            const res = await fetch(url);
             if (!res.ok) return { id: cat.id, data: [] };
             const data: Product[] = await res.json();
 
@@ -208,10 +206,7 @@ export default function ProductGrid({
         );
 
         const newCache: Record<string | number, Product[]> = {};
-        results.forEach(res => {
-          newCache[res.id] = res.data;
-        });
-
+        results.forEach(res => { newCache[res.id] = res.data; });
         setCategoryCache(newCache);
 
         if (newCache[activeCategory.id]) {
@@ -223,13 +218,11 @@ export default function ProductGrid({
         setLoading(false);
       }
     };
-
     prefetchCategories();
   }, [initialCache]);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
@@ -239,7 +232,6 @@ export default function ProductGrid({
       }
       lastScrollY = currentScrollY;
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -256,12 +248,99 @@ export default function ProductGrid({
     return () => clearTimeout(handler);
   }, [localPriceRange]);
 
-  const fetchProducts = async (categoryId: string | number) => {
+  useEffect(() => {
+    const handleTabChange = (event: Event) => {
+      const customEvent = event as CustomEvent<{ tab: string }>;
+      const tabName = customEvent.detail?.tab?.toLowerCase() || '';
+      if (!tabName) return;
+
+      // Helper function to normalize strings for comparison (removes accents)
+      const normalize = (str: string) => 
+        str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+      const normalizedTab = normalize(tabName);
+
+      const matchedCategory = CATEGORIES.find(cat => 
+        normalize(cat.shortName) === normalizedTab ||
+        normalize(cat.name).includes(normalizedTab) ||
+        normalize(cat.id) === normalizedTab
+      );
+
+      if (matchedCategory) {
+        setActiveCategory(matchedCategory);
+        setVisibleCount(12);
+        
+        // Resetear filtros al cambiar por evento de campaña
+        setSelectedColors([]);
+        setSelectedTallas([]);
+        setPriceRange([0, 99999999]);
+        setLocalPriceRange(['', '']);
+        setSort(SORT_OPTIONS[0]);
+
+        if (categoryCache[matchedCategory.id]) {
+          setProducts(categoryCache[matchedCategory.id]);
+        } else {
+          fetchProducts(matchedCategory.id);
+        }
+        
+        // Smooth scroll to the sticky filters section with offset
+        setTimeout(() => {
+          const element = document.getElementById('favoritos-sticky');
+          if (element) {
+            const bannerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--global-banner-height')) || 0;
+            const headerHeight = window.innerWidth <= 768 ? 64 : 80;
+            const yOffset = -(headerHeight + bannerHeight + 20); 
+            const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    };
+
+    window.addEventListener('campaign-tab-changed', handleTabChange);
+    
+    // Check URL on mount
+    const params = new URLSearchParams(window.location.search);
+    const initialTab = params.get('campaigntab')?.toLowerCase();
+    if (initialTab) {
+      const normalize = (str: string) => 
+        str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      const normalizedTab = normalize(initialTab);
+
+      const matchedCategory = CATEGORIES.find(cat => 
+        normalize(cat.shortName) === normalizedTab ||
+        normalize(cat.name).includes(normalizedTab) ||
+        normalize(cat.id) === normalizedTab
+      );
+      if (matchedCategory) {
+        setActiveCategory(matchedCategory);
+        setVisibleCount(12);
+        if (categoryCache[matchedCategory.id]) {
+          setProducts(categoryCache[matchedCategory.id]);
+        }
+      }
+    }
+
+    return () => window.removeEventListener('campaign-tab-changed', handleTabChange);
+  }, [categoryCache]);
+
+  const fetchProducts = async (categoryId: string | number, page = 1, append = false) => {
     try {
-      setLoading(true);
+      if (page === 1) setLoading(true);
+      else setLoadingMore(true);
       setError(null);
 
-      const response = await fetch(`/api/products?category=${categoryId}&orderby=popularity`);
+      const cat = CATEGORIES.find(c => String(c.id) === String(categoryId));
+      if (!cat) return;
+
+      const PER_PAGE = 24;
+      let url = cat.id === 'all'
+          ? `/api/products?orderby=popularity&per_page=${PER_PAGE}&page=${page}`
+          : `/api/products?category=${cat.id}&orderby=popularity&per_page=${PER_PAGE}&page=${page}`;
+
+      if (cat.maxPrice) url += `&max_price=${cat.maxPrice}`;
+
+      const response = await fetch(url);
       if (!response.ok) throw new Error('Error al cargar productos');
 
       const data: Product[] = await response.json();
@@ -272,22 +351,53 @@ export default function ProductGrid({
         return true;
       });
 
-      setProducts(filteredData);
-      setCategoryCache(prev => ({ ...prev, [categoryId]: filteredData }));
+      // Si devuelve menos de PER_PAGE, no hay más páginas
+      const moreAvailable = data.length >= PER_PAGE;
+      setHasMore(prev => ({ ...prev, [String(categoryId)]: moreAvailable }));
+      setApiPage(prev => ({ ...prev, [String(categoryId)]: page }));
+
+      if (append) {
+        setProducts(prev => {
+          const existingIds = new Set(prev.map(p => p.id));
+          const newOnes = filteredData.filter(p => !existingIds.has(p.id));
+          const merged = [...prev, ...newOnes];
+          setCategoryCache(c => ({ ...c, [categoryId]: merged }));
+          return merged;
+        });
+      } else {
+        setProducts(filteredData);
+        setCategoryCache(prev => ({ ...prev, [categoryId]: filteredData }));
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error desconocido');
     } finally {
       setLoading(false);
+      setLoadingMore(false);
+    }
+  };
+
+  // Incrementa visible, y si se agotan los productos locales pide la siguiente página
+  const handleVerMas = () => {
+    const nextVisible = visibleCount + 12;
+    setVisibleCount(nextVisible);
+
+    // Si ya mostramos (o estamos por mostrar) todos los que hay en memoria, pedimos más
+    if (nextVisible >= filteredAndSortedProducts.length) {
+      const catId = String(activeCategory.id);
+      const alreadyKnowNoMore = hasMore[catId] === false;
+      if (!alreadyKnowNoMore && !loadingMore) {
+        const nextPage = (apiPage[catId] || 1) + 1;
+        fetchProducts(activeCategory.id, nextPage, true);
+      }
     }
   };
 
   const handleCategoryChange = (category: typeof CATEGORIES[0]) => {
     if (category.id === activeCategory.id) return;
-
     setActiveCategory(category);
     setVisibleCount(12);
 
-    // Resetear filtros al cambiar de colección
+    // Resetear filtros al cambiar de pestaña de categoría
     setSelectedColors([]);
     setSelectedTallas([]);
     setSelectedSubcats([]);
@@ -301,9 +411,9 @@ export default function ProductGrid({
       fetchProducts(category.id);
     }
 
-    // Scroll al inicio de la sección para ver los productos del tab nuevo
+    // Scroll de vuelta al inicio de la sección para ver los productos del tab nuevo
     setTimeout(() => {
-      const section = document.getElementById('tienda');
+      const section = document.getElementById('favoritos-sticky');
       if (section) {
         const headerOffset = 80 + (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--global-banner-height') || '0'));
         const top = section.getBoundingClientRect().top + window.scrollY - headerOffset;
@@ -352,7 +462,53 @@ export default function ProductGrid({
     return Array.from(collected.values()).sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
   }, [products]);
 
-  // Alternar Filtros
+  // Lógica condicional de categorías y subcategorías
+  const categoriesAccordionData = useMemo(() => {
+    const isSpecific = activeCategory.id === '955' || activeCategory.id === '63' || activeCategory.id === '190' || activeCategory.id === '249';
+    
+    if (isSpecific) {
+      let mainCatId = '';
+      if (activeCategory.id === '63') mainCatId = '63';
+      else if (activeCategory.id === '249') mainCatId = '249';
+      else if (activeCategory.id === '190') mainCatId = '190';
+      else if (activeCategory.id === '955') mainCatId = '955';
+
+      const matched = MENU_CATEGORIES.find(m => m.id === mainCatId || m.slug === activeCategory.slug);
+      
+      if (activeCategory.id === '955') {
+        const ropaCat = MENU_CATEGORIES.find(m => m.id === '249');
+        const sueteresSub = ropaCat?.subcategories.find(s => s.id === '955');
+        if (sueteresSub) {
+          return {
+            isSpecific: true,
+            title: 'Subcategorías',
+            list: [sueteresSub]
+          };
+        }
+      }
+
+      if (matched && matched.subcategories.length > 0) {
+        return {
+          isSpecific: true,
+          title: 'Subcategorías',
+          list: matched.subcategories
+        };
+      } else {
+        return {
+          isSpecific: true,
+          title: 'Subcategorías',
+          list: []
+        };
+      }
+    } else {
+      return {
+        isSpecific: false,
+        title: 'Categorías y Subcategorías',
+        list: MENU_CATEGORIES
+      };
+    }
+  }, [activeCategory]);
+
   const toggleColor = (slug: string) => {
     setSelectedColors(prev => prev.includes(slug) ? prev.filter(s => s !== slug) : [...prev, slug]);
   };
@@ -377,7 +533,7 @@ export default function ProductGrid({
   const filteredAndSortedProducts = useMemo(() => {
     let result = [...products];
 
-    // 0. Filtrar por Subcategorías
+    // 0. Filtrar por Categorías y Subcategorías
     if (selectedSubcats.length > 0) {
       result = result.filter(p => {
         if (!p.categories || !Array.isArray(p.categories)) return false;
@@ -458,10 +614,20 @@ export default function ProductGrid({
 
         return discB - discA;
       });
+    } else if (sort.key === 'destacado' || !sort.key) {
+      // SI ESTAMOS EN EL TAB -300K (id: '921'), ordenar por el orden del menú ppal!
+      if (activeCategory.id === '921') {
+        result.sort((a, b) => {
+          const orderA = getProductMainCategoryOrderIndex(a);
+          const orderB = getProductMainCategoryOrderIndex(b);
+          if (orderA !== orderB) return orderA - orderB;
+          return 0; // mantener orden relativo
+        });
+      }
     }
 
     return result;
-  }, [products, selectedSubcats, selectedColors, selectedTallas, priceRange, sort]);
+  }, [products, selectedSubcats, selectedColors, selectedTallas, priceRange, sort, activeCategory.id]);
 
   const displayedProducts = filteredAndSortedProducts.slice(0, visibleCount);
 
@@ -475,13 +641,13 @@ export default function ProductGrid({
   }
 
   return (
-    <section id="tienda" className="tienda">
+    <section id="favoritos-sticky" className="tienda">
       <div className="container-full">
         <div className="section-title">
-          <span className="subtitle">ACCESORIOS Y ZAPATOS DE CUERO PARA HOMBRE</span>
-          <h2>LOS FAVORITOS</h2>
+          <span className="subtitle">SELECCIÓN EXCLUSIVA</span>
+          <h2>REGALOS PARA PAPÁ</h2>
           <p className="description">
-            Ropa, zapatos 100 % cuero y accesorios diseñados para hombres contemporáneos que valoran la calidad, el detalle y el carácter.
+            Encuentra el regalo perfecto para él. Hemos seleccionado nuestros mejores artículos de cuero, zapatos y accesorios para celebrar su día
           </p>
         </div>
 
@@ -493,7 +659,7 @@ export default function ProductGrid({
                 className={`filter-btn ${activeCategory.id === cat.id ? 'active' : ''}`}
                 onClick={() => handleCategoryChange(cat)}
               >
-                {cat.name}
+                {cat.shortName}
               </button>
             ))}
           </div>
@@ -578,12 +744,6 @@ export default function ProductGrid({
           )}
         </div>
 
-        <div className="grid-4x3">
-          {displayedProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-
         {!loading && filteredAndSortedProducts.length === 0 && (
           <div className="empty-state">
             <p>No se encontraron productos con los filtros seleccionados.</p>
@@ -598,18 +758,29 @@ export default function ProductGrid({
         )}
 
         {!loading && filteredAndSortedProducts.length > 0 && (
+          <div className="grid-4x3">
+            {displayedProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        )}
+
+        {!loading && filteredAndSortedProducts.length > 0 && (
           <div className="load-more-container">
-            {visibleCount < filteredAndSortedProducts.length ? (
-              <button
-                onClick={() => setVisibleCount(prev => prev + 12)}
-                className="btn btn-outline"
-              >
-                VER MÁS
-              </button>
-            ) : (
-              <a href={`/categoria/${categorySlugs[activeCategory.id] || activeCategory.slug}`} className="btn btn-outline">
-                VER TODO EN {activeCategory.name.toUpperCase()}
-              </a>
+            {/* Mostrar botón si aun hay visibles por mostrar, O si la API puede tener más */}
+            {(visibleCount < filteredAndSortedProducts.length || hasMore[String(activeCategory.id)] !== false) && (
+              loadingMore ? (
+                <div className="loading-spinner" style={{padding:'1rem 0'}}>
+                  <div className="spinner"></div>
+                </div>
+              ) : (
+                <button
+                  onClick={handleVerMas}
+                  className="btn btn-outline"
+                >
+                  VER MÁS
+                </button>
+              )
             )}
           </div>
         )}
@@ -629,7 +800,7 @@ export default function ProductGrid({
         </div>
 
         <div className="drawer-content">
-          {/* Acordeón de Subcategorías */}
+          {/* Acordeón de Categorías y Subcategorías */}
           {categoriesAccordionData.list.length > 0 && (
             <div className={`filter-group-accordion ${openSections.categories ? 'open' : ''}`}>
               <button className="accordion-header" onClick={() => toggleSection('categories')}>
@@ -640,19 +811,52 @@ export default function ProductGrid({
               </button>
               <div className="accordion-body">
                 <ul className="checklist">
-                  {categoriesAccordionData.list.map(sub => (
-                    <li key={sub.slug}>
-                      <label className="checkbox-container">
-                        <input
-                          type="checkbox"
-                          checked={selectedSubcats.includes(sub.slug)}
-                          onChange={() => toggleSubcat(sub.slug)}
-                        />
-                        <span className="checkmark"></span>
-                        <span className="label-text">{sub.name}</span>
-                      </label>
-                    </li>
-                  ))}
+                  {categoriesAccordionData.isSpecific ? (
+                    (categoriesAccordionData.list as any[]).map(sub => (
+                      <li key={sub.slug}>
+                        <label className="checkbox-container">
+                          <input
+                            type="checkbox"
+                            checked={selectedSubcats.includes(sub.slug)}
+                            onChange={() => toggleSubcat(sub.slug)}
+                          />
+                          <span className="checkmark"></span>
+                          <span className="label-text">{sub.name}</span>
+                        </label>
+                      </li>
+                    ))
+                  ) : (
+                    (categoriesAccordionData.list as any[]).map(mainCat => (
+                      <li key={mainCat.slug} className="main-cat-li" style={{ marginBottom: '0.8rem' }}>
+                        <label className="checkbox-container" style={{ fontWeight: '700' }}>
+                          <input
+                            type="checkbox"
+                            checked={selectedSubcats.includes(mainCat.slug)}
+                            onChange={() => toggleSubcat(mainCat.slug)}
+                          />
+                          <span className="checkmark"></span>
+                          <span className="label-text" style={{ fontSize: '0.9rem', color: '#121212' }}>{mainCat.name}</span>
+                        </label>
+                        {mainCat.subcategories.length > 0 && (
+                          <ul className="subcategories-list" style={{ listStyle: 'none', paddingLeft: '1.8rem', marginTop: '0.4rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                            {mainCat.subcategories.map((sub: any) => (
+                              <li key={sub.slug}>
+                                <label className="checkbox-container small">
+                                  <input
+                                    type="checkbox"
+                                    checked={selectedSubcats.includes(sub.slug)}
+                                    onChange={() => toggleSubcat(sub.slug)}
+                                  />
+                                  <span className="checkmark"></span>
+                                  <span className="label-text" style={{ color: '#555' }}>{sub.name}</span>
+                                </label>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </li>
+                    ))
+                  )}
                 </ul>
               </div>
             </div>

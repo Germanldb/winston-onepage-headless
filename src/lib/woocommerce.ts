@@ -120,16 +120,55 @@ function normalizeQuery(text: string): string {
     return text.trim().toLowerCase();
 }
 
+function getCacheKeyUrl(url: string): string {
+    return url
+        .replace(/[&?]consumer_key=[^&]*/g, '')
+        .replace(/[&?]consumer_secret=[^&]*/g, '')
+        .replace(/[&?]wp_app_user=[^&]*/g, '')
+        .replace(/[&?]wp_app_pass=[^&]*/g, '')
+        .replace(/\?&/, '?')
+        .replace(/\?$/, '');
+}
+
 async function getBuildCache(url: string): Promise<any> {
     try {
         const fs = await import('node:fs');
         const path = await import('node:path');
         const cacheDir = path.join(process.cwd(), 'public', 'data', 'build-cache');
+        
+        // 1. Intentar con el nombre limpio sin credenciales
+        const cleanUrl = getCacheKeyUrl(url);
+        const cleanSafeName = cleanUrl.replace(/[^a-zA-Z0-9]/g, '_') + '.json';
+        const cleanCachePath = path.join(cacheDir, cleanSafeName);
+        if (fs.existsSync(cleanCachePath)) {
+            const dataStr = fs.readFileSync(cleanCachePath, 'utf-8');
+            return JSON.parse(dataStr);
+        }
+
+        // 2. Intentar con el nombre exacto original (con credenciales actuales)
         const safeName = url.replace(/[^a-zA-Z0-9]/g, '_') + '.json';
         const cachePath = path.join(cacheDir, safeName);
         if (fs.existsSync(cachePath)) {
             const dataStr = fs.readFileSync(cachePath, 'utf-8');
             return JSON.parse(dataStr);
+        }
+
+        // 3. Fallback: buscar cualquier archivo que coincida con el patrón sin credenciales
+        if (fs.existsSync(cacheDir)) {
+            const cleanUrlPattern = cleanUrl.replace(/[^a-zA-Z0-9]/g, '_');
+            const files = fs.readdirSync(cacheDir);
+            for (const file of files) {
+                if (file.endsWith('.json')) {
+                    const cleanFile = file
+                        .replace(/_consumer_key_ck_[a-zA-Z0-9]*/, '')
+                        .replace(/_consumer_secret_cs_[a-zA-Z0-9]*/, '')
+                        .replace(/\.json$/, '');
+                    if (cleanFile === cleanUrlPattern) {
+                        const dataStr = fs.readFileSync(path.join(cacheDir, file), 'utf-8');
+                        return JSON.parse(dataStr);
+                    }
+                }
+            }
         }
     } catch (e) {
         // Ignorar
@@ -145,7 +184,9 @@ async function setBuildCache(url: string, data: any) {
         if (!fs.existsSync(cacheDir)) {
             fs.mkdirSync(cacheDir, { recursive: true });
         }
-        const safeName = url.replace(/[^a-zA-Z0-9]/g, '_') + '.json';
+        // Guardamos con el nombre limpio sin credenciales para que sea universal
+        const cleanUrl = getCacheKeyUrl(url);
+        const safeName = cleanUrl.replace(/[^a-zA-Z0-9]/g, '_') + '.json';
         const cachePath = path.join(cacheDir, safeName);
         fs.writeFileSync(cachePath, JSON.stringify(data, null, 2), 'utf-8');
     } catch (e) {
@@ -201,6 +242,7 @@ export async function wcFetch(path: string, options: RequestInit = {}, retries =
     // 4. Headers base
     const headers: any = {
         'Accept': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
         ...(options.headers || {})
     };
 
@@ -1141,7 +1183,8 @@ export async function getAllProducts(
     page = 1,
     orderBy = "popularity",
     order = "desc",
-    onSale = false
+    onSale = false,
+    maxPrice?: string
 ) {
     try {
         // Prioridad: Store API
@@ -1152,6 +1195,7 @@ export async function getAllProducts(
             order: order
         });
         if (onSale) storeParams.append('on_sale', 'true');
+        if (maxPrice) storeParams.append('max_price', maxPrice);
 
         const storeUrl = `${PUBLIC_WP_URL}/wp-json/wc/store/v1/products?${storeParams.toString()}&stock_status=instock`;
         const storeRes = await fetch(storeUrl);
@@ -1288,7 +1332,8 @@ export async function getProductsByCategory(
     order: any = 'desc',
     onSale = false,
     attribute?: string,
-    attributeTerm?: string | number
+    attributeTerm?: string | number,
+    maxPrice?: string
 ) {
     let finalId = categoryIdOrSlug;
 
@@ -1326,7 +1371,13 @@ export async function getProductsByCategory(
                 // Usamos EXCLUSIVAMENTE la API v3 Autenticada.
                 // La Store API v1 ignoraba silenciosamente el parámetro `category`
                 // y devolvía el catálogo general, causando el bug de mezcla de categorías.
-                const data = await wcFetch(`/products?category=${id}&per_page=${perPage}&page=${page}&orderby=${orderBy}&order=${order}&status=publish&stock_status=instock${onSale ? '&on_sale=true' : ''}${attribute ? `&attribute=${attribute}` : ''}${attributeTerm ? `&attribute_term=${attributeTerm}` : ''}`);
+                let endpoint = `/products?category=${id}&per_page=${perPage}&page=${page}&orderby=${orderBy}&order=${order}&status=publish&stock_status=instock`;
+                if (onSale) endpoint += '&on_sale=true';
+                if (attribute) endpoint += `&attribute=${attribute}`;
+                if (attributeTerm) endpoint += `&attribute_term=${attributeTerm}`;
+                if (maxPrice) endpoint += `&max_price=${maxPrice}`;
+                
+                const data = await wcFetch(endpoint);
 
                 return Array.isArray(data) 
                     ? data.map((p: any) => mapV3ToStore(p))
