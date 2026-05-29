@@ -2,54 +2,120 @@
   "id": 24112,
   "name": "Cardiff",
   "slug": "cardiff",
-  "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/",
+  "parent": 0,
   "type": "variable",
-  "status": "publish",
-  "description": "<p>Los Derby Cardiff son la combinación perfecta de elegancia y sobriedad. A pesar de parecer simples a simple vista estos zapatos llevan toques que los diferencia de los demás. Son el complemento a un traje moderno o clásico, son el elemento que simplemente resalta un estilo sofisticado.</p>\n",
-  "short_description": "<p>El clásico Derby, un modelo de cordón en piel de becerro y suela lisa en cuero. Hecho a mano por artesanos y especialmente para cualquier traje y ocasión formal.</p>\n",
+  "variation": "",
+  "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/",
+  "sku": "304",
+  "short_description": "<p>El clásico Derby, un modelo de cordón en piel de becerro y suela lisa en cuero. Hecho a mano por artesanos y especialmente para cualquier traje y ocasión formal.</p>",
+  "description": "<p>Los Derby Cardiff son la combinación perfecta de elegancia y sobriedad. A pesar de parecer simples a simple vista estos zapatos llevan toques que los diferencia de los demás. Son el complemento a un traje moderno o clásico, son el elemento que simplemente resalta un estilo sofisticado.</p>",
+  "on_sale": false,
   "prices": {
-    "price": "981750",
-    "regular_price": "981750",
-    "sale_price": "",
+    "price": "825000",
+    "regular_price": "825000",
+    "sale_price": "825000",
+    "price_range": null,
     "currency_code": "COP",
     "currency_symbol": "$",
     "currency_minor_unit": 0,
+    "currency_decimal_separator": ".",
+    "currency_thousand_separator": ",",
     "currency_prefix": "$",
-    "price_range": null
+    "currency_suffix": ""
   },
+  "price_html": "<span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#036;</span>825,000</span>",
+  "average_rating": "0",
+  "review_count": 0,
   "images": [
     {
       "id": 60852,
       "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771.jpg",
-      "alt": "Cardiff",
-      "name": "Cardiff-Azul-Winstonandharry-1"
+      "thumbnail": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771-324x324.jpg",
+      "srcset": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771.jpg 1000w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771-324x324.jpg 324w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771-100x100.jpg 100w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771-416x416.jpg 416w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771-150x150.jpg 150w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771-768x768.jpg 768w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771-300x300.jpg 300w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771-200x200.jpg 200w",
+      "sizes": "(max-width: 1000px) 100vw, 1000px",
+      "thumbnail_srcset": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771-324x324.jpg 324w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771-100x100.jpg 100w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771-416x416.jpg 416w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771-150x150.jpg 150w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771-768x768.jpg 768w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771-300x300.jpg 300w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771-200x200.jpg 200w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771.jpg 1000w",
+      "thumbnail_sizes": "(max-width: 324px) 100vw, 324px",
+      "name": "Cardiff-Azul-Winstonandharry-1",
+      "alt": ""
     },
     {
       "id": 60853,
       "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249.jpg",
-      "alt": "Cardiff",
-      "name": "Cardiff-Azul-Winstonandharry-2"
+      "thumbnail": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249-324x324.jpg",
+      "srcset": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249.jpg 1000w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249-324x324.jpg 324w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249-100x100.jpg 100w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249-416x416.jpg 416w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249-150x150.jpg 150w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249-768x768.jpg 768w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249-300x300.jpg 300w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249-200x200.jpg 200w",
+      "sizes": "(max-width: 1000px) 100vw, 1000px",
+      "thumbnail_srcset": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249-324x324.jpg 324w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249-100x100.jpg 100w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249-416x416.jpg 416w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249-150x150.jpg 150w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249-768x768.jpg 768w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249-300x300.jpg 300w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249-200x200.jpg 200w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249.jpg 1000w",
+      "thumbnail_sizes": "(max-width: 324px) 100vw, 324px",
+      "name": "Cardiff-Azul-Winstonandharry-2",
+      "alt": ""
     },
     {
       "id": 60854,
       "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349.jpg",
-      "alt": "Cardiff",
-      "name": "Cardiff-Azul-Winstonandharry-3"
+      "thumbnail": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349-324x324.jpg",
+      "srcset": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349.jpg 1000w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349-324x324.jpg 324w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349-100x100.jpg 100w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349-416x416.jpg 416w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349-150x150.jpg 150w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349-768x768.jpg 768w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349-300x300.jpg 300w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349-200x200.jpg 200w",
+      "sizes": "(max-width: 1000px) 100vw, 1000px",
+      "thumbnail_srcset": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349-324x324.jpg 324w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349-100x100.jpg 100w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349-416x416.jpg 416w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349-150x150.jpg 150w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349-768x768.jpg 768w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349-300x300.jpg 300w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349-200x200.jpg 200w, https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349.jpg 1000w",
+      "thumbnail_sizes": "(max-width: 324px) 100vw, 324px",
+      "name": "Cardiff-Azul-Winstonandharry-3",
+      "alt": ""
     }
   ],
+  "categories": [
+    {
+      "id": 424,
+      "name": "Ideas de regalo",
+      "slug": "ideas-regalo-hombre",
+      "link": "https://tienda.winstonandharrystore.com/product-category/ideas-regalo-hombre/"
+    },
+    {
+      "id": 438,
+      "name": "Tallas Grandes",
+      "slug": "tallas-grandes-zapatos-hombre",
+      "link": "https://tienda.winstonandharrystore.com/product-category/tallas-grandes-zapatos-hombre/"
+    },
+    {
+      "id": 63,
+      "name": "Zapatos",
+      "slug": "zapatos-cuero-hombre",
+      "link": "https://tienda.winstonandharrystore.com/product-category/zapatos-cuero-hombre/"
+    },
+    {
+      "id": 193,
+      "name": "Zapatos de Cordón",
+      "slug": "zapatos-cordon-hombre",
+      "link": "https://tienda.winstonandharrystore.com/product-category/zapatos-cuero-hombre/zapatos-cordon-hombre/"
+    },
+    {
+      "id": 410,
+      "name": "Zapatos y Maletas",
+      "slug": "zapatos-maletas-cuero-hombre",
+      "link": "https://tienda.winstonandharrystore.com/product-category/zapatos-maletas-cuero-hombre/"
+    }
+  ],
+  "tags": [
+    {
+      "id": 66,
+      "name": "Derby",
+      "slug": "derby",
+      "link": "https://tienda.winstonandharrystore.com/product-tag/derby/"
+    }
+  ],
+  "brands": [],
   "attributes": [
     {
       "id": 3,
       "name": "Selecciona el Color",
-      "slug": "pa_selecciona-el-color",
+      "taxonomy": "pa_selecciona-el-color",
+      "has_variations": true,
       "terms": [
         {
-          "id": 0,
+          "id": 106,
           "name": "Azul",
           "slug": "azul"
         },
         {
-          "id": 1,
+          "id": 96,
           "name": "Negro",
           "slug": "negro"
         }
@@ -58,50 +124,51 @@
     {
       "id": 4,
       "name": "Selecciona una Talla",
-      "slug": "pa_selecciona-una-talla",
+      "taxonomy": "pa_selecciona-una-talla",
+      "has_variations": true,
       "terms": [
         {
-          "id": 0,
+          "id": 97,
           "name": "37",
           "slug": "37"
         },
         {
-          "id": 1,
+          "id": 98,
           "name": "38",
           "slug": "38"
         },
         {
-          "id": 2,
+          "id": 99,
           "name": "39",
           "slug": "39"
         },
         {
-          "id": 3,
+          "id": 100,
           "name": "40",
           "slug": "40"
         },
         {
-          "id": 4,
+          "id": 101,
           "name": "41",
           "slug": "41"
         },
         {
-          "id": 5,
+          "id": 102,
           "name": "42",
           "slug": "42"
         },
         {
-          "id": 6,
+          "id": 107,
           "name": "43",
           "slug": "43"
         },
         {
-          "id": 7,
+          "id": 108,
           "name": "44",
           "slug": "44"
         },
         {
-          "id": 8,
+          "id": 109,
           "name": "45",
           "slug": "45"
         }
@@ -110,10 +177,11 @@
     {
       "id": 5,
       "name": "Suela",
-      "slug": "pa_suela",
+      "taxonomy": "pa_suela",
+      "has_variations": false,
       "terms": [
         {
-          "id": 0,
+          "id": 114,
           "name": "Cuero",
           "slug": "cuero"
         }
@@ -122,88 +190,514 @@
     {
       "id": 6,
       "name": "Capellada",
-      "slug": "pa_capellada",
+      "taxonomy": "pa_capellada",
+      "has_variations": false,
       "terms": [
         {
-          "id": 0,
+          "id": 104,
           "name": "100% Cuero",
           "slug": "100-cuero"
         }
       ]
     }
   ],
-  "categories": [
-    {
-      "id": 424,
-      "name": "Ideas de regalo",
-      "slug": "ideas-regalo-hombre"
-    },
-    {
-      "id": 438,
-      "name": "Tallas Grandes",
-      "slug": "tallas-grandes-zapatos-hombre"
-    },
-    {
-      "id": 63,
-      "name": "Zapatos",
-      "slug": "zapatos-cuero-hombre"
-    },
-    {
-      "id": 193,
-      "name": "Zapatos de Cordón",
-      "slug": "zapatos-cordon-hombre"
-    },
-    {
-      "id": 410,
-      "name": "Zapatos y Maletas",
-      "slug": "zapatos-maletas-cuero-hombre"
-    }
-  ],
-  "category_ids": [
-    424,
-    438,
-    63,
-    193,
-    410
-  ],
-  "tags": [
-    {
-      "id": 66,
-      "name": "Derby",
-      "slug": "derby"
-    }
-  ],
-  "variation_ids": [
-    24269,
-    24270,
-    24271,
-    24272,
-    24273,
-    24274,
-    24275,
-    24276,
-    24277,
-    24278,
-    24279,
-    24280,
-    24281,
-    24282,
-    24283,
-    24284,
-    24285,
-    24286
-  ],
-  "on_sale": false,
-  "featured": false,
-  "upsell_ids": [
-    24111,
-    24148,
-    24113,
-    24114,
-    24115
-  ],
-  "cross_sell_ids": [],
   "variations": [
+    {
+      "id": 24270,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "azul",
+          "option": "azul"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "38",
+          "option": "38"
+        }
+      ],
+      "image": {
+        "id": 60852,
+        "date_created": "2025-03-02T05:02:51",
+        "date_created_gmt": "2025-03-02T05:02:51",
+        "date_modified": "2025-03-03T03:12:38",
+        "date_modified_gmt": "2025-03-03T03:12:38",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771.jpg",
+        "name": "Cardiff-Azul-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "825000",
+      "regular_price": "825000",
+      "sale_price": ""
+    },
+    {
+      "id": 24272,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "azul",
+          "option": "azul"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "40",
+          "option": "40"
+        }
+      ],
+      "image": {
+        "id": 60852,
+        "date_created": "2025-03-02T05:02:51",
+        "date_created_gmt": "2025-03-02T05:02:51",
+        "date_modified": "2025-03-03T03:12:38",
+        "date_modified_gmt": "2025-03-03T03:12:38",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771.jpg",
+        "name": "Cardiff-Azul-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "825000",
+      "regular_price": "825000",
+      "sale_price": ""
+    },
+    {
+      "id": 24273,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "azul",
+          "option": "azul"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "41",
+          "option": "41"
+        }
+      ],
+      "image": {
+        "id": 60852,
+        "date_created": "2025-03-02T05:02:51",
+        "date_created_gmt": "2025-03-02T05:02:51",
+        "date_modified": "2025-03-03T03:12:38",
+        "date_modified_gmt": "2025-03-03T03:12:38",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771.jpg",
+        "name": "Cardiff-Azul-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "825000",
+      "regular_price": "825000",
+      "sale_price": ""
+    },
+    {
+      "id": 24274,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "azul",
+          "option": "azul"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "42",
+          "option": "42"
+        }
+      ],
+      "image": {
+        "id": 60852,
+        "date_created": "2025-03-02T05:02:51",
+        "date_created_gmt": "2025-03-02T05:02:51",
+        "date_modified": "2025-03-03T03:12:38",
+        "date_modified_gmt": "2025-03-03T03:12:38",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771.jpg",
+        "name": "Cardiff-Azul-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "825000",
+      "regular_price": "825000",
+      "sale_price": ""
+    },
+    {
+      "id": 24275,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "azul",
+          "option": "azul"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "43",
+          "option": "43"
+        }
+      ],
+      "image": {
+        "id": 60852,
+        "date_created": "2025-03-02T05:02:51",
+        "date_created_gmt": "2025-03-02T05:02:51",
+        "date_modified": "2025-03-03T03:12:38",
+        "date_modified_gmt": "2025-03-03T03:12:38",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771.jpg",
+        "name": "Cardiff-Azul-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "825000",
+      "regular_price": "825000",
+      "sale_price": ""
+    },
+    {
+      "id": 24276,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "azul",
+          "option": "azul"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "44",
+          "option": "44"
+        }
+      ],
+      "image": {
+        "id": 60852,
+        "date_created": "2025-03-02T05:02:51",
+        "date_created_gmt": "2025-03-02T05:02:51",
+        "date_modified": "2025-03-03T03:12:38",
+        "date_modified_gmt": "2025-03-03T03:12:38",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771.jpg",
+        "name": "Cardiff-Azul-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "825000",
+      "regular_price": "825000",
+      "sale_price": ""
+    },
+    {
+      "id": 24277,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "azul",
+          "option": "azul"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "45",
+          "option": "45"
+        }
+      ],
+      "image": {
+        "id": 60852,
+        "date_created": "2025-03-02T05:02:51",
+        "date_created_gmt": "2025-03-02T05:02:51",
+        "date_modified": "2025-03-03T03:12:38",
+        "date_modified_gmt": "2025-03-03T03:12:38",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-1-e1752771572771.jpg",
+        "name": "Cardiff-Azul-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "825000",
+      "regular_price": "825000",
+      "sale_price": ""
+    },
+    {
+      "id": 24278,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "negro",
+          "option": "negro"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "37",
+          "option": "37"
+        }
+      ],
+      "image": {
+        "id": 60844,
+        "date_created": "2025-03-02T05:01:53",
+        "date_created_gmt": "2025-03-02T05:01:53",
+        "date_modified": "2025-03-03T03:12:39",
+        "date_modified_gmt": "2025-03-03T03:12:39",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-1-e1752771377140.jpg",
+        "name": "Cardiff-Negro-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "825000",
+      "regular_price": "825000",
+      "sale_price": ""
+    },
+    {
+      "id": 24279,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "negro",
+          "option": "negro"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "38",
+          "option": "38"
+        }
+      ],
+      "image": {
+        "id": 60844,
+        "date_created": "2025-03-02T05:01:53",
+        "date_created_gmt": "2025-03-02T05:01:53",
+        "date_modified": "2025-03-03T03:12:39",
+        "date_modified_gmt": "2025-03-03T03:12:39",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-1-e1752771377140.jpg",
+        "name": "Cardiff-Negro-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "825000",
+      "regular_price": "825000",
+      "sale_price": ""
+    },
+    {
+      "id": 24281,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "negro",
+          "option": "negro"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "40",
+          "option": "40"
+        }
+      ],
+      "image": {
+        "id": 60844,
+        "date_created": "2025-03-02T05:01:53",
+        "date_created_gmt": "2025-03-02T05:01:53",
+        "date_modified": "2025-03-03T03:12:39",
+        "date_modified_gmt": "2025-03-03T03:12:39",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-1-e1752771377140.jpg",
+        "name": "Cardiff-Negro-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "825000",
+      "regular_price": "825000",
+      "sale_price": ""
+    },
+    {
+      "id": 24282,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "negro",
+          "option": "negro"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "41",
+          "option": "41"
+        }
+      ],
+      "image": {
+        "id": 60844,
+        "date_created": "2025-03-02T05:01:53",
+        "date_created_gmt": "2025-03-02T05:01:53",
+        "date_modified": "2025-03-03T03:12:39",
+        "date_modified_gmt": "2025-03-03T03:12:39",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-1-e1752771377140.jpg",
+        "name": "Cardiff-Negro-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "825000",
+      "regular_price": "825000",
+      "sale_price": ""
+    },
+    {
+      "id": 24283,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "negro",
+          "option": "negro"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "42",
+          "option": "42"
+        }
+      ],
+      "image": {
+        "id": 60844,
+        "date_created": "2025-03-02T05:01:53",
+        "date_created_gmt": "2025-03-02T05:01:53",
+        "date_modified": "2025-03-03T03:12:39",
+        "date_modified_gmt": "2025-03-03T03:12:39",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-1-e1752771377140.jpg",
+        "name": "Cardiff-Negro-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "825000",
+      "regular_price": "825000",
+      "sale_price": ""
+    },
+    {
+      "id": 24284,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "negro",
+          "option": "negro"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "43",
+          "option": "43"
+        }
+      ],
+      "image": {
+        "id": 60844,
+        "date_created": "2025-03-02T05:01:53",
+        "date_created_gmt": "2025-03-02T05:01:53",
+        "date_modified": "2025-03-03T03:12:39",
+        "date_modified_gmt": "2025-03-03T03:12:39",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-1-e1752771377140.jpg",
+        "name": "Cardiff-Negro-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "825000",
+      "regular_price": "825000",
+      "sale_price": ""
+    },
+    {
+      "id": 24285,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "negro",
+          "option": "negro"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "44",
+          "option": "44"
+        }
+      ],
+      "image": {
+        "id": 60844,
+        "date_created": "2025-03-02T05:01:53",
+        "date_created_gmt": "2025-03-02T05:01:53",
+        "date_modified": "2025-03-03T03:12:39",
+        "date_modified_gmt": "2025-03-03T03:12:39",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-1-e1752771377140.jpg",
+        "name": "Cardiff-Negro-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "825000",
+      "regular_price": "825000",
+      "sale_price": ""
+    },
+    {
+      "id": 24286,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "negro",
+          "option": "negro"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "45",
+          "option": "45"
+        }
+      ],
+      "image": {
+        "id": 60844,
+        "date_created": "2025-03-02T05:01:53",
+        "date_created_gmt": "2025-03-02T05:01:53",
+        "date_modified": "2025-03-03T03:12:39",
+        "date_modified_gmt": "2025-03-03T03:12:39",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-1-e1752771377140.jpg",
+        "name": "Cardiff-Negro-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "825000",
+      "regular_price": "825000",
+      "sale_price": ""
+    }
+  ],
+  "grouped_products": [],
+  "has_options": true,
+  "is_purchasable": true,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+    "text": "Hay existencias",
+    "class": "in-stock"
+  },
+  "sold_individually": false,
+  "weight": "",
+  "dimensions": {
+    "length": "",
+    "width": "",
+    "height": ""
+  },
+  "formatted_weight": "N/D",
+  "formatted_dimensions": "N/D",
+  "add_to_cart": {
+    "text": "Seleccionar opciones",
+    "description": "Elige las opciones para &ldquo;Cardiff&rdquo;",
+    "url": "https://tienda.winstonandharrystore.com/product/cardiff/",
+    "single_text": "Añadir al carrito",
+    "minimum": 1,
+    "maximum": 1,
+    "multiple_of": 1
+  },
+  "is_password_protected": false,
+  "extensions": {},
+  "_links": {
+    "self": [
+      {
+        "href": "https://tienda.winstonandharrystore.com/wp-json/wc/store/v1/products/24112",
+        "targetHints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://tienda.winstonandharrystore.com/wp-json/wc/store/v1/products"
+      }
+    ],
+    "upsells": [
+      {
+        "embeddable": true,
+        "href": "https://tienda.winstonandharrystore.com/wp-json/wc/store/v1/products?include=24111,24148,24113,24114,24115"
+      }
+    ],
+    "related": [
+      {
+        "embeddable": true,
+        "href": "https://tienda.winstonandharrystore.com/wp-json/wc/store/v1/products?related=24112&per_page=10"
+      }
+    ]
+  },
+  "variations_data": [
     {
       "id": 24286,
       "type": "variation",
@@ -215,8 +709,8 @@
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=45",
       "sku": "7005002045",
       "global_unique_id": "",
-      "price": "981750",
-      "regular_price": "981750",
+      "price": "825000",
+      "regular_price": "825000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -262,15 +756,13 @@
           "id": 3,
           "name": "Selecciona el Color",
           "slug": "pa_selecciona-el-color",
-          "option": "Negro",
-          "value": "Negro"
+          "option": "Negro"
         },
         {
           "id": 4,
           "name": "Selecciona una Talla",
           "slug": "pa_selecciona-una-talla",
-          "option": "45",
-          "value": "45"
+          "option": "45"
         }
       ],
       "menu_order": 18,
@@ -906,8 +1398,8 @@
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=44",
       "sku": "7005002044",
       "global_unique_id": "",
-      "price": "981750",
-      "regular_price": "981750",
+      "price": "825000",
+      "regular_price": "825000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -953,15 +1445,13 @@
           "id": 3,
           "name": "Selecciona el Color",
           "slug": "pa_selecciona-el-color",
-          "option": "Negro",
-          "value": "Negro"
+          "option": "Negro"
         },
         {
           "id": 4,
           "name": "Selecciona una Talla",
           "slug": "pa_selecciona-una-talla",
-          "option": "44",
-          "value": "44"
+          "option": "44"
         }
       ],
       "menu_order": 17,
@@ -1597,8 +2087,8 @@
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=43",
       "sku": "7005002043",
       "global_unique_id": "",
-      "price": "981750",
-      "regular_price": "981750",
+      "price": "825000",
+      "regular_price": "825000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -1644,15 +2134,13 @@
           "id": 3,
           "name": "Selecciona el Color",
           "slug": "pa_selecciona-el-color",
-          "option": "Negro",
-          "value": "Negro"
+          "option": "Negro"
         },
         {
           "id": 4,
           "name": "Selecciona una Talla",
           "slug": "pa_selecciona-una-talla",
-          "option": "43",
-          "value": "43"
+          "option": "43"
         }
       ],
       "menu_order": 16,
@@ -2288,8 +2776,8 @@
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=42",
       "sku": "7005002042",
       "global_unique_id": "",
-      "price": "981750",
-      "regular_price": "981750",
+      "price": "825000",
+      "regular_price": "825000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -2335,15 +2823,13 @@
           "id": 3,
           "name": "Selecciona el Color",
           "slug": "pa_selecciona-el-color",
-          "option": "Negro",
-          "value": "Negro"
+          "option": "Negro"
         },
         {
           "id": 4,
           "name": "Selecciona una Talla",
           "slug": "pa_selecciona-una-talla",
-          "option": "42",
-          "value": "42"
+          "option": "42"
         }
       ],
       "menu_order": 15,
@@ -2979,8 +3465,8 @@
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=41",
       "sku": "7005002041",
       "global_unique_id": "",
-      "price": "981750",
-      "regular_price": "981750",
+      "price": "825000",
+      "regular_price": "825000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -3026,15 +3512,13 @@
           "id": 3,
           "name": "Selecciona el Color",
           "slug": "pa_selecciona-el-color",
-          "option": "Negro",
-          "value": "Negro"
+          "option": "Negro"
         },
         {
           "id": 4,
           "name": "Selecciona una Talla",
           "slug": "pa_selecciona-una-talla",
-          "option": "41",
-          "value": "41"
+          "option": "41"
         }
       ],
       "menu_order": 14,
@@ -3670,8 +4154,8 @@
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=40",
       "sku": "7005002040",
       "global_unique_id": "",
-      "price": "981750",
-      "regular_price": "981750",
+      "price": "825000",
+      "regular_price": "825000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -3717,15 +4201,13 @@
           "id": 3,
           "name": "Selecciona el Color",
           "slug": "pa_selecciona-el-color",
-          "option": "Negro",
-          "value": "Negro"
+          "option": "Negro"
         },
         {
           "id": 4,
           "name": "Selecciona una Talla",
           "slug": "pa_selecciona-una-talla",
-          "option": "40",
-          "value": "40"
+          "option": "40"
         }
       ],
       "menu_order": 13,
@@ -4361,8 +4843,8 @@
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=39",
       "sku": "7005002039",
       "global_unique_id": "",
-      "price": "981750",
-      "regular_price": "981750",
+      "price": "825000",
+      "regular_price": "825000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -4408,15 +4890,13 @@
           "id": 3,
           "name": "Selecciona el Color",
           "slug": "pa_selecciona-el-color",
-          "option": "Negro",
-          "value": "Negro"
+          "option": "Negro"
         },
         {
           "id": 4,
           "name": "Selecciona una Talla",
           "slug": "pa_selecciona-una-talla",
-          "option": "39",
-          "value": "39"
+          "option": "39"
         }
       ],
       "menu_order": 12,
@@ -5052,8 +5532,8 @@
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=38",
       "sku": "7005002038",
       "global_unique_id": "",
-      "price": "981750",
-      "regular_price": "981750",
+      "price": "825000",
+      "regular_price": "825000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -5099,15 +5579,13 @@
           "id": 3,
           "name": "Selecciona el Color",
           "slug": "pa_selecciona-el-color",
-          "option": "Negro",
-          "value": "Negro"
+          "option": "Negro"
         },
         {
           "id": 4,
           "name": "Selecciona una Talla",
           "slug": "pa_selecciona-una-talla",
-          "option": "38",
-          "value": "38"
+          "option": "38"
         }
       ],
       "menu_order": 11,
@@ -5743,8 +6221,8 @@
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=37",
       "sku": "7005002037",
       "global_unique_id": "",
-      "price": "981750",
-      "regular_price": "981750",
+      "price": "825000",
+      "regular_price": "825000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -5790,15 +6268,13 @@
           "id": 3,
           "name": "Selecciona el Color",
           "slug": "pa_selecciona-el-color",
-          "option": "Negro",
-          "value": "Negro"
+          "option": "Negro"
         },
         {
           "id": 4,
           "name": "Selecciona una Talla",
           "slug": "pa_selecciona-una-talla",
-          "option": "37",
-          "value": "37"
+          "option": "37"
         }
       ],
       "menu_order": 10,
@@ -6434,8 +6910,8 @@
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=45",
       "sku": "7005001045",
       "global_unique_id": "",
-      "price": "981750",
-      "regular_price": "981750",
+      "price": "825000",
+      "regular_price": "825000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -6481,15 +6957,13 @@
           "id": 3,
           "name": "Selecciona el Color",
           "slug": "pa_selecciona-el-color",
-          "option": "Azul",
-          "value": "Azul"
+          "option": "Azul"
         },
         {
           "id": 4,
           "name": "Selecciona una Talla",
           "slug": "pa_selecciona-una-talla",
-          "option": "45",
-          "value": "45"
+          "option": "45"
         }
       ],
       "menu_order": 9,
@@ -7125,8 +7599,8 @@
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=44",
       "sku": "7005001044",
       "global_unique_id": "",
-      "price": "981750",
-      "regular_price": "981750",
+      "price": "825000",
+      "regular_price": "825000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -7172,15 +7646,13 @@
           "id": 3,
           "name": "Selecciona el Color",
           "slug": "pa_selecciona-el-color",
-          "option": "Azul",
-          "value": "Azul"
+          "option": "Azul"
         },
         {
           "id": 4,
           "name": "Selecciona una Talla",
           "slug": "pa_selecciona-una-talla",
-          "option": "44",
-          "value": "44"
+          "option": "44"
         }
       ],
       "menu_order": 8,
@@ -7816,8 +8288,8 @@
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=43",
       "sku": "7005001043",
       "global_unique_id": "",
-      "price": "981750",
-      "regular_price": "981750",
+      "price": "825000",
+      "regular_price": "825000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -7863,15 +8335,13 @@
           "id": 3,
           "name": "Selecciona el Color",
           "slug": "pa_selecciona-el-color",
-          "option": "Azul",
-          "value": "Azul"
+          "option": "Azul"
         },
         {
           "id": 4,
           "name": "Selecciona una Talla",
           "slug": "pa_selecciona-una-talla",
-          "option": "43",
-          "value": "43"
+          "option": "43"
         }
       ],
       "menu_order": 7,
@@ -8507,8 +8977,8 @@
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=42",
       "sku": "7005001042",
       "global_unique_id": "",
-      "price": "981750",
-      "regular_price": "981750",
+      "price": "825000",
+      "regular_price": "825000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -8554,15 +9024,13 @@
           "id": 3,
           "name": "Selecciona el Color",
           "slug": "pa_selecciona-el-color",
-          "option": "Azul",
-          "value": "Azul"
+          "option": "Azul"
         },
         {
           "id": 4,
           "name": "Selecciona una Talla",
           "slug": "pa_selecciona-una-talla",
-          "option": "42",
-          "value": "42"
+          "option": "42"
         }
       ],
       "menu_order": 6,
@@ -9198,8 +9666,8 @@
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=41",
       "sku": "7005001041",
       "global_unique_id": "",
-      "price": "981750",
-      "regular_price": "981750",
+      "price": "825000",
+      "regular_price": "825000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -9245,15 +9713,13 @@
           "id": 3,
           "name": "Selecciona el Color",
           "slug": "pa_selecciona-el-color",
-          "option": "Azul",
-          "value": "Azul"
+          "option": "Azul"
         },
         {
           "id": 4,
           "name": "Selecciona una Talla",
           "slug": "pa_selecciona-una-talla",
-          "option": "41",
-          "value": "41"
+          "option": "41"
         }
       ],
       "menu_order": 5,
@@ -9889,8 +10355,8 @@
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=40",
       "sku": "7005001040",
       "global_unique_id": "",
-      "price": "981750",
-      "regular_price": "981750",
+      "price": "825000",
+      "regular_price": "825000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -9936,15 +10402,13 @@
           "id": 3,
           "name": "Selecciona el Color",
           "slug": "pa_selecciona-el-color",
-          "option": "Azul",
-          "value": "Azul"
+          "option": "Azul"
         },
         {
           "id": 4,
           "name": "Selecciona una Talla",
           "slug": "pa_selecciona-una-talla",
-          "option": "40",
-          "value": "40"
+          "option": "40"
         }
       ],
       "menu_order": 4,
@@ -10580,8 +11044,8 @@
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=39",
       "sku": "7005001039",
       "global_unique_id": "",
-      "price": "981750",
-      "regular_price": "981750",
+      "price": "825000",
+      "regular_price": "825000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -10627,15 +11091,13 @@
           "id": 3,
           "name": "Selecciona el Color",
           "slug": "pa_selecciona-el-color",
-          "option": "Azul",
-          "value": "Azul"
+          "option": "Azul"
         },
         {
           "id": 4,
           "name": "Selecciona una Talla",
           "slug": "pa_selecciona-una-talla",
-          "option": "39",
-          "value": "39"
+          "option": "39"
         }
       ],
       "menu_order": 3,
@@ -11266,8 +11728,8 @@
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=38",
       "sku": "7005001038",
       "global_unique_id": "",
-      "price": "981750",
-      "regular_price": "981750",
+      "price": "825000",
+      "regular_price": "825000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -11313,15 +11775,13 @@
           "id": 3,
           "name": "Selecciona el Color",
           "slug": "pa_selecciona-el-color",
-          "option": "Azul",
-          "value": "Azul"
+          "option": "Azul"
         },
         {
           "id": 4,
           "name": "Selecciona una Talla",
           "slug": "pa_selecciona-una-talla",
-          "option": "38",
-          "value": "38"
+          "option": "38"
         }
       ],
       "menu_order": 2,
@@ -11957,8 +12417,8 @@
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=37",
       "sku": "7005001037",
       "global_unique_id": "",
-      "price": "981750",
-      "regular_price": "981750",
+      "price": "825000",
+      "regular_price": "825000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -12004,15 +12464,13 @@
           "id": 3,
           "name": "Selecciona el Color",
           "slug": "pa_selecciona-el-color",
-          "option": "Azul",
-          "value": "Azul"
+          "option": "Azul"
         },
         {
           "id": 4,
           "name": "Selecciona una Talla",
           "slug": "pa_selecciona-una-talla",
-          "option": "37",
-          "value": "37"
+          "option": "37"
         }
       ],
       "menu_order": 1,
@@ -12638,50 +13096,24 @@
       }
     }
   ],
+  "wpc_resolved_media": {
+    "60845": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-2-e1752771396957.jpg",
+    "60846": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-3-e1752771418178.jpg",
+    "60847": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-4-e1752771444750.jpg",
+    "60848": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-5-e1752771472166.jpg",
+    "60849": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-6-e1752771514787.jpg",
+    "60850": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-7-e1752771540332.jpg",
+    "60851": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-8-e1752771562332.jpg",
+    "60853": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-2-e1752771586249.jpg",
+    "60854": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-3-e1752771597349.jpg",
+    "60855": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-4-e1752771626139.jpg",
+    "60856": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-5-e1752771652678.jpg",
+    "60857": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-6-e1752771844288.jpg",
+    "60858": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-7-e1752771854976.jpg",
+    "60859": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-8-e1752771867486.jpg"
+  },
+  "stock_status": "instock",
   "variation_images_map": {
-    "negro": [
-      {
-        "id": 60844,
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-1-e1752771377140.jpg",
-        "alt": "Cardiff-Negro-Winstonandharry-1",
-        "name": "Cardiff-Negro-Winstonandharry-1"
-      },
-      {
-        "id": 60846,
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-3-e1752771418178.jpg",
-        "alt": "Cardiff"
-      },
-      {
-        "id": 60845,
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-2-e1752771396957.jpg",
-        "alt": "Cardiff"
-      },
-      {
-        "id": 60847,
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-4-e1752771444750.jpg",
-        "alt": "Cardiff"
-      },
-      {
-        "id": 60848,
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-5-e1752771472166.jpg",
-        "alt": "Cardiff"
-      },
-      {
-        "id": 60849,
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-6-e1752771514787.jpg",
-        "alt": "Cardiff"
-      },
-      {
-        "id": 60850,
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-7-e1752771540332.jpg",
-        "alt": "Cardiff"
-      },
-      {
-        "id": 60851,
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-8-e1752771562332.jpg",
-        "alt": "Cardiff"
-      }
-    ],
     "azul": [
       {
         "id": 60852,
@@ -12724,11 +13156,49 @@
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Azul-Winstonandharry-8-e1752771867486.jpg",
         "alt": "Cardiff"
       }
+    ],
+    "negro": [
+      {
+        "id": 60844,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-1-e1752771377140.jpg",
+        "alt": "Cardiff-Negro-Winstonandharry-1",
+        "name": "Cardiff-Negro-Winstonandharry-1"
+      },
+      {
+        "id": 60846,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-3-e1752771418178.jpg",
+        "alt": "Cardiff"
+      },
+      {
+        "id": 60845,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-2-e1752771396957.jpg",
+        "alt": "Cardiff"
+      },
+      {
+        "id": 60847,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-4-e1752771444750.jpg",
+        "alt": "Cardiff"
+      },
+      {
+        "id": 60848,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-5-e1752771472166.jpg",
+        "alt": "Cardiff"
+      },
+      {
+        "id": 60849,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-6-e1752771514787.jpg",
+        "alt": "Cardiff"
+      },
+      {
+        "id": 60850,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-7-e1752771540332.jpg",
+        "alt": "Cardiff"
+      },
+      {
+        "id": 60851,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cardiff-Negro-Winstonandharry-8-e1752771562332.jpg",
+        "alt": "Cardiff"
+      }
     ]
-  },
-  "stock_status": "instock",
-  "manage_stock": true,
-  "stock_quantity": 1,
-  "yoast_head_json": null,
-  "rank_math_seo": null
+  }
 }

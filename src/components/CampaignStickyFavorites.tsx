@@ -17,7 +17,7 @@ const CATEGORIES = [
     { id: 'all', name: 'Todos los Regalos', shortName: 'Todos', slug: 'tienda' },
     { id: '921', name: 'Regalos menos de $350K', shortName: '-$300k', slug: 'menos-de-350000', maxPrice: 300000 },
     { id: '955', name: 'Suéteres y Chalecos', shortName: 'Suéteres', slug: 'sueteres-chalecos-hombre' },
-    { id: '63', name: 'Zapatos', shortName: 'Calzado', slug: 'zapatos-cuero-hombre' },
+    { id: '63', name: 'Zapatos', shortName: 'Zapatos', slug: 'zapatos-cuero-hombre' },
     { id: '190', name: 'Maletas', shortName: 'Maletas', slug: 'maletas-morrales-cuero' },
     { id: '249', name: 'Ropa', shortName: 'Ropa', slug: 'ropa-hombre-colombia' }
 ];

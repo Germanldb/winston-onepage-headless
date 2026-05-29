@@ -2,27 +2,31 @@
 const cards = [
     {
         title: "Algunos regalos se recuerdan",
+        highlight: "-$300k",
         image: "/images/dia-del-padre/regalos-menos-300mil-dia-del-padre-winston-and-harry.jpg",
         alt: "Regalos para papá menos de 300 mil pesos - Accesorios cuero artesanal hombre - Winston & Harry Colombia",
         targetTab: "-$300k"
     },
     {
-        title: "El tejido que define la presencia",
+        title: "El legado se siente",
+        highlight: "Suéteres",
         image: "/images/dia-del-padre/sueteres-hombre-dia-del-padre-winston-and-harry.jpg",
         alt: "Suéteres para hombre Colombia - Regalo Día del Padre - Diseño atemporal Winston & Harry",
         targetTab: "suéteres"
     },
     {
         title: "La forma de vestir también se hereda",
+        highlight: "Ropa",
         image: "/images/dia-del-padre/ropa-hombre-colombia-dia-del-padre-winston-and-harry.jpg",
         alt: "Ropa para hombre Colombia - Look completo Día del Padre - Calidad y detalle Winston & Harry",
         targetTab: "ropa"
     },
     {
         title: "El primer detalle que define al hombre",
+        highlight: "Zapatos",
         image: "/images/dia-del-padre/zapatos-cuero-hombre-dia-del-padre-winston-and-harry.jpg",
         alt: "Zapatos de cuero para hombre Colombia - Mocasines y Oxford Día del Padre - Winston & Harry",
-        targetTab: "calzado"
+        targetTab: "zapatos"
     }
 ];
 ---
@@ -34,7 +38,10 @@ const cards = [
                 <div class="card-image-wrapper">
                     <img src={card.image} alt={card.alt} loading="lazy" decoding="async" />
                     <div class="card-overlay"></div>
-                    <h3 class="card-title">{card.title}</h3>
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">{card.title}</h3>
+                        <div class="card-highlight">{card.highlight}</div>
+                    </div>
                 </div>
             </a>
         ))}
@@ -93,11 +100,18 @@ const cards = [
         pointer-events: none;
     }
 
-    .card-title {
+    .card-content-wrapper {
         position: absolute;
-        bottom: 20px;
+        bottom: 25px;
         left: 5%;
         right: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .card-title {
         color: #fff;
         font-family: var(--font-titles);
         font-size: 1.1rem;
@@ -108,6 +122,19 @@ const cards = [
         text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Helps legibility over white placeholders */
         margin: 0;
         letter-spacing: 1px;
+    }
+
+    .card-highlight {
+        background-color: #fff;
+        color: #000;
+        padding: 5px 15px;
+        font-family: var(--font-titles);
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
 
     @media (max-width: 1024px) {
@@ -129,35 +156,30 @@ const cards = [
 </style>
 
 <script>
-    document.addEventListener('astro:page-load', () => {
+    function initCampaignCards() {
         const cards = document.querySelectorAll('.campaign-card');
         cards.forEach(card => {
             card.addEventListener('click', (e) => {
+                e.preventDefault();
                 const targetTab = card.getAttribute('data-tab');
                 if (targetTab) {
-                    // Update URL params so that FilteredProductList can pick it up
-                    // Or ideally we dispatch an event to the react component, 
-                    // but the simplest way without modifying React heavily is setting the URL parameter
-                    // and simulating a click or state change, or just updating the URL and letting React re-render.
-                    // Actually, setting window.location.hash and adding search param:
-                    
                     const url = new URL(window.location.href);
-                    // Clear other filters maybe? The brief says "activa el tab correspondiente"
                     url.searchParams.delete('subcat');
                     url.searchParams.delete('tag');
                     url.searchParams.delete('color');
                     url.searchParams.delete('talla');
-                    
-                    // We don't have standard "tabs" in FilteredProductList, we have categories and price.
-                    // We will handle this custom behavior on the landing page wrapper or let React handle it.
-                    // For now, we set a custom param 'campaigntab' and the wrapper will sync it.
                     url.searchParams.set('campaigntab', targetTab);
                     window.history.pushState({}, '', url);
                     
-                    // Trigger a custom event that the wrapper component can listen to
                     window.dispatchEvent(new CustomEvent('campaign-tab-changed', { detail: { tab: targetTab } }));
                 }
             });
         });
-    });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCampaignCards);
+    } else {
+        initCampaignCards();
+    }
 </script>

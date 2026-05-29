@@ -118,6 +118,7 @@ const seo = rawSeo || {
         />
         <meta property="twitter:image" content={seo.ogImage} />
         <MetaPixel />
+        <slot name="head" />
     </head>
     <body>
         <!-- Google Tag Manager (noscript) -->

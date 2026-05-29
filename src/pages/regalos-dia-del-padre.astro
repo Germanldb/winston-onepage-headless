@@ -76,12 +76,35 @@ const landingSeo = {
     ogType: "website",
 };
 
+// Schema Markup (JSON-LD)
+const schemaMarkup = `
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Regalos para el Día del Padre",
+  "description": "Zapatos de cuero, suéteres, chaquetas y accesorios para hombre. Hechos a mano en Colombia.",
+  "url": "https://winstonandharrystore.com/regalos-dia-del-padre"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://winstonandharrystore.com"},
+    {"@type": "ListItem", "position": 2, "name": "Día del Padre", "item": "https://winstonandharrystore.com/regalos-dia-del-padre"}
+  ]
+}
+</script>
+`;
+
 // Configuración del Hero para la campaña
 const heroSlides = [{
     title: "<span style='font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 10px; color: #ffffff;'>Día del Padre · 21 junio 2026</span>LEGACY",
-    subtitle: "Para los hombres que dejan huella",
+    subtitle: "Para los hombres que dejan huella. Zapatos de cuero para hombre hechos a mano.",
     media_url: "/images/dia-del-padre/hero-regalos-dia-del-padre-winston-and-harry.jpg",
-    media_url_mobile: "/images/dia-del-padre/hero-regalos-dia-del-padre-winston-and-harry.jpg",
+    media_url_mobile: "/images/dia-del-padre/hero-regalos-dia-del-padre-winston-and-harry-mobile.jpg",
     is_video: false,
     btn1_title: "Ver regalos ↓",
     btn1_link: "#favoritos-sticky",
@@ -115,8 +138,10 @@ const initialCache = {
 
 <Layout title={landingSeo.title} description={landingSeo.description} canonical={landingSeo.canonical} seoData={landingSeo} image={landingSeo.ogImage}>
     <Header />
+    <Fragment slot="head" set:html={schemaMarkup} />
 
     <main>
+        <h1 class="sr-only">Regalos para el Día del Padre</h1>
         <Hero slides={heroSlides} slots={1} isH2={true} />
 
         <div class="content-wrapper">
@@ -130,7 +155,7 @@ const initialCache = {
                 imageUrl="/images/dia-del-padre/banner-legado-dia-del-padre-winston-and-harry.jpg"
                 imageAlt="Legado masculino - Ropa y zapatos hechos a mano para hombre - Winston & Harry"
                 title="Hay hombres que enseñan sin decir demasiado"
-                description="El verdadero legado es una forma de ser"
+                description="El verdadero legado es una forma de ser. Explora nuestra colección de ropa para hombre Colombia y accesorios de cuero artesanal, diseñados para trascender generaciones."
                 ctaText="Ver regalos para papá ↑"
                 ctaLink="#favoritos-sticky"
             />
