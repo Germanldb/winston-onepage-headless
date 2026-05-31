@@ -542,35 +542,6 @@
       "price": "54000",
       "regular_price": "90000",
       "sale_price": ""
-    },
-    {
-      "id": 26083,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "verde",
-          "option": "verde"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "xl",
-          "option": "xl"
-        }
-      ],
-      "image": {
-        "id": 11870,
-        "date_created": "2020-12-16T15:01:58",
-        "date_created_gmt": "2020-12-16T15:01:58",
-        "date_modified": "2020-12-16T15:01:58",
-        "date_modified_gmt": "2020-12-16T15:01:58",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2020/12/collares-perro-01.jpg",
-        "name": "collares-perro-01",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "54000",
-      "regular_price": "90000",
-      "sale_price": ""
     }
   ],
   "grouped_products": [],
@@ -638,8 +609,8 @@
       "type": "variation",
       "date_created": "2022-08-29T17:36:59",
       "date_created_gmt": "2022-08-29T17:36:59",
-      "date_modified": "2026-05-11T20:49:03",
-      "date_modified_gmt": "2026-05-11T20:49:03",
+      "date_modified": "2026-05-29T17:00:53",
+      "date_modified_gmt": "2026-05-29T17:00:53",
       "description": "<p>Collar para tu mejor amigo en 100% cuero, acolchado y reforzado.</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/collar-perro-cuero/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=xl",
       "sku": "82820205038",
@@ -662,8 +633,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -1140,7 +1111,7 @@
         {
           "id": 2262356,
           "key": "_last_change_time",
-          "value": "1778532543"
+          "value": "1780074053"
         },
         {
           "id": 2313657,

@@ -33,9 +33,9 @@ interface Product {
 }
 
 const CATEGORIES = [
-  { id: '63', name: 'Zapatos', slug: 'zapatos' },
-  { id: '249', name: 'Ropa', slug: 'ropa' },
-  { id: '190', name: 'Maletas', slug: 'maletas' }
+  { id: '63', name: 'Zapatos', slug: 'zapatos-cuero-hombre' },
+  { id: '249', name: 'Ropa', slug: 'ropa-hombre-colombia' },
+  { id: '190', name: 'Maletas', slug: 'maletas-morrales-cuero' }
 ];
 
 const SORT_OPTIONS = [
@@ -116,9 +116,9 @@ export default function ProductGrid({
   const [loading, setLoading] = useState(!initialCache && initialProducts.length === 0);
   const [error, setError] = useState<string | null>(null);
   const [categorySlugs, setCategorySlugs] = useState<Record<string, string>>({
-    '63': 'zapatos',
-    '249': 'ropa',
-    '190': 'maletas'
+    '63': 'zapatos-cuero-hombre',
+    '249': 'ropa-hombre-colombia',
+    '190': 'maletas-morrales-cuero'
   });
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
 

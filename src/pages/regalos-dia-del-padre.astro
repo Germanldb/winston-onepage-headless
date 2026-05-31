@@ -188,7 +188,7 @@ const initialCache = {
             </button>
             <div class="stores-modal-header">
                 <span class="modal-pre-title">Nuestras Ubicaciones</span>
-                <h2 class="modal-title">Boutiques Winston & Harry</h2>
+                <h2 class="modal-title">TIENDAS Winston & Harry</h2>
                 <p class="modal-subtitle">Visítanos en nuestras tiendas exclusivas y experimenta la maestría del cuero artesanal.</p>
             </div>
             <div class="stores-modal-content">
@@ -274,8 +274,8 @@ const initialCache = {
             const text = (target.textContent || '').toUpperCase();
             const href = target.getAttribute('href') || '';
 
-            // Solo interceptar si es un botón de tienda y no el del menú burger
-            if (target.classList.contains('burger-menu') || target.closest('.mobile-nav') || target.closest('.header')) {
+            // Solo interceptar si es un botón de tienda y no el del menú burger, ni header, ni footer
+            if (target.classList.contains('burger-menu') || target.closest('.mobile-nav') || target.closest('.header') || target.closest('.footer')) {
                 return;
             }
 

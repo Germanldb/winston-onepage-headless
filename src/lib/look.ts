@@ -40,10 +40,8 @@ function optimizeImages(data: any): any {
         const newData = { ...data };
         for (const key in newData) {
             if (key === 'src' && typeof newData[key] === 'string') {
-                if (newData[key].includes('wp-content/uploads') && !newData[key].toLowerCase().endsWith('.webp')) {
-                    let cleanSrc = newData[key].replace(/-e\d+(?=\.(jpg|jpeg|png))/i, '');
-                    newData[key] = `${cleanSrc}.webp`;
-                }
+                // Mantener la URL original (WP servirá el JPG/PNG correcto)
+                newData[key] = newData[key];
             } else {
                 newData[key] = optimizeImages(newData[key]);
             }

@@ -20,50 +20,38 @@ const MENU_CATEGORIES = [
     slug: 'zapatos-cuero-hombre',
     id: '63',
     subcategories: [
-      { name: 'Mocasines', slug: 'mocasines-hombre-cuero' },
-      { name: 'Oxford y Derby', slug: 'oxford-derby-zapatos-cuero' },
-      { name: 'Tenis', slug: 'tenis-cuero-hombre' },
-      { name: 'Botas', slug: 'botas-cuero-hombre' }
+      { name: 'Mocasines', slug: 'mocasines-cuero-hombre' },
+      { name: 'Botas', slug: 'botas-cuero-hombre' },
+      { name: 'Tenis', slug: 'tenis-hombre' },
+      { name: 'Zapatos de Cordón', slug: 'zapatos-cordon-hombre' },
+      { name: 'Zapatos de Hebilla', slug: 'zapatos-hebilla-hombre' },
+      { name: 'Pantuflas', slug: 'pantuflas-cuero-hombre' },
+      { name: 'Tallas Grandes', slug: 'tallas-grandes-zapatos-hombre' },
+      { name: 'Línea Colombia', slug: 'zapatos-hechos-colombia-hombre' }
     ]
   },
   {
     name: 'Ropa',
     slug: 'ropa-hombre-colombia',
     id: '249',
-    subcategories: [
-      { name: 'Suéteres y Chalecos', slug: 'sueteres-chalecos-hombre', id: '955' },
-      { name: 'Chaquetas y Blazers', slug: 'chaquetas-blazers-cuero-hombre' },
-      { name: 'Camisas', slug: 'camisas-hombre' },
-      { name: 'Pantalones y Jeans', slug: 'pantalones-jeans-hombre' },
-      { name: 'Camisetas y Polos', slug: 'camisetas-polos-hombre' }
-    ]
+    subcategories: []
   },
   {
     name: 'Maletas y Morrales',
     slug: 'maletas-morrales-cuero',
     id: '190',
-    subcategories: [
-      { name: 'Morrales', slug: 'morrales-cuero-hombre' },
-      { name: 'Portafolios', slug: 'portafolios-cuero-hombre' },
-      { name: 'Maletas de Viaje', slug: 'maletas-viaje-cuero' },
-      { name: 'Neceseres', slug: 'neceseres-cuero' },
-      { name: 'Canguros', slug: 'canguros-cuero' }
-    ]
+    subcategories: []
   },
   {
     name: 'Accesorios',
-    slug: 'accesorios-cuero-hombre',
-    id: '220',
-    subcategories: [
-      { name: 'Billeteras', slug: 'billeteras-cuero-hombre' },
-      { name: 'Correas', slug: 'correas-cuero-hombre' },
-      { name: 'Llaveros', slug: 'llaveros-cuero-hombre' }
-    ]
+    slug: 'accesorios-hombre',
+    id: '126',
+    subcategories: []
   },
   {
-    name: 'Collares para perro',
-    slug: 'collares-cuero-perro',
-    id: 'collares',
+    name: 'Outlet',
+    slug: 'outlet-zapatos-ropa',
+    id: '948',
     subcategories: []
   }
 ];
@@ -123,11 +111,12 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
     const [hasMore, setHasMore] = useState(true);
     const [loadingMore, setLoadingMore] = useState(false);
     const [openSections, setOpenSections] = useState<Record<string, boolean>>({
-        categories: (category?.slug || "").toLowerCase().includes('accesorios'),
+        categories: true,
         color: false,
         talla: false,
         precio: false
     });
+    const [openSubCats, setOpenSubCats] = useState<Record<string, boolean>>({});
 
     const isFirstRender = useRef(true);
 
@@ -221,31 +210,12 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
     }, [allFetchedProducts]);
 
     const categoriesAccordionData = useMemo(() => {
-        const slug = (category?.slug || "").toLowerCase();
-        const isSpecific = slug !== 'tienda' && slug !== 'sale' && slug !== '';
-        
-        if (isSpecific) {
-            const matched = MENU_CATEGORIES.find(m => m.slug === slug || String(m.id) === String(category?.id));
-            if (matched && matched.subcategories.length > 0) {
-                return {
-                    isSpecific: true,
-                    title: 'Subcategorías',
-                    list: matched.subcategories
-                };
-            } else {
-                return {
-                    isSpecific: true,
-                    title: 'Subcategorías',
-                    list: subcategories && subcategories.length > 0 ? subcategories : []
-                };
-            }
-        } else {
-            return {
-                isSpecific: false,
-                title: 'Categorías y Subcategorías',
-                list: MENU_CATEGORIES
-            };
-        }
+        // Mostrar siempre el árbol completo en todos los niveles
+        return {
+            isSpecific: false,
+            title: 'Categorías',
+            list: MENU_CATEGORIES
+        };
     }, [category, subcategories]);
 
     const toggleSection = (section: string) => {
@@ -746,17 +716,29 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
                                         ) : (
                                             (categoriesAccordionData.list as any[]).map(mainCat => (
                                                 <li key={mainCat.slug} className="main-cat-li" style={{ marginBottom: '0.8rem' }}>
-                                                    <label className="checkbox-container" style={{ fontWeight: '700' }}>
-                                                        <input
-                                                            type="checkbox"
-                                                            checked={selectedSubcats.includes(mainCat.slug)}
-                                                            onChange={() => toggleSubcat(mainCat.slug)}
-                                                        />
-                                                        <span className="checkmark"></span>
-                                                        <span className="label-text" style={{ fontSize: '0.9rem', color: '#121212' }}>{mainCat.name}</span>
-                                                    </label>
-                                                    {mainCat.subcategories.length > 0 && (
-                                                        <ul className="subcategories-list" style={{ listStyle: 'none', paddingLeft: '1.8rem', marginTop: '0.4rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                                                        <label className="checkbox-container" style={{ fontWeight: '700', margin: 0 }}>
+                                                            <input
+                                                                type="checkbox"
+                                                                checked={selectedSubcats.includes(mainCat.slug)}
+                                                                onChange={() => toggleSubcat(mainCat.slug)}
+                                                            />
+                                                            <span className="checkmark"></span>
+                                                            <span className="label-text" style={{ fontSize: '0.9rem', color: '#121212' }}>{mainCat.name}</span>
+                                                        </label>
+                                                        {mainCat.subcategories.length > 0 && (
+                                                            <button 
+                                                                onClick={(e) => { e.preventDefault(); setOpenSubCats(p => ({...p, [mainCat.slug]: !p[mainCat.slug]})) }}
+                                                                style={{ background: 'none', border: 'none', padding: '4px', cursor: 'pointer', color: '#666', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                                                            >
+                                                                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" style={{ transform: openSubCats[mainCat.slug] ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }}>
+                                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                                </svg>
+                                                            </button>
+                                                        )}
+                                                    </div>
+                                                    {mainCat.subcategories.length > 0 && openSubCats[mainCat.slug] && (
+                                                        <ul className="subcategories-list" style={{ listStyle: 'none', paddingLeft: '1.8rem', marginTop: '0.6rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                                                             {mainCat.subcategories.map((sub: any) => (
                                                                 <li key={sub.slug}>
                                                                     <label className="checkbox-container small">
