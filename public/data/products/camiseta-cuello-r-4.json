@@ -269,35 +269,6 @@
       "sale_price": ""
     },
     {
-      "id": 25287,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "azul",
-          "option": "azul"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "m",
-          "option": "m"
-        }
-      ],
-      "image": {
-        "id": 19376,
-        "date_created": "2022-01-18T16:24:11",
-        "date_created_gmt": "2022-01-18T16:24:11",
-        "date_modified": "2022-01-18T16:24:11",
-        "date_modified_gmt": "2022-01-18T16:24:11",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2022/01/cami-4-posi-1.jpg",
-        "name": "cami-4-posi-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "110000",
-      "regular_price": "110000",
-      "sale_price": ""
-    },
-    {
       "id": 25289,
       "attributes": [
         {
@@ -2039,8 +2010,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:45:38",
       "date_created_gmt": "2022-08-25T22:45:38",
-      "date_modified": "2026-05-07T22:59:58",
-      "date_modified_gmt": "2026-05-07T22:59:58",
+      "date_modified": "2026-06-02T17:35:50",
+      "date_modified_gmt": "2026-06-02T17:35:50",
       "description": "<p>Camiseta en nuestra horma insignia un poco mas deportiva en 100% algodon</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-cuello-r-4/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=m",
       "sku": "5056001034",
@@ -2063,8 +2034,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -2546,7 +2517,7 @@
         {
           "id": 2250117,
           "key": "_last_change_time",
-          "value": "1778177718"
+          "value": "1780421750"
         },
         {
           "id": 2314260,

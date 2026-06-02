@@ -787,8 +787,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:39:30",
       "date_created_gmt": "2022-08-25T22:39:30",
-      "date_modified": "2026-05-07T23:06:05",
-      "date_modified_gmt": "2026-05-07T23:06:05",
+      "date_modified": "2026-06-02T17:35:35",
+      "date_modified_gmt": "2026-06-02T17:35:35",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/maleta-kent/?attribute_pa_selecciona-el-color=negro",
       "sku": "15159802000",
@@ -811,7 +811,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 10,
+      "stock_quantity": 9,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1288,7 +1288,7 @@
         {
           "id": 2261966,
           "key": "_last_change_time",
-          "value": "1778184340"
+          "value": "1780421735"
         },
         {
           "id": 2314573,

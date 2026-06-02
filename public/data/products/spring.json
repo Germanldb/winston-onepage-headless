@@ -5955,8 +5955,8 @@
       "type": "variation",
       "date_created": "2024-04-26T16:34:23",
       "date_created_gmt": "2024-04-26T16:34:23",
-      "date_modified": "2026-05-07T23:10:19",
-      "date_modified_gmt": "2026-05-07T23:10:19",
+      "date_modified": "2026-06-02T17:38:29",
+      "date_modified_gmt": "2026-06-02T17:38:29",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/spring/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=37",
       "sku": "7231526037",
@@ -5979,7 +5979,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -6527,7 +6527,7 @@
         {
           "id": 2218048,
           "key": "_last_change_time",
-          "value": "1778190056"
+          "value": "1780421909"
         },
         {
           "id": 2312433,
@@ -17007,8 +17007,8 @@
       "type": "variation",
       "date_created": "2024-04-26T16:34:22",
       "date_created_gmt": "2024-04-26T16:34:22",
-      "date_modified": "2026-05-07T23:10:19",
-      "date_modified_gmt": "2026-05-07T23:10:19",
+      "date_modified": "2026-06-02T17:38:29",
+      "date_modified_gmt": "2026-06-02T17:38:29",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/spring/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=37",
       "sku": "7231501037",
@@ -17031,7 +17031,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -17579,7 +17579,7 @@
         {
           "id": 2218012,
           "key": "_last_change_time",
-          "value": "1778190053"
+          "value": "1780421909"
         },
         {
           "id": 2312442,

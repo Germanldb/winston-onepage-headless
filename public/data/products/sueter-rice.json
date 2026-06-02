@@ -3481,8 +3481,8 @@
       "type": "variation",
       "date_created": "2025-07-30T17:47:37",
       "date_created_gmt": "2025-07-30T17:47:37",
-      "date_modified": "2026-05-07T23:10:45",
-      "date_modified_gmt": "2026-05-07T23:10:45",
+      "date_modified": "2026-06-02T17:40:48",
+      "date_modified_gmt": "2026-06-02T17:40:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sueter-rice/?attribute_pa_selecciona-el-color=vinotinto&attribute_pa_selecciona-una-talla=l",
       "sku": "6160119036",
@@ -3505,7 +3505,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4303,7 +4303,7 @@
         {
           "id": 2219084,
           "key": "_last_change_time",
-          "value": "1778190188"
+          "value": "1780422048"
         },
         {
           "id": 2311365,
@@ -9529,8 +9529,8 @@
       "type": "variation",
       "date_created": "2025-07-30T17:47:35",
       "date_created_gmt": "2025-07-30T17:47:35",
-      "date_modified": "2026-05-07T23:10:36",
-      "date_modified_gmt": "2026-05-07T23:10:36",
+      "date_modified": "2026-06-02T17:40:48",
+      "date_modified_gmt": "2026-06-02T17:40:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sueter-rice/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=m",
       "sku": "6160105034",
@@ -9553,7 +9553,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -10351,7 +10351,7 @@
         {
           "id": 2219082,
           "key": "_last_change_time",
-          "value": "1778190152"
+          "value": "1780422048"
         },
         {
           "id": 2311375,
@@ -13849,8 +13849,8 @@
       "type": "variation",
       "date_created": "2025-07-30T17:47:34",
       "date_created_gmt": "2025-07-30T17:47:34",
-      "date_modified": "2026-05-07T23:10:36",
-      "date_modified_gmt": "2026-05-07T23:10:36",
+      "date_modified": "2026-06-02T17:40:48",
+      "date_modified_gmt": "2026-06-02T17:40:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sueter-rice/?attribute_pa_selecciona-el-color=gris&attribute_pa_selecciona-una-talla=l",
       "sku": "6160103036",
@@ -13873,7 +13873,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -14671,7 +14671,7 @@
         {
           "id": 2250404,
           "key": "_last_change_time",
-          "value": "1778190151"
+          "value": "1780422048"
         },
         {
           "id": 2311378,
@@ -19897,8 +19897,8 @@
       "type": "variation",
       "date_created": "2025-07-30T17:41:04",
       "date_created_gmt": "2025-07-30T17:41:04",
-      "date_modified": "2026-05-07T23:10:36",
-      "date_modified_gmt": "2026-05-07T23:10:36",
+      "date_modified": "2026-06-02T17:40:48",
+      "date_modified_gmt": "2026-06-02T17:40:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sueter-rice/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=m",
       "sku": "6160101034",
@@ -19921,7 +19921,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -20719,7 +20719,7 @@
         {
           "id": 2239453,
           "key": "_last_change_time",
-          "value": "1778190150"
+          "value": "1780422048"
         },
         {
           "id": 2311379,

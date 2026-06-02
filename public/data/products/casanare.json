@@ -364,35 +364,6 @@
       "sale_price": ""
     },
     {
-      "id": 29658,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "cafe",
-          "option": "cafe"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "40",
-          "option": "40"
-        }
-      ],
-      "image": {
-        "id": 60451,
-        "date_created": "2025-02-25T04:28:21",
-        "date_created_gmt": "2025-02-25T04:28:21",
-        "date_modified": "2025-02-26T03:53:57",
-        "date_modified_gmt": "2025-02-26T03:53:57",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/02/Casanare-Cafe-Winstonandharry-1-e1752598851554.jpg",
-        "name": "Casanare-Café-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "704000",
-      "regular_price": "704000",
-      "sale_price": ""
-    },
-    {
       "id": 30752,
       "attributes": [
         {
@@ -10258,8 +10229,8 @@
       "type": "variation",
       "date_created": "2023-06-09T22:02:20",
       "date_created_gmt": "2023-06-09T22:02:20",
-      "date_modified": "2026-05-07T23:00:48",
-      "date_modified_gmt": "2026-05-07T23:00:48",
+      "date_modified": "2026-06-02T17:37:25",
+      "date_modified_gmt": "2026-06-02T17:37:25",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/casanare/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=40",
       "sku": "7308204040",
@@ -10282,8 +10253,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -10905,7 +10876,7 @@
         {
           "id": 2261112,
           "key": "_last_change_time",
-          "value": "1778177770"
+          "value": "1780421845"
         },
         {
           "id": 2313019,

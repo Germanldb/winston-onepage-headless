@@ -405,35 +405,6 @@
       "sale_price": ""
     },
     {
-      "id": 24806,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "cognac",
-          "option": "cognac"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "39",
-          "option": "39"
-        }
-      ],
-      "image": {
-        "id": 56448,
-        "date_created": "2024-06-21T02:49:39",
-        "date_created_gmt": "2024-06-21T02:49:39",
-        "date_modified": "2024-07-12T06:20:41",
-        "date_modified_gmt": "2024-07-12T06:20:41",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2024/06/Bolton-Miel-Winstonandharry-72.jpg",
-        "name": "Bolton-Miel-Winstonandharry-72",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "630000",
-      "regular_price": "630000",
-      "sale_price": ""
-    },
-    {
       "id": 24812,
       "attributes": [
         {
@@ -3663,8 +3634,8 @@
       "type": "variation",
       "date_created": "2024-04-24T17:52:00",
       "date_created_gmt": "2024-04-24T17:52:00",
-      "date_modified": "2026-05-07T22:58:51",
-      "date_modified_gmt": "2026-05-07T22:58:51",
+      "date_modified": "2026-06-02T17:38:29",
+      "date_modified_gmt": "2026-06-02T17:38:29",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bolton/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=40",
       "sku": "7403302040",
@@ -3687,7 +3658,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4250,7 +4221,7 @@
         {
           "id": 2261402,
           "key": "_last_change_time",
-          "value": "1778175646"
+          "value": "1780421909"
         },
         {
           "id": 2312468,
@@ -9928,8 +9899,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:38:06",
       "date_created_gmt": "2022-08-25T22:38:06",
-      "date_modified": "2026-05-07T22:58:43",
-      "date_modified_gmt": "2026-05-07T22:58:43",
+      "date_modified": "2026-06-02T17:35:34",
+      "date_modified_gmt": "2026-06-02T17:35:34",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bolton/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=39",
       "sku": "7403332039",
@@ -9952,8 +9923,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -10515,7 +10486,7 @@
         {
           "id": 2261409,
           "key": "_last_change_time",
-          "value": "1778175591"
+          "value": "1780421734"
         },
         {
           "id": 2314583,

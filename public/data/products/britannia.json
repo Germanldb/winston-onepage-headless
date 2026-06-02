@@ -6107,8 +6107,8 @@
       "type": "variation",
       "date_created": "2025-04-21T17:43:50",
       "date_created_gmt": "2025-04-21T17:43:50",
-      "date_modified": "2026-05-07T22:59:10",
-      "date_modified_gmt": "2026-05-07T22:59:10",
+      "date_modified": "2026-06-02T17:40:28",
+      "date_modified_gmt": "2026-06-02T17:40:28",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/britannia/?attribute_pa_selecciona-el-color=vinotinto&attribute_pa_selecciona-una-talla=38",
       "sku": "7024719038",
@@ -6131,7 +6131,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -6824,7 +6824,7 @@
         {
           "id": 2259802,
           "key": "_last_change_time",
-          "value": "1778177562"
+          "value": "1780422028"
         },
         {
           "id": 2311626,
@@ -11420,8 +11420,8 @@
       "type": "variation",
       "date_created": "2025-04-21T17:43:50",
       "date_created_gmt": "2025-04-21T17:43:50",
-      "date_modified": "2026-05-07T22:59:10",
-      "date_modified_gmt": "2026-05-07T22:59:10",
+      "date_modified": "2026-06-02T17:40:28",
+      "date_modified_gmt": "2026-06-02T17:40:28",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/britannia/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=40",
       "sku": "7024701040",
@@ -11444,7 +11444,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12137,7 +12137,7 @@
         {
           "id": 2259793,
           "key": "_last_change_time",
-          "value": "1778177561"
+          "value": "1780422028"
         },
         {
           "id": 2311631,

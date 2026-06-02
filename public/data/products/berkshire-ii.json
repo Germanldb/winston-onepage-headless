@@ -1833,8 +1833,8 @@
       "type": "variation",
       "date_created": "2022-10-27T18:00:12",
       "date_created_gmt": "2022-10-27T18:00:12",
-      "date_modified": "2026-05-07T22:58:30",
-      "date_modified_gmt": "2026-05-07T22:58:30",
+      "date_modified": "2026-06-02T17:36:49",
+      "date_modified_gmt": "2026-06-02T17:36:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/berkshire-ii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=43",
       "sku": "7413626043",
@@ -1857,7 +1857,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2340,7 +2340,7 @@
         {
           "id": 2253487,
           "key": "_last_change_time",
-          "value": "1778175521"
+          "value": "1780421809"
         },
         {
           "id": 2313517,
@@ -2951,8 +2951,8 @@
       "type": "variation",
       "date_created": "2022-10-27T18:00:12",
       "date_created_gmt": "2022-10-27T18:00:12",
-      "date_modified": "2026-05-07T22:58:30",
-      "date_modified_gmt": "2026-05-07T22:58:30",
+      "date_modified": "2026-06-02T17:36:49",
+      "date_modified_gmt": "2026-06-02T17:36:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/berkshire-ii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=41",
       "sku": "7413626041",
@@ -2975,7 +2975,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 7,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3453,7 +3453,7 @@
         {
           "id": 2236170,
           "key": "_last_change_time",
-          "value": "1778175520"
+          "value": "1780421809"
         },
         {
           "id": 2253557,
@@ -4084,8 +4084,8 @@
       "type": "variation",
       "date_created": "2022-10-27T18:00:12",
       "date_created_gmt": "2022-10-27T18:00:12",
-      "date_modified": "2026-05-07T22:58:30",
-      "date_modified_gmt": "2026-05-07T22:58:30",
+      "date_modified": "2026-06-02T17:36:49",
+      "date_modified_gmt": "2026-06-02T17:36:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/berkshire-ii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=39",
       "sku": "7413626039",
@@ -4108,7 +4108,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 8,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4571,7 +4571,7 @@
         {
           "id": 2250185,
           "key": "_last_change_time",
-          "value": "1778175520"
+          "value": "1780421809"
         },
         {
           "id": 2253547,
@@ -4638,8 +4638,8 @@
       "type": "variation",
       "date_created": "2022-10-27T18:00:12",
       "date_created_gmt": "2022-10-27T18:00:12",
-      "date_modified": "2026-05-07T22:58:30",
-      "date_modified_gmt": "2026-05-07T22:58:30",
+      "date_modified": "2026-06-02T17:36:49",
+      "date_modified_gmt": "2026-06-02T17:36:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/berkshire-ii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=38",
       "sku": "7413626038",
@@ -4662,7 +4662,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5130,7 +5130,7 @@
         {
           "id": 2250184,
           "key": "_last_change_time",
-          "value": "1778175519"
+          "value": "1780421809"
         },
         {
           "id": 2253542,
@@ -7448,8 +7448,8 @@
       "type": "variation",
       "date_created": "2022-10-27T18:00:12",
       "date_created_gmt": "2022-10-27T18:00:12",
-      "date_modified": "2026-05-07T22:58:25",
-      "date_modified_gmt": "2026-05-07T22:58:25",
+      "date_modified": "2026-06-02T17:36:49",
+      "date_modified_gmt": "2026-06-02T17:36:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/berkshire-ii/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=42",
       "sku": "7413604042",
@@ -7472,7 +7472,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -7935,7 +7935,7 @@
         {
           "id": 2250169,
           "key": "_last_change_time",
-          "value": "1778175498"
+          "value": "1780421809"
         },
         {
           "id": 2253517,
@@ -8002,8 +8002,8 @@
       "type": "variation",
       "date_created": "2022-10-27T18:00:12",
       "date_created_gmt": "2022-10-27T18:00:12",
-      "date_modified": "2026-05-07T22:58:25",
-      "date_modified_gmt": "2026-05-07T22:58:25",
+      "date_modified": "2026-06-02T17:36:49",
+      "date_modified_gmt": "2026-06-02T17:36:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/berkshire-ii/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=41",
       "sku": "7413604041",
@@ -8026,7 +8026,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -8489,7 +8489,7 @@
         {
           "id": 2250168,
           "key": "_last_change_time",
-          "value": "1778175498"
+          "value": "1780421809"
         },
         {
           "id": 2253512,
@@ -9110,8 +9110,8 @@
       "type": "variation",
       "date_created": "2022-10-27T18:00:12",
       "date_created_gmt": "2022-10-27T18:00:12",
-      "date_modified": "2026-05-07T22:58:25",
-      "date_modified_gmt": "2026-05-07T22:58:25",
+      "date_modified": "2026-06-02T17:36:49",
+      "date_modified_gmt": "2026-06-02T17:36:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/berkshire-ii/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=39",
       "sku": "7413604039",
@@ -9134,7 +9134,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -9597,7 +9597,7 @@
         {
           "id": 2250166,
           "key": "_last_change_time",
-          "value": "1778175497"
+          "value": "1780421809"
         },
         {
           "id": 2253502,

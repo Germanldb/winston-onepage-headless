@@ -11984,8 +11984,8 @@
       "type": "variation",
       "date_created": "2025-10-31T00:15:51",
       "date_created_gmt": "2025-10-31T00:15:51",
-      "date_modified": "2026-05-07T23:01:20",
-      "date_modified_gmt": "2026-05-07T23:01:20",
+      "date_modified": "2026-06-02T17:41:47",
+      "date_modified_gmt": "2026-06-02T17:41:47",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-oslo/?attribute_pa_selecciona-el-color=beige&attribute_pa_selecciona-una-talla=xl",
       "sku": "19200106038",
@@ -12008,7 +12008,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12801,7 +12801,7 @@
         {
           "id": 2262068,
           "key": "_last_change_time",
-          "value": "1778177802"
+          "value": "1780422107"
         },
         {
           "id": 2310939,

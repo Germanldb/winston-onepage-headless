@@ -2456,8 +2456,8 @@
       "type": "variation",
       "date_created": "2023-06-22T21:54:01",
       "date_created_gmt": "2023-06-22T21:54:01",
-      "date_modified": "2026-05-07T23:00:23",
-      "date_modified_gmt": "2026-05-07T23:00:23",
+      "date_modified": "2026-06-02T17:37:48",
+      "date_modified_gmt": "2026-06-02T17:37:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-2/?attribute_pa_selecciona-el-color=azul-claro&attribute_pa_selecciona-una-talla=xs",
       "sku": "5056129030",
@@ -2480,7 +2480,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2958,7 +2958,7 @@
         {
           "id": 2259082,
           "key": "_last_change_time",
-          "value": "1778177743"
+          "value": "1780421868"
         },
         {
           "id": 2312842,

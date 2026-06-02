@@ -4823,8 +4823,8 @@
       "type": "variation",
       "date_created": "2022-11-02T16:59:53",
       "date_created_gmt": "2022-11-02T16:59:53",
-      "date_modified": "2026-05-07T23:05:16",
-      "date_modified_gmt": "2026-05-07T23:05:16",
+      "date_modified": "2026-06-02T17:37:12",
+      "date_modified_gmt": "2026-06-02T17:37:12",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/kent/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=38",
       "sku": "7112926038",
@@ -4847,7 +4847,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5330,7 +5330,7 @@
         {
           "id": 2260381,
           "key": "_last_change_time",
-          "value": "1778184112"
+          "value": "1780421832"
         }
       ],
       "name": "Miel, 38",
@@ -7763,8 +7763,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:34:44",
       "date_created_gmt": "2022-08-25T22:34:44",
-      "date_modified": "2026-05-07T23:05:16",
-      "date_modified_gmt": "2026-05-07T23:05:16",
+      "date_modified": "2026-06-02T17:35:34",
+      "date_modified_gmt": "2026-06-02T17:35:34",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/kent/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=42",
       "sku": "7112902042",
@@ -7787,7 +7787,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 9,
+      "stock_quantity": 8,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -8340,7 +8340,7 @@
         {
           "id": 2260372,
           "key": "_last_change_time",
-          "value": "1778184111"
+          "value": "1780421734"
         },
         {
           "id": 2314763,
@@ -8382,8 +8382,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:34:44",
       "date_created_gmt": "2022-08-25T22:34:44",
-      "date_modified": "2026-05-07T23:05:16",
-      "date_modified_gmt": "2026-05-07T23:05:16",
+      "date_modified": "2026-06-02T17:35:34",
+      "date_modified_gmt": "2026-06-02T17:35:34",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/kent/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=41",
       "sku": "7112902041",
@@ -8406,7 +8406,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 7,
+      "stock_quantity": 6,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -8959,7 +8959,7 @@
         {
           "id": 2218896,
           "key": "_last_change_time",
-          "value": "1778184111"
+          "value": "1780421734"
         },
         {
           "id": 2314762,
@@ -9620,8 +9620,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:34:44",
       "date_created_gmt": "2022-08-25T22:34:44",
-      "date_modified": "2026-05-07T23:05:16",
-      "date_modified_gmt": "2026-05-07T23:05:16",
+      "date_modified": "2026-06-02T17:35:34",
+      "date_modified_gmt": "2026-06-02T17:35:34",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/kent/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=39",
       "sku": "7112902039",
@@ -9644,7 +9644,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -10197,7 +10197,7 @@
         {
           "id": 2260368,
           "key": "_last_change_time",
-          "value": "1778184110"
+          "value": "1780421734"
         },
         {
           "id": 2314760,
@@ -10239,8 +10239,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:34:44",
       "date_created_gmt": "2022-08-25T22:34:44",
-      "date_modified": "2026-05-07T23:05:16",
-      "date_modified_gmt": "2026-05-07T23:05:16",
+      "date_modified": "2026-06-02T17:35:34",
+      "date_modified_gmt": "2026-06-02T17:35:34",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/kent/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=38",
       "sku": "7112902038",
@@ -10263,7 +10263,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -10816,7 +10816,7 @@
         {
           "id": 2250093,
           "key": "_last_change_time",
-          "value": "1778184110"
+          "value": "1780421734"
         },
         {
           "id": 2314759,
@@ -13334,8 +13334,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:33:53",
       "date_created_gmt": "2022-08-25T22:33:53",
-      "date_modified": "2026-05-07T23:05:16",
-      "date_modified_gmt": "2026-05-07T23:05:16",
+      "date_modified": "2026-06-02T17:35:33",
+      "date_modified_gmt": "2026-06-02T17:35:33",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/kent/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=42",
       "sku": "7112904042",
@@ -13358,7 +13358,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 9,
+      "stock_quantity": 8,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -13911,7 +13911,7 @@
         {
           "id": 2218895,
           "key": "_last_change_time",
-          "value": "1778184108"
+          "value": "1780421733"
         },
         {
           "id": 2314780,
@@ -13953,8 +13953,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:33:53",
       "date_created_gmt": "2022-08-25T22:33:53",
-      "date_modified": "2026-05-07T23:05:16",
-      "date_modified_gmt": "2026-05-07T23:05:16",
+      "date_modified": "2026-06-02T17:35:33",
+      "date_modified_gmt": "2026-06-02T17:35:33",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/kent/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=41",
       "sku": "7112904041",
@@ -13977,7 +13977,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 7,
+      "stock_quantity": 6,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -14530,7 +14530,7 @@
         {
           "id": 2260377,
           "key": "_last_change_time",
-          "value": "1778184108"
+          "value": "1780421733"
         },
         {
           "id": 2314779,
@@ -14572,8 +14572,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:33:53",
       "date_created_gmt": "2022-08-25T22:33:53",
-      "date_modified": "2026-05-07T23:05:16",
-      "date_modified_gmt": "2026-05-07T23:05:16",
+      "date_modified": "2026-06-02T17:35:33",
+      "date_modified_gmt": "2026-06-02T17:35:33",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/kent/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=40",
       "sku": "7112904040",
@@ -14596,7 +14596,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -15149,7 +15149,7 @@
         {
           "id": 2250092,
           "key": "_last_change_time",
-          "value": "1778184108"
+          "value": "1780421733"
         },
         {
           "id": 2314778,
@@ -15191,8 +15191,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:33:53",
       "date_created_gmt": "2022-08-25T22:33:53",
-      "date_modified": "2026-05-07T23:05:16",
-      "date_modified_gmt": "2026-05-07T23:05:16",
+      "date_modified": "2026-06-02T17:35:33",
+      "date_modified_gmt": "2026-06-02T17:35:33",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/kent/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=39",
       "sku": "7112904039",
@@ -15215,7 +15215,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -15768,7 +15768,7 @@
         {
           "id": 2250091,
           "key": "_last_change_time",
-          "value": "1778184107"
+          "value": "1780421733"
         },
         {
           "id": 2314777,
@@ -15810,8 +15810,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:33:53",
       "date_created_gmt": "2022-08-25T22:33:53",
-      "date_modified": "2026-05-07T23:05:16",
-      "date_modified_gmt": "2026-05-07T23:05:16",
+      "date_modified": "2026-06-02T17:35:32",
+      "date_modified_gmt": "2026-06-02T17:35:32",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/kent/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=38",
       "sku": "7112904038",
@@ -15834,7 +15834,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 10,
+      "stock_quantity": 9,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -16387,7 +16387,7 @@
         {
           "id": 2260376,
           "key": "_last_change_time",
-          "value": "1778184107"
+          "value": "1780421733"
         },
         {
           "id": 2314776,

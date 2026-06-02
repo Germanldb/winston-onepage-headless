@@ -2601,8 +2601,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:45:36",
       "date_created_gmt": "2022-08-25T22:45:36",
-      "date_modified": "2026-05-07T22:59:51",
-      "date_modified_gmt": "2026-05-07T22:59:51",
+      "date_modified": "2026-06-02T17:35:50",
+      "date_modified_gmt": "2026-06-02T17:35:50",
       "description": "<p>Camiseta en nuestra horma insignia un poco mas deportiva en 100% algodon</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-cuello-r-2/?attribute_pa_selecciona-el-color=blanco&attribute_pa_selecciona-una-talla=s",
       "sku": "5056015032",
@@ -2625,7 +2625,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 28,
+      "stock_quantity": 27,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3108,7 +3108,7 @@
         {
           "id": 2254695,
           "key": "_last_change_time",
-          "value": "1778177706"
+          "value": "1780421750"
         },
         {
           "id": 2314268,

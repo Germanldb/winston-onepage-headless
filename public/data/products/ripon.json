@@ -1928,8 +1928,8 @@
       "type": "variation",
       "date_created": "2025-02-27T03:55:19",
       "date_created_gmt": "2025-02-27T03:55:19",
-      "date_modified": "2026-05-07T23:09:45",
-      "date_modified_gmt": "2026-05-07T23:09:45",
+      "date_modified": "2026-06-02T17:40:05",
+      "date_modified_gmt": "2026-06-02T17:40:05",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ripon/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=43",
       "sku": "7901102043",
@@ -1952,7 +1952,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2580,7 +2580,7 @@
         {
           "id": 2217654,
           "key": "_last_change_time",
-          "value": "1778190023"
+          "value": "1780422005"
         },
         {
           "id": 2311809,

@@ -904,35 +904,6 @@
       "sale_price": ""
     },
     {
-      "id": 61197,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "miel",
-          "option": "miel"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "44",
-          "option": "44"
-        }
-      ],
-      "image": {
-        "id": 61894,
-        "date_created": "2025-03-04T02:20:25",
-        "date_created_gmt": "2025-03-04T02:20:25",
-        "date_modified": "2025-03-04T07:27:42",
-        "date_modified_gmt": "2025-03-04T07:27:42",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Winsdor-II-Miel-Winstonandharry-1-e1752616335119.jpg",
-        "name": "Winsdor II-Miel-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
-      "sale_price": ""
-    },
-    {
       "id": 61198,
       "attributes": [
         {
@@ -1716,8 +1687,8 @@
       "type": "variation",
       "date_created": "2025-03-03T06:19:54",
       "date_created_gmt": "2025-03-03T06:19:54",
-      "date_modified": "2026-05-07T23:13:04",
-      "date_modified_gmt": "2026-05-07T23:13:04",
+      "date_modified": "2026-06-02T17:40:06",
+      "date_modified_gmt": "2026-06-02T17:40:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-ii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=44",
       "sku": "7100426044",
@@ -1740,8 +1711,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -2363,7 +2334,7 @@
         {
           "id": 2260106,
           "key": "_last_change_time",
-          "value": "1778190687"
+          "value": "1780422006"
         },
         {
           "id": 2311752,
@@ -11362,8 +11333,8 @@
       "type": "variation",
       "date_created": "2025-03-03T06:19:53",
       "date_created_gmt": "2025-03-03T06:19:53",
-      "date_modified": "2026-05-07T23:12:59",
-      "date_modified_gmt": "2026-05-07T23:12:59",
+      "date_modified": "2026-06-02T17:40:06",
+      "date_modified_gmt": "2026-06-02T17:40:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-ii/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=39",
       "sku": "7100404039",
@@ -11386,7 +11357,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12009,7 +11980,7 @@
         {
           "id": 2260090,
           "key": "_last_change_time",
-          "value": "1778190659"
+          "value": "1780422006"
         },
         {
           "id": 2311754,
@@ -12051,8 +12022,8 @@
       "type": "variation",
       "date_created": "2025-03-03T06:19:53",
       "date_created_gmt": "2025-03-03T06:19:53",
-      "date_modified": "2026-05-07T23:12:59",
-      "date_modified_gmt": "2026-05-07T23:12:59",
+      "date_modified": "2026-06-02T17:40:05",
+      "date_modified_gmt": "2026-06-02T17:40:05",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-ii/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=38",
       "sku": "7100404038",
@@ -12075,7 +12046,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12698,7 +12669,7 @@
         {
           "id": 2260089,
           "key": "_last_change_time",
-          "value": "1778190658"
+          "value": "1780422005"
         },
         {
           "id": 2311765,

@@ -214,8 +214,8 @@
       "type": "variation",
       "date_created": "2025-10-31T02:08:20",
       "date_created_gmt": "2025-10-31T02:08:20",
-      "date_modified": "2026-05-25T17:00:54",
-      "date_modified_gmt": "2026-05-25T17:00:54",
+      "date_modified": "2026-06-02T17:41:47",
+      "date_modified_gmt": "2026-06-02T17:41:47",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/medias-golfista/?attribute_pa_selecciona-el-color=negro",
       "sku": "11113802000",
@@ -238,7 +238,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 34,
+      "stock_quantity": 32,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1025,7 +1025,7 @@
         {
           "id": 2219134,
           "key": "_last_change_time",
-          "value": "1778184354"
+          "value": "1780422107"
         },
         {
           "id": 2310916,
@@ -1067,8 +1067,8 @@
       "type": "variation",
       "date_created": "2025-10-31T02:08:20",
       "date_created_gmt": "2025-10-31T02:08:20",
-      "date_modified": "2026-05-07T23:06:18",
-      "date_modified_gmt": "2026-05-07T23:06:18",
+      "date_modified": "2026-06-02T17:41:47",
+      "date_modified_gmt": "2026-06-02T17:41:47",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/medias-golfista/?attribute_pa_selecciona-el-color=azul",
       "sku": "11113801000",
@@ -1091,7 +1091,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 18,
+      "stock_quantity": 83,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1878,7 +1878,7 @@
         {
           "id": 2219133,
           "key": "_last_change_time",
-          "value": "1778184354"
+          "value": "1780422107"
         },
         {
           "id": 2310915,

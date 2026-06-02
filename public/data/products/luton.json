@@ -15748,8 +15748,8 @@
       "type": "variation",
       "date_created": "2023-07-12T21:09:30",
       "date_created_gmt": "2023-07-12T21:09:30",
-      "date_modified": "2026-05-08T21:41:43",
-      "date_modified_gmt": "2026-05-08T21:41:43",
+      "date_modified": "2026-06-02T17:37:48",
+      "date_modified_gmt": "2026-06-02T17:37:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/luton/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=37",
       "sku": "7111004037",
@@ -15772,7 +15772,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -16330,7 +16330,7 @@
         {
           "id": 2216979,
           "key": "_last_change_time",
-          "value": "1778275793"
+          "value": "1780421868"
         },
         {
           "id": 2312750,
@@ -19637,8 +19637,8 @@
       "type": "variation",
       "date_created": "2023-07-12T21:09:30",
       "date_created_gmt": "2023-07-12T21:09:30",
-      "date_modified": "2026-05-08T21:41:43",
-      "date_modified_gmt": "2026-05-08T21:41:43",
+      "date_modified": "2026-06-02T17:37:48",
+      "date_modified_gmt": "2026-06-02T17:37:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/luton/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=39",
       "sku": "7111001039",
@@ -19661,7 +19661,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 7,
+      "stock_quantity": 6,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -20219,7 +20219,7 @@
         {
           "id": 2216967,
           "key": "_last_change_time",
-          "value": "1778275793"
+          "value": "1780421868"
         },
         {
           "id": 2312741,

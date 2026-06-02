@@ -2799,8 +2799,8 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-05-07T23:13:04",
-      "date_modified_gmt": "2026-05-07T23:13:04",
+      "date_modified": "2026-06-02T17:40:05",
+      "date_modified_gmt": "2026-06-02T17:40:05",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=42",
       "sku": "7100526042",
@@ -2823,7 +2823,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3451,7 +3451,7 @@
         {
           "id": 2260115,
           "key": "_last_change_time",
-          "value": "1778190692"
+          "value": "1780422005"
         },
         {
           "id": 2311855,

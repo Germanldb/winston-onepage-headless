@@ -592,6 +592,35 @@
       "sale_price": ""
     },
     {
+      "id": 55385,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "cafe",
+          "option": "cafe"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "42",
+          "option": "42"
+        }
+      ],
+      "image": {
+        "id": 55422,
+        "date_created": "2024-05-28T20:33:42",
+        "date_created_gmt": "2024-05-28T20:33:42",
+        "date_modified": "2024-05-30T16:39:59",
+        "date_modified_gmt": "2024-05-30T16:39:59",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2024/05/Hampshire-Cafe-Winstonandharry-324.jpg",
+        "name": "Hampshire-Cafe-Winstonandharry-324",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "385000",
+      "regular_price": "385000",
+      "sale_price": ""
+    },
+    {
       "id": 55386,
       "attributes": [
         {
@@ -2601,8 +2630,8 @@
       "type": "variation",
       "date_created": "2024-05-28T18:04:27",
       "date_created_gmt": "2024-05-28T18:04:27",
-      "date_modified": "2026-05-07T23:04:32",
-      "date_modified_gmt": "2026-05-07T23:04:32",
+      "date_modified": "2026-06-02T17:38:30",
+      "date_modified_gmt": "2026-06-02T17:38:30",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/hampshire/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=42",
       "sku": "7001304042",
@@ -2625,8 +2654,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 0,
-      "stock_status": "outofstock",
+      "stock_quantity": 1,
+      "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -3178,7 +3207,7 @@
         {
           "id": 2216525,
           "key": "_last_change_time",
-          "value": "1778178513"
+          "value": "1780421910"
         },
         {
           "id": 2312396,

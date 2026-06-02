@@ -815,35 +815,6 @@
       "sale_price": ""
     },
     {
-      "id": 57066,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "miel",
-          "option": "miel"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "43",
-          "option": "43"
-        }
-      ],
-      "image": {
-        "id": 47287,
-        "date_created": "2024-02-21T16:12:21",
-        "date_created_gmt": "2024-02-21T16:12:21",
-        "date_modified": "2024-07-12T06:21:11",
-        "date_modified_gmt": "2024-07-12T06:21:11",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Ely-tenis-miel-winstonandharry.jpg",
-        "name": "Ely-tenis-miel-winstonandharry",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "420000",
-      "regular_price": "560000",
-      "sale_price": ""
-    },
-    {
       "id": 57069,
       "attributes": [
         {
@@ -2422,8 +2393,8 @@
       "type": "variation",
       "date_created": "2024-07-12T06:00:45",
       "date_created_gmt": "2024-07-12T06:00:45",
-      "date_modified": "2026-05-08T21:41:43",
-      "date_modified_gmt": "2026-05-08T21:41:43",
+      "date_modified": "2026-06-02T17:39:14",
+      "date_modified_gmt": "2026-06-02T17:39:14",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ely/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=43",
       "sku": "7408302043",
@@ -2446,7 +2417,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3009,7 +2980,7 @@
         {
           "id": 2261458,
           "key": "_last_change_time",
-          "value": "1778275793"
+          "value": "1780421954"
         },
         {
           "id": 2312246,
@@ -5567,8 +5538,8 @@
       "type": "variation",
       "date_created": "2024-07-12T06:00:45",
       "date_created_gmt": "2024-07-12T06:00:45",
-      "date_modified": "2026-05-08T21:41:40",
-      "date_modified_gmt": "2026-05-08T21:41:40",
+      "date_modified": "2026-06-02T17:39:14",
+      "date_modified_gmt": "2026-06-02T17:39:14",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ely/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=38",
       "sku": "7408302038",
@@ -5591,7 +5562,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 9,
+      "stock_quantity": 8,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -6154,7 +6125,7 @@
         {
           "id": 2261453,
           "key": "_last_change_time",
-          "value": "1778275790"
+          "value": "1780421954"
         },
         {
           "id": 2312259,
@@ -8078,8 +8049,8 @@
       "type": "variation",
       "date_created": "2024-07-12T06:00:45",
       "date_created_gmt": "2024-07-12T06:00:45",
-      "date_modified": "2026-05-08T21:41:40",
-      "date_modified_gmt": "2026-05-08T21:41:40",
+      "date_modified": "2026-06-02T17:38:58",
+      "date_modified_gmt": "2026-06-02T17:38:58",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ely/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=43",
       "sku": "7408326043",
@@ -8102,8 +8073,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -8665,7 +8636,7 @@
         {
           "id": 2261476,
           "key": "_last_change_time",
-          "value": "1778275789"
+          "value": "1780421938"
         },
         {
           "id": 2312255,
@@ -8707,8 +8678,8 @@
       "type": "variation",
       "date_created": "2024-07-12T06:00:45",
       "date_created_gmt": "2024-07-12T06:00:45",
-      "date_modified": "2026-05-08T21:41:40",
-      "date_modified_gmt": "2026-05-08T21:41:40",
+      "date_modified": "2026-06-02T17:38:58",
+      "date_modified_gmt": "2026-06-02T17:38:58",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ely/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=42",
       "sku": "7408326042",
@@ -8731,7 +8702,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -9294,7 +9265,7 @@
         {
           "id": 2254818,
           "key": "_last_change_time",
-          "value": "1778275789"
+          "value": "1780421938"
         },
         {
           "id": 2312254,
@@ -9336,8 +9307,8 @@
       "type": "variation",
       "date_created": "2024-07-12T06:00:45",
       "date_created_gmt": "2024-07-12T06:00:45",
-      "date_modified": "2026-05-08T21:41:40",
-      "date_modified_gmt": "2026-05-08T21:41:40",
+      "date_modified": "2026-06-02T17:38:58",
+      "date_modified_gmt": "2026-06-02T17:38:58",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ely/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=41",
       "sku": "7408326041",
@@ -9360,7 +9331,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -9923,7 +9894,7 @@
         {
           "id": 2261475,
           "key": "_last_change_time",
-          "value": "1778275789"
+          "value": "1780421938"
         },
         {
           "id": 2312253,
@@ -11852,8 +11823,8 @@
       "type": "variation",
       "date_created": "2024-07-12T06:00:45",
       "date_created_gmt": "2024-07-12T06:00:45",
-      "date_modified": "2026-05-08T21:41:39",
-      "date_modified_gmt": "2026-05-08T21:41:39",
+      "date_modified": "2026-06-02T17:38:57",
+      "date_modified_gmt": "2026-06-02T17:38:57",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ely/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=37",
       "sku": "7408326037",
@@ -11876,7 +11847,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12439,7 +12410,7 @@
         {
           "id": 2261469,
           "key": "_last_change_time",
-          "value": "1778275789"
+          "value": "1780421938"
         },
         {
           "id": 2312247,
@@ -14363,8 +14334,8 @@
       "type": "variation",
       "date_created": "2024-07-12T06:00:45",
       "date_created_gmt": "2024-07-12T06:00:45",
-      "date_modified": "2026-05-08T21:41:39",
-      "date_modified_gmt": "2026-05-08T21:41:39",
+      "date_modified": "2026-06-02T17:38:57",
+      "date_modified_gmt": "2026-06-02T17:38:57",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ely/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=42",
       "sku": "7408304042",
@@ -14387,7 +14358,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 7,
+      "stock_quantity": 6,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -14945,7 +14916,7 @@
         {
           "id": 2261466,
           "key": "_last_change_time",
-          "value": "1778275789"
+          "value": "1780421937"
         },
         {
           "id": 2312239,
@@ -16310,8 +16281,8 @@
       "type": "variation",
       "date_created": "2024-07-12T06:00:44",
       "date_created_gmt": "2024-07-12T06:00:44",
-      "date_modified": "2026-05-08T21:41:39",
-      "date_modified_gmt": "2026-05-08T21:41:39",
+      "date_modified": "2026-06-02T17:38:57",
+      "date_modified_gmt": "2026-06-02T17:38:57",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ely/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=39",
       "sku": "7408304039",
@@ -16334,7 +16305,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 8,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -16892,7 +16863,7 @@
         {
           "id": 2261463,
           "key": "_last_change_time",
-          "value": "1778275789"
+          "value": "1780421937"
         },
         {
           "id": 2312272,

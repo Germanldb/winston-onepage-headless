@@ -232,8 +232,8 @@
       "type": "variation",
       "date_created": "2024-11-30T21:36:38",
       "date_created_gmt": "2024-11-30T21:36:38",
-      "date_modified": "2026-05-07T23:03:23",
-      "date_modified_gmt": "2026-05-07T23:03:23",
+      "date_modified": "2026-06-02T17:39:15",
+      "date_modified_gmt": "2026-06-02T17:39:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/double-card-holder/?attribute_pa_selecciona-el-color=negro",
       "sku": "33337202000",
@@ -256,7 +256,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 17,
+      "stock_quantity": 15,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -853,7 +853,7 @@
         {
           "id": 2254823,
           "key": "_last_change_time",
-          "value": "1778178154"
+          "value": "1780421955"
         },
         {
           "id": 2312151,
@@ -895,8 +895,8 @@
       "type": "variation",
       "date_created": "2024-11-30T21:36:38",
       "date_created_gmt": "2024-11-30T21:36:38",
-      "date_modified": "2026-05-07T23:03:23",
-      "date_modified_gmt": "2026-05-07T23:03:23",
+      "date_modified": "2026-06-02T17:39:15",
+      "date_modified_gmt": "2026-06-02T17:39:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/double-card-holder/?attribute_pa_selecciona-el-color=cafe",
       "sku": "33337219000",
@@ -919,7 +919,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 7,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1516,7 +1516,7 @@
         {
           "id": 2262269,
           "key": "_last_change_time",
-          "value": "1778178154"
+          "value": "1780421955"
         },
         {
           "id": 2312150,

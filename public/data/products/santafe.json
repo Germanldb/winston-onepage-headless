@@ -317,35 +317,6 @@
       "sale_price": ""
     },
     {
-      "id": 30491,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "negro",
-          "option": "negro"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "38",
-          "option": "38"
-        }
-      ],
-      "image": {
-        "id": 29343,
-        "date_created": "2023-06-08T16:57:47",
-        "date_created_gmt": "2023-06-08T16:57:47",
-        "date_modified": "2023-06-08T16:57:47",
-        "date_modified_gmt": "2023-06-08T16:57:47",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/MG_4576.jpg",
-        "name": "_MG_4576",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
-      "sale_price": ""
-    },
-    {
       "id": 29351,
       "attributes": [
         {
@@ -9369,8 +9340,8 @@
       "type": "variation",
       "date_created": "2023-07-11T19:19:10",
       "date_created_gmt": "2023-07-11T19:19:10",
-      "date_modified": "2026-05-07T23:09:58",
-      "date_modified_gmt": "2026-05-07T23:09:58",
+      "date_modified": "2026-06-02T17:37:48",
+      "date_modified_gmt": "2026-06-02T17:37:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/santafe/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=38",
       "sku": "7192502038",
@@ -9393,8 +9364,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -9876,7 +9847,7 @@
         {
           "id": 2260693,
           "key": "_last_change_time",
-          "value": "1778190036"
+          "value": "1780421868"
         }
       ],
       "name": "Negro, 38",
@@ -12099,8 +12070,8 @@
       "type": "variation",
       "date_created": "2023-06-08T17:15:37",
       "date_created_gmt": "2023-06-08T17:15:37",
-      "date_modified": "2026-05-07T23:09:51",
-      "date_modified_gmt": "2026-05-07T23:09:51",
+      "date_modified": "2026-06-02T17:37:25",
+      "date_modified_gmt": "2026-06-02T17:37:25",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/santafe/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=42",
       "sku": "7192504042",
@@ -12123,7 +12094,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12606,7 +12577,7 @@
         {
           "id": 2260709,
           "key": "_last_change_time",
-          "value": "1778190030"
+          "value": "1780421845"
         },
         {
           "id": 2313185,

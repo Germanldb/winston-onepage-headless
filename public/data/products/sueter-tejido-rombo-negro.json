@@ -2649,8 +2649,8 @@
       "type": "variation",
       "date_created": "2025-04-24T01:54:31",
       "date_created_gmt": "2025-04-24T01:54:31",
-      "date_modified": "2026-05-07T23:10:45",
-      "date_modified_gmt": "2026-05-07T23:10:45",
+      "date_modified": "2026-06-02T17:40:28",
+      "date_modified_gmt": "2026-06-02T17:40:28",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sueter-tejido-rombo-negro/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=l",
       "sku": "6060102036",
@@ -2673,7 +2673,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 43,
+      "stock_quantity": 42,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3371,7 +3371,7 @@
         {
           "id": 2233387,
           "key": "_last_change_time",
-          "value": "1778190191"
+          "value": "1780422028"
         },
         {
           "id": 2311536,
@@ -4177,8 +4177,8 @@
       "type": "variation",
       "date_created": "2025-04-24T01:54:31",
       "date_created_gmt": "2025-04-24T01:54:31",
-      "date_modified": "2026-05-07T23:10:45",
-      "date_modified_gmt": "2026-05-07T23:10:45",
+      "date_modified": "2026-06-02T17:40:28",
+      "date_modified_gmt": "2026-06-02T17:40:28",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sueter-tejido-rombo-negro/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=s",
       "sku": "6060102032",
@@ -4201,7 +4201,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 22,
+      "stock_quantity": 21,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4889,7 +4889,7 @@
         {
           "id": 2219042,
           "key": "_last_change_time",
-          "value": "1778190191"
+          "value": "1780422028"
         },
         {
           "id": 2231036,

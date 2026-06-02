@@ -3525,8 +3525,8 @@
       "type": "variation",
       "date_created": "2025-10-31T02:36:55",
       "date_created_gmt": "2025-10-31T02:36:55",
-      "date_modified": "2026-05-07T22:59:51",
-      "date_modified_gmt": "2026-05-07T22:59:51",
+      "date_modified": "2026-06-02T17:41:47",
+      "date_modified_gmt": "2026-06-02T17:41:47",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-corduroy/?attribute_pa_selecciona-el-color=vinotinto&attribute_pa_selecciona-una-talla=l",
       "sku": "5155019036",
@@ -3549,7 +3549,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4332,7 +4332,7 @@
         {
           "id": 2233443,
           "key": "_last_change_time",
-          "value": "1778177705"
+          "value": "1780422108"
         },
         {
           "id": 2310820,
@@ -4389,8 +4389,8 @@
       "type": "variation",
       "date_created": "2025-10-31T02:36:55",
       "date_created_gmt": "2025-10-31T02:36:55",
-      "date_modified": "2026-05-07T22:59:51",
-      "date_modified_gmt": "2026-05-07T22:59:51",
+      "date_modified": "2026-06-02T17:41:47",
+      "date_modified_gmt": "2026-06-02T17:41:47",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-corduroy/?attribute_pa_selecciona-el-color=vinotinto&attribute_pa_selecciona-una-talla=m",
       "sku": "5155019034",
@@ -4413,7 +4413,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 12,
+      "stock_quantity": 11,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5196,7 +5196,7 @@
         {
           "id": 2233442,
           "key": "_last_change_time",
-          "value": "1778177704"
+          "value": "1780422107"
         },
         {
           "id": 2310816,
@@ -6981,8 +6981,8 @@
       "type": "variation",
       "date_created": "2025-10-31T02:36:55",
       "date_created_gmt": "2025-10-31T02:36:55",
-      "date_modified": "2026-05-07T22:59:51",
-      "date_modified_gmt": "2026-05-07T22:59:51",
+      "date_modified": "2026-06-02T17:41:47",
+      "date_modified_gmt": "2026-06-02T17:41:47",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-corduroy/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=xl",
       "sku": "5155005038",
@@ -7005,7 +7005,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 8,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -7788,7 +7788,7 @@
         {
           "id": 2259166,
           "key": "_last_change_time",
-          "value": "1778177704"
+          "value": "1780422107"
         },
         {
           "id": 2310804,
@@ -10437,8 +10437,8 @@
       "type": "variation",
       "date_created": "2025-10-31T02:36:55",
       "date_created_gmt": "2025-10-31T02:36:55",
-      "date_modified": "2026-05-07T22:59:51",
-      "date_modified_gmt": "2026-05-07T22:59:51",
+      "date_modified": "2026-06-02T17:41:47",
+      "date_modified_gmt": "2026-06-02T17:41:47",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-corduroy/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=s",
       "sku": "5155005032",
@@ -10461,7 +10461,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 8,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -11244,7 +11244,7 @@
         {
           "id": 2250474,
           "key": "_last_change_time",
-          "value": "1778177703"
+          "value": "1780422107"
         },
         {
           "id": 2310787,
@@ -17349,8 +17349,8 @@
       "type": "variation",
       "date_created": "2025-10-31T02:36:54",
       "date_created_gmt": "2025-10-31T02:36:54",
-      "date_modified": "2026-05-07T22:59:51",
-      "date_modified_gmt": "2026-05-07T22:59:51",
+      "date_modified": "2026-06-02T17:41:47",
+      "date_modified_gmt": "2026-06-02T17:41:47",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-corduroy/?attribute_pa_selecciona-el-color=azul-oscuro&attribute_pa_selecciona-una-talla=xl",
       "sku": "5155037038",
@@ -17373,7 +17373,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -18156,7 +18156,7 @@
         {
           "id": 2233440,
           "key": "_last_change_time",
-          "value": "1778177701"
+          "value": "1780422107"
         },
         {
           "id": 2310755,
@@ -19077,8 +19077,8 @@
       "type": "variation",
       "date_created": "2025-10-31T02:36:54",
       "date_created_gmt": "2025-10-31T02:36:54",
-      "date_modified": "2026-05-07T22:59:51",
-      "date_modified_gmt": "2026-05-07T22:59:51",
+      "date_modified": "2026-06-02T17:41:47",
+      "date_modified_gmt": "2026-06-02T17:41:47",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-corduroy/?attribute_pa_selecciona-el-color=azul-oscuro&attribute_pa_selecciona-una-talla=l",
       "sku": "5155037036",
@@ -19101,7 +19101,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 9,
+      "stock_quantity": 8,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -19884,7 +19884,7 @@
         {
           "id": 2219140,
           "key": "_last_change_time",
-          "value": "1778177701"
+          "value": "1780422107"
         },
         {
           "id": 2310747,

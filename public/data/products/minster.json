@@ -412,64 +412,6 @@
       "sale_price": ""
     },
     {
-      "id": 25433,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "cafe",
-          "option": "cafe"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "41",
-          "option": "41"
-        }
-      ],
-      "image": {
-        "id": 16752,
-        "date_created": "2021-02-25T17:17:22",
-        "date_created_gmt": "2021-02-25T17:17:22",
-        "date_modified": "2021-02-25T17:17:22",
-        "date_modified_gmt": "2021-02-25T17:17:22",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2021/02/45-compo.jpg",
-        "name": "45-compo",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "649000",
-      "regular_price": "649000",
-      "sale_price": ""
-    },
-    {
-      "id": 25435,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "cafe",
-          "option": "cafe"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "43",
-          "option": "43"
-        }
-      ],
-      "image": {
-        "id": 16752,
-        "date_created": "2021-02-25T17:17:22",
-        "date_created_gmt": "2021-02-25T17:17:22",
-        "date_modified": "2021-02-25T17:17:22",
-        "date_modified_gmt": "2021-02-25T17:17:22",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2021/02/45-compo.jpg",
-        "name": "45-compo",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "649000",
-      "regular_price": "649000",
-      "sale_price": ""
-    },
-    {
       "id": 25436,
       "attributes": [
         {
@@ -742,35 +684,6 @@
           "name": "Selecciona una Talla",
           "value": "39",
           "option": "39"
-        }
-      ],
-      "image": {
-        "id": 16722,
-        "date_created": "2021-02-25T17:13:19",
-        "date_created_gmt": "2021-02-25T17:13:19",
-        "date_modified": "2021-02-25T17:13:19",
-        "date_modified_gmt": "2021-02-25T17:13:19",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2021/02/34-compo.jpg",
-        "name": "34-compo",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "649000",
-      "regular_price": "649000",
-      "sale_price": ""
-    },
-    {
-      "id": 25450,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "miel",
-          "option": "miel"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "40",
-          "option": "40"
         }
       ],
       "image": {
@@ -3103,8 +3016,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:47:45",
       "date_created_gmt": "2022-08-25T22:47:45",
-      "date_modified": "2026-05-07T23:06:40",
-      "date_modified_gmt": "2026-05-07T23:06:40",
+      "date_modified": "2026-06-02T17:36:09",
+      "date_modified_gmt": "2026-06-02T17:36:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/minster/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=41",
       "sku": "7401026041",
@@ -3127,7 +3040,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3610,7 +3523,7 @@
         {
           "id": 2261352,
           "key": "_last_change_time",
-          "value": "1778184382"
+          "value": "1780421769"
         },
         {
           "id": 2314138,
@@ -3652,8 +3565,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:47:45",
       "date_created_gmt": "2022-08-25T22:47:45",
-      "date_modified": "2026-05-07T23:06:40",
-      "date_modified_gmt": "2026-05-07T23:06:40",
+      "date_modified": "2026-06-02T17:36:09",
+      "date_modified_gmt": "2026-06-02T17:36:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/minster/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=40",
       "sku": "7401026040",
@@ -3676,8 +3589,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -4159,7 +4072,7 @@
         {
           "id": 2261351,
           "key": "_last_change_time",
-          "value": "1778184382"
+          "value": "1780421769"
         },
         {
           "id": 2314137,
@@ -11872,8 +11785,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:47:44",
       "date_created_gmt": "2022-08-25T22:47:44",
-      "date_modified": "2026-05-07T23:06:31",
-      "date_modified_gmt": "2026-05-07T23:06:31",
+      "date_modified": "2026-06-02T17:36:09",
+      "date_modified_gmt": "2026-06-02T17:36:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/minster/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=43",
       "sku": "7401004043",
@@ -11896,8 +11809,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -12379,7 +12292,7 @@
         {
           "id": 2261345,
           "key": "_last_change_time",
-          "value": "1778184377"
+          "value": "1780421769"
         },
         {
           "id": 2314153,
@@ -12970,8 +12883,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:47:44",
       "date_created_gmt": "2022-08-25T22:47:44",
-      "date_modified": "2026-05-07T23:06:31",
-      "date_modified_gmt": "2026-05-07T23:06:31",
+      "date_modified": "2026-06-02T17:36:09",
+      "date_modified_gmt": "2026-06-02T17:36:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/minster/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=41",
       "sku": "7401004041",
@@ -12994,8 +12907,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -13477,7 +13390,7 @@
         {
           "id": 2261343,
           "key": "_last_change_time",
-          "value": "1778184377"
+          "value": "1780421769"
         },
         {
           "id": 2314151,

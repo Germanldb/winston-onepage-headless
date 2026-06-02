@@ -331,35 +331,6 @@
       "sale_price": ""
     },
     {
-      "id": 82020,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "cafe",
-          "option": "cafe"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "40",
-          "option": "40"
-        }
-      ],
-      "image": {
-        "id": 81687,
-        "date_created": "2025-10-27T19:01:15",
-        "date_created_gmt": "2025-10-27T19:01:15",
-        "date_modified": "2025-11-04T17:19:39",
-        "date_modified_gmt": "2025-11-04T17:19:39",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Salvador-Cafe-Winstonandharry-1.jpg",
-        "name": "Salvador-Café-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "913000",
-      "regular_price": "913000",
-      "sale_price": ""
-    },
-    {
       "id": 82021,
       "attributes": [
         {
@@ -15695,8 +15666,8 @@
       "type": "variation",
       "date_created": "2025-10-29T22:06:55",
       "date_created_gmt": "2025-10-29T22:06:55",
-      "date_modified": "2026-05-07T23:09:51",
-      "date_modified_gmt": "2026-05-07T23:09:51",
+      "date_modified": "2026-06-02T17:41:19",
+      "date_modified_gmt": "2026-06-02T17:41:19",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/salvador/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=37",
       "sku": "7003102037",
@@ -15719,7 +15690,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -16512,7 +16483,7 @@
         {
           "id": 2259403,
           "key": "_last_change_time",
-          "value": "1778190029"
+          "value": "1780422079"
         },
         {
           "id": 2311082,
@@ -20849,8 +20820,8 @@
       "type": "variation",
       "date_created": "2025-10-29T22:06:55",
       "date_created_gmt": "2025-10-29T22:06:55",
-      "date_modified": "2026-05-07T23:09:51",
-      "date_modified_gmt": "2026-05-07T23:09:51",
+      "date_modified": "2026-06-02T17:41:19",
+      "date_modified_gmt": "2026-06-02T17:41:19",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/salvador/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=40",
       "sku": "7003104040",
@@ -20873,8 +20844,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -21666,7 +21637,7 @@
         {
           "id": 2250442,
           "key": "_last_change_time",
-          "value": "1778190029"
+          "value": "1780422079"
         },
         {
           "id": 2311087,

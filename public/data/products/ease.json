@@ -1075,6 +1075,35 @@
       "sale_price": ""
     },
     {
+      "id": 61259,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "azul",
+          "option": "azul"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "42",
+          "option": "42"
+        }
+      ],
+      "image": {
+        "id": 62909,
+        "date_created": "2025-04-25T22:06:14",
+        "date_created_gmt": "2025-04-25T22:06:14",
+        "date_modified": "2025-04-26T05:59:46",
+        "date_modified_gmt": "2025-04-26T05:59:46",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/04/Ease-Azul-Winstonandharry-1-e1751478697612.jpg",
+        "name": "Ease-Azul-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "485100",
+      "regular_price": "539000",
+      "sale_price": ""
+    },
+    {
       "id": 61260,
       "attributes": [
         {
@@ -1289,6 +1318,35 @@
           "name": "Selecciona una Talla",
           "value": "41",
           "option": "41"
+        }
+      ],
+      "image": {
+        "id": 61758,
+        "date_created": "2025-03-04T01:46:42",
+        "date_created_gmt": "2025-03-04T01:46:42",
+        "date_modified": "2025-03-04T07:28:46",
+        "date_modified_gmt": "2025-03-04T07:28:46",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Ease-Beige-Winstonandharry-1-e1752868907771.jpg",
+        "name": "Ease-Beige-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "485100",
+      "regular_price": "539000",
+      "sale_price": ""
+    },
+    {
+      "id": 61268,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "beige",
+          "option": "beige"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "42",
+          "option": "42"
         }
       ],
       "image": {
@@ -10677,8 +10735,8 @@
       "type": "variation",
       "date_created": "2025-04-21T18:05:37",
       "date_created_gmt": "2025-04-21T18:05:37",
-      "date_modified": "2026-05-08T21:42:34",
-      "date_modified_gmt": "2026-05-08T21:42:34",
+      "date_modified": "2026-06-02T17:40:28",
+      "date_modified_gmt": "2026-06-02T17:40:28",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ease/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=42",
       "sku": "7100826042",
@@ -10701,7 +10759,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -11389,7 +11447,7 @@
         {
           "id": 2250349,
           "key": "_last_change_time",
-          "value": "1778275845"
+          "value": "1780422028"
         },
         {
           "id": 2311594,
@@ -17598,8 +17656,8 @@
       "type": "variation",
       "date_created": "2025-04-21T18:05:37",
       "date_created_gmt": "2025-04-21T18:05:37",
-      "date_modified": "2026-05-08T21:42:34",
-      "date_modified_gmt": "2026-05-08T21:42:34",
+      "date_modified": "2026-06-02T17:40:28",
+      "date_modified_gmt": "2026-06-02T17:40:28",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ease/?attribute_pa_selecciona-el-color=blanco&attribute_pa_selecciona-una-talla=42",
       "sku": "7100815042",
@@ -17622,7 +17680,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -18310,7 +18368,7 @@
         {
           "id": 2260331,
           "key": "_last_change_time",
-          "value": "1778275845"
+          "value": "1780422028"
         },
         {
           "id": 2311606,
@@ -24294,8 +24352,8 @@
       "type": "variation",
       "date_created": "2025-03-03T06:54:52",
       "date_created_gmt": "2025-03-03T06:54:52",
-      "date_modified": "2026-05-08T21:42:29",
-      "date_modified_gmt": "2026-05-08T21:42:29",
+      "date_modified": "2026-06-02T17:40:06",
+      "date_modified_gmt": "2026-06-02T17:40:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ease/?attribute_pa_selecciona-el-color=beige&attribute_pa_selecciona-una-talla=42",
       "sku": "7100806042",
@@ -24318,8 +24376,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 0,
-      "stock_status": "outofstock",
+      "stock_quantity": 1,
+      "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -24946,7 +25004,7 @@
         {
           "id": 2260322,
           "key": "_last_change_time",
-          "value": "1778275835"
+          "value": "1780422006"
         },
         {
           "id": 2311708,
@@ -30795,8 +30853,8 @@
       "type": "variation",
       "date_created": "2025-03-03T06:54:51",
       "date_created_gmt": "2025-03-03T06:54:51",
-      "date_modified": "2026-05-08T21:42:29",
-      "date_modified_gmt": "2026-05-08T21:42:29",
+      "date_modified": "2026-06-02T17:40:06",
+      "date_modified_gmt": "2026-06-02T17:40:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ease/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=42",
       "sku": "7100801042",
@@ -30819,8 +30877,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 0,
-      "stock_status": "outofstock",
+      "stock_quantity": 1,
+      "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -31517,7 +31575,7 @@
         {
           "id": 2260302,
           "key": "_last_change_time",
-          "value": "1778275835"
+          "value": "1780422006"
         },
         {
           "id": 2311714,

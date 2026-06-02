@@ -4030,8 +4030,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:30:15",
       "date_created_gmt": "2022-08-25T22:30:15",
-      "date_modified": "2026-05-07T23:05:40",
-      "date_modified_gmt": "2026-05-07T23:05:40",
+      "date_modified": "2026-06-02T17:35:08",
+      "date_modified_gmt": "2026-06-02T17:35:08",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/liverpool/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=40",
       "sku": "7012902040",
@@ -4054,7 +4054,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4607,7 +4607,7 @@
         {
           "id": 2259541,
           "key": "_last_change_time",
-          "value": "1778184274"
+          "value": "1780421708"
         },
         {
           "id": 2314897,
@@ -8967,8 +8967,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:30:15",
       "date_created_gmt": "2022-08-25T22:30:15",
-      "date_modified": "2026-05-07T23:05:34",
-      "date_modified_gmt": "2026-05-07T23:05:34",
+      "date_modified": "2026-06-02T17:35:08",
+      "date_modified_gmt": "2026-06-02T17:35:08",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/liverpool/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=41",
       "sku": "7012926041",
@@ -8991,7 +8991,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 7,
+      "stock_quantity": 6,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -9544,7 +9544,7 @@
         {
           "id": 2259560,
           "key": "_last_change_time",
-          "value": "1778184250"
+          "value": "1780421708"
         },
         {
           "id": 2314903,

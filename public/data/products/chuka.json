@@ -456,35 +456,6 @@
       "sale_price": ""
     },
     {
-      "id": 72717,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "cafe",
-          "option": "cafe"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "37",
-          "option": "37"
-        }
-      ],
-      "image": {
-        "id": 74141,
-        "date_created": "2025-09-05T22:25:24",
-        "date_created_gmt": "2025-09-05T22:25:24",
-        "date_modified": "2025-09-08T20:17:46",
-        "date_modified_gmt": "2025-09-08T20:17:46",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chuka-Cafe-Winstonandharry-1-e1757112592897.jpg",
-        "name": "Chuka-Café-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "616000",
-      "regular_price": "616000",
-      "sale_price": ""
-    },
-    {
       "id": 72718,
       "attributes": [
         {
@@ -757,35 +728,6 @@
           "name": "Selecciona una Talla",
           "value": "38",
           "option": "38"
-        }
-      ],
-      "image": {
-        "id": 74164,
-        "date_created": "2025-09-05T22:33:14",
-        "date_created_gmt": "2025-09-05T22:33:14",
-        "date_modified": "2025-09-08T20:17:48",
-        "date_modified_gmt": "2025-09-08T20:17:48",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chuka-Negro-Winstonandharry-1-e1757113493299.jpg",
-        "name": "Chuka-Negro-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "616000",
-      "regular_price": "616000",
-      "sale_price": ""
-    },
-    {
-      "id": 72728,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "negro",
-          "option": "negro"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "39",
-          "option": "39"
         }
       ],
       "image": {
@@ -6197,8 +6139,8 @@
       "type": "variation",
       "date_created": "2025-09-02T22:53:09",
       "date_created_gmt": "2025-09-02T22:53:09",
-      "date_modified": "2026-05-07T23:01:41",
-      "date_modified_gmt": "2026-05-07T23:01:41",
+      "date_modified": "2026-06-02T17:41:18",
+      "date_modified_gmt": "2026-06-02T17:41:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chuka/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=39",
       "sku": "7000502039",
@@ -6221,8 +6163,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -7014,7 +6956,7 @@
         {
           "id": 2250429,
           "key": "_last_change_time",
-          "value": "1778177824"
+          "value": "1780422078"
         },
         {
           "id": 2311200,
@@ -12210,8 +12152,8 @@
       "type": "variation",
       "date_created": "2025-09-02T22:53:09",
       "date_created_gmt": "2025-09-02T22:53:09",
-      "date_modified": "2026-05-07T23:01:41",
-      "date_modified_gmt": "2026-05-07T23:01:41",
+      "date_modified": "2026-06-02T17:41:18",
+      "date_modified_gmt": "2026-06-02T17:41:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chuka/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=41",
       "sku": "7000504041",
@@ -12234,7 +12176,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -13027,7 +12969,7 @@
         {
           "id": 2259274,
           "key": "_last_change_time",
-          "value": "1778177824"
+          "value": "1780422078"
         },
         {
           "id": 2311209,
@@ -13928,8 +13870,8 @@
       "type": "variation",
       "date_created": "2025-09-02T22:53:09",
       "date_created_gmt": "2025-09-02T22:53:09",
-      "date_modified": "2026-05-07T23:01:41",
-      "date_modified_gmt": "2026-05-07T23:01:41",
+      "date_modified": "2026-06-02T17:41:18",
+      "date_modified_gmt": "2026-06-02T17:41:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chuka/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=39",
       "sku": "7000504039",
@@ -13952,7 +13894,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -14745,7 +14687,7 @@
         {
           "id": 2250428,
           "key": "_last_change_time",
-          "value": "1778177824"
+          "value": "1780422078"
         },
         {
           "id": 2311206,
@@ -15646,8 +15588,8 @@
       "type": "variation",
       "date_created": "2025-09-02T22:53:08",
       "date_created_gmt": "2025-09-02T22:53:08",
-      "date_modified": "2026-05-07T23:01:41",
-      "date_modified_gmt": "2026-05-07T23:01:41",
+      "date_modified": "2026-06-02T17:41:18",
+      "date_modified_gmt": "2026-06-02T17:41:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chuka/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=37",
       "sku": "7000504037",
@@ -15670,8 +15612,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -16463,7 +16405,7 @@
         {
           "id": 2239484,
           "key": "_last_change_time",
-          "value": "1778177824"
+          "value": "1780422078"
         },
         {
           "id": 2311222,

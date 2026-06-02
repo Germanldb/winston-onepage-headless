@@ -342,8 +342,8 @@
       "type": "variation",
       "date_created": "2022-08-29T21:09:36",
       "date_created_gmt": "2022-08-29T21:09:36",
-      "date_modified": "2026-05-07T23:08:44",
-      "date_modified_gmt": "2026-05-07T23:08:44",
+      "date_modified": "2026-06-02T17:36:48",
+      "date_modified_gmt": "2026-06-02T17:36:48",
       "description": "<p>Nosotros sabemos que la regla número uno cuando se usa cuero, es siempre combinar los colores &#8211; “match your leathers”. Nuestros cinturones Trent están hechos en piel de becerro de manera artesanal, pintados a mano para llegar a ser el accesorio perfecto al usar con nuestros zapatos. Su diseño sencillo y hebilla clásica le da un toque de elegancia que sobresaltará en cualquier ocasión que te encuentres.</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/reata-672/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=xl",
       "sku": "28491601038",
@@ -366,7 +366,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -839,7 +839,7 @@
         {
           "id": 2262149,
           "key": "_last_change_time",
-          "value": "1778184651"
+          "value": "1780421808"
         }
       ],
       "name": "Azul, XL",
@@ -876,8 +876,8 @@
       "type": "variation",
       "date_created": "2022-08-29T21:09:36",
       "date_created_gmt": "2022-08-29T21:09:36",
-      "date_modified": "2026-05-07T23:08:44",
-      "date_modified_gmt": "2026-05-07T23:08:44",
+      "date_modified": "2026-06-02T17:36:20",
+      "date_modified_gmt": "2026-06-02T17:36:20",
       "description": "<p>Nosotros sabemos que la regla número uno cuando se usa cuero, es siempre combinar los colores &#8211; “match your leathers”. Nuestros cinturones Trent están hechos en piel de becerro de manera artesanal, pintados a mano para llegar a ser el accesorio perfecto al usar con nuestros zapatos. Su diseño sencillo y hebilla clásica le da un toque de elegancia que sobresaltará en cualquier ocasión que te encuentres.</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/reata-672/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=l",
       "sku": "28491601036",
@@ -900,7 +900,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1373,7 +1373,7 @@
         {
           "id": 2218946,
           "key": "_last_change_time",
-          "value": "1778184651"
+          "value": "1780421780"
         }
       ],
       "name": "Azul, L",
@@ -1944,8 +1944,8 @@
       "type": "variation",
       "date_created": "2022-08-29T21:09:36",
       "date_created_gmt": "2022-08-29T21:09:36",
-      "date_modified": "2026-05-07T23:08:44",
-      "date_modified_gmt": "2026-05-07T23:08:44",
+      "date_modified": "2026-06-02T17:36:20",
+      "date_modified_gmt": "2026-06-02T17:36:20",
       "description": "<p>Nosotros sabemos que la regla número uno cuando se usa cuero, es siempre combinar los colores &#8211; “match your leathers”. Nuestros cinturones Trent están hechos en piel de becerro de manera artesanal, pintados a mano para llegar a ser el accesorio perfecto al usar con nuestros zapatos. Su diseño sencillo y hebilla clásica le da un toque de elegancia que sobresaltará en cualquier ocasión que te encuentres.</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/reata-672/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=s",
       "sku": "28491601032",
@@ -1968,7 +1968,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 9,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2441,7 +2441,7 @@
         {
           "id": 2250154,
           "key": "_last_change_time",
-          "value": "1778184651"
+          "value": "1780421780"
         }
       ],
       "name": "Azul, S",

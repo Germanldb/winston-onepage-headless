@@ -5264,8 +5264,8 @@
       "type": "variation",
       "date_created": "2025-08-21T21:57:46",
       "date_created_gmt": "2025-08-21T21:57:46",
-      "date_modified": "2026-05-07T22:58:16",
-      "date_modified_gmt": "2026-05-07T22:58:16",
+      "date_modified": "2026-06-02T17:41:18",
+      "date_modified_gmt": "2026-06-02T17:41:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/belfast/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=40",
       "sku": "7070002040",
@@ -5288,7 +5288,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -6081,7 +6081,7 @@
         {
           "id": 2259954,
           "key": "_last_change_time",
-          "value": "1778175471"
+          "value": "1780422078"
         },
         {
           "id": 2311238,

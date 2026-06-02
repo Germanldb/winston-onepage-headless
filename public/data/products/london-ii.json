@@ -3743,8 +3743,8 @@
       "type": "variation",
       "date_created": "2023-04-26T15:08:12",
       "date_created_gmt": "2023-04-26T15:08:12",
-      "date_modified": "2026-05-07T23:05:49",
-      "date_modified_gmt": "2026-05-07T23:05:49",
+      "date_modified": "2026-06-02T17:37:25",
+      "date_modified_gmt": "2026-06-02T17:37:25",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/london-ii/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=40",
       "sku": "7307002040",
@@ -3767,7 +3767,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4265,7 +4265,7 @@
         {
           "id": 2216936,
           "key": "_last_change_time",
-          "value": "1778184322"
+          "value": "1780421845"
         },
         {
           "id": 2313209,

@@ -1870,8 +1870,8 @@
       "type": "variation",
       "date_created": "2025-04-24T05:05:58",
       "date_created_gmt": "2025-04-24T05:05:58",
-      "date_modified": "2026-05-19T13:24:15",
-      "date_modified_gmt": "2026-05-19T13:24:15",
+      "date_modified": "2026-06-02T17:40:48",
+      "date_modified_gmt": "2026-06-02T17:40:48",
       "description": "<p>Nosotros sabemos que la regla número uno cuando se usa cuero, es siempre combinar los colores &#8211; “match your leathers”. Nuestros cinturones Trent están hechos en piel de becerro de manera artesanal, pintados a mano para llegar a ser el accesorio perfecto al usar con nuestros zapatos. Su diseño sencillo y hebilla clásica le da un toque de elegancia que sobresaltará en cualquier ocasión que te encuentres.</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/reata-7307-04/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=s",
       "sku": "28730704032",
@@ -1894,7 +1894,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2592,7 +2592,7 @@
         {
           "id": 2262188,
           "key": "_last_change_time",
-          "value": "1778184701"
+          "value": "1780422048"
         },
         {
           "id": 2311429,

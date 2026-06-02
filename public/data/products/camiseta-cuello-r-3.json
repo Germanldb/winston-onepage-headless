@@ -1444,8 +1444,8 @@
       "type": "variation",
       "date_created": "2022-08-29T21:02:14",
       "date_created_gmt": "2022-08-29T21:02:14",
-      "date_modified": "2026-05-07T22:59:59",
-      "date_modified_gmt": "2026-05-07T22:59:59",
+      "date_modified": "2026-06-02T17:36:20",
+      "date_modified_gmt": "2026-06-02T17:36:20",
       "description": "<p>Camiseta en nuestra horma insignia un poco mas deportiva en 100% algodon</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-cuello-r-3/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=s",
       "sku": "5056005032",
@@ -1468,7 +1468,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1951,7 +1951,7 @@
         {
           "id": 2236161,
           "key": "_last_change_time",
-          "value": "1778177719"
+          "value": "1780421780"
         }
       ],
       "name": "Verde, S",

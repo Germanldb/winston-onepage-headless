@@ -5302,8 +5302,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:35:59",
       "date_created_gmt": "2022-08-25T22:35:59",
-      "date_modified": "2026-05-08T21:42:35",
-      "date_modified_gmt": "2026-05-08T21:42:35",
+      "date_modified": "2026-06-02T17:35:34",
+      "date_modified_gmt": "2026-06-02T17:35:34",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/essex/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=38",
       "sku": "7190226038",
@@ -5326,7 +5326,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5804,7 +5804,7 @@
         {
           "id": 2216444,
           "key": "_last_change_time",
-          "value": "1778178302"
+          "value": "1780421734"
         },
         {
           "id": 2314682,

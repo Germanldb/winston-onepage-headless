@@ -3271,8 +3271,8 @@
       "type": "variation",
       "date_created": "2025-04-21T17:19:22",
       "date_created_gmt": "2025-04-21T17:19:22",
-      "date_modified": "2026-05-07T23:01:56",
-      "date_modified_gmt": "2026-05-07T23:01:56",
+      "date_modified": "2026-06-02T17:40:28",
+      "date_modified_gmt": "2026-06-02T17:40:28",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/clarence/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=42",
       "sku": "7008026042",
@@ -3295,7 +3295,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 12,
+      "stock_quantity": 11,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3993,7 +3993,7 @@
         {
           "id": 2259518,
           "key": "_last_change_time",
-          "value": "1778177840"
+          "value": "1780422028"
         },
         {
           "id": 2311644,
@@ -11675,8 +11675,8 @@
       "type": "variation",
       "date_created": "2025-04-21T17:19:22",
       "date_created_gmt": "2025-04-21T17:19:22",
-      "date_modified": "2026-05-07T23:01:56",
-      "date_modified_gmt": "2026-05-07T23:01:56",
+      "date_modified": "2026-06-02T17:40:28",
+      "date_modified_gmt": "2026-06-02T17:40:28",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/clarence/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=40",
       "sku": "7008004040",
@@ -11699,7 +11699,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12397,7 +12397,7 @@
         {
           "id": 2250348,
           "key": "_last_change_time",
-          "value": "1778177840"
+          "value": "1780422028"
         },
         {
           "id": 2311651,
@@ -12439,8 +12439,8 @@
       "type": "variation",
       "date_created": "2025-04-21T17:19:22",
       "date_created_gmt": "2025-04-21T17:19:22",
-      "date_modified": "2026-05-07T23:01:56",
-      "date_modified_gmt": "2026-05-07T23:01:56",
+      "date_modified": "2026-06-02T17:40:28",
+      "date_modified_gmt": "2026-06-02T17:40:28",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/clarence/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=39",
       "sku": "7008004039",
@@ -12463,7 +12463,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -13161,7 +13161,7 @@
         {
           "id": 2250347,
           "key": "_last_change_time",
-          "value": "1778177840"
+          "value": "1780422028"
         },
         {
           "id": 2311650,
@@ -13203,8 +13203,8 @@
       "type": "variation",
       "date_created": "2025-04-21T17:19:22",
       "date_created_gmt": "2025-04-21T17:19:22",
-      "date_modified": "2026-05-07T23:01:56",
-      "date_modified_gmt": "2026-05-07T23:01:56",
+      "date_modified": "2026-06-02T17:40:28",
+      "date_modified_gmt": "2026-06-02T17:40:28",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/clarence/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=38",
       "sku": "7008004038",
@@ -13227,7 +13227,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -13925,7 +13925,7 @@
         {
           "id": 2259506,
           "key": "_last_change_time",
-          "value": "1778177840"
+          "value": "1780422028"
         },
         {
           "id": 2311648,
@@ -18161,8 +18161,8 @@
       "type": "variation",
       "date_created": "2024-11-06T15:21:40",
       "date_created_gmt": "2024-11-06T15:21:40",
-      "date_modified": "2026-05-07T23:01:52",
-      "date_modified_gmt": "2026-05-07T23:01:52",
+      "date_modified": "2026-06-02T17:39:15",
+      "date_modified_gmt": "2026-06-02T17:39:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/clarence/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=40",
       "sku": "7008002040",
@@ -18185,7 +18185,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -18808,7 +18808,7 @@
         {
           "id": 2233347,
           "key": "_last_change_time",
-          "value": "1778177835"
+          "value": "1780421955"
         },
         {
           "id": 2312181,

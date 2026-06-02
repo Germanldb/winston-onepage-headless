@@ -307,35 +307,6 @@
       "sale_price": ""
     },
     {
-      "id": 57024,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "azul",
-          "option": "azul"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "39",
-          "option": "39"
-        }
-      ],
-      "image": {
-        "id": 61814,
-        "date_created": "2025-03-04T01:55:47",
-        "date_created_gmt": "2025-03-04T01:55:47",
-        "date_modified": "2025-03-04T07:31:22",
-        "date_modified_gmt": "2025-03-04T07:31:22",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cabrera-Azul-Winstonandharry-1-e1752870313803.jpg",
-        "name": "Cabrera-Azul-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
-      "sale_price": ""
-    },
-    {
       "id": 57025,
       "attributes": [
         {
@@ -3906,8 +3877,8 @@
       "type": "variation",
       "date_created": "2024-07-12T04:30:37",
       "date_created_gmt": "2024-07-12T04:30:37",
-      "date_modified": "2026-05-07T22:59:25",
-      "date_modified_gmt": "2026-05-07T22:59:25",
+      "date_modified": "2026-06-02T17:38:57",
+      "date_modified_gmt": "2026-06-02T17:38:57",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cabrera/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=41",
       "sku": "7230502041",
@@ -3930,7 +3901,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4553,7 +4524,7 @@
         {
           "id": 2254816,
           "key": "_last_change_time",
-          "value": "1778177578"
+          "value": "1780421937"
         },
         {
           "id": 2312291,
@@ -5284,8 +5255,8 @@
       "type": "variation",
       "date_created": "2024-07-12T04:30:37",
       "date_created_gmt": "2024-07-12T04:30:37",
-      "date_modified": "2026-05-07T22:59:25",
-      "date_modified_gmt": "2026-05-07T22:59:25",
+      "date_modified": "2026-06-02T17:38:57",
+      "date_modified_gmt": "2026-06-02T17:38:57",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cabrera/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=39",
       "sku": "7230502039",
@@ -5308,7 +5279,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5931,7 +5902,7 @@
         {
           "id": 2218993,
           "key": "_last_change_time",
-          "value": "1778177578"
+          "value": "1780421937"
         },
         {
           "id": 2312289,
@@ -5973,8 +5944,8 @@
       "type": "variation",
       "date_created": "2024-07-12T04:30:37",
       "date_created_gmt": "2024-07-12T04:30:37",
-      "date_modified": "2026-05-07T22:59:25",
-      "date_modified_gmt": "2026-05-07T22:59:25",
+      "date_modified": "2026-06-02T17:38:57",
+      "date_modified_gmt": "2026-06-02T17:38:57",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cabrera/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=38",
       "sku": "7230502038",
@@ -5997,7 +5968,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -6620,7 +6591,7 @@
         {
           "id": 2260884,
           "key": "_last_change_time",
-          "value": "1778177578"
+          "value": "1780421937"
         },
         {
           "id": 2312288,
@@ -12843,8 +12814,8 @@
       "type": "variation",
       "date_created": "2024-07-12T04:30:37",
       "date_created_gmt": "2024-07-12T04:30:37",
-      "date_modified": "2026-05-07T22:59:21",
-      "date_modified_gmt": "2026-05-07T22:59:21",
+      "date_modified": "2026-06-02T17:38:57",
+      "date_modified_gmt": "2026-06-02T17:38:57",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cabrera/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=39",
       "sku": "7230501039",
@@ -12867,8 +12838,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -13490,7 +13461,7 @@
         {
           "id": 2260877,
           "key": "_last_change_time",
-          "value": "1778177574"
+          "value": "1780421937"
         },
         {
           "id": 2312280,
@@ -23173,8 +23144,8 @@
       "type": "variation",
       "date_created": "2023-07-17T21:53:37",
       "date_created_gmt": "2023-07-17T21:53:37",
-      "date_modified": "2026-05-07T22:59:21",
-      "date_modified_gmt": "2026-05-07T22:59:21",
+      "date_modified": "2026-06-02T17:37:48",
+      "date_modified_gmt": "2026-06-02T17:37:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cabrera/?attribute_pa_selecciona-el-color=blanco&attribute_pa_selecciona-una-talla=40",
       "sku": "7230515040",
@@ -23197,7 +23168,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -23820,7 +23791,7 @@
         {
           "id": 2260896,
           "key": "_last_change_time",
-          "value": "1778177573"
+          "value": "1780421868"
         },
         {
           "id": 2312677,

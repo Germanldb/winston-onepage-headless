@@ -214,8 +214,8 @@
       "type": "variation",
       "date_created": "2025-10-31T02:20:38",
       "date_created_gmt": "2025-10-31T02:20:38",
-      "date_modified": "2026-05-07T23:06:18",
-      "date_modified_gmt": "2026-05-07T23:06:18",
+      "date_modified": "2026-06-02T17:41:47",
+      "date_modified_gmt": "2026-06-02T17:41:47",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/medias-perros-varios/?attribute_pa_selecciona-el-color=verde",
       "sku": "11186305000",
@@ -238,7 +238,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 16,
+      "stock_quantity": 96,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1025,7 +1025,7 @@
         {
           "id": 2219138,
           "key": "_last_change_time",
-          "value": "1778184354"
+          "value": "1780422107"
         },
         {
           "id": 2310910,
@@ -1067,8 +1067,8 @@
       "type": "variation",
       "date_created": "2025-10-31T02:20:38",
       "date_created_gmt": "2025-10-31T02:20:38",
-      "date_modified": "2026-05-07T23:06:18",
-      "date_modified_gmt": "2026-05-07T23:06:18",
+      "date_modified": "2026-06-02T17:41:47",
+      "date_modified_gmt": "2026-06-02T17:41:47",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/medias-perros-varios/?attribute_pa_selecciona-el-color=azul",
       "sku": "11186301000",
@@ -1091,7 +1091,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 24,
+      "stock_quantity": 102,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1878,7 +1878,7 @@
         {
           "id": 2219137,
           "key": "_last_change_time",
-          "value": "1778184354"
+          "value": "1780422107"
         },
         {
           "id": 2310909,

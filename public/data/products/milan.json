@@ -2717,8 +2717,8 @@
       "type": "variation",
       "date_created": "2025-03-03T05:48:57",
       "date_created_gmt": "2025-03-03T05:48:57",
-      "date_modified": "2026-05-07T23:06:31",
-      "date_modified_gmt": "2026-05-07T23:06:31",
+      "date_modified": "2026-06-02T17:40:05",
+      "date_modified_gmt": "2026-06-02T17:40:05",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/milan/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=42",
       "sku": "7002826042",
@@ -2741,7 +2741,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3369,7 +3369,7 @@
         {
           "id": 2259378,
           "key": "_last_change_time",
-          "value": "1778184377"
+          "value": "1780422005"
         },
         {
           "id": 2311785,

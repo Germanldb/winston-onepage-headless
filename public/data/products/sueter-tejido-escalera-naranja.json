@@ -2657,8 +2657,8 @@
       "type": "variation",
       "date_created": "2025-04-22T23:35:16",
       "date_created_gmt": "2025-04-22T23:35:16",
-      "date_modified": "2026-05-07T22:57:08",
-      "date_modified_gmt": "2026-05-07T22:57:08",
+      "date_modified": "2026-06-02T17:40:28",
+      "date_modified_gmt": "2026-06-02T17:40:28",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sueter-tejido-escalera-naranja/?attribute_pa_selecciona-el-color=naranja&attribute_pa_selecciona-una-talla=l",
       "sku": "6060121036",
@@ -2681,7 +2681,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 27,
+      "stock_quantity": 26,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3379,7 +3379,7 @@
         {
           "id": 2250368,
           "key": "_last_change_time",
-          "value": "1778175329"
+          "value": "1780422028"
         },
         {
           "id": 2311541,

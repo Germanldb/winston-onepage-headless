@@ -4118,8 +4118,8 @@
       "type": "variation",
       "date_created": "2024-07-12T21:46:43",
       "date_created_gmt": "2024-07-12T21:46:43",
-      "date_modified": "2026-05-07T22:57:45",
-      "date_modified_gmt": "2026-05-07T22:57:45",
+      "date_modified": "2026-06-02T17:39:15",
+      "date_modified_gmt": "2026-06-02T17:39:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/balmoral/?attribute_pa_selecciona-el-color=vinotinto&attribute_pa_selecciona-una-talla=40",
       "sku": "7015719040",
@@ -4142,7 +4142,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4695,7 +4695,7 @@
         {
           "id": 2250302,
           "key": "_last_change_time",
-          "value": "1778175368"
+          "value": "1780421955"
         },
         {
           "id": 2312221,
@@ -4737,8 +4737,8 @@
       "type": "variation",
       "date_created": "2024-07-12T21:46:43",
       "date_created_gmt": "2024-07-12T21:46:43",
-      "date_modified": "2026-05-07T22:57:45",
-      "date_modified_gmt": "2026-05-07T22:57:45",
+      "date_modified": "2026-06-02T17:39:15",
+      "date_modified_gmt": "2026-06-02T17:39:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/balmoral/?attribute_pa_selecciona-el-color=vinotinto&attribute_pa_selecciona-una-talla=39",
       "sku": "7015719039",
@@ -4761,7 +4761,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 8,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5314,7 +5314,7 @@
         {
           "id": 2259611,
           "key": "_last_change_time",
-          "value": "1778175367"
+          "value": "1780421955"
         },
         {
           "id": 2312220,
@@ -15255,8 +15255,8 @@
       "type": "variation",
       "date_created": "2024-07-12T21:46:42",
       "date_created_gmt": "2024-07-12T21:46:42",
-      "date_modified": "2026-05-07T22:57:32",
-      "date_modified_gmt": "2026-05-07T22:57:32",
+      "date_modified": "2026-06-02T17:39:14",
+      "date_modified_gmt": "2026-06-02T17:39:14",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/balmoral/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=40",
       "sku": "7015704040",
@@ -15279,7 +15279,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -15832,7 +15832,7 @@
         {
           "id": 2259605,
           "key": "_last_change_time",
-          "value": "1778175356"
+          "value": "1780421954"
         },
         {
           "id": 2312232,

@@ -1985,8 +1985,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:42:26",
       "date_created_gmt": "2022-08-25T22:42:26",
-      "date_modified": "2026-05-07T23:00:10",
-      "date_modified_gmt": "2026-05-07T23:00:10",
+      "date_modified": "2026-06-02T17:35:49",
+      "date_modified_gmt": "2026-06-02T17:35:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-6/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=l",
       "sku": "5056105036",
@@ -2009,7 +2009,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2482,7 +2482,7 @@
         {
           "id": 2239402,
           "key": "_last_change_time",
-          "value": "1778177731"
+          "value": "1780421749"
         },
         {
           "id": 2314495,
@@ -2524,8 +2524,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:42:26",
       "date_created_gmt": "2022-08-25T22:42:26",
-      "date_modified": "2026-05-07T23:00:09",
-      "date_modified_gmt": "2026-05-07T23:00:09",
+      "date_modified": "2026-06-02T17:35:49",
+      "date_modified_gmt": "2026-06-02T17:35:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-6/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=m",
       "sku": "5056105034",
@@ -2548,7 +2548,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 8,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3021,7 +3021,7 @@
         {
           "id": 2250097,
           "key": "_last_change_time",
-          "value": "1778177730"
+          "value": "1780421749"
         },
         {
           "id": 2314494,

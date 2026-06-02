@@ -271,35 +271,6 @@
       "sale_price": ""
     },
     {
-      "id": 24737,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "cognac",
-          "option": "cognac"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "43",
-          "option": "43"
-        }
-      ],
-      "image": {
-        "id": 11810,
-        "date_created": "2020-12-15T22:45:52",
-        "date_created_gmt": "2020-12-15T22:45:52",
-        "date_modified": "2020-12-15T22:45:52",
-        "date_modified_gmt": "2020-12-15T22:45:52",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2020/12/086-zapato-composition.jpg",
-        "name": "086-zapato-composition",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "377300",
-      "regular_price": "539000",
-      "sale_price": ""
-    },
-    {
       "id": 24738,
       "attributes": [
         {
@@ -1521,8 +1492,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:36:35",
       "date_created_gmt": "2022-08-25T22:36:35",
-      "date_modified": "2026-05-08T21:45:21",
-      "date_modified_gmt": "2026-05-08T21:45:21",
+      "date_modified": "2026-06-02T17:35:34",
+      "date_modified_gmt": "2026-06-02T17:35:34",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/norflok/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=43",
       "sku": "7300732043",
@@ -1545,8 +1516,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -2028,7 +1999,7 @@
         {
           "id": 2217524,
           "key": "_last_change_time",
-          "value": "1778184443"
+          "value": "1780421734"
         },
         {
           "id": 2314632,

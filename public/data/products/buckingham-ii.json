@@ -4622,8 +4622,8 @@
       "type": "variation",
       "date_created": "2023-07-11T19:05:59",
       "date_created_gmt": "2023-07-11T19:05:59",
-      "date_modified": "2026-05-07T22:59:16",
-      "date_modified_gmt": "2026-05-07T22:59:16",
+      "date_modified": "2026-06-02T17:37:48",
+      "date_modified_gmt": "2026-06-02T17:37:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/buckingham-ii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=39",
       "sku": "7302426039",
@@ -4646,7 +4646,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5269,7 +5269,7 @@
         {
           "id": 2260995,
           "key": "_last_change_time",
-          "value": "1778177568"
+          "value": "1780421868"
         },
         {
           "id": 2312791,
@@ -10798,8 +10798,8 @@
       "type": "variation",
       "date_created": "2023-06-08T17:32:52",
       "date_created_gmt": "2023-06-08T17:32:52",
-      "date_modified": "2026-05-07T22:59:16",
-      "date_modified_gmt": "2026-05-07T22:59:16",
+      "date_modified": "2026-06-02T17:37:25",
+      "date_modified_gmt": "2026-06-02T17:37:25",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/buckingham-ii/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=39",
       "sku": "7302402039",
@@ -10822,7 +10822,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -11445,7 +11445,7 @@
         {
           "id": 2260986,
           "key": "_last_change_time",
-          "value": "1778177568"
+          "value": "1780421845"
         },
         {
           "id": 2313178,

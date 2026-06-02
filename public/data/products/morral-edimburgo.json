@@ -213,8 +213,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:49:10",
       "date_created_gmt": "2022-08-25T22:49:10",
-      "date_modified": "2026-05-07T23:06:58",
-      "date_modified_gmt": "2026-05-07T23:06:58",
+      "date_modified": "2026-06-02T17:36:09",
+      "date_modified_gmt": "2026-06-02T17:36:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/morral-edimburgo/?attribute_pa_selecciona-el-color=verde",
       "sku": "15151005000",
@@ -237,7 +237,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 15,
+      "stock_quantity": 14,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -854,7 +854,7 @@
         {
           "id": 2236156,
           "key": "_last_change_time",
-          "value": "1778184395"
+          "value": "1780421769"
         },
         {
           "id": 2314058,
@@ -896,8 +896,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:49:10",
       "date_created_gmt": "2022-08-25T22:49:10",
-      "date_modified": "2026-05-07T23:06:58",
-      "date_modified_gmt": "2026-05-07T23:06:58",
+      "date_modified": "2026-06-02T17:36:09",
+      "date_modified_gmt": "2026-06-02T17:36:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/morral-edimburgo/?attribute_pa_selecciona-el-color=cognac",
       "sku": "15151032000",
@@ -920,7 +920,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 11,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1537,7 +1537,7 @@
         {
           "id": 2254710,
           "key": "_last_change_time",
-          "value": "1778184395"
+          "value": "1780421769"
         },
         {
           "id": 2314057,

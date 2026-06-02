@@ -258,8 +258,8 @@
       "type": "variation",
       "date_created": "2023-12-13T17:36:59",
       "date_created_gmt": "2023-12-13T17:36:59",
-      "date_modified": "2026-05-07T23:09:37",
-      "date_modified_gmt": "2026-05-07T23:09:37",
+      "date_modified": "2026-06-02T17:38:29",
+      "date_modified_gmt": "2026-06-02T17:38:29",
       "description": "<p>• Ideal para el cuiado de productos de Gamuza y nobuk<br />\n• No trae picmento para usarlo sobre cualquier colo de gamuza y renoval el color de la piel<br />\n• Aplicar de manera regular segun el uso del producto especial cuando se vea necesario /n• Esencial para el cuidado de los Gamuzas<br />\n• </p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/renovador-gamuza-y-nobuk/?attribute_pa_selecciona-el-color=cafe",
       "sku": "81811204000",
@@ -282,7 +282,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 29,
+      "stock_quantity": 22,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -759,7 +759,7 @@
         {
           "id": 2250262,
           "key": "_last_change_time",
-          "value": "1778184991"
+          "value": "1780421909"
         },
         {
           "id": 2312513,
@@ -801,8 +801,8 @@
       "type": "variation",
       "date_created": "2023-12-13T17:36:59",
       "date_created_gmt": "2023-12-13T17:36:59",
-      "date_modified": "2026-05-24T13:25:03",
-      "date_modified_gmt": "2026-05-24T13:25:03",
+      "date_modified": "2026-06-02T17:38:29",
+      "date_modified_gmt": "2026-06-02T17:38:29",
       "description": "<p>• Ideal para el cuiado de productos de Gamuza y nobuk<br />\n• No trae picmento para usarlo sobre cualquier colo de gamuza y renoval el color de la piel<br />\n• Aplicar de manera regular segun el uso del producto especial cuando se vea necesario /n• Esencial para el cuidado de los Gamuzas<br />\n• </p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/renovador-gamuza-y-nobuk/?attribute_pa_selecciona-el-color=negro",
       "sku": "81811202000",
@@ -825,7 +825,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 29,
+      "stock_quantity": 30,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1302,7 +1302,7 @@
         {
           "id": 2218962,
           "key": "_last_change_time",
-          "value": "1778184991"
+          "value": "1780421909"
         },
         {
           "id": 2312512,
@@ -1344,8 +1344,8 @@
       "type": "variation",
       "date_created": "2023-12-13T17:36:59",
       "date_created_gmt": "2023-12-13T17:36:59",
-      "date_modified": "2026-05-07T23:09:37",
-      "date_modified_gmt": "2026-05-07T23:09:37",
+      "date_modified": "2026-06-02T17:38:29",
+      "date_modified_gmt": "2026-06-02T17:38:29",
       "description": "<p>• Ideal para el cuiado de productos de Gamuza y nobuk<br />\n• No trae picmento para usarlo sobre cualquier colo de gamuza y renoval el color de la piel<br />\n• Aplicar de manera regular segun el uso del producto especial cuando se vea necesario /n• Esencial para el cuidado de los Gamuzas<br />\n• </p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/renovador-gamuza-y-nobuk/?attribute_pa_selecciona-el-color=neutro",
       "sku": "81811100000",
@@ -1368,7 +1368,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 11,
+      "stock_quantity": 12,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1845,7 +1845,7 @@
         {
           "id": 2236210,
           "key": "_last_change_time",
-          "value": "1778184992"
+          "value": "1780421909"
         },
         {
           "id": 2312511,

@@ -266,35 +266,6 @@
       "sale_price": ""
     },
     {
-      "id": 29648,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "negro",
-          "option": "negro"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "40",
-          "option": "40"
-        }
-      ],
-      "image": {
-        "id": 29629,
-        "date_created": "2023-06-09T21:42:36",
-        "date_created_gmt": "2023-06-09T21:42:36",
-        "date_modified": "2023-06-09T21:42:36",
-        "date_modified_gmt": "2023-06-09T21:42:36",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/IMG_3676.jpg",
-        "name": "IMG_3676",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
-      "sale_price": ""
-    },
-    {
       "id": 29646,
       "attributes": [
         {
@@ -12619,8 +12590,8 @@
       "type": "variation",
       "date_created": "2023-06-09T22:02:17",
       "date_created_gmt": "2023-06-09T22:02:17",
-      "date_modified": "2026-05-07T23:13:24",
-      "date_modified_gmt": "2026-05-07T23:13:24",
+      "date_modified": "2026-06-02T17:37:25",
+      "date_modified_gmt": "2026-06-02T17:37:25",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/wisbech-iii/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=40",
       "sku": "7308702040",
@@ -12643,8 +12614,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -13141,7 +13112,7 @@
         {
           "id": 2257223,
           "key": "_last_change_time",
-          "value": "1778190804"
+          "value": "1780421845"
         },
         {
           "id": 2313032,

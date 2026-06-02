@@ -811,35 +811,6 @@
       "sale_price": ""
     },
     {
-      "id": 24508,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "negro",
-          "option": "negro"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "43",
-          "option": "43"
-        }
-      ],
-      "image": {
-        "id": 62028,
-        "date_created": "2025-03-04T02:49:52",
-        "date_created_gmt": "2025-03-04T02:49:52",
-        "date_modified": "2025-03-04T07:24:54",
-        "date_modified_gmt": "2025-03-04T07:24:54",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Canterbury-Negro-Winstonandharry-1-e1752613786657.jpg",
-        "name": "Canterbury-Negro-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "825000",
-      "regular_price": "825000",
-      "sale_price": ""
-    },
-    {
       "id": 24509,
       "attributes": [
         {
@@ -7864,8 +7835,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:32:35",
       "date_created_gmt": "2022-08-25T22:32:35",
-      "date_modified": "2026-05-07T23:00:37",
-      "date_modified_gmt": "2026-05-07T23:00:37",
+      "date_modified": "2026-06-02T17:35:30",
+      "date_modified_gmt": "2026-06-02T17:35:30",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/canterbury/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=44",
       "sku": "7021402044",
@@ -7888,7 +7859,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -8511,7 +8482,7 @@
         {
           "id": 2259733,
           "key": "_last_change_time",
-          "value": "1778177756"
+          "value": "1780421730"
         },
         {
           "id": 2314815,
@@ -8553,8 +8524,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:32:35",
       "date_created_gmt": "2022-08-25T22:32:35",
-      "date_modified": "2026-05-07T23:00:37",
-      "date_modified_gmt": "2026-05-07T23:00:37",
+      "date_modified": "2026-06-02T17:35:30",
+      "date_modified_gmt": "2026-06-02T17:35:30",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/canterbury/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=43",
       "sku": "7021402043",
@@ -8577,8 +8548,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -9200,7 +9171,7 @@
         {
           "id": 2259732,
           "key": "_last_change_time",
-          "value": "1778177756"
+          "value": "1780421730"
         },
         {
           "id": 2314814,
@@ -9242,8 +9213,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:32:35",
       "date_created_gmt": "2022-08-25T22:32:35",
-      "date_modified": "2026-05-07T23:00:37",
-      "date_modified_gmt": "2026-05-07T23:00:37",
+      "date_modified": "2026-06-02T17:35:29",
+      "date_modified_gmt": "2026-06-02T17:35:29",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/canterbury/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=42",
       "sku": "7021402042",
@@ -9266,7 +9237,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -9894,7 +9865,7 @@
         {
           "id": 2259731,
           "key": "_last_change_time",
-          "value": "1778177756"
+          "value": "1780421729"
         },
         {
           "id": 2314813,
@@ -12018,8 +11989,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:32:35",
       "date_created_gmt": "2022-08-25T22:32:35",
-      "date_modified": "2026-05-07T23:00:36",
-      "date_modified_gmt": "2026-05-07T23:00:36",
+      "date_modified": "2026-06-02T17:35:29",
+      "date_modified_gmt": "2026-06-02T17:35:29",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/canterbury/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=38",
       "sku": "7021402038",
@@ -12042,7 +12013,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 7,
+      "stock_quantity": 6,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12670,7 +12641,7 @@
         {
           "id": 2259730,
           "key": "_last_change_time",
-          "value": "1778177756"
+          "value": "1780421729"
         },
         {
           "id": 2314809,
@@ -12712,8 +12683,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:32:35",
       "date_created_gmt": "2022-08-25T22:32:35",
-      "date_modified": "2026-05-07T23:00:36",
-      "date_modified_gmt": "2026-05-07T23:00:36",
+      "date_modified": "2026-06-02T17:35:08",
+      "date_modified_gmt": "2026-06-02T17:35:08",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/canterbury/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=37",
       "sku": "7021402037",
@@ -12736,7 +12707,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -13364,7 +13335,7 @@
         {
           "id": 2257148,
           "key": "_last_change_time",
-          "value": "1778177756"
+          "value": "1780421708"
         },
         {
           "id": 2314808,
@@ -16182,8 +16153,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:32:34",
       "date_created_gmt": "2022-08-25T22:32:34",
-      "date_modified": "2026-05-07T23:00:36",
-      "date_modified_gmt": "2026-05-07T23:00:36",
+      "date_modified": "2026-06-02T17:35:08",
+      "date_modified_gmt": "2026-06-02T17:35:08",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/canterbury/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=41",
       "sku": "7021426041",
@@ -16206,7 +16177,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 9,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -16834,7 +16805,7 @@
         {
           "id": 2250072,
           "key": "_last_change_time",
-          "value": "1778177756"
+          "value": "1780421708"
         },
         {
           "id": 2314818,

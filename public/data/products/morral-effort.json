@@ -237,8 +237,8 @@
       "type": "variation",
       "date_created": "2025-02-13T03:50:59",
       "date_created_gmt": "2025-02-13T03:50:59",
-      "date_modified": "2026-05-11T17:56:45",
-      "date_modified_gmt": "2026-05-11T17:56:45",
+      "date_modified": "2026-06-02T17:39:39",
+      "date_modified_gmt": "2026-06-02T17:39:39",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/morral-effort/?attribute_pa_selecciona-el-color=negro",
       "sku": "15150502000",
@@ -261,7 +261,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 16,
+      "stock_quantity": 15,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -878,7 +878,7 @@
         {
           "id": 2229414,
           "key": "_last_change_time",
-          "value": "1778522130"
+          "value": "1780421979"
         },
         {
           "id": 2312079,
@@ -920,8 +920,8 @@
       "type": "variation",
       "date_created": "2025-02-13T03:50:58",
       "date_created_gmt": "2025-02-13T03:50:58",
-      "date_modified": "2026-05-11T17:56:46",
-      "date_modified_gmt": "2026-05-11T17:56:46",
+      "date_modified": "2026-06-02T17:39:39",
+      "date_modified_gmt": "2026-06-02T17:39:39",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/morral-effort/?attribute_pa_selecciona-el-color=cognac",
       "sku": "15150532000",
@@ -944,7 +944,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 8,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1561,7 +1561,7 @@
         {
           "id": 2229412,
           "key": "_last_change_time",
-          "value": "1778522130"
+          "value": "1780421979"
         },
         {
           "id": 2312080,

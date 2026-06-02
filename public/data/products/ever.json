@@ -5344,8 +5344,8 @@
       "type": "variation",
       "date_created": "2024-09-24T15:25:57",
       "date_created_gmt": "2024-09-24T15:25:57",
-      "date_modified": "2026-05-07T23:04:12",
-      "date_modified_gmt": "2026-05-07T23:04:12",
+      "date_modified": "2026-06-02T17:39:15",
+      "date_modified_gmt": "2026-06-02T17:39:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ever/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=39",
       "sku": "7193104039",
@@ -5368,7 +5368,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5931,7 +5931,7 @@
         {
           "id": 2233345,
           "key": "_last_change_time",
-          "value": "1778178341"
+          "value": "1780421955"
         },
         {
           "id": 2312201,

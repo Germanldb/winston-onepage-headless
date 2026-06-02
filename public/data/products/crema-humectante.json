@@ -163,6 +163,54 @@
       "price": "55000",
       "regular_price": "55000",
       "sale_price": ""
+    },
+    {
+      "id": 32525,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "neutro",
+          "option": "neutro"
+        }
+      ],
+      "image": {
+        "id": 32513,
+        "date_created": "2023-12-13T16:36:18",
+        "date_created_gmt": "2023-12-13T16:36:18",
+        "date_modified": "2025-06-16T14:39:56",
+        "date_modified_gmt": "2025-06-16T14:39:56",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/12/Crema-humectante-cuero-neutro-cuiado-zapatos-winstonandharry.jpg",
+        "name": "Crema-humectante-cuero-neutro-cuiado-zapatos-winstonandharry",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "55000",
+      "regular_price": "55000",
+      "sale_price": ""
+    },
+    {
+      "id": 32526,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "negro",
+          "option": "negro"
+        }
+      ],
+      "image": {
+        "id": 32511,
+        "date_created": "2023-12-13T16:36:13",
+        "date_created_gmt": "2023-12-13T16:36:13",
+        "date_modified": "2025-06-16T14:39:53",
+        "date_modified_gmt": "2025-06-16T14:39:53",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/12/Crema-humectante-cuero-negro-cuiado-zapatos-winstonandharry.jpg",
+        "name": "Crema-humectante-cuero-negro-cuiado-zapatos-winstonandharry",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "55000",
+      "regular_price": "55000",
+      "sale_price": ""
     }
   ],
   "grouped_products": [],
@@ -236,8 +284,8 @@
       "type": "variation",
       "date_created": "2023-12-13T17:36:56",
       "date_created_gmt": "2023-12-13T17:36:56",
-      "date_modified": "2026-05-07T23:02:30",
-      "date_modified_gmt": "2026-05-07T23:02:30",
+      "date_modified": "2026-06-02T17:38:29",
+      "date_modified_gmt": "2026-06-02T17:38:29",
       "description": "<p>• Ideal para el cuiado de productos de cuero como maletas y zapatos </p>\n<p>• Trae Picmento color miel para ayudar a cubrir imperfecciones como rayones superficiales </p>\n<p>• Aplicar de manera regular segun el uso del producto especial cuando se ve reseco • Esencial para el cuidado de los cueros </p>\n<p>• Ayuda a mantener el color y el brillo del cuero natural </p>\n<p>• Aplicar regularmente segun el uso</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/crema-humectante/?attribute_pa_selecciona-el-color=cafe",
       "sku": "81810204000",
@@ -260,7 +308,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 31,
+      "stock_quantity": 42,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -752,7 +800,7 @@
         {
           "id": 2218961,
           "key": "_last_change_time",
-          "value": "1778177911"
+          "value": "1780421909"
         },
         {
           "id": 2312517,
@@ -794,8 +842,8 @@
       "type": "variation",
       "date_created": "2023-12-13T17:36:56",
       "date_created_gmt": "2023-12-13T17:36:56",
-      "date_modified": "2026-05-07T23:02:30",
-      "date_modified_gmt": "2026-05-07T23:02:30",
+      "date_modified": "2026-06-02T17:38:29",
+      "date_modified_gmt": "2026-06-02T17:38:29",
       "description": "<p>• Ideal para el cuiado de productos de cuero como maletas y zapatos<br />\n• Trae Picmento color miel para ayudar a cubrir imperfecciones como rayones superficiales<br />\n• Aplicar de manera regular segun el uso del producto especial cuando se ve reseco • Esencial para el cuidado de los cueros<br />\n• Ayuda a mantener el color y el brillo del cuero natural<br />\n• Aplicar regularmente segun el uso</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/crema-humectante/?attribute_pa_selecciona-el-color=negro",
       "sku": "81810102000",
@@ -818,8 +866,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 0,
-      "stock_status": "outofstock",
+      "stock_quantity": 6,
+      "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -1305,7 +1353,7 @@
         {
           "id": 2262307,
           "key": "_last_change_time",
-          "value": "1778177911"
+          "value": "1780421909"
         },
         {
           "id": 2312516,
@@ -1347,8 +1395,8 @@
       "type": "variation",
       "date_created": "2023-12-13T17:36:56",
       "date_created_gmt": "2023-12-13T17:36:56",
-      "date_modified": "2026-05-07T23:02:30",
-      "date_modified_gmt": "2026-05-07T23:02:30",
+      "date_modified": "2026-06-02T17:38:29",
+      "date_modified_gmt": "2026-06-02T17:38:29",
       "description": "<p>• Ideal para el cuiado de productos de cuero como maletas y zapatos<br />\n• No trae picmento para usarlo sobre cualquier color de cuero<br />\n• Aplicar de manera regular segun el uso del producto especial cuando se ve reseco • Esencial para el cuidado de los cueros<br />\n• Ayuda a mantener el color y el brillo del cuero natural<br />\n• Aplicar regularmente segun el uso</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/crema-humectante/?attribute_pa_selecciona-el-color=neutro",
       "sku": "81810233000",
@@ -1371,8 +1419,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 0,
-      "stock_status": "outofstock",
+      "stock_quantity": 67,
+      "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -1863,7 +1911,7 @@
         {
           "id": 2257259,
           "key": "_last_change_time",
-          "value": "1778177911"
+          "value": "1780421909"
         },
         {
           "id": 2312515,
@@ -1905,8 +1953,8 @@
       "type": "variation",
       "date_created": "2023-12-13T17:36:56",
       "date_created_gmt": "2023-12-13T17:36:56",
-      "date_modified": "2026-05-07T23:02:30",
-      "date_modified_gmt": "2026-05-07T23:02:30",
+      "date_modified": "2026-06-02T17:38:29",
+      "date_modified_gmt": "2026-06-02T17:38:29",
       "description": "<p>• Ideal para el cuiado de productos de cuero como maletas y zapatos<br />\n• Trae Picmento color miel para ayudar a cubrir imperfecciones como rayones superficiales<br />\n• Aplicar de manera regular segun el uso del producto especial cuando se ve reseco • Esencial para el cuidado de los cueros<br />\n• Ayuda a mantener el color y el brillo del cuero natural<br />\n• Aplicar regularmente segun el uso</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/crema-humectante/?attribute_pa_selecciona-el-color=miel",
       "sku": "81810226000",
@@ -1929,7 +1977,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 23,
+      "stock_quantity": 53,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2421,7 +2469,7 @@
         {
           "id": 2218960,
           "key": "_last_change_time",
-          "value": "1778177911"
+          "value": "1780421909"
         },
         {
           "id": 2312514,
@@ -2488,24 +2536,36 @@
         "alt": "Crema Humectante"
       }
     ],
-    "café": [
+    "neutro": [
       {
-        "id": 32506,
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/12/Crema-humectante-cuero-Cafe-cuiado-zapatos-winstonandharry-superior.jpg",
+        "id": 32513,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/12/Crema-humectante-cuero-neutro-cuiado-zapatos-winstonandharry.jpg",
+        "alt": "Crema-humectante-cuero-neutro-cuiado-zapatos-winstonandharry",
+        "name": "Crema-humectante-cuero-neutro-cuiado-zapatos-winstonandharry"
+      },
+      {
+        "id": 32512,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/12/Crema-humectante-cuero-neutro-cuiado-zapatos-winstonandharry-superior.jpg",
         "alt": "Crema Humectante"
       }
     ],
     "negro": [
+      {
+        "id": 32511,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/12/Crema-humectante-cuero-negro-cuiado-zapatos-winstonandharry.jpg",
+        "alt": "Crema-humectante-cuero-negro-cuiado-zapatos-winstonandharry",
+        "name": "Crema-humectante-cuero-negro-cuiado-zapatos-winstonandharry"
+      },
       {
         "id": 32510,
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/12/Crema-humectante-cuero-negro-cuiado-zapatos-winstonandharry-superior.jpg",
         "alt": "Crema Humectante"
       }
     ],
-    "neutro": [
+    "café": [
       {
-        "id": 32512,
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/12/Crema-humectante-cuero-neutro-cuiado-zapatos-winstonandharry-superior.jpg",
+        "id": 32506,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/12/Crema-humectante-cuero-Cafe-cuiado-zapatos-winstonandharry-superior.jpg",
         "alt": "Crema Humectante"
       }
     ]

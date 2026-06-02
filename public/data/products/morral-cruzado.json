@@ -925,8 +925,8 @@
       "type": "variation",
       "date_created": "2023-07-10T21:40:34",
       "date_created_gmt": "2023-07-10T21:40:34",
-      "date_modified": "2026-05-07T23:06:58",
-      "date_modified_gmt": "2026-05-07T23:06:58",
+      "date_modified": "2026-06-02T17:37:48",
+      "date_modified_gmt": "2026-06-02T17:37:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/morral-cruzado/?attribute_pa_selecciona-el-color=negro",
       "sku": "15150602000",
@@ -949,8 +949,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -1561,7 +1561,7 @@
         {
           "id": 2229409,
           "key": "_last_change_time",
-          "value": "1778184395"
+          "value": "1780421868"
         }
       ],
       "name": "Negro",
@@ -1598,8 +1598,8 @@
       "type": "variation",
       "date_created": "2023-07-10T21:40:34",
       "date_created_gmt": "2023-07-10T21:40:34",
-      "date_modified": "2026-05-07T23:06:58",
-      "date_modified_gmt": "2026-05-07T23:06:58",
+      "date_modified": "2026-06-02T17:37:48",
+      "date_modified_gmt": "2026-06-02T17:37:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/morral-cruzado/?attribute_pa_selecciona-el-color=miel",
       "sku": "15150626000",
@@ -1622,7 +1622,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 10,
+      "stock_quantity": 9,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2239,7 +2239,7 @@
         {
           "id": 2229406,
           "key": "_last_change_time",
-          "value": "1778184395"
+          "value": "1780421868"
         },
         {
           "id": 2312810,

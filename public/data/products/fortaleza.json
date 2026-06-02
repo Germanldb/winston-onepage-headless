@@ -5980,8 +5980,8 @@
       "type": "variation",
       "date_created": "2025-10-29T22:11:40",
       "date_created_gmt": "2025-10-29T22:11:40",
-      "date_modified": "2026-05-07T23:04:26",
-      "date_modified_gmt": "2026-05-07T23:04:26",
+      "date_modified": "2026-06-02T17:41:19",
+      "date_modified_gmt": "2026-06-02T17:41:19",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/fortaleza/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=39",
       "sku": "7003202039",
@@ -6004,7 +6004,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 7,
+      "stock_quantity": 6,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -6797,7 +6797,7 @@
         {
           "id": 2259431,
           "key": "_last_change_time",
-          "value": "1778178444"
+          "value": "1780422079"
         },
         {
           "id": 2311049,

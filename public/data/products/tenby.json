@@ -4773,8 +4773,8 @@
       "type": "variation",
       "date_created": "2024-09-24T15:28:44",
       "date_created_gmt": "2024-09-24T15:28:44",
-      "date_modified": "2026-05-07T23:11:27",
-      "date_modified_gmt": "2026-05-07T23:11:27",
+      "date_modified": "2026-06-02T17:39:15",
+      "date_modified_gmt": "2026-06-02T17:39:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/tenby/?attribute_pa_selecciona-el-color=beige&attribute_pa_selecciona-una-talla=39",
       "sku": "7234306039",
@@ -4797,7 +4797,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5360,7 +5360,7 @@
         {
           "id": 2260931,
           "key": "_last_change_time",
-          "value": "1778190464"
+          "value": "1780421955"
         },
         {
           "id": 2312189,
@@ -14827,8 +14827,8 @@
       "type": "variation",
       "date_created": "2023-07-17T22:03:27",
       "date_created_gmt": "2023-07-17T22:03:27",
-      "date_modified": "2026-05-07T23:11:21",
-      "date_modified_gmt": "2026-05-07T23:11:21",
+      "date_modified": "2026-06-02T17:37:48",
+      "date_modified_gmt": "2026-06-02T17:37:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/tenby/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=41",
       "sku": "7234304041",
@@ -14851,7 +14851,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -15414,7 +15414,7 @@
         {
           "id": 2254782,
           "key": "_last_change_time",
-          "value": "1778190424"
+          "value": "1780421868"
         },
         {
           "id": 2312672,
@@ -15456,8 +15456,8 @@
       "type": "variation",
       "date_created": "2023-07-17T22:03:27",
       "date_created_gmt": "2023-07-17T22:03:27",
-      "date_modified": "2026-05-07T23:11:21",
-      "date_modified_gmt": "2026-05-07T23:11:21",
+      "date_modified": "2026-06-02T17:37:48",
+      "date_modified_gmt": "2026-06-02T17:37:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/tenby/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=40",
       "sku": "7234304040",
@@ -15480,7 +15480,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -16043,7 +16043,7 @@
         {
           "id": 2260924,
           "key": "_last_change_time",
-          "value": "1778190423"
+          "value": "1780421868"
         },
         {
           "id": 2312671,

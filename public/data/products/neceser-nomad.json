@@ -228,30 +228,6 @@
       "price": "140000",
       "regular_price": "140000",
       "sale_price": ""
-    },
-    {
-      "id": 58743,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "verde",
-          "option": "verde"
-        }
-      ],
-      "image": {
-        "id": 58746,
-        "date_created": "2024-11-29T20:54:41",
-        "date_created_gmt": "2024-11-29T20:54:41",
-        "date_modified": "2024-11-29T21:12:17",
-        "date_modified_gmt": "2024-11-29T21:12:17",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2024/11/Neceser-Nomad-Azul-Winstonandharry-1.jpg",
-        "name": "Neceser-Nomad-Azul-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "140000",
-      "regular_price": "140000",
-      "sale_price": ""
     }
   ],
   "grouped_products": [],
@@ -325,8 +301,8 @@
       "type": "variation",
       "date_created": "2024-11-29T20:42:30",
       "date_created_gmt": "2024-11-29T20:42:30",
-      "date_modified": "2026-05-07T23:07:29",
-      "date_modified_gmt": "2026-05-07T23:07:29",
+      "date_modified": "2026-06-02T17:39:15",
+      "date_modified_gmt": "2026-06-02T17:39:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/neceser-nomad/?attribute_pa_selecciona-el-color=verde",
       "sku": "66026505000",
@@ -349,8 +325,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -946,7 +922,7 @@
         {
           "id": 2262306,
           "key": "_last_change_time",
-          "value": "1778184426"
+          "value": "1780421955"
         },
         {
           "id": 2312171,
@@ -988,8 +964,8 @@
       "type": "variation",
       "date_created": "2024-11-29T20:42:30",
       "date_created_gmt": "2024-11-29T20:42:30",
-      "date_modified": "2026-05-07T23:07:29",
-      "date_modified_gmt": "2026-05-07T23:07:29",
+      "date_modified": "2026-06-02T17:39:15",
+      "date_modified_gmt": "2026-06-02T17:39:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/neceser-nomad/?attribute_pa_selecciona-el-color=negro",
       "sku": "66026502000",
@@ -1012,7 +988,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 16,
+      "stock_quantity": 15,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1609,7 +1585,7 @@
         {
           "id": 2250304,
           "key": "_last_change_time",
-          "value": "1778184426"
+          "value": "1780421955"
         },
         {
           "id": 2312170,
@@ -1651,8 +1627,8 @@
       "type": "variation",
       "date_created": "2024-11-29T20:42:30",
       "date_created_gmt": "2024-11-29T20:42:30",
-      "date_modified": "2026-05-07T23:07:29",
-      "date_modified_gmt": "2026-05-07T23:07:29",
+      "date_modified": "2026-06-02T17:39:15",
+      "date_modified_gmt": "2026-06-02T17:39:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/neceser-nomad/?attribute_pa_selecciona-el-color=cafe",
       "sku": "66026504000",
@@ -1675,7 +1651,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 23,
+      "stock_quantity": 22,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2272,7 +2248,7 @@
         {
           "id": 2254820,
           "key": "_last_change_time",
-          "value": "1778184426"
+          "value": "1780421955"
         },
         {
           "id": 2312169,
@@ -2314,8 +2290,8 @@
       "type": "variation",
       "date_created": "2024-11-29T20:42:30",
       "date_created_gmt": "2024-11-29T20:42:30",
-      "date_modified": "2026-05-07T23:07:29",
-      "date_modified_gmt": "2026-05-07T23:07:29",
+      "date_modified": "2026-06-02T17:39:15",
+      "date_modified_gmt": "2026-06-02T17:39:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/neceser-nomad/?attribute_pa_selecciona-el-color=azul-lona",
       "sku": "66026501000",
@@ -2338,7 +2314,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 20,
+      "stock_quantity": 19,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2935,7 +2911,7 @@
         {
           "id": 2257266,
           "key": "_last_change_time",
-          "value": "1778184426"
+          "value": "1780421955"
         },
         {
           "id": 2312168,
@@ -3027,12 +3003,6 @@
       }
     ],
     "verde": [
-      {
-        "id": 58746,
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2024/11/Neceser-Nomad-Azul-Winstonandharry-1.jpg",
-        "alt": "Neceser-Nomad-Azul-Winstonandharry-1",
-        "name": "Neceser-Nomad-Azul-Winstonandharry-1"
-      },
       {
         "id": 58756,
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2024/11/Neceser-Nomad-Verde-Winstonandharry-3.jpg",

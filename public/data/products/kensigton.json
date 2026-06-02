@@ -754,35 +754,6 @@
       "sale_price": ""
     },
     {
-      "id": 28206,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "negro",
-          "option": "negro"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "43",
-          "option": "43"
-        }
-      ],
-      "image": {
-        "id": 67104,
-        "date_created": "2025-08-20T01:44:33",
-        "date_created_gmt": "2025-08-20T01:44:33",
-        "date_modified": "2025-08-25T04:36:15",
-        "date_modified_gmt": "2025-08-25T04:36:15",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Kensigton-Negro-Winstonandharry-1-e1755659649749.jpg",
-        "name": "Kensigton-Negro-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "704000",
-      "regular_price": "704000",
-      "sale_price": ""
-    },
-    {
       "id": 28207,
       "attributes": [
         {
@@ -2624,8 +2595,8 @@
       "type": "variation",
       "date_created": "2023-01-11T20:51:25",
       "date_created_gmt": "2023-01-11T20:51:25",
-      "date_modified": "2026-05-07T23:20:17",
-      "date_modified_gmt": "2026-05-07T23:20:17",
+      "date_modified": "2026-06-02T17:37:12",
+      "date_modified_gmt": "2026-06-02T17:37:12",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/kensigton/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=43",
       "sku": "7414002043",
@@ -2648,8 +2619,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -3441,7 +3412,7 @@
         {
           "id": 2216794,
           "key": "_last_change_time",
-          "value": "1778196017"
+          "value": "1780421832"
         },
         {
           "id": 2313420,

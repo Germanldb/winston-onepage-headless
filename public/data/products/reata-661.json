@@ -2449,8 +2449,8 @@
       "type": "variation",
       "date_created": "2022-08-29T21:08:36",
       "date_created_gmt": "2022-08-29T21:08:36",
-      "date_modified": "2026-05-07T23:08:55",
-      "date_modified_gmt": "2026-05-07T23:08:55",
+      "date_modified": "2026-06-02T17:36:20",
+      "date_modified_gmt": "2026-06-02T17:36:20",
       "description": "<p>Nosotros sabemos que la regla número uno cuando se usa cuero, es siempre combinar los colores &#8211; “match your leathers”. Nuestros cinturones Trent están hechos en piel de becerro de manera artesanal, pintados a mano para llegar a ser el accesorio perfecto al usar con nuestros zapatos. Su diseño sencillo y hebilla clásica le da un toque de elegancia que sobresaltará en cualquier ocasión que te encuentres.</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/reata-661/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=xs",
       "sku": "28730402030",
@@ -2473,7 +2473,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2946,7 +2946,7 @@
         {
           "id": 2250129,
           "key": "_last_change_time",
-          "value": "1778184697"
+          "value": "1780421780"
         }
       ],
       "name": "Azul, XS",

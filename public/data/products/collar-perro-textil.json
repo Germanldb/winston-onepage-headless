@@ -617,35 +617,6 @@
       "sale_price": ""
     },
     {
-      "id": 54599,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "verde",
-          "option": "verde"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "m",
-          "option": "m"
-        }
-      ],
-      "image": {
-        "id": 11849,
-        "date_created": "2020-12-16T14:48:32",
-        "date_created_gmt": "2020-12-16T14:48:32",
-        "date_modified": "2020-12-16T14:48:32",
-        "date_modified_gmt": "2020-12-16T14:48:32",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2020/12/collar-perro-lado-12.jpg",
-        "name": "collar-perro-lado-12",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "54000",
-      "regular_price": "90000",
-      "sale_price": ""
-    },
-    {
       "id": 54600,
       "attributes": [
         {
@@ -2267,8 +2238,8 @@
       "type": "variation",
       "date_created": "2024-04-01T21:14:01",
       "date_created_gmt": "2024-04-01T21:14:01",
-      "date_modified": "2026-05-11T20:51:21",
-      "date_modified_gmt": "2026-05-11T20:51:21",
+      "date_modified": "2026-06-02T17:38:29",
+      "date_modified_gmt": "2026-06-02T17:38:29",
       "description": "<p>Collar para tu mejor amigo en 100% cuero y recubierto en textil</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/collar-perro-textil/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=m",
       "sku": "82820105034",
@@ -2291,8 +2262,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -2389,7 +2360,7 @@
         {
           "id": 2262334,
           "key": "_last_change_time",
-          "value": "1778532663"
+          "value": "1780421909"
         },
         {
           "id": 2312485,

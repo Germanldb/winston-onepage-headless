@@ -933,8 +933,8 @@
       "type": "variation",
       "date_created": "2025-07-30T21:29:25",
       "date_created_gmt": "2025-07-30T21:29:25",
-      "date_modified": "2026-05-07T23:01:00",
-      "date_modified_gmt": "2026-05-07T23:01:00",
+      "date_modified": "2026-06-02T17:41:09",
+      "date_modified_gmt": "2026-06-02T17:41:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaleco/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=xxl",
       "sku": "36364701040",
@@ -957,7 +957,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1755,7 +1755,7 @@
         {
           "id": 2254916,
           "key": "_last_change_time",
-          "value": "1778177782"
+          "value": "1780422069"
         },
         {
           "id": 2311339,
@@ -1797,8 +1797,8 @@
       "type": "variation",
       "date_created": "2025-07-30T21:29:25",
       "date_created_gmt": "2025-07-30T21:29:25",
-      "date_modified": "2026-05-07T23:01:00",
-      "date_modified_gmt": "2026-05-07T23:01:00",
+      "date_modified": "2026-06-02T17:41:09",
+      "date_modified_gmt": "2026-06-02T17:41:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaleco/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=xl",
       "sku": "36364701038",
@@ -1821,7 +1821,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 7,
+      "stock_quantity": 6,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2619,7 +2619,7 @@
         {
           "id": 2257356,
           "key": "_last_change_time",
-          "value": "1778177782"
+          "value": "1780422069"
         },
         {
           "id": 2311338,
@@ -3525,8 +3525,8 @@
       "type": "variation",
       "date_created": "2025-07-30T21:29:24",
       "date_created_gmt": "2025-07-30T21:29:24",
-      "date_modified": "2026-05-07T23:01:00",
-      "date_modified_gmt": "2026-05-07T23:01:00",
+      "date_modified": "2026-06-02T17:41:09",
+      "date_modified_gmt": "2026-06-02T17:41:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaleco/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=l",
       "sku": "36364701036",
@@ -3549,7 +3549,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 11,
+      "stock_quantity": 9,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4347,7 +4347,7 @@
         {
           "id": 2258731,
           "key": "_last_change_time",
-          "value": "1778177782"
+          "value": "1780422069"
         },
         {
           "id": 2311342,
@@ -4389,8 +4389,8 @@
       "type": "variation",
       "date_created": "2025-07-30T21:29:24",
       "date_created_gmt": "2025-07-30T21:29:24",
-      "date_modified": "2026-05-07T23:01:00",
-      "date_modified_gmt": "2026-05-07T23:01:00",
+      "date_modified": "2026-06-02T17:41:09",
+      "date_modified_gmt": "2026-06-02T17:41:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaleco/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=m",
       "sku": "36364701034",
@@ -4413,7 +4413,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5211,7 +5211,7 @@
         {
           "id": 2236248,
           "key": "_last_change_time",
-          "value": "1778177782"
+          "value": "1780422069"
         },
         {
           "id": 2311341,
@@ -6117,8 +6117,8 @@
       "type": "variation",
       "date_created": "2025-07-30T21:29:24",
       "date_created_gmt": "2025-07-30T21:29:24",
-      "date_modified": "2026-05-07T23:01:00",
-      "date_modified_gmt": "2026-05-07T23:01:00",
+      "date_modified": "2026-06-02T17:41:09",
+      "date_modified_gmt": "2026-06-02T17:41:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaleco/?attribute_pa_selecciona-el-color=vinotinto&attribute_pa_selecciona-una-talla=xxl",
       "sku": "36364719040",
@@ -6141,7 +6141,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -6939,7 +6939,7 @@
         {
           "id": 2262297,
           "key": "_last_change_time",
-          "value": "1778177782"
+          "value": "1780422069"
         },
         {
           "id": 2311343,
@@ -8709,8 +8709,8 @@
       "type": "variation",
       "date_created": "2025-07-30T21:29:23",
       "date_created_gmt": "2025-07-30T21:29:23",
-      "date_modified": "2026-05-07T23:01:00",
-      "date_modified_gmt": "2026-05-07T23:01:00",
+      "date_modified": "2026-06-02T17:41:09",
+      "date_modified_gmt": "2026-06-02T17:41:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaleco/?attribute_pa_selecciona-el-color=vinotinto&attribute_pa_selecciona-una-talla=l",
       "sku": "36364719036",
@@ -8733,7 +8733,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -9531,7 +9531,7 @@
         {
           "id": 2236247,
           "key": "_last_change_time",
-          "value": "1778177782"
+          "value": "1780422069"
         },
         {
           "id": 2311347,
@@ -11301,8 +11301,8 @@
       "type": "variation",
       "date_created": "2025-07-30T21:29:23",
       "date_created_gmt": "2025-07-30T21:29:23",
-      "date_modified": "2026-05-07T23:01:00",
-      "date_modified_gmt": "2026-05-07T23:01:00",
+      "date_modified": "2026-06-02T17:41:09",
+      "date_modified_gmt": "2026-06-02T17:41:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaleco/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=xxl",
       "sku": "36364702040",
@@ -11325,7 +11325,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12123,7 +12123,7 @@
         {
           "id": 2254915,
           "key": "_last_change_time",
-          "value": "1778177782"
+          "value": "1780422069"
         },
         {
           "id": 2311344,
@@ -19077,8 +19077,8 @@
       "type": "variation",
       "date_created": "2025-07-30T21:29:19",
       "date_created_gmt": "2025-07-30T21:29:19",
-      "date_modified": "2026-05-07T23:01:00",
-      "date_modified_gmt": "2026-05-07T23:01:00",
+      "date_modified": "2026-06-02T17:41:09",
+      "date_modified_gmt": "2026-06-02T17:41:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaleco/?attribute_pa_selecciona-el-color=gris&attribute_pa_selecciona-una-talla=l",
       "sku": "36364703036",
@@ -19101,7 +19101,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 9,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -19899,7 +19899,7 @@
         {
           "id": 2262294,
           "key": "_last_change_time",
-          "value": "1778177782"
+          "value": "1780422069"
         },
         {
           "id": 2311356,

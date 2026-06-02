@@ -5121,8 +5121,8 @@
       "type": "variation",
       "date_created": "2025-10-30T03:42:43",
       "date_created_gmt": "2025-10-30T03:42:43",
-      "date_modified": "2026-05-07T23:09:27",
-      "date_modified_gmt": "2026-05-07T23:09:27",
+      "date_modified": "2026-06-02T17:41:19",
+      "date_modified_gmt": "2026-06-02T17:41:19",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/recife/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=40",
       "sku": "7003302040",
@@ -5145,7 +5145,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5938,7 +5938,7 @@
         {
           "id": 2257400,
           "key": "_last_change_time",
-          "value": "1778184929"
+          "value": "1780422079"
         },
         {
           "id": 2311039,
@@ -14570,8 +14570,8 @@
       "type": "variation",
       "date_created": "2025-10-30T03:42:43",
       "date_created_gmt": "2025-10-30T03:42:43",
-      "date_modified": "2026-05-07T23:09:27",
-      "date_modified_gmt": "2026-05-07T23:09:27",
+      "date_modified": "2026-06-02T17:41:19",
+      "date_modified_gmt": "2026-06-02T17:41:19",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/recife/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=38",
       "sku": "7003326038",
@@ -14594,7 +14594,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -15387,7 +15387,7 @@
         {
           "id": 2259455,
           "key": "_last_change_time",
-          "value": "1778184927"
+          "value": "1780422079"
         },
         {
           "id": 2311038,

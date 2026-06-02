@@ -313,8 +313,8 @@
       "type": "variation",
       "date_created": "2024-11-29T21:23:23",
       "date_created_gmt": "2024-11-29T21:23:23",
-      "date_modified": "2026-05-07T23:06:59",
-      "date_modified_gmt": "2026-05-07T23:06:59",
+      "date_modified": "2026-06-02T17:39:15",
+      "date_modified_gmt": "2026-06-02T17:39:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/morral-messenger/?attribute_pa_selecciona-el-color=negro",
       "sku": "15026402000",
@@ -337,7 +337,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 17,
+      "stock_quantity": 16,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -929,7 +929,7 @@
         {
           "id": 2229439,
           "key": "_last_change_time",
-          "value": "1778184396"
+          "value": "1780421955"
         },
         {
           "id": 2312167,
@@ -1629,8 +1629,8 @@
       "type": "variation",
       "date_created": "2024-11-29T21:23:23",
       "date_created_gmt": "2024-11-29T21:23:23",
-      "date_modified": "2026-05-07T23:06:59",
-      "date_modified_gmt": "2026-05-07T23:06:59",
+      "date_modified": "2026-06-02T17:39:15",
+      "date_modified_gmt": "2026-06-02T17:39:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/morral-messenger/?attribute_pa_selecciona-el-color=cafe",
       "sku": "15026404000",
@@ -1653,7 +1653,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 22,
+      "stock_quantity": 21,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2245,7 +2245,7 @@
         {
           "id": 2229436,
           "key": "_last_change_time",
-          "value": "1778184396"
+          "value": "1780421955"
         },
         {
           "id": 2312165,

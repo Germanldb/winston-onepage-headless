@@ -1514,8 +1514,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:49:17",
       "date_created_gmt": "2022-08-25T22:49:17",
-      "date_modified": "2026-05-07T22:59:58",
-      "date_modified_gmt": "2026-05-07T22:59:58",
+      "date_modified": "2026-06-02T17:36:09",
+      "date_modified_gmt": "2026-06-02T17:36:09",
       "description": "<p>Camiseta en nuestra horma insignia un poco mas deportiva en 100% algodon</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-cuello-r-5/?attribute_pa_selecciona-el-color=gris&attribute_pa_selecciona-una-talla=m",
       "sku": "5056003034",
@@ -1538,7 +1538,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 9,
+      "stock_quantity": 8,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2021,7 +2021,7 @@
         {
           "id": 2218914,
           "key": "_last_change_time",
-          "value": "1778177718"
+          "value": "1780421769"
         },
         {
           "id": 2314050,
@@ -2612,8 +2612,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:49:05",
       "date_created_gmt": "2022-08-25T22:49:05",
-      "date_modified": "2026-05-07T22:59:58",
-      "date_modified_gmt": "2026-05-07T22:59:58",
+      "date_modified": "2026-06-02T17:36:09",
+      "date_modified_gmt": "2026-06-02T17:36:09",
       "description": "<p>Camiseta en nuestra horma insignia un poco mas deportiva en 100% algodon</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-cuello-r-5/?attribute_pa_selecciona-el-color=gris&attribute_pa_selecciona-una-talla=l",
       "sku": "5056003036",
@@ -2636,7 +2636,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 24,
+      "stock_quantity": 23,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3119,7 +3119,7 @@
         {
           "id": 2218912,
           "key": "_last_change_time",
-          "value": "1778177718"
+          "value": "1780421769"
         },
         {
           "id": 2314059,

@@ -915,8 +915,8 @@
       "type": "variation",
       "date_created": "2023-07-12T23:09:19",
       "date_created_gmt": "2023-07-12T23:09:19",
-      "date_modified": "2026-05-07T22:59:59",
-      "date_modified_gmt": "2026-05-07T22:59:59",
+      "date_modified": "2026-06-02T17:37:48",
+      "date_modified_gmt": "2026-06-02T17:37:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-cuello-r-8/?attribute_pa_selecciona-el-color=rojo&attribute_pa_selecciona-una-talla=l",
       "sku": "5056013036",
@@ -939,7 +939,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 16,
+      "stock_quantity": 13,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1422,7 +1422,7 @@
         {
           "id": 2239413,
           "key": "_last_change_time",
-          "value": "1778177719"
+          "value": "1780421868"
         },
         {
           "id": 2312717,
@@ -2013,8 +2013,8 @@
       "type": "variation",
       "date_created": "2023-07-12T23:09:18",
       "date_created_gmt": "2023-07-12T23:09:18",
-      "date_modified": "2026-05-07T22:59:59",
-      "date_modified_gmt": "2026-05-07T22:59:59",
+      "date_modified": "2026-06-02T17:37:48",
+      "date_modified_gmt": "2026-06-02T17:37:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-cuello-r-8/?attribute_pa_selecciona-el-color=rojo&attribute_pa_selecciona-una-talla=s",
       "sku": "5056013032",
@@ -2037,7 +2037,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 18,
+      "stock_quantity": 16,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2520,7 +2520,7 @@
         {
           "id": 2257245,
           "key": "_last_change_time",
-          "value": "1778177719"
+          "value": "1780421868"
         },
         {
           "id": 2312719,

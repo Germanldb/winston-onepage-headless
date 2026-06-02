@@ -283,8 +283,8 @@
       "type": "variation",
       "date_created": "2025-09-03T17:24:13",
       "date_created_gmt": "2025-09-03T17:24:13",
-      "date_modified": "2026-05-07T23:04:32",
-      "date_modified_gmt": "2026-05-07T23:04:32",
+      "date_modified": "2026-06-02T17:41:18",
+      "date_modified_gmt": "2026-06-02T17:41:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/gorras-wh/?attribute_pa_selecciona-el-color=verde",
       "sku": "31310505000",
@@ -307,7 +307,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 19,
+      "stock_quantity": 17,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1094,7 +1094,7 @@
         {
           "id": 2219099,
           "key": "_last_change_time",
-          "value": "1778178509"
+          "value": "1780422078"
         },
         {
           "id": 2311169,
@@ -1136,8 +1136,8 @@
       "type": "variation",
       "date_created": "2025-09-03T17:24:13",
       "date_created_gmt": "2025-09-03T17:24:13",
-      "date_modified": "2026-05-07T23:04:32",
-      "date_modified_gmt": "2026-05-07T23:04:32",
+      "date_modified": "2026-06-02T17:41:18",
+      "date_modified_gmt": "2026-06-02T17:41:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/gorras-wh/?attribute_pa_selecciona-el-color=beige",
       "sku": "31310506000",
@@ -1160,7 +1160,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 19,
+      "stock_quantity": 18,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1947,7 +1947,7 @@
         {
           "id": 2219098,
           "key": "_last_change_time",
-          "value": "1778178508"
+          "value": "1780422078"
         },
         {
           "id": 2311168,
@@ -1989,8 +1989,8 @@
       "type": "variation",
       "date_created": "2025-09-03T17:20:23",
       "date_created_gmt": "2025-09-03T17:20:23",
-      "date_modified": "2026-05-07T23:04:32",
-      "date_modified_gmt": "2026-05-07T23:04:32",
+      "date_modified": "2026-06-02T17:41:18",
+      "date_modified_gmt": "2026-06-02T17:41:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/gorras-wh/?attribute_pa_selecciona-el-color=negro",
       "sku": "31310502000",
@@ -2013,7 +2013,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 23,
+      "stock_quantity": 20,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2800,7 +2800,7 @@
         {
           "id": 2262256,
           "key": "_last_change_time",
-          "value": "1778178508"
+          "value": "1780422078"
         },
         {
           "id": 2311171,
@@ -2842,8 +2842,8 @@
       "type": "variation",
       "date_created": "2025-09-03T17:20:23",
       "date_created_gmt": "2025-09-03T17:20:23",
-      "date_modified": "2026-05-07T23:04:32",
-      "date_modified_gmt": "2026-05-07T23:04:32",
+      "date_modified": "2026-06-02T17:41:18",
+      "date_modified_gmt": "2026-06-02T17:41:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/gorras-wh/?attribute_pa_selecciona-el-color=azul",
       "sku": "31310501000",
@@ -2866,7 +2866,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 13,
+      "stock_quantity": 12,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3653,7 +3653,7 @@
         {
           "id": 2257377,
           "key": "_last_change_time",
-          "value": "1778178508"
+          "value": "1780422078"
         },
         {
           "id": 2311170,

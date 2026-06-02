@@ -4031,8 +4031,8 @@
       "type": "variation",
       "date_created": "2025-07-31T20:41:55",
       "date_created_gmt": "2025-07-31T20:41:55",
-      "date_modified": "2026-05-07T23:01:00",
-      "date_modified_gmt": "2026-05-07T23:01:00",
+      "date_modified": "2026-06-02T17:41:09",
+      "date_modified_gmt": "2026-06-02T17:41:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaleco-rombos/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=m",
       "sku": "36364802034",
@@ -4055,7 +4055,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 9,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4853,7 +4853,7 @@
         {
           "id": 2262302,
           "key": "_last_change_time",
-          "value": "1778177782"
+          "value": "1780422069"
         },
         {
           "id": 2311326,
@@ -5759,8 +5759,8 @@
       "type": "variation",
       "date_created": "2025-07-31T20:41:54",
       "date_created_gmt": "2025-07-31T20:41:54",
-      "date_modified": "2026-05-07T23:01:00",
-      "date_modified_gmt": "2026-05-07T23:01:00",
+      "date_modified": "2026-06-02T17:41:09",
+      "date_modified_gmt": "2026-06-02T17:41:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaleco-rombos/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=xxl",
       "sku": "36364801040",
@@ -5783,7 +5783,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -6581,7 +6581,7 @@
         {
           "id": 2257365,
           "key": "_last_change_time",
-          "value": "1778177782"
+          "value": "1780422069"
         },
         {
           "id": 2311333,
@@ -6623,8 +6623,8 @@
       "type": "variation",
       "date_created": "2025-07-31T20:41:54",
       "date_created_gmt": "2025-07-31T20:41:54",
-      "date_modified": "2026-05-07T23:01:00",
-      "date_modified_gmt": "2026-05-07T23:01:00",
+      "date_modified": "2026-06-02T17:41:09",
+      "date_modified_gmt": "2026-06-02T17:41:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaleco-rombos/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=xl",
       "sku": "36364801038",
@@ -6647,7 +6647,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -7445,7 +7445,7 @@
         {
           "id": 2250410,
           "key": "_last_change_time",
-          "value": "1778177782"
+          "value": "1780422069"
         },
         {
           "id": 2311332,

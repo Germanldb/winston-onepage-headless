@@ -57,7 +57,7 @@ const MENU_CATEGORIES = [
 ];
 
 const SORT_OPTIONS = [
-    { key: "destacado", label: "Destacado", orderBy: "popularity", order: "desc", onSale: false },
+    { key: "destacado", label: "Destacado", orderBy: "menu_order", order: "asc", onSale: false },
     { key: "precio_asc", label: "Menor a mayor precio", orderBy: "price", order: "asc", onSale: false },
     { key: "precio_desc", label: "Mayor a menor precio", orderBy: "price", order: "desc", onSale: false },
     { key: "descuentos", label: "Descuentos", orderBy: "popularity", order: "desc", onSale: true },
@@ -210,12 +210,31 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
     }, [allFetchedProducts]);
 
     const categoriesAccordionData = useMemo(() => {
-        // Mostrar siempre el árbol completo en todos los niveles
-        return {
-            isSpecific: false,
-            title: 'Categorías',
-            list: MENU_CATEGORIES
-        };
+        const slug = (category?.slug || "").toLowerCase();
+        const isSpecific = slug !== 'tienda' && slug !== 'sale' && slug !== '';
+        
+        if (isSpecific) {
+            const matched = MENU_CATEGORIES.find(m => m.slug === slug || String(m.id) === String(category?.id));
+            if (matched && matched.subcategories.length > 0) {
+                return {
+                    isSpecific: true,
+                    title: 'Subcategorías',
+                    list: matched.subcategories
+                };
+            } else {
+                return {
+                    isSpecific: true,
+                    title: 'Subcategorías',
+                    list: subcategories && subcategories.length > 0 ? subcategories : []
+                };
+            }
+        } else {
+            return {
+                isSpecific: false,
+                title: 'Categorías',
+                list: MENU_CATEGORIES
+            };
+        }
     }, [category, subcategories]);
 
     const toggleSection = (section: string) => {
@@ -521,21 +540,7 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
             <div className={`filter-bar-container sticky-filters ${isHeaderHidden ? 'is-hidden-top' : ''}`}>
                 {topTabs}
                 <div className="filter-bar">
-                    <div className="filter-left">
-                        <div className="category-dropdown">
-                            <span className="current-category">{displayCategoryTitle}</span>
-                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="1.5" fill="none" className="dropdown-icon">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                            <ul className="dropdown-list">
-                                {subcategories.map((cat: any) => (
-                                    <li key={cat.slug}>
-                                        <a href={category?.slug === 'sale' ? `/categoria/${cat.slug}?sort=descuentos` : `/categoria/${cat.slug}`}>{cat.name}</a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
+
 
                     <div className="filter-right">
                         <div className="sort-dropdown">
@@ -863,7 +868,7 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
                 .filter-bar-container { width: 100%; border-bottom: 1px solid #eee; background: #fff; }
                 .sticky-filters { position: sticky; top: 80px; z-index: 100; background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: top 0.3s ease-in-out; }
                 .sticky-filters.is-hidden-top { top: 0; }
-                .filter-bar { max-width: var(--container-max-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; position: relative; }
+                .filter-bar { max-width: var(--container-max-width); margin: 0 auto; display: flex; justify-content: center; align-items: center; padding: 1rem 2rem; position: relative; }
                 .filter-left, .filter-right { display: flex; align-items: center; gap: 1rem; }
                 
                 .category-dropdown { position: relative; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; padding: 0.5rem 0; }

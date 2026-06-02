@@ -3331,8 +3331,8 @@
       "type": "variation",
       "date_created": "2025-09-04T19:34:29",
       "date_created_gmt": "2025-09-04T19:34:29",
-      "date_modified": "2026-05-07T23:00:23",
-      "date_modified_gmt": "2026-05-07T23:00:23",
+      "date_modified": "2026-06-02T17:41:19",
+      "date_modified_gmt": "2026-06-02T17:41:19",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-madrid/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=l",
       "sku": "5056602036",
@@ -3355,7 +3355,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 17,
+      "stock_quantity": 16,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4148,7 +4148,7 @@
         {
           "id": 2250430,
           "key": "_last_change_time",
-          "value": "1778177744"
+          "value": "1780422079"
         },
         {
           "id": 2311153,
@@ -9344,8 +9344,8 @@
       "type": "variation",
       "date_created": "2025-09-04T19:34:28",
       "date_created_gmt": "2025-09-04T19:34:28",
-      "date_modified": "2026-05-07T23:00:23",
-      "date_modified_gmt": "2026-05-07T23:00:23",
+      "date_modified": "2026-06-02T17:41:19",
+      "date_modified_gmt": "2026-06-02T17:41:19",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-madrid/?attribute_pa_selecciona-el-color=beige&attribute_pa_selecciona-una-talla=m",
       "sku": "5056606034",
@@ -9368,7 +9368,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -10161,7 +10161,7 @@
         {
           "id": 2233402,
           "key": "_last_change_time",
-          "value": "1778177744"
+          "value": "1780422079"
         },
         {
           "id": 2311161,
@@ -11921,8 +11921,8 @@
       "type": "variation",
       "date_created": "2025-09-04T19:34:28",
       "date_created_gmt": "2025-09-04T19:34:28",
-      "date_modified": "2026-05-07T23:00:23",
-      "date_modified_gmt": "2026-05-07T23:00:23",
+      "date_modified": "2026-06-02T17:41:19",
+      "date_modified_gmt": "2026-06-02T17:41:19",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-madrid/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=xl",
       "sku": "5056601038",
@@ -11945,7 +11945,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12738,7 +12738,7 @@
         {
           "id": 2257388,
           "key": "_last_change_time",
-          "value": "1778177743"
+          "value": "1780422079"
         },
         {
           "id": 2311158,
@@ -14498,8 +14498,8 @@
       "type": "variation",
       "date_created": "2025-09-04T19:34:28",
       "date_created_gmt": "2025-09-04T19:34:28",
-      "date_modified": "2026-05-07T23:00:23",
-      "date_modified_gmt": "2026-05-07T23:00:23",
+      "date_modified": "2026-06-02T17:41:19",
+      "date_modified_gmt": "2026-06-02T17:41:19",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-madrid/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=m",
       "sku": "5056601034",
@@ -14522,7 +14522,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -15315,7 +15315,7 @@
         {
           "id": 2219100,
           "key": "_last_change_time",
-          "value": "1778177743"
+          "value": "1780422079"
         },
         {
           "id": 2311166,
@@ -15357,8 +15357,8 @@
       "type": "variation",
       "date_created": "2025-09-04T19:34:28",
       "date_created_gmt": "2025-09-04T19:34:28",
-      "date_modified": "2026-05-07T23:00:23",
-      "date_modified_gmt": "2026-05-07T23:00:23",
+      "date_modified": "2026-06-02T17:41:19",
+      "date_modified_gmt": "2026-06-02T17:41:19",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-madrid/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=s",
       "sku": "5056601032",
@@ -15381,7 +15381,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -16174,7 +16174,7 @@
         {
           "id": 2257387,
           "key": "_last_change_time",
-          "value": "1778177743"
+          "value": "1780422079"
         },
         {
           "id": 2311165,

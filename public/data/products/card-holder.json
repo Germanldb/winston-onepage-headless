@@ -261,8 +261,8 @@
       "type": "variation",
       "date_created": "2024-11-30T21:26:21",
       "date_created_gmt": "2024-11-30T21:26:21",
-      "date_modified": "2026-05-07T23:00:43",
-      "date_modified_gmt": "2026-05-07T23:00:43",
+      "date_modified": "2026-06-02T17:39:15",
+      "date_modified_gmt": "2026-06-02T17:39:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/card-holder/?attribute_pa_selecciona-el-color=negro",
       "sku": "33337102000",
@@ -285,7 +285,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 16,
+      "stock_quantity": 15,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -882,7 +882,7 @@
         {
           "id": 2257292,
           "key": "_last_change_time",
-          "value": "1778177762"
+          "value": "1780421955"
         },
         {
           "id": 2312154,
@@ -924,8 +924,8 @@
       "type": "variation",
       "date_created": "2024-11-30T21:26:21",
       "date_created_gmt": "2024-11-30T21:26:21",
-      "date_modified": "2026-05-07T23:00:43",
-      "date_modified_gmt": "2026-05-07T23:00:43",
+      "date_modified": "2026-06-02T17:39:15",
+      "date_modified_gmt": "2026-06-02T17:39:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/card-holder/?attribute_pa_selecciona-el-color=miel",
       "sku": "33337126000",
@@ -948,7 +948,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 16,
+      "stock_quantity": 14,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1545,7 +1545,7 @@
         {
           "id": 2250308,
           "key": "_last_change_time",
-          "value": "1778177762"
+          "value": "1780421955"
         },
         {
           "id": 2312153,

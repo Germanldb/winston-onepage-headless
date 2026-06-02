@@ -5737,8 +5737,8 @@
       "type": "variation",
       "date_created": "2025-02-27T02:39:46",
       "date_created_gmt": "2025-02-27T02:39:46",
-      "date_modified": "2026-05-07T23:02:43",
-      "date_modified_gmt": "2026-05-07T23:02:43",
+      "date_modified": "2026-06-02T17:40:05",
+      "date_modified_gmt": "2026-06-02T17:40:05",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cumberland/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=38",
       "sku": "7070102038",
@@ -5761,7 +5761,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -6389,7 +6389,7 @@
         {
           "id": 2233357,
           "key": "_last_change_time",
-          "value": "1778177952"
+          "value": "1780422005"
         },
         {
           "id": 2311877,
@@ -8513,8 +8513,8 @@
       "type": "variation",
       "date_created": "2025-02-27T02:39:44",
       "date_created_gmt": "2025-02-27T02:39:44",
-      "date_modified": "2026-05-07T23:02:43",
-      "date_modified_gmt": "2026-05-07T23:02:43",
+      "date_modified": "2026-06-02T17:40:05",
+      "date_modified_gmt": "2026-06-02T17:40:05",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cumberland/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=43",
       "sku": "7070126043",
@@ -8537,7 +8537,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -9165,7 +9165,7 @@
         {
           "id": 2260002,
           "key": "_last_change_time",
-          "value": "1778177951"
+          "value": "1780422005"
         },
         {
           "id": 2311881,
@@ -9901,8 +9901,8 @@
       "type": "variation",
       "date_created": "2025-02-27T02:39:43",
       "date_created_gmt": "2025-02-27T02:39:43",
-      "date_modified": "2026-05-07T23:02:43",
-      "date_modified_gmt": "2026-05-07T23:02:43",
+      "date_modified": "2026-06-02T17:40:05",
+      "date_modified_gmt": "2026-06-02T17:40:05",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cumberland/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=41",
       "sku": "7070126041",
@@ -9925,7 +9925,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -10553,7 +10553,7 @@
         {
           "id": 2260000,
           "key": "_last_change_time",
-          "value": "1778177951"
+          "value": "1780422005"
         },
         {
           "id": 2311883,
@@ -10595,8 +10595,8 @@
       "type": "variation",
       "date_created": "2025-02-27T02:39:42",
       "date_created_gmt": "2025-02-27T02:39:42",
-      "date_modified": "2026-05-07T23:02:43",
-      "date_modified_gmt": "2026-05-07T23:02:43",
+      "date_modified": "2026-06-02T17:40:05",
+      "date_modified_gmt": "2026-06-02T17:40:05",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cumberland/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=40",
       "sku": "7070126040",
@@ -10619,7 +10619,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 7,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -11247,7 +11247,7 @@
         {
           "id": 2259999,
           "key": "_last_change_time",
-          "value": "1778177951"
+          "value": "1780422005"
         },
         {
           "id": 2311886,
@@ -12672,8 +12672,8 @@
       "type": "variation",
       "date_created": "2025-02-27T02:39:40",
       "date_created_gmt": "2025-02-27T02:39:40",
-      "date_modified": "2026-05-07T23:02:43",
-      "date_modified_gmt": "2026-05-07T23:02:43",
+      "date_modified": "2026-06-02T17:40:05",
+      "date_modified_gmt": "2026-06-02T17:40:05",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cumberland/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=37",
       "sku": "7070126037",
@@ -12696,7 +12696,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -13324,7 +13324,7 @@
         {
           "id": 2259996,
           "key": "_last_change_time",
-          "value": "1778177950"
+          "value": "1780422005"
         },
         {
           "id": 2311888,

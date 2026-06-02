@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import ReviewsSection from "./ReviewsSection";
 import BlogHome from "./BlogHome.astro";
-import InstagramReels from "./InstagramReels";
+
 import { getMenu, PUBLIC_WP_URL } from "../lib/woocommerce";
 
 const menuCustomer = await getMenu("atencion-al-cliente");
@@ -48,8 +48,6 @@ function flattenCategoryUrl(url: string) {
     <!-- Blog Section -->
     { !hideBlog && <BlogHome /> }
 
-    <!-- Instagram Reels Section -->
-    <InstagramReels client:visible />
 
     <!-- Barra Newsletter -->
     <div class="footer-newsletter-bar">

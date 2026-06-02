@@ -1312,8 +1312,8 @@
       "type": "variation",
       "date_created": "2024-12-02T17:35:24",
       "date_created_gmt": "2024-12-02T17:35:24",
-      "date_modified": "2026-05-07T23:02:37",
-      "date_modified_gmt": "2026-05-07T23:02:37",
+      "date_modified": "2026-06-02T17:39:39",
+      "date_modified_gmt": "2026-06-02T17:39:39",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cuero-reata-2145/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=36&attribute_pa_hebilla=acero-inoxidable&attribute_pa_material=100-cuero",
       "sku": "27214504036",
@@ -1336,7 +1336,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 13,
+      "stock_quantity": 12,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1956,7 +1956,7 @@
         {
           "id": 2262097,
           "key": "_last_change_time",
-          "value": "1778177934"
+          "value": "1780421979"
         },
         {
           "id": 2312100,
@@ -4742,8 +4742,8 @@
       "type": "variation",
       "date_created": "2024-12-02T17:35:23",
       "date_created_gmt": "2024-12-02T17:35:23",
-      "date_modified": "2026-05-07T23:02:36",
-      "date_modified_gmt": "2026-05-07T23:02:36",
+      "date_modified": "2026-06-02T17:39:39",
+      "date_modified_gmt": "2026-06-02T17:39:39",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cuero-reata-2145/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=36&attribute_pa_hebilla=acero-inoxidable&attribute_pa_material=100-cuero",
       "sku": "27214501036",
@@ -4766,7 +4766,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 24,
+      "stock_quantity": 23,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5386,7 +5386,7 @@
         {
           "id": 2254853,
           "key": "_last_change_time",
-          "value": "1778177934"
+          "value": "1780421979"
         },
         {
           "id": 2312105,
@@ -5428,8 +5428,8 @@
       "type": "variation",
       "date_created": "2024-12-02T17:35:23",
       "date_created_gmt": "2024-12-02T17:35:23",
-      "date_modified": "2026-05-07T23:02:36",
-      "date_modified_gmt": "2026-05-07T23:02:36",
+      "date_modified": "2026-06-02T17:39:39",
+      "date_modified_gmt": "2026-06-02T17:39:39",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cuero-reata-2145/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=34&attribute_pa_hebilla=acero-inoxidable&attribute_pa_material=100-cuero",
       "sku": "27214501034",
@@ -5452,7 +5452,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 25,
+      "stock_quantity": 24,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -6072,7 +6072,7 @@
         {
           "id": 2254852,
           "key": "_last_change_time",
-          "value": "1778177934"
+          "value": "1780421979"
         },
         {
           "id": 2312104,
@@ -6114,8 +6114,8 @@
       "type": "variation",
       "date_created": "2024-12-02T17:35:23",
       "date_created_gmt": "2024-12-02T17:35:23",
-      "date_modified": "2026-05-07T23:02:36",
-      "date_modified_gmt": "2026-05-07T23:02:36",
+      "date_modified": "2026-06-02T17:39:39",
+      "date_modified_gmt": "2026-06-02T17:39:39",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cuero-reata-2145/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=32&attribute_pa_hebilla=acero-inoxidable&attribute_pa_material=100-cuero",
       "sku": "27214501032",
@@ -6138,7 +6138,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 24,
+      "stock_quantity": 23,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -6758,7 +6758,7 @@
         {
           "id": 2254851,
           "key": "_last_change_time",
-          "value": "1778177933"
+          "value": "1780421979"
         },
         {
           "id": 2312103,

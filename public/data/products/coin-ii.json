@@ -226,8 +226,8 @@
       "type": "variation",
       "date_created": "2024-06-09T22:08:36",
       "date_created_gmt": "2024-06-09T22:08:36",
-      "date_modified": "2026-05-07T23:02:01",
-      "date_modified_gmt": "2026-05-07T23:02:01",
+      "date_modified": "2026-06-02T17:38:57",
+      "date_modified_gmt": "2026-06-02T17:38:57",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/coin-ii/?attribute_pa_selecciona-el-color=negro",
       "sku": "33026802000",
@@ -250,7 +250,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 21,
+      "stock_quantity": 20,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -847,7 +847,7 @@
         {
           "id": 2250273,
           "key": "_last_change_time",
-          "value": "1778177845"
+          "value": "1780421937"
         },
         {
           "id": 2312303,

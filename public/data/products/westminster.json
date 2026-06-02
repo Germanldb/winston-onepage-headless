@@ -15990,8 +15990,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:53:24",
       "date_created_gmt": "2022-08-25T22:53:24",
-      "date_modified": "2026-05-07T23:12:33",
-      "date_modified_gmt": "2026-05-07T23:12:33",
+      "date_modified": "2026-06-02T17:36:20",
+      "date_modified_gmt": "2026-06-02T17:36:20",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/westminster/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=39",
       "sku": "7028026039",
@@ -16014,7 +16014,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -16582,7 +16582,7 @@
         {
           "id": 2257175,
           "key": "_last_change_time",
-          "value": "1778190604"
+          "value": "1780421780"
         },
         {
           "id": 2313791,

@@ -274,35 +274,6 @@
       "sale_price": ""
     },
     {
-      "id": 24995,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "azul",
-          "option": "azul"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "xl",
-          "option": "xl"
-        }
-      ],
-      "image": {
-        "id": 30244,
-        "date_created": "2023-06-21T21:42:01",
-        "date_created_gmt": "2023-06-21T21:42:01",
-        "date_modified": "2023-06-21T21:42:01",
-        "date_modified_gmt": "2023-06-21T21:42:01",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/MG_5188.jpg",
-        "name": "_MG_5188",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "150000",
-      "regular_price": "150000",
-      "sale_price": ""
-    },
-    {
       "id": 30302,
       "attributes": [
         {
@@ -1490,8 +1461,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:42:27",
       "date_created_gmt": "2022-08-25T22:42:27",
-      "date_modified": "2026-05-07T23:00:10",
-      "date_modified_gmt": "2026-05-07T23:00:10",
+      "date_modified": "2026-06-02T17:35:50",
+      "date_modified_gmt": "2026-06-02T17:35:50",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=xl",
       "sku": "5056101038",
@@ -1514,8 +1485,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -1997,7 +1968,7 @@
         {
           "id": 2259060,
           "key": "_last_change_time",
-          "value": "1778177731"
+          "value": "1780421750"
         },
         {
           "id": 2314487,
@@ -2039,8 +2010,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:42:27",
       "date_created_gmt": "2022-08-25T22:42:27",
-      "date_modified": "2026-05-07T23:00:10",
-      "date_modified_gmt": "2026-05-07T23:00:10",
+      "date_modified": "2026-06-02T17:35:49",
+      "date_modified_gmt": "2026-06-02T17:35:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=l",
       "sku": "5056101036",
@@ -2063,7 +2034,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 10,
+      "stock_quantity": 9,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2546,7 +2517,7 @@
         {
           "id": 2250098,
           "key": "_last_change_time",
-          "value": "1778177731"
+          "value": "1780421749"
         },
         {
           "id": 2314486,
@@ -2588,8 +2559,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:42:27",
       "date_created_gmt": "2022-08-25T22:42:27",
-      "date_modified": "2026-05-07T23:00:10",
-      "date_modified_gmt": "2026-05-07T23:00:10",
+      "date_modified": "2026-06-02T17:35:49",
+      "date_modified_gmt": "2026-06-02T17:35:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=m",
       "sku": "5056101034",
@@ -2612,7 +2583,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3095,7 +3066,7 @@
         {
           "id": 2233274,
           "key": "_last_change_time",
-          "value": "1778177731"
+          "value": "1780421749"
         },
         {
           "id": 2314485,

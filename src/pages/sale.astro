@@ -43,7 +43,7 @@ while (hasMore) {
 
         if (!pageProducts) {
             console.log(`[SSG Sale] Descargando de API SALE - página ${page}`);
-            pageProducts = await getAllProducts(16, page, "popularity", "desc", true);
+            pageProducts = await getAllProducts(16, page, "menu_order", "asc", true);
             // Guardamos los productos en el JSON
             fs.writeFileSync(filePath, JSON.stringify(pageProducts, null, 2), "utf-8");
         } else {
@@ -127,8 +127,8 @@ const navigationTree = await getCategoryTree();
 const activeSort = {
     key: "descuentos",
     label: "Descuentos",
-    orderBy: "popularity",
-    order: "desc",
+    orderBy: "menu_order",
+    order: "asc",
     onSale: true,
 };
 

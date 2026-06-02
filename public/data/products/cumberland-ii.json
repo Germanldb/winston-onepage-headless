@@ -321,35 +321,6 @@
       "sale_price": ""
     },
     {
-      "id": 82125,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "cognac",
-          "option": "cognac"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "39",
-          "option": "39"
-        }
-      ],
-      "image": {
-        "id": 81735,
-        "date_created": "2025-10-27T19:08:57",
-        "date_created_gmt": "2025-10-27T19:08:57",
-        "date_modified": "2025-11-04T17:21:08",
-        "date_modified_gmt": "2025-11-04T17:21:08",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Cumberland-II-Cognac-Winstonandharry-1.jpg",
-        "name": "Cumberland II-Cognac-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "902000",
-      "regular_price": "902000",
-      "sale_price": ""
-    },
-    {
       "id": 82126,
       "attributes": [
         {
@@ -3427,8 +3398,8 @@
       "type": "variation",
       "date_created": "2025-10-30T03:59:08",
       "date_created_gmt": "2025-10-30T03:59:08",
-      "date_modified": "2026-05-07T23:02:48",
-      "date_modified_gmt": "2026-05-07T23:02:48",
+      "date_modified": "2026-06-02T17:41:37",
+      "date_modified_gmt": "2026-06-02T17:41:37",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cumberland-ii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=42",
       "sku": "7034326042",
@@ -3451,7 +3422,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4244,7 +4215,7 @@
         {
           "id": 2259916,
           "key": "_last_change_time",
-          "value": "1778177977"
+          "value": "1780422097"
         },
         {
           "id": 2311025,
@@ -4286,8 +4257,8 @@
       "type": "variation",
       "date_created": "2025-10-30T03:59:08",
       "date_created_gmt": "2025-10-30T03:59:08",
-      "date_modified": "2026-05-07T23:02:48",
-      "date_modified_gmt": "2026-05-07T23:02:48",
+      "date_modified": "2026-06-02T17:41:37",
+      "date_modified_gmt": "2026-06-02T17:41:37",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cumberland-ii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=41",
       "sku": "7034326041",
@@ -4310,7 +4281,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5103,7 +5074,7 @@
         {
           "id": 2250446,
           "key": "_last_change_time",
-          "value": "1778177977"
+          "value": "1780422097"
         },
         {
           "id": 2311024,
@@ -13735,8 +13706,8 @@
       "type": "variation",
       "date_created": "2025-10-30T03:59:07",
       "date_created_gmt": "2025-10-30T03:59:07",
-      "date_modified": "2026-05-07T23:02:43",
-      "date_modified_gmt": "2026-05-07T23:02:43",
+      "date_modified": "2026-06-02T17:41:37",
+      "date_modified_gmt": "2026-06-02T17:41:37",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cumberland-ii/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=39",
       "sku": "7034332039",
@@ -13759,8 +13730,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -14552,7 +14523,7 @@
         {
           "id": 2219105,
           "key": "_last_change_time",
-          "value": "1778177954"
+          "value": "1780422097"
         },
         {
           "id": 2311029,
@@ -14594,8 +14565,8 @@
       "type": "variation",
       "date_created": "2025-10-30T03:59:07",
       "date_created_gmt": "2025-10-30T03:59:07",
-      "date_modified": "2026-05-07T23:02:43",
-      "date_modified_gmt": "2026-05-07T23:02:43",
+      "date_modified": "2026-06-02T17:41:37",
+      "date_modified_gmt": "2026-06-02T17:41:37",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cumberland-ii/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=38",
       "sku": "7034332038",
@@ -14618,7 +14589,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -15411,7 +15382,7 @@
         {
           "id": 2250445,
           "key": "_last_change_time",
-          "value": "1778177954"
+          "value": "1780422097"
         },
         {
           "id": 2311028,
@@ -15453,8 +15424,8 @@
       "type": "variation",
       "date_created": "2025-10-30T03:59:07",
       "date_created_gmt": "2025-10-30T03:59:07",
-      "date_modified": "2026-05-07T23:02:43",
-      "date_modified_gmt": "2026-05-07T23:02:43",
+      "date_modified": "2026-06-02T17:41:37",
+      "date_modified_gmt": "2026-06-02T17:41:37",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cumberland-ii/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=37",
       "sku": "7034332037",
@@ -15477,7 +15448,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -16270,7 +16241,7 @@
         {
           "id": 2259920,
           "key": "_last_change_time",
-          "value": "1778177954"
+          "value": "1780422097"
         },
         {
           "id": 2311027,

@@ -61,9 +61,9 @@ export async function getStaticPaths() {
 
                 if (!products) {
                     if (cat.id === 'all') {
-                        products = await getAllProducts(16, page, 'popularity', 'desc', false);
+                        products = await getAllProducts(16, page, 'menu_order', 'asc', false);
                     } else {
-                        products = await getProductsByCategory(cat.id, 16, page, 'popularity', 'desc', false);
+                        products = await getProductsByCategory(cat.id, 16, page, 'menu_order', 'asc', false);
                     }
                     // Guardamos la página en JSON
                     fs.writeFileSync(filePath, JSON.stringify(products, null, 2), 'utf-8');
@@ -135,8 +135,8 @@ const SORT_OPTIONS = [
     {
         key: "destacado",
         label: "Destacado",
-        orderBy: "popularity",
-        order: "desc",
+        orderBy: "menu_order",
+        order: "asc",
         onSale: false,
     },
     {

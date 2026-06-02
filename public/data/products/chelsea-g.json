@@ -2475,8 +2475,8 @@
       "type": "variation",
       "date_created": "2023-06-21T20:09:00",
       "date_created_gmt": "2023-06-21T20:09:00",
-      "date_modified": "2026-05-08T21:40:19",
-      "date_modified_gmt": "2026-05-08T21:40:19",
+      "date_modified": "2026-06-02T17:37:26",
+      "date_modified_gmt": "2026-06-02T17:37:26",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chelsea-g/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=42",
       "sku": "7116704042",
@@ -2499,7 +2499,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3047,7 +3047,7 @@
         {
           "id": 2260563,
           "key": "_last_change_time",
-          "value": "1778275683"
+          "value": "1780421846"
         },
         {
           "id": 2312922,
@@ -5655,8 +5655,8 @@
       "type": "variation",
       "date_created": "2023-06-21T20:08:46",
       "date_created_gmt": "2023-06-21T20:08:46",
-      "date_modified": "2026-05-08T21:40:18",
-      "date_modified_gmt": "2026-05-08T21:40:18",
+      "date_modified": "2026-06-02T17:37:26",
+      "date_modified_gmt": "2026-06-02T17:37:26",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chelsea-g/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=37",
       "sku": "7116704037",
@@ -5679,7 +5679,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -6227,7 +6227,7 @@
         {
           "id": 2260559,
           "key": "_last_change_time",
-          "value": "1778275683"
+          "value": "1780421846"
         },
         {
           "id": 2312928,

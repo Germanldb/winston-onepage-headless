@@ -249,8 +249,8 @@
       "type": "variation",
       "date_created": "2024-06-09T22:25:07",
       "date_created_gmt": "2024-06-09T22:25:07",
-      "date_modified": "2026-05-07T23:06:52",
-      "date_modified_gmt": "2026-05-07T23:06:52",
+      "date_modified": "2026-06-02T17:38:57",
+      "date_modified_gmt": "2026-06-02T17:38:57",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/monedero-herradura-ii/?attribute_pa_selecciona-el-color=vinotinto",
       "sku": "33027019000",
@@ -273,7 +273,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 8,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -870,7 +870,7 @@
         {
           "id": 2250274,
           "key": "_last_change_time",
-          "value": "1778184388"
+          "value": "1780421937"
         },
         {
           "id": 2312301,
@@ -1575,8 +1575,8 @@
       "type": "variation",
       "date_created": "2024-06-09T22:25:07",
       "date_created_gmt": "2024-06-09T22:25:07",
-      "date_modified": "2026-05-07T23:06:52",
-      "date_modified_gmt": "2026-05-07T23:06:52",
+      "date_modified": "2026-06-02T17:38:57",
+      "date_modified_gmt": "2026-06-02T17:38:57",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/monedero-herradura-ii/?attribute_pa_selecciona-el-color=cafe",
       "sku": "33027004000",
@@ -1599,7 +1599,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 25,
+      "stock_quantity": 18,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2196,7 +2196,7 @@
         {
           "id": 2262266,
           "key": "_last_change_time",
-          "value": "1778184388"
+          "value": "1780421937"
         },
         {
           "id": 2312299,

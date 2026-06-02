@@ -905,8 +905,8 @@
       "type": "variation",
       "date_created": "2022-08-29T21:09:16",
       "date_created_gmt": "2022-08-29T21:09:16",
-      "date_modified": "2026-05-07T23:08:33",
-      "date_modified_gmt": "2026-05-07T23:08:33",
+      "date_modified": "2026-06-02T17:36:20",
+      "date_modified_gmt": "2026-06-02T17:36:20",
       "description": "<p>Nosotros sabemos que la regla número uno cuando se usa cuero, es siempre combinar los colores &#8211; “match your leathers”. Nuestros cinturones Trent están hechos en piel de becerro de manera artesanal, pintados a mano para llegar a ser el accesorio perfecto al usar con nuestros zapatos. Su diseño sencillo y hebilla clásica le da un toque de elegancia que sobresaltará en cualquier ocasión que te encuentres.</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/reata-670/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=l",
       "sku": "28013926036",
@@ -929,7 +929,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 40,
+      "stock_quantity": 39,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1402,7 +1402,7 @@
         {
           "id": 2250153,
           "key": "_last_change_time",
-          "value": "1778184601"
+          "value": "1780421780"
         }
       ],
       "name": "Azul, L",
@@ -1439,8 +1439,8 @@
       "type": "variation",
       "date_created": "2022-08-29T21:09:16",
       "date_created_gmt": "2022-08-29T21:09:16",
-      "date_modified": "2026-05-07T23:08:33",
-      "date_modified_gmt": "2026-05-07T23:08:33",
+      "date_modified": "2026-06-02T17:36:20",
+      "date_modified_gmt": "2026-06-02T17:36:20",
       "description": "<p>Nosotros sabemos que la regla número uno cuando se usa cuero, es siempre combinar los colores &#8211; “match your leathers”. Nuestros cinturones Trent están hechos en piel de becerro de manera artesanal, pintados a mano para llegar a ser el accesorio perfecto al usar con nuestros zapatos. Su diseño sencillo y hebilla clásica le da un toque de elegancia que sobresaltará en cualquier ocasión que te encuentres.</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/reata-670/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=m",
       "sku": "28013926034",
@@ -1463,7 +1463,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 30,
+      "stock_quantity": 31,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1936,7 +1936,7 @@
         {
           "id": 2218921,
           "key": "_last_change_time",
-          "value": "1778184601"
+          "value": "1780421780"
         }
       ],
       "name": "Azul, M",
@@ -1973,8 +1973,8 @@
       "type": "variation",
       "date_created": "2022-08-29T21:09:16",
       "date_created_gmt": "2022-08-29T21:09:16",
-      "date_modified": "2026-05-19T13:24:15",
-      "date_modified_gmt": "2026-05-19T13:24:15",
+      "date_modified": "2026-06-02T17:36:20",
+      "date_modified_gmt": "2026-06-02T17:36:20",
       "description": "<p>Nosotros sabemos que la regla número uno cuando se usa cuero, es siempre combinar los colores &#8211; “match your leathers”. Nuestros cinturones Trent están hechos en piel de becerro de manera artesanal, pintados a mano para llegar a ser el accesorio perfecto al usar con nuestros zapatos. Su diseño sencillo y hebilla clásica le da un toque de elegancia que sobresaltará en cualquier ocasión que te encuentres.</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/reata-670/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=s",
       "sku": "28013926032",
@@ -1997,7 +1997,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2470,7 +2470,7 @@
         {
           "id": 2250152,
           "key": "_last_change_time",
-          "value": "1778184601"
+          "value": "1780421780"
         }
       ],
       "name": "Azul, S",

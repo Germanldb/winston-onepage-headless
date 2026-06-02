@@ -197,8 +197,8 @@
       "type": "variation",
       "date_created": "2023-12-13T17:49:38",
       "date_created_gmt": "2023-12-13T17:49:38",
-      "date_modified": "2026-05-07T22:59:26",
-      "date_modified_gmt": "2026-05-07T22:59:26",
+      "date_modified": "2026-06-02T17:38:29",
+      "date_modified_gmt": "2026-06-02T17:38:29",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/calzador/?attribute_pa_selecciona-el-color=cafe",
       "sku": "81811000000",
@@ -221,7 +221,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 7,
+      "stock_quantity": 15,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -713,7 +713,7 @@
         {
           "id": 2218963,
           "key": "_last_change_time",
-          "value": "1778177579"
+          "value": "1780421909"
         }
       ],
       "name": "Café",

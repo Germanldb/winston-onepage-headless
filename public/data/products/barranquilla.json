@@ -1071,8 +1071,8 @@
       "type": "variation",
       "date_created": "2023-06-08T17:52:39",
       "date_created_gmt": "2023-06-08T17:52:39",
-      "date_modified": "2026-05-08T21:40:35",
-      "date_modified_gmt": "2026-05-08T21:40:35",
+      "date_modified": "2026-06-02T17:37:25",
+      "date_modified_gmt": "2026-06-02T17:37:25",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/barranquilla/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=44",
       "sku": "7308304044",
@@ -1095,7 +1095,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1658,7 +1658,7 @@
         {
           "id": 2215650,
           "key": "_last_change_time",
-          "value": "1778275710"
+          "value": "1780421845"
         },
         {
           "id": 2313168,
@@ -10446,8 +10446,8 @@
       "type": "variation",
       "date_created": "2023-06-08T17:52:38",
       "date_created_gmt": "2023-06-08T17:52:38",
-      "date_modified": "2026-05-08T21:40:29",
-      "date_modified_gmt": "2026-05-08T21:40:29",
+      "date_modified": "2026-06-02T17:37:25",
+      "date_modified_gmt": "2026-06-02T17:37:25",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/barranquilla/?attribute_pa_selecciona-el-color=tabaco&attribute_pa_selecciona-una-talla=38",
       "sku": "7308310038",
@@ -10470,7 +10470,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -11033,7 +11033,7 @@
         {
           "id": 2215615,
           "key": "_last_change_time",
-          "value": "1778275700"
+          "value": "1780421845"
         },
         {
           "id": 2313174,

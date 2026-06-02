@@ -1,0 +1,5742 @@
+{
+  "id": 85138,
+  "name": "Chaqueta Oxford",
+  "slug": "chaqueta-oxford",
+  "parent": 0,
+  "type": "variable",
+  "variation": "",
+  "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-oxford/",
+  "sku": "1097",
+  "short_description": "<p>La Chaqueta Oxford combina elegancia clásica y funcionalidad moderna. Confeccionada en 100% algodón, cuenta con cuello en pana, forro escocés y prácticos bolsillos interiores y laterales. Una prenda ligera, versátil y cómoda, ideal para complementar cualquier look casual con un toque sofisticado.</p>",
+  "description": "<p>Inspirada en la tradición y el estilo atemporal de Oxford, la Chaqueta Oxford es una prenda diseñada para quienes buscan combinar elegancia, comodidad y versatilidad en su día a día. Su diseño clásico se complementa con detalles cuidadosamente seleccionados que aportan carácter y distinción.</p>\n<p>Confeccionada en 100% algodón, ofrece una sensación natural y transpirable que garantiza comodidad durante todo el día. Su estructura ligera la convierte en la opción ideal para climas variables, permitiendo mantener una apariencia impecable sin sacrificar confort.</p>\n<p>El cuello en pana añade un contraste sofisticado y una textura distintiva que realza el diseño, mientras que el forro interior en algodón con estampado escocés aporta un acabado clásico, además de una mayor suavidad al contacto con la piel.</p>\n<p>Pensada para la funcionalidad, incorpora dos bolsillos internos y bolsillos laterales prácticos que brindan espacio adicional para llevar tus objetos esenciales de forma cómoda y segura.</p>\n<p>La Chaqueta Oxford es el equilibrio perfecto entre tradición y modernidad, una pieza versátil que se adapta fácilmente a diferentes ocasiones y estilos, convirtiéndose en un imprescindible para quienes valoran los detalles y la calidad.</p>",
+  "on_sale": false,
+  "prices": {
+    "price": "962500",
+    "regular_price": "962500",
+    "sale_price": "962500",
+    "price_range": null,
+    "currency_code": "COP",
+    "currency_symbol": "$",
+    "currency_minor_unit": 0,
+    "currency_decimal_separator": ".",
+    "currency_thousand_separator": ",",
+    "currency_prefix": "$",
+    "currency_suffix": ""
+  },
+  "price_html": "<span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#036;</span>962,500</span>",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+    {
+      "id": 85359,
+      "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente.jpg",
+      "thumbnail": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente-324x324.jpg",
+      "srcset": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente.jpg 1080w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente-300x300.jpg 300w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente-1024x1024.jpg 1024w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente-150x150.jpg 150w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente-768x768.jpg 768w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente-324x324.jpg 324w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente-416x416.jpg 416w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente-100x100.jpg 100w",
+      "sizes": "(max-width: 1080px) 100vw, 1080px",
+      "thumbnail_srcset": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente-324x324.jpg 324w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente-300x300.jpg 300w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente-1024x1024.jpg 1024w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente-150x150.jpg 150w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente-768x768.jpg 768w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente-416x416.jpg 416w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente-100x100.jpg 100w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente.jpg 1080w",
+      "thumbnail_sizes": "(max-width: 324px) 100vw, 324px",
+      "name": "Winston-and-Harry-chaqueta-oxford-tabaco-frente",
+      "alt": ""
+    },
+    {
+      "id": 85357,
+      "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-cuello.jpg",
+      "thumbnail": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-cuello-324x324.jpg",
+      "srcset": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-cuello.jpg 1080w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-cuello-300x300.jpg 300w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-cuello-1024x1024.jpg 1024w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-cuello-150x150.jpg 150w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-cuello-768x768.jpg 768w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-cuello-324x324.jpg 324w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-cuello-416x416.jpg 416w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-cuello-100x100.jpg 100w",
+      "sizes": "(max-width: 1080px) 100vw, 1080px",
+      "thumbnail_srcset": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-cuello-324x324.jpg 324w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-cuello-300x300.jpg 300w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-cuello-1024x1024.jpg 1024w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-cuello-150x150.jpg 150w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-cuello-768x768.jpg 768w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-cuello-416x416.jpg 416w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-cuello-100x100.jpg 100w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-cuello.jpg 1080w",
+      "thumbnail_sizes": "(max-width: 324px) 100vw, 324px",
+      "name": "Winston-and-Harry-chaqueta-oxford-tabaco-cuello",
+      "alt": ""
+    },
+    {
+      "id": 85358,
+      "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo.jpg",
+      "thumbnail": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo-324x324.jpg",
+      "srcset": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo.jpg 1080w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo-300x300.jpg 300w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo-1024x1024.jpg 1024w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo-150x150.jpg 150w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo-768x768.jpg 768w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo-324x324.jpg 324w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo-416x416.jpg 416w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo-100x100.jpg 100w",
+      "sizes": "(max-width: 1080px) 100vw, 1080px",
+      "thumbnail_srcset": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo-324x324.jpg 324w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo-300x300.jpg 300w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo-1024x1024.jpg 1024w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo-150x150.jpg 150w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo-768x768.jpg 768w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo-416x416.jpg 416w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo-100x100.jpg 100w, https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo.jpg 1080w",
+      "thumbnail_sizes": "(max-width: 324px) 100vw, 324px",
+      "name": "Winston-and-Harry-chaqueta-oxford-tabaco-dobaldo",
+      "alt": ""
+    }
+  ],
+  "categories": [
+    {
+      "id": 952,
+      "name": "Chaquetas",
+      "slug": "chaquetas-hombre",
+      "link": "https://tienda.winstonandharrystore.com/product-category/ropa-hombre-colombia/chaquetas-hombre/"
+    },
+    {
+      "id": 920,
+      "name": "Menos de $200,000",
+      "slug": "menos-de-200000",
+      "link": "https://tienda.winstonandharrystore.com/product-category/menos-de-200000/"
+    },
+    {
+      "id": 921,
+      "name": "Menos de $350,000",
+      "slug": "menos-de-350000",
+      "link": "https://tienda.winstonandharrystore.com/product-category/menos-de-350000/"
+    },
+    {
+      "id": 922,
+      "name": "Menos de $499,000",
+      "slug": "menos-de-499000",
+      "link": "https://tienda.winstonandharrystore.com/product-category/menos-de-499000/"
+    },
+    {
+      "id": 249,
+      "name": "Ropa",
+      "slug": "ropa-hombre-colombia",
+      "link": "https://tienda.winstonandharrystore.com/product-category/ropa-hombre-colombia/"
+    }
+  ],
+  "tags": [
+    {
+      "id": 432,
+      "name": "Menos de 150.000",
+      "slug": "menos-de-150-000",
+      "link": "https://tienda.winstonandharrystore.com/product-tag/menos-de-150-000/"
+    }
+  ],
+  "brands": [],
+  "attributes": [
+    {
+      "id": 3,
+      "name": "Selecciona el Color",
+      "taxonomy": "pa_selecciona-el-color",
+      "has_variations": true,
+      "terms": [
+        {
+          "id": 371,
+          "name": "Tabaco",
+          "slug": "tabaco"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Selecciona una Talla",
+      "taxonomy": "pa_selecciona-una-talla",
+      "has_variations": true,
+      "terms": [
+        {
+          "id": 181,
+          "name": "L",
+          "slug": "l"
+        },
+        {
+          "id": 180,
+          "name": "M",
+          "slug": "m"
+        },
+        {
+          "id": 179,
+          "name": "S",
+          "slug": "s"
+        },
+        {
+          "id": 182,
+          "name": "XL",
+          "slug": "xl"
+        },
+        {
+          "id": 183,
+          "name": "XXL",
+          "slug": "xxl"
+        }
+      ]
+    }
+  ],
+  "variations": [
+    {
+      "id": 85169,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "tabaco",
+          "option": "tabaco"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "l",
+          "option": "l"
+        }
+      ],
+      "image": {
+        "id": 85359,
+        "date_created": "2026-05-19T18:15:43",
+        "date_created_gmt": "2026-05-19T18:15:43",
+        "date_modified": "2026-06-02T17:02:51",
+        "date_modified_gmt": "2026-06-02T17:02:51",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente.jpg",
+        "name": "Winston-and-Harry-chaqueta-oxford-tabaco-frente",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "962500",
+      "regular_price": "962500",
+      "sale_price": ""
+    },
+    {
+      "id": 85170,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "tabaco",
+          "option": "tabaco"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "m",
+          "option": "m"
+        }
+      ],
+      "image": {
+        "id": 85359,
+        "date_created": "2026-05-19T18:15:43",
+        "date_created_gmt": "2026-05-19T18:15:43",
+        "date_modified": "2026-06-02T17:02:51",
+        "date_modified_gmt": "2026-06-02T17:02:51",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente.jpg",
+        "name": "Winston-and-Harry-chaqueta-oxford-tabaco-frente",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "962500",
+      "regular_price": "962500",
+      "sale_price": ""
+    },
+    {
+      "id": 85171,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "tabaco",
+          "option": "tabaco"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "s",
+          "option": "s"
+        }
+      ],
+      "image": {
+        "id": 85359,
+        "date_created": "2026-05-19T18:15:43",
+        "date_created_gmt": "2026-05-19T18:15:43",
+        "date_modified": "2026-06-02T17:02:51",
+        "date_modified_gmt": "2026-06-02T17:02:51",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente.jpg",
+        "name": "Winston-and-Harry-chaqueta-oxford-tabaco-frente",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "962500",
+      "regular_price": "962500",
+      "sale_price": ""
+    },
+    {
+      "id": 85172,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "tabaco",
+          "option": "tabaco"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "xl",
+          "option": "xl"
+        }
+      ],
+      "image": {
+        "id": 85359,
+        "date_created": "2026-05-19T18:15:43",
+        "date_created_gmt": "2026-05-19T18:15:43",
+        "date_modified": "2026-06-02T17:02:51",
+        "date_modified_gmt": "2026-06-02T17:02:51",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente.jpg",
+        "name": "Winston-and-Harry-chaqueta-oxford-tabaco-frente",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "962500",
+      "regular_price": "962500",
+      "sale_price": ""
+    },
+    {
+      "id": 85173,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "tabaco",
+          "option": "tabaco"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "xxl",
+          "option": "xxl"
+        }
+      ],
+      "image": {
+        "id": 85359,
+        "date_created": "2026-05-19T18:15:43",
+        "date_created_gmt": "2026-05-19T18:15:43",
+        "date_modified": "2026-06-02T17:02:51",
+        "date_modified_gmt": "2026-06-02T17:02:51",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente.jpg",
+        "name": "Winston-and-Harry-chaqueta-oxford-tabaco-frente",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "962500",
+      "regular_price": "962500",
+      "sale_price": ""
+    }
+  ],
+  "grouped_products": [],
+  "has_options": true,
+  "is_purchasable": true,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+    "text": "Hay existencias",
+    "class": "in-stock"
+  },
+  "sold_individually": false,
+  "weight": "",
+  "dimensions": {
+    "length": "",
+    "width": "",
+    "height": ""
+  },
+  "formatted_weight": "N/D",
+  "formatted_dimensions": "N/D",
+  "add_to_cart": {
+    "text": "Seleccionar opciones",
+    "description": "Elige las opciones para &ldquo;Chaqueta Oxford&rdquo;",
+    "url": "https://tienda.winstonandharrystore.com/product/chaqueta-oxford/",
+    "single_text": "Añadir al carrito",
+    "minimum": 1,
+    "maximum": 1,
+    "multiple_of": 1
+  },
+  "is_password_protected": false,
+  "extensions": {},
+  "_links": {
+    "self": [
+      {
+        "href": "https://tienda.winstonandharrystore.com/wp-json/wc/store/v1/products/85138",
+        "targetHints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://tienda.winstonandharrystore.com/wp-json/wc/store/v1/products"
+      }
+    ],
+    "cross_sells": [
+      {
+        "embeddable": true,
+        "href": "https://tienda.winstonandharrystore.com/wp-json/wc/store/v1/products?include=24814,24784,24783,24813"
+      }
+    ],
+    "related": [
+      {
+        "embeddable": true,
+        "href": "https://tienda.winstonandharrystore.com/wp-json/wc/store/v1/products?related=85138&per_page=10"
+      }
+    ]
+  },
+  "variations_data": [
+    {
+      "id": 85173,
+      "type": "variation",
+      "date_created": "2026-05-08T02:10:05",
+      "date_created_gmt": "2026-05-08T02:10:05",
+      "date_modified": "2026-06-02T17:42:32",
+      "date_modified_gmt": "2026-06-02T17:42:32",
+      "description": "",
+      "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-oxford/?attribute_pa_selecciona-el-color=tabaco&attribute_pa_selecciona-una-talla=xxl",
+      "sku": "19200310040",
+      "global_unique_id": "",
+      "price": "962500",
+      "regular_price": "962500",
+      "sale_price": "",
+      "date_on_sale_from": null,
+      "date_on_sale_from_gmt": null,
+      "date_on_sale_to": null,
+      "date_on_sale_to_gmt": null,
+      "on_sale": false,
+      "status": "publish",
+      "purchasable": true,
+      "virtual": false,
+      "downloadable": false,
+      "downloads": [],
+      "download_limit": -1,
+      "download_expiry": -1,
+      "tax_status": "taxable",
+      "tax_class": "",
+      "manage_stock": true,
+      "stock_quantity": 3,
+      "stock_status": "instock",
+      "backorders": "no",
+      "backorders_allowed": false,
+      "backordered": false,
+      "low_stock_amount": null,
+      "weight": "",
+      "dimensions": {
+        "length": "",
+        "width": "",
+        "height": ""
+      },
+      "shipping_class": "",
+      "shipping_class_id": 0,
+      "image": {
+        "id": 85359,
+        "date_created": "2026-05-19T18:15:43",
+        "date_created_gmt": "2026-05-19T18:15:43",
+        "date_modified": "2026-06-02T17:02:51",
+        "date_modified_gmt": "2026-06-02T17:02:51",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente.jpg",
+        "name": "Winston-and-Harry-chaqueta-oxford-tabaco-frente",
+        "alt": ""
+      },
+      "attributes": [
+        {
+          "id": 3,
+          "name": "Selecciona el Color",
+          "slug": "pa_selecciona-el-color",
+          "option": "Tabaco"
+        },
+        {
+          "id": 4,
+          "name": "Selecciona una Talla",
+          "slug": "pa_selecciona-una-talla",
+          "option": "XXL"
+        }
+      ],
+      "menu_order": 5,
+      "meta_data": [
+        {
+          "id": 2338062,
+          "key": "_last_change_time",
+          "value": "1780422152"
+        },
+        {
+          "id": 2338063,
+          "key": "wpcvi_images",
+          "value": ""
+        },
+        {
+          "id": 2338064,
+          "key": "_wc_facebook_product_image_source",
+          "value": "product"
+        },
+        {
+          "id": 2338065,
+          "key": "fb_mpn",
+          "value": ""
+        },
+        {
+          "id": 2338066,
+          "key": "fb_product_image",
+          "value": ""
+        },
+        {
+          "id": 2338067,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2338068,
+          "key": "fb_product_video",
+          "value": []
+        },
+        {
+          "id": 2338069,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2338070,
+          "key": "fb_product_price",
+          "value": ""
+        },
+        {
+          "id": 2338071,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
+        },
+        {
+          "id": 2338072,
+          "key": "fb_visibility",
+          "value": "no"
+        },
+        {
+          "id": 2364485,
+          "key": "rank_math_internal_links_processed",
+          "value": ""
+        },
+        {
+          "id": 2364486,
+          "key": "_product_360_image_gallery",
+          "value": ""
+        },
+        {
+          "id": 2364487,
+          "key": "_woodmart_single_product_style",
+          "value": ""
+        },
+        {
+          "id": 2364488,
+          "key": "_woodmart_thums_position",
+          "value": ""
+        },
+        {
+          "id": 2364489,
+          "key": "_woodmart_product_design",
+          "value": ""
+        },
+        {
+          "id": 2364490,
+          "key": "_woodmart_extra_content",
+          "value": ""
+        },
+        {
+          "id": 2364491,
+          "key": "_woodmart_extra_position",
+          "value": ""
+        },
+        {
+          "id": 2364492,
+          "key": "_elementor_data",
+          "value": ""
+        },
+        {
+          "id": 2364493,
+          "key": "_elementor_version",
+          "value": ""
+        },
+        {
+          "id": 2364494,
+          "key": "_wp_page_template",
+          "value": ""
+        },
+        {
+          "id": 2364495,
+          "key": "_elementor_template_type",
+          "value": ""
+        },
+        {
+          "id": 2364496,
+          "key": "_oembed_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 2364497,
+          "key": "_oembed_time_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 2364498,
+          "key": "slide_template",
+          "value": ""
+        },
+        {
+          "id": 2364499,
+          "key": "_jet_woo_template",
+          "value": ""
+        },
+        {
+          "id": 2364500,
+          "key": "_template_type",
+          "value": ""
+        },
+        {
+          "id": 2364501,
+          "key": "_selectproduct_layout",
+          "value": ""
+        },
+        {
+          "id": 2364502,
+          "key": "_saleflash_text",
+          "value": ""
+        },
+        {
+          "id": 2364503,
+          "key": "woolentor_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 2364504,
+          "key": "_yoast_wpseo_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 2364505,
+          "key": "_yoast_wpseo_content_score",
+          "value": ""
+        },
+        {
+          "id": 2364506,
+          "key": "_dp_original",
+          "value": ""
+        },
+        {
+          "id": 2364507,
+          "key": "_wp_old_date",
+          "value": ""
+        },
+        {
+          "id": 2364508,
+          "key": "_oembed_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 2364509,
+          "key": "_oembed_time_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 2364510,
+          "key": "woodmart_sguide_select",
+          "value": ""
+        },
+        {
+          "id": 2364511,
+          "key": "woodmart_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 2364512,
+          "key": "rs_page_bg_color",
+          "value": ""
+        },
+        {
+          "id": 2364513,
+          "key": "_woodmart_whb_header",
+          "value": ""
+        },
+        {
+          "id": 2364514,
+          "key": "_woodmart_main_layout",
+          "value": ""
+        },
+        {
+          "id": 2364515,
+          "key": "_woodmart_sidebar_width",
+          "value": ""
+        },
+        {
+          "id": 2364516,
+          "key": "_woodmart_custom_sidebar",
+          "value": ""
+        },
+        {
+          "id": 2364517,
+          "key": "_woodmart_product-background",
+          "value": ""
+        },
+        {
+          "id": 2364518,
+          "key": "_woodmart_product_custom_tab_title",
+          "value": ""
+        },
+        {
+          "id": 2364519,
+          "key": "_woodmart_product_custom_tab_content",
+          "value": ""
+        },
+        {
+          "id": 2364520,
+          "key": "_woodmart_new_label_date",
+          "value": ""
+        },
+        {
+          "id": 2364521,
+          "key": "_woodmart_swatches_attribute",
+          "value": ""
+        },
+        {
+          "id": 2364522,
+          "key": "_woodmart_product_video",
+          "value": ""
+        },
+        {
+          "id": 2364523,
+          "key": "_woodmart_product_hashtag",
+          "value": ""
+        },
+        {
+          "id": 2364524,
+          "key": "_last_editor_used_jetpack",
+          "value": ""
+        },
+        {
+          "id": 2364525,
+          "key": "_oembed_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 2364526,
+          "key": "_oembed_time_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 2364527,
+          "key": "wd_additional_variation_images_data",
+          "value": "85361, 85360, 85356, 85355"
+        },
+        {
+          "id": 2364528,
+          "key": "_yoast_wpseo_estimated-reading-time-minutes",
+          "value": ""
+        },
+        {
+          "id": 2364529,
+          "key": "_elementor_pro_version",
+          "value": ""
+        },
+        {
+          "id": 2364530,
+          "key": "_oembed_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 2364531,
+          "key": "_oembed_time_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 2364532,
+          "key": "fb_product_group_id",
+          "value": ""
+        },
+        {
+          "id": 2364533,
+          "key": "_wc_facebook_commerce_enabled",
+          "value": ""
+        },
+        {
+          "id": 2364534,
+          "key": "fb_product_item_id",
+          "value": ""
+        },
+        {
+          "id": 2364535,
+          "key": "_wc_facebook_sync_enabled",
+          "value": ""
+        },
+        {
+          "id": 2364536,
+          "key": "fb_product_description",
+          "value": ""
+        },
+        {
+          "id": 2364537,
+          "key": "_woosea_exclude_product",
+          "value": ""
+        },
+        {
+          "id": 2364538,
+          "key": "_yoast_wpseo_wordproof_timestamp",
+          "value": ""
+        },
+        {
+          "id": 2364539,
+          "key": "_yoast_wpseo_focuskw",
+          "value": ""
+        },
+        {
+          "id": 2364540,
+          "key": "_yoast_wpseo_metadesc",
+          "value": ""
+        },
+        {
+          "id": 2364541,
+          "key": "_yoast_wpseo_title",
+          "value": ""
+        },
+        {
+          "id": 2364542,
+          "key": "_yoast_wpseo_linkdex",
+          "value": ""
+        },
+        {
+          "id": 2364543,
+          "key": "_yoast_wpseo_meta-robots-noindex",
+          "value": ""
+        },
+        {
+          "id": 2364544,
+          "key": "rank_math_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 2364545,
+          "key": "rank_math_title",
+          "value": ""
+        },
+        {
+          "id": 2364546,
+          "key": "rank_math_description",
+          "value": ""
+        },
+        {
+          "id": 2364547,
+          "key": "rank_math_focus_keyword",
+          "value": ""
+        },
+        {
+          "id": 2364548,
+          "key": "rank_math_news_sitemap_robots",
+          "value": ""
+        },
+        {
+          "id": 2364549,
+          "key": "rank_math_analytic_object_id",
+          "value": ""
+        },
+        {
+          "id": 2364550,
+          "key": "rank_math_seo_score",
+          "value": ""
+        },
+        {
+          "id": 2364551,
+          "key": "rank_math_primary_fb_product_set",
+          "value": ""
+        },
+        {
+          "id": 2364552,
+          "key": "hubwoo_ecomm_invalid_pro",
+          "value": ""
+        },
+        {
+          "id": 2364553,
+          "key": "hubwoo_ecomm_pro_id",
+          "value": ""
+        },
+        {
+          "id": 2364554,
+          "key": "_rank_math_gtin_code",
+          "value": ""
+        },
+        {
+          "id": 2364555,
+          "key": "woodmart_price_unit_of_measure",
+          "value": ""
+        },
+        {
+          "id": 2364556,
+          "key": "_woodmart_new_label",
+          "value": ""
+        },
+        {
+          "id": 2364557,
+          "key": "_woodmart_related_off",
+          "value": ""
+        },
+        {
+          "id": 2364558,
+          "key": "_woodmart_hide_tabs_titles",
+          "value": ""
+        },
+        {
+          "id": 2364559,
+          "key": "_woodmart_product_custom_tab_content_type",
+          "value": ""
+        },
+        {
+          "id": 2364560,
+          "key": "_woodmart_product_custom_tab_html_block",
+          "value": ""
+        },
+        {
+          "id": 2364561,
+          "key": "_woodmart_product_custom_tab_title_2",
+          "value": ""
+        },
+        {
+          "id": 2364562,
+          "key": "_woodmart_product_custom_tab_content_type_2",
+          "value": ""
+        },
+        {
+          "id": 2364563,
+          "key": "_woodmart_product_custom_tab_content_2",
+          "value": ""
+        },
+        {
+          "id": 2364564,
+          "key": "_woodmart_product_custom_tab_html_block_2",
+          "value": ""
+        },
+        {
+          "id": 2364565,
+          "key": "_pwgc_exclude_tax",
+          "value": ""
+        },
+        {
+          "id": 2364566,
+          "key": "_pwgc_exclude_shipping",
+          "value": ""
+        },
+        {
+          "id": 2364567,
+          "key": "hubwoo_product_synced",
+          "value": ""
+        },
+        {
+          "id": 2364568,
+          "key": "_woodmart_exclude_show_single_variation",
+          "value": ""
+        },
+        {
+          "id": 2364569,
+          "key": "_oembed_time_b281f94138bf5c29fd29ef69ee3d0046",
+          "value": ""
+        },
+        {
+          "id": 2364570,
+          "key": "_rightpress_prices",
+          "value": ""
+        },
+        {
+          "id": 2364571,
+          "key": "composicion_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2364572,
+          "key": "cuidado_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2364573,
+          "key": "_wc_gla_sync_status",
+          "value": ""
+        },
+        {
+          "id": 2364574,
+          "key": "_woodmart_product_custom_tab_priority",
+          "value": ""
+        },
+        {
+          "id": 2364575,
+          "key": "_woodmart_product_custom_tab_priority_2",
+          "value": ""
+        },
+        {
+          "id": 2364576,
+          "key": "_woodmart_product_custom_tab_title_3",
+          "value": ""
+        },
+        {
+          "id": 2364577,
+          "key": "_woodmart_product_custom_tab_priority_3",
+          "value": ""
+        },
+        {
+          "id": 2364578,
+          "key": "_woodmart_product_custom_tab_content_type_3",
+          "value": ""
+        },
+        {
+          "id": 2364579,
+          "key": "_woodmart_product_custom_tab_content_3",
+          "value": ""
+        },
+        {
+          "id": 2364580,
+          "key": "_woodmart_product_custom_tab_html_block_3",
+          "value": ""
+        },
+        {
+          "id": 2364581,
+          "key": "_woodmart_product_custom_tab_title_4",
+          "value": ""
+        },
+        {
+          "id": 2364582,
+          "key": "_woodmart_product_custom_tab_priority_4",
+          "value": ""
+        },
+        {
+          "id": 2364583,
+          "key": "_woodmart_product_custom_tab_content_type_4",
+          "value": ""
+        },
+        {
+          "id": 2364584,
+          "key": "_woodmart_product_custom_tab_content_4",
+          "value": ""
+        },
+        {
+          "id": 2364585,
+          "key": "_woodmart_product_custom_tab_html_block_4",
+          "value": ""
+        },
+        {
+          "id": 2364586,
+          "key": "_woodmart_product_custom_tab_title_5",
+          "value": ""
+        },
+        {
+          "id": 2364587,
+          "key": "_woodmart_product_custom_tab_priority_5",
+          "value": ""
+        },
+        {
+          "id": 2364588,
+          "key": "_woodmart_product_custom_tab_content_type_5",
+          "value": ""
+        },
+        {
+          "id": 2364589,
+          "key": "_woodmart_product_custom_tab_content_5",
+          "value": ""
+        },
+        {
+          "id": 2364590,
+          "key": "_woodmart_product_custom_tab_html_block_5",
+          "value": ""
+        },
+        {
+          "id": 2364591,
+          "key": "rank_math_primary_product_brand",
+          "value": ""
+        },
+        {
+          "id": 2364592,
+          "key": "_elementor_edit_mode",
+          "value": ""
+        },
+        {
+          "id": 2364593,
+          "key": "_oembed_b281f94138bf5c29fd29ef69ee3d0046",
+          "value": ""
+        },
+        {
+          "id": 2364594,
+          "key": "_oembed_ed403b8efb2abad249e54640a9f7d46f",
+          "value": ""
+        },
+        {
+          "id": 2364595,
+          "key": "_oembed_time_ed403b8efb2abad249e54640a9f7d46f",
+          "value": ""
+        },
+        {
+          "id": 2364596,
+          "key": "_pwgc_show_email_preview",
+          "value": ""
+        },
+        {
+          "id": 2364597,
+          "key": "_pwgc_show_recipient_name",
+          "value": ""
+        },
+        {
+          "id": 2364598,
+          "key": "_pwgc_custom_amount_allowed",
+          "value": ""
+        },
+        {
+          "id": 2364599,
+          "key": "_pwgc_custom_amount_min",
+          "value": ""
+        },
+        {
+          "id": 2364600,
+          "key": "_pwgc_custom_amount_max",
+          "value": ""
+        },
+        {
+          "id": 2364601,
+          "key": "_pwgc_is_physical_card",
+          "value": ""
+        },
+        {
+          "id": 2364602,
+          "key": "_pwgc_no_coupons_allowed",
+          "value": ""
+        },
+        {
+          "id": 2364603,
+          "key": "_pwgc_physical_email",
+          "value": ""
+        },
+        {
+          "id": 2364604,
+          "key": "_pwgc_expire_days",
+          "value": ""
+        },
+        {
+          "id": 2364605,
+          "key": "_pwgc_enable_bonus",
+          "value": ""
+        },
+        {
+          "id": 2364606,
+          "key": "_pwgc_cumulative_bonus",
+          "value": ""
+        },
+        {
+          "id": 2364607,
+          "key": "_pwgc_bonus_recipient",
+          "value": ""
+        },
+        {
+          "id": 2364608,
+          "key": "jckpc_sort_order",
+          "value": ""
+        },
+        {
+          "id": 2364609,
+          "key": "_wccf_pp_composicion_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2364610,
+          "key": "_wccf_pp_id_composicion_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2364611,
+          "key": "_oembed_f158992fe4878386943b5d7f0477f835",
+          "value": ""
+        },
+        {
+          "id": 2364612,
+          "key": "fb_rich_text_description",
+          "value": ""
+        },
+        {
+          "id": 2364613,
+          "key": "fb_brand",
+          "value": ""
+        },
+        {
+          "id": 2364614,
+          "key": "jckpc_enabled",
+          "value": ""
+        },
+        {
+          "id": 2364615,
+          "key": "_wc_gla_visibility",
+          "value": ""
+        },
+        {
+          "id": 2364616,
+          "key": "fb_size",
+          "value": ""
+        },
+        {
+          "id": 2364617,
+          "key": "fb_color",
+          "value": ""
+        },
+        {
+          "id": 2364618,
+          "key": "fb_material",
+          "value": ""
+        },
+        {
+          "id": 2364619,
+          "key": "fb_pattern",
+          "value": ""
+        },
+        {
+          "id": 2364620,
+          "key": "fb_age_group",
+          "value": ""
+        },
+        {
+          "id": 2364621,
+          "key": "fb_gender",
+          "value": ""
+        },
+        {
+          "id": 2364622,
+          "key": "fb_product_condition",
+          "value": ""
+        },
+        {
+          "id": 2364623,
+          "key": "_woocommerce_video_url",
+          "value": ""
+        },
+        {
+          "id": 2364624,
+          "key": "tpc_proc_ndate",
+          "value": ""
+        },
+        {
+          "id": 2364625,
+          "key": "tpc_proc_ns_days",
+          "value": ""
+        },
+        {
+          "id": 2364626,
+          "key": "tpc_proc_fn_ini_num",
+          "value": ""
+        },
+        {
+          "id": 2364627,
+          "key": "tpc_proc_fn_final_num",
+          "value": ""
+        },
+        {
+          "id": 2364628,
+          "key": "tpc_proc_fn_num_range",
+          "value": ""
+        },
+        {
+          "id": 2364629,
+          "key": "tpc_proc_ci_in_sec",
+          "value": ""
+        },
+        {
+          "id": 2364630,
+          "key": "_oembed_time_3efc152008105e0533b1d0735c932ef8",
+          "value": ""
+        },
+        {
+          "id": 2364631,
+          "key": "_wc_facebook_enhanced_catalog_attributes_style",
+          "value": ""
+        },
+        {
+          "id": 2364632,
+          "key": "_wc_facebook_enhanced_catalog_attributes_additional_features",
+          "value": ""
+        },
+        {
+          "id": 2364633,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sleeve_style",
+          "value": ""
+        },
+        {
+          "id": 2364634,
+          "key": "_wc_facebook_enhanced_catalog_attributes_size_system",
+          "value": ""
+        },
+        {
+          "id": 2364635,
+          "key": "_wc_facebook_enhanced_catalog_attributes_skirt_length",
+          "value": ""
+        },
+        {
+          "id": 2364636,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sleeve_length",
+          "value": ""
+        },
+        {
+          "id": 2364637,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sleeve_length_style",
+          "value": ""
+        },
+        {
+          "id": 2364638,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sport",
+          "value": ""
+        },
+        {
+          "id": 2364639,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sock_rise",
+          "value": ""
+        },
+        {
+          "id": 2364640,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sports_league",
+          "value": ""
+        },
+        {
+          "id": 2364641,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sports_team",
+          "value": ""
+        },
+        {
+          "id": 2364642,
+          "key": "_wc_facebook_enhanced_catalog_attributes_standard_features",
+          "value": ""
+        },
+        {
+          "id": 2364643,
+          "key": "_wc_facebook_enhanced_catalog_attributes_theme",
+          "value": ""
+        },
+        {
+          "id": 2364644,
+          "key": "_wc_facebook_enhanced_catalog_attributes_upper_body_strap_configuration",
+          "value": ""
+        },
+        {
+          "id": 2364645,
+          "key": "_wc_facebook_enhanced_catalog_attributes_waist_rise",
+          "value": ""
+        },
+        {
+          "id": 2364646,
+          "key": "_wc_facebook_enhanced_catalog_attributes_waist_size",
+          "value": ""
+        },
+        {
+          "id": 2364647,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sheerness",
+          "value": ""
+        },
+        {
+          "id": 2364648,
+          "key": "_wc_facebook_enhanced_catalog_attributes_pant_fit",
+          "value": ""
+        },
+        {
+          "id": 2364649,
+          "key": "_wc_facebook_enhanced_catalog_attributes_pant_length_style",
+          "value": ""
+        },
+        {
+          "id": 2364650,
+          "key": "_wc_facebook_enhanced_catalog_attributes_denim_features",
+          "value": ""
+        },
+        {
+          "id": 2364651,
+          "key": "_wc_facebook_enhanced_catalog_attributes_bra_band_size",
+          "value": ""
+        },
+        {
+          "id": 2364652,
+          "key": "_wc_facebook_enhanced_catalog_attributes_bra_cup_size",
+          "value": ""
+        },
+        {
+          "id": 2364653,
+          "key": "_wc_facebook_enhanced_catalog_attributes_character",
+          "value": ""
+        },
+        {
+          "id": 2364654,
+          "key": "_wc_facebook_enhanced_catalog_attributes_chest_size",
+          "value": ""
+        },
+        {
+          "id": 2364655,
+          "key": "_wc_facebook_enhanced_catalog_attributes_closure",
+          "value": ""
+        },
+        {
+          "id": 2364656,
+          "key": "_wc_facebook_enhanced_catalog_attributes_clothing_size_type",
+          "value": ""
+        },
+        {
+          "id": 2364657,
+          "key": "_wc_facebook_enhanced_catalog_attributes_collar_style",
+          "value": ""
+        },
+        {
+          "id": 2364658,
+          "key": "_wc_facebook_enhanced_catalog_attributes_fabric_care_instructions",
+          "value": ""
+        },
+        {
+          "id": 2364659,
+          "key": "_wc_facebook_enhanced_catalog_attributes_pant_leg_style",
+          "value": ""
+        },
+        {
+          "id": 2364660,
+          "key": "_wc_facebook_enhanced_catalog_attributes_inseam",
+          "value": ""
+        },
+        {
+          "id": 2364661,
+          "key": "_wc_facebook_enhanced_catalog_attributes_is_adult_product",
+          "value": ""
+        },
+        {
+          "id": 2364662,
+          "key": "_wc_facebook_enhanced_catalog_attributes_is_costume",
+          "value": ""
+        },
+        {
+          "id": 2364663,
+          "key": "_wc_facebook_enhanced_catalog_attributes_is_outfit_set",
+          "value": ""
+        },
+        {
+          "id": 2364664,
+          "key": "_wc_facebook_enhanced_catalog_attributes_jean_wash",
+          "value": ""
+        },
+        {
+          "id": 2364665,
+          "key": "_wc_facebook_enhanced_catalog_attributes_neckline",
+          "value": ""
+        },
+        {
+          "id": 2364666,
+          "key": "_wc_facebook_enhanced_catalog_attributes_occasion",
+          "value": ""
+        },
+        {
+          "id": 2364667,
+          "key": "_wc_facebook_enhanced_catalog_attributes_waist_style",
+          "value": ""
+        },
+        {
+          "id": 2364668,
+          "key": "_wc_facebook_google_product_category",
+          "value": ""
+        }
+      ],
+      "name": "Tabaco, XXL",
+      "parent_id": 85138,
+      "_links": {
+        "self": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/85138/variations/85173",
+            "targetHints": {
+              "allow": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/85138/variations"
+          }
+        ],
+        "up": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/85138"
+          }
+        ]
+      }
+    },
+    {
+      "id": 85172,
+      "type": "variation",
+      "date_created": "2026-05-08T02:10:05",
+      "date_created_gmt": "2026-05-08T02:10:05",
+      "date_modified": "2026-06-02T17:42:32",
+      "date_modified_gmt": "2026-06-02T17:42:32",
+      "description": "",
+      "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-oxford/?attribute_pa_selecciona-el-color=tabaco&attribute_pa_selecciona-una-talla=xl",
+      "sku": "19200310038",
+      "global_unique_id": "",
+      "price": "962500",
+      "regular_price": "962500",
+      "sale_price": "",
+      "date_on_sale_from": null,
+      "date_on_sale_from_gmt": null,
+      "date_on_sale_to": null,
+      "date_on_sale_to_gmt": null,
+      "on_sale": false,
+      "status": "publish",
+      "purchasable": true,
+      "virtual": false,
+      "downloadable": false,
+      "downloads": [],
+      "download_limit": -1,
+      "download_expiry": -1,
+      "tax_status": "taxable",
+      "tax_class": "",
+      "manage_stock": true,
+      "stock_quantity": 2,
+      "stock_status": "instock",
+      "backorders": "no",
+      "backorders_allowed": false,
+      "backordered": false,
+      "low_stock_amount": null,
+      "weight": "",
+      "dimensions": {
+        "length": "",
+        "width": "",
+        "height": ""
+      },
+      "shipping_class": "",
+      "shipping_class_id": 0,
+      "image": {
+        "id": 85359,
+        "date_created": "2026-05-19T18:15:43",
+        "date_created_gmt": "2026-05-19T18:15:43",
+        "date_modified": "2026-06-02T17:02:51",
+        "date_modified_gmt": "2026-06-02T17:02:51",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente.jpg",
+        "name": "Winston-and-Harry-chaqueta-oxford-tabaco-frente",
+        "alt": ""
+      },
+      "attributes": [
+        {
+          "id": 3,
+          "name": "Selecciona el Color",
+          "slug": "pa_selecciona-el-color",
+          "option": "Tabaco"
+        },
+        {
+          "id": 4,
+          "name": "Selecciona una Talla",
+          "slug": "pa_selecciona-una-talla",
+          "option": "XL"
+        }
+      ],
+      "menu_order": 4,
+      "meta_data": [
+        {
+          "id": 2338048,
+          "key": "_last_change_time",
+          "value": "1780422152"
+        },
+        {
+          "id": 2338049,
+          "key": "wpcvi_images",
+          "value": ""
+        },
+        {
+          "id": 2338050,
+          "key": "_wc_facebook_product_image_source",
+          "value": "product"
+        },
+        {
+          "id": 2338051,
+          "key": "fb_mpn",
+          "value": ""
+        },
+        {
+          "id": 2338052,
+          "key": "fb_product_image",
+          "value": ""
+        },
+        {
+          "id": 2338053,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2338054,
+          "key": "fb_product_video",
+          "value": []
+        },
+        {
+          "id": 2338055,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2338056,
+          "key": "fb_product_price",
+          "value": ""
+        },
+        {
+          "id": 2338057,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
+        },
+        {
+          "id": 2338058,
+          "key": "fb_visibility",
+          "value": "no"
+        },
+        {
+          "id": 2364298,
+          "key": "rank_math_internal_links_processed",
+          "value": ""
+        },
+        {
+          "id": 2364299,
+          "key": "_product_360_image_gallery",
+          "value": ""
+        },
+        {
+          "id": 2364300,
+          "key": "_woodmart_single_product_style",
+          "value": ""
+        },
+        {
+          "id": 2364301,
+          "key": "_woodmart_thums_position",
+          "value": ""
+        },
+        {
+          "id": 2364302,
+          "key": "_woodmart_product_design",
+          "value": ""
+        },
+        {
+          "id": 2364303,
+          "key": "_woodmart_extra_content",
+          "value": ""
+        },
+        {
+          "id": 2364304,
+          "key": "_woodmart_extra_position",
+          "value": ""
+        },
+        {
+          "id": 2364305,
+          "key": "_elementor_data",
+          "value": ""
+        },
+        {
+          "id": 2364306,
+          "key": "_elementor_version",
+          "value": ""
+        },
+        {
+          "id": 2364307,
+          "key": "_wp_page_template",
+          "value": ""
+        },
+        {
+          "id": 2364308,
+          "key": "_elementor_template_type",
+          "value": ""
+        },
+        {
+          "id": 2364309,
+          "key": "_oembed_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 2364310,
+          "key": "_oembed_time_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 2364311,
+          "key": "slide_template",
+          "value": ""
+        },
+        {
+          "id": 2364312,
+          "key": "_jet_woo_template",
+          "value": ""
+        },
+        {
+          "id": 2364313,
+          "key": "_template_type",
+          "value": ""
+        },
+        {
+          "id": 2364314,
+          "key": "_selectproduct_layout",
+          "value": ""
+        },
+        {
+          "id": 2364315,
+          "key": "_saleflash_text",
+          "value": ""
+        },
+        {
+          "id": 2364316,
+          "key": "woolentor_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 2364317,
+          "key": "_yoast_wpseo_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 2364318,
+          "key": "_yoast_wpseo_content_score",
+          "value": ""
+        },
+        {
+          "id": 2364319,
+          "key": "_dp_original",
+          "value": ""
+        },
+        {
+          "id": 2364320,
+          "key": "_wp_old_date",
+          "value": ""
+        },
+        {
+          "id": 2364321,
+          "key": "_oembed_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 2364322,
+          "key": "_oembed_time_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 2364323,
+          "key": "woodmart_sguide_select",
+          "value": ""
+        },
+        {
+          "id": 2364324,
+          "key": "woodmart_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 2364325,
+          "key": "rs_page_bg_color",
+          "value": ""
+        },
+        {
+          "id": 2364326,
+          "key": "_woodmart_whb_header",
+          "value": ""
+        },
+        {
+          "id": 2364327,
+          "key": "_woodmart_main_layout",
+          "value": ""
+        },
+        {
+          "id": 2364328,
+          "key": "_woodmart_sidebar_width",
+          "value": ""
+        },
+        {
+          "id": 2364329,
+          "key": "_woodmart_custom_sidebar",
+          "value": ""
+        },
+        {
+          "id": 2364330,
+          "key": "_woodmart_product-background",
+          "value": ""
+        },
+        {
+          "id": 2364331,
+          "key": "_woodmart_product_custom_tab_title",
+          "value": ""
+        },
+        {
+          "id": 2364332,
+          "key": "_woodmart_product_custom_tab_content",
+          "value": ""
+        },
+        {
+          "id": 2364333,
+          "key": "_woodmart_new_label_date",
+          "value": ""
+        },
+        {
+          "id": 2364334,
+          "key": "_woodmart_swatches_attribute",
+          "value": ""
+        },
+        {
+          "id": 2364335,
+          "key": "_woodmart_product_video",
+          "value": ""
+        },
+        {
+          "id": 2364336,
+          "key": "_woodmart_product_hashtag",
+          "value": ""
+        },
+        {
+          "id": 2364337,
+          "key": "_last_editor_used_jetpack",
+          "value": ""
+        },
+        {
+          "id": 2364338,
+          "key": "_oembed_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 2364339,
+          "key": "_oembed_time_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 2364340,
+          "key": "wd_additional_variation_images_data",
+          "value": "85361, 85360, 85356, 85355"
+        },
+        {
+          "id": 2364341,
+          "key": "_yoast_wpseo_estimated-reading-time-minutes",
+          "value": ""
+        },
+        {
+          "id": 2364342,
+          "key": "_elementor_pro_version",
+          "value": ""
+        },
+        {
+          "id": 2364343,
+          "key": "_oembed_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 2364344,
+          "key": "_oembed_time_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 2364345,
+          "key": "fb_product_group_id",
+          "value": ""
+        },
+        {
+          "id": 2364346,
+          "key": "_wc_facebook_commerce_enabled",
+          "value": ""
+        },
+        {
+          "id": 2364347,
+          "key": "fb_product_item_id",
+          "value": ""
+        },
+        {
+          "id": 2364348,
+          "key": "_wc_facebook_sync_enabled",
+          "value": ""
+        },
+        {
+          "id": 2364349,
+          "key": "fb_product_description",
+          "value": ""
+        },
+        {
+          "id": 2364350,
+          "key": "_woosea_exclude_product",
+          "value": ""
+        },
+        {
+          "id": 2364351,
+          "key": "_yoast_wpseo_wordproof_timestamp",
+          "value": ""
+        },
+        {
+          "id": 2364352,
+          "key": "_yoast_wpseo_focuskw",
+          "value": ""
+        },
+        {
+          "id": 2364353,
+          "key": "_yoast_wpseo_metadesc",
+          "value": ""
+        },
+        {
+          "id": 2364354,
+          "key": "_yoast_wpseo_title",
+          "value": ""
+        },
+        {
+          "id": 2364355,
+          "key": "_yoast_wpseo_linkdex",
+          "value": ""
+        },
+        {
+          "id": 2364356,
+          "key": "_yoast_wpseo_meta-robots-noindex",
+          "value": ""
+        },
+        {
+          "id": 2364357,
+          "key": "rank_math_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 2364358,
+          "key": "rank_math_title",
+          "value": ""
+        },
+        {
+          "id": 2364359,
+          "key": "rank_math_description",
+          "value": ""
+        },
+        {
+          "id": 2364360,
+          "key": "rank_math_focus_keyword",
+          "value": ""
+        },
+        {
+          "id": 2364361,
+          "key": "rank_math_news_sitemap_robots",
+          "value": ""
+        },
+        {
+          "id": 2364362,
+          "key": "rank_math_analytic_object_id",
+          "value": ""
+        },
+        {
+          "id": 2364363,
+          "key": "rank_math_seo_score",
+          "value": ""
+        },
+        {
+          "id": 2364364,
+          "key": "rank_math_primary_fb_product_set",
+          "value": ""
+        },
+        {
+          "id": 2364365,
+          "key": "hubwoo_ecomm_invalid_pro",
+          "value": ""
+        },
+        {
+          "id": 2364366,
+          "key": "hubwoo_ecomm_pro_id",
+          "value": ""
+        },
+        {
+          "id": 2364367,
+          "key": "_rank_math_gtin_code",
+          "value": ""
+        },
+        {
+          "id": 2364368,
+          "key": "woodmart_price_unit_of_measure",
+          "value": ""
+        },
+        {
+          "id": 2364369,
+          "key": "_woodmart_new_label",
+          "value": ""
+        },
+        {
+          "id": 2364370,
+          "key": "_woodmart_related_off",
+          "value": ""
+        },
+        {
+          "id": 2364371,
+          "key": "_woodmart_hide_tabs_titles",
+          "value": ""
+        },
+        {
+          "id": 2364372,
+          "key": "_woodmart_product_custom_tab_content_type",
+          "value": ""
+        },
+        {
+          "id": 2364373,
+          "key": "_woodmart_product_custom_tab_html_block",
+          "value": ""
+        },
+        {
+          "id": 2364374,
+          "key": "_woodmart_product_custom_tab_title_2",
+          "value": ""
+        },
+        {
+          "id": 2364375,
+          "key": "_woodmart_product_custom_tab_content_type_2",
+          "value": ""
+        },
+        {
+          "id": 2364376,
+          "key": "_woodmart_product_custom_tab_content_2",
+          "value": ""
+        },
+        {
+          "id": 2364377,
+          "key": "_woodmart_product_custom_tab_html_block_2",
+          "value": ""
+        },
+        {
+          "id": 2364378,
+          "key": "_pwgc_exclude_tax",
+          "value": ""
+        },
+        {
+          "id": 2364379,
+          "key": "_pwgc_exclude_shipping",
+          "value": ""
+        },
+        {
+          "id": 2364380,
+          "key": "hubwoo_product_synced",
+          "value": ""
+        },
+        {
+          "id": 2364381,
+          "key": "_woodmart_exclude_show_single_variation",
+          "value": ""
+        },
+        {
+          "id": 2364382,
+          "key": "_oembed_time_b281f94138bf5c29fd29ef69ee3d0046",
+          "value": ""
+        },
+        {
+          "id": 2364383,
+          "key": "_rightpress_prices",
+          "value": ""
+        },
+        {
+          "id": 2364384,
+          "key": "composicion_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2364385,
+          "key": "cuidado_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2364386,
+          "key": "_wc_gla_sync_status",
+          "value": ""
+        },
+        {
+          "id": 2364387,
+          "key": "_woodmart_product_custom_tab_priority",
+          "value": ""
+        },
+        {
+          "id": 2364388,
+          "key": "_woodmart_product_custom_tab_priority_2",
+          "value": ""
+        },
+        {
+          "id": 2364389,
+          "key": "_woodmart_product_custom_tab_title_3",
+          "value": ""
+        },
+        {
+          "id": 2364390,
+          "key": "_woodmart_product_custom_tab_priority_3",
+          "value": ""
+        },
+        {
+          "id": 2364391,
+          "key": "_woodmart_product_custom_tab_content_type_3",
+          "value": ""
+        },
+        {
+          "id": 2364392,
+          "key": "_woodmart_product_custom_tab_content_3",
+          "value": ""
+        },
+        {
+          "id": 2364393,
+          "key": "_woodmart_product_custom_tab_html_block_3",
+          "value": ""
+        },
+        {
+          "id": 2364394,
+          "key": "_woodmart_product_custom_tab_title_4",
+          "value": ""
+        },
+        {
+          "id": 2364395,
+          "key": "_woodmart_product_custom_tab_priority_4",
+          "value": ""
+        },
+        {
+          "id": 2364396,
+          "key": "_woodmart_product_custom_tab_content_type_4",
+          "value": ""
+        },
+        {
+          "id": 2364397,
+          "key": "_woodmart_product_custom_tab_content_4",
+          "value": ""
+        },
+        {
+          "id": 2364398,
+          "key": "_woodmart_product_custom_tab_html_block_4",
+          "value": ""
+        },
+        {
+          "id": 2364399,
+          "key": "_woodmart_product_custom_tab_title_5",
+          "value": ""
+        },
+        {
+          "id": 2364400,
+          "key": "_woodmart_product_custom_tab_priority_5",
+          "value": ""
+        },
+        {
+          "id": 2364401,
+          "key": "_woodmart_product_custom_tab_content_type_5",
+          "value": ""
+        },
+        {
+          "id": 2364402,
+          "key": "_woodmart_product_custom_tab_content_5",
+          "value": ""
+        },
+        {
+          "id": 2364403,
+          "key": "_woodmart_product_custom_tab_html_block_5",
+          "value": ""
+        },
+        {
+          "id": 2364404,
+          "key": "rank_math_primary_product_brand",
+          "value": ""
+        },
+        {
+          "id": 2364405,
+          "key": "_elementor_edit_mode",
+          "value": ""
+        },
+        {
+          "id": 2364406,
+          "key": "_oembed_b281f94138bf5c29fd29ef69ee3d0046",
+          "value": ""
+        },
+        {
+          "id": 2364407,
+          "key": "_oembed_ed403b8efb2abad249e54640a9f7d46f",
+          "value": ""
+        },
+        {
+          "id": 2364408,
+          "key": "_oembed_time_ed403b8efb2abad249e54640a9f7d46f",
+          "value": ""
+        },
+        {
+          "id": 2364409,
+          "key": "_pwgc_show_email_preview",
+          "value": ""
+        },
+        {
+          "id": 2364410,
+          "key": "_pwgc_show_recipient_name",
+          "value": ""
+        },
+        {
+          "id": 2364411,
+          "key": "_pwgc_custom_amount_allowed",
+          "value": ""
+        },
+        {
+          "id": 2364412,
+          "key": "_pwgc_custom_amount_min",
+          "value": ""
+        },
+        {
+          "id": 2364413,
+          "key": "_pwgc_custom_amount_max",
+          "value": ""
+        },
+        {
+          "id": 2364414,
+          "key": "_pwgc_is_physical_card",
+          "value": ""
+        },
+        {
+          "id": 2364415,
+          "key": "_pwgc_no_coupons_allowed",
+          "value": ""
+        },
+        {
+          "id": 2364416,
+          "key": "_pwgc_physical_email",
+          "value": ""
+        },
+        {
+          "id": 2364417,
+          "key": "_pwgc_expire_days",
+          "value": ""
+        },
+        {
+          "id": 2364418,
+          "key": "_pwgc_enable_bonus",
+          "value": ""
+        },
+        {
+          "id": 2364419,
+          "key": "_pwgc_cumulative_bonus",
+          "value": ""
+        },
+        {
+          "id": 2364420,
+          "key": "_pwgc_bonus_recipient",
+          "value": ""
+        },
+        {
+          "id": 2364421,
+          "key": "jckpc_sort_order",
+          "value": ""
+        },
+        {
+          "id": 2364422,
+          "key": "_wccf_pp_composicion_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2364423,
+          "key": "_wccf_pp_id_composicion_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2364424,
+          "key": "_oembed_f158992fe4878386943b5d7f0477f835",
+          "value": ""
+        },
+        {
+          "id": 2364425,
+          "key": "fb_rich_text_description",
+          "value": ""
+        },
+        {
+          "id": 2364426,
+          "key": "fb_brand",
+          "value": ""
+        },
+        {
+          "id": 2364427,
+          "key": "jckpc_enabled",
+          "value": ""
+        },
+        {
+          "id": 2364428,
+          "key": "_wc_gla_visibility",
+          "value": ""
+        },
+        {
+          "id": 2364429,
+          "key": "fb_size",
+          "value": ""
+        },
+        {
+          "id": 2364430,
+          "key": "fb_color",
+          "value": ""
+        },
+        {
+          "id": 2364431,
+          "key": "fb_material",
+          "value": ""
+        },
+        {
+          "id": 2364432,
+          "key": "fb_pattern",
+          "value": ""
+        },
+        {
+          "id": 2364433,
+          "key": "fb_age_group",
+          "value": ""
+        },
+        {
+          "id": 2364434,
+          "key": "fb_gender",
+          "value": ""
+        },
+        {
+          "id": 2364435,
+          "key": "fb_product_condition",
+          "value": ""
+        },
+        {
+          "id": 2364436,
+          "key": "_woocommerce_video_url",
+          "value": ""
+        },
+        {
+          "id": 2364437,
+          "key": "tpc_proc_ndate",
+          "value": ""
+        },
+        {
+          "id": 2364438,
+          "key": "tpc_proc_ns_days",
+          "value": ""
+        },
+        {
+          "id": 2364439,
+          "key": "tpc_proc_fn_ini_num",
+          "value": ""
+        },
+        {
+          "id": 2364440,
+          "key": "tpc_proc_fn_final_num",
+          "value": ""
+        },
+        {
+          "id": 2364441,
+          "key": "tpc_proc_fn_num_range",
+          "value": ""
+        },
+        {
+          "id": 2364442,
+          "key": "tpc_proc_ci_in_sec",
+          "value": ""
+        },
+        {
+          "id": 2364443,
+          "key": "_oembed_time_3efc152008105e0533b1d0735c932ef8",
+          "value": ""
+        },
+        {
+          "id": 2364444,
+          "key": "_wc_facebook_enhanced_catalog_attributes_style",
+          "value": ""
+        },
+        {
+          "id": 2364445,
+          "key": "_wc_facebook_enhanced_catalog_attributes_additional_features",
+          "value": ""
+        },
+        {
+          "id": 2364446,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sleeve_style",
+          "value": ""
+        },
+        {
+          "id": 2364447,
+          "key": "_wc_facebook_enhanced_catalog_attributes_size_system",
+          "value": ""
+        },
+        {
+          "id": 2364448,
+          "key": "_wc_facebook_enhanced_catalog_attributes_skirt_length",
+          "value": ""
+        },
+        {
+          "id": 2364449,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sleeve_length",
+          "value": ""
+        },
+        {
+          "id": 2364450,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sleeve_length_style",
+          "value": ""
+        },
+        {
+          "id": 2364451,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sport",
+          "value": ""
+        },
+        {
+          "id": 2364452,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sock_rise",
+          "value": ""
+        },
+        {
+          "id": 2364453,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sports_league",
+          "value": ""
+        },
+        {
+          "id": 2364454,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sports_team",
+          "value": ""
+        },
+        {
+          "id": 2364455,
+          "key": "_wc_facebook_enhanced_catalog_attributes_standard_features",
+          "value": ""
+        },
+        {
+          "id": 2364456,
+          "key": "_wc_facebook_enhanced_catalog_attributes_theme",
+          "value": ""
+        },
+        {
+          "id": 2364457,
+          "key": "_wc_facebook_enhanced_catalog_attributes_upper_body_strap_configuration",
+          "value": ""
+        },
+        {
+          "id": 2364458,
+          "key": "_wc_facebook_enhanced_catalog_attributes_waist_rise",
+          "value": ""
+        },
+        {
+          "id": 2364459,
+          "key": "_wc_facebook_enhanced_catalog_attributes_waist_size",
+          "value": ""
+        },
+        {
+          "id": 2364460,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sheerness",
+          "value": ""
+        },
+        {
+          "id": 2364461,
+          "key": "_wc_facebook_enhanced_catalog_attributes_pant_fit",
+          "value": ""
+        },
+        {
+          "id": 2364462,
+          "key": "_wc_facebook_enhanced_catalog_attributes_pant_length_style",
+          "value": ""
+        },
+        {
+          "id": 2364463,
+          "key": "_wc_facebook_enhanced_catalog_attributes_denim_features",
+          "value": ""
+        },
+        {
+          "id": 2364464,
+          "key": "_wc_facebook_enhanced_catalog_attributes_bra_band_size",
+          "value": ""
+        },
+        {
+          "id": 2364465,
+          "key": "_wc_facebook_enhanced_catalog_attributes_bra_cup_size",
+          "value": ""
+        },
+        {
+          "id": 2364466,
+          "key": "_wc_facebook_enhanced_catalog_attributes_character",
+          "value": ""
+        },
+        {
+          "id": 2364467,
+          "key": "_wc_facebook_enhanced_catalog_attributes_chest_size",
+          "value": ""
+        },
+        {
+          "id": 2364468,
+          "key": "_wc_facebook_enhanced_catalog_attributes_closure",
+          "value": ""
+        },
+        {
+          "id": 2364469,
+          "key": "_wc_facebook_enhanced_catalog_attributes_clothing_size_type",
+          "value": ""
+        },
+        {
+          "id": 2364470,
+          "key": "_wc_facebook_enhanced_catalog_attributes_collar_style",
+          "value": ""
+        },
+        {
+          "id": 2364471,
+          "key": "_wc_facebook_enhanced_catalog_attributes_fabric_care_instructions",
+          "value": ""
+        },
+        {
+          "id": 2364472,
+          "key": "_wc_facebook_enhanced_catalog_attributes_pant_leg_style",
+          "value": ""
+        },
+        {
+          "id": 2364473,
+          "key": "_wc_facebook_enhanced_catalog_attributes_inseam",
+          "value": ""
+        },
+        {
+          "id": 2364474,
+          "key": "_wc_facebook_enhanced_catalog_attributes_is_adult_product",
+          "value": ""
+        },
+        {
+          "id": 2364475,
+          "key": "_wc_facebook_enhanced_catalog_attributes_is_costume",
+          "value": ""
+        },
+        {
+          "id": 2364476,
+          "key": "_wc_facebook_enhanced_catalog_attributes_is_outfit_set",
+          "value": ""
+        },
+        {
+          "id": 2364477,
+          "key": "_wc_facebook_enhanced_catalog_attributes_jean_wash",
+          "value": ""
+        },
+        {
+          "id": 2364478,
+          "key": "_wc_facebook_enhanced_catalog_attributes_neckline",
+          "value": ""
+        },
+        {
+          "id": 2364479,
+          "key": "_wc_facebook_enhanced_catalog_attributes_occasion",
+          "value": ""
+        },
+        {
+          "id": 2364480,
+          "key": "_wc_facebook_enhanced_catalog_attributes_waist_style",
+          "value": ""
+        },
+        {
+          "id": 2364481,
+          "key": "_wc_facebook_google_product_category",
+          "value": ""
+        }
+      ],
+      "name": "Tabaco, XL",
+      "parent_id": 85138,
+      "_links": {
+        "self": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/85138/variations/85172",
+            "targetHints": {
+              "allow": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/85138/variations"
+          }
+        ],
+        "up": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/85138"
+          }
+        ]
+      }
+    },
+    {
+      "id": 85171,
+      "type": "variation",
+      "date_created": "2026-05-08T02:10:05",
+      "date_created_gmt": "2026-05-08T02:10:05",
+      "date_modified": "2026-06-02T17:42:32",
+      "date_modified_gmt": "2026-06-02T17:42:32",
+      "description": "",
+      "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-oxford/?attribute_pa_selecciona-el-color=tabaco&attribute_pa_selecciona-una-talla=s",
+      "sku": "19200310032",
+      "global_unique_id": "",
+      "price": "962500",
+      "regular_price": "962500",
+      "sale_price": "",
+      "date_on_sale_from": null,
+      "date_on_sale_from_gmt": null,
+      "date_on_sale_to": null,
+      "date_on_sale_to_gmt": null,
+      "on_sale": false,
+      "status": "publish",
+      "purchasable": true,
+      "virtual": false,
+      "downloadable": false,
+      "downloads": [],
+      "download_limit": -1,
+      "download_expiry": -1,
+      "tax_status": "taxable",
+      "tax_class": "",
+      "manage_stock": true,
+      "stock_quantity": 3,
+      "stock_status": "instock",
+      "backorders": "no",
+      "backorders_allowed": false,
+      "backordered": false,
+      "low_stock_amount": null,
+      "weight": "",
+      "dimensions": {
+        "length": "",
+        "width": "",
+        "height": ""
+      },
+      "shipping_class": "",
+      "shipping_class_id": 0,
+      "image": {
+        "id": 85359,
+        "date_created": "2026-05-19T18:15:43",
+        "date_created_gmt": "2026-05-19T18:15:43",
+        "date_modified": "2026-06-02T17:02:51",
+        "date_modified_gmt": "2026-06-02T17:02:51",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente.jpg",
+        "name": "Winston-and-Harry-chaqueta-oxford-tabaco-frente",
+        "alt": ""
+      },
+      "attributes": [
+        {
+          "id": 3,
+          "name": "Selecciona el Color",
+          "slug": "pa_selecciona-el-color",
+          "option": "Tabaco"
+        },
+        {
+          "id": 4,
+          "name": "Selecciona una Talla",
+          "slug": "pa_selecciona-una-talla",
+          "option": "S"
+        }
+      ],
+      "menu_order": 3,
+      "meta_data": [
+        {
+          "id": 2338035,
+          "key": "_last_change_time",
+          "value": "1780422152"
+        },
+        {
+          "id": 2338036,
+          "key": "wpcvi_images",
+          "value": ""
+        },
+        {
+          "id": 2338037,
+          "key": "_wc_facebook_product_image_source",
+          "value": "product"
+        },
+        {
+          "id": 2338038,
+          "key": "fb_mpn",
+          "value": ""
+        },
+        {
+          "id": 2338039,
+          "key": "fb_product_image",
+          "value": ""
+        },
+        {
+          "id": 2338040,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2338041,
+          "key": "fb_product_video",
+          "value": []
+        },
+        {
+          "id": 2338042,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2338043,
+          "key": "fb_product_price",
+          "value": ""
+        },
+        {
+          "id": 2338044,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
+        },
+        {
+          "id": 2338045,
+          "key": "fb_visibility",
+          "value": "no"
+        },
+        {
+          "id": 2364110,
+          "key": "rank_math_internal_links_processed",
+          "value": ""
+        },
+        {
+          "id": 2364111,
+          "key": "_product_360_image_gallery",
+          "value": ""
+        },
+        {
+          "id": 2364112,
+          "key": "_woodmart_single_product_style",
+          "value": ""
+        },
+        {
+          "id": 2364113,
+          "key": "_woodmart_thums_position",
+          "value": ""
+        },
+        {
+          "id": 2364114,
+          "key": "_woodmart_product_design",
+          "value": ""
+        },
+        {
+          "id": 2364115,
+          "key": "_woodmart_extra_content",
+          "value": ""
+        },
+        {
+          "id": 2364116,
+          "key": "_woodmart_extra_position",
+          "value": ""
+        },
+        {
+          "id": 2364117,
+          "key": "_elementor_data",
+          "value": ""
+        },
+        {
+          "id": 2364118,
+          "key": "_elementor_version",
+          "value": ""
+        },
+        {
+          "id": 2364119,
+          "key": "_wp_page_template",
+          "value": ""
+        },
+        {
+          "id": 2364120,
+          "key": "_elementor_template_type",
+          "value": ""
+        },
+        {
+          "id": 2364121,
+          "key": "_oembed_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 2364122,
+          "key": "_oembed_time_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 2364123,
+          "key": "slide_template",
+          "value": ""
+        },
+        {
+          "id": 2364124,
+          "key": "_jet_woo_template",
+          "value": ""
+        },
+        {
+          "id": 2364125,
+          "key": "_template_type",
+          "value": ""
+        },
+        {
+          "id": 2364126,
+          "key": "_selectproduct_layout",
+          "value": ""
+        },
+        {
+          "id": 2364127,
+          "key": "_saleflash_text",
+          "value": ""
+        },
+        {
+          "id": 2364128,
+          "key": "woolentor_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 2364129,
+          "key": "_yoast_wpseo_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 2364130,
+          "key": "_yoast_wpseo_content_score",
+          "value": ""
+        },
+        {
+          "id": 2364131,
+          "key": "_dp_original",
+          "value": ""
+        },
+        {
+          "id": 2364132,
+          "key": "_wp_old_date",
+          "value": ""
+        },
+        {
+          "id": 2364133,
+          "key": "_oembed_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 2364134,
+          "key": "_oembed_time_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 2364135,
+          "key": "woodmart_sguide_select",
+          "value": ""
+        },
+        {
+          "id": 2364136,
+          "key": "woodmart_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 2364137,
+          "key": "rs_page_bg_color",
+          "value": ""
+        },
+        {
+          "id": 2364138,
+          "key": "_woodmart_whb_header",
+          "value": ""
+        },
+        {
+          "id": 2364139,
+          "key": "_woodmart_main_layout",
+          "value": ""
+        },
+        {
+          "id": 2364140,
+          "key": "_woodmart_sidebar_width",
+          "value": ""
+        },
+        {
+          "id": 2364141,
+          "key": "_woodmart_custom_sidebar",
+          "value": ""
+        },
+        {
+          "id": 2364142,
+          "key": "_woodmart_product-background",
+          "value": ""
+        },
+        {
+          "id": 2364143,
+          "key": "_woodmart_product_custom_tab_title",
+          "value": ""
+        },
+        {
+          "id": 2364144,
+          "key": "_woodmart_product_custom_tab_content",
+          "value": ""
+        },
+        {
+          "id": 2364145,
+          "key": "_woodmart_new_label_date",
+          "value": ""
+        },
+        {
+          "id": 2364146,
+          "key": "_woodmart_swatches_attribute",
+          "value": ""
+        },
+        {
+          "id": 2364147,
+          "key": "_woodmart_product_video",
+          "value": ""
+        },
+        {
+          "id": 2364148,
+          "key": "_woodmart_product_hashtag",
+          "value": ""
+        },
+        {
+          "id": 2364149,
+          "key": "_last_editor_used_jetpack",
+          "value": ""
+        },
+        {
+          "id": 2364150,
+          "key": "_oembed_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 2364151,
+          "key": "_oembed_time_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 2364152,
+          "key": "wd_additional_variation_images_data",
+          "value": "85361, 85360, 85356, 85355"
+        },
+        {
+          "id": 2364153,
+          "key": "_yoast_wpseo_estimated-reading-time-minutes",
+          "value": ""
+        },
+        {
+          "id": 2364154,
+          "key": "_elementor_pro_version",
+          "value": ""
+        },
+        {
+          "id": 2364155,
+          "key": "_oembed_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 2364156,
+          "key": "_oembed_time_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 2364157,
+          "key": "fb_product_group_id",
+          "value": ""
+        },
+        {
+          "id": 2364158,
+          "key": "_wc_facebook_commerce_enabled",
+          "value": ""
+        },
+        {
+          "id": 2364159,
+          "key": "fb_product_item_id",
+          "value": ""
+        },
+        {
+          "id": 2364160,
+          "key": "_wc_facebook_sync_enabled",
+          "value": ""
+        },
+        {
+          "id": 2364161,
+          "key": "fb_product_description",
+          "value": ""
+        },
+        {
+          "id": 2364162,
+          "key": "_woosea_exclude_product",
+          "value": ""
+        },
+        {
+          "id": 2364163,
+          "key": "_yoast_wpseo_wordproof_timestamp",
+          "value": ""
+        },
+        {
+          "id": 2364164,
+          "key": "_yoast_wpseo_focuskw",
+          "value": ""
+        },
+        {
+          "id": 2364165,
+          "key": "_yoast_wpseo_metadesc",
+          "value": ""
+        },
+        {
+          "id": 2364166,
+          "key": "_yoast_wpseo_title",
+          "value": ""
+        },
+        {
+          "id": 2364167,
+          "key": "_yoast_wpseo_linkdex",
+          "value": ""
+        },
+        {
+          "id": 2364168,
+          "key": "_yoast_wpseo_meta-robots-noindex",
+          "value": ""
+        },
+        {
+          "id": 2364169,
+          "key": "rank_math_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 2364170,
+          "key": "rank_math_title",
+          "value": ""
+        },
+        {
+          "id": 2364171,
+          "key": "rank_math_description",
+          "value": ""
+        },
+        {
+          "id": 2364172,
+          "key": "rank_math_focus_keyword",
+          "value": ""
+        },
+        {
+          "id": 2364173,
+          "key": "rank_math_news_sitemap_robots",
+          "value": ""
+        },
+        {
+          "id": 2364174,
+          "key": "rank_math_analytic_object_id",
+          "value": ""
+        },
+        {
+          "id": 2364175,
+          "key": "rank_math_seo_score",
+          "value": ""
+        },
+        {
+          "id": 2364176,
+          "key": "rank_math_primary_fb_product_set",
+          "value": ""
+        },
+        {
+          "id": 2364177,
+          "key": "hubwoo_ecomm_invalid_pro",
+          "value": ""
+        },
+        {
+          "id": 2364178,
+          "key": "hubwoo_ecomm_pro_id",
+          "value": ""
+        },
+        {
+          "id": 2364179,
+          "key": "_rank_math_gtin_code",
+          "value": ""
+        },
+        {
+          "id": 2364180,
+          "key": "woodmart_price_unit_of_measure",
+          "value": ""
+        },
+        {
+          "id": 2364181,
+          "key": "_woodmart_new_label",
+          "value": ""
+        },
+        {
+          "id": 2364182,
+          "key": "_woodmart_related_off",
+          "value": ""
+        },
+        {
+          "id": 2364183,
+          "key": "_woodmart_hide_tabs_titles",
+          "value": ""
+        },
+        {
+          "id": 2364184,
+          "key": "_woodmart_product_custom_tab_content_type",
+          "value": ""
+        },
+        {
+          "id": 2364185,
+          "key": "_woodmart_product_custom_tab_html_block",
+          "value": ""
+        },
+        {
+          "id": 2364186,
+          "key": "_woodmart_product_custom_tab_title_2",
+          "value": ""
+        },
+        {
+          "id": 2364187,
+          "key": "_woodmart_product_custom_tab_content_type_2",
+          "value": ""
+        },
+        {
+          "id": 2364188,
+          "key": "_woodmart_product_custom_tab_content_2",
+          "value": ""
+        },
+        {
+          "id": 2364189,
+          "key": "_woodmart_product_custom_tab_html_block_2",
+          "value": ""
+        },
+        {
+          "id": 2364190,
+          "key": "_pwgc_exclude_tax",
+          "value": ""
+        },
+        {
+          "id": 2364191,
+          "key": "_pwgc_exclude_shipping",
+          "value": ""
+        },
+        {
+          "id": 2364192,
+          "key": "hubwoo_product_synced",
+          "value": ""
+        },
+        {
+          "id": 2364193,
+          "key": "_woodmart_exclude_show_single_variation",
+          "value": ""
+        },
+        {
+          "id": 2364194,
+          "key": "_oembed_time_b281f94138bf5c29fd29ef69ee3d0046",
+          "value": ""
+        },
+        {
+          "id": 2364195,
+          "key": "_rightpress_prices",
+          "value": ""
+        },
+        {
+          "id": 2364196,
+          "key": "composicion_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2364197,
+          "key": "cuidado_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2364198,
+          "key": "_wc_gla_sync_status",
+          "value": ""
+        },
+        {
+          "id": 2364199,
+          "key": "_woodmart_product_custom_tab_priority",
+          "value": ""
+        },
+        {
+          "id": 2364200,
+          "key": "_woodmart_product_custom_tab_priority_2",
+          "value": ""
+        },
+        {
+          "id": 2364201,
+          "key": "_woodmart_product_custom_tab_title_3",
+          "value": ""
+        },
+        {
+          "id": 2364202,
+          "key": "_woodmart_product_custom_tab_priority_3",
+          "value": ""
+        },
+        {
+          "id": 2364203,
+          "key": "_woodmart_product_custom_tab_content_type_3",
+          "value": ""
+        },
+        {
+          "id": 2364204,
+          "key": "_woodmart_product_custom_tab_content_3",
+          "value": ""
+        },
+        {
+          "id": 2364205,
+          "key": "_woodmart_product_custom_tab_html_block_3",
+          "value": ""
+        },
+        {
+          "id": 2364206,
+          "key": "_woodmart_product_custom_tab_title_4",
+          "value": ""
+        },
+        {
+          "id": 2364207,
+          "key": "_woodmart_product_custom_tab_priority_4",
+          "value": ""
+        },
+        {
+          "id": 2364208,
+          "key": "_woodmart_product_custom_tab_content_type_4",
+          "value": ""
+        },
+        {
+          "id": 2364209,
+          "key": "_woodmart_product_custom_tab_content_4",
+          "value": ""
+        },
+        {
+          "id": 2364210,
+          "key": "_woodmart_product_custom_tab_html_block_4",
+          "value": ""
+        },
+        {
+          "id": 2364211,
+          "key": "_woodmart_product_custom_tab_title_5",
+          "value": ""
+        },
+        {
+          "id": 2364212,
+          "key": "_woodmart_product_custom_tab_priority_5",
+          "value": ""
+        },
+        {
+          "id": 2364213,
+          "key": "_woodmart_product_custom_tab_content_type_5",
+          "value": ""
+        },
+        {
+          "id": 2364214,
+          "key": "_woodmart_product_custom_tab_content_5",
+          "value": ""
+        },
+        {
+          "id": 2364215,
+          "key": "_woodmart_product_custom_tab_html_block_5",
+          "value": ""
+        },
+        {
+          "id": 2364216,
+          "key": "rank_math_primary_product_brand",
+          "value": ""
+        },
+        {
+          "id": 2364217,
+          "key": "_elementor_edit_mode",
+          "value": ""
+        },
+        {
+          "id": 2364218,
+          "key": "_oembed_b281f94138bf5c29fd29ef69ee3d0046",
+          "value": ""
+        },
+        {
+          "id": 2364219,
+          "key": "_oembed_ed403b8efb2abad249e54640a9f7d46f",
+          "value": ""
+        },
+        {
+          "id": 2364220,
+          "key": "_oembed_time_ed403b8efb2abad249e54640a9f7d46f",
+          "value": ""
+        },
+        {
+          "id": 2364221,
+          "key": "_pwgc_show_email_preview",
+          "value": ""
+        },
+        {
+          "id": 2364222,
+          "key": "_pwgc_show_recipient_name",
+          "value": ""
+        },
+        {
+          "id": 2364223,
+          "key": "_pwgc_custom_amount_allowed",
+          "value": ""
+        },
+        {
+          "id": 2364224,
+          "key": "_pwgc_custom_amount_min",
+          "value": ""
+        },
+        {
+          "id": 2364225,
+          "key": "_pwgc_custom_amount_max",
+          "value": ""
+        },
+        {
+          "id": 2364226,
+          "key": "_pwgc_is_physical_card",
+          "value": ""
+        },
+        {
+          "id": 2364227,
+          "key": "_pwgc_no_coupons_allowed",
+          "value": ""
+        },
+        {
+          "id": 2364228,
+          "key": "_pwgc_physical_email",
+          "value": ""
+        },
+        {
+          "id": 2364229,
+          "key": "_pwgc_expire_days",
+          "value": ""
+        },
+        {
+          "id": 2364230,
+          "key": "_pwgc_enable_bonus",
+          "value": ""
+        },
+        {
+          "id": 2364231,
+          "key": "_pwgc_cumulative_bonus",
+          "value": ""
+        },
+        {
+          "id": 2364232,
+          "key": "_pwgc_bonus_recipient",
+          "value": ""
+        },
+        {
+          "id": 2364233,
+          "key": "jckpc_sort_order",
+          "value": ""
+        },
+        {
+          "id": 2364234,
+          "key": "_wccf_pp_composicion_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2364235,
+          "key": "_wccf_pp_id_composicion_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2364236,
+          "key": "_oembed_f158992fe4878386943b5d7f0477f835",
+          "value": ""
+        },
+        {
+          "id": 2364237,
+          "key": "fb_rich_text_description",
+          "value": ""
+        },
+        {
+          "id": 2364238,
+          "key": "fb_brand",
+          "value": ""
+        },
+        {
+          "id": 2364239,
+          "key": "jckpc_enabled",
+          "value": ""
+        },
+        {
+          "id": 2364240,
+          "key": "_wc_gla_visibility",
+          "value": ""
+        },
+        {
+          "id": 2364241,
+          "key": "fb_size",
+          "value": ""
+        },
+        {
+          "id": 2364242,
+          "key": "fb_color",
+          "value": ""
+        },
+        {
+          "id": 2364243,
+          "key": "fb_material",
+          "value": ""
+        },
+        {
+          "id": 2364244,
+          "key": "fb_pattern",
+          "value": ""
+        },
+        {
+          "id": 2364245,
+          "key": "fb_age_group",
+          "value": ""
+        },
+        {
+          "id": 2364246,
+          "key": "fb_gender",
+          "value": ""
+        },
+        {
+          "id": 2364247,
+          "key": "fb_product_condition",
+          "value": ""
+        },
+        {
+          "id": 2364248,
+          "key": "_woocommerce_video_url",
+          "value": ""
+        },
+        {
+          "id": 2364249,
+          "key": "tpc_proc_ndate",
+          "value": ""
+        },
+        {
+          "id": 2364250,
+          "key": "tpc_proc_ns_days",
+          "value": ""
+        },
+        {
+          "id": 2364251,
+          "key": "tpc_proc_fn_ini_num",
+          "value": ""
+        },
+        {
+          "id": 2364252,
+          "key": "tpc_proc_fn_final_num",
+          "value": ""
+        },
+        {
+          "id": 2364253,
+          "key": "tpc_proc_fn_num_range",
+          "value": ""
+        },
+        {
+          "id": 2364254,
+          "key": "tpc_proc_ci_in_sec",
+          "value": ""
+        },
+        {
+          "id": 2364255,
+          "key": "_oembed_time_3efc152008105e0533b1d0735c932ef8",
+          "value": ""
+        },
+        {
+          "id": 2364256,
+          "key": "_wc_facebook_enhanced_catalog_attributes_style",
+          "value": ""
+        },
+        {
+          "id": 2364257,
+          "key": "_wc_facebook_enhanced_catalog_attributes_additional_features",
+          "value": ""
+        },
+        {
+          "id": 2364258,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sleeve_style",
+          "value": ""
+        },
+        {
+          "id": 2364259,
+          "key": "_wc_facebook_enhanced_catalog_attributes_size_system",
+          "value": ""
+        },
+        {
+          "id": 2364260,
+          "key": "_wc_facebook_enhanced_catalog_attributes_skirt_length",
+          "value": ""
+        },
+        {
+          "id": 2364261,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sleeve_length",
+          "value": ""
+        },
+        {
+          "id": 2364262,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sleeve_length_style",
+          "value": ""
+        },
+        {
+          "id": 2364263,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sport",
+          "value": ""
+        },
+        {
+          "id": 2364264,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sock_rise",
+          "value": ""
+        },
+        {
+          "id": 2364265,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sports_league",
+          "value": ""
+        },
+        {
+          "id": 2364266,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sports_team",
+          "value": ""
+        },
+        {
+          "id": 2364267,
+          "key": "_wc_facebook_enhanced_catalog_attributes_standard_features",
+          "value": ""
+        },
+        {
+          "id": 2364268,
+          "key": "_wc_facebook_enhanced_catalog_attributes_theme",
+          "value": ""
+        },
+        {
+          "id": 2364269,
+          "key": "_wc_facebook_enhanced_catalog_attributes_upper_body_strap_configuration",
+          "value": ""
+        },
+        {
+          "id": 2364270,
+          "key": "_wc_facebook_enhanced_catalog_attributes_waist_rise",
+          "value": ""
+        },
+        {
+          "id": 2364271,
+          "key": "_wc_facebook_enhanced_catalog_attributes_waist_size",
+          "value": ""
+        },
+        {
+          "id": 2364272,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sheerness",
+          "value": ""
+        },
+        {
+          "id": 2364273,
+          "key": "_wc_facebook_enhanced_catalog_attributes_pant_fit",
+          "value": ""
+        },
+        {
+          "id": 2364274,
+          "key": "_wc_facebook_enhanced_catalog_attributes_pant_length_style",
+          "value": ""
+        },
+        {
+          "id": 2364275,
+          "key": "_wc_facebook_enhanced_catalog_attributes_denim_features",
+          "value": ""
+        },
+        {
+          "id": 2364276,
+          "key": "_wc_facebook_enhanced_catalog_attributes_bra_band_size",
+          "value": ""
+        },
+        {
+          "id": 2364277,
+          "key": "_wc_facebook_enhanced_catalog_attributes_bra_cup_size",
+          "value": ""
+        },
+        {
+          "id": 2364278,
+          "key": "_wc_facebook_enhanced_catalog_attributes_character",
+          "value": ""
+        },
+        {
+          "id": 2364279,
+          "key": "_wc_facebook_enhanced_catalog_attributes_chest_size",
+          "value": ""
+        },
+        {
+          "id": 2364280,
+          "key": "_wc_facebook_enhanced_catalog_attributes_closure",
+          "value": ""
+        },
+        {
+          "id": 2364281,
+          "key": "_wc_facebook_enhanced_catalog_attributes_clothing_size_type",
+          "value": ""
+        },
+        {
+          "id": 2364282,
+          "key": "_wc_facebook_enhanced_catalog_attributes_collar_style",
+          "value": ""
+        },
+        {
+          "id": 2364283,
+          "key": "_wc_facebook_enhanced_catalog_attributes_fabric_care_instructions",
+          "value": ""
+        },
+        {
+          "id": 2364284,
+          "key": "_wc_facebook_enhanced_catalog_attributes_pant_leg_style",
+          "value": ""
+        },
+        {
+          "id": 2364285,
+          "key": "_wc_facebook_enhanced_catalog_attributes_inseam",
+          "value": ""
+        },
+        {
+          "id": 2364286,
+          "key": "_wc_facebook_enhanced_catalog_attributes_is_adult_product",
+          "value": ""
+        },
+        {
+          "id": 2364287,
+          "key": "_wc_facebook_enhanced_catalog_attributes_is_costume",
+          "value": ""
+        },
+        {
+          "id": 2364288,
+          "key": "_wc_facebook_enhanced_catalog_attributes_is_outfit_set",
+          "value": ""
+        },
+        {
+          "id": 2364289,
+          "key": "_wc_facebook_enhanced_catalog_attributes_jean_wash",
+          "value": ""
+        },
+        {
+          "id": 2364290,
+          "key": "_wc_facebook_enhanced_catalog_attributes_neckline",
+          "value": ""
+        },
+        {
+          "id": 2364291,
+          "key": "_wc_facebook_enhanced_catalog_attributes_occasion",
+          "value": ""
+        },
+        {
+          "id": 2364292,
+          "key": "_wc_facebook_enhanced_catalog_attributes_waist_style",
+          "value": ""
+        },
+        {
+          "id": 2364293,
+          "key": "_wc_facebook_google_product_category",
+          "value": ""
+        }
+      ],
+      "name": "Tabaco, S",
+      "parent_id": 85138,
+      "_links": {
+        "self": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/85138/variations/85171",
+            "targetHints": {
+              "allow": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/85138/variations"
+          }
+        ],
+        "up": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/85138"
+          }
+        ]
+      }
+    },
+    {
+      "id": 85170,
+      "type": "variation",
+      "date_created": "2026-05-08T02:10:05",
+      "date_created_gmt": "2026-05-08T02:10:05",
+      "date_modified": "2026-06-02T17:42:32",
+      "date_modified_gmt": "2026-06-02T17:42:32",
+      "description": "",
+      "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-oxford/?attribute_pa_selecciona-el-color=tabaco&attribute_pa_selecciona-una-talla=m",
+      "sku": "19200310034",
+      "global_unique_id": "",
+      "price": "962500",
+      "regular_price": "962500",
+      "sale_price": "",
+      "date_on_sale_from": null,
+      "date_on_sale_from_gmt": null,
+      "date_on_sale_to": null,
+      "date_on_sale_to_gmt": null,
+      "on_sale": false,
+      "status": "publish",
+      "purchasable": true,
+      "virtual": false,
+      "downloadable": false,
+      "downloads": [],
+      "download_limit": -1,
+      "download_expiry": -1,
+      "tax_status": "taxable",
+      "tax_class": "",
+      "manage_stock": true,
+      "stock_quantity": 7,
+      "stock_status": "instock",
+      "backorders": "no",
+      "backorders_allowed": false,
+      "backordered": false,
+      "low_stock_amount": null,
+      "weight": "",
+      "dimensions": {
+        "length": "",
+        "width": "",
+        "height": ""
+      },
+      "shipping_class": "",
+      "shipping_class_id": 0,
+      "image": {
+        "id": 85359,
+        "date_created": "2026-05-19T18:15:43",
+        "date_created_gmt": "2026-05-19T18:15:43",
+        "date_modified": "2026-06-02T17:02:51",
+        "date_modified_gmt": "2026-06-02T17:02:51",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente.jpg",
+        "name": "Winston-and-Harry-chaqueta-oxford-tabaco-frente",
+        "alt": ""
+      },
+      "attributes": [
+        {
+          "id": 3,
+          "name": "Selecciona el Color",
+          "slug": "pa_selecciona-el-color",
+          "option": "Tabaco"
+        },
+        {
+          "id": 4,
+          "name": "Selecciona una Talla",
+          "slug": "pa_selecciona-una-talla",
+          "option": "M"
+        }
+      ],
+      "menu_order": 2,
+      "meta_data": [
+        {
+          "id": 2338021,
+          "key": "_last_change_time",
+          "value": "1780422152"
+        },
+        {
+          "id": 2338022,
+          "key": "wpcvi_images",
+          "value": ""
+        },
+        {
+          "id": 2338023,
+          "key": "_wc_facebook_product_image_source",
+          "value": "product"
+        },
+        {
+          "id": 2338024,
+          "key": "fb_mpn",
+          "value": ""
+        },
+        {
+          "id": 2338025,
+          "key": "fb_product_image",
+          "value": ""
+        },
+        {
+          "id": 2338026,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2338027,
+          "key": "fb_product_video",
+          "value": []
+        },
+        {
+          "id": 2338028,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2338029,
+          "key": "fb_product_price",
+          "value": ""
+        },
+        {
+          "id": 2338030,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
+        },
+        {
+          "id": 2338031,
+          "key": "fb_visibility",
+          "value": "no"
+        },
+        {
+          "id": 2363923,
+          "key": "rank_math_internal_links_processed",
+          "value": ""
+        },
+        {
+          "id": 2363924,
+          "key": "_product_360_image_gallery",
+          "value": ""
+        },
+        {
+          "id": 2363925,
+          "key": "_woodmart_single_product_style",
+          "value": ""
+        },
+        {
+          "id": 2363926,
+          "key": "_woodmart_thums_position",
+          "value": ""
+        },
+        {
+          "id": 2363927,
+          "key": "_woodmart_product_design",
+          "value": ""
+        },
+        {
+          "id": 2363928,
+          "key": "_woodmart_extra_content",
+          "value": ""
+        },
+        {
+          "id": 2363929,
+          "key": "_woodmart_extra_position",
+          "value": ""
+        },
+        {
+          "id": 2363930,
+          "key": "_elementor_data",
+          "value": ""
+        },
+        {
+          "id": 2363931,
+          "key": "_elementor_version",
+          "value": ""
+        },
+        {
+          "id": 2363932,
+          "key": "_wp_page_template",
+          "value": ""
+        },
+        {
+          "id": 2363933,
+          "key": "_elementor_template_type",
+          "value": ""
+        },
+        {
+          "id": 2363934,
+          "key": "_oembed_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 2363935,
+          "key": "_oembed_time_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 2363936,
+          "key": "slide_template",
+          "value": ""
+        },
+        {
+          "id": 2363937,
+          "key": "_jet_woo_template",
+          "value": ""
+        },
+        {
+          "id": 2363938,
+          "key": "_template_type",
+          "value": ""
+        },
+        {
+          "id": 2363939,
+          "key": "_selectproduct_layout",
+          "value": ""
+        },
+        {
+          "id": 2363940,
+          "key": "_saleflash_text",
+          "value": ""
+        },
+        {
+          "id": 2363941,
+          "key": "woolentor_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 2363942,
+          "key": "_yoast_wpseo_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 2363943,
+          "key": "_yoast_wpseo_content_score",
+          "value": ""
+        },
+        {
+          "id": 2363944,
+          "key": "_dp_original",
+          "value": ""
+        },
+        {
+          "id": 2363945,
+          "key": "_wp_old_date",
+          "value": ""
+        },
+        {
+          "id": 2363946,
+          "key": "_oembed_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 2363947,
+          "key": "_oembed_time_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 2363948,
+          "key": "woodmart_sguide_select",
+          "value": ""
+        },
+        {
+          "id": 2363949,
+          "key": "woodmart_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 2363950,
+          "key": "rs_page_bg_color",
+          "value": ""
+        },
+        {
+          "id": 2363951,
+          "key": "_woodmart_whb_header",
+          "value": ""
+        },
+        {
+          "id": 2363952,
+          "key": "_woodmart_main_layout",
+          "value": ""
+        },
+        {
+          "id": 2363953,
+          "key": "_woodmart_sidebar_width",
+          "value": ""
+        },
+        {
+          "id": 2363954,
+          "key": "_woodmart_custom_sidebar",
+          "value": ""
+        },
+        {
+          "id": 2363955,
+          "key": "_woodmart_product-background",
+          "value": ""
+        },
+        {
+          "id": 2363956,
+          "key": "_woodmart_product_custom_tab_title",
+          "value": ""
+        },
+        {
+          "id": 2363957,
+          "key": "_woodmart_product_custom_tab_content",
+          "value": ""
+        },
+        {
+          "id": 2363958,
+          "key": "_woodmart_new_label_date",
+          "value": ""
+        },
+        {
+          "id": 2363959,
+          "key": "_woodmart_swatches_attribute",
+          "value": ""
+        },
+        {
+          "id": 2363960,
+          "key": "_woodmart_product_video",
+          "value": ""
+        },
+        {
+          "id": 2363961,
+          "key": "_woodmart_product_hashtag",
+          "value": ""
+        },
+        {
+          "id": 2363962,
+          "key": "_last_editor_used_jetpack",
+          "value": ""
+        },
+        {
+          "id": 2363963,
+          "key": "_oembed_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 2363964,
+          "key": "_oembed_time_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 2363965,
+          "key": "wd_additional_variation_images_data",
+          "value": "85361, 85360, 85356, 85355"
+        },
+        {
+          "id": 2363966,
+          "key": "_yoast_wpseo_estimated-reading-time-minutes",
+          "value": ""
+        },
+        {
+          "id": 2363967,
+          "key": "_elementor_pro_version",
+          "value": ""
+        },
+        {
+          "id": 2363968,
+          "key": "_oembed_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 2363969,
+          "key": "_oembed_time_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 2363970,
+          "key": "fb_product_group_id",
+          "value": ""
+        },
+        {
+          "id": 2363971,
+          "key": "_wc_facebook_commerce_enabled",
+          "value": ""
+        },
+        {
+          "id": 2363972,
+          "key": "fb_product_item_id",
+          "value": ""
+        },
+        {
+          "id": 2363973,
+          "key": "_wc_facebook_sync_enabled",
+          "value": ""
+        },
+        {
+          "id": 2363974,
+          "key": "fb_product_description",
+          "value": ""
+        },
+        {
+          "id": 2363975,
+          "key": "_woosea_exclude_product",
+          "value": ""
+        },
+        {
+          "id": 2363976,
+          "key": "_yoast_wpseo_wordproof_timestamp",
+          "value": ""
+        },
+        {
+          "id": 2363977,
+          "key": "_yoast_wpseo_focuskw",
+          "value": ""
+        },
+        {
+          "id": 2363978,
+          "key": "_yoast_wpseo_metadesc",
+          "value": ""
+        },
+        {
+          "id": 2363979,
+          "key": "_yoast_wpseo_title",
+          "value": ""
+        },
+        {
+          "id": 2363980,
+          "key": "_yoast_wpseo_linkdex",
+          "value": ""
+        },
+        {
+          "id": 2363981,
+          "key": "_yoast_wpseo_meta-robots-noindex",
+          "value": ""
+        },
+        {
+          "id": 2363982,
+          "key": "rank_math_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 2363983,
+          "key": "rank_math_title",
+          "value": ""
+        },
+        {
+          "id": 2363984,
+          "key": "rank_math_description",
+          "value": ""
+        },
+        {
+          "id": 2363985,
+          "key": "rank_math_focus_keyword",
+          "value": ""
+        },
+        {
+          "id": 2363986,
+          "key": "rank_math_news_sitemap_robots",
+          "value": ""
+        },
+        {
+          "id": 2363987,
+          "key": "rank_math_analytic_object_id",
+          "value": ""
+        },
+        {
+          "id": 2363988,
+          "key": "rank_math_seo_score",
+          "value": ""
+        },
+        {
+          "id": 2363989,
+          "key": "rank_math_primary_fb_product_set",
+          "value": ""
+        },
+        {
+          "id": 2363990,
+          "key": "hubwoo_ecomm_invalid_pro",
+          "value": ""
+        },
+        {
+          "id": 2363991,
+          "key": "hubwoo_ecomm_pro_id",
+          "value": ""
+        },
+        {
+          "id": 2363992,
+          "key": "_rank_math_gtin_code",
+          "value": ""
+        },
+        {
+          "id": 2363993,
+          "key": "woodmart_price_unit_of_measure",
+          "value": ""
+        },
+        {
+          "id": 2363994,
+          "key": "_woodmart_new_label",
+          "value": ""
+        },
+        {
+          "id": 2363995,
+          "key": "_woodmart_related_off",
+          "value": ""
+        },
+        {
+          "id": 2363996,
+          "key": "_woodmart_hide_tabs_titles",
+          "value": ""
+        },
+        {
+          "id": 2363997,
+          "key": "_woodmart_product_custom_tab_content_type",
+          "value": ""
+        },
+        {
+          "id": 2363998,
+          "key": "_woodmart_product_custom_tab_html_block",
+          "value": ""
+        },
+        {
+          "id": 2363999,
+          "key": "_woodmart_product_custom_tab_title_2",
+          "value": ""
+        },
+        {
+          "id": 2364000,
+          "key": "_woodmart_product_custom_tab_content_type_2",
+          "value": ""
+        },
+        {
+          "id": 2364001,
+          "key": "_woodmart_product_custom_tab_content_2",
+          "value": ""
+        },
+        {
+          "id": 2364002,
+          "key": "_woodmart_product_custom_tab_html_block_2",
+          "value": ""
+        },
+        {
+          "id": 2364003,
+          "key": "_pwgc_exclude_tax",
+          "value": ""
+        },
+        {
+          "id": 2364004,
+          "key": "_pwgc_exclude_shipping",
+          "value": ""
+        },
+        {
+          "id": 2364005,
+          "key": "hubwoo_product_synced",
+          "value": ""
+        },
+        {
+          "id": 2364006,
+          "key": "_woodmart_exclude_show_single_variation",
+          "value": ""
+        },
+        {
+          "id": 2364007,
+          "key": "_oembed_time_b281f94138bf5c29fd29ef69ee3d0046",
+          "value": ""
+        },
+        {
+          "id": 2364008,
+          "key": "_rightpress_prices",
+          "value": ""
+        },
+        {
+          "id": 2364009,
+          "key": "composicion_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2364010,
+          "key": "cuidado_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2364011,
+          "key": "_wc_gla_sync_status",
+          "value": ""
+        },
+        {
+          "id": 2364012,
+          "key": "_woodmart_product_custom_tab_priority",
+          "value": ""
+        },
+        {
+          "id": 2364013,
+          "key": "_woodmart_product_custom_tab_priority_2",
+          "value": ""
+        },
+        {
+          "id": 2364014,
+          "key": "_woodmart_product_custom_tab_title_3",
+          "value": ""
+        },
+        {
+          "id": 2364015,
+          "key": "_woodmart_product_custom_tab_priority_3",
+          "value": ""
+        },
+        {
+          "id": 2364016,
+          "key": "_woodmart_product_custom_tab_content_type_3",
+          "value": ""
+        },
+        {
+          "id": 2364017,
+          "key": "_woodmart_product_custom_tab_content_3",
+          "value": ""
+        },
+        {
+          "id": 2364018,
+          "key": "_woodmart_product_custom_tab_html_block_3",
+          "value": ""
+        },
+        {
+          "id": 2364019,
+          "key": "_woodmart_product_custom_tab_title_4",
+          "value": ""
+        },
+        {
+          "id": 2364020,
+          "key": "_woodmart_product_custom_tab_priority_4",
+          "value": ""
+        },
+        {
+          "id": 2364021,
+          "key": "_woodmart_product_custom_tab_content_type_4",
+          "value": ""
+        },
+        {
+          "id": 2364022,
+          "key": "_woodmart_product_custom_tab_content_4",
+          "value": ""
+        },
+        {
+          "id": 2364023,
+          "key": "_woodmart_product_custom_tab_html_block_4",
+          "value": ""
+        },
+        {
+          "id": 2364024,
+          "key": "_woodmart_product_custom_tab_title_5",
+          "value": ""
+        },
+        {
+          "id": 2364025,
+          "key": "_woodmart_product_custom_tab_priority_5",
+          "value": ""
+        },
+        {
+          "id": 2364026,
+          "key": "_woodmart_product_custom_tab_content_type_5",
+          "value": ""
+        },
+        {
+          "id": 2364027,
+          "key": "_woodmart_product_custom_tab_content_5",
+          "value": ""
+        },
+        {
+          "id": 2364028,
+          "key": "_woodmart_product_custom_tab_html_block_5",
+          "value": ""
+        },
+        {
+          "id": 2364029,
+          "key": "rank_math_primary_product_brand",
+          "value": ""
+        },
+        {
+          "id": 2364030,
+          "key": "_elementor_edit_mode",
+          "value": ""
+        },
+        {
+          "id": 2364031,
+          "key": "_oembed_b281f94138bf5c29fd29ef69ee3d0046",
+          "value": ""
+        },
+        {
+          "id": 2364032,
+          "key": "_oembed_ed403b8efb2abad249e54640a9f7d46f",
+          "value": ""
+        },
+        {
+          "id": 2364033,
+          "key": "_oembed_time_ed403b8efb2abad249e54640a9f7d46f",
+          "value": ""
+        },
+        {
+          "id": 2364034,
+          "key": "_pwgc_show_email_preview",
+          "value": ""
+        },
+        {
+          "id": 2364035,
+          "key": "_pwgc_show_recipient_name",
+          "value": ""
+        },
+        {
+          "id": 2364036,
+          "key": "_pwgc_custom_amount_allowed",
+          "value": ""
+        },
+        {
+          "id": 2364037,
+          "key": "_pwgc_custom_amount_min",
+          "value": ""
+        },
+        {
+          "id": 2364038,
+          "key": "_pwgc_custom_amount_max",
+          "value": ""
+        },
+        {
+          "id": 2364039,
+          "key": "_pwgc_is_physical_card",
+          "value": ""
+        },
+        {
+          "id": 2364040,
+          "key": "_pwgc_no_coupons_allowed",
+          "value": ""
+        },
+        {
+          "id": 2364041,
+          "key": "_pwgc_physical_email",
+          "value": ""
+        },
+        {
+          "id": 2364042,
+          "key": "_pwgc_expire_days",
+          "value": ""
+        },
+        {
+          "id": 2364043,
+          "key": "_pwgc_enable_bonus",
+          "value": ""
+        },
+        {
+          "id": 2364044,
+          "key": "_pwgc_cumulative_bonus",
+          "value": ""
+        },
+        {
+          "id": 2364045,
+          "key": "_pwgc_bonus_recipient",
+          "value": ""
+        },
+        {
+          "id": 2364046,
+          "key": "jckpc_sort_order",
+          "value": ""
+        },
+        {
+          "id": 2364047,
+          "key": "_wccf_pp_composicion_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2364048,
+          "key": "_wccf_pp_id_composicion_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2364049,
+          "key": "_oembed_f158992fe4878386943b5d7f0477f835",
+          "value": ""
+        },
+        {
+          "id": 2364050,
+          "key": "fb_rich_text_description",
+          "value": ""
+        },
+        {
+          "id": 2364051,
+          "key": "fb_brand",
+          "value": ""
+        },
+        {
+          "id": 2364052,
+          "key": "jckpc_enabled",
+          "value": ""
+        },
+        {
+          "id": 2364053,
+          "key": "_wc_gla_visibility",
+          "value": ""
+        },
+        {
+          "id": 2364054,
+          "key": "fb_size",
+          "value": ""
+        },
+        {
+          "id": 2364055,
+          "key": "fb_color",
+          "value": ""
+        },
+        {
+          "id": 2364056,
+          "key": "fb_material",
+          "value": ""
+        },
+        {
+          "id": 2364057,
+          "key": "fb_pattern",
+          "value": ""
+        },
+        {
+          "id": 2364058,
+          "key": "fb_age_group",
+          "value": ""
+        },
+        {
+          "id": 2364059,
+          "key": "fb_gender",
+          "value": ""
+        },
+        {
+          "id": 2364060,
+          "key": "fb_product_condition",
+          "value": ""
+        },
+        {
+          "id": 2364061,
+          "key": "_woocommerce_video_url",
+          "value": ""
+        },
+        {
+          "id": 2364062,
+          "key": "tpc_proc_ndate",
+          "value": ""
+        },
+        {
+          "id": 2364063,
+          "key": "tpc_proc_ns_days",
+          "value": ""
+        },
+        {
+          "id": 2364064,
+          "key": "tpc_proc_fn_ini_num",
+          "value": ""
+        },
+        {
+          "id": 2364065,
+          "key": "tpc_proc_fn_final_num",
+          "value": ""
+        },
+        {
+          "id": 2364066,
+          "key": "tpc_proc_fn_num_range",
+          "value": ""
+        },
+        {
+          "id": 2364067,
+          "key": "tpc_proc_ci_in_sec",
+          "value": ""
+        },
+        {
+          "id": 2364068,
+          "key": "_oembed_time_3efc152008105e0533b1d0735c932ef8",
+          "value": ""
+        },
+        {
+          "id": 2364069,
+          "key": "_wc_facebook_enhanced_catalog_attributes_style",
+          "value": ""
+        },
+        {
+          "id": 2364070,
+          "key": "_wc_facebook_enhanced_catalog_attributes_additional_features",
+          "value": ""
+        },
+        {
+          "id": 2364071,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sleeve_style",
+          "value": ""
+        },
+        {
+          "id": 2364072,
+          "key": "_wc_facebook_enhanced_catalog_attributes_size_system",
+          "value": ""
+        },
+        {
+          "id": 2364073,
+          "key": "_wc_facebook_enhanced_catalog_attributes_skirt_length",
+          "value": ""
+        },
+        {
+          "id": 2364074,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sleeve_length",
+          "value": ""
+        },
+        {
+          "id": 2364075,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sleeve_length_style",
+          "value": ""
+        },
+        {
+          "id": 2364076,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sport",
+          "value": ""
+        },
+        {
+          "id": 2364077,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sock_rise",
+          "value": ""
+        },
+        {
+          "id": 2364078,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sports_league",
+          "value": ""
+        },
+        {
+          "id": 2364079,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sports_team",
+          "value": ""
+        },
+        {
+          "id": 2364080,
+          "key": "_wc_facebook_enhanced_catalog_attributes_standard_features",
+          "value": ""
+        },
+        {
+          "id": 2364081,
+          "key": "_wc_facebook_enhanced_catalog_attributes_theme",
+          "value": ""
+        },
+        {
+          "id": 2364082,
+          "key": "_wc_facebook_enhanced_catalog_attributes_upper_body_strap_configuration",
+          "value": ""
+        },
+        {
+          "id": 2364083,
+          "key": "_wc_facebook_enhanced_catalog_attributes_waist_rise",
+          "value": ""
+        },
+        {
+          "id": 2364084,
+          "key": "_wc_facebook_enhanced_catalog_attributes_waist_size",
+          "value": ""
+        },
+        {
+          "id": 2364085,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sheerness",
+          "value": ""
+        },
+        {
+          "id": 2364086,
+          "key": "_wc_facebook_enhanced_catalog_attributes_pant_fit",
+          "value": ""
+        },
+        {
+          "id": 2364087,
+          "key": "_wc_facebook_enhanced_catalog_attributes_pant_length_style",
+          "value": ""
+        },
+        {
+          "id": 2364088,
+          "key": "_wc_facebook_enhanced_catalog_attributes_denim_features",
+          "value": ""
+        },
+        {
+          "id": 2364089,
+          "key": "_wc_facebook_enhanced_catalog_attributes_bra_band_size",
+          "value": ""
+        },
+        {
+          "id": 2364090,
+          "key": "_wc_facebook_enhanced_catalog_attributes_bra_cup_size",
+          "value": ""
+        },
+        {
+          "id": 2364091,
+          "key": "_wc_facebook_enhanced_catalog_attributes_character",
+          "value": ""
+        },
+        {
+          "id": 2364092,
+          "key": "_wc_facebook_enhanced_catalog_attributes_chest_size",
+          "value": ""
+        },
+        {
+          "id": 2364093,
+          "key": "_wc_facebook_enhanced_catalog_attributes_closure",
+          "value": ""
+        },
+        {
+          "id": 2364094,
+          "key": "_wc_facebook_enhanced_catalog_attributes_clothing_size_type",
+          "value": ""
+        },
+        {
+          "id": 2364095,
+          "key": "_wc_facebook_enhanced_catalog_attributes_collar_style",
+          "value": ""
+        },
+        {
+          "id": 2364096,
+          "key": "_wc_facebook_enhanced_catalog_attributes_fabric_care_instructions",
+          "value": ""
+        },
+        {
+          "id": 2364097,
+          "key": "_wc_facebook_enhanced_catalog_attributes_pant_leg_style",
+          "value": ""
+        },
+        {
+          "id": 2364098,
+          "key": "_wc_facebook_enhanced_catalog_attributes_inseam",
+          "value": ""
+        },
+        {
+          "id": 2364099,
+          "key": "_wc_facebook_enhanced_catalog_attributes_is_adult_product",
+          "value": ""
+        },
+        {
+          "id": 2364100,
+          "key": "_wc_facebook_enhanced_catalog_attributes_is_costume",
+          "value": ""
+        },
+        {
+          "id": 2364101,
+          "key": "_wc_facebook_enhanced_catalog_attributes_is_outfit_set",
+          "value": ""
+        },
+        {
+          "id": 2364102,
+          "key": "_wc_facebook_enhanced_catalog_attributes_jean_wash",
+          "value": ""
+        },
+        {
+          "id": 2364103,
+          "key": "_wc_facebook_enhanced_catalog_attributes_neckline",
+          "value": ""
+        },
+        {
+          "id": 2364104,
+          "key": "_wc_facebook_enhanced_catalog_attributes_occasion",
+          "value": ""
+        },
+        {
+          "id": 2364105,
+          "key": "_wc_facebook_enhanced_catalog_attributes_waist_style",
+          "value": ""
+        },
+        {
+          "id": 2364106,
+          "key": "_wc_facebook_google_product_category",
+          "value": ""
+        }
+      ],
+      "name": "Tabaco, M",
+      "parent_id": 85138,
+      "_links": {
+        "self": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/85138/variations/85170",
+            "targetHints": {
+              "allow": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/85138/variations"
+          }
+        ],
+        "up": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/85138"
+          }
+        ]
+      }
+    },
+    {
+      "id": 85169,
+      "type": "variation",
+      "date_created": "2026-05-08T02:10:05",
+      "date_created_gmt": "2026-05-08T02:10:05",
+      "date_modified": "2026-06-02T17:42:32",
+      "date_modified_gmt": "2026-06-02T17:42:32",
+      "description": "",
+      "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-oxford/?attribute_pa_selecciona-el-color=tabaco&attribute_pa_selecciona-una-talla=l",
+      "sku": "19200310036",
+      "global_unique_id": "",
+      "price": "962500",
+      "regular_price": "962500",
+      "sale_price": "",
+      "date_on_sale_from": null,
+      "date_on_sale_from_gmt": null,
+      "date_on_sale_to": null,
+      "date_on_sale_to_gmt": null,
+      "on_sale": false,
+      "status": "publish",
+      "purchasable": true,
+      "virtual": false,
+      "downloadable": false,
+      "downloads": [],
+      "download_limit": -1,
+      "download_expiry": -1,
+      "tax_status": "taxable",
+      "tax_class": "",
+      "manage_stock": true,
+      "stock_quantity": 7,
+      "stock_status": "instock",
+      "backorders": "no",
+      "backorders_allowed": false,
+      "backordered": false,
+      "low_stock_amount": null,
+      "weight": "",
+      "dimensions": {
+        "length": "",
+        "width": "",
+        "height": ""
+      },
+      "shipping_class": "",
+      "shipping_class_id": 0,
+      "image": {
+        "id": 85359,
+        "date_created": "2026-05-19T18:15:43",
+        "date_created_gmt": "2026-05-19T18:15:43",
+        "date_modified": "2026-06-02T17:02:51",
+        "date_modified_gmt": "2026-06-02T17:02:51",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente.jpg",
+        "name": "Winston-and-Harry-chaqueta-oxford-tabaco-frente",
+        "alt": ""
+      },
+      "attributes": [
+        {
+          "id": 3,
+          "name": "Selecciona el Color",
+          "slug": "pa_selecciona-el-color",
+          "option": "Tabaco"
+        },
+        {
+          "id": 4,
+          "name": "Selecciona una Talla",
+          "slug": "pa_selecciona-una-talla",
+          "option": "L"
+        }
+      ],
+      "menu_order": 1,
+      "meta_data": [
+        {
+          "id": 2338007,
+          "key": "_last_change_time",
+          "value": "1780422152"
+        },
+        {
+          "id": 2338008,
+          "key": "wpcvi_images",
+          "value": ""
+        },
+        {
+          "id": 2338009,
+          "key": "_wc_facebook_product_image_source",
+          "value": "product"
+        },
+        {
+          "id": 2338010,
+          "key": "fb_mpn",
+          "value": ""
+        },
+        {
+          "id": 2338011,
+          "key": "fb_product_image",
+          "value": ""
+        },
+        {
+          "id": 2338012,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2338013,
+          "key": "fb_product_video",
+          "value": []
+        },
+        {
+          "id": 2338014,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2338015,
+          "key": "fb_product_price",
+          "value": ""
+        },
+        {
+          "id": 2338016,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
+        },
+        {
+          "id": 2338017,
+          "key": "fb_visibility",
+          "value": "no"
+        },
+        {
+          "id": 2363736,
+          "key": "rank_math_internal_links_processed",
+          "value": ""
+        },
+        {
+          "id": 2363737,
+          "key": "_product_360_image_gallery",
+          "value": ""
+        },
+        {
+          "id": 2363738,
+          "key": "_woodmart_single_product_style",
+          "value": ""
+        },
+        {
+          "id": 2363739,
+          "key": "_woodmart_thums_position",
+          "value": ""
+        },
+        {
+          "id": 2363740,
+          "key": "_woodmart_product_design",
+          "value": ""
+        },
+        {
+          "id": 2363741,
+          "key": "_woodmart_extra_content",
+          "value": ""
+        },
+        {
+          "id": 2363742,
+          "key": "_woodmart_extra_position",
+          "value": ""
+        },
+        {
+          "id": 2363743,
+          "key": "_elementor_data",
+          "value": ""
+        },
+        {
+          "id": 2363744,
+          "key": "_elementor_version",
+          "value": ""
+        },
+        {
+          "id": 2363745,
+          "key": "_wp_page_template",
+          "value": ""
+        },
+        {
+          "id": 2363746,
+          "key": "_elementor_template_type",
+          "value": ""
+        },
+        {
+          "id": 2363747,
+          "key": "_oembed_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 2363748,
+          "key": "_oembed_time_3b186c4d3aee5ea1a1f4a5ca027bcb4d",
+          "value": ""
+        },
+        {
+          "id": 2363749,
+          "key": "slide_template",
+          "value": ""
+        },
+        {
+          "id": 2363750,
+          "key": "_jet_woo_template",
+          "value": ""
+        },
+        {
+          "id": 2363751,
+          "key": "_template_type",
+          "value": ""
+        },
+        {
+          "id": 2363752,
+          "key": "_selectproduct_layout",
+          "value": ""
+        },
+        {
+          "id": 2363753,
+          "key": "_saleflash_text",
+          "value": ""
+        },
+        {
+          "id": 2363754,
+          "key": "woolentor_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 2363755,
+          "key": "_yoast_wpseo_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 2363756,
+          "key": "_yoast_wpseo_content_score",
+          "value": ""
+        },
+        {
+          "id": 2363757,
+          "key": "_dp_original",
+          "value": ""
+        },
+        {
+          "id": 2363758,
+          "key": "_wp_old_date",
+          "value": ""
+        },
+        {
+          "id": 2363759,
+          "key": "_oembed_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 2363760,
+          "key": "_oembed_time_992c44b3a32aec363189635e67914edf",
+          "value": ""
+        },
+        {
+          "id": 2363761,
+          "key": "woodmart_sguide_select",
+          "value": ""
+        },
+        {
+          "id": 2363762,
+          "key": "woodmart_total_stock_quantity",
+          "value": ""
+        },
+        {
+          "id": 2363763,
+          "key": "rs_page_bg_color",
+          "value": ""
+        },
+        {
+          "id": 2363764,
+          "key": "_woodmart_whb_header",
+          "value": ""
+        },
+        {
+          "id": 2363765,
+          "key": "_woodmart_main_layout",
+          "value": ""
+        },
+        {
+          "id": 2363766,
+          "key": "_woodmart_sidebar_width",
+          "value": ""
+        },
+        {
+          "id": 2363767,
+          "key": "_woodmart_custom_sidebar",
+          "value": ""
+        },
+        {
+          "id": 2363768,
+          "key": "_woodmart_product-background",
+          "value": ""
+        },
+        {
+          "id": 2363769,
+          "key": "_woodmart_product_custom_tab_title",
+          "value": ""
+        },
+        {
+          "id": 2363770,
+          "key": "_woodmart_product_custom_tab_content",
+          "value": ""
+        },
+        {
+          "id": 2363771,
+          "key": "_woodmart_new_label_date",
+          "value": ""
+        },
+        {
+          "id": 2363772,
+          "key": "_woodmart_swatches_attribute",
+          "value": ""
+        },
+        {
+          "id": 2363773,
+          "key": "_woodmart_product_video",
+          "value": ""
+        },
+        {
+          "id": 2363774,
+          "key": "_woodmart_product_hashtag",
+          "value": ""
+        },
+        {
+          "id": 2363775,
+          "key": "_last_editor_used_jetpack",
+          "value": ""
+        },
+        {
+          "id": 2363776,
+          "key": "_oembed_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 2363777,
+          "key": "_oembed_time_14e661575f246cd8d679db5901084601",
+          "value": ""
+        },
+        {
+          "id": 2363778,
+          "key": "wd_additional_variation_images_data",
+          "value": "85361, 85360, 85356, 85355"
+        },
+        {
+          "id": 2363779,
+          "key": "_yoast_wpseo_estimated-reading-time-minutes",
+          "value": ""
+        },
+        {
+          "id": 2363780,
+          "key": "_elementor_pro_version",
+          "value": ""
+        },
+        {
+          "id": 2363781,
+          "key": "_oembed_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 2363782,
+          "key": "_oembed_time_93e9ddca87970361189427aa3b7bceb2",
+          "value": ""
+        },
+        {
+          "id": 2363783,
+          "key": "fb_product_group_id",
+          "value": ""
+        },
+        {
+          "id": 2363784,
+          "key": "_wc_facebook_commerce_enabled",
+          "value": ""
+        },
+        {
+          "id": 2363785,
+          "key": "fb_product_item_id",
+          "value": ""
+        },
+        {
+          "id": 2363786,
+          "key": "_wc_facebook_sync_enabled",
+          "value": ""
+        },
+        {
+          "id": 2363787,
+          "key": "fb_product_description",
+          "value": ""
+        },
+        {
+          "id": 2363788,
+          "key": "_woosea_exclude_product",
+          "value": ""
+        },
+        {
+          "id": 2363789,
+          "key": "_yoast_wpseo_wordproof_timestamp",
+          "value": ""
+        },
+        {
+          "id": 2363790,
+          "key": "_yoast_wpseo_focuskw",
+          "value": ""
+        },
+        {
+          "id": 2363791,
+          "key": "_yoast_wpseo_metadesc",
+          "value": ""
+        },
+        {
+          "id": 2363792,
+          "key": "_yoast_wpseo_title",
+          "value": ""
+        },
+        {
+          "id": 2363793,
+          "key": "_yoast_wpseo_linkdex",
+          "value": ""
+        },
+        {
+          "id": 2363794,
+          "key": "_yoast_wpseo_meta-robots-noindex",
+          "value": ""
+        },
+        {
+          "id": 2363795,
+          "key": "rank_math_primary_product_cat",
+          "value": ""
+        },
+        {
+          "id": 2363796,
+          "key": "rank_math_title",
+          "value": ""
+        },
+        {
+          "id": 2363797,
+          "key": "rank_math_description",
+          "value": ""
+        },
+        {
+          "id": 2363798,
+          "key": "rank_math_focus_keyword",
+          "value": ""
+        },
+        {
+          "id": 2363799,
+          "key": "rank_math_news_sitemap_robots",
+          "value": ""
+        },
+        {
+          "id": 2363800,
+          "key": "rank_math_analytic_object_id",
+          "value": ""
+        },
+        {
+          "id": 2363801,
+          "key": "rank_math_seo_score",
+          "value": ""
+        },
+        {
+          "id": 2363802,
+          "key": "rank_math_primary_fb_product_set",
+          "value": ""
+        },
+        {
+          "id": 2363803,
+          "key": "hubwoo_ecomm_invalid_pro",
+          "value": ""
+        },
+        {
+          "id": 2363804,
+          "key": "hubwoo_ecomm_pro_id",
+          "value": ""
+        },
+        {
+          "id": 2363805,
+          "key": "_rank_math_gtin_code",
+          "value": ""
+        },
+        {
+          "id": 2363806,
+          "key": "woodmart_price_unit_of_measure",
+          "value": ""
+        },
+        {
+          "id": 2363807,
+          "key": "_woodmart_new_label",
+          "value": ""
+        },
+        {
+          "id": 2363808,
+          "key": "_woodmart_related_off",
+          "value": ""
+        },
+        {
+          "id": 2363809,
+          "key": "_woodmart_hide_tabs_titles",
+          "value": ""
+        },
+        {
+          "id": 2363810,
+          "key": "_woodmart_product_custom_tab_content_type",
+          "value": ""
+        },
+        {
+          "id": 2363811,
+          "key": "_woodmart_product_custom_tab_html_block",
+          "value": ""
+        },
+        {
+          "id": 2363812,
+          "key": "_woodmart_product_custom_tab_title_2",
+          "value": ""
+        },
+        {
+          "id": 2363813,
+          "key": "_woodmart_product_custom_tab_content_type_2",
+          "value": ""
+        },
+        {
+          "id": 2363814,
+          "key": "_woodmart_product_custom_tab_content_2",
+          "value": ""
+        },
+        {
+          "id": 2363815,
+          "key": "_woodmart_product_custom_tab_html_block_2",
+          "value": ""
+        },
+        {
+          "id": 2363816,
+          "key": "_pwgc_exclude_tax",
+          "value": ""
+        },
+        {
+          "id": 2363817,
+          "key": "_pwgc_exclude_shipping",
+          "value": ""
+        },
+        {
+          "id": 2363818,
+          "key": "hubwoo_product_synced",
+          "value": ""
+        },
+        {
+          "id": 2363819,
+          "key": "_woodmart_exclude_show_single_variation",
+          "value": ""
+        },
+        {
+          "id": 2363820,
+          "key": "_oembed_time_b281f94138bf5c29fd29ef69ee3d0046",
+          "value": ""
+        },
+        {
+          "id": 2363821,
+          "key": "_rightpress_prices",
+          "value": ""
+        },
+        {
+          "id": 2363822,
+          "key": "composicion_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2363823,
+          "key": "cuidado_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2363824,
+          "key": "_wc_gla_sync_status",
+          "value": ""
+        },
+        {
+          "id": 2363825,
+          "key": "_woodmart_product_custom_tab_priority",
+          "value": ""
+        },
+        {
+          "id": 2363826,
+          "key": "_woodmart_product_custom_tab_priority_2",
+          "value": ""
+        },
+        {
+          "id": 2363827,
+          "key": "_woodmart_product_custom_tab_title_3",
+          "value": ""
+        },
+        {
+          "id": 2363828,
+          "key": "_woodmart_product_custom_tab_priority_3",
+          "value": ""
+        },
+        {
+          "id": 2363829,
+          "key": "_woodmart_product_custom_tab_content_type_3",
+          "value": ""
+        },
+        {
+          "id": 2363830,
+          "key": "_woodmart_product_custom_tab_content_3",
+          "value": ""
+        },
+        {
+          "id": 2363831,
+          "key": "_woodmart_product_custom_tab_html_block_3",
+          "value": ""
+        },
+        {
+          "id": 2363832,
+          "key": "_woodmart_product_custom_tab_title_4",
+          "value": ""
+        },
+        {
+          "id": 2363833,
+          "key": "_woodmart_product_custom_tab_priority_4",
+          "value": ""
+        },
+        {
+          "id": 2363834,
+          "key": "_woodmart_product_custom_tab_content_type_4",
+          "value": ""
+        },
+        {
+          "id": 2363835,
+          "key": "_woodmart_product_custom_tab_content_4",
+          "value": ""
+        },
+        {
+          "id": 2363836,
+          "key": "_woodmart_product_custom_tab_html_block_4",
+          "value": ""
+        },
+        {
+          "id": 2363837,
+          "key": "_woodmart_product_custom_tab_title_5",
+          "value": ""
+        },
+        {
+          "id": 2363838,
+          "key": "_woodmart_product_custom_tab_priority_5",
+          "value": ""
+        },
+        {
+          "id": 2363839,
+          "key": "_woodmart_product_custom_tab_content_type_5",
+          "value": ""
+        },
+        {
+          "id": 2363840,
+          "key": "_woodmart_product_custom_tab_content_5",
+          "value": ""
+        },
+        {
+          "id": 2363841,
+          "key": "_woodmart_product_custom_tab_html_block_5",
+          "value": ""
+        },
+        {
+          "id": 2363842,
+          "key": "rank_math_primary_product_brand",
+          "value": ""
+        },
+        {
+          "id": 2363843,
+          "key": "_elementor_edit_mode",
+          "value": ""
+        },
+        {
+          "id": 2363844,
+          "key": "_oembed_b281f94138bf5c29fd29ef69ee3d0046",
+          "value": ""
+        },
+        {
+          "id": 2363845,
+          "key": "_oembed_ed403b8efb2abad249e54640a9f7d46f",
+          "value": ""
+        },
+        {
+          "id": 2363846,
+          "key": "_oembed_time_ed403b8efb2abad249e54640a9f7d46f",
+          "value": ""
+        },
+        {
+          "id": 2363847,
+          "key": "_pwgc_show_email_preview",
+          "value": ""
+        },
+        {
+          "id": 2363848,
+          "key": "_pwgc_show_recipient_name",
+          "value": ""
+        },
+        {
+          "id": 2363849,
+          "key": "_pwgc_custom_amount_allowed",
+          "value": ""
+        },
+        {
+          "id": 2363850,
+          "key": "_pwgc_custom_amount_min",
+          "value": ""
+        },
+        {
+          "id": 2363851,
+          "key": "_pwgc_custom_amount_max",
+          "value": ""
+        },
+        {
+          "id": 2363852,
+          "key": "_pwgc_is_physical_card",
+          "value": ""
+        },
+        {
+          "id": 2363853,
+          "key": "_pwgc_no_coupons_allowed",
+          "value": ""
+        },
+        {
+          "id": 2363854,
+          "key": "_pwgc_physical_email",
+          "value": ""
+        },
+        {
+          "id": 2363855,
+          "key": "_pwgc_expire_days",
+          "value": ""
+        },
+        {
+          "id": 2363856,
+          "key": "_pwgc_enable_bonus",
+          "value": ""
+        },
+        {
+          "id": 2363857,
+          "key": "_pwgc_cumulative_bonus",
+          "value": ""
+        },
+        {
+          "id": 2363858,
+          "key": "_pwgc_bonus_recipient",
+          "value": ""
+        },
+        {
+          "id": 2363859,
+          "key": "jckpc_sort_order",
+          "value": ""
+        },
+        {
+          "id": 2363860,
+          "key": "_wccf_pp_composicion_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2363861,
+          "key": "_wccf_pp_id_composicion_del_producto",
+          "value": ""
+        },
+        {
+          "id": 2363862,
+          "key": "_oembed_f158992fe4878386943b5d7f0477f835",
+          "value": ""
+        },
+        {
+          "id": 2363863,
+          "key": "fb_rich_text_description",
+          "value": ""
+        },
+        {
+          "id": 2363864,
+          "key": "fb_brand",
+          "value": ""
+        },
+        {
+          "id": 2363865,
+          "key": "jckpc_enabled",
+          "value": ""
+        },
+        {
+          "id": 2363866,
+          "key": "_wc_gla_visibility",
+          "value": ""
+        },
+        {
+          "id": 2363867,
+          "key": "fb_size",
+          "value": ""
+        },
+        {
+          "id": 2363868,
+          "key": "fb_color",
+          "value": ""
+        },
+        {
+          "id": 2363869,
+          "key": "fb_material",
+          "value": ""
+        },
+        {
+          "id": 2363870,
+          "key": "fb_pattern",
+          "value": ""
+        },
+        {
+          "id": 2363871,
+          "key": "fb_age_group",
+          "value": ""
+        },
+        {
+          "id": 2363872,
+          "key": "fb_gender",
+          "value": ""
+        },
+        {
+          "id": 2363873,
+          "key": "fb_product_condition",
+          "value": ""
+        },
+        {
+          "id": 2363874,
+          "key": "_woocommerce_video_url",
+          "value": ""
+        },
+        {
+          "id": 2363875,
+          "key": "tpc_proc_ndate",
+          "value": ""
+        },
+        {
+          "id": 2363876,
+          "key": "tpc_proc_ns_days",
+          "value": ""
+        },
+        {
+          "id": 2363877,
+          "key": "tpc_proc_fn_ini_num",
+          "value": ""
+        },
+        {
+          "id": 2363878,
+          "key": "tpc_proc_fn_final_num",
+          "value": ""
+        },
+        {
+          "id": 2363879,
+          "key": "tpc_proc_fn_num_range",
+          "value": ""
+        },
+        {
+          "id": 2363880,
+          "key": "tpc_proc_ci_in_sec",
+          "value": ""
+        },
+        {
+          "id": 2363881,
+          "key": "_oembed_time_3efc152008105e0533b1d0735c932ef8",
+          "value": ""
+        },
+        {
+          "id": 2363882,
+          "key": "_wc_facebook_enhanced_catalog_attributes_style",
+          "value": ""
+        },
+        {
+          "id": 2363883,
+          "key": "_wc_facebook_enhanced_catalog_attributes_additional_features",
+          "value": ""
+        },
+        {
+          "id": 2363884,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sleeve_style",
+          "value": ""
+        },
+        {
+          "id": 2363885,
+          "key": "_wc_facebook_enhanced_catalog_attributes_size_system",
+          "value": ""
+        },
+        {
+          "id": 2363886,
+          "key": "_wc_facebook_enhanced_catalog_attributes_skirt_length",
+          "value": ""
+        },
+        {
+          "id": 2363887,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sleeve_length",
+          "value": ""
+        },
+        {
+          "id": 2363888,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sleeve_length_style",
+          "value": ""
+        },
+        {
+          "id": 2363889,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sport",
+          "value": ""
+        },
+        {
+          "id": 2363890,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sock_rise",
+          "value": ""
+        },
+        {
+          "id": 2363891,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sports_league",
+          "value": ""
+        },
+        {
+          "id": 2363892,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sports_team",
+          "value": ""
+        },
+        {
+          "id": 2363893,
+          "key": "_wc_facebook_enhanced_catalog_attributes_standard_features",
+          "value": ""
+        },
+        {
+          "id": 2363894,
+          "key": "_wc_facebook_enhanced_catalog_attributes_theme",
+          "value": ""
+        },
+        {
+          "id": 2363895,
+          "key": "_wc_facebook_enhanced_catalog_attributes_upper_body_strap_configuration",
+          "value": ""
+        },
+        {
+          "id": 2363896,
+          "key": "_wc_facebook_enhanced_catalog_attributes_waist_rise",
+          "value": ""
+        },
+        {
+          "id": 2363897,
+          "key": "_wc_facebook_enhanced_catalog_attributes_waist_size",
+          "value": ""
+        },
+        {
+          "id": 2363898,
+          "key": "_wc_facebook_enhanced_catalog_attributes_sheerness",
+          "value": ""
+        },
+        {
+          "id": 2363899,
+          "key": "_wc_facebook_enhanced_catalog_attributes_pant_fit",
+          "value": ""
+        },
+        {
+          "id": 2363900,
+          "key": "_wc_facebook_enhanced_catalog_attributes_pant_length_style",
+          "value": ""
+        },
+        {
+          "id": 2363901,
+          "key": "_wc_facebook_enhanced_catalog_attributes_denim_features",
+          "value": ""
+        },
+        {
+          "id": 2363902,
+          "key": "_wc_facebook_enhanced_catalog_attributes_bra_band_size",
+          "value": ""
+        },
+        {
+          "id": 2363903,
+          "key": "_wc_facebook_enhanced_catalog_attributes_bra_cup_size",
+          "value": ""
+        },
+        {
+          "id": 2363904,
+          "key": "_wc_facebook_enhanced_catalog_attributes_character",
+          "value": ""
+        },
+        {
+          "id": 2363905,
+          "key": "_wc_facebook_enhanced_catalog_attributes_chest_size",
+          "value": ""
+        },
+        {
+          "id": 2363906,
+          "key": "_wc_facebook_enhanced_catalog_attributes_closure",
+          "value": ""
+        },
+        {
+          "id": 2363907,
+          "key": "_wc_facebook_enhanced_catalog_attributes_clothing_size_type",
+          "value": ""
+        },
+        {
+          "id": 2363908,
+          "key": "_wc_facebook_enhanced_catalog_attributes_collar_style",
+          "value": ""
+        },
+        {
+          "id": 2363909,
+          "key": "_wc_facebook_enhanced_catalog_attributes_fabric_care_instructions",
+          "value": ""
+        },
+        {
+          "id": 2363910,
+          "key": "_wc_facebook_enhanced_catalog_attributes_pant_leg_style",
+          "value": ""
+        },
+        {
+          "id": 2363911,
+          "key": "_wc_facebook_enhanced_catalog_attributes_inseam",
+          "value": ""
+        },
+        {
+          "id": 2363912,
+          "key": "_wc_facebook_enhanced_catalog_attributes_is_adult_product",
+          "value": ""
+        },
+        {
+          "id": 2363913,
+          "key": "_wc_facebook_enhanced_catalog_attributes_is_costume",
+          "value": ""
+        },
+        {
+          "id": 2363914,
+          "key": "_wc_facebook_enhanced_catalog_attributes_is_outfit_set",
+          "value": ""
+        },
+        {
+          "id": 2363915,
+          "key": "_wc_facebook_enhanced_catalog_attributes_jean_wash",
+          "value": ""
+        },
+        {
+          "id": 2363916,
+          "key": "_wc_facebook_enhanced_catalog_attributes_neckline",
+          "value": ""
+        },
+        {
+          "id": 2363917,
+          "key": "_wc_facebook_enhanced_catalog_attributes_occasion",
+          "value": ""
+        },
+        {
+          "id": 2363918,
+          "key": "_wc_facebook_enhanced_catalog_attributes_waist_style",
+          "value": ""
+        },
+        {
+          "id": 2363919,
+          "key": "_wc_facebook_google_product_category",
+          "value": ""
+        }
+      ],
+      "name": "Tabaco, L",
+      "parent_id": 85138,
+      "_links": {
+        "self": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/85138/variations/85169",
+            "targetHints": {
+              "allow": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/85138/variations"
+          }
+        ],
+        "up": [
+          {
+            "href": "https://tienda.winstonandharrystore.com/wp-json/wc/v3/products/85138"
+          }
+        ]
+      }
+    }
+  ],
+  "stock_status": "instock",
+  "variation_images_map": {
+    "tabaco": [
+      {
+        "id": 85359,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente.jpg",
+        "alt": "Winston-and-Harry-chaqueta-oxford-tabaco-frente",
+        "name": "Winston-and-Harry-chaqueta-oxford-tabaco-frente"
+      }
+    ]
+  }
+}

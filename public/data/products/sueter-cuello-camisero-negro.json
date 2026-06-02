@@ -3441,8 +3441,8 @@
       "type": "variation",
       "date_created": "2025-04-24T03:18:28",
       "date_created_gmt": "2025-04-24T03:18:28",
-      "date_modified": "2026-05-07T23:10:36",
-      "date_modified_gmt": "2026-05-07T23:10:36",
+      "date_modified": "2026-06-02T17:40:28",
+      "date_modified_gmt": "2026-06-02T17:40:28",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sueter-cuello-camisero-negro/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=m",
       "sku": "6060402034",
@@ -3465,7 +3465,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 8,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4163,7 +4163,7 @@
         {
           "id": 2239450,
           "key": "_last_change_time",
-          "value": "1778190149"
+          "value": "1780422028"
         },
         {
           "id": 2311508,
@@ -4205,8 +4205,8 @@
       "type": "variation",
       "date_created": "2025-04-24T03:18:28",
       "date_created_gmt": "2025-04-24T03:18:28",
-      "date_modified": "2026-05-07T23:10:36",
-      "date_modified_gmt": "2026-05-07T23:10:36",
+      "date_modified": "2026-06-02T17:40:28",
+      "date_modified_gmt": "2026-06-02T17:40:28",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sueter-cuello-camisero-negro/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=s",
       "sku": "6060402032",
@@ -4229,7 +4229,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 10,
+      "stock_quantity": 9,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4927,7 +4927,7 @@
         {
           "id": 2219049,
           "key": "_last_change_time",
-          "value": "1778190148"
+          "value": "1780422028"
         },
         {
           "id": 2311507,

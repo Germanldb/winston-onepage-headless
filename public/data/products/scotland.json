@@ -314,35 +314,6 @@
       "sale_price": ""
     },
     {
-      "id": 67215,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "miel",
-          "option": "miel"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "42",
-          "option": "42"
-        }
-      ],
-      "image": {
-        "id": 67080,
-        "date_created": "2025-08-20T01:41:31",
-        "date_created_gmt": "2025-08-20T01:41:31",
-        "date_modified": "2025-08-25T04:36:01",
-        "date_modified_gmt": "2025-08-25T04:36:01",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Scotland-Miel-Winstonandharry-1-e1755658977888.jpg",
-        "name": "Scotland-Miel-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "531300",
-      "regular_price": "759000",
-      "sale_price": ""
-    },
-    {
       "id": 25159,
       "attributes": [
         {
@@ -3043,8 +3014,8 @@
       "type": "variation",
       "date_created": "2025-08-25T01:44:05",
       "date_created_gmt": "2025-08-25T01:44:05",
-      "date_modified": "2026-05-08T21:40:29",
-      "date_modified_gmt": "2026-05-08T21:40:29",
+      "date_modified": "2026-06-02T17:41:18",
+      "date_modified_gmt": "2026-06-02T17:41:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/scotland/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=42",
       "sku": "7300426042",
@@ -3067,8 +3038,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -3860,7 +3831,7 @@
         {
           "id": 2260963,
           "key": "_last_change_time",
-          "value": "1778190041"
+          "value": "1780422078"
         },
         {
           "id": 2311227,

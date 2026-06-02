@@ -4459,8 +4459,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:31:51",
       "date_created_gmt": "2022-08-25T22:31:51",
-      "date_modified": "2026-05-07T23:11:21",
-      "date_modified_gmt": "2026-05-07T23:11:21",
+      "date_modified": "2026-06-02T17:35:08",
+      "date_modified_gmt": "2026-06-02T17:35:08",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sussex/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=39",
       "sku": "7018702039",
@@ -4483,7 +4483,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5046,7 +5046,7 @@
         {
           "id": 2259661,
           "key": "_last_change_time",
-          "value": "1778190419"
+          "value": "1780421708"
         },
         {
           "id": 2314861,
@@ -8862,8 +8862,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:31:38",
       "date_created_gmt": "2022-08-25T22:31:38",
-      "date_modified": "2026-05-07T23:11:14",
-      "date_modified_gmt": "2026-05-07T23:11:14",
+      "date_modified": "2026-06-02T17:35:08",
+      "date_modified_gmt": "2026-06-02T17:35:08",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sussex/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=41",
       "sku": "7018726041",
@@ -8886,7 +8886,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -9449,7 +9449,7 @@
         {
           "id": 2236151,
           "key": "_last_change_time",
-          "value": "1778190380"
+          "value": "1780421708"
         },
         {
           "id": 2314878,

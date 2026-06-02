@@ -11957,8 +11957,8 @@
       "type": "variation",
       "date_created": "2025-10-30T04:05:03",
       "date_created_gmt": "2025-10-30T04:05:03",
-      "date_modified": "2026-05-07T22:58:16",
-      "date_modified_gmt": "2026-05-07T22:58:16",
+      "date_modified": "2026-06-02T17:41:37",
+      "date_modified_gmt": "2026-06-02T17:41:37",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/belfast-ii/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=41",
       "sku": "7035132041",
@@ -11981,7 +11981,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12774,7 +12774,7 @@
         {
           "id": 2239486,
           "key": "_last_change_time",
-          "value": "1778175472"
+          "value": "1780422097"
         },
         {
           "id": 2311002,

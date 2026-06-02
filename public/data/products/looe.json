@@ -252,64 +252,6 @@
       "price": "377300",
       "regular_price": "539000",
       "sale_price": ""
-    },
-    {
-      "id": 24390,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "azul",
-          "option": "azul"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "42",
-          "option": "42"
-        }
-      ],
-      "image": {
-        "id": 11591,
-        "date_created": "2020-12-12T19:37:30",
-        "date_created_gmt": "2020-12-12T19:37:30",
-        "date_modified": "2020-12-12T19:37:30",
-        "date_modified_gmt": "2020-12-12T19:37:30",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2020/12/056-zapato-composition.jpg",
-        "name": "056-zapato-composition",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "377300",
-      "regular_price": "539000",
-      "sale_price": ""
-    },
-    {
-      "id": 24391,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "negro",
-          "option": "negro"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "38",
-          "option": "38"
-        }
-      ],
-      "image": {
-        "id": 11589,
-        "date_created": "2020-12-12T19:37:24",
-        "date_created_gmt": "2020-12-12T19:37:24",
-        "date_modified": "2020-12-12T19:37:24",
-        "date_modified_gmt": "2020-12-12T19:37:24",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2020/12/055-zapato-composition.jpg",
-        "name": "055-zapato-composition",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "377300",
-      "regular_price": "539000",
-      "sale_price": ""
     }
   ],
   "grouped_products": [],
@@ -2553,8 +2495,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:31:27",
       "date_created_gmt": "2022-08-25T22:31:27",
-      "date_modified": "2026-05-08T21:44:21",
-      "date_modified_gmt": "2026-05-08T21:44:21",
+      "date_modified": "2026-06-02T17:35:08",
+      "date_modified_gmt": "2026-06-02T17:35:08",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/looe/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=38",
       "sku": "7018002038",
@@ -2577,8 +2519,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -3060,7 +3002,7 @@
         {
           "id": 2216956,
           "key": "_last_change_time",
-          "value": "1778184323"
+          "value": "1780421708"
         },
         {
           "id": 2314881,
@@ -3102,8 +3044,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:31:27",
       "date_created_gmt": "2022-08-25T22:31:27",
-      "date_modified": "2026-05-08T21:44:21",
-      "date_modified_gmt": "2026-05-08T21:44:21",
+      "date_modified": "2026-06-02T17:35:08",
+      "date_modified_gmt": "2026-06-02T17:35:08",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/looe/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=42",
       "sku": "7018001042",
@@ -3126,8 +3068,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -3609,7 +3551,7 @@
         {
           "id": 2216955,
           "key": "_last_change_time",
-          "value": "1778184323"
+          "value": "1780421708"
         },
         {
           "id": 2314880,
@@ -3651,8 +3593,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:31:27",
       "date_created_gmt": "2022-08-25T22:31:27",
-      "date_modified": "2026-05-08T21:44:21",
-      "date_modified_gmt": "2026-05-08T21:44:21",
+      "date_modified": "2026-06-02T17:35:08",
+      "date_modified_gmt": "2026-06-02T17:35:08",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/looe/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=41",
       "sku": "7018001041",
@@ -3675,7 +3617,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4158,7 +4100,7 @@
         {
           "id": 2216954,
           "key": "_last_change_time",
-          "value": "1778184323"
+          "value": "1780421708"
         },
         {
           "id": 2314879,
@@ -5865,12 +5807,6 @@
       }
     ],
     "negro": [
-      {
-        "id": 11589,
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2020/12/055-zapato-composition.jpg",
-        "alt": "055-zapato-composition",
-        "name": "055-zapato-composition"
-      },
       {
         "id": 11590,
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2020/12/055-zapato-lateral.jpg",

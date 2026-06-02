@@ -438,35 +438,6 @@
       "sale_price": ""
     },
     {
-      "id": 66890,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "azul-oscuro",
-          "option": "azul-oscuro"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "xl",
-          "option": "xl"
-        }
-      ],
-      "image": {
-        "id": 67116,
-        "date_created": "2025-08-20T07:44:06",
-        "date_created_gmt": "2025-08-20T07:44:06",
-        "date_modified": "2025-08-25T04:36:20",
-        "date_modified_gmt": "2025-08-25T04:36:20",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/BTT-Down-Azul-Osc-Winstonandharry-1-e1755676324570.jpg",
-        "name": "BTT Down-Azul Osc-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "310000",
-      "regular_price": "310000",
-      "sale_price": ""
-    },
-    {
       "id": 66891,
       "attributes": [
         {
@@ -1884,8 +1855,8 @@
       "type": "variation",
       "date_created": "2025-08-08T21:51:53",
       "date_created_gmt": "2025-08-08T21:51:53",
-      "date_modified": "2026-05-07T22:59:33",
-      "date_modified_gmt": "2026-05-07T22:59:33",
+      "date_modified": "2026-06-02T17:41:09",
+      "date_modified_gmt": "2026-06-02T17:41:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-button-down/?attribute_pa_selecciona-el-color=rosado&attribute_pa_selecciona-una-talla=xl",
       "sku": "5150116038",
@@ -1908,7 +1879,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2701,7 +2672,7 @@
         {
           "id": 2233396,
           "key": "_last_change_time",
-          "value": "1778177597"
+          "value": "1780422069"
         },
         {
           "id": 2311295,
@@ -8756,8 +8727,8 @@
       "type": "variation",
       "date_created": "2025-08-08T21:51:52",
       "date_created_gmt": "2025-08-08T21:51:52",
-      "date_modified": "2026-05-07T22:59:33",
-      "date_modified_gmt": "2026-05-07T22:59:33",
+      "date_modified": "2026-06-02T17:41:09",
+      "date_modified_gmt": "2026-06-02T17:41:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-button-down/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=l",
       "sku": "5150105036",
@@ -8780,7 +8751,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -9573,7 +9544,7 @@
         {
           "id": 2250413,
           "key": "_last_change_time",
-          "value": "1778177596"
+          "value": "1780422069"
         },
         {
           "id": 2311306,
@@ -11333,8 +11304,8 @@
       "type": "variation",
       "date_created": "2025-08-08T21:51:52",
       "date_created_gmt": "2025-08-08T21:51:52",
-      "date_modified": "2026-05-07T22:59:33",
-      "date_modified_gmt": "2026-05-07T22:59:33",
+      "date_modified": "2026-06-02T17:41:09",
+      "date_modified_gmt": "2026-06-02T17:41:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-button-down/?attribute_pa_selecciona-el-color=blanco&attribute_pa_selecciona-una-talla=xxl",
       "sku": "5150115040",
@@ -11357,7 +11328,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12150,7 +12121,7 @@
         {
           "id": 2259111,
           "key": "_last_change_time",
-          "value": "1778177595"
+          "value": "1780422069"
         },
         {
           "id": 2311304,
@@ -17346,8 +17317,8 @@
       "type": "variation",
       "date_created": "2025-08-08T21:51:52",
       "date_created_gmt": "2025-08-08T21:51:52",
-      "date_modified": "2026-05-07T22:59:33",
-      "date_modified_gmt": "2026-05-07T22:59:33",
+      "date_modified": "2026-06-02T17:41:09",
+      "date_modified_gmt": "2026-06-02T17:41:09",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-button-down/?attribute_pa_selecciona-el-color=azul-oscuro&attribute_pa_selecciona-una-talla=xl",
       "sku": "5150137038",
@@ -17370,8 +17341,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -18163,7 +18134,7 @@
         {
           "id": 2233393,
           "key": "_last_change_time",
-          "value": "1778177593"
+          "value": "1780422069"
         },
         {
           "id": 2311298,

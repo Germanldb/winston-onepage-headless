@@ -452,6 +452,35 @@
       "sale_price": ""
     },
     {
+      "id": 29557,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "negro",
+          "option": "negro"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "42",
+          "option": "42"
+        }
+      ],
+      "image": {
+        "id": 29516,
+        "date_created": "2023-06-09T19:49:18",
+        "date_created_gmt": "2023-06-09T19:49:18",
+        "date_modified": "2023-06-09T19:49:18",
+        "date_modified_gmt": "2023-06-09T19:49:18",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/IMG_3672.jpg",
+        "name": "IMG_3672",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "377300",
+      "regular_price": "539000",
+      "sale_price": ""
+    },
+    {
       "id": 29558,
       "attributes": [
         {
@@ -3925,8 +3954,8 @@
       "type": "variation",
       "date_created": "2023-06-09T20:28:56",
       "date_created_gmt": "2023-06-09T20:28:56",
-      "date_modified": "2026-05-08T21:43:13",
-      "date_modified_gmt": "2026-05-08T21:43:13",
+      "date_modified": "2026-06-02T17:37:25",
+      "date_modified_gmt": "2026-06-02T17:37:25",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/florencia/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=42",
       "sku": "7500702042",
@@ -3949,8 +3978,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 0,
-      "stock_status": "outofstock",
+      "stock_quantity": 1,
+      "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -4432,7 +4461,7 @@
         {
           "id": 2216475,
           "key": "_last_change_time",
-          "value": "1778275862"
+          "value": "1780421845"
         },
         {
           "id": 2313090,

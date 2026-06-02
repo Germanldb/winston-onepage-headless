@@ -4467,8 +4467,8 @@
       "type": "variation",
       "date_created": "2025-07-30T17:25:46",
       "date_created_gmt": "2025-07-30T17:25:46",
-      "date_modified": "2026-05-07T23:08:23",
-      "date_modified_gmt": "2026-05-07T23:08:23",
+      "date_modified": "2026-06-02T17:40:48",
+      "date_modified_gmt": "2026-06-02T17:40:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ramsey-ii/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=41",
       "sku": "7000702041",
@@ -4491,7 +4491,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5289,7 +5289,7 @@
         {
           "id": 2257351,
           "key": "_last_change_time",
-          "value": "1778184543"
+          "value": "1780422048"
         },
         {
           "id": 2311391,
@@ -7059,8 +7059,8 @@
       "type": "variation",
       "date_created": "2025-07-30T17:25:46",
       "date_created_gmt": "2025-07-30T17:25:46",
-      "date_modified": "2026-05-07T23:08:17",
-      "date_modified_gmt": "2026-05-07T23:08:17",
+      "date_modified": "2026-06-02T17:40:48",
+      "date_modified_gmt": "2026-06-02T17:40:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ramsey-ii/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=38",
       "sku": "7000702038",
@@ -7083,7 +7083,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -7881,7 +7881,7 @@
         {
           "id": 2259318,
           "key": "_last_change_time",
-          "value": "1778184519"
+          "value": "1780422048"
         },
         {
           "id": 2311388,
@@ -7923,8 +7923,8 @@
       "type": "variation",
       "date_created": "2025-07-30T17:25:46",
       "date_created_gmt": "2025-07-30T17:25:46",
-      "date_modified": "2026-05-07T23:08:17",
-      "date_modified_gmt": "2026-05-07T23:08:17",
+      "date_modified": "2026-06-02T17:40:48",
+      "date_modified_gmt": "2026-06-02T17:40:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ramsey-ii/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=37",
       "sku": "7000702037",
@@ -7947,7 +7947,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -8745,7 +8745,7 @@
         {
           "id": 2259317,
           "key": "_last_change_time",
-          "value": "1778184519"
+          "value": "1780422048"
         },
         {
           "id": 2311387,
@@ -21747,8 +21747,8 @@
       "type": "variation",
       "date_created": "2025-07-30T17:25:44",
       "date_created_gmt": "2025-07-30T17:25:44",
-      "date_modified": "2026-05-07T23:08:16",
-      "date_modified_gmt": "2026-05-07T23:08:16",
+      "date_modified": "2026-06-02T17:40:48",
+      "date_modified_gmt": "2026-06-02T17:40:48",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ramsey-ii/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=39",
       "sku": "7000701039",
@@ -21771,7 +21771,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -22569,7 +22569,7 @@
         {
           "id": 2259307,
           "key": "_last_change_time",
-          "value": "1778184515"
+          "value": "1780422048"
         },
         {
           "id": 2311411,

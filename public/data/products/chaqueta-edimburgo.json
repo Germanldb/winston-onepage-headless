@@ -5908,8 +5908,8 @@
       "type": "variation",
       "date_created": "2025-09-02T23:04:59",
       "date_created_gmt": "2025-09-02T23:04:59",
-      "date_modified": "2026-05-07T23:01:08",
-      "date_modified_gmt": "2026-05-07T23:01:08",
+      "date_modified": "2026-06-02T17:41:18",
+      "date_modified_gmt": "2026-06-02T17:41:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-edimburgo/?attribute_pa_selecciona-el-color=vinotinto&attribute_pa_selecciona-una-talla=xxl",
       "sku": "19199919040",
@@ -5932,7 +5932,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -6725,7 +6725,7 @@
         {
           "id": 2262042,
           "key": "_last_change_time",
-          "value": "1778177789"
+          "value": "1780422078"
         },
         {
           "id": 2311192,
@@ -9344,8 +9344,8 @@
       "type": "variation",
       "date_created": "2025-09-02T23:04:59",
       "date_created_gmt": "2025-09-02T23:04:59",
-      "date_modified": "2026-05-07T23:01:08",
-      "date_modified_gmt": "2026-05-07T23:01:08",
+      "date_modified": "2026-06-02T17:41:18",
+      "date_modified_gmt": "2026-06-02T17:41:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-edimburgo/?attribute_pa_selecciona-el-color=vinotinto&attribute_pa_selecciona-una-talla=m",
       "sku": "19199919034",
@@ -9368,7 +9368,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -10161,7 +10161,7 @@
         {
           "id": 2262040,
           "key": "_last_change_time",
-          "value": "1778177789"
+          "value": "1780422078"
         },
         {
           "id": 2311188,

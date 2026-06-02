@@ -1994,8 +1994,8 @@
       "type": "variation",
       "date_created": "2025-10-30T04:44:42",
       "date_created_gmt": "2025-10-30T04:44:42",
-      "date_modified": "2026-05-08T21:47:14",
-      "date_modified_gmt": "2026-05-08T21:47:14",
+      "date_modified": "2026-06-02T17:41:37",
+      "date_modified_gmt": "2026-06-02T17:41:37",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/canguro-east/?attribute_pa_selecciona-el-color=azul",
       "sku": "15150901000",
@@ -2018,7 +2018,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 11,
+      "stock_quantity": 10,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2795,7 +2795,7 @@
         {
           "id": 2261945,
           "key": "_last_change_time",
-          "value": "1778276834"
+          "value": "1780422097"
         },
         {
           "id": 2310958,

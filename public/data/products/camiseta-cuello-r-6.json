@@ -955,8 +955,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:49:18",
       "date_created_gmt": "2022-08-25T22:49:18",
-      "date_modified": "2026-05-07T22:59:58",
-      "date_modified_gmt": "2026-05-07T22:59:58",
+      "date_modified": "2026-06-02T17:36:09",
+      "date_modified_gmt": "2026-06-02T17:36:09",
       "description": "<p>Camiseta en nuestra horma insignia un poco mas deportiva en 100% algodon</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-cuello-r-6/?attribute_pa_selecciona-el-color=rosa&attribute_pa_selecciona-una-talla=l",
       "sku": "5056016036",
@@ -979,7 +979,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 15,
+      "stock_quantity": 12,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1462,7 +1462,7 @@
         {
           "id": 2236158,
           "key": "_last_change_time",
-          "value": "1778177718"
+          "value": "1780421769"
         },
         {
           "id": 2314047,
@@ -1504,8 +1504,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:49:18",
       "date_created_gmt": "2022-08-25T22:49:18",
-      "date_modified": "2026-05-07T22:59:58",
-      "date_modified_gmt": "2026-05-07T22:59:58",
+      "date_modified": "2026-06-02T17:36:09",
+      "date_modified_gmt": "2026-06-02T17:36:09",
       "description": "<p>Camiseta en nuestra horma insignia un poco mas deportiva en 100% algodon</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-cuello-r-6/?attribute_pa_selecciona-el-color=rosa&attribute_pa_selecciona-una-talla=m",
       "sku": "5056016034",
@@ -1528,7 +1528,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2011,7 +2011,7 @@
         {
           "id": 2236157,
           "key": "_last_change_time",
-          "value": "1778177718"
+          "value": "1780421769"
         },
         {
           "id": 2314046,
@@ -2053,8 +2053,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:49:18",
       "date_created_gmt": "2022-08-25T22:49:18",
-      "date_modified": "2026-05-07T22:59:58",
-      "date_modified_gmt": "2026-05-07T22:59:58",
+      "date_modified": "2026-06-02T17:36:09",
+      "date_modified_gmt": "2026-06-02T17:36:09",
       "description": "<p>Camiseta en nuestra horma insignia un poco mas deportiva en 100% algodon</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-cuello-r-6/?attribute_pa_selecciona-el-color=rosa&attribute_pa_selecciona-una-talla=s",
       "sku": "5056016032",
@@ -2077,7 +2077,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 35,
+      "stock_quantity": 33,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2560,7 +2560,7 @@
         {
           "id": 2250123,
           "key": "_last_change_time",
-          "value": "1778177718"
+          "value": "1780421769"
         },
         {
           "id": 2314045,

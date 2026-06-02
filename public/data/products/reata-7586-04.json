@@ -1135,8 +1135,8 @@
       "type": "variation",
       "date_created": "2025-04-24T04:53:06",
       "date_created_gmt": "2025-04-24T04:53:06",
-      "date_modified": "2026-05-07T23:09:06",
-      "date_modified_gmt": "2026-05-07T23:09:06",
+      "date_modified": "2026-06-02T17:40:47",
+      "date_modified_gmt": "2026-06-02T17:40:47",
       "description": "<p>Nosotros sabemos que la regla número uno cuando se usa cuero, es siempre combinar los colores &#8211; “match your leathers”. Nuestros cinturones Trent están hechos en piel de becerro de manera artesanal, pintados a mano para llegar a ser el accesorio perfecto al usar con nuestros zapatos. Su diseño sencillo y hebilla clásica le da un toque de elegancia que sobresaltará en cualquier ocasión que te encuentres.</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/reata-7586-04/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=m",
       "sku": "28758604034",
@@ -1159,7 +1159,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 7,
+      "stock_quantity": 6,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1857,7 +1857,7 @@
         {
           "id": 2257322,
           "key": "_last_change_time",
-          "value": "1778184761"
+          "value": "1780422047"
         },
         {
           "id": 2311455,
@@ -1899,8 +1899,8 @@
       "type": "variation",
       "date_created": "2025-04-24T04:53:06",
       "date_created_gmt": "2025-04-24T04:53:06",
-      "date_modified": "2026-05-07T23:09:06",
-      "date_modified_gmt": "2026-05-07T23:09:06",
+      "date_modified": "2026-06-02T17:40:47",
+      "date_modified_gmt": "2026-06-02T17:40:47",
       "description": "<p>Nosotros sabemos que la regla número uno cuando se usa cuero, es siempre combinar los colores &#8211; “match your leathers”. Nuestros cinturones Trent están hechos en piel de becerro de manera artesanal, pintados a mano para llegar a ser el accesorio perfecto al usar con nuestros zapatos. Su diseño sencillo y hebilla clásica le da un toque de elegancia que sobresaltará en cualquier ocasión que te encuentres.</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/reata-7586-04/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=s",
       "sku": "28758604032",
@@ -1923,7 +1923,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2621,7 +2621,7 @@
         {
           "id": 2219054,
           "key": "_last_change_time",
-          "value": "1778184761"
+          "value": "1780422047"
         },
         {
           "id": 2311454,

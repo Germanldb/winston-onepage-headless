@@ -464,35 +464,6 @@
       "sale_price": ""
     },
     {
-      "id": 61240,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "miel",
-          "option": "miel"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "39",
-          "option": "39"
-        }
-      ],
-      "image": {
-        "id": 61902,
-        "date_created": "2025-03-04T02:21:52",
-        "date_created_gmt": "2025-03-04T02:21:52",
-        "date_modified": "2025-03-04T07:28:12",
-        "date_modified_gmt": "2025-03-04T07:28:12",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Southampton-Miel-Winstonandharry-1-e1752616110839.jpg",
-        "name": "Southampton-Miel-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "539000",
-      "regular_price": "539000",
-      "sale_price": ""
-    },
-    {
       "id": 61241,
       "attributes": [
         {
@@ -504,35 +475,6 @@
           "name": "Selecciona una Talla",
           "value": "40",
           "option": "40"
-        }
-      ],
-      "image": {
-        "id": 61902,
-        "date_created": "2025-03-04T02:21:52",
-        "date_created_gmt": "2025-03-04T02:21:52",
-        "date_modified": "2025-03-04T07:28:12",
-        "date_modified_gmt": "2025-03-04T07:28:12",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Southampton-Miel-Winstonandharry-1-e1752616110839.jpg",
-        "name": "Southampton-Miel-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "539000",
-      "regular_price": "539000",
-      "sale_price": ""
-    },
-    {
-      "id": 61242,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "miel",
-          "option": "miel"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "41",
-          "option": "41"
         }
       ],
       "image": {
@@ -3444,8 +3386,8 @@
       "type": "variation",
       "date_created": "2025-03-03T06:45:31",
       "date_created_gmt": "2025-03-03T06:45:31",
-      "date_modified": "2026-05-07T23:10:18",
-      "date_modified_gmt": "2026-05-07T23:10:18",
+      "date_modified": "2026-06-02T17:40:06",
+      "date_modified_gmt": "2026-06-02T17:40:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/southampton/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=41",
       "sku": "7100726041",
@@ -3468,8 +3410,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -4091,7 +4033,7 @@
         {
           "id": 2260293,
           "key": "_last_change_time",
-          "value": "1778190053"
+          "value": "1780422006"
         },
         {
           "id": 2311729,
@@ -4822,8 +4764,8 @@
       "type": "variation",
       "date_created": "2025-03-03T06:45:31",
       "date_created_gmt": "2025-03-03T06:45:31",
-      "date_modified": "2026-05-07T23:10:18",
-      "date_modified_gmt": "2026-05-07T23:10:18",
+      "date_modified": "2026-06-02T17:40:06",
+      "date_modified_gmt": "2026-06-02T17:40:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/southampton/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=39",
       "sku": "7100726039",
@@ -4846,8 +4788,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -5469,7 +5411,7 @@
         {
           "id": 2260291,
           "key": "_last_change_time",
-          "value": "1778190053"
+          "value": "1780422006"
         },
         {
           "id": 2311726,
@@ -12202,8 +12144,8 @@
       "type": "variation",
       "date_created": "2025-03-03T06:45:30",
       "date_created_gmt": "2025-03-03T06:45:30",
-      "date_modified": "2026-05-07T23:10:13",
-      "date_modified_gmt": "2026-05-07T23:10:13",
+      "date_modified": "2026-06-02T17:40:06",
+      "date_modified_gmt": "2026-06-02T17:40:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/southampton/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=38",
       "sku": "7100701038",
@@ -12226,7 +12168,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12919,7 +12861,7 @@
         {
           "id": 2260284,
           "key": "_last_change_time",
-          "value": "1778190047"
+          "value": "1780422006"
         },
         {
           "id": 2311734,

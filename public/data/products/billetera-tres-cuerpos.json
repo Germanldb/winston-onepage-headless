@@ -226,8 +226,8 @@
       "type": "variation",
       "date_created": "2024-11-30T21:11:57",
       "date_created_gmt": "2024-11-30T21:11:57",
-      "date_modified": "2026-05-11T20:44:29",
-      "date_modified_gmt": "2026-05-11T20:44:29",
+      "date_modified": "2026-06-02T17:39:15",
+      "date_modified_gmt": "2026-06-02T17:39:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/billetera-tres-cuerpos/?attribute_pa_selecciona-el-color=negro",
       "sku": "33337602000",
@@ -250,7 +250,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 31,
+      "stock_quantity": 29,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -842,7 +842,7 @@
         {
           "id": 2239442,
           "key": "_last_change_time",
-          "value": "1778532257"
+          "value": "1780421955"
         },
         {
           "id": 2312156,
@@ -909,8 +909,8 @@
       "type": "variation",
       "date_created": "2024-11-30T21:11:57",
       "date_created_gmt": "2024-11-30T21:11:57",
-      "date_modified": "2026-05-11T20:44:29",
-      "date_modified_gmt": "2026-05-11T20:44:29",
+      "date_modified": "2026-06-02T17:39:15",
+      "date_modified_gmt": "2026-06-02T17:39:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/billetera-tres-cuerpos/?attribute_pa_selecciona-el-color=cafe",
       "sku": "33337604000",
@@ -933,7 +933,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 38,
+      "stock_quantity": 36,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1525,7 +1525,7 @@
         {
           "id": 2250307,
           "key": "_last_change_time",
-          "value": "1778532257"
+          "value": "1780421955"
         },
         {
           "id": 2312155,
