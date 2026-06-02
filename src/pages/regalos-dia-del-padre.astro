@@ -119,12 +119,12 @@ const lookData = await getLookOfTheWeekData();
 // Esto evita tiempos de carga lentos del lado del cliente, previene el spinner infinito y elimina cualquier layout shift.
 import { getAllProducts, getProductsByCategory } from "../lib/woocommerce";
 
-const productsAll = await getAllProducts(24, 1, "popularity", "desc");
-const productsPrice = await getProductsByCategory("921", 24, 1, "popularity", "desc", false, undefined, undefined, "300000");
-const productsSueteres = await getProductsByCategory("955", 24, 1, "popularity", "desc");
-const productsZapatos = await getProductsByCategory("63", 24, 1, "popularity", "desc");
-const productsMaletas = await getProductsByCategory("190", 24, 1, "popularity", "desc");
-const productsRopa = await getProductsByCategory("249", 24, 1, "popularity", "desc");
+const productsAll = await getAllProducts(24, 1, "menu_order", "asc");
+const productsPrice = await getProductsByCategory("921", 24, 1, "menu_order", "asc", false, undefined, undefined, "300000");
+const productsSueteres = await getProductsByCategory("955", 24, 1, "menu_order", "asc");
+const productsZapatos = await getProductsByCategory("63", 24, 1, "menu_order", "asc");
+const productsMaletas = await getProductsByCategory("190", 24, 1, "menu_order", "asc");
+const productsRopa = await getProductsByCategory("249", 24, 1, "menu_order", "asc");
 
 const initialCache = {
     'all': productsAll,
