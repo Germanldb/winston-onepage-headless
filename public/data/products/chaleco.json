@@ -21665,7 +21665,16 @@
       }
     }
   ],
-  "wpc_resolved_media": {},
+  "wpc_resolved_media": {
+    "67176": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Azul-Winstonandharry-2-e1755677157929.jpg",
+    "67177": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Azul-Winstonandharry-3-e1755677184269.jpg",
+    "67179": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Gris-Winstonandharry-2-e1755677204107.jpg",
+    "67180": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Gris-Winstonandharry-3-e1755677215831.jpg",
+    "67182": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Negro-Winstonandharry-2-e1755677239542.jpg",
+    "67183": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Negro-Winstonandharry-3-e1755677257484.jpg",
+    "67185": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Vino-Winstonandharry-2-e1755677289932.jpg",
+    "67186": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Vino-Winstonandharry-3-e1755677310147.jpg"
+  },
   "stock_status": "instock",
   "variation_images_map": {
     "gris": [
@@ -21674,6 +21683,16 @@
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Gris-Winstonandharry-1-e1755677193518.jpg",
         "alt": "Chaleco Unifondo-Gris-Winstonandharry-1",
         "name": "Chaleco Unifondo-Gris-Winstonandharry-1"
+      },
+      {
+        "id": 67179,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Gris-Winstonandharry-2-e1755677204107.jpg",
+        "alt": "Chaleco"
+      },
+      {
+        "id": 67180,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Gris-Winstonandharry-3-e1755677215831.jpg",
+        "alt": "Chaleco"
       }
     ],
     "negro": [
@@ -21682,6 +21701,16 @@
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Negro-Winstonandharry-1-e1755677224889.jpg",
         "alt": "Chaleco Unifondo-Negro-Winstonandharry-1",
         "name": "Chaleco Unifondo-Negro-Winstonandharry-1"
+      },
+      {
+        "id": 67182,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Negro-Winstonandharry-2-e1755677239542.jpg",
+        "alt": "Chaleco"
+      },
+      {
+        "id": 67183,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Negro-Winstonandharry-3-e1755677257484.jpg",
+        "alt": "Chaleco"
       }
     ],
     "vinotinto": [
@@ -21690,6 +21719,16 @@
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Vino-Winstonandharry-1-e1755677267140.jpg",
         "alt": "Chaleco Unifondo-Vino-Winstonandharry-1",
         "name": "Chaleco Unifondo-Vino-Winstonandharry-1"
+      },
+      {
+        "id": 67185,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Vino-Winstonandharry-2-e1755677289932.jpg",
+        "alt": "Chaleco"
+      },
+      {
+        "id": 67186,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Vino-Winstonandharry-3-e1755677310147.jpg",
+        "alt": "Chaleco"
       }
     ],
     "azul": [
@@ -21698,6 +21737,16 @@
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Azul-Winstonandharry-1-e1755677147950.jpg",
         "alt": "Chaleco Unifondo-Azul-Winstonandharry-1",
         "name": "Chaleco Unifondo-Azul-Winstonandharry-1"
+      },
+      {
+        "id": 67176,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Azul-Winstonandharry-2-e1755677157929.jpg",
+        "alt": "Chaleco"
+      },
+      {
+        "id": 67177,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Chaleco-Unifondo-Azul-Winstonandharry-3-e1755677184269.jpg",
+        "alt": "Chaleco"
       }
     ]
   }
