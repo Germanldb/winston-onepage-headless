@@ -21,6 +21,7 @@ interface Product {
     src: string;
     alt: string;
   }[];
+  categories?: { id: number; name: string; slug: string }[];
   attributes: {
     id: number;
     name: string;
@@ -89,24 +90,31 @@ export default function ProductGrid({
   };
 
   const categoriesAccordionData = useMemo(() => {
-    let mainCatId = '';
-    if (activeCategory.id === '63') mainCatId = '63';
-    else if (activeCategory.id === '249') mainCatId = '249';
-    else if (activeCategory.id === '190') mainCatId = '190';
-
-    const matched = MENU_CATEGORIES.find(m => m.id === mainCatId || m.slug === activeCategory.slug);
-    
-    if (matched && matched.subcategories.length > 0) {
-      return {
-        title: 'Subcategorías',
-        list: matched.subcategories
-      };
+    const collected = new Map<string, { name: string; slug: string }>();
+    if (Array.isArray(products) && products.length > 0) {
+      products.forEach(p => {
+        if (p.categories) {
+          p.categories.forEach(c => {
+            const slug = (c.slug || '').toLowerCase();
+            // Ignorar la categoría principal activa
+            if (slug && slug !== activeCategory.slug) {
+              // Filtrar 'tienda' u otras genéricas si es necesario
+              if (slug !== 'tienda' && slug !== 'sale') {
+                collected.set(slug, { name: c.name, slug });
+              }
+            }
+          });
+        }
+      });
     }
+
+    const list = Array.from(collected.values()).sort((a, b) => a.name.localeCompare(b.name));
+
     return {
       title: 'Subcategorías',
-      list: []
+      list
     };
-  }, [activeCategory]);
+  }, [products, activeCategory]);
 
   // Precarga inicial de todas las categorías (siempre reemplaza los 24 del SSR con el JSON completo)
   useEffect(() => {

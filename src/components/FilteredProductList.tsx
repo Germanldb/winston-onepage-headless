@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import ProductCard from './ProductCard';
-import { MENU_CATEGORIES } from '../lib/menuCategories';
 
 interface FilteredProductListProps {
     initialProducts: any[];
@@ -196,12 +195,22 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
         return Array.from(collected.values()).sort((a, b) => a.name.localeCompare(b.name));
     }, [allFetchedProducts]);
 
+    const dynamicCategories = useMemo(() => {
+        if (!navigationTree || !Array.isArray(navigationTree)) return [];
+        return navigationTree.map(node => ({
+            id: node.id,
+            name: node.name,
+            slug: node.slug,
+            subcategories: node.children || []
+        }));
+    }, [navigationTree]);
+
     const categoriesAccordionData = useMemo(() => {
         const slug = (category?.slug || "").toLowerCase();
         const isSpecific = slug !== 'tienda' && slug !== 'sale' && slug !== '';
         
         if (isSpecific) {
-            const matched = MENU_CATEGORIES.find(m => m.slug === slug || String(m.id) === String(category?.id));
+            const matched = dynamicCategories.find(m => m.slug === slug || String(m.id) === String(category?.id));
             if (matched && matched.subcategories.length > 0) {
                 return {
                     isSpecific: true,
@@ -219,10 +228,10 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
             return {
                 isSpecific: false,
                 title: 'Categorías',
-                list: MENU_CATEGORIES
+                list: dynamicCategories
             };
         }
-    }, [category, subcategories]);
+    }, [category, subcategories, dynamicCategories]);
 
     const toggleSection = (section: string) => {
         setOpenSections(prev => ({ ...prev, [section]: !prev[section] }));

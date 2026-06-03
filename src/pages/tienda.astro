@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { getAllProducts, getAttributeTerms, getAttributes, wcFetch } from "../lib/woocommerce";
+import { getAllProducts, getAttributeTerms, getAttributes, wcFetch, EXCLUDED_SLUGS } from "../lib/woocommerce";
 import FilteredProductList from "../components/FilteredProductList";
 
 export const prerender = true;
@@ -86,7 +86,7 @@ try {
     tallaTerms = Array.isArray(sizes) ? sizes : [];
     allCategories = Array.isArray(categories)
         ? categories
-              .filter((c: any) => c.parent === 0)
+              .filter((c: any) => c.parent === 0 && !EXCLUDED_SLUGS.includes(c.slug))
               .map((c: any) => ({
                   id: c.id,
                   name: c.name,

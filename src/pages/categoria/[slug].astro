@@ -16,7 +16,8 @@ import {
     ASTRO_TO_WP_SLUG_MAP,
     mapWpToAstroSlug,
     mapAstroToWpSlug,
-    STRICT_CATEGORIES
+    STRICT_CATEGORIES,
+    EXCLUDED_SLUGS
 } from "../../lib/woocommerce";
 import FilteredProductList from "../../components/FilteredProductList";
 
@@ -24,8 +25,41 @@ export async function getStaticPaths() {
     const fs = await import('node:fs');
     const path = await import('node:path');
     
-    // 1. Mapeo Estricto: usar únicamente los slugs y categorías de Astro definidos
-    const astroSlugsToGen = STRICT_CATEGORIES;
+    // 1. Híbrido: Obtener TODAS las categorías dinámicamente desde WooCommerce
+    let allWooCategories = [];
+    try {
+        const rawCats = await wcFetch("/products/categories?per_page=100");
+        if (Array.isArray(rawCats)) {
+            allWooCategories = rawCats;
+        }
+    } catch (e) {
+        console.error("Error fetching categories for SSG:", e);
+    }
+
+    const strictMap = new Map();
+    STRICT_CATEGORIES.forEach(cat => strictMap.set(cat.id, cat));
+
+    const validWooCategories = allWooCategories.filter((c: any) => !EXCLUDED_SLUGS.includes(c.slug));
+
+    const astroSlugsToGen = validWooCategories.map((wooCat: any) => {
+        const strictCat = strictMap.get(wooCat.id);
+        if (strictCat) {
+            return {
+                id: wooCat.id,
+                slug: strictCat.slug,
+                name: strictCat.name,
+                description: strictCat.description || '',
+                image: strictCat.image || ''
+            };
+        }
+        return {
+            id: wooCat.id,
+            slug: wooCat.slug,
+            name: wooCat.name,
+            description: '',
+            image: ''
+        };
+    });
 
     // Directorio de salida para los catálogos estáticos
     const catalogDir = path.join(process.cwd(), 'public', 'data', 'catalog');
@@ -112,7 +146,7 @@ export async function getStaticPaths() {
                         if (fs.existsSync(base)) {
                             const fullDir = path.join(base, 'data', 'catalog');
                             if (!fs.existsSync(fullDir)) fs.mkdirSync(fullDir, { recursive: true });
-                            fs.writeFileSync(path.join(fullDir, `${slug}-all.json`), JSON.stringify(lightweightProducts), 'utf-8');
+                            fs.writeFileSync(path.join(fullDir, `${cat.slug}-all.json`), JSON.stringify(lightweightProducts), 'utf-8');
                             if (wpSlug !== cat.slug) {
                                 fs.writeFileSync(path.join(fullDir, `${wpSlug}-all.json`), JSON.stringify(lightweightProducts), 'utf-8');
                             }
@@ -253,20 +287,25 @@ try {
             const siblings = await getChildCategories(category.parent);
             const parentCat = await getCategoryById(category.parent);
             
-            subcategories = [
-                ...(parentCat ? [{ 
-                    id: parentCat.id, 
-                    name: `TODO ${parentCat.name.toUpperCase()}`, 
-                    slug: parentCat.slug 
-                }] : []),
-                ...siblings
-            ];
+            subcategories = siblings;
         } else {
             subcategories = currentSubcats;
         }
 
-        // 5. Cargamos el árbol completo de navegación para el dropdown superior
-        navigationTree = await getCategoryTree();
+        // 5. Cargamos el árbol completo de navegación para el dropdown superior y el panel de filtros lateral
+        const rawTree = await getCategoryTree();
+        
+        // Filtramos recursivamente las categorías internas para no exponerlas al cliente
+        const filterTree = (nodes: any[]): any[] => {
+            return nodes
+                .filter(n => !EXCLUDED_SLUGS.includes(n.slug))
+                .map(n => ({
+                    ...n,
+                    children: filterTree(n.children || [])
+                }));
+        };
+        
+        navigationTree = filterTree(rawTree);
 
         if (tallaParam) {
             products = products.filter((p) =>

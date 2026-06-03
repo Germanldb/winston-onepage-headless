@@ -511,7 +511,6 @@ export default function ProductCard({ product, isSelected, onSelectionToggle, on
 
                         <picture className="primary-image">
                             <img
-                                key={mainImage?.src}
                                 src={getOptimizedUrl(mainImage?.src || '', { width: 600 })}
                                 srcSet={getImageSrcSet(mainImage?.src || '', [400, 600, 800])}
                                 sizes="(max-width: 768px) 50vw, 33vw"

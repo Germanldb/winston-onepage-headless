@@ -45,9 +45,11 @@ export const MENU_CATEGORIES = [
     slug: 'accesorios-hombre',
     id: '220',
     subcategories: [
-      { name: 'Billeteras', slug: 'billeteras-cuero-hombre' },
-      { name: 'Correas', slug: 'correas-cuero-hombre' },
-      { name: 'Llaveros', slug: 'llaveros-cuero-hombre' }
+      { name: 'Billeteras', slug: 'billeteras' },
+      { name: 'Cinturones', slug: 'cinturones' },
+      { name: 'Gorras', slug: 'gorras' },
+      { name: 'Limpieza', slug: 'limpieza' },
+      { name: 'Reatas', slug: 'reatas' }
     ]
   },
   {

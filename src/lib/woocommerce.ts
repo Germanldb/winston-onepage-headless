@@ -61,6 +61,18 @@ if (WC_URL_ENV.includes("winstonandharrystore.com") && !WC_URL_ENV.includes("tie
 }
 
 export const PUBLIC_WP_URL = WC_URL_ENV.replace(/\/$/, "");
+
+export const EXCLUDED_SLUGS = [
+    'bono-regalo-hombre',
+    'ideas-regalo-hombre',
+    'mas-de-500000',
+    'menos-de-200000',
+    'menos-de-350000',
+    'menos-de-499000',
+    'sin-categorizar',
+    'outlet-zapatos-ropa'
+];
+
 const WP_JSON_BASE = `${PUBLIC_WP_URL}/wp-json`;
 
 // SSR Safe base64 helper
@@ -994,7 +1006,7 @@ export async function getChildCategories(parentId: number) {
 
         // Normalize: map v3 fields to the shape the components expect (name, slug, id, image)
         const normalized = categories
-            .filter((c: any) => c.count > 0)
+            .filter((c: any) => c.count > 0 && !EXCLUDED_SLUGS.includes(c.slug))
             .map((c: any) => ({
                 id: c.id,
                 name: c.name,

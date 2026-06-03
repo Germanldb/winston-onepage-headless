@@ -56,33 +56,9 @@ async function getDynamicProductPages() {
 
 const productPages = await getDynamicProductPages();
 
-const mappedCategories = [
-  'zapatos-cuero-hombre',
-  'mocasines-cuero-hombre',
-  'botas-cuero-hombre',
-  'ropa-hombre-colombia',
-  'maletas-morrales-cuero',
-  'accesorios-hombre',
-  'tenis-hombre',
-  'outlet-zapatos-ropa',
-  'pantuflas-cuero-hombre',
-  'tallas-grandes-zapatos-hombre',
-  'zapatos-hechos-colombia-hombre',
-  'zapatos-cordon-hombre',
-  'zapatos-hebilla-hombre',
-  'cinturones-cuero-hombre',
-  'billeteras-tarjeteros-cuero',
-  'chaquetas-cuero-hombre',
-  'collares-cuero-perro',
-  'sueteres-chalecos-hombre',
-  'polos-camisetas-hombre',
-  'medias-hombre',
-  'camisas-algodon-hombre',
-  'chaquetas-hombre'
-];
-const categoryPages = mappedCategories.map(slug => `https://www.winstonandharrystore.com/categoria/${slug}`);
+const categoryPages = []; // Ya no se mapean estáticamente
 
-const allSitemapPages = [...productPages, ...categoryPages, 'https://www.winstonandharrystore.com/sale', 'https://www.winstonandharrystore.com/regalos-dia-del-padre'];
+const allSitemapPages = [...productPages, 'https://www.winstonandharrystore.com/sale', 'https://www.winstonandharrystore.com/regalos-dia-del-padre'];
 
 // Set para evitar duplicados en el sitemap durante el proceso de generación
 const seenUrls = new Set();
@@ -123,17 +99,9 @@ export default defineConfig({
           item.url = item.url.replace('/product-category/', '/categoria/');
         }
 
-        // 2. Filtro de Exclusión de Categorías no mapeadas
-        if (item.url.includes('/categoria/')) {
-          const match = item.url.match(/\/categoria\/([^\/]+)/);
-          if (match && match[1]) {
-            const catSlug = match[1];
-            if (!mappedCategories.includes(catSlug)) {
-              return undefined; // Excluye esta categoría del sitemap
-            }
-          }
-        }
-
+        // 2. Ya no filtramos las categorías; permitimos que el sitemap herede automáticamente las generadas por Astro en build-time
+        // Se preserva la URL
+        
         // Unificar URLs eliminando barra diagonal final (trailing slash) excepto si es la raíz
         if (item.url !== 'https://www.winstonandharrystore.com/' && item.url !== 'https://www.winstonandharrystore.com' && item.url.endsWith('/')) {
           item.url = item.url.slice(0, -1);
@@ -189,17 +157,6 @@ export default defineConfig({
           return false;
         }
 
-        // Filtro estricto adicional para categorías no mapeadas en la fase de descubrimiento inicial
-        if (page.includes('/categoria/')) {
-          const match = page.match(/\/categoria\/([^\/]+)/);
-          if (match && match[1]) {
-            const catSlug = match[1];
-            if (!mappedCategories.includes(catSlug)) {
-              return false;
-            }
-          }
-        }
-
         return true;
       }
     }),
@@ -215,7 +172,9 @@ export default defineConfig({
     '/review-santabarbara': 'https://g.page/r/CfogiOsEUdgVEBM/review',
     '/review-retiro': 'https://g.page/r/CSKXwQ5l5zSpEBM/review',
     '/categoria/pantalones-jeans-hombre': '/categoria/ropa-hombre-colombia',
-    '/categoria/trajes-blazers-hombre': '/categoria/ropa-hombre-colombia',
+    '/categoria/reatascinturones': '/categoria/cinturones-reatas-cuero-hombre',
+    '/categoria/billeteras': '/categoria/billeteras-cuero-hombre',
+    '/categoria/limpieza': '/categoria/limpieza-cuidado-zapatos',
     '/productos/limpiador-en-seco': '/categoria/accesorios-hombre',
     '/productos/sueter-tejido-escalera-negro': '/categoria/sueteres-chalecos-hombre',
   },
@@ -234,4 +193,11 @@ export default defineConfig({
   image: {
     domains: ["winstonandharrystore.com", "staging.winstonandharrystore.com", "tienda.winstonandharrystore.com"],
   },
+  vite: {
+    server: {
+      watch: {
+        ignored: ['**/public/data/build-cache/**', '**/public/data/catalog/**']
+      }
+    }
+  }
 });

@@ -9,6 +9,7 @@ interface Product {
   permalink: string;
   prices: any;
   images: { src: string; alt: string; }[];
+  categories?: { id: number; name: string; slug: string }[];
   attributes: any[];
   variations: any[];
   variation_images_map?: Record<string, any[]>;

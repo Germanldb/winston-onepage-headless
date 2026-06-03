@@ -69,6 +69,12 @@
       "link": "https://tienda.winstonandharrystore.com/product-category/accesorios-hombre/"
     },
     {
+      "id": 967,
+      "name": "Cinturones",
+      "slug": "cinturones",
+      "link": "https://tienda.winstonandharrystore.com/product-category/accesorios-hombre/cinturones/"
+    },
+    {
       "id": 424,
       "name": "Ideas de regalo",
       "slug": "ideas-regalo-hombre",
@@ -100,9 +106,9 @@
     },
     {
       "id": 963,
-      "name": "Reatas y cinturones",
-      "slug": "reatascinturones",
-      "link": "https://tienda.winstonandharrystore.com/product-category/accesorios-hombre/reatascinturones/"
+      "name": "Reatas",
+      "slug": "reatas",
+      "link": "https://tienda.winstonandharrystore.com/product-category/accesorios-hombre/reatas/"
     }
   ],
   "tags": [
