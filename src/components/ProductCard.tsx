@@ -106,6 +106,19 @@ export default function ProductCard({ product, isSelected, onSelectionToggle, on
 
 
 
+    // Precargar imágenes de las variaciones solo cuando el usuario haga hover en la tarjeta entera
+    // Esto evita descargar decenas de imágenes en simultáneo al abrir la página
+    useEffect(() => {
+        if (!product.variation_images_map || !isCardHovered) return;
+        
+        Object.values(product.variation_images_map).forEach((images: any) => {
+            if (images?.[0]?.src) {
+                const img = new Image();
+                img.src = images[0].src;
+            }
+        });
+    }, [product.variation_images_map, isCardHovered]);
+
     // Reset state when product changes
     useEffect(() => {
         setFailedSyntheticColors([]);
@@ -453,7 +466,8 @@ export default function ProductCard({ product, isSelected, onSelectionToggle, on
     // El hover funciona si hay una imagen src válida
     // Si displayImages[1] existe, lo usamos directamente
     // Si no, usamos guessedHoverSrc que predice la URL -2
-    const isHoverActive = isCardHovered && !!effectiveHoverSrc;
+    // Desactivamos el efecto de hover secundario si el usuario está tocando un punto de color
+    const isHoverActive = isCardHovered && !!effectiveHoverSrc && !hoveredColor;
 
     const priceData = enrichedProduct?.prices || product.prices;
     const currencyMinorUnit = priceData.currency_minor_unit || 0;

@@ -108,40 +108,36 @@ export default function ProductGrid({
     };
   }, [activeCategory]);
 
-  // Precarga inicial de todas las categorías
+  // Precarga inicial de todas las categorías (siempre reemplaza los 24 del SSR con el JSON completo)
   useEffect(() => {
-    if (initialCache && Object.keys(initialCache).length >= 3) {
-      return;
-    }
-
     const prefetchCategories = async () => {
       try {
         if (initialProducts.length === 0) setLoading(true);
         setError(null);
 
-        try {
-          const catRes = await fetch('/api/categories');
-          if (catRes.ok) {
-            const allCats = await catRes.json();
-            const newSlugs: Record<string, string> = { ...categorySlugs };
-            CATEGORIES.forEach(c => {
-                const found = allCats.find((ac: any) => String(ac.id) === String(c.id));
-                if (found) newSlugs[c.id] = found.slug;
-            });
-            setCategorySlugs(newSlugs);
-          }
-        } catch (e) {
-          console.error("Error fetching dynamic slugs:", e);
-        }
-
         const results = await Promise.all(
           CATEGORIES.map(async (cat) => {
-            if (String(cat.id) === '63' && initialProducts.length > 0) {
-              return { id: cat.id, data: initialProducts };
+            let data: Product[] = [];
+            let jsonSuccess = false;
+
+            // 1. Intentar cargar el JSON estático completo
+            try {
+              const staticUrl = `/data/catalog/${cat.slug}-all.json`;
+              const staticRes = await fetch(staticUrl);
+              if (staticRes.ok) {
+                data = await staticRes.json();
+                jsonSuccess = true;
+              }
+            } catch (e) {
+              console.warn(`No se pudo cargar el JSON estático para ${cat.slug}`);
             }
-            const res = await fetch(`/api/products?category=${cat.id}&orderby=modified&per_page=24`);
-            if (!res.ok) return { id: cat.id, data: [] };
-            const data: Product[] = await res.json();
+
+            // 2. Si falla el JSON, usar la API
+            if (!jsonSuccess) {
+              const res = await fetch(`/api/products?category=${cat.id}&orderby=popularity&per_page=100`);
+              if (!res.ok) return { id: cat.id, data: initialCache?.[cat.id] || [] };
+              data = await res.json();
+            }
 
             const seenIds = new Set<number>();
             const filteredData = data.filter(p => {
@@ -155,10 +151,7 @@ export default function ProductGrid({
         );
 
         const newCache: Record<string | number, Product[]> = {};
-        results.forEach(res => {
-          newCache[res.id] = res.data;
-        });
-
+        results.forEach(res => { newCache[res.id] = res.data; });
         setCategoryCache(newCache);
 
         if (newCache[activeCategory.id]) {

@@ -58,6 +58,12 @@
       "link": "https://tienda.winstonandharrystore.com/product-category/accesorios-hombre/"
     },
     {
+      "id": 965,
+      "name": "Limpieza",
+      "slug": "limpieza",
+      "link": "https://tienda.winstonandharrystore.com/product-category/accesorios-hombre/limpieza/"
+    },
+    {
       "id": 920,
       "name": "Menos de $200,000",
       "slug": "menos-de-200000",

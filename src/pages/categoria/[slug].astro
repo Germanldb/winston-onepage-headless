@@ -72,7 +72,12 @@ export async function getStaticPaths() {
                 }
 
                 // Mapeo ligero para reducir el tamaño del JSON
-                const lightweightProducts = allCategoryProducts.map(p => ({
+                const lightweightProducts = allCategoryProducts
+                  .filter(p => {
+                    const price = p.prices?.price;
+                    return price && price !== '0' && price !== '';
+                  })
+                  .map(p => ({
                     id: p.id,
                     name: p.name,
                     slug: p.slug,
@@ -88,7 +93,7 @@ export async function getStaticPaths() {
                     on_sale: p.on_sale,
                     featured: p.featured,
                     variation_images_map: p.variation_images_map
-                }));
+                  }));
 
                 // Escribir el array completo
                 fs.writeFileSync(filePath, JSON.stringify(lightweightProducts), 'utf-8');
