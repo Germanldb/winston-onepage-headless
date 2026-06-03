@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import ProductCard from './ProductCard';
+import { MENU_CATEGORIES } from '../lib/menuCategories';
 
 interface Product {
   id: number;
@@ -27,60 +28,6 @@ const SORT_OPTIONS = [
   { key: "precio_asc", label: "Menor a mayor precio" },
   { key: "precio_desc", label: "Mayor a menor precio" },
   { key: "descuentos", label: "Descuentos" }
-];
-
-const MENU_CATEGORIES = [
-  {
-    name: 'Zapatos',
-    slug: 'zapatos-cuero-hombre',
-    id: '63',
-    subcategories: [
-      { name: 'Mocasines', slug: 'mocasines-hombre-cuero' },
-      { name: 'Oxford y Derby', slug: 'oxford-derby-zapatos-cuero' },
-      { name: 'Tenis', slug: 'tenis-cuero-hombre' },
-      { name: 'Botas', slug: 'botas-cuero-hombre' }
-    ]
-  },
-  {
-    name: 'Ropa',
-    slug: 'ropa-hombre-colombia',
-    id: '249',
-    subcategories: [
-      { name: 'Suéteres y Chalecos', slug: 'sueteres-chalecos-hombre', id: '955' },
-      { name: 'Chaquetas y Blazers', slug: 'chaquetas-blazers-cuero-hombre' },
-      { name: 'Camisas', slug: 'camisas-hombre' },
-      { name: 'Pantalones y Jeans', slug: 'pantalones-jeans-hombre' },
-      { name: 'Camisetas y Polos', slug: 'camisetas-polos-hombre' }
-    ]
-  },
-  {
-    name: 'Maletas y Morrales',
-    slug: 'maletas-morrales-cuero',
-    id: '190',
-    subcategories: [
-      { name: 'Morrales', slug: 'morrales-cuero-hombre' },
-      { name: 'Portafolios', slug: 'portafolios-cuero-hombre' },
-      { name: 'Maletas de Viaje', slug: 'maletas-viaje-cuero' },
-      { name: 'Neceseres', slug: 'neceseres-cuero' },
-      { name: 'Canguros', slug: 'canguros-cuero' }
-    ]
-  },
-  {
-    name: 'Accesorios',
-    slug: 'accesorios-cuero-hombre',
-    id: '220',
-    subcategories: [
-      { name: 'Billeteras', slug: 'billeteras-cuero-hombre' },
-      { name: 'Correas', slug: 'correas-cuero-hombre' },
-      { name: 'Llaveros', slug: 'llaveros-cuero-hombre' }
-    ]
-  },
-  {
-    name: 'Collares para perro',
-    slug: 'collares-cuero-perro',
-    id: 'collares',
-    subcategories: []
-  }
 ];
 
 function getProductMainCategoryOrderIndex(product: any): number {
@@ -168,10 +115,12 @@ export default function CampaignStickyFavorites({
 
   const toggleSubcat = (slug: string) => {
     setSelectedSubcats(prev => prev.includes(slug) ? prev.filter(s => s !== slug) : [...prev, slug]);
+    setVisibleCount(12);
   };
 
   useEffect(() => {
-    if (initialCache && Object.keys(initialCache).length >= 6) return;
+    // Ya NO hacemos return temprano si hay initialCache, porque necesitamos
+    // actualizar los 24 productos iniciales (SSR) a los 100 completos en background.
 
     const prefetchCategories = async () => {
       try {
@@ -180,19 +129,35 @@ export default function CampaignStickyFavorites({
 
         const results = await Promise.all(
           CATEGORIES.map(async (cat) => {
-            if (String(cat.id) === 'all' && initialProducts.length > 0) {
-              return { id: cat.id, data: initialProducts };
+            // 1. Intentar cargar el JSON estático si no es la categoría especial de precios
+            let data: Product[] = [];
+            let jsonSuccess = false;
+            
+            if (cat.id !== '921') {
+              try {
+                const staticUrl = `/data/catalog/${cat.slug}-all.json`;
+                const staticRes = await fetch(staticUrl);
+                if (staticRes.ok) {
+                  data = await staticRes.json();
+                  jsonSuccess = true;
+                }
+              } catch (e) {
+                console.warn(`No se pudo cargar el JSON estático para ${cat.slug}`);
+              }
             }
-            
-            let url = cat.id === 'all' 
-                ? `/api/products?orderby=popularity&per_page=24`
-                : `/api/products?category=${cat.id}&orderby=popularity&per_page=24`;
-            
-            if (cat.maxPrice) url += `&max_price=${cat.maxPrice}`;
 
-            const res = await fetch(url);
-            if (!res.ok) return { id: cat.id, data: [] };
-            const data: Product[] = await res.json();
+            // 2. Si falla o es la de precios, usar la API de Astro/WooCommerce
+            if (!jsonSuccess) {
+              let url = cat.id === 'all' 
+                  ? `/api/products?orderby=popularity&per_page=100`
+                  : `/api/products?category=${cat.id}&orderby=popularity&per_page=100`;
+              
+              if (cat.maxPrice) url += `&max_price=${cat.maxPrice}`;
+
+              const res = await fetch(url);
+              if (!res.ok) return { id: cat.id, data: [] };
+              data = await res.json();
+            }
 
             const seenIds = new Set<number>();
             const filteredData = data.filter(p => {
@@ -210,6 +175,7 @@ export default function CampaignStickyFavorites({
         setCategoryCache(newCache);
 
         if (newCache[activeCategory.id]) {
+          console.log('[DIAGNOSTICO] Productos en memoria (después de fetch):', newCache[activeCategory.id].length);
           setProducts(newCache[activeCategory.id]);
         }
       } catch (err) {
@@ -243,6 +209,7 @@ export default function CampaignStickyFavorites({
       const max = localPriceRange[1] === '' ? 99999999 : Number(localPriceRange[1]);
       if (min !== priceRange[0] || max !== priceRange[1]) {
         setPriceRange([min, max]);
+        setVisibleCount(12);
       }
     }, 600);
     return () => clearTimeout(handler);
@@ -333,17 +300,34 @@ export default function CampaignStickyFavorites({
       const cat = CATEGORIES.find(c => String(c.id) === String(categoryId));
       if (!cat) return;
 
-      const PER_PAGE = 24;
-      let url = cat.id === 'all'
-          ? `/api/products?orderby=popularity&per_page=${PER_PAGE}&page=${page}`
-          : `/api/products?category=${cat.id}&orderby=popularity&per_page=${PER_PAGE}&page=${page}`;
+      let data: Product[] = [];
+      let jsonSuccess = false;
+      
+      if (cat.id !== '921') {
+        try {
+          const staticUrl = `/data/catalog/${cat.slug}-all.json`;
+          const staticRes = await fetch(staticUrl);
+          if (staticRes.ok) {
+            data = await staticRes.json();
+            jsonSuccess = true;
+          }
+        } catch (e) {
+          console.warn(`No se pudo cargar el JSON estático para ${cat.slug}`);
+        }
+      }
 
-      if (cat.maxPrice) url += `&max_price=${cat.maxPrice}`;
+      if (!jsonSuccess) {
+        const PER_PAGE = 100;
+        let url = cat.id === 'all'
+            ? `/api/products?orderby=popularity&per_page=${PER_PAGE}`
+            : `/api/products?category=${cat.id}&orderby=popularity&per_page=${PER_PAGE}`;
 
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('Error al cargar productos');
+        if (cat.maxPrice) url += `&max_price=${cat.maxPrice}`;
 
-      const data: Product[] = await response.json();
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Error al cargar productos');
+        data = await response.json();
+      }
       const seenIds = new Set<number>();
       const filteredData = data.filter(p => {
         if (seenIds.has(p.id)) return false;
@@ -376,22 +360,10 @@ export default function CampaignStickyFavorites({
     }
   };
 
-  // Incrementa visible, y si se agotan los productos locales pide la siguiente página
+  // Incrementa visible en cliente (ya están en memoria)
   const handleVerMas = () => {
-    const nextVisible = visibleCount + 12;
-    setVisibleCount(nextVisible);
-
-    // Si ya mostramos (o estamos por mostrar) todos los que hay en memoria, pedimos más
-    if (nextVisible >= filteredAndSortedProducts.length) {
-      const catId = String(activeCategory.id);
-      const alreadyKnowNoMore = hasMore[catId] === false;
-      if (!alreadyKnowNoMore && !loadingMore) {
-        const nextPage = (apiPage[catId] || 1) + 1;
-        fetchProducts(activeCategory.id, nextPage, true);
-      }
-    }
+    setVisibleCount(prev => prev + 12);
   };
-
   const handleCategoryChange = (category: typeof CATEGORIES[0]) => {
     if (category.id === activeCategory.id) return;
     setActiveCategory(category);
@@ -511,10 +483,12 @@ export default function CampaignStickyFavorites({
 
   const toggleColor = (slug: string) => {
     setSelectedColors(prev => prev.includes(slug) ? prev.filter(s => s !== slug) : [...prev, slug]);
+    setVisibleCount(12);
   };
 
   const toggleTalla = (slug: string) => {
     setSelectedTallas(prev => prev.includes(slug) ? prev.filter(s => s !== slug) : [...prev, slug]);
+    setVisibleCount(12);
   };
 
   const clearFilters = () => {
@@ -523,11 +497,19 @@ export default function CampaignStickyFavorites({
     setSelectedSubcats([]);
     setPriceRange([0, 99999999]);
     setLocalPriceRange(['', '']);
+    setVisibleCount(12);
   };
 
   const toggleSection = (section: string) => {
     setOpenSections(prev => ({ ...prev, [section]: !prev[section] }));
   };
+
+  // Multi-select Client Filtering Logic
+  const availableSlugs = useMemo(() => {
+    return new Set(
+      products.flatMap(p => p.categories?.map((c: any) => c.slug?.toLowerCase()) || [])
+    );
+  }, [products]);
 
   // Filtrado y Ordenación en Cliente
   const filteredAndSortedProducts = useMemo(() => {
@@ -535,20 +517,11 @@ export default function CampaignStickyFavorites({
 
     // 0. Filtrar por Categorías y Subcategorías
     if (selectedSubcats.length > 0) {
-      result = result.filter(p => {
-        if (!p.categories || !Array.isArray(p.categories)) return false;
-        return p.categories.some((c: any) => {
-          const catSlug = c.slug.toLowerCase();
-          return selectedSubcats.includes(catSlug) || 
-                 selectedSubcats.some(selectedSlug => {
-                   const mainCat = MENU_CATEGORIES.find(m => m.slug === selectedSlug);
-                   if (mainCat) {
-                     return mainCat.subcategories.some(sub => sub.slug === catSlug) || catSlug === mainCat.slug;
-                   }
-                   return false;
-                 });
-        });
-      });
+      result = result.filter(p =>
+        p.categories?.some((c: any) => 
+          selectedSubcats.includes(c.slug?.toLowerCase())
+        )
+      );
     }
 
     // 1. Filtrar por Colores
@@ -626,6 +599,7 @@ export default function CampaignStickyFavorites({
       }
     }
 
+    console.log('productos filtrados:', result.length);
     return result;
   }, [products, selectedSubcats, selectedColors, selectedTallas, priceRange, sort, activeCategory.id]);
 
@@ -682,7 +656,7 @@ export default function CampaignStickyFavorites({
                   {SORT_OPTIONS.map(opt => (
                     <li key={opt.key}>
                       <button
-                        onClick={() => setSort(opt)}
+                        onClick={() => { setSort(opt); setVisibleCount(12); }}
                         className={sort.key === opt.key ? 'active' : ''}
                       >
                         {opt.label}
@@ -765,23 +739,14 @@ export default function CampaignStickyFavorites({
           </div>
         )}
 
-        {!loading && filteredAndSortedProducts.length > 0 && (
+        {!loading && filteredAndSortedProducts.length > 0 && visibleCount < filteredAndSortedProducts.length && (
           <div className="load-more-container">
-            {/* Mostrar botón si aun hay visibles por mostrar, O si la API puede tener más */}
-            {(visibleCount < filteredAndSortedProducts.length || hasMore[String(activeCategory.id)] !== false) && (
-              loadingMore ? (
-                <div className="loading-spinner" style={{padding:'1rem 0'}}>
-                  <div className="spinner"></div>
-                </div>
-              ) : (
-                <button
-                  onClick={handleVerMas}
-                  className="btn btn-outline"
-                >
-                  VER MÁS
-                </button>
-              )
-            )}
+            <button
+              onClick={() => setVisibleCount(prev => prev + 12)}
+              className="btn btn-outline"
+            >
+              VER MÁS
+            </button>
           </div>
         )}
       </div>
@@ -812,7 +777,9 @@ export default function CampaignStickyFavorites({
               <div className="accordion-body">
                 <ul className="checklist">
                   {categoriesAccordionData.isSpecific ? (
-                    (categoriesAccordionData.list as any[]).map(sub => (
+                    (categoriesAccordionData.list as any[])
+                      .filter(sub => availableSlugs.has(sub.slug))
+                      .map(sub => (
                       <li key={sub.slug}>
                         <label className="checkbox-container">
                           <input
@@ -839,7 +806,9 @@ export default function CampaignStickyFavorites({
                         </label>
                         {mainCat.subcategories.length > 0 && (
                           <ul className="subcategories-list" style={{ listStyle: 'none', paddingLeft: '1.8rem', marginTop: '0.4rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                            {mainCat.subcategories.map((sub: any) => (
+                            {mainCat.subcategories
+                              .filter((sub: any) => availableSlugs.has(sub.slug))
+                              .map((sub: any) => (
                               <li key={sub.slug}>
                                 <label className="checkbox-container small">
                                   <input

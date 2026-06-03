@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import ProductCard from './ProductCard';
+import { MENU_CATEGORIES } from '../lib/menuCategories';
 
 interface FilteredProductListProps {
     initialProducts: any[];
@@ -13,48 +14,6 @@ interface FilteredProductListProps {
     hasStickyTabs?: boolean;
     topTabs?: React.ReactNode;
 }
-
-const MENU_CATEGORIES = [
-  {
-    name: 'Zapatos',
-    slug: 'zapatos-cuero-hombre',
-    id: '63',
-    subcategories: [
-      { name: 'Mocasines', slug: 'mocasines-cuero-hombre' },
-      { name: 'Botas', slug: 'botas-cuero-hombre' },
-      { name: 'Tenis', slug: 'tenis-hombre' },
-      { name: 'Zapatos de Cordón', slug: 'zapatos-cordon-hombre' },
-      { name: 'Zapatos de Hebilla', slug: 'zapatos-hebilla-hombre' },
-      { name: 'Pantuflas', slug: 'pantuflas-cuero-hombre' },
-      { name: 'Tallas Grandes', slug: 'tallas-grandes-zapatos-hombre' },
-      { name: 'Línea Colombia', slug: 'zapatos-hechos-colombia-hombre' }
-    ]
-  },
-  {
-    name: 'Ropa',
-    slug: 'ropa-hombre-colombia',
-    id: '249',
-    subcategories: []
-  },
-  {
-    name: 'Maletas y Morrales',
-    slug: 'maletas-morrales-cuero',
-    id: '190',
-    subcategories: []
-  },
-  {
-    name: 'Accesorios',
-    slug: 'accesorios-hombre',
-    id: '126',
-    subcategories: []
-  },
-  {
-    name: 'Outlet',
-    slug: 'outlet-zapatos-ropa',
-    id: '948',
-    subcategories: []
-  }
-];
 
 const SORT_OPTIONS = [
     { key: "destacado", label: "Destacado", orderBy: "menu_order", order: "asc", onSale: false },
@@ -107,9 +66,9 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
     const [error, setError] = useState<string | null>(null);
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [isHeaderHidden, setIsHeaderHidden] = useState(false);
-    const [page, setPage] = useState(1);
-    const [hasMore, setHasMore] = useState(true);
-    const [loadingMore, setLoadingMore] = useState(false);
+    
+    // Client-side pagination state
+    const [visibleCount, setVisibleCount] = useState(16);
     const [openSections, setOpenSections] = useState<Record<string, boolean>>({
         categories: true,
         color: false,
@@ -119,6 +78,34 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
     const [openSubCats, setOpenSubCats] = useState<Record<string, boolean>>({});
 
     const isFirstRender = useRef(true);
+
+    // Fetch full catalog in background on mount
+    useEffect(() => {
+        if (!category?.slug) return;
+        let isMounted = true;
+        const url = `/data/catalog/${category.slug}-all.json`;
+        
+        const fetchData = async () => {
+            if (import.meta.env.DEV) {
+                console.log('[DIAGNOSTICO] Descargando JSON de:', url);
+            }
+            try {
+                const response = await fetch(url);
+                if (response.ok) {
+                    const data = await response.json();
+                    if (isMounted) {
+                        setAllFetchedProducts(data);
+                        console.log('Productos en memoria:', data.length);
+                    }
+                }
+            } catch (err) {
+                console.error("Error cargando el catálogo completo:", err);
+            }
+        };
+        fetchData();
+            
+        return () => { isMounted = false; };
+    }, [category?.slug]);
 
     // Deep Extraction from Products AND Variations
     const extractedColors = useMemo(() => {
@@ -270,115 +257,11 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
         if (tallaParam) setSelectedTallas(tallaParam.split(',').filter(Boolean));
         if (subcatParam) setSelectedSubcats(subcatParam.split(',').filter(Boolean));
         if (tagParam) setSelectedTags(tagParam.split(',').filter(Boolean));
-        if (sortParam) {
-            const found = SORT_OPTIONS.find(o => o.key === sortParam);
-            if (found) setSort(found);
-        }
-
-        // Auto-fetch if SSR returned no products (e.g. stale cache or timeout)
-        const ssrProducts = Array.isArray(initialProducts) ? initialProducts : [];
-        if (ssrProducts.length === 0 && category?.id) {
-            const activeSort = sortParam ? (SORT_OPTIONS.find(o => o.key === sortParam) || SORT_OPTIONS[0]) : SORT_OPTIONS[0];
-            fetchBaseProducts(activeSort, 1);
-        } else if (ssrProducts.length > 0) {
-            setAllFetchedProducts(ssrProducts);
-            setPage(1);
-            setLoading(false);
-            setHasMore(true); // Siempre asumir que hay más al inicio, por si WordPress capa a 15 en vez de 16
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
-    // Si el servidor no envió términos de color o talla (para ahorrar tiempo),
-    // los extraemos de los productos o el cliente los gestiona dinámicamente.
-    useEffect(() => {
-        // This effect runs after the initial products are set and memoized values are calculated.
-        // If initialColorTerms or initialTallaTerms were empty from SSR,
-        // the useMemo hooks for colorTerms and tallaTerms will have populated them from allFetchedProducts.
-        // No explicit fetch is needed here, as the memoized values handle the dynamic extraction.
-    }, [allFetchedProducts, initialColorTerms, initialTallaTerms]);
-
-
-    const fetchBaseProducts = useCallback(async (currentSort: any, pageNum: number, append = false) => {
-        if (!category?.id) return;
-        if (append) setLoadingMore(true); else setLoading(true);
-        setError(null);
-
-        try {
-            const params = new URLSearchParams();
-            if (category.id && category.id !== 'all') {
-                params.append('category', category.id.toString());
-            }
-            if (category.maxPrice) {
-                params.append('max_price', category.maxPrice.toString());
-            }
-            params.append('orderby', currentSort.orderBy || 'id');
-            params.append('order', currentSort.order);
-            params.append('page', pageNum.toString());
-            params.append('per_page', '16');
-            if (currentSort.onSale || category?.slug === 'sale') params.append('on_sale', 'true');
-
-            // --- INTENTO CARGA ESTÁTICA ---
-            const isDefaultSort = currentSort.key === 'destacados';
-            let data = null;
-
-            if (isDefaultSort) {
-                const catSlug = category?.slug || 'tienda';
-                const staticUrl = `/data/catalog/${catSlug}-p${pageNum}.json`;
-                try {
-                    const staticRes = await fetch(staticUrl);
-                    if (staticRes.ok) {
-                        data = await staticRes.json();
-                        console.log(`[FilteredProductList] Loaded static catalog from ${staticUrl}`);
-                    }
-                } catch (staticErr: any) {
-                    console.warn(`[FilteredProductList] Failed to load static catalog, falling back to API:`, staticErr.message);
-                }
-            }
-
-            if (!data) {
-                const response = await fetch(`/api/products?${params.toString()}`);
-                if (!response.ok) throw new Error('Error al cargar productos');
-                data = await response.json();
-            }
-
-            const newProducts = Array.isArray(data) ? data : [];
-
-            if (append) {
-                setAllFetchedProducts(prev => {
-                    const existingIds = new Set(prev.map((p: any) => p.id));
-                    const uniqueNew = newProducts.filter((p: any) => !existingIds.has(p.id));
-                    return [...prev, ...uniqueNew];
-                });
-            } else {
-                setAllFetchedProducts(newProducts);
-            }
-
-            // Si la página llegó vacía o incompleta (menos de 16), ya no hay más productos por cargar
-            if (newProducts.length === 0 || newProducts.length < 16) {
-                setHasMore(false);
-            } else {
-                setHasMore(true);
-            }
-        } catch (err) {
-            console.error("Fetch Error:", err);
-            setError('No pudimos actualizar la lista de productos.');
-            setHasMore(false); // Detener el infinite scroll si hay error
-        } finally {
-            setLoading(false);
-            setLoadingMore(false);
-        }
-    }, [category?.id]);
-
+    // fetchBaseProducts was removed because all products are fetched in background on mount.
     const loadMore = useCallback(() => {
-        if (loadingMore || !hasMore) return;
-
-        setPage(prevPage => {
-            const nextPage = prevPage + 1;
-            fetchBaseProducts(sort, nextPage, true);
-            return nextPage;
-        });
-    }, [loadingMore, hasMore, sort, fetchBaseProducts]);
+        setVisibleCount(prev => prev + 16);
+    }, []);
 
     // Intersection Observer for Infinite Scroll - Bulletproof pattern
     const observer = useRef<IntersectionObserver | null>(null);
@@ -402,34 +285,44 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
         if (node) observer.current.observe(node);
     }, []);
 
-    // Re-evaluar si todavía está visible después de cargar más (evita que se atasque si la pantalla no se llena)
-    useEffect(() => {
-        if (!loadingMore && hasMore && observer.current && targetNodeRef.current) {
-            observer.current.unobserve(targetNodeRef.current);
-            observer.current.observe(targetNodeRef.current);
+    // Intersection observer effect cleanup if any needed.
+
+    const scrollToGrid = () => {
+        const gridEl = document.querySelector('.products-grid-container');
+        if (gridEl) {
+            const y = gridEl.getBoundingClientRect().top + window.scrollY - 100; // 100px offset para el header
+            window.scrollTo({ top: y, behavior: 'smooth' });
         }
-    }, [loadingMore, hasMore]);
+    };
 
     const handleSortChange = (newSort: any) => {
         setSort(newSort);
-        setPage(1);
-        fetchBaseProducts(newSort, 1, false);
+        setVisibleCount(16);
+        scrollToGrid();
     };
 
     const toggleColor = (slug: string) => {
         setSelectedColors(prev => prev.includes(slug) ? prev.filter(s => s !== slug) : [...prev, slug]);
+        setVisibleCount(16);
+        scrollToGrid();
     };
 
     const toggleTalla = (slug: string) => {
         setSelectedTallas(prev => prev.includes(slug) ? prev.filter(s => s !== slug) : [...prev, slug]);
+        setVisibleCount(16);
+        scrollToGrid();
     };
 
     const toggleSubcat = (slug: string) => {
         setSelectedSubcats(prev => prev.includes(slug) ? prev.filter(s => s !== slug) : [...prev, slug]);
+        setVisibleCount(16);
+        scrollToGrid();
     };
 
     const toggleTag = (slug: string) => {
         setSelectedTags(prev => prev.includes(slug) ? prev.filter(s => s !== slug) : [...prev, slug]);
+        setVisibleCount(16);
+        scrollToGrid();
     };
 
     const clearFilters = () => {
@@ -437,12 +330,23 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
         setSelectedTallas([]);
         setSelectedSubcats([]);
         setSelectedTags([]);
+        setVisibleCount(16);
+        scrollToGrid();
     };
 
     // Multi-select Client Filtering Logic
+    const availableSlugs = useMemo(() => {
+        return new Set(
+            allFetchedProducts.flatMap(p => p.categories?.map((c: any) => c.slug?.toLowerCase()) || [])
+        );
+    }, [allFetchedProducts]);
+
     const filteredProducts = useMemo(() => {
         if (!Array.isArray(allFetchedProducts)) return [];
         let result = [...allFetchedProducts];
+
+        console.log('Subcats seleccionadas:', selectedSubcats);
+        console.log('Slugs de categorías del primer producto:', allFetchedProducts[0]?.categories?.map((c: any) => c.slug));
 
         // Filter by Colors
         if (selectedColors.length > 0) {
@@ -480,12 +384,20 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
             );
         }
 
-        // Filter by Subcategories
-        if (selectedSubcats.length > 0) {
-            result = result.filter(p =>
-                p.categories?.some((c: any) => selectedSubcats.includes(c.slug)) ||
-                (p.category_slug && selectedSubcats.includes(p.category_slug))
-            );
+        console.log('=== FILTRO DEBUG ===');
+        console.log('selectedSubcats:', selectedSubcats);
+        console.log('total productos en memoria:', allFetchedProducts.length);
+
+        if (selectedSubcats.length === 0) {
+           // Continua con el resto de filtros si subcats está vacío
+        } else {
+            result = result.filter(p => {
+                const slugs = p.categories?.map((c: any) => c.slug?.toLowerCase()) || [];
+                console.log('producto:', p.name, '| slugs:', slugs);
+                
+                return p.categories?.some((c: any) => selectedSubcats.includes(c.slug)) ||
+                (p.category_slug && selectedSubcats.includes(p.category_slug));
+            });
         }
 
         // Filter by Tags
@@ -505,8 +417,34 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
             return price >= priceRange[0] && price <= priceRange[1];
         });
 
+        // Client-side Sorting
+        if (sort) {
+            result.sort((a: any, b: any) => {
+                if (sort.orderBy === 'price') {
+                    const getPrice = (p: any) => {
+                        const raw = p?.prices?.sale_price || p?.prices?.price || p?.prices?.regular_price || p.sale_price || p.price || p.regular_price || "0";
+                        const match = raw.toString().replace(/,/g, '').match(/\d+(\.\d+)?/);
+                        return match ? parseFloat(match[0]) : 0;
+                    };
+                    const priceA = getPrice(a);
+                    const priceB = getPrice(b);
+                    return sort.order === 'asc' ? priceA - priceB : priceB - priceA;
+                } else if (sort.orderBy === 'popularity') {
+                    const popA = a.total_sales ? parseInt(a.total_sales) : 0;
+                    const popB = b.total_sales ? parseInt(b.total_sales) : 0;
+                    return sort.order === 'asc' ? popA - popB : popB - popA;
+                } else if (sort.orderBy === 'menu_order') {
+                    const menuA = a.menu_order || 0;
+                    const menuB = b.menu_order || 0;
+                    return sort.order === 'asc' ? menuA - menuB : menuB - menuA;
+                }
+                return 0;
+            });
+        }
+
+        console.log('productos filtrados:', result.length);
         return result;
-    }, [allFetchedProducts, selectedColors, selectedTallas, selectedSubcats, selectedTags, priceRange]);
+    }, [allFetchedProducts, selectedColors, selectedTallas, selectedSubcats, selectedTags, priceRange, sort]);
 
     // Update URL effect
     useEffect(() => {
@@ -619,7 +557,7 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
                         <div className="grid-loading-placeholder"></div>
                     ) : filteredProducts && filteredProducts.length > 0 ? (
                         <div className="grid-4x3">
-                            {filteredProducts.map((product) => (
+                            {filteredProducts.slice(0, visibleCount).map((product) => (
                                 <ProductCard key={product.id} product={product} />
                             ))}
                         </div>
@@ -640,15 +578,11 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
 
                 {/* Marcador para Infinite Scroll y Botón Manual */}
                 <div ref={observerTarget} style={{ minHeight: '60px', margin: '20px 0', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    {loadingMore ? (
-                        <div className="loading-more">
-                            <span className="spinner"></span> Cargando más productos...
-                        </div>
-                    ) : hasMore ? (
+                    {visibleCount < filteredProducts.length && (
                         <button onClick={loadMore} className="btn-outline" style={{ padding: '0.8rem 2rem', cursor: 'pointer', fontFamily: 'var(--font-titles)', textTransform: 'uppercase', fontSize: '0.85rem' }}>
                             Cargar más productos
                         </button>
-                    ) : null}
+                    )}
                 </div>
             </section>
 
@@ -705,7 +639,9 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
                                 <div className="accordion-body">
                                     <ul className="checklist">
                                         {categoriesAccordionData.isSpecific ? (
-                                            (categoriesAccordionData.list as any[]).map(sub => (
+                                            (categoriesAccordionData.list as any[])
+                                                .filter(sub => availableSlugs.has(sub.slug))
+                                                .map(sub => (
                                                 <li key={sub.slug}>
                                                     <label className="checkbox-container">
                                                         <input
@@ -744,7 +680,9 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
                                                     </div>
                                                     {mainCat.subcategories.length > 0 && openSubCats[mainCat.slug] && (
                                                         <ul className="subcategories-list" style={{ listStyle: 'none', paddingLeft: '1.8rem', marginTop: '0.6rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                                            {mainCat.subcategories.map((sub: any) => (
+                                                            {mainCat.subcategories
+                                                                .filter((sub: any) => availableSlugs.has(sub.slug))
+                                                                .map((sub: any) => (
                                                                 <li key={sub.slug}>
                                                                     <label className="checkbox-container small">
                                                                         <input

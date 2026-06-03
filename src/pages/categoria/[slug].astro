@@ -42,64 +42,61 @@ export async function getStaticPaths() {
     for (const cat of categoriesToGen) {
         try {
             console.log(`[SSG Total] Pre-generando catálogo para: ${cat.slug}`);
-            // Paginamos hasta obtener todos los productos de esta categoría
+            let allCategoryProducts: any[] = [];
             let page = 1;
             let hasMore = true;
             
-            while (hasMore) {
-                let products = null;
-                const filePath = path.join(catalogDir, `${cat.slug}-p${page}.json`);
-
-                // Cache local en desarrollo para evitar cuelgues y navegación lenta
-                if (import.meta.env.DEV && fs.existsSync(filePath)) {
-                    try {
-                        products = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-                    } catch (e) {
-                        products = null;
-                    }
-                }
-
-                if (!products) {
+            const filePath = path.join(catalogDir, `${cat.slug}-all.json`);
+            
+            // Si en desarrollo ya existe, saltamos la descarga (o la cargamos de caché si es necesario)
+            if (import.meta.env.DEV && fs.existsSync(filePath)) {
+                console.log(`[SSG Total] Caché encontrado para ${cat.slug}, omitiendo descarga.`);
+            } else {
+                while (hasMore) {
+                    let products = null;
                     if (cat.id === 'all') {
-                        products = await getAllProducts(16, page, 'menu_order', 'asc', false);
+                        products = await getAllProducts(100, page, 'menu_order', 'asc', false);
                     } else {
-                        products = await getProductsByCategory(cat.id, 16, page, 'menu_order', 'asc', false);
+                        products = await getProductsByCategory(cat.id, 100, page, 'menu_order', 'asc', false);
                     }
-                    // Guardamos la página en JSON
-                    fs.writeFileSync(filePath, JSON.stringify(products, null, 2), 'utf-8');
+
+                    if (products && products.length > 0) {
+                        allCategoryProducts = allCategoryProducts.concat(products);
+                        page++;
+                    } else {
+                        hasMore = false;
+                    }
+
+                    if (page > 10) break; // Límite de seguridad
+                    await new Promise(r => setTimeout(r, 300));
                 }
 
+                // Mapeo ligero para reducir el tamaño del JSON
+                const lightweightProducts = allCategoryProducts.map(p => ({
+                    id: p.id,
+                    name: p.name,
+                    slug: p.slug,
+                    type: p.type,
+                    price: p.price,
+                    regular_price: p.regular_price,
+                    sale_price: p.sale_price,
+                    prices: p.prices,
+                    images: p.images?.slice(0, 2),
+                    categories: p.categories,
+                    attributes: p.attributes,
+                    stock_status: p.stock_status,
+                    on_sale: p.on_sale,
+                    featured: p.featured,
+                    variation_images_map: p.variation_images_map
+                }));
+
+                // Escribir el array completo
+                fs.writeFileSync(filePath, JSON.stringify(lightweightProducts), 'utf-8');
 
                 const wpSlug = mapAstroToWpSlug(cat.slug);
                 if (wpSlug !== cat.slug) {
-                    const wpFilePath = path.join(catalogDir, `${wpSlug}-p${page}.json`);
-                    fs.writeFileSync(wpFilePath, JSON.stringify(products, null, 2), 'utf-8');
-                }
-
-                if (products.length === 0) {
-                    hasMore = false;
-                } else {
-                    page++;
-                }
-
-                // Límite de seguridad para evitar bucles infinitos en build-time
-                if (page > 20) break;
-
-                // Breve retardo para no saturar al servidor en páginas consecutivas de la misma categoría
-                await new Promise(r => setTimeout(r, 300));
-            }
-
-            // Guardamos siempre una página final vacía para garantizar que el scroll infinito sepa cuándo detenerse
-            const emptyFilePath = path.join(catalogDir, `${cat.slug}-p${page}.json`);
-            if (!fs.existsSync(emptyFilePath)) {
-                fs.writeFileSync(emptyFilePath, JSON.stringify([], null, 2), 'utf-8');
-            }
-
-            const wpSlug = mapAstroToWpSlug(cat.slug);
-            if (wpSlug !== cat.slug) {
-                const emptyWpFilePath = path.join(catalogDir, `${wpSlug}-p${page}.json`);
-                if (!fs.existsSync(emptyWpFilePath)) {
-                    fs.writeFileSync(emptyWpFilePath, JSON.stringify([], null, 2), 'utf-8');
+                    const wpFilePath = path.join(catalogDir, `${wpSlug}-all.json`);
+                    fs.writeFileSync(wpFilePath, JSON.stringify(lightweightProducts), 'utf-8');
                 }
             }
 
@@ -197,10 +194,13 @@ try {
         try {
             const fs = await import('node:fs');
             const path = await import('node:path');
-            const filePath = path.join(process.cwd(), 'public', 'data', 'catalog', `${slug}-p1.json`);
+            const filePath = path.join(process.cwd(), 'public', 'data', 'catalog', `${slug}-all.json`);
             if (fs.existsSync(filePath)) {
-                products = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+                const allProducts = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+                // Pasamos solo los primeros 16 al HTML para que la página cargue instantáneamente
+                products = allProducts.slice(0, 16);
             } else {
+                // Fallback si no hay caché local
                 products = await getProductsByCategory(
                     category.id,
                     16,

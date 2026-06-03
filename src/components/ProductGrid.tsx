@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import ProductCard from './ProductCard';
+import { MENU_CATEGORIES } from '../lib/menuCategories';
 
 interface Product {
   id: number;
@@ -43,48 +44,6 @@ const SORT_OPTIONS = [
   { key: "precio_asc", label: "Menor a mayor precio" },
   { key: "precio_desc", label: "Mayor a menor precio" },
   { key: "descuentos", label: "Descuentos" }
-];
-
-const MENU_CATEGORIES = [
-  {
-    name: 'Zapatos',
-    slug: 'zapatos-cuero-hombre',
-    id: '63',
-    subcategories: [
-      { name: 'Mocasines', slug: 'mocasines-cuero-hombre' },
-      { name: 'Botas', slug: 'botas-cuero-hombre' },
-      { name: 'Tenis', slug: 'tenis-hombre' },
-      { name: 'Zapatos de Cordón', slug: 'zapatos-cordon-hombre' },
-      { name: 'Zapatos de Hebilla', slug: 'zapatos-hebilla-hombre' },
-      { name: 'Pantuflas', slug: 'pantuflas-cuero-hombre' },
-      { name: 'Tallas Grandes', slug: 'tallas-grandes-zapatos-hombre' },
-      { name: 'Línea Colombia', slug: 'zapatos-hechos-colombia-hombre' }
-    ]
-  },
-  {
-    name: 'Ropa',
-    slug: 'ropa-hombre-colombia',
-    id: '249',
-    subcategories: []
-  },
-  {
-    name: 'Maletas y Morrales',
-    slug: 'maletas-morrales-cuero',
-    id: '190',
-    subcategories: []
-  },
-  {
-    name: 'Accesorios',
-    slug: 'accesorios-hombre',
-    id: '126',
-    subcategories: []
-  },
-  {
-    name: 'Outlet',
-    slug: 'outlet-zapatos-ropa',
-    id: '948',
-    subcategories: []
-  }
 ];
 
 export default function ProductGrid({ 
@@ -371,11 +330,19 @@ export default function ProductGrid({
         if (!p.categories || !Array.isArray(p.categories)) return false;
         return p.categories.some((c: any) => {
           const catSlug = c.slug.toLowerCase();
+          const catName = c.name.toLowerCase();
           return selectedSubcats.includes(catSlug) || 
                  selectedSubcats.some(selectedSlug => {
                    const mainCat = MENU_CATEGORIES.find(m => m.slug === selectedSlug);
                    if (mainCat) {
                      return mainCat.subcategories.some(sub => sub.slug === catSlug) || catSlug === mainCat.slug;
+                   }
+                   for (const mc of MENU_CATEGORIES) {
+                     const subCat = mc.subcategories.find(s => s.slug === selectedSlug);
+                     if (subCat) {
+                       const keyword = subCat.name.split(' ')[0].toLowerCase();
+                       return catName.includes(keyword) || catSlug.includes(keyword);
+                     }
                    }
                    return false;
                  });

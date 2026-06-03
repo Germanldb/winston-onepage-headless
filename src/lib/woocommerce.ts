@@ -989,17 +989,19 @@ export async function getChildCategories(parentId: number) {
 
     try {
         // Use v3 authenticated API — public Store API was not returning subcategories reliably
-        const categories = await wcFetch(`/products/categories?parent=${parentId}&per_page=50`);
+        const categories = await wcFetch(`/products/categories?parent=${parentId}&per_page=50&hide_empty=true`);
         if (!categories || !Array.isArray(categories)) return [];
 
         // Normalize: map v3 fields to the shape the components expect (name, slug, id, image)
-        const normalized = categories.map((c: any) => ({
-            id: c.id,
-            name: c.name,
-            slug: c.slug,
-            count: c.count,
-            image: c.image ? { src: c.image.src, alt: c.image.alt || c.name } : null,
-        }));
+        const normalized = categories
+            .filter((c: any) => c.count > 0)
+            .map((c: any) => ({
+                id: c.id,
+                name: c.name,
+                slug: c.slug,
+                count: c.count,
+                image: c.image ? { src: c.image.src, alt: c.image.alt || c.name } : null,
+            }));
 
         return normalized;
     } catch (error) {
