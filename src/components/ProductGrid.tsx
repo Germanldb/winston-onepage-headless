@@ -326,28 +326,11 @@ export default function ProductGrid({
 
     // 0. Filtrar por Subcategorías
     if (selectedSubcats.length > 0) {
-      result = result.filter(p => {
-        if (!p.categories || !Array.isArray(p.categories)) return false;
-        return p.categories.some((c: any) => {
-          const catSlug = c.slug.toLowerCase();
-          const catName = c.name.toLowerCase();
-          return selectedSubcats.includes(catSlug) || 
-                 selectedSubcats.some(selectedSlug => {
-                   const mainCat = MENU_CATEGORIES.find(m => m.slug === selectedSlug);
-                   if (mainCat) {
-                     return mainCat.subcategories.some(sub => sub.slug === catSlug) || catSlug === mainCat.slug;
-                   }
-                   for (const mc of MENU_CATEGORIES) {
-                     const subCat = mc.subcategories.find(s => s.slug === selectedSlug);
-                     if (subCat) {
-                       const keyword = subCat.name.split(' ')[0].toLowerCase();
-                       return catName.includes(keyword) || catSlug.includes(keyword);
-                     }
-                   }
-                   return false;
-                 });
-        });
-      });
+      result = result.filter(p =>
+        p.categories?.some((c: any) =>
+          selectedSubcats.includes(c.slug?.toLowerCase())
+        )
+      );
     }
 
     // 1. Filtrar por Colores
