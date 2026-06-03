@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import ProductCard from './ProductCard';
+import { MENU_CATEGORIES, EXCLUDED_SLUGS } from '../lib/menuCategories';
 
 interface FilteredProductListProps {
     initialProducts: any[];
@@ -347,6 +348,7 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
     const availableSlugs = useMemo(() => {
         return new Set(
             allFetchedProducts.flatMap(p => p.categories?.map((c: any) => c.slug?.toLowerCase()) || [])
+            .filter(slug => !EXCLUDED_SLUGS.includes(slug))
         );
     }, [allFetchedProducts]);
 

@@ -59,3 +59,16 @@ export const MENU_CATEGORIES = [
     subcategories: []
   }
 ];
+
+export const EXCLUDED_SLUGS = [
+  'bono-regalo-hombre',
+  'ideas-regalo-hombre',
+  'mas-de-500000',
+  'menos-de-200000',
+  'menos-de-350000',
+  'menos-de-499000',
+  'sin-categorizar',
+  'outlet-zapatos-ropa',
+  'zapatos-maletas-cuero-hombre',
+  'zapatos-y-maletas'
+];

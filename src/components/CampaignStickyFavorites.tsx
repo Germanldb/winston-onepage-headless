@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import ProductCard from './ProductCard';
-import { MENU_CATEGORIES } from '../lib/menuCategories';
+import { MENU_CATEGORIES, EXCLUDED_SLUGS } from '../lib/menuCategories';
 
 interface Product {
   id: number;
@@ -509,6 +509,7 @@ export default function CampaignStickyFavorites({
   const availableSlugs = useMemo(() => {
     return new Set(
       products.flatMap(p => p.categories?.map((c: any) => c.slug?.toLowerCase()) || [])
+      .filter(slug => !EXCLUDED_SLUGS.includes(slug))
     );
   }, [products]);
 

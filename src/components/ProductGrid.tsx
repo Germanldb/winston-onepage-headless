@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import ProductCard from './ProductCard';
-import { MENU_CATEGORIES } from '../lib/menuCategories';
+import { MENU_CATEGORIES, EXCLUDED_SLUGS } from '../lib/menuCategories';
 
 interface Product {
   id: number;
@@ -96,10 +96,10 @@ export default function ProductGrid({
         if (p.categories) {
           p.categories.forEach(c => {
             const slug = (c.slug || '').toLowerCase();
-            // Ignorar la categoría principal activa
+            // Ignorar la categoría principal activa y las excluidas
             if (slug && slug !== activeCategory.slug) {
               // Filtrar 'tienda' u otras genéricas si es necesario
-              if (slug !== 'tienda' && slug !== 'sale') {
+              if (slug !== 'tienda' && slug !== 'sale' && !EXCLUDED_SLUGS.includes(slug)) {
                 collected.set(slug, { name: c.name, slug });
               }
             }

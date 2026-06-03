@@ -62,16 +62,8 @@ if (WC_URL_ENV.includes("winstonandharrystore.com") && !WC_URL_ENV.includes("tie
 
 export const PUBLIC_WP_URL = WC_URL_ENV.replace(/\/$/, "");
 
-export const EXCLUDED_SLUGS = [
-    'bono-regalo-hombre',
-    'ideas-regalo-hombre',
-    'mas-de-500000',
-    'menos-de-200000',
-    'menos-de-350000',
-    'menos-de-499000',
-    'sin-categorizar',
-    'outlet-zapatos-ropa'
-];
+import { EXCLUDED_SLUGS } from "./menuCategories";
+export { EXCLUDED_SLUGS };
 
 const WP_JSON_BASE = `${PUBLIC_WP_URL}/wp-json`;
 
