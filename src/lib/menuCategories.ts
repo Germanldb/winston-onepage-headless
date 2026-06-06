@@ -45,10 +45,10 @@ export const MENU_CATEGORIES = [
     slug: 'accesorios-hombre',
     id: '220',
     subcategories: [
-      { name: 'Billeteras', slug: 'billeteras' },
+      { name: 'Billeteras', slug: 'billeteras-cuero-hombre' },
       { name: 'Cinturones', slug: 'cinturones' },
       { name: 'Gorras', slug: 'gorras' },
-      { name: 'Limpieza', slug: 'limpieza' },
+      { name: 'Limpieza', slug: 'limpieza-cuidado-zapatos' },
       { name: 'Reatas', slug: 'reatas' }
     ]
   },
@@ -70,5 +70,7 @@ export const EXCLUDED_SLUGS = [
   'sin-categorizar',
   'outlet-zapatos-ropa',
   'zapatos-maletas-cuero-hombre',
-  'zapatos-y-maletas'
+  'zapatos-y-maletas',
+  'billeteras',
+  'limpieza'
 ];

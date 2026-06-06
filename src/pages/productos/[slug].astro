@@ -178,6 +178,59 @@ const seoData = {
 };
 
 Astro.response.headers.set('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate=43200');
+
+// Strip para las tarjetas (ProductCard) de productos relacionados y FBT
+const stripCardProduct = (p: any) => {
+    if (!p) return null;
+    return {
+        id: p.id,
+        name: p.name,
+        slug: p.slug,
+        type: p.type,
+        prices: p.prices,
+        price: p.price,
+        regular_price: p.regular_price,
+        sale_price: p.sale_price,
+        on_sale: p.on_sale,
+        featured: p.featured,
+        stock_status: p.stock_status,
+        images: p.images?.map((img: any) => ({ src: img.src, alt: img.alt })), 
+        attributes: p.attributes,
+        variations: p.variations,
+        variation_images_map: p.variation_images_map,
+    };
+};
+
+// Strip para el producto principal abierto
+const stripMainProduct = (p: any) => {
+    if (!p) return null;
+    return {
+        id: p.id,
+        name: p.name,
+        slug: p.slug,
+        description: p.description,
+        short_description: p.short_description,
+        price: p.price,
+        regular_price: p.regular_price,
+        sale_price: p.sale_price,
+        on_sale: p.on_sale,
+        images: p.images,
+        categories: p.categories,
+        attributes: p.attributes,
+        variations: p.variations,
+        variation_images_map: p.variation_images_map,
+        stock_status: p.stock_status,
+        manage_stock: p.manage_stock,
+        stock_quantity: p.stock_quantity,
+        prices: p.prices,
+        type: p.type,
+        related_products: p.related_products?.map(stripCardProduct),
+        fbt_products: p.fbt_products?.map(stripCardProduct),
+        related_ids: p.related_ids
+    };
+};
+
+const clientProduct = product ? stripMainProduct(product) : null;
 ---
 
 <Layout 
@@ -189,7 +242,7 @@ Astro.response.headers.set('Cache-Control', 'public, s-maxage=86400, stale-while
     <main class="product-page-container">
         {
             product ? (
-                <ProductDetail client:load initialProduct={product} />
+                <ProductDetail client:load initialProduct={clientProduct} />
             ) : (
                 <div class="container error-msg">
                     <h1>{error}</h1>

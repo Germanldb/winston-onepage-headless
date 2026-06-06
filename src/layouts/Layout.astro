@@ -13,6 +13,7 @@ interface Props {
     image?: string;
     canonical?: string;
     seoData?: any;
+    noindex?: boolean;
 }
 
 const {
@@ -21,6 +22,7 @@ const {
     image,
     canonical: customCanonical,
     seoData,
+    noindex,
 } = Astro.props;
 
 import { sanitizeSEO } from "../lib/seo";
@@ -43,20 +45,31 @@ if (sanitizedCustomCanonical && typeof sanitizedCustomCanonical === "string") {
     }
 }
 
+// 1. Definimos los textos por defecto
+const defaultTitle = "Ropa y zapatos de cuero para hombre | Winston & Harry";
+const defaultDesc = "Zapatos y ropa para hombre hechos a mano en Colombia. Cuero artesanal, diseño atemporal y garantía de por vida. Envío gratis.";
+
+// 2. Lógica inteligente para Titles y Descriptions
+const finalTitle = title 
+    ? (title.includes('Winston & Harry') ? title : `${title} | Winston & Harry`) 
+    : defaultTitle;
+
+const finalDesc = description 
+    ? description 
+    : (title 
+        ? `Descubre más sobre ${title.toLowerCase()} en Winston & Harry. Moda masculina y cuero artesanal hecho a mano en Colombia. Envío gratis.` 
+        : defaultDesc);
+
 const rawSeo = seoData
     ? sanitizeSEO(seoData, currentPath, SITE_URL)
     : {
-          title: title || "Ropa y zapatos de cuero para hombre | Winston & Harry",
-          description:
-              description ||
-              "Zapatos y ropa para hombre hechos a mano en Colombia. Cuero artesanal, diseño atemporal y garantía de por vida. Envío gratis.",
+          title: finalTitle,
+          description: finalDesc,
           canonical:
               sanitizedCustomCanonical ||
               `${SITE_URL}${cleanPath === "/" ? "" : cleanPath}`,
-          ogTitle: title || "Ropa y zapatos de cuero para hombre | Winston & Harry",
-          ogDescription:
-              description ||
-              "Zapatos y ropa para hombre hechos a mano en Colombia. Cuero artesanal, diseño atemporal y garantía de por vida. Envío gratis.",
+          ogTitle: finalTitle,
+          ogDescription: finalDesc,
           ogImage: image || `${SITE_URL}/images/hero-poster.webp`,
           ogType: "website",
       };
@@ -84,6 +97,7 @@ const seo = rawSeo || {
         })(window,document,'script','dataLayer','GTM-NRK6FQ5N');</script>
         <!-- End Google Tag Manager -->
         <meta charset="UTF-8" />
+        {noindex && <meta name="robots" content="noindex, nofollow" />}
         <meta name="description" content={seo.description} />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/png" href="/favicon.png" />

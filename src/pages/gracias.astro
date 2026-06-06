@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 import OrderConfirmation from "../components/checkout/OrderConfirmation";
 ---
 
-<Layout title="¡Gracias por tu compra! | Winston & Harry">
+<Layout title="¡Gracias por tu compra! | Winston & Harry" noindex={true}>
     <Header />
     <main>
         <OrderConfirmation client:load />

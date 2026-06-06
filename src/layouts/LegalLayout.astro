@@ -6,12 +6,13 @@ import Footer from "../components/Footer.astro";
 interface Props {
     title: string;
     subtitle?: string;
+    description?: string;
 }
 
-const { title, subtitle } = Astro.props;
+const { title, subtitle, description } = Astro.props;
 ---
 
-<Layout title={title}>
+<Layout title={title} description={description}>
     <Header />
     <main class="legal-page">
         <section class="legal-header">

@@ -11,6 +11,7 @@ const { WC_CONSUMER_KEY, WC_CONSUMER_SECRET, WC_URL } = loadEnv(process.env.NODE
 
 import fs from "node:fs";
 import path from "node:path";
+import { EXCLUDED_SLUGS } from "./src/lib/menuCategories.ts";
 
 /** Función para obtener todas las URLs de productos dinámicamente */
 async function getDynamicProductPages() {
@@ -149,8 +150,9 @@ export default defineConfig({
           '/buscar',
           '/gracias',
           '/lista-de-deseos',
-          '/productos/producto',
-          '/tienda'
+          '/tienda',
+          '/menu-test',
+          ...EXCLUDED_SLUGS.map(slug => `/${slug}`)
         ];
 
         if (excludedPatterns.some(pattern => page.includes(pattern))) {
@@ -185,7 +187,7 @@ export default defineConfig({
   security: {
     checkOrigin: false
   },
-  trailingSlash: 'ignore',
+  trailingSlash: 'never',
   prefetch: {
     prefetchAll: true,
     defaultStrategy: 'hover'

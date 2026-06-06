@@ -45,7 +45,14 @@ function flattenCategoryUrl(url: string) {
     // Caso de categoría de producto (WooCommerce predeterminado)
     if (clean.includes("/product-category/")) {
         const segments = clean.split("/").filter(Boolean);
-        const lastSegment = segments[segments.length - 1];
+        let lastSegment = segments[segments.length - 1];
+        
+        // Interceptar y corregir los slugs obsoletos que puedan venir de WordPress
+        if (lastSegment === "billeteras") lastSegment = "billeteras-cuero-hombre";
+        if (lastSegment === "limpieza") lastSegment = "limpieza-cuidado-zapatos";
+        if (lastSegment === "pantalones-jeans-hombre") lastSegment = "ropa-hombre-colombia";
+        if (lastSegment === "reatascinturones") lastSegment = "cinturones-reatas-cuero-hombre";
+
         return `/categoria/${lastSegment}`;
     }
 
