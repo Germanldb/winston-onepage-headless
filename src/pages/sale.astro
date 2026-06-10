@@ -17,80 +17,88 @@ if (!fs.existsSync(catalogDir)) {
     fs.mkdirSync(catalogDir, { recursive: true });
 }
 
-console.log("[SSG Sale] Iniciando descarga TOTAL para bypassear API defectuosa de WooCommerce...");
+console.log("[SSG Sale] Iniciando pre-generación de catálogos estáticos para SALE...");
 
 let page = 1;
 let hasMore = true;
-let allFetchedProducts: any[] = [];
+let products: any[] = [];
+let allSaleProducts: any[] = [];
 
 // Acumulador para extraer todas las categorías que tengan productos en SALE
 const seenCategories = new Map<number, { id: number, name: string, slug: string }>();
 
-// 1. Descargar absolutamente todos los productos (100 por página para ir rápido)
 while (hasMore) {
     try {
-        console.log(`[SSG Sale] Descargando catálogo global - página ${page}...`);
-        const pageProducts = await getAllProducts(100, page, "menu_order", "asc", false);
-        
+        let pageProducts;
+        const filePath = path.join(catalogDir, `sale-p${page}.json`);
+
+        // En desarrollo, si ya descargamos este catálogo, lo leemos de disco para que no sea lento
+        if (import.meta.env.DEV && fs.existsSync(filePath)) {
+            try {
+                const cachedData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+                pageProducts = cachedData;
+            } catch (e) {
+                pageProducts = null;
+            }
+        }
+
+        if (!pageProducts) {
+            console.log(`[SSG Sale] Descargando de API SALE - página ${page}`);
+            pageProducts = await getAllProducts(16, page, "menu_order", "asc", true);
+            // Guardamos los productos en el JSON
+            fs.writeFileSync(filePath, JSON.stringify(pageProducts, null, 2), "utf-8");
+        } else {
+            console.log(`[SSG Sale] Cargando página ${page} desde caché local para mayor velocidad.`);
+        }
+
+        if (page === 1) {
+            products = pageProducts;
+        }
+
+        if (Array.isArray(pageProducts)) {
+            allSaleProducts = allSaleProducts.concat(pageProducts);
+            
+            // Acumulamos las categorías de todos los productos en sale
+            pageProducts.forEach(product => {
+                if (Array.isArray(product.categories)) {
+                    product.categories.forEach((cat: any) => {
+                        if (cat && cat.id && cat.name && cat.slug) {
+                            seenCategories.set(cat.id, {
+                                id: cat.id,
+                                name: cat.name,
+                                slug: cat.slug
+                            });
+                        }
+                    });
+                }
+            });
+        }
+
         if (!pageProducts || pageProducts.length === 0) {
             hasMore = false;
         } else {
-            allFetchedProducts = allFetchedProducts.concat(pageProducts);
             page++;
         }
-        
-        if (page > 15) break; // Límite de seguridad
-        await new Promise((r) => setTimeout(r, 100));
+
+        if (page > 20) break; // Límite de seguridad
+        await new Promise((r) => setTimeout(r, 200));
     } catch (err: any) {
-        console.error(`[SSG Sale] Error descargando página ${page}:`, err.message);
+        console.error(`[SSG Sale] Error pre-generando página ${page}:`, err.message);
         hasMore = false;
     }
 }
 
-// 2. Filtrar localmente usando la fórmula infalible de React
-const allSaleProducts = allFetchedProducts.filter((p: any) => {
-    const priceData = p?.prices || p;
-    const regularPrice = Number(priceData.regular_price || 0);
-    const price = Number(priceData.price || priceData.sale_price || 0);
-    return p.on_sale || (regularPrice > price && price > 0);
-});
-
-// 3. Generar los chunks de 16 para la paginación inicial SSG
-const chunkSize = 16;
-let finalPages = 0;
-for (let i = 0; i < allSaleProducts.length; i += chunkSize) {
-    const chunk = allSaleProducts.slice(i, i + chunkSize);
-    finalPages = Math.floor(i / chunkSize) + 1;
-    fs.writeFileSync(path.join(catalogDir, `sale-p${finalPages}.json`), JSON.stringify(chunk, null, 2), "utf-8");
+// Guardar página final vacía para garantizar que el scroll infinito sepa cuándo detenerse
+const emptyFilePath = path.join(catalogDir, `sale-p${page}.json`);
+if (!fs.existsSync(emptyFilePath)) {
+    fs.writeFileSync(emptyFilePath, JSON.stringify([], null, 2), "utf-8");
 }
-
-// Guardar página final vacía
-const emptyFilePath = path.join(catalogDir, `sale-p${finalPages + 1}.json`);
-fs.writeFileSync(emptyFilePath, JSON.stringify([], null, 2), "utf-8");
 
 // NUEVO: Guardar el archivo unificado que el cliente de React usa para paginar y filtrar
 const allFilePath = path.join(catalogDir, `sale-all.json`);
 fs.writeFileSync(allFilePath, JSON.stringify(allSaleProducts), "utf-8");
 
-// Alimentar la primera página al frontend SSG
-const products = allSaleProducts.slice(0, chunkSize);
-
-// Acumular categorías
-allSaleProducts.forEach((product: any) => {
-    if (Array.isArray(product.categories)) {
-        product.categories.forEach((cat: any) => {
-            if (cat && cat.id && cat.name && cat.slug) {
-                seenCategories.set(cat.id, {
-                    id: cat.id,
-                    name: cat.name,
-                    slug: cat.slug
-                });
-            }
-        });
-    }
-});
-
-console.log(`[SSG Sale] ✓ Catálogos estáticos de SALE generados manualmente. Total ofertas reales: ${allSaleProducts.length}`);
+console.log(`[SSG Sale] ✓ Catálogos estáticos de SALE pre-generados exitosamente. Total productos: ${allSaleProducts.length}`);
 
 // Slugs de categorías que no deben mostrarse en los filtros
 const IGNORED_CATEGORY_SLUGS = [
