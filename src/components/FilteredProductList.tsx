@@ -428,6 +428,16 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
             return price >= priceRange[0] && price <= priceRange[1];
         });
 
+        // Filter by onSale if sort option dictates it
+        if (sort && sort.onSale) {
+            result = result.filter(p => {
+                const priceData = p?.prices || p;
+                const regularPrice = Number(priceData.regular_price || 0);
+                const price = Number(priceData.price || priceData.sale_price || 0);
+                return p.on_sale || (regularPrice > price && price > 0);
+            });
+        }
+
         // Client-side Sorting
         if (sort) {
             result.sort((a: any, b: any) => {
