@@ -22,6 +22,7 @@ console.log("[SSG Sale] Iniciando pre-generación de catálogos estáticos para 
 let page = 1;
 let hasMore = true;
 let products: any[] = [];
+let allSaleProducts: any[] = [];
 
 // Acumulador para extraer todas las categorías que tengan productos en SALE
 const seenCategories = new Map<number, { id: number, name: string, slug: string }>();
@@ -54,8 +55,10 @@ while (hasMore) {
             products = pageProducts;
         }
 
-        // Acumulamos las categorías de todos los productos en sale
         if (Array.isArray(pageProducts)) {
+            allSaleProducts = allSaleProducts.concat(pageProducts);
+            
+            // Acumulamos las categorías de todos los productos en sale
             pageProducts.forEach(product => {
                 if (Array.isArray(product.categories)) {
                     product.categories.forEach((cat: any) => {
@@ -71,7 +74,7 @@ while (hasMore) {
             });
         }
 
-        if (pageProducts.length === 0) {
+        if (!pageProducts || pageProducts.length === 0) {
             hasMore = false;
         } else {
             page++;
@@ -91,7 +94,11 @@ if (!fs.existsSync(emptyFilePath)) {
     fs.writeFileSync(emptyFilePath, JSON.stringify([], null, 2), "utf-8");
 }
 
-console.log("[SSG Sale] ✓ Catálogos estáticos de SALE pre-generados exitosamente.");
+// NUEVO: Guardar el archivo unificado que el cliente de React usa para paginar y filtrar
+const allFilePath = path.join(catalogDir, `sale-all.json`);
+fs.writeFileSync(allFilePath, JSON.stringify(allSaleProducts), "utf-8");
+
+console.log(`[SSG Sale] ✓ Catálogos estáticos de SALE pre-generados exitosamente. Total productos: ${allSaleProducts.length}`);
 
 // Slugs de categorías que no deben mostrarse en los filtros
 const IGNORED_CATEGORY_SLUGS = [
