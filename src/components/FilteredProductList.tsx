@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import ProductCard from './ProductCard';
 import { MENU_CATEGORIES, EXCLUDED_SLUGS } from '../lib/menuCategories';
+import { applyFiltersAndSort } from '../lib/productFilters';
 
 interface FilteredProductListProps {
     initialProducts: any[];
@@ -353,115 +354,14 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
     }, [allFetchedProducts]);
 
     const filteredProducts = useMemo(() => {
-        if (!Array.isArray(allFetchedProducts)) return [];
-        let result = [...allFetchedProducts];
-
-        console.log('Subcats seleccionadas:', selectedSubcats);
-        console.log('Slugs de categorías del primer producto:', allFetchedProducts[0]?.categories?.map((c: any) => c.slug));
-
-        // Filter by Colors
-        if (selectedColors.length > 0) {
-            result = result.filter(p =>
-                p.attributes?.some((a: any) => {
-                    const name = (a.name || "").toLowerCase();
-                    const slug = (a.slug || "").toLowerCase();
-                    if (name.includes('color') || slug.includes('color')) {
-                        const terms = a.terms || (a.options ? a.options.map((o: any) => ({ name: o })) : []);
-                        return terms.some((t: any) => {
-                            const val = typeof t === 'string' ? t : (t.name || "");
-                            return val && selectedColors.includes(val.toLowerCase());
-                        });
-                    }
-                    return false;
-                })
-            );
-        }
-
-        // Filter by Tallas
-        if (selectedTallas.length > 0) {
-            result = result.filter(p =>
-                p.attributes?.some((a: any) => {
-                    const name = (a.name || "").toLowerCase();
-                    const slug = (a.slug || "").toLowerCase();
-                    if (name.includes('talla') || name.includes('tamaño') || name.includes('size') || slug.includes('talla') || slug.includes('size') || name.includes('numero') || name.includes('nmero')) {
-                        const terms = a.terms || (a.options ? a.options.map((o: any) => ({ name: o })) : []);
-                        return terms.some((t: any) => {
-                            const val = typeof t === 'string' ? t : (t.name || "");
-                            return val && selectedTallas.includes(val.toLowerCase());
-                        });
-                    }
-                    return false;
-                })
-            );
-        }
-
-        console.log('=== FILTRO DEBUG ===');
-        console.log('selectedSubcats:', selectedSubcats);
-        console.log('total productos en memoria:', allFetchedProducts.length);
-
-        if (selectedSubcats.length === 0) {
-           // Continua con el resto de filtros si subcats está vacío
-        } else {
-            result = result.filter(p => {
-                const slugs = p.categories?.map((c: any) => c.slug?.toLowerCase()) || [];
-                console.log('producto:', p.name, '| slugs:', slugs);
-                
-                return p.categories?.some((c: any) => selectedSubcats.includes(c.slug)) ||
-                (p.category_slug && selectedSubcats.includes(p.category_slug));
-            });
-        }
-
-        // Filter by Tags
-        if (selectedTags.length > 0) {
-            result = result.filter(p =>
-                p.tags?.some((t: any) => selectedTags.includes(t.slug))
-            );
-        }
-
-        // Filter by Price Range (Bulletproof string parsing)
-        result = result.filter(p => {
-            const rawPrice = p?.prices?.sale_price || p?.prices?.price || p?.prices?.regular_price || p.sale_price || p.price || p.regular_price || "0";
-            // Extrae estrictamente el primer bloque numérico (Evita que rangos "150-180" se concatenen a 150180)
-            const match = rawPrice.toString().replace(/,/g, '').match(/\d+(\.\d+)?/);
-            const price = match ? Math.floor(parseFloat(match[0])) : 0;
-            
-            return price >= priceRange[0] && price <= priceRange[1];
+        const result = applyFiltersAndSort(allFetchedProducts, {
+            selectedColors,
+            selectedTallas,
+            selectedSubcats,
+            selectedTags,
+            priceRange,
+            sort,
         });
-
-        // Filter by onSale if sort option dictates it
-        if (sort && sort.onSale) {
-            result = result.filter(p => {
-                const priceData = p?.prices || p;
-                const regularPrice = Number(priceData.regular_price || 0);
-                const price = Number(priceData.price || priceData.sale_price || 0);
-                return p.on_sale || (regularPrice > price && price > 0);
-            });
-        }
-
-        // Client-side Sorting
-        if (sort) {
-            result.sort((a: any, b: any) => {
-                if (sort.orderBy === 'price') {
-                    const getPrice = (p: any) => {
-                        const raw = p?.prices?.sale_price || p?.prices?.price || p?.prices?.regular_price || p.sale_price || p.price || p.regular_price || "0";
-                        const match = raw.toString().replace(/,/g, '').match(/\d+(\.\d+)?/);
-                        return match ? parseFloat(match[0]) : 0;
-                    };
-                    const priceA = getPrice(a);
-                    const priceB = getPrice(b);
-                    return sort.order === 'asc' ? priceA - priceB : priceB - priceA;
-                } else if (sort.orderBy === 'popularity') {
-                    const popA = a.total_sales ? parseInt(a.total_sales) : 0;
-                    const popB = b.total_sales ? parseInt(b.total_sales) : 0;
-                    return sort.order === 'asc' ? popA - popB : popB - popA;
-                } else if (sort.orderBy === 'menu_order') {
-                    const menuA = a.menu_order || 0;
-                    const menuB = b.menu_order || 0;
-                    return sort.order === 'asc' ? menuA - menuB : menuB - menuA;
-                }
-                return 0;
-            });
-        }
 
         console.log('productos filtrados:', result.length);
         return result;

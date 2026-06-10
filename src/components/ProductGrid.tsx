@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import ProductCard from './ProductCard';
 import { MENU_CATEGORIES, EXCLUDED_SLUGS } from '../lib/menuCategories';
+import { applyFiltersAndSort } from '../lib/productFilters';
 
 interface Product {
   id: number;
@@ -323,83 +324,13 @@ export default function ProductGrid({
 
   // Filtrado y Ordenación en Cliente
   const filteredAndSortedProducts = useMemo(() => {
-    let result = [...products];
-
-    // 0. Filtrar por Subcategorías
-    if (selectedSubcats.length > 0) {
-      result = result.filter(p =>
-        p.categories?.some((c: any) =>
-          selectedSubcats.includes(c.slug?.toLowerCase())
-        )
-      );
-    }
-
-    // 1. Filtrar por Colores
-    if (selectedColors.length > 0) {
-      result = result.filter(p =>
-        p.attributes?.some((a: any) => {
-          const name = (a.name || "").toLowerCase();
-          const slug = (a.slug || "").toLowerCase();
-          if (name.includes('color') || slug.includes('color')) {
-            const terms = a.terms || [];
-            return terms.some((t: any) => selectedColors.includes(t.slug.toLowerCase()));
-          }
-          return false;
-        })
-      );
-    }
-
-    // 2. Filtrar por Tallas
-    if (selectedTallas.length > 0) {
-      result = result.filter(p =>
-        p.attributes?.some((a: any) => {
-          const name = (a.name || "").toLowerCase();
-          const slug = (a.slug || "").toLowerCase();
-          if (name.includes('talla') || name.includes('tamaño') || name.includes('size') || slug.includes('talla') || slug.includes('size') || name.includes('numero') || name.includes('nmero')) {
-            const terms = a.terms || [];
-            return terms.some((t: any) => selectedTallas.includes(t.slug.toLowerCase()));
-          }
-          return false;
-        })
-      );
-    }
-
-    // 3. Filtrar por Rango de Precio
-    result = result.filter(p => {
-      const rawPrice = p?.prices?.sale_price || p?.prices?.price || p?.prices?.regular_price || "0";
-      const match = rawPrice.toString().replace(/,/g, '').match(/\d+(\.\d+)?/);
-      const price = match ? Math.floor(parseFloat(match[0])) : 0;
-      return price >= priceRange[0] && price <= priceRange[1];
+    return applyFiltersAndSort(products, {
+      selectedColors,
+      selectedTallas,
+      selectedSubcats,
+      priceRange,
+      sort,
     });
-
-    // 4. Ordenar Productos
-    if (sort.key === 'precio_asc') {
-      result.sort((a, b) => {
-        const pA = parseFloat(a.prices?.price || "0");
-        const pB = parseFloat(b.prices?.price || "0");
-        return pA - pB;
-      });
-    } else if (sort.key === 'precio_desc') {
-      result.sort((a, b) => {
-        const pA = parseFloat(a.prices?.price || "0");
-        const pB = parseFloat(b.prices?.price || "0");
-        return pB - pA;
-      });
-    } else if (sort.key === 'descuentos') {
-      result.sort((a, b) => {
-        const saleA = parseFloat(a.prices?.sale_price || "0");
-        const regA = parseFloat(a.prices?.regular_price || "0");
-        const discA = regA > 0 ? (regA - saleA) / regA : 0;
-
-        const saleB = parseFloat(b.prices?.sale_price || "0");
-        const regB = parseFloat(b.prices?.regular_price || "0");
-        const discB = regB > 0 ? (regB - saleB) / regB : 0;
-
-        return discB - discA;
-      });
-    }
-
-    return result;
   }, [products, selectedSubcats, selectedColors, selectedTallas, priceRange, sort]);
 
   const displayedProducts = filteredAndSortedProducts.slice(0, visibleCount);
