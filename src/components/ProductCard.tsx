@@ -511,6 +511,7 @@ export default function ProductCard({ product, isSelected, onSelectionToggle, on
 
                         <picture className="primary-image">
                             <img
+                                key={mainImage?.src}
                                 src={getOptimizedUrl(mainImage?.src || '', { width: 600 })}
                                 srcSet={getImageSrcSet(mainImage?.src || '', [400, 600, 800])}
                                 sizes="(max-width: 768px) 50vw, 33vw"
@@ -607,16 +608,12 @@ export default function ProductCard({ product, isSelected, onSelectionToggle, on
                                 {(() => {
                                     const currentVariations = enrichedProduct?.variations || product.variations;
 
-                                    // 1. Si es un producto VARIABLE, NO mostramos nada hasta tener la "verdad" de las variaciones.
-                                    // Esto evita el FOUC (Flash of Unstyled/Incorrect Content) donde aparecen 10 puntos y luego 2.
-                                    if (product.type === 'variable' && (!currentVariations || currentVariations.length === 0)) {
-                                        return null;
-                                    }
-
-                                    // 2. Filtramos la realidad si tenemos los datos (SSR o Enriquecidos)
+                                    // SSG: Mostramos los puntitos inmediatamente usando colorAttribute.terms
+                                    // (disponible en el catalog JSON sin fetch adicional).
+                                    // Si enrichedProduct carga después, refinamos la lista a variaciones reales.
                                     let termsToDisplay = colorAttribute.terms;
                                     if (currentVariations && currentVariations.length > 0) {
-                                        termsToDisplay = colorAttribute.terms.filter(term =>
+                                        const filtered = colorAttribute.terms.filter(term =>
                                             currentVariations.some((v: any) =>
                                                 v.attributes.some((a: any) =>
                                                     (a.name.toLowerCase().includes('color') || a.name === 'Pa_selecciona-el-color') &&
@@ -624,9 +621,11 @@ export default function ProductCard({ product, isSelected, onSelectionToggle, on
                                                 )
                                             )
                                         );
+                                        // Solo usamos el filtro si encontró variaciones reales (evita quedarse sin puntos)
+                                        if (filtered.length > 0) termsToDisplay = filtered;
                                     }
 
-                                    // 3. Mostrar siempre que haya algo real que mostrar
+                                    // No mostrar si no hay términos de color
                                     if (termsToDisplay.length === 0) return null;
 
                                     return termsToDisplay.map((term: any) => (

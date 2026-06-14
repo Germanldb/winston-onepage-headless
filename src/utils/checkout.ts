@@ -10,7 +10,7 @@ export async function redirectToCheckout(path: string = '/', coupon: string = ''
     const items = Object.values($cartItems).map(value => JSON.parse(value));
 
     // Dominio de WordPress donde está el WooCommerce real
-    const wpDomain = import.meta.env.PUBLIC_WP_URL || 'https://winston.com.co';
+    const wpDomain = import.meta.env.PUBLIC_WP_URL || 'https://tienda.winstonandharrystore.com';
 
     // Obtener token de sesión para autologin si existe
     const { userSession } = await import('../store/user');
