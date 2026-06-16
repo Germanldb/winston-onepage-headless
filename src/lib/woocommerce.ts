@@ -470,7 +470,7 @@ function mapV3ToStore(p: any) {
             // 2. Luego añadimos las de WPC (ordenadas después de la principal)
             if (p.variations_data && Array.isArray(p.variations_data) && p.wpc_resolved_media) {
                 p.variations_data.forEach((v: any) => {
-                    const wpcMeta = v.meta_data?.find((m: any) => m.key === 'wpcvi_images' || m.key === 'wd_additional_variation_images_data');
+                    const wpcMeta = v.meta_data?.find((m: any) => (m.key === 'wpcvi_images' || m.key === 'wd_additional_variation_images_data') && m.value);
                     if (wpcMeta?.value) {
                          const colorAttr = v.attributes?.find((a: any) => 
                              (a.name || "").toLowerCase().includes('color') || 
@@ -515,7 +515,7 @@ function mapV3ToStore(p: any) {
     const wpcImagesMap: Record<string, any[]> = {};
     if (p.variations_data && Array.isArray(p.variations_data)) {
         p.variations_data.forEach((v: any) => {
-            const wpcMeta = v.meta_data?.find((m: any) => m.key === 'wpcvi_images' || m.key === 'wd_additional_variation_images_data');
+            const wpcMeta = v.meta_data?.find((m: any) => (m.key === 'wpcvi_images' || m.key === 'wd_additional_variation_images_data') && m.value);
             if (wpcMeta?.value && p.wpc_resolved_media) {
                 const colorAttr = v.attributes?.find((a: any) => 
                     (a.name || "").toLowerCase().includes('color') || 
@@ -654,7 +654,7 @@ function mapV3ToStore(p: any) {
 
                 // 2. Luego añadimos las de WPC (ordenadas después de la principal)
                 p.variations_data.forEach((v: any) => {
-                    const wpcMeta = v.meta_data?.find((m: any) => m.key === 'wpcvi_images' || m.key === 'wd_additional_variation_images_data');
+                    const wpcMeta = v.meta_data?.find((m: any) => (m.key === 'wpcvi_images' || m.key === 'wd_additional_variation_images_data') && m.value);
                     if (wpcMeta?.value && p.wpc_resolved_media) {
                         const colorAttr = v.attributes?.find((a: any) => {
                             const n = (a.name || "").toLowerCase();
@@ -733,7 +733,7 @@ export async function getProductById(id: number | string) {
             // NUEVO: Resolver imágenes de WPC si existen
             const allWpcIds = new Set<string>();
             variations.forEach((v: any) => {
-                const meta = v.meta_data?.find((m: any) => m.key === 'wpcvi_images' || m.key === 'wd_additional_variation_images_data');
+                const meta = v.meta_data?.find((m: any) => (m.key === 'wpcvi_images' || m.key === 'wd_additional_variation_images_data') && m.value);
                 if (meta?.value) meta.value.split(',').forEach((id: string) => allWpcIds.add(id.trim()));
             });
 
@@ -1096,7 +1096,7 @@ export async function getProductBySlug(slug: string) {
                         // NUEVO: Resolver imágenes de WPC si existen
                         const allWpcIds = new Set<string>();
                         variations.forEach((v: any) => {
-                            const meta = v.meta_data?.find((m: any) => m.key === 'wpcvi_images' || m.key === 'wd_additional_variation_images_data');
+                            const meta = v.meta_data?.find((m: any) => (m.key === 'wpcvi_images' || m.key === 'wd_additional_variation_images_data') && m.value);
                             if (meta?.value) meta.value.split(',').forEach((id: string) => allWpcIds.add(id.trim()));
                         });
 
@@ -1146,7 +1146,7 @@ export async function getProductBySlug(slug: string) {
             // NUEVO: Resolver imágenes de WPC si existen
             const allWpcIds = new Set<string>();
             variations.forEach((v: any) => {
-                const meta = v.meta_data?.find((m: any) => m.key === 'wpcvi_images' || m.key === 'wd_additional_variation_images_data');
+                const meta = v.meta_data?.find((m: any) => (m.key === 'wpcvi_images' || m.key === 'wd_additional_variation_images_data') && m.value);
                 if (meta?.value) meta.value.split(',').forEach((id: string) => allWpcIds.add(id.trim()));
             });
 
