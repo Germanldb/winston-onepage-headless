@@ -353,9 +353,7 @@ export default function ProductDetail({ initialProduct }: Props) {
 
       Object.keys(currentProduct.variation_images_map).forEach(key => {
         const k = normalizeAttr(key);
-        const isMatch = Array.from(searchTerms).some(term =>
-          k === term || k.includes(term) || term.includes(k)
-        );
+        const isMatch = Array.from(searchTerms).some(term => k === term);
 
         if (isMatch) {
           const imagesForKey = currentProduct.variation_images_map![key];
