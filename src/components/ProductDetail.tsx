@@ -237,9 +237,14 @@ export default function ProductDetail({ initialProduct }: Props) {
     const colorParam = params.get('color');
     const tallaParam = params.get('talla');
 
-    if (colorParam) setSelectedColor(colorParam);
+    if (colorParam) {
+      setSelectedColor(colorParam);
+    } else if (colorAttribute && colorAttribute.terms.length > 0 && !selectedColor) {
+      setSelectedColor(colorAttribute.terms[0].slug);
+    }
+
     if (tallaParam) setSelectedSize(tallaParam);
-  }, []);
+  }, [colorAttribute]);
 
   const colorSynonyms = useMemo(() => {
     if (!selectedColor) return [];
@@ -416,9 +421,15 @@ export default function ProductDetail({ initialProduct }: Props) {
     }
 
     // 2. PRIORIDAD MEDIA: Todas las fotos confirmadas de esa variante (Mapas + Galería)
-    [...varImages, ...galleryMatches].forEach((img: any) => {
-      if (!combined.some(c => c.src === img.src)) combined.push(img);
-    });
+    if (varImages.length > 0) {
+      varImages.forEach((img: any) => {
+        if (!combined.some(c => c.src === img.src)) combined.push(img);
+      });
+    } else {
+      galleryMatches.forEach((img: any) => {
+        if (!combined.some(c => c.src === img.src)) combined.push(img);
+      });
+    }
 
     // 3. PRIORIDAD BAJA: Predicción Sintética (Solo si no hay NADA real)
     if (combined.length === 0 && currentProduct.images.length > 0 && colorAttribute && !failedSyntheticColors.includes(selectedColor)) {
