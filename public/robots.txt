@@ -1,13 +1,20 @@
-# Robots.txt for Winston & Harry
-
 User-agent: *
 Allow: /
 
-# Prevent search engines from crawling checkout or dynamic account paths
+# Bloquear rutas privadas y de API de Astro
 Disallow: /carrito
 Disallow: /checkout
 Disallow: /mi-cuenta
 Disallow: /api/
 
-# Sitemap Link
+# Bloquear basura heredada de WordPress
+Disallow: /product/
+Disallow: /product-category/
+Disallow: /product-tag/
+
+# Bloquear TODAS las URLs parametrizadas (filtros, orden, precios)
+Disallow: /*?*
+Disallow: /*&*
+
+# Declarar el Sitemap limpio
 Sitemap: https://www.winstonandharrystore.com/sitemap-index.xml
