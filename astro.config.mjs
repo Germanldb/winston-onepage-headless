@@ -39,6 +39,7 @@ async function getDynamicProductPages() {
         if (p && p.slug && typeof p.slug === 'string') {
           const cleanSlug = p.slug.trim();
           if (cleanSlug && !cleanSlug.includes('undefined') && !cleanSlug.includes('null') && !cleanSlug.includes('[object')) {
+            // Se asegura de construir las URLs usando siempre el dominio maestro www
             allUrls.push(`https://www.winstonandharrystore.com/productos/${cleanSlug}`);
           }
         }
@@ -65,34 +66,27 @@ const allSitemapPages = [...productPages, 'https://www.winstonandharrystore.com/
 const seenUrls = new Set();
 
 export default defineConfig({
+  // Dominio maestro estricto para evitar canibalización y alinear los canonicals y sitemaps
   site: 'https://www.winstonandharrystore.com',
   integrations: [
     react(),
     sitemap({
       customPages: allSitemapPages,
       serialize(item) {
-        // Validación inicial para prevenir elementos nulos o vacíos en el build
-        if (!item || !item.url || typeof item.url !== 'string') {
-          return undefined;
-        }
+        if (!item || !item.url || typeof item.url !== 'string') return undefined;
+        if (item.url.includes('undefined') || item.url.includes('null') || item.url.includes('[object')) return undefined;
+        if (item.url.includes('?')) return undefined;
 
-        // Filtro estricto para evitar URLs rotas o con basura de errores ('undefined', 'null', '[object')
-        if (item.url.includes('undefined') || item.url.includes('null') || item.url.includes('[object')) {
-          return undefined;
-        }
-
-        // Exclusión total: Nunca permitir query strings en el sitemap
-        if (item.url.includes('?')) {
-          return undefined;
-        }
-
-        // 1. Transformación de Dominio: Reemplaza globalmente tienda.winstonandharrystore.com por www.winstonandharrystore.com
+        // Transformación y consolidación de dominio
         if (item.url.includes('tienda.winstonandharrystore.com')) {
           item.url = item.url.replace('tienda.winstonandharrystore.com', 'www.winstonandharrystore.com');
         }
 
-        // 3. Normalización de Base: Asegúrate de que todos los productos usen el prefijo /productos/ y las categorías el prefijo /categoria/
-        // Eliminando los prefijos por defecto de WooCommerce (/product/ o /product-category/)
+        // Si por alguna razón Astro intenta generar URLs sin www, las forzamos
+        if (item.url.startsWith('https://winstonandharrystore.com')) {
+          item.url = item.url.replace('https://winstonandharrystore.com', 'https://www.winstonandharrystore.com');
+        }
+
         if (item.url.includes('/product/')) {
           item.url = item.url.replace('/product/', '/productos/');
         }
@@ -100,53 +94,38 @@ export default defineConfig({
           item.url = item.url.replace('/product-category/', '/categoria/');
         }
 
-        // 2. Ya no filtramos las categorías; permitimos que el sitemap herede automáticamente las generadas por Astro en build-time
-        // Se preserva la URL
-        
-        // Unificar URLs eliminando barra diagonal final (trailing slash) excepto si es la raíz
         if (item.url !== 'https://www.winstonandharrystore.com/' && item.url !== 'https://www.winstonandharrystore.com' && item.url.endsWith('/')) {
           item.url = item.url.slice(0, -1);
         }
 
-        // Deduplicar URLs exactas
-        if (seenUrls.has(item.url)) {
-          return undefined;
-        }
+        if (seenUrls.has(item.url)) return undefined;
         seenUrls.add(item.url);
 
         return item;
       },
       filter: (page) => {
-        if (!page || typeof page !== 'string') {
-          return false;
-        }
+        if (!page || typeof page !== 'string') return false;
+        if (page.includes('undefined') || page.includes('null') || page.includes('[object')) return false;
+        if (page.includes('?')) return false;
 
-        // Filtro estricto para evitar indexar páginas con errores de variables en el build
-        if (page.includes('undefined') || page.includes('null') || page.includes('[object')) {
-          return false;
-        }
-
-        // Exclusión total de URLs parametrizadas
-        if (page.includes('?')) {
-          return false;
-        }
-
-        // 4. Limpieza de Páginas Técnicas: Excluye páginas internas que no deben ser indexadas
         const excludedPatterns = [
           '/wp-json/',
           '/wp-admin/',
           '/wp-content/',
           '/xmlrpc',
+          // Rutas estrictamente excluidas solicitadas
           '/api/',
+          '/carrito',
+          '/checkout',
+          '/mi-cuenta',
+          '/404', 
+          // Otras internas ya existentes que no debemos indexar
           '/cart/',
-          '/checkout/',
           '/my-account/',
-          '/mi-cuenta/',
           'lost-password',
           'edit-account',
           'uncategorized',
           'sin-categorizar',
-          '/carrito',
           '/buscar',
           '/gracias',
           '/lista-de-deseos',
