@@ -214,8 +214,8 @@
       "type": "variation",
       "date_created": "2025-10-31T01:31:20",
       "date_created_gmt": "2025-10-31T01:31:20",
-      "date_modified": "2026-06-02T17:41:47",
-      "date_modified_gmt": "2026-06-02T17:41:47",
+      "date_modified": "2026-06-16T17:44:43",
+      "date_modified_gmt": "2026-06-16T17:44:43",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/medias-bicicleta/?attribute_pa_selecciona-el-color=azul-claro",
       "sku": "11188901000",
@@ -238,7 +238,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 95,
+      "stock_quantity": 91,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1025,7 +1025,7 @@
         {
           "id": 2219132,
           "key": "_last_change_time",
-          "value": "1780422107"
+          "value": "1781631516"
         },
         {
           "id": 2310920,
@@ -1067,8 +1067,8 @@
       "type": "variation",
       "date_created": "2025-10-31T01:31:20",
       "date_created_gmt": "2025-10-31T01:31:20",
-      "date_modified": "2026-06-02T17:41:47",
-      "date_modified_gmt": "2026-06-02T17:41:47",
+      "date_modified": "2026-06-16T17:44:43",
+      "date_modified_gmt": "2026-06-16T17:44:43",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/medias-bicicleta/?attribute_pa_selecciona-el-color=azul",
       "sku": "11188941000",
@@ -1091,7 +1091,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 59,
+      "stock_quantity": 56,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1878,7 +1878,7 @@
         {
           "id": 2250469,
           "key": "_last_change_time",
-          "value": "1780422107"
+          "value": "1781631516"
         },
         {
           "id": 2310919,

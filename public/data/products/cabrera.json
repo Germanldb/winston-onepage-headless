@@ -307,35 +307,6 @@
       "sale_price": ""
     },
     {
-      "id": 57025,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "azul",
-          "option": "azul"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "40",
-          "option": "40"
-        }
-      ],
-      "image": {
-        "id": 61814,
-        "date_created": "2025-03-04T01:55:47",
-        "date_created_gmt": "2025-03-04T01:55:47",
-        "date_modified": "2025-03-04T07:31:22",
-        "date_modified_gmt": "2025-03-04T07:31:22",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Cabrera-Azul-Winstonandharry-1-e1752870313803.jpg",
-        "name": "Cabrera-Azul-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
-      "sale_price": ""
-    },
-    {
       "id": 57026,
       "attributes": [
         {
@@ -12125,8 +12096,8 @@
       "type": "variation",
       "date_created": "2024-07-12T04:30:37",
       "date_created_gmt": "2024-07-12T04:30:37",
-      "date_modified": "2026-05-07T22:59:25",
-      "date_modified_gmt": "2026-05-07T22:59:25",
+      "date_modified": "2026-06-16T17:42:36",
+      "date_modified_gmt": "2026-06-16T17:42:36",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cabrera/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=40",
       "sku": "7230501040",
@@ -12149,8 +12120,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -12772,7 +12743,7 @@
         {
           "id": 2260878,
           "key": "_last_change_time",
-          "value": "1778177578"
+          "value": "1781631389"
         },
         {
           "id": 2312281,

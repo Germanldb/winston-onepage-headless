@@ -11402,8 +11402,8 @@
       "type": "variation",
       "date_created": "2026-05-08T01:11:42",
       "date_created_gmt": "2026-05-08T01:11:42",
-      "date_modified": "2026-06-02T17:42:31",
-      "date_modified_gmt": "2026-06-02T17:42:31",
+      "date_modified": "2026-06-16T17:44:55",
+      "date_modified_gmt": "2026-06-16T17:44:55",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-eton/?attribute_pa_selecciona-el-color=beige&attribute_pa_selecciona-una-talla=xxl",
       "sku": "19200406040",
@@ -11426,7 +11426,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -11469,7 +11469,7 @@
         {
           "id": 2336623,
           "key": "_last_change_time",
-          "value": "1780422151"
+          "value": "1781631895"
         },
         {
           "id": 2336624,
@@ -16768,6 +16768,23 @@
       }
     }
   ],
+  "wpc_resolved_media": {
+    "84765": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-azul-posterior.jpg",
+    "84766": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-azul-bolsillo-1.jpg",
+    "84767": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-azul-bolsillo-2.jpg",
+    "84768": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-azul-cremallera-inferior.jpg",
+    "84772": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-azul-manga-bolsillo.jpg",
+    "84773": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-tabaco-posteior.jpg",
+    "84774": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-tabaco-bolsillo-1.jpg",
+    "84775": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-tabaco-bolsillo-2.jpg",
+    "84776": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-tabaco-bolsillo-y-manga.jpg",
+    "84778": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-tabaco-detalle-cierre.jpg",
+    "84782": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-verde-posterior.jpg",
+    "84783": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-verde-bolsillo-interno-1.jpg",
+    "84784": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-verde-bolsillo-interno-2.jpg",
+    "84785": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-verde-bolsillo-manga.jpg",
+    "84786": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-verde-cierre.jpg"
+  },
   "stock_status": "instock",
   "variation_images_map": {
     "azul": [
@@ -16776,6 +16793,31 @@
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-azul-frente.jpg",
         "alt": "Winston-and-Harry-chaqueta-eton-azul-frente",
         "name": "Winston-and-Harry-chaqueta-eton-azul-frente"
+      },
+      {
+        "id": 84765,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-azul-posterior.jpg",
+        "alt": "Chaqueta Eton"
+      },
+      {
+        "id": 84772,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-azul-manga-bolsillo.jpg",
+        "alt": "Chaqueta Eton"
+      },
+      {
+        "id": 84768,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-azul-cremallera-inferior.jpg",
+        "alt": "Chaqueta Eton"
+      },
+      {
+        "id": 84767,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-azul-bolsillo-2.jpg",
+        "alt": "Chaqueta Eton"
+      },
+      {
+        "id": 84766,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-azul-bolsillo-1.jpg",
+        "alt": "Chaqueta Eton"
       }
     ],
     "verde": [
@@ -16784,6 +16826,31 @@
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-verde-frente.jpg",
         "alt": "Winston-and-Harry-chaqueta-eton-verde-frente",
         "name": "Winston-and-Harry-chaqueta-eton-verde-frente"
+      },
+      {
+        "id": 84782,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-verde-posterior.jpg",
+        "alt": "Chaqueta Eton"
+      },
+      {
+        "id": 84786,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-verde-cierre.jpg",
+        "alt": "Chaqueta Eton"
+      },
+      {
+        "id": 84785,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-verde-bolsillo-manga.jpg",
+        "alt": "Chaqueta Eton"
+      },
+      {
+        "id": 84784,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-verde-bolsillo-interno-2.jpg",
+        "alt": "Chaqueta Eton"
+      },
+      {
+        "id": 84783,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-verde-bolsillo-interno-1.jpg",
+        "alt": "Chaqueta Eton"
       }
     ],
     "beige": [
@@ -16792,6 +16859,31 @@
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-tabaco-frente.jpg",
         "alt": "Winston-and-Harry-chaqueta-eton-tabaco-frente",
         "name": "Winston-and-Harry-chaqueta-eton-tabaco-frente"
+      },
+      {
+        "id": 84773,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-tabaco-posteior.jpg",
+        "alt": "Chaqueta Eton"
+      },
+      {
+        "id": 84778,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-tabaco-detalle-cierre.jpg",
+        "alt": "Chaqueta Eton"
+      },
+      {
+        "id": 84776,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-tabaco-bolsillo-y-manga.jpg",
+        "alt": "Chaqueta Eton"
+      },
+      {
+        "id": 84775,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-tabaco-bolsillo-2.jpg",
+        "alt": "Chaqueta Eton"
+      },
+      {
+        "id": 84774,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-eton-tabaco-bolsillo-1.jpg",
+        "alt": "Chaqueta Eton"
       }
     ]
   }

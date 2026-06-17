@@ -561,7 +561,6 @@ const FilteredProductList: React.FC<FilteredProductListProps> = ({
                                     <ul className="checklist">
                                         {categoriesAccordionData.isSpecific ? (
                                             (categoriesAccordionData.list as any[])
-                                                .filter(sub => availableSlugs.has(sub.slug))
                                                 .map(sub => (
                                                 <li key={sub.slug}>
                                                     <label className="checkbox-container">

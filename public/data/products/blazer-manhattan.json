@@ -3860,8 +3860,8 @@
       "type": "variation",
       "date_created": "2026-05-08T00:26:35",
       "date_created_gmt": "2026-05-08T00:26:35",
-      "date_modified": "2026-06-02T17:42:16",
-      "date_modified_gmt": "2026-06-02T17:42:16",
+      "date_modified": "2026-06-16T17:44:55",
+      "date_modified_gmt": "2026-06-16T17:44:55",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/blazer-manhattan/?attribute_pa_selecciona-el-color=morado&attribute_pa_selecciona-una-talla=40",
       "sku": "2025022040",
@@ -3884,7 +3884,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3927,7 +3927,7 @@
         {
           "id": 2328943,
           "key": "_last_change_time",
-          "value": "1780422136"
+          "value": "1781631895"
         },
         {
           "id": 2328944,
@@ -19966,6 +19966,17 @@
       }
     }
   ],
+  "wpc_resolved_media": {
+    "84750": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-manhathan-azul-bolsillo-interno-1.jpg",
+    "84751": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-manhathan-azul-bolsillo-interno-2.jpg",
+    "84752": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-manhathan-azul-detalle.jpg",
+    "84754": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-manhathan-azul-manga-bolsillo-externo-2-Recuperado.jpg",
+    "84755": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-manhathan-azul-posterior-Recuperado.jpg",
+    "84756": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Blazer-Manhthan-gris-bolsillo-interno-1.jpg",
+    "84761": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Blazer-Manhthan-gris-manga-y-bolsillo-externo-2.jpg",
+    "84762": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Blazer-Manhthan-gris-manga-y-bolsillo-externo-posterior.jpg",
+    "84763": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Blazer-Manhthan-gris-posterior.jpg"
+  },
   "stock_status": "instock",
   "variation_images_map": {
     "morado": [
@@ -19982,6 +19993,26 @@
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Blazer-Manhthan-gris-frente.jpg",
         "alt": "Winston-and-Harry-Blazer-Manhthan-gris-frente",
         "name": "Winston-and-Harry-Blazer-Manhthan-gris-frente"
+      },
+      {
+        "id": 84763,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Blazer-Manhthan-gris-posterior.jpg",
+        "alt": "Blazer Manhattan"
+      },
+      {
+        "id": 84762,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Blazer-Manhthan-gris-manga-y-bolsillo-externo-posterior.jpg",
+        "alt": "Blazer Manhattan"
+      },
+      {
+        "id": 84761,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Blazer-Manhthan-gris-manga-y-bolsillo-externo-2.jpg",
+        "alt": "Blazer Manhattan"
+      },
+      {
+        "id": 84756,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Blazer-Manhthan-gris-bolsillo-interno-1.jpg",
+        "alt": "Blazer Manhattan"
       }
     ],
     "azul": [
@@ -19990,6 +20021,31 @@
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-manhathan-azu-frene.jpg",
         "alt": "Winston-and-Harry-blazer-manhathan-azu-frene",
         "name": "Winston-and-Harry-blazer-manhathan-azu-frene"
+      },
+      {
+        "id": 84755,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-manhathan-azul-posterior-Recuperado.jpg",
+        "alt": "Blazer Manhattan"
+      },
+      {
+        "id": 84754,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-manhathan-azul-manga-bolsillo-externo-2-Recuperado.jpg",
+        "alt": "Blazer Manhattan"
+      },
+      {
+        "id": 84752,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-manhathan-azul-detalle.jpg",
+        "alt": "Blazer Manhattan"
+      },
+      {
+        "id": 84751,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-manhathan-azul-bolsillo-interno-2.jpg",
+        "alt": "Blazer Manhattan"
+      },
+      {
+        "id": 84750,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-manhathan-azul-bolsillo-interno-1.jpg",
+        "alt": "Blazer Manhattan"
       }
     ]
   }

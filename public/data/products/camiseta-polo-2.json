@@ -7,8 +7,8 @@
   "variation": "",
   "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-2/",
   "sku": "529-29",
-  "short_description": "<p>• Para un estilo casual y fomral.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
-  "description": "<p>• Un estilo fit pero no pegado.</p>\n<p>• Para un estilo casual y fomral.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
+  "short_description": "<p>• Para un estilo casual y formal.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
+  "description": "<p>• Un estilo fit pero no pegado.</p>\n<p>• Para un estilo casual y formal.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
   "on_sale": false,
   "prices": {
     "price": "150000",
@@ -243,6 +243,35 @@
       "price": "150000",
       "regular_price": "150000",
       "sale_price": ""
+    },
+    {
+      "id": 30301,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "azul-claro",
+          "option": "azul-claro"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "xl",
+          "option": "xl"
+        }
+      ],
+      "image": {
+        "id": 30259,
+        "date_created": "2023-06-21T21:42:44",
+        "date_created_gmt": "2023-06-21T21:42:44",
+        "date_modified": "2023-06-21T21:42:44",
+        "date_modified_gmt": "2023-06-21T21:42:44",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/MG_5240.jpg",
+        "name": "_MG_5240",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "150000",
+      "regular_price": "150000",
+      "sale_price": ""
     }
   ],
   "grouped_products": [],
@@ -310,8 +339,8 @@
       "type": "variation",
       "date_created": "2023-06-22T21:54:01",
       "date_created_gmt": "2023-06-22T21:54:01",
-      "date_modified": "2026-05-07T23:00:23",
-      "date_modified_gmt": "2026-05-07T23:00:23",
+      "date_modified": "2026-06-16T17:42:18",
+      "date_modified_gmt": "2026-06-16T17:42:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-2/?attribute_pa_selecciona-el-color=azul-claro&attribute_pa_selecciona-una-talla=xl",
       "sku": "5056129038",
@@ -334,8 +363,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 0,
-      "stock_status": "outofstock",
+      "stock_quantity": 1,
+      "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -812,7 +841,7 @@
         {
           "id": 2259087,
           "key": "_last_change_time",
-          "value": "1778177743"
+          "value": "1781631369"
         },
         {
           "id": 2312833,

@@ -6975,8 +6975,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:31:50",
       "date_created_gmt": "2022-08-25T22:31:50",
-      "date_modified": "2026-05-07T23:11:21",
-      "date_modified_gmt": "2026-05-07T23:11:21",
+      "date_modified": "2026-06-16T17:40:49",
+      "date_modified_gmt": "2026-06-16T17:40:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sussex/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=44",
       "sku": "7018726044",
@@ -6999,7 +6999,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -7562,7 +7562,7 @@
         {
           "id": 2250066,
           "key": "_last_change_time",
-          "value": "1778190418"
+          "value": "1781631263"
         },
         {
           "id": 2314870,

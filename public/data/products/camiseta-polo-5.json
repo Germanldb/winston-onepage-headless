@@ -7,8 +7,8 @@
   "variation": "",
   "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-5/",
   "sku": "529-13",
-  "short_description": "<p>• Para un estilo casual y fomral.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
-  "description": "<p>• Un estilo fit pero no pegado.</p>\n<p>• Para un estilo casual y fomral.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
+  "short_description": "<p>• Para un estilo casual y formal.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
+  "description": "<p>• Un estilo fit pero no pegado.</p>\n<p>• Para un estilo casual y formal.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
   "on_sale": false,
   "prices": {
     "price": "150000",
@@ -227,6 +227,35 @@
           "name": "Selecciona una Talla",
           "value": "m",
           "option": "m"
+        }
+      ],
+      "image": {
+        "id": 30253,
+        "date_created": "2023-06-21T21:42:27",
+        "date_created_gmt": "2023-06-21T21:42:27",
+        "date_modified": "2023-06-21T21:42:27",
+        "date_modified_gmt": "2023-06-21T21:42:27",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/MG_5217.jpg",
+        "name": "_MG_5217",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "150000",
+      "regular_price": "150000",
+      "sale_price": ""
+    },
+    {
+      "id": 30295,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "rojo",
+          "option": "rojo"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "l",
+          "option": "l"
         }
       ],
       "image": {
@@ -888,8 +917,8 @@
       "type": "variation",
       "date_created": "2023-06-22T21:54:01",
       "date_created_gmt": "2023-06-22T21:54:01",
-      "date_modified": "2026-05-07T23:00:11",
-      "date_modified_gmt": "2026-05-07T23:00:11",
+      "date_modified": "2026-06-16T17:42:18",
+      "date_modified_gmt": "2026-06-16T17:42:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-5/?attribute_pa_selecciona-el-color=rojo&attribute_pa_selecciona-una-talla=l",
       "sku": "5056113036",
@@ -912,8 +941,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 0,
-      "stock_status": "outofstock",
+      "stock_quantity": 10,
+      "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -1380,7 +1409,7 @@
         {
           "id": 2259078,
           "key": "_last_change_time",
-          "value": "1778177732"
+          "value": "1781631369"
         },
         {
           "id": 2312840,
@@ -1422,8 +1451,8 @@
       "type": "variation",
       "date_created": "2023-06-22T21:54:01",
       "date_created_gmt": "2023-06-22T21:54:01",
-      "date_modified": "2026-05-07T23:00:11",
-      "date_modified_gmt": "2026-05-07T23:00:11",
+      "date_modified": "2026-06-16T17:42:18",
+      "date_modified_gmt": "2026-06-16T17:42:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-5/?attribute_pa_selecciona-el-color=rojo&attribute_pa_selecciona-una-talla=m",
       "sku": "5056113034",
@@ -1446,7 +1475,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1929,7 +1958,7 @@
         {
           "id": 2236208,
           "key": "_last_change_time",
-          "value": "1778177732"
+          "value": "1781631369"
         },
         {
           "id": 2312839,
@@ -1971,8 +2000,8 @@
       "type": "variation",
       "date_created": "2023-06-22T21:54:01",
       "date_created_gmt": "2023-06-22T21:54:01",
-      "date_modified": "2026-05-07T23:00:11",
-      "date_modified_gmt": "2026-05-07T23:00:11",
+      "date_modified": "2026-06-16T17:42:18",
+      "date_modified_gmt": "2026-06-16T17:42:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-5/?attribute_pa_selecciona-el-color=rojo&attribute_pa_selecciona-una-talla=s",
       "sku": "5056113032",
@@ -1995,7 +2024,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2478,7 +2507,7 @@
         {
           "id": 2259069,
           "key": "_last_change_time",
-          "value": "1778177732"
+          "value": "1781631369"
         },
         {
           "id": 2312838,

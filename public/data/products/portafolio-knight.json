@@ -941,8 +941,8 @@
       "type": "variation",
       "date_created": "2024-11-27T21:11:44",
       "date_created_gmt": "2024-11-27T21:11:44",
-      "date_modified": "2026-05-07T23:08:04",
-      "date_modified_gmt": "2026-05-07T23:08:04",
+      "date_modified": "2026-06-16T17:42:36",
+      "date_modified_gmt": "2026-06-16T17:42:36",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/portafolio-knight/?attribute_pa_selecciona-el-color=negro",
       "sku": "17026202000",
@@ -965,7 +965,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 21,
+      "stock_quantity": 20,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1562,7 +1562,7 @@
         {
           "id": 2229456,
           "key": "_last_change_time",
-          "value": "1778184482"
+          "value": "1781631389"
         },
         {
           "id": 2312175,

@@ -7,8 +7,8 @@
   "variation": "",
   "permalink": "https://tienda.winstonandharrystore.com/product/camisa-button-down-ii/",
   "sku": "1019",
-  "short_description": "<p>• Para un estilo casual y fomral.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
-  "description": "<p data-start=\"121\" data-end=\"501\">Confeccionada en 100% algodón de alta calidad, una version de la camisa Button Down incorporando un delicado diseño con textura que añade distinción y modernidad. Su corte clásico, cuello con botones, puños ajustables y el icónico logo de Winston and Harry bordado reflejan la elegancia característica de la marca. Versátil y cómoda, es ideal para elevar tanto atuendos formales como casuales, manteniendo frescura y durabilidad en cada uso.</p>",
+  "short_description": "<p>• Para un estilo casual y formal.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
+  "description": "<p>Confeccionada en 100% algodón de alta calidad, ofreciendo comodidad, frescura y un ajuste impecable. Su diseño Button Down incluye cuello con botones fijando ambas puntas en su lugar, puños ajustables y el icónico logo de Winston and Harry bordado, aportando un toque distintivo. Ideal para combinar en looks formales o casuales, es una prenda versátil y duradera, pensada para acompañar cualquier ocasión.</p>",
   "on_sale": false,
   "prices": {
     "price": "310000",
@@ -6917,8 +6917,8 @@
       "type": "variation",
       "date_created": "2025-08-14T16:37:13",
       "date_created_gmt": "2025-08-14T16:37:13",
-      "date_modified": "2026-06-02T17:41:09",
-      "date_modified_gmt": "2026-06-02T17:41:09",
+      "date_modified": "2026-06-16T17:44:15",
+      "date_modified_gmt": "2026-06-16T17:44:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-button-down-ii/?attribute_pa_selecciona-el-color=morado&attribute_pa_selecciona-una-talla=xl",
       "sku": "5150222038",
@@ -6941,7 +6941,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -7734,7 +7734,7 @@
         {
           "id": 2257368,
           "key": "_last_change_time",
-          "value": "1780422069"
+          "value": "1781631481"
         },
         {
           "id": 2311284,

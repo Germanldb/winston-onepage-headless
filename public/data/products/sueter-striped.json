@@ -1439,8 +1439,8 @@
       "type": "variation",
       "date_created": "2025-09-04T20:24:47",
       "date_created_gmt": "2025-09-04T20:24:47",
-      "date_modified": "2026-05-07T23:10:45",
-      "date_modified_gmt": "2026-05-07T23:10:45",
+      "date_modified": "2026-06-16T17:44:24",
+      "date_modified_gmt": "2026-06-16T17:44:24",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sueter-striped/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=xl",
       "sku": "6160201038",
@@ -1463,7 +1463,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2261,7 +2261,7 @@
         {
           "id": 2257394,
           "key": "_last_change_time",
-          "value": "1778190190"
+          "value": "1781631493"
         },
         {
           "id": 2311121,

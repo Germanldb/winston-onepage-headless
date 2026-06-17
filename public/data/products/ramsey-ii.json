@@ -10515,8 +10515,8 @@
       "type": "variation",
       "date_created": "2025-07-30T17:25:45",
       "date_created_gmt": "2025-07-30T17:25:45",
-      "date_modified": "2026-05-07T23:08:17",
-      "date_modified_gmt": "2026-05-07T23:08:17",
+      "date_modified": "2026-06-16T17:44:01",
+      "date_modified_gmt": "2026-06-16T17:44:01",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ramsey-ii/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=43",
       "sku": "7000732043",
@@ -10539,7 +10539,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -11337,7 +11337,7 @@
         {
           "id": 2254911,
           "key": "_last_change_time",
-          "value": "1778184518"
+          "value": "1781631467"
         },
         {
           "id": 2311400,

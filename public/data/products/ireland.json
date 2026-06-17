@@ -8,7 +8,7 @@
   "permalink": "https://tienda.winstonandharrystore.com/product/ireland/",
   "sku": "547",
   "short_description": "<p>Este modelo de botas se va a convertir en tu primera opción cada vez que salgas, no solamente son muy cómodas sino que también complementan tu estilo sin importar si estas de jeans o no.</p>",
-  "description": "<p>Este modelo de botas sin duda es sexy, elegante y sofisticado. Su costura en la puta eleva su estilo de clásico a irreverente. Estas botas te harán caminar con verdadero estilo y complementarán tu atuendo ya sea con tus mejores jeans, chinos o un traje sin importar el clima.</p>",
+  "description": "<p>Este modelo de botas sin duda es sexy, elegante y sofisticado. Su costura en la punta eleva su estilo de clásico a irreverente. Estas botas te harán caminar con verdadero estilo y complementarán tu atuendo ya sea con tus mejores jeans, chinos o un traje sin importar el clima.</p>",
   "on_sale": false,
   "prices": {
     "price": "869000",
@@ -16968,8 +16968,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:50:13",
       "date_created_gmt": "2022-08-25T22:50:13",
-      "date_modified": "2026-06-02T17:36:19",
-      "date_modified_gmt": "2026-06-02T17:36:19",
+      "date_modified": "2026-06-16T17:41:06",
+      "date_modified_gmt": "2026-06-16T17:41:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ireland/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=40",
       "sku": "7013026040",
@@ -16992,7 +16992,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -17615,7 +17615,7 @@
         {
           "id": 2254711,
           "key": "_last_change_time",
-          "value": "1780421779"
+          "value": "1781631284"
         },
         {
           "id": 2313997,

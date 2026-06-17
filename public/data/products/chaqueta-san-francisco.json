@@ -4011,8 +4011,8 @@
       "type": "variation",
       "date_created": "2025-09-02T23:15:41",
       "date_created_gmt": "2025-09-02T23:15:41",
-      "date_modified": "2026-05-07T23:01:20",
-      "date_modified_gmt": "2026-05-07T23:01:20",
+      "date_modified": "2026-06-16T17:44:24",
+      "date_modified_gmt": "2026-06-16T17:44:24",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-san-francisco/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=m",
       "sku": "19200005034",
@@ -4035,7 +4035,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4828,7 +4828,7 @@
         {
           "id": 2262044,
           "key": "_last_change_time",
-          "value": "1778177802"
+          "value": "1781631493"
         },
         {
           "id": 2311182,

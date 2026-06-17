@@ -1797,8 +1797,8 @@
       "type": "variation",
       "date_created": "2025-10-31T02:36:55",
       "date_created_gmt": "2025-10-31T02:36:55",
-      "date_modified": "2026-05-07T22:59:51",
-      "date_modified_gmt": "2026-05-07T22:59:51",
+      "date_modified": "2026-06-16T17:44:43",
+      "date_modified_gmt": "2026-06-16T17:44:43",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-corduroy/?attribute_pa_selecciona-el-color=vinotinto&attribute_pa_selecciona-una-talla=xl",
       "sku": "5155019038",
@@ -1821,7 +1821,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 7,
+      "stock_quantity": 6,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2604,7 +2604,7 @@
         {
           "id": 2257432,
           "key": "_last_change_time",
-          "value": "1778177705"
+          "value": "1781631516"
         },
         {
           "id": 2310828,
@@ -3525,8 +3525,8 @@
       "type": "variation",
       "date_created": "2025-10-31T02:36:55",
       "date_created_gmt": "2025-10-31T02:36:55",
-      "date_modified": "2026-06-02T17:41:47",
-      "date_modified_gmt": "2026-06-02T17:41:47",
+      "date_modified": "2026-06-16T17:44:43",
+      "date_modified_gmt": "2026-06-16T17:44:43",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-corduroy/?attribute_pa_selecciona-el-color=vinotinto&attribute_pa_selecciona-una-talla=l",
       "sku": "5155019036",
@@ -3549,7 +3549,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4332,7 +4332,7 @@
         {
           "id": 2233443,
           "key": "_last_change_time",
-          "value": "1780422108"
+          "value": "1781631516"
         },
         {
           "id": 2310820,
@@ -6981,8 +6981,8 @@
       "type": "variation",
       "date_created": "2025-10-31T02:36:55",
       "date_created_gmt": "2025-10-31T02:36:55",
-      "date_modified": "2026-06-02T17:41:47",
-      "date_modified_gmt": "2026-06-02T17:41:47",
+      "date_modified": "2026-06-16T17:44:43",
+      "date_modified_gmt": "2026-06-16T17:44:43",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-corduroy/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=xl",
       "sku": "5155005038",
@@ -7005,7 +7005,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 7,
+      "stock_quantity": 6,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -7788,7 +7788,7 @@
         {
           "id": 2259166,
           "key": "_last_change_time",
-          "value": "1780422107"
+          "value": "1781631516"
         },
         {
           "id": 2310804,
@@ -12165,8 +12165,8 @@
       "type": "variation",
       "date_created": "2025-10-31T02:36:54",
       "date_created_gmt": "2025-10-31T02:36:54",
-      "date_modified": "2026-05-07T22:59:51",
-      "date_modified_gmt": "2026-05-07T22:59:51",
+      "date_modified": "2026-06-16T17:44:43",
+      "date_modified_gmt": "2026-06-16T17:44:43",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-corduroy/?attribute_pa_selecciona-el-color=gris&attribute_pa_selecciona-una-talla=xl",
       "sku": "5155003038",
@@ -12189,7 +12189,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 9,
+      "stock_quantity": 8,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12972,7 +12972,7 @@
         {
           "id": 2250473,
           "key": "_last_change_time",
-          "value": "1778177702"
+          "value": "1781631516"
         },
         {
           "id": 2310779,
@@ -21741,13 +21741,13 @@
     ],
     "azul oscuro": [
       {
-        "id": 81815,
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Camisa-Corduroy-Azul-Osc-Winstonandharry-2.jpg",
+        "id": 81814,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Camisa-Corduroy-Azul-Osc-Winstonandharry-1.jpg",
         "alt": "Camisa Corduroy"
       },
       {
-        "id": 81814,
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Camisa-Corduroy-Azul-Osc-Winstonandharry-1.jpg",
+        "id": 81815,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Camisa-Corduroy-Azul-Osc-Winstonandharry-2.jpg",
         "alt": "Camisa Corduroy"
       }
     ]

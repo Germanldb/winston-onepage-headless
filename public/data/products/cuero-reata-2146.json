@@ -8,7 +8,7 @@
   "permalink": "https://tienda.winstonandharrystore.com/product/cuero-reata-2146/",
   "sku": "855",
   "short_description": "<p>Cinturon Sencillo 100% en Gamuza, hecho a mano por artesanos colombianos</p>",
-  "description": "<div class=\"flex max-w-full flex-col flex-grow\">\n<div class=\"min-h-8 text-message flex w-full flex-col items-end gap-2 whitespace-normal break-words [.text-message+&amp;]:mt-5\" dir=\"auto\" data-message-author-role=\"assistant\" data-message-id=\"6cfd23e0-cb9b-4bd7-84c0-b216d3dda842\" data-message-model-slug=\"gpt-4o-mini\">\n<div class=\"flex w-full flex-col gap-1 empty:hidden first:pt-[3px]\">\n<div class=\"markdown prose w-full break-words dark:prose-invert light\">\n<p>El Cinturon Cuero Reata combina funcionalidad y estilo con su diseño flexible y resistente. Confeccionado en cuero y elastico de alta calidad, este cinturón se adapta perfectamente al cuerpo, brindando comodidad y libertad de movimiento. Su textura es similar a una reata y le da un toque rústico y versátil, ideal para un look casual o más atrevido. Gracias a su elasticidad, ofrece un ajuste perfecto y se adapta a diferentes tamaños, convirtiéndolo en una opción práctica y moderna para cualquier ocasión.</p>\n</div>\n</div>\n</div>\n</div>",
+  "description": "<p>El Cinturon Cuero Reata combina funcionalidad y estilo con su diseño flexible y resistente. Confeccionado en cuero y elastico de alta calidad, este cinturón se adapta perfectamente al cuerpo, brindando comodidad y libertad de movimiento. Su textura es similar a una reata y le da un toque rústico y versátil, ideal para un look casual o más atrevido. Gracias a su elasticidad, ofrece un ajuste perfecto y se adapta a diferentes tamaños, convirtiéndolo en una opción práctica y moderna para cualquier ocasión.</p>",
   "on_sale": false,
   "prices": {
     "price": "245000",
@@ -1318,8 +1318,8 @@
       "type": "variation",
       "date_created": "2024-12-02T17:43:57",
       "date_created_gmt": "2024-12-02T17:43:57",
-      "date_modified": "2026-05-07T23:02:37",
-      "date_modified_gmt": "2026-05-07T23:02:37",
+      "date_modified": "2026-06-16T17:43:06",
+      "date_modified_gmt": "2026-06-16T17:43:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cuero-reata-2146/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=36&attribute_pa_hebilla=acero-inoxidable&attribute_pa_material=100-cuero",
       "sku": "27214632036",
@@ -1342,7 +1342,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1962,7 +1962,7 @@
         {
           "id": 2250319,
           "key": "_last_change_time",
-          "value": "1778177934"
+          "value": "1781631411"
         },
         {
           "id": 2312094,
@@ -2004,8 +2004,8 @@
       "type": "variation",
       "date_created": "2024-12-02T17:43:57",
       "date_created_gmt": "2024-12-02T17:43:57",
-      "date_modified": "2026-06-02T17:39:39",
-      "date_modified_gmt": "2026-06-02T17:39:39",
+      "date_modified": "2026-06-16T17:43:06",
+      "date_modified_gmt": "2026-06-16T17:43:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cuero-reata-2146/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=34&attribute_pa_hebilla=acero-inoxidable&attribute_pa_material=100-cuero",
       "sku": "27214632034",
@@ -2028,7 +2028,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2648,7 +2648,7 @@
         {
           "id": 2233354,
           "key": "_last_change_time",
-          "value": "1780421979"
+          "value": "1781631411"
         },
         {
           "id": 2312093,

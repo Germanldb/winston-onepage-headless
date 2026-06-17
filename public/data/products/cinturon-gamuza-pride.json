@@ -69,6 +69,12 @@
       "link": "https://tienda.winstonandharrystore.com/product-category/accesorios-hombre/"
     },
     {
+      "id": 967,
+      "name": "Cinturones",
+      "slug": "cinturones",
+      "link": "https://tienda.winstonandharrystore.com/product-category/accesorios-hombre/cinturones/"
+    },
+    {
       "id": 424,
       "name": "Ideas de regalo",
       "slug": "ideas-regalo-hombre",
@@ -1488,6 +1494,11 @@
           "id": 2312143,
           "key": "wpcvi_images",
           "value": "59091,59092,59093,59094,59095"
+        },
+        {
+          "id": 2382787,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Negro, 40, Acero inoxidable, 100% Gamuza",
@@ -2174,6 +2185,11 @@
           "id": 2312142,
           "key": "wpcvi_images",
           "value": "59091,59092,59093,59094,59095"
+        },
+        {
+          "id": 2382786,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Negro, 38, Acero inoxidable, 100% Gamuza",
@@ -2860,6 +2876,11 @@
           "id": 2312141,
           "key": "wpcvi_images",
           "value": "59091,59092,59093,59094,59095"
+        },
+        {
+          "id": 2382785,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Negro, 36, Acero inoxidable, 100% Gamuza",
@@ -3546,6 +3567,11 @@
           "id": 2312140,
           "key": "wpcvi_images",
           "value": "59091,59092,59093,59094,59095"
+        },
+        {
+          "id": 2382784,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Negro, 34, Acero inoxidable, 100% Gamuza",
@@ -4232,6 +4258,11 @@
           "id": 2312139,
           "key": "wpcvi_images",
           "value": "59091,59092,59093,59094,59095"
+        },
+        {
+          "id": 2382783,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Negro, 32, Acero inoxidable, 100% Gamuza",
@@ -4918,6 +4949,11 @@
           "id": 2312138,
           "key": "wpcvi_images",
           "value": "59085,59086,59087,59088,59089"
+        },
+        {
+          "id": 2382782,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Café, 40, Acero inoxidable, 100% Gamuza",
@@ -5604,6 +5640,11 @@
           "id": 2312137,
           "key": "wpcvi_images",
           "value": "59085,59086,59087,59088,59089"
+        },
+        {
+          "id": 2382781,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Café, 38, Acero inoxidable, 100% Gamuza",
@@ -5640,8 +5681,8 @@
       "type": "variation",
       "date_created": "2024-12-02T02:43:32",
       "date_created_gmt": "2024-12-02T02:43:32",
-      "date_modified": "2026-06-02T17:39:38",
-      "date_modified_gmt": "2026-06-02T17:39:38",
+      "date_modified": "2026-06-16T17:43:06",
+      "date_modified_gmt": "2026-06-16T17:43:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cinturon-gamuza-pride/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=36&attribute_pa_hebilla=acero-inoxidable&attribute_pa_material=100-gamuza",
       "sku": "27211704036",
@@ -5664,7 +5705,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 16,
+      "stock_quantity": 14,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -6284,12 +6325,17 @@
         {
           "id": 2250313,
           "key": "_last_change_time",
-          "value": "1780421978"
+          "value": "1781631410"
         },
         {
           "id": 2312136,
           "key": "wpcvi_images",
           "value": "59085,59086,59087,59088,59089"
+        },
+        {
+          "id": 2382780,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Café, 36, Acero inoxidable, 100% Gamuza",
@@ -6976,6 +7022,11 @@
           "id": 2312135,
           "key": "wpcvi_images",
           "value": "59085,59086,59087,59088,59089"
+        },
+        {
+          "id": 2382779,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Café, 34, Acero inoxidable, 100% Gamuza",
@@ -7657,6 +7708,11 @@
           "id": 2312149,
           "key": "wpcvi_images",
           "value": "59085,59086,59087,59088,59089"
+        },
+        {
+          "id": 2382778,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Café, 32, Acero inoxidable, 100% Gamuza",
@@ -8343,6 +8399,11 @@
           "id": 2312148,
           "key": "wpcvi_images",
           "value": "59079,59080,59081,59082,59083"
+        },
+        {
+          "id": 2382777,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Azul, 40, Acero inoxidable, 100% Gamuza",
@@ -9029,6 +9090,11 @@
           "id": 2312147,
           "key": "wpcvi_images",
           "value": "59079,59080,59081,59082,59083"
+        },
+        {
+          "id": 2382776,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Azul, 38, Acero inoxidable, 100% Gamuza",
@@ -9715,6 +9781,11 @@
           "id": 2312146,
           "key": "wpcvi_images",
           "value": "59079,59080,59081,59082,59083"
+        },
+        {
+          "id": 2382775,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Azul, 36, Acero inoxidable, 100% Gamuza",
@@ -10401,6 +10472,11 @@
           "id": 2312145,
           "key": "wpcvi_images",
           "value": "59079,59080,59081,59082,59083"
+        },
+        {
+          "id": 2382774,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Azul, 34, Acero inoxidable, 100% Gamuza",
@@ -11077,6 +11153,11 @@
           "id": 2312144,
           "key": "wpcvi_images",
           "value": "59079,59080,59081,59082,59083"
+        },
+        {
+          "id": 2382773,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Azul, 32, Acero inoxidable, 100% Gamuza",

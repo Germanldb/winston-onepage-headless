@@ -7,8 +7,8 @@
   "variation": "",
   "permalink": "https://tienda.winstonandharrystore.com/product/camisa-button-down/",
   "sku": "1015",
-  "short_description": "<p>• Para un estilo casual y fomral.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
-  "description": "<p data-start=\"121\" data-end=\"501\">Confeccionada en 100% algodón de alta calidad, ofreciendo comodidad, frescura y un ajuste impecable. Su diseño Button Down incluye cuello con botones fijando ambas puntas en su lugar, puños ajustables y el icónico logo de Winston and Harry bordado, aportando un toque distintivo. Ideal para combinar en looks formales o casuales, es una prenda versátil y duradera, pensada para acompañar cualquier ocasión.</p>",
+  "short_description": "<p>• Para un estilo casual y formal.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
+  "description": "<p>Confeccionada en 100% algodón de alta calidad, ofreciendo comodidad, frescura y un ajuste impecable. Su diseño Button Down incluye cuello con botones fijando ambas puntas en su lugar, puños ajustables y el icónico logo de Winston and Harry bordado, aportando un toque distintivo. Ideal para combinar en looks formales o casuales, es una prenda versátil y duradera, pensada para acompañar cualquier ocasión.</p>",
   "on_sale": false,
   "prices": {
     "price": "310000",
@@ -623,35 +623,6 @@
           "name": "Selecciona una Talla",
           "value": "m",
           "option": "m"
-        }
-      ],
-      "image": {
-        "id": 67128,
-        "date_created": "2025-08-20T07:45:06",
-        "date_created_gmt": "2025-08-20T07:45:06",
-        "date_modified": "2025-08-25T04:36:26",
-        "date_modified_gmt": "2025-08-25T04:36:26",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/BTT-Down-Verde-Winstonandharry-1-e1755676460373.jpg",
-        "name": "BTT Down-Verde-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "310000",
-      "regular_price": "310000",
-      "sale_price": ""
-    },
-    {
-      "id": 66900,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "verde",
-          "option": "verde"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "l",
-          "option": "l"
         }
       ],
       "image": {
@@ -8727,8 +8698,8 @@
       "type": "variation",
       "date_created": "2025-08-08T21:51:52",
       "date_created_gmt": "2025-08-08T21:51:52",
-      "date_modified": "2026-06-02T17:41:09",
-      "date_modified_gmt": "2026-06-02T17:41:09",
+      "date_modified": "2026-06-16T17:44:15",
+      "date_modified_gmt": "2026-06-16T17:44:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-button-down/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=l",
       "sku": "5150105036",
@@ -8751,8 +8722,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -9544,7 +9515,7 @@
         {
           "id": 2250413,
           "key": "_last_change_time",
-          "value": "1780422069"
+          "value": "1781631481"
         },
         {
           "id": 2311306,
@@ -9586,8 +9557,8 @@
       "type": "variation",
       "date_created": "2025-08-08T21:51:52",
       "date_created_gmt": "2025-08-08T21:51:52",
-      "date_modified": "2026-05-07T22:59:33",
-      "date_modified_gmt": "2026-05-07T22:59:33",
+      "date_modified": "2026-06-16T17:44:15",
+      "date_modified_gmt": "2026-06-16T17:44:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-button-down/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=m",
       "sku": "5150105034",
@@ -9610,7 +9581,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -10403,7 +10374,7 @@
         {
           "id": 2233395,
           "key": "_last_change_time",
-          "value": "1778177595"
+          "value": "1781631481"
         },
         {
           "id": 2311305,

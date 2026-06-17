@@ -3363,8 +3363,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:34:43",
       "date_created_gmt": "2022-08-25T22:34:43",
-      "date_modified": "2026-05-07T22:58:04",
-      "date_modified_gmt": "2026-05-07T22:58:04",
+      "date_modified": "2026-06-16T17:40:49",
+      "date_modified_gmt": "2026-06-16T17:40:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bath/?attribute_pa_selecciona-el-color=vinotinto&attribute_pa_selecciona-una-talla=42",
       "sku": "7021519042",
@@ -3387,7 +3387,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4080,7 +4080,7 @@
         {
           "id": 2259750,
           "key": "_last_change_time",
-          "value": "1778175447"
+          "value": "1781631263"
         },
         {
           "id": 2314770,
@@ -4881,8 +4881,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:33:47",
       "date_created_gmt": "2022-08-25T22:33:47",
-      "date_modified": "2026-05-07T22:58:04",
-      "date_modified_gmt": "2026-05-07T22:58:04",
+      "date_modified": "2026-06-16T17:40:49",
+      "date_modified_gmt": "2026-06-16T17:40:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bath/?attribute_pa_selecciona-el-color=vinotinto&attribute_pa_selecciona-una-talla=40",
       "sku": "7021519040",
@@ -4905,7 +4905,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 8,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5598,7 +5598,7 @@
         {
           "id": 2250090,
           "key": "_last_change_time",
-          "value": "1778175447"
+          "value": "1781631263"
         },
         {
           "id": 2314788,
@@ -7158,8 +7158,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:33:47",
       "date_created_gmt": "2022-08-25T22:33:47",
-      "date_modified": "2026-05-07T22:58:03",
-      "date_modified_gmt": "2026-05-07T22:58:03",
+      "date_modified": "2026-06-16T17:40:49",
+      "date_modified_gmt": "2026-06-16T17:40:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bath/?attribute_pa_selecciona-el-color=vinotinto&attribute_pa_selecciona-una-talla=37",
       "sku": "7021519037",
@@ -7182,7 +7182,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -7875,7 +7875,7 @@
         {
           "id": 2250088,
           "key": "_last_change_time",
-          "value": "1778175446"
+          "value": "1781631263"
         },
         {
           "id": 2314785,
@@ -11362,8 +11362,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:33:46",
       "date_created_gmt": "2022-08-25T22:33:46",
-      "date_modified": "2026-06-02T17:35:32",
-      "date_modified_gmt": "2026-06-02T17:35:32",
+      "date_modified": "2026-06-16T17:40:49",
+      "date_modified_gmt": "2026-06-16T17:40:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bath/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=40",
       "sku": "7021502040",
@@ -11386,7 +11386,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12009,7 +12009,7 @@
         {
           "id": 2254685,
           "key": "_last_change_time",
-          "value": "1780421732"
+          "value": "1781631263"
         },
         {
           "id": 2314794,
@@ -12051,8 +12051,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:32:41",
       "date_created_gmt": "2022-08-25T22:32:41",
-      "date_modified": "2026-06-02T17:35:32",
-      "date_modified_gmt": "2026-06-02T17:35:32",
+      "date_modified": "2026-06-16T17:40:49",
+      "date_modified_gmt": "2026-06-16T17:40:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bath/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=39",
       "sku": "7021502039",
@@ -12075,7 +12075,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12683,7 +12683,7 @@
         {
           "id": 2254684,
           "key": "_last_change_time",
-          "value": "1780421732"
+          "value": "1781631263"
         },
         {
           "id": 2314805,
@@ -16839,8 +16839,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:32:41",
       "date_created_gmt": "2022-08-25T22:32:41",
-      "date_modified": "2026-06-02T17:35:31",
-      "date_modified_gmt": "2026-06-02T17:35:31",
+      "date_modified": "2026-06-16T17:40:49",
+      "date_modified_gmt": "2026-06-16T17:40:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bath/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=41",
       "sku": "7021504041",
@@ -16863,7 +16863,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -17486,7 +17486,7 @@
         {
           "id": 2250076,
           "key": "_last_change_time",
-          "value": "1780421731"
+          "value": "1781631263"
         },
         {
           "id": 2314798,
@@ -17528,8 +17528,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:32:41",
       "date_created_gmt": "2022-08-25T22:32:41",
-      "date_modified": "2026-05-07T22:57:58",
-      "date_modified_gmt": "2026-05-07T22:57:58",
+      "date_modified": "2026-06-16T17:40:49",
+      "date_modified_gmt": "2026-06-16T17:40:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bath/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=40",
       "sku": "7021504040",
@@ -17552,7 +17552,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -18175,7 +18175,7 @@
         {
           "id": 2250075,
           "key": "_last_change_time",
-          "value": "1778175433"
+          "value": "1781631263"
         },
         {
           "id": 2314797,
@@ -18906,8 +18906,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:32:41",
       "date_created_gmt": "2022-08-25T22:32:41",
-      "date_modified": "2026-06-02T17:35:30",
-      "date_modified_gmt": "2026-06-02T17:35:30",
+      "date_modified": "2026-06-16T17:40:49",
+      "date_modified_gmt": "2026-06-16T17:40:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bath/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=38",
       "sku": "7021504038",
@@ -18930,7 +18930,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -19553,7 +19553,7 @@
         {
           "id": 2250074,
           "key": "_last_change_time",
-          "value": "1780421730"
+          "value": "1781631263"
         },
         {
           "id": 2314795,

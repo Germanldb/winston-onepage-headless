@@ -3876,8 +3876,8 @@
       "type": "variation",
       "date_created": "2024-05-26T01:56:45",
       "date_created_gmt": "2024-05-26T01:56:45",
-      "date_modified": "2026-06-02T17:38:29",
-      "date_modified_gmt": "2026-06-02T17:38:29",
+      "date_modified": "2026-06-16T17:42:36",
+      "date_modified_gmt": "2026-06-16T17:42:36",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/leicester/?attribute_pa_selecciona-el-color=negro-florantik&attribute_pa_selecciona-una-talla=40",
       "sku": "7007338040",
@@ -3900,7 +3900,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4453,7 +4453,7 @@
         {
           "id": 2259495,
           "key": "_last_change_time",
-          "value": "1780421909"
+          "value": "1781631389"
         },
         {
           "id": 2312416,
@@ -11902,7 +11902,8 @@
     "55141": "https://tienda.winstonandharrystore.com/wp-content/uploads/2024/05/Leicester-Negro-Winstonandharry-357-1.jpg",
     "55142": "https://tienda.winstonandharrystore.com/wp-content/uploads/2024/05/Leicester-Negro-Winstonandharry-358-1-scaled.jpg",
     "55143": "https://tienda.winstonandharrystore.com/wp-content/uploads/2024/05/Leicester-Negro-Winstonandharry-359.jpg",
-    "55144": "https://tienda.winstonandharrystore.com/wp-content/uploads/2024/05/Leicester-Negro-Winstonandharry-360.jpg"
+    "55144": "https://tienda.winstonandharrystore.com/wp-content/uploads/2024/05/Leicester-Negro-Winstonandharry-360.jpg",
+    "55146": "https://tienda.winstonandharrystore.com/wp-content/uploads/2024/05/Leicester-Negro-Winstonandharry-362.jpg"
   },
   "stock_status": "instock",
   "variation_images_map": {
@@ -11916,11 +11917,6 @@
       {
         "id": 55139,
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2024/05/Leicester-Negro-Winstonandharry-355-1.jpg",
-        "alt": "Leicester"
-      },
-      {
-        "id": 55140,
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2024/05/Leicester-Negro-Winstonandharry-356-1.jpg",
         "alt": "Leicester"
       },
       {

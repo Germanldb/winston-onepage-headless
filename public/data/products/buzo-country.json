@@ -570,8 +570,8 @@
       "type": "variation",
       "date_created": "2026-05-08T00:35:45",
       "date_created_gmt": "2026-05-08T00:35:45",
-      "date_modified": "2026-06-02T17:42:16",
-      "date_modified_gmt": "2026-06-02T17:42:16",
+      "date_modified": "2026-06-16T17:44:55",
+      "date_modified_gmt": "2026-06-16T17:44:55",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/buzo-country/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=xl",
       "sku": "6060605038",
@@ -594,7 +594,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -637,7 +637,7 @@
         {
           "id": 2333862,
           "key": "_last_change_time",
-          "value": "1780422136"
+          "value": "1781631895"
         },
         {
           "id": 2333863,
@@ -12384,8 +12384,8 @@
       "type": "variation",
       "date_created": "2026-05-08T00:35:44",
       "date_created_gmt": "2026-05-08T00:35:44",
-      "date_modified": "2026-06-02T17:42:16",
-      "date_modified_gmt": "2026-06-02T17:42:16",
+      "date_modified": "2026-06-16T17:44:55",
+      "date_modified_gmt": "2026-06-16T17:44:55",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/buzo-country/?attribute_pa_selecciona-el-color=gris&attribute_pa_selecciona-una-talla=l",
       "sku": "6060603036",
@@ -12408,7 +12408,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 8,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12451,7 +12451,7 @@
         {
           "id": 2333719,
           "key": "_last_change_time",
-          "value": "1780422136"
+          "value": "1781631895"
         },
         {
           "id": 2333720,
@@ -13454,6 +13454,22 @@
       }
     }
   ],
+  "wpc_resolved_media": {
+    "84810": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-gris-hombro.jpg",
+    "84811": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-gris-inferior.jpg",
+    "84812": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-gris-logo.jpg",
+    "84814": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-gris-posterior.jpg",
+    "84816": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-rojo-detalle.jpg",
+    "84819": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-rojo-hombro.jpg",
+    "84820": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-rojo-inferior.jpg",
+    "84821": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-rojo-manga.jpg",
+    "84825": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-verde-hombro.jpg",
+    "84826": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-verde-inferior.jpg",
+    "84827": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-verde-manga.jpg",
+    "84828": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-verde-posterior.jpg",
+    "84829": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-rojo-posterior.jpg",
+    "84830": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-verde-logo.jpg"
+  },
   "stock_status": "instock",
   "variation_images_map": {
     "gris": [
@@ -13462,6 +13478,26 @@
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-gris-frente.jpg",
         "alt": "winston-and-harry-buzo-country-gris-frente",
         "name": "winston-and-harry-buzo-country-gris-frente"
+      },
+      {
+        "id": 84814,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-gris-posterior.jpg",
+        "alt": "Buzo Country"
+      },
+      {
+        "id": 84812,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-gris-logo.jpg",
+        "alt": "Buzo Country"
+      },
+      {
+        "id": 84811,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-gris-inferior.jpg",
+        "alt": "Buzo Country"
+      },
+      {
+        "id": 84810,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-gris-hombro.jpg",
+        "alt": "Buzo Country"
       }
     ],
     "rojo": [
@@ -13470,6 +13506,31 @@
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-rojo-frente.jpg",
         "alt": "winston-and-harry-buzo-country-rojo-frente",
         "name": "winston-and-harry-buzo-country-rojo-frente"
+      },
+      {
+        "id": 84829,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-rojo-posterior.jpg",
+        "alt": "Buzo Country"
+      },
+      {
+        "id": 84821,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-rojo-manga.jpg",
+        "alt": "Buzo Country"
+      },
+      {
+        "id": 84820,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-rojo-inferior.jpg",
+        "alt": "Buzo Country"
+      },
+      {
+        "id": 84819,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-rojo-hombro.jpg",
+        "alt": "Buzo Country"
+      },
+      {
+        "id": 84816,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-rojo-detalle.jpg",
+        "alt": "Buzo Country"
       }
     ],
     "verde": [
@@ -13478,6 +13539,31 @@
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-verde-frente.jpg",
         "alt": "winston-and-harry-buzo-country-verde-frente",
         "name": "winston-and-harry-buzo-country-verde-frente"
+      },
+      {
+        "id": 84828,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-verde-posterior.jpg",
+        "alt": "Buzo Country"
+      },
+      {
+        "id": 84830,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-verde-logo.jpg",
+        "alt": "Buzo Country"
+      },
+      {
+        "id": 84827,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-verde-manga.jpg",
+        "alt": "Buzo Country"
+      },
+      {
+        "id": 84826,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-verde-inferior.jpg",
+        "alt": "Buzo Country"
+      },
+      {
+        "id": 84825,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-buzo-country-verde-hombro.jpg",
+        "alt": "Buzo Country"
       }
     ]
   }

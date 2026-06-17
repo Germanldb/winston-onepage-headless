@@ -1681,8 +1681,8 @@
       "type": "variation",
       "date_created": "2025-02-11T16:10:48",
       "date_created_gmt": "2025-02-11T16:10:48",
-      "date_modified": "2026-05-11T17:49:46",
-      "date_modified_gmt": "2026-05-11T17:49:46",
+      "date_modified": "2026-06-16T17:43:06",
+      "date_modified_gmt": "2026-06-16T17:43:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/morral-legacy/?attribute_pa_selecciona-el-color=azul",
       "sku": "15153401000",
@@ -1705,7 +1705,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 20,
+      "stock_quantity": 19,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2312,7 +2312,7 @@
         {
           "id": 2229426,
           "key": "_last_change_time",
-          "value": "1778521760"
+          "value": "1781631411"
         },
         {
           "id": 2312086,
@@ -2374,8 +2374,8 @@
       "type": "variation",
       "date_created": "2025-02-11T16:10:48",
       "date_created_gmt": "2025-02-11T16:10:48",
-      "date_modified": "2026-05-11T17:49:46",
-      "date_modified_gmt": "2026-05-11T17:49:46",
+      "date_modified": "2026-06-16T17:43:06",
+      "date_modified_gmt": "2026-06-16T17:43:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/morral-legacy/?attribute_pa_selecciona-el-color=verde",
       "sku": "15153405000",
@@ -2398,7 +2398,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 27,
+      "stock_quantity": 26,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3005,7 +3005,7 @@
         {
           "id": 2229432,
           "key": "_last_change_time",
-          "value": "1778521760"
+          "value": "1781631411"
         },
         {
           "id": 2312085,

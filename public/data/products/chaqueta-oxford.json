@@ -5728,6 +5728,12 @@
       }
     }
   ],
+  "wpc_resolved_media": {
+    "85355": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-bolsillo-interno-1.jpg",
+    "85356": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-bolsillo-interno-2.jpg",
+    "85360": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-manga-y-bolsillo.jpg",
+    "85361": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-posterior.jpg"
+  },
   "stock_status": "instock",
   "variation_images_map": {
     "tabaco": [
@@ -5736,6 +5742,26 @@
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-frente.jpg",
         "alt": "Winston-and-Harry-chaqueta-oxford-tabaco-frente",
         "name": "Winston-and-Harry-chaqueta-oxford-tabaco-frente"
+      },
+      {
+        "id": 85361,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-posterior.jpg",
+        "alt": "Chaqueta Oxford"
+      },
+      {
+        "id": 85360,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-manga-y-bolsillo.jpg",
+        "alt": "Chaqueta Oxford"
+      },
+      {
+        "id": 85356,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-bolsillo-interno-2.jpg",
+        "alt": "Chaqueta Oxford"
+      },
+      {
+        "id": 85355,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-oxford-tabaco-bolsillo-interno-1.jpg",
+        "alt": "Chaqueta Oxford"
       }
     ]
   }

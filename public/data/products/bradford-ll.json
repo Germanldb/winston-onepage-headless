@@ -477,35 +477,6 @@
       "sale_price": ""
     },
     {
-      "id": 55546,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "negro",
-          "option": "negro"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "37",
-          "option": "37"
-        }
-      ],
-      "image": {
-        "id": 55240,
-        "date_created": "2024-05-22T15:01:59",
-        "date_created_gmt": "2024-05-22T15:01:59",
-        "date_modified": "2024-05-30T16:40:55",
-        "date_modified_gmt": "2024-05-30T16:40:55",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2024/05/Bradford-II-Negro-Winstonandharry-168.jpg",
-        "name": "Bradford-II-Negro-Winstonandharry-168",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "825000",
-      "regular_price": "825000",
-      "sale_price": ""
-    },
-    {
       "id": 55547,
       "attributes": [
         {
@@ -604,35 +575,6 @@
           "name": "Selecciona una Talla",
           "value": "42",
           "option": "42"
-        }
-      ],
-      "image": {
-        "id": 55240,
-        "date_created": "2024-05-22T15:01:59",
-        "date_created_gmt": "2024-05-22T15:01:59",
-        "date_modified": "2024-05-30T16:40:55",
-        "date_modified_gmt": "2024-05-30T16:40:55",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2024/05/Bradford-II-Negro-Winstonandharry-168.jpg",
-        "name": "Bradford-II-Negro-Winstonandharry-168",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "825000",
-      "regular_price": "825000",
-      "sale_price": ""
-    },
-    {
-      "id": 55552,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "negro",
-          "option": "negro"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "43",
-          "option": "43"
         }
       ],
       "image": {
@@ -8908,8 +8850,8 @@
       "type": "variation",
       "date_created": "2024-05-29T21:17:35",
       "date_created_gmt": "2024-05-29T21:17:35",
-      "date_modified": "2026-05-07T22:58:56",
-      "date_modified_gmt": "2026-05-07T22:58:56",
+      "date_modified": "2026-06-16T17:42:36",
+      "date_modified_gmt": "2026-06-16T17:42:36",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bradford-ll/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=43",
       "sku": "7112702043",
@@ -8932,8 +8874,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -9495,7 +9437,7 @@
         {
           "id": 2254790,
           "key": "_last_change_time",
-          "value": "1778175684"
+          "value": "1781631389"
         },
         {
           "id": 2312366,
@@ -9537,8 +9479,8 @@
       "type": "variation",
       "date_created": "2024-05-29T21:17:35",
       "date_created_gmt": "2024-05-29T21:17:35",
-      "date_modified": "2026-06-02T17:38:30",
-      "date_modified_gmt": "2026-06-02T17:38:30",
+      "date_modified": "2026-06-16T17:42:36",
+      "date_modified_gmt": "2026-06-16T17:42:36",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bradford-ll/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=42",
       "sku": "7112702042",
@@ -9561,7 +9503,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -10124,7 +10066,7 @@
         {
           "id": 2254789,
           "key": "_last_change_time",
-          "value": "1780421910"
+          "value": "1781631389"
         },
         {
           "id": 2312365,
@@ -12048,8 +11990,8 @@
       "type": "variation",
       "date_created": "2024-05-29T21:17:35",
       "date_created_gmt": "2024-05-29T21:17:35",
-      "date_modified": "2026-06-02T17:38:30",
-      "date_modified_gmt": "2026-06-02T17:38:30",
+      "date_modified": "2026-06-16T17:42:36",
+      "date_modified_gmt": "2026-06-16T17:42:36",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bradford-ll/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=38",
       "sku": "7112702038",
@@ -12072,7 +12014,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12630,7 +12572,7 @@
         {
           "id": 2260352,
           "key": "_last_change_time",
-          "value": "1780421910"
+          "value": "1781631389"
         },
         {
           "id": 2312361,
@@ -12672,8 +12614,8 @@
       "type": "variation",
       "date_created": "2024-05-29T21:17:35",
       "date_created_gmt": "2024-05-29T21:17:35",
-      "date_modified": "2026-05-07T22:58:51",
-      "date_modified_gmt": "2026-05-07T22:58:51",
+      "date_modified": "2026-06-16T17:42:36",
+      "date_modified_gmt": "2026-06-16T17:42:36",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bradford-ll/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=37",
       "sku": "7112702037",
@@ -12696,8 +12638,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -13259,7 +13201,7 @@
         {
           "id": 2260347,
           "key": "_last_change_time",
-          "value": "1778175653"
+          "value": "1781631389"
         },
         {
           "id": 2312360,

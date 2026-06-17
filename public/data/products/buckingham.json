@@ -2699,8 +2699,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:32:12",
       "date_created_gmt": "2022-08-25T22:32:12",
-      "date_modified": "2026-05-07T22:59:16",
-      "date_modified_gmt": "2026-05-07T22:59:16",
+      "date_modified": "2026-06-16T17:40:49",
+      "date_modified_gmt": "2026-06-16T17:40:49",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/buckingham/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=42",
       "sku": "7021202042",
@@ -2723,7 +2723,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3346,7 +3346,7 @@
         {
           "id": 2250071,
           "key": "_last_change_time",
-          "value": "1778177568"
+          "value": "1781631263"
         },
         {
           "id": 2314836,

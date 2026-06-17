@@ -3398,8 +3398,8 @@
       "type": "variation",
       "date_created": "2025-10-30T03:59:08",
       "date_created_gmt": "2025-10-30T03:59:08",
-      "date_modified": "2026-06-02T17:41:37",
-      "date_modified_gmt": "2026-06-02T17:41:37",
+      "date_modified": "2026-06-16T17:44:24",
+      "date_modified_gmt": "2026-06-16T17:44:24",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cumberland-ii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=42",
       "sku": "7034326042",
@@ -3422,7 +3422,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4215,7 +4215,7 @@
         {
           "id": 2259916,
           "key": "_last_change_time",
-          "value": "1780422097"
+          "value": "1781631494"
         },
         {
           "id": 2311025,
@@ -5975,8 +5975,8 @@
       "type": "variation",
       "date_created": "2025-10-30T03:59:08",
       "date_created_gmt": "2025-10-30T03:59:08",
-      "date_modified": "2026-05-07T23:02:48",
-      "date_modified_gmt": "2026-05-07T23:02:48",
+      "date_modified": "2026-06-16T17:44:24",
+      "date_modified_gmt": "2026-06-16T17:44:24",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cumberland-ii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=39",
       "sku": "7034326039",
@@ -5999,7 +5999,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -6792,7 +6792,7 @@
         {
           "id": 2219106,
           "key": "_last_change_time",
-          "value": "1778177976"
+          "value": "1781631494"
         },
         {
           "id": 2311022,

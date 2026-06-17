@@ -4871,8 +4871,8 @@
       "type": "variation",
       "date_created": "2026-05-08T00:17:52",
       "date_created_gmt": "2026-05-08T00:17:52",
-      "date_modified": "2026-06-02T17:42:03",
-      "date_modified_gmt": "2026-06-02T17:42:03",
+      "date_modified": "2026-06-16T17:44:55",
+      "date_modified_gmt": "2026-06-16T17:44:55",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/blazer-glen-check/?attribute_pa_selecciona-el-color=tabaco&attribute_pa_selecciona-una-talla=39",
       "sku": "2025110039",
@@ -4895,7 +4895,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4938,7 +4938,7 @@
         {
           "id": 2328184,
           "key": "_last_change_time",
-          "value": "1780422123"
+          "value": "1781631895"
         },
         {
           "id": 2328185,
@@ -5945,8 +5945,8 @@
       "type": "variation",
       "date_created": "2026-05-08T00:17:52",
       "date_created_gmt": "2026-05-08T00:17:52",
-      "date_modified": "2026-06-02T17:42:03",
-      "date_modified_gmt": "2026-06-02T17:42:03",
+      "date_modified": "2026-06-16T17:44:55",
+      "date_modified_gmt": "2026-06-16T17:44:55",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/blazer-glen-check/?attribute_pa_selecciona-el-color=tabaco&attribute_pa_selecciona-una-talla=38",
       "sku": "2025110038",
@@ -5969,7 +5969,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -6012,7 +6012,7 @@
         {
           "id": 2328170,
           "key": "_last_change_time",
-          "value": "1780422123"
+          "value": "1781631895"
         },
         {
           "id": 2328171,
@@ -11315,8 +11315,8 @@
       "type": "variation",
       "date_created": "2026-05-08T00:17:51",
       "date_created_gmt": "2026-05-08T00:17:51",
-      "date_modified": "2026-06-02T17:42:03",
-      "date_modified_gmt": "2026-06-02T17:42:03",
+      "date_modified": "2026-06-16T17:44:55",
+      "date_modified_gmt": "2026-06-16T17:44:55",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/blazer-glen-check/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=39",
       "sku": "2025101039",
@@ -11339,7 +11339,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -11382,7 +11382,7 @@
         {
           "id": 2328103,
           "key": "_last_change_time",
-          "value": "1780422123"
+          "value": "1781631895"
         },
         {
           "id": 2328104,
@@ -13459,6 +13459,18 @@
       }
     }
   ],
+  "wpc_resolved_media": {
+    "84732": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-azul-detalle.jpg",
+    "84735": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-azul-manga-bolsillo-externo.jpg",
+    "84736": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-azul-posterior.jpg",
+    "84737": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-azul-bolsillo-interno-2.jpg",
+    "84738": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-azul-bolsillo-interno-logo.jpg",
+    "84741": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-tabaco-detalle.jpg",
+    "84744": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-tabaco-manga-bolsillo-externo.jpg",
+    "84745": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-tabaco-posterior.jpg",
+    "84746": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-tabaco-bolsillo-interno.jpg",
+    "84747": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-tabaco-bolsillo-interno-2-1.jpg"
+  },
   "stock_status": "instock",
   "variation_images_map": {
     "azul": [
@@ -13467,6 +13479,31 @@
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-azul-frente.jpg",
         "alt": "Winston-and-Harry-blazer-glen-azul-frente",
         "name": "Winston-and-Harry-blazer-glen-azul-frente"
+      },
+      {
+        "id": 84736,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-azul-posterior.jpg",
+        "alt": "Blazer Glen Check"
+      },
+      {
+        "id": 84732,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-azul-detalle.jpg",
+        "alt": "Blazer Glen Check"
+      },
+      {
+        "id": 84738,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-azul-bolsillo-interno-logo.jpg",
+        "alt": "Blazer Glen Check"
+      },
+      {
+        "id": 84737,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-azul-bolsillo-interno-2.jpg",
+        "alt": "Blazer Glen Check"
+      },
+      {
+        "id": 84735,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-azul-manga-bolsillo-externo.jpg",
+        "alt": "Blazer Glen Check"
       }
     ],
     "tabaco": [
@@ -13475,6 +13512,31 @@
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-tabaco-frente.jpg",
         "alt": "Winston-and-Harry-blazer-glen-tabaco-frente",
         "name": "Winston-and-Harry-blazer-glen-tabaco-frente"
+      },
+      {
+        "id": 84745,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-tabaco-posterior.jpg",
+        "alt": "Blazer Glen Check"
+      },
+      {
+        "id": 84741,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-tabaco-detalle.jpg",
+        "alt": "Blazer Glen Check"
+      },
+      {
+        "id": 84747,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-tabaco-bolsillo-interno-2-1.jpg",
+        "alt": "Blazer Glen Check"
+      },
+      {
+        "id": 84746,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-tabaco-bolsillo-interno.jpg",
+        "alt": "Blazer Glen Check"
+      },
+      {
+        "id": 84744,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-blazer-glen-tabaco-manga-bolsillo-externo.jpg",
+        "alt": "Blazer Glen Check"
       }
     ]
   }

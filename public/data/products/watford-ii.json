@@ -576,35 +576,6 @@
       "price": "560000",
       "regular_price": "560000",
       "sale_price": ""
-    },
-    {
-      "id": 26435,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "negro",
-          "option": "negro"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "41",
-          "option": "41"
-        }
-      ],
-      "image": {
-        "id": 61090,
-        "date_created": "2025-03-02T05:44:57",
-        "date_created_gmt": "2025-03-02T05:44:57",
-        "date_modified": "2025-03-03T03:19:24",
-        "date_modified_gmt": "2025-03-03T03:19:24",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Watford-II-Negro-Winstonandharry-1-e1752878205580.jpg",
-        "name": "Watford II-Negro-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
-      "sale_price": ""
     }
   ],
   "grouped_products": [],
@@ -15845,8 +15816,8 @@
       "type": "variation",
       "date_created": "2022-09-09T22:58:23",
       "date_created_gmt": "2022-09-09T22:58:23",
-      "date_modified": "2026-06-02T17:36:49",
-      "date_modified_gmt": "2026-06-02T17:36:49",
+      "date_modified": "2026-06-16T17:41:54",
+      "date_modified_gmt": "2026-06-16T17:41:54",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/watford-ii/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=41",
       "sku": "7402402041",
@@ -15869,8 +15840,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -16492,7 +16463,7 @@
         {
           "id": 2261387,
           "key": "_last_change_time",
-          "value": "1780421809"
+          "value": "1781631339"
         },
         {
           "id": 2313550,

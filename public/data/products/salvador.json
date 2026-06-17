@@ -11371,8 +11371,8 @@
       "type": "variation",
       "date_created": "2025-10-29T22:06:56",
       "date_created_gmt": "2025-10-29T22:06:56",
-      "date_modified": "2026-05-07T23:09:51",
-      "date_modified_gmt": "2026-05-07T23:09:51",
+      "date_modified": "2026-06-16T17:44:24",
+      "date_modified_gmt": "2026-06-16T17:44:24",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/salvador/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=42",
       "sku": "7003102042",
@@ -11395,7 +11395,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12188,7 +12188,7 @@
         {
           "id": 2259406,
           "key": "_last_change_time",
-          "value": "1778190030"
+          "value": "1781631494"
         },
         {
           "id": 2311071,
@@ -13089,8 +13089,8 @@
       "type": "variation",
       "date_created": "2025-10-29T22:06:55",
       "date_created_gmt": "2025-10-29T22:06:55",
-      "date_modified": "2026-05-07T23:09:51",
-      "date_modified_gmt": "2026-05-07T23:09:51",
+      "date_modified": "2026-06-16T17:44:24",
+      "date_modified_gmt": "2026-06-16T17:44:24",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/salvador/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=40",
       "sku": "7003102040",
@@ -13113,7 +13113,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -13906,7 +13906,7 @@
         {
           "id": 2259405,
           "key": "_last_change_time",
-          "value": "1778190030"
+          "value": "1781631494"
         },
         {
           "id": 2311085,
@@ -15666,8 +15666,8 @@
       "type": "variation",
       "date_created": "2025-10-29T22:06:55",
       "date_created_gmt": "2025-10-29T22:06:55",
-      "date_modified": "2026-06-02T17:41:19",
-      "date_modified_gmt": "2026-06-02T17:41:19",
+      "date_modified": "2026-06-16T17:44:24",
+      "date_modified_gmt": "2026-06-16T17:44:24",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/salvador/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=37",
       "sku": "7003102037",
@@ -15690,7 +15690,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -16483,7 +16483,7 @@
         {
           "id": 2259403,
           "key": "_last_change_time",
-          "value": "1780422079"
+          "value": "1781631493"
         },
         {
           "id": 2311082,
@@ -21679,8 +21679,8 @@
       "type": "variation",
       "date_created": "2025-10-29T22:06:54",
       "date_created_gmt": "2025-10-29T22:06:54",
-      "date_modified": "2026-05-07T23:09:51",
-      "date_modified_gmt": "2026-05-07T23:09:51",
+      "date_modified": "2026-06-16T17:44:24",
+      "date_modified_gmt": "2026-06-16T17:44:24",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/salvador/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=39",
       "sku": "7003104039",
@@ -21703,7 +21703,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -22496,7 +22496,7 @@
         {
           "id": 2259412,
           "key": "_last_change_time",
-          "value": "1778190029"
+          "value": "1781631493"
         },
         {
           "id": 2311092,

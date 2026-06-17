@@ -3584,8 +3584,8 @@
       "type": "variation",
       "date_created": "2026-05-08T01:05:42",
       "date_created_gmt": "2026-05-08T01:05:42",
-      "date_modified": "2026-06-02T17:42:31",
-      "date_modified_gmt": "2026-06-02T17:42:31",
+      "date_modified": "2026-06-16T17:44:55",
+      "date_modified_gmt": "2026-06-16T17:44:55",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-dublin/?attribute_pa_selecciona-el-color=beige&attribute_pa_selecciona-una-talla=m",
       "sku": "19200506034",
@@ -3608,7 +3608,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3651,7 +3651,7 @@
         {
           "id": 2336206,
           "key": "_last_change_time",
-          "value": "1780422151"
+          "value": "1781631895"
         },
         {
           "id": 2336207,
@@ -5728,6 +5728,13 @@
       }
     }
   ],
+  "wpc_resolved_media": {
+    "84943": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-dublin-beige-abierta-2.jpg",
+    "84944": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-dublin-beige-bolsillo-interno-1.jpg",
+    "84945": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-dublin-beige-bolsillo-interno-2.jpg",
+    "84949": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-dublin-beige-manga-bolsillo.jpg",
+    "84950": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-dublin-beige-posterior.jpg"
+  },
   "stock_status": "instock",
   "variation_images_map": {
     "beige": [
@@ -5736,6 +5743,31 @@
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-dublin-beige-frente.jpg",
         "alt": "Winston-and-Harry-chaqueta-dublin-beige-frente",
         "name": "Winston-and-Harry-chaqueta-dublin-beige-frente"
+      },
+      {
+        "id": 84950,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-dublin-beige-posterior.jpg",
+        "alt": "Chaqueta Dublin"
+      },
+      {
+        "id": 84949,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-dublin-beige-manga-bolsillo.jpg",
+        "alt": "Chaqueta Dublin"
+      },
+      {
+        "id": 84945,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-dublin-beige-bolsillo-interno-2.jpg",
+        "alt": "Chaqueta Dublin"
+      },
+      {
+        "id": 84944,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-dublin-beige-bolsillo-interno-1.jpg",
+        "alt": "Chaqueta Dublin"
+      },
+      {
+        "id": 84943,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-chaqueta-dublin-beige-abierta-2.jpg",
+        "alt": "Chaqueta Dublin"
       }
     ]
   }

@@ -7,8 +7,8 @@
   "variation": "",
   "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-6/",
   "sku": "529-05",
-  "short_description": "<p>• Para un estilo casual y fomral.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
-  "description": "<p>• Un estilo fit pero no pegado.</p>\n<p>• Para un estilo casual y fomral.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
+  "short_description": "<p>• Para un estilo casual y formal.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
+  "description": "<p>• Un estilo fit pero no pegado.</p>\n<p>• Para un estilo casual y formal.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
   "on_sale": false,
   "prices": {
     "price": "150000",
@@ -256,6 +256,35 @@
           "name": "Selecciona una Talla",
           "value": "l",
           "option": "l"
+        }
+      ],
+      "image": {
+        "id": 30250,
+        "date_created": "2023-06-21T21:42:18",
+        "date_created_gmt": "2023-06-21T21:42:18",
+        "date_modified": "2023-06-21T21:42:18",
+        "date_modified_gmt": "2023-06-21T21:42:18",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/MG_5208.jpg",
+        "name": "_MG_5208",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "150000",
+      "regular_price": "150000",
+      "sale_price": ""
+    },
+    {
+      "id": 24985,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "verde",
+          "option": "verde"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "xl",
+          "option": "xl"
         }
       ],
       "image": {
@@ -1451,8 +1480,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:42:26",
       "date_created_gmt": "2022-08-25T22:42:26",
-      "date_modified": "2026-05-07T23:00:10",
-      "date_modified_gmt": "2026-05-07T23:00:10",
+      "date_modified": "2026-06-16T17:41:06",
+      "date_modified_gmt": "2026-06-16T17:41:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-6/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=xl",
       "sku": "5056105038",
@@ -1475,8 +1504,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 0,
-      "stock_status": "outofstock",
+      "stock_quantity": 9,
+      "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -1943,7 +1972,7 @@
         {
           "id": 2259066,
           "key": "_last_change_time",
-          "value": "1778177731"
+          "value": "1781631284"
         },
         {
           "id": 2314496,
@@ -2524,8 +2553,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:42:26",
       "date_created_gmt": "2022-08-25T22:42:26",
-      "date_modified": "2026-06-02T17:35:49",
-      "date_modified_gmt": "2026-06-02T17:35:49",
+      "date_modified": "2026-06-16T17:41:06",
+      "date_modified_gmt": "2026-06-16T17:41:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-6/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=m",
       "sku": "5056105034",
@@ -2548,7 +2577,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3021,7 +3050,7 @@
         {
           "id": 2250097,
           "key": "_last_change_time",
-          "value": "1780421749"
+          "value": "1781631284"
         },
         {
           "id": 2314494,
@@ -3063,8 +3092,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:42:26",
       "date_created_gmt": "2022-08-25T22:42:26",
-      "date_modified": "2026-05-07T23:00:09",
-      "date_modified_gmt": "2026-05-07T23:00:09",
+      "date_modified": "2026-06-16T17:41:06",
+      "date_modified_gmt": "2026-06-16T17:41:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-6/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=s",
       "sku": "5056105032",
@@ -3087,7 +3116,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 14,
+      "stock_quantity": 13,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3570,7 +3599,7 @@
         {
           "id": 2239400,
           "key": "_last_change_time",
-          "value": "1778177730"
+          "value": "1781631284"
         },
         {
           "id": 2314493,

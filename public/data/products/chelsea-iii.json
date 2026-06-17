@@ -7320,8 +7320,8 @@
       "type": "variation",
       "date_created": "2023-06-21T21:40:02",
       "date_created_gmt": "2023-06-21T21:40:02",
-      "date_modified": "2026-06-02T17:37:48",
-      "date_modified_gmt": "2026-06-02T17:37:48",
+      "date_modified": "2026-06-16T17:41:54",
+      "date_modified_gmt": "2026-06-16T17:41:54",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chelsea-iii/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=40",
       "sku": "7414302040",
@@ -7344,7 +7344,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 7,
+      "stock_quantity": 6,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -7827,7 +7827,7 @@
         {
           "id": 2216197,
           "key": "_last_change_time",
-          "value": "1780421868"
+          "value": "1781631340"
         },
         {
           "id": 2312851,

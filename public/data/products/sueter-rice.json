@@ -904,8 +904,8 @@
       "type": "variation",
       "date_created": "2025-07-30T17:47:37",
       "date_created_gmt": "2025-07-30T17:47:37",
-      "date_modified": "2026-05-07T23:10:45",
-      "date_modified_gmt": "2026-05-07T23:10:45",
+      "date_modified": "2026-06-16T17:44:15",
+      "date_modified_gmt": "2026-06-16T17:44:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sueter-rice/?attribute_pa_selecciona-el-color=vinotinto&attribute_pa_selecciona-una-talla=xxl",
       "sku": "6160119040",
@@ -928,7 +928,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1721,7 +1721,7 @@
         {
           "id": 2257354,
           "key": "_last_change_time",
-          "value": "1778190188"
+          "value": "1781631480"
         },
         {
           "id": 2311362,
@@ -10393,8 +10393,8 @@
       "type": "variation",
       "date_created": "2025-07-30T17:47:35",
       "date_created_gmt": "2025-07-30T17:47:35",
-      "date_modified": "2026-05-07T23:10:36",
-      "date_modified_gmt": "2026-05-07T23:10:36",
+      "date_modified": "2026-06-16T17:44:15",
+      "date_modified_gmt": "2026-06-16T17:44:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sueter-rice/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=s",
       "sku": "6160105032",
@@ -10417,7 +10417,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -11215,7 +11215,7 @@
         {
           "id": 2219081,
           "key": "_last_change_time",
-          "value": "1778190152"
+          "value": "1781631480"
         },
         {
           "id": 2311374,

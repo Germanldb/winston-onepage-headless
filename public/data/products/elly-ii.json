@@ -15742,8 +15742,8 @@
       "type": "variation",
       "date_created": "2023-06-09T21:03:17",
       "date_created_gmt": "2023-06-09T21:03:17",
-      "date_modified": "2026-05-07T23:04:00",
-      "date_modified_gmt": "2026-05-07T23:04:00",
+      "date_modified": "2026-06-16T17:41:54",
+      "date_modified_gmt": "2026-06-16T17:41:54",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/elly-ii/?attribute_pa_selecciona-el-color=gris&attribute_pa_selecciona-una-talla=42",
       "sku": "7408403042",
@@ -15766,7 +15766,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -16394,7 +16394,7 @@
         {
           "id": 2261493,
           "key": "_last_change_time",
-          "value": "1778178275"
+          "value": "1781631340"
         },
         {
           "id": 2313066,

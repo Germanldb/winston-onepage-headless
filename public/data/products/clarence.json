@@ -3271,8 +3271,8 @@
       "type": "variation",
       "date_created": "2025-04-21T17:19:22",
       "date_created_gmt": "2025-04-21T17:19:22",
-      "date_modified": "2026-06-02T17:40:28",
-      "date_modified_gmt": "2026-06-02T17:40:28",
+      "date_modified": "2026-06-16T17:43:25",
+      "date_modified_gmt": "2026-06-16T17:43:25",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/clarence/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=42",
       "sku": "7008026042",
@@ -3295,7 +3295,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 11,
+      "stock_quantity": 10,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3993,7 +3993,7 @@
         {
           "id": 2259518,
           "key": "_last_change_time",
-          "value": "1780422028"
+          "value": "1781631430"
         },
         {
           "id": 2311644,

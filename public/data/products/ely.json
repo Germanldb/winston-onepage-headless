@@ -9307,8 +9307,8 @@
       "type": "variation",
       "date_created": "2024-07-12T06:00:45",
       "date_created_gmt": "2024-07-12T06:00:45",
-      "date_modified": "2026-06-02T17:38:58",
-      "date_modified_gmt": "2026-06-02T17:38:58",
+      "date_modified": "2026-06-16T17:42:36",
+      "date_modified_gmt": "2026-06-16T17:42:36",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ely/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=41",
       "sku": "7408326041",
@@ -9331,7 +9331,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -9894,7 +9894,7 @@
         {
           "id": 2261475,
           "key": "_last_change_time",
-          "value": "1780421938"
+          "value": "1781631389"
         },
         {
           "id": 2312253,
@@ -22107,8 +22107,8 @@
       "type": "variation",
       "date_created": "2024-07-12T06:00:44",
       "date_created_gmt": "2024-07-12T06:00:44",
-      "date_modified": "2026-05-08T21:41:39",
-      "date_modified_gmt": "2026-05-08T21:41:39",
+      "date_modified": "2026-06-16T17:42:36",
+      "date_modified_gmt": "2026-06-16T17:42:36",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ely/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=39",
       "sku": "7408301039",
@@ -22131,7 +22131,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -22689,7 +22689,7 @@
         {
           "id": 2261446,
           "key": "_last_change_time",
-          "value": "1778275789"
+          "value": "1781631389"
         },
         {
           "id": 2312263,

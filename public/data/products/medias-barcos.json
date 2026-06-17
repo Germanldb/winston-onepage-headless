@@ -214,8 +214,8 @@
       "type": "variation",
       "date_created": "2025-10-31T01:14:50",
       "date_created_gmt": "2025-10-31T01:14:50",
-      "date_modified": "2026-05-07T23:06:18",
-      "date_modified_gmt": "2026-05-07T23:06:18",
+      "date_modified": "2026-06-16T17:44:43",
+      "date_modified_gmt": "2026-06-16T17:44:43",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/medias-barcos/?attribute_pa_selecciona-el-color=verde",
       "sku": "11114005000",
@@ -238,7 +238,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 75,
+      "stock_quantity": 74,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1025,7 +1025,7 @@
         {
           "id": 2257419,
           "key": "_last_change_time",
-          "value": "1778184354"
+          "value": "1781631516"
         },
         {
           "id": 2310922,
@@ -1067,8 +1067,8 @@
       "type": "variation",
       "date_created": "2025-10-31T01:14:50",
       "date_created_gmt": "2025-10-31T01:14:50",
-      "date_modified": "2026-06-02T17:41:47",
-      "date_modified_gmt": "2026-06-02T17:41:47",
+      "date_modified": "2026-06-16T17:44:43",
+      "date_modified_gmt": "2026-06-16T17:44:43",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/medias-barcos/?attribute_pa_selecciona-el-color=azul",
       "sku": "11114001000",
@@ -1091,7 +1091,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 32,
+      "stock_quantity": 29,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1878,7 +1878,7 @@
         {
           "id": 2250468,
           "key": "_last_change_time",
-          "value": "1780422107"
+          "value": "1781631516"
         },
         {
           "id": 2310921,

@@ -103,12 +103,6 @@
       "name": "Outlet",
       "slug": "outlet-zapatos-ropa",
       "link": "https://tienda.winstonandharrystore.com/product-category/outlet-zapatos-ropa/"
-    },
-    {
-      "id": 963,
-      "name": "Reatas",
-      "slug": "reatas",
-      "link": "https://tienda.winstonandharrystore.com/product-category/accesorios-hombre/reatas/"
     }
   ],
   "tags": [
@@ -578,8 +572,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:45:27",
       "date_created_gmt": "2022-08-25T22:45:27",
-      "date_modified": "2026-05-07T23:01:45",
-      "date_modified_gmt": "2026-05-07T23:01:45",
+      "date_modified": "2026-06-16T17:41:06",
+      "date_modified_gmt": "2026-06-16T17:41:06",
       "description": "<p>Nosotros sabemos que la regla número uno cuando se usa cuero, es siempre combinar los colores &#8211; “match your leathers”. Nuestros cinturones Trent están hechos en piel de becerro de manera artesanal, pintados a mano para llegar a ser el accesorio perfecto al usar con nuestros zapatos. Su diseño sencillo y hebilla clásica le da un toque de elegancia que sobresaltará en cualquier ocasión que te encuentres.</p>\n",
       "permalink": "https://tienda.winstonandharrystore.com/product/cinturon-sencillo/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=38&attribute_pa_hebilla=acero-inoxidable&attribute_pa_material=100-cuero",
       "sku": "27211604038",
@@ -602,7 +596,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 29,
+      "stock_quantity": 28,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1102,7 +1096,12 @@
         {
           "id": 2254694,
           "key": "_last_change_time",
-          "value": "1778177828"
+          "value": "1781631284"
+        },
+        {
+          "id": 2382808,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Café, 38, Acero inoxidable, 100% Cuero",
@@ -1664,6 +1663,11 @@
           "id": 2254693,
           "key": "_last_change_time",
           "value": "1778177828"
+        },
+        {
+          "id": 2382807,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Café, 36, Acero inoxidable, 100% Cuero",
@@ -2225,6 +2229,11 @@
           "id": 2262075,
           "key": "_last_change_time",
           "value": "1778177828"
+        },
+        {
+          "id": 2382806,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Café, 34, Acero inoxidable, 100% Cuero",
@@ -2786,6 +2795,11 @@
           "id": 2262070,
           "key": "_last_change_time",
           "value": "1778177828"
+        },
+        {
+          "id": 2382805,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Café, 32, Acero inoxidable, 100% Cuero",
@@ -3347,6 +3361,11 @@
           "id": 2254692,
           "key": "_last_change_time",
           "value": "1780421750"
+        },
+        {
+          "id": 2382804,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Miel, 38, Acero inoxidable, 100% Cuero",
@@ -3908,6 +3927,11 @@
           "id": 2262077,
           "key": "_last_change_time",
           "value": "1778177828"
+        },
+        {
+          "id": 2382803,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Miel, 36, Acero inoxidable, 100% Cuero",
@@ -4464,6 +4488,11 @@
           "id": 2262076,
           "key": "_last_change_time",
           "value": "1778177828"
+        },
+        {
+          "id": 2382802,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Miel, 34, Acero inoxidable, 100% Cuero",
@@ -5020,6 +5049,11 @@
           "id": 2254690,
           "key": "_last_change_time",
           "value": "1778177828"
+        },
+        {
+          "id": 2382801,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Miel, 32, Acero inoxidable, 100% Cuero",

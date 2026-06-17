@@ -7,8 +7,8 @@
   "variation": "",
   "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-7/",
   "sku": "529-16",
-  "short_description": "<p>• Para un estilo casual y fomral.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
-  "description": "<p>• Un estilo fit pero no pegado.</p>\n<p>• Para un estilo casual y fomral.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
+  "short_description": "<p>• Para un estilo casual y formal.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
+  "description": "<p>• Un estilo fit pero no pegado.</p>\n<p>• Para un estilo casual y formal.</p>\n<p>• Hecho a mano 100% por artesanos colombianos.</p>\n<p>• Algodon 100%.</p>",
   "on_sale": false,
   "prices": {
     "price": "150000",
@@ -272,6 +272,35 @@
       "price": "150000",
       "regular_price": "150000",
       "sale_price": ""
+    },
+    {
+      "id": 30291,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "rosado",
+          "option": "rosado"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "xl",
+          "option": "xl"
+        }
+      ],
+      "image": {
+        "id": 30256,
+        "date_created": "2023-06-21T21:42:36",
+        "date_created_gmt": "2023-06-21T21:42:36",
+        "date_modified": "2023-06-21T21:42:36",
+        "date_modified_gmt": "2023-06-21T21:42:36",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/06/MG_5226.jpg",
+        "name": "_MG_5226",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "150000",
+      "regular_price": "150000",
+      "sale_price": ""
     }
   ],
   "grouped_products": [],
@@ -339,8 +368,8 @@
       "type": "variation",
       "date_created": "2023-06-22T21:54:00",
       "date_created_gmt": "2023-06-22T21:54:00",
-      "date_modified": "2026-05-07T23:00:11",
-      "date_modified_gmt": "2026-05-07T23:00:11",
+      "date_modified": "2026-06-16T17:42:18",
+      "date_modified_gmt": "2026-06-16T17:42:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-7/?attribute_pa_selecciona-el-color=rosado&attribute_pa_selecciona-una-talla=xl",
       "sku": "5056116038",
@@ -363,8 +392,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 0,
-      "stock_status": "outofstock",
+      "stock_quantity": 4,
+      "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -836,7 +865,7 @@
         {
           "id": 2259081,
           "key": "_last_change_time",
-          "value": "1778177732"
+          "value": "1781631369"
         },
         {
           "id": 2312847,
@@ -1427,8 +1456,8 @@
       "type": "variation",
       "date_created": "2023-06-22T21:54:00",
       "date_created_gmt": "2023-06-22T21:54:00",
-      "date_modified": "2026-06-02T17:37:48",
-      "date_modified_gmt": "2026-06-02T17:37:48",
+      "date_modified": "2026-06-16T17:42:18",
+      "date_modified_gmt": "2026-06-16T17:42:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-7/?attribute_pa_selecciona-el-color=rosado&attribute_pa_selecciona-una-talla=m",
       "sku": "5056116034",
@@ -1451,7 +1480,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1934,7 +1963,7 @@
         {
           "id": 2236206,
           "key": "_last_change_time",
-          "value": "1780421868"
+          "value": "1781631369"
         },
         {
           "id": 2312845,
@@ -2525,8 +2554,8 @@
       "type": "variation",
       "date_created": "2023-06-22T21:54:00",
       "date_created_gmt": "2023-06-22T21:54:00",
-      "date_modified": "2026-05-07T23:00:10",
-      "date_modified_gmt": "2026-05-07T23:00:10",
+      "date_modified": "2026-06-16T17:42:18",
+      "date_modified_gmt": "2026-06-16T17:42:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-7/?attribute_pa_selecciona-el-color=rosado&attribute_pa_selecciona-una-talla=xs",
       "sku": "5056116030",
@@ -2549,7 +2578,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 8,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3032,7 +3061,7 @@
         {
           "id": 2257225,
           "key": "_last_change_time",
-          "value": "1778177731"
+          "value": "1781631369"
         },
         {
           "id": 2312843,

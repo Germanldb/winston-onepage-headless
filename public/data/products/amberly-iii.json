@@ -3058,8 +3058,8 @@
       "type": "variation",
       "date_created": "2025-02-21T04:05:24",
       "date_created_gmt": "2025-02-21T04:05:24",
-      "date_modified": "2026-06-02T17:40:05",
-      "date_modified_gmt": "2026-06-02T17:40:05",
+      "date_modified": "2026-06-16T17:43:25",
+      "date_modified_gmt": "2026-06-16T17:43:25",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/amberly-iii/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=42",
       "sku": "7310402042",
@@ -3082,7 +3082,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3705,7 +3705,7 @@
         {
           "id": 2261203,
           "key": "_last_change_time",
-          "value": "1780422005"
+          "value": "1781631430"
         },
         {
           "id": 2311946,

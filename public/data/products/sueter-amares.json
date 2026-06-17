@@ -5882,8 +5882,8 @@
       "type": "variation",
       "date_created": "2026-05-08T02:41:01",
       "date_created_gmt": "2026-05-08T02:41:01",
-      "date_modified": "2026-06-02T17:42:45",
-      "date_modified_gmt": "2026-06-02T17:42:45",
+      "date_modified": "2026-06-16T17:44:55",
+      "date_modified_gmt": "2026-06-16T17:44:55",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sueter-amares/?attribute_pa_selecciona-el-color=azul-oscuro&attribute_pa_selecciona-una-talla=xxl",
       "sku": "6160837040",
@@ -5906,7 +5906,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5949,7 +5949,7 @@
         {
           "id": 2342727,
           "key": "_last_change_time",
-          "value": "1780422165"
+          "value": "1781631895"
         },
         {
           "id": 2342728,
@@ -11248,6 +11248,16 @@
       }
     }
   ],
+  "wpc_resolved_media": {
+    "84645": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Sueter-Amares-azul-oscuto-espalda.png",
+    "84647": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Sueter-Amares-azul-oscuto-manga.png",
+    "84649": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Sueter-Amares-azul-oscuro-hombro-5.png",
+    "84650": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Sueter-Amares-azul-oscuto-detalle.png",
+    "84652": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Sueter-Amares-perlado-espalda.jpg",
+    "84654": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Sueter-Amares-perlado-hombro.jpg",
+    "84655": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Sueter-Amares-perlado-inferior.jpg",
+    "84656": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Sueter-Amares-perlado-manga.jpg"
+  },
   "stock_status": "instock",
   "variation_images_map": {
     "azul-oscuro": [
@@ -11264,6 +11274,48 @@
         "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Sueter-Amares-perlado-frente.jpg",
         "alt": "Winston-and-Harry-Sueter-Amares-perlado-frente",
         "name": "Winston-and-Harry-Sueter-Amares-perlado-frente"
+      },
+      {
+        "id": 84652,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Sueter-Amares-perlado-espalda.jpg",
+        "alt": "Sueter Amares"
+      },
+      {
+        "id": 84655,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Sueter-Amares-perlado-inferior.jpg",
+        "alt": "Sueter Amares"
+      },
+      {
+        "id": 84654,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Sueter-Amares-perlado-hombro.jpg",
+        "alt": "Sueter Amares"
+      },
+      {
+        "id": 84656,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Sueter-Amares-perlado-manga.jpg",
+        "alt": "Sueter Amares"
+      }
+    ],
+    "azul oscuro": [
+      {
+        "id": 84645,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Sueter-Amares-azul-oscuto-espalda.png",
+        "alt": "Sueter Amares"
+      },
+      {
+        "id": 84650,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Sueter-Amares-azul-oscuto-detalle.png",
+        "alt": "Sueter Amares"
+      },
+      {
+        "id": 84649,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Sueter-Amares-azul-oscuro-hombro-5.png",
+        "alt": "Sueter Amares"
+      },
+      {
+        "id": 84647,
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Winston-and-Harry-Sueter-Amares-azul-oscuto-manga.png",
+        "alt": "Sueter Amares"
       }
     ]
   }

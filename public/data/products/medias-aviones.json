@@ -214,8 +214,8 @@
       "type": "variation",
       "date_created": "2025-10-31T01:12:13",
       "date_created_gmt": "2025-10-31T01:12:13",
-      "date_modified": "2026-06-02T17:41:47",
-      "date_modified_gmt": "2026-06-02T17:41:47",
+      "date_modified": "2026-06-16T17:44:43",
+      "date_modified_gmt": "2026-06-16T17:44:43",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/medias-aviones/?attribute_pa_selecciona-el-color=negro",
       "sku": "11114102000",
@@ -238,7 +238,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 47,
+      "stock_quantity": 32,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1025,7 +1025,7 @@
         {
           "id": 2219131,
           "key": "_last_change_time",
-          "value": "1780422107"
+          "value": "1781631516"
         },
         {
           "id": 2310924,
@@ -1067,8 +1067,8 @@
       "type": "variation",
       "date_created": "2025-10-31T01:12:13",
       "date_created_gmt": "2025-10-31T01:12:13",
-      "date_modified": "2026-06-02T17:41:47",
-      "date_modified_gmt": "2026-06-02T17:41:47",
+      "date_modified": "2026-06-16T17:44:43",
+      "date_modified_gmt": "2026-06-16T17:44:43",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/medias-aviones/?attribute_pa_selecciona-el-color=azul-claro",
       "sku": "11114129000",
@@ -1091,7 +1091,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 54,
+      "stock_quantity": 53,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1878,7 +1878,7 @@
         {
           "id": 2219130,
           "key": "_last_change_time",
-          "value": "1780422107"
+          "value": "1781631516"
         },
         {
           "id": 2310923,

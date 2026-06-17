@@ -9927,8 +9927,8 @@
       "type": "variation",
       "date_created": "2023-07-17T21:14:05",
       "date_created_gmt": "2023-07-17T21:14:05",
-      "date_modified": "2026-05-08T21:44:48",
-      "date_modified_gmt": "2026-05-08T21:44:48",
+      "date_modified": "2026-06-16T17:42:18",
+      "date_modified_gmt": "2026-06-16T17:42:18",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/nautico-iii/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=40",
       "sku": "7100332040",
@@ -9951,7 +9951,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -10514,7 +10514,7 @@
         {
           "id": 2260074,
           "key": "_last_change_time",
-          "value": "1778276688"
+          "value": "1781631369"
         },
         {
           "id": 2312698,

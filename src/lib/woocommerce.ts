@@ -53,14 +53,32 @@ const getEnv = (key: string) => {
            (typeof process !== 'undefined' ? process.env[`PUBLIC_${key}`] : undefined);
 };
 
+export const PUBLIC_WP_URL = import.meta.env.PUBLIC_WP_URL || 'https://tienda.winstonandharrystore.com';
+
+// Función auxiliar para parsear IDs de imágenes de variaciones (Soporta CSV, JSON array y Array directo)
+function parseVariationImageIds(metaVal: any): string[] {
+    if (!metaVal) return [];
+    if (typeof metaVal === 'string') {
+        if (metaVal.trim().startsWith('[')) {
+            try {
+                const parsed = JSON.parse(metaVal);
+                return Array.isArray(parsed) ? parsed.map((item: any) => (item.id?.toString() || item.toString()).trim()) : [];
+            } catch (e) { return []; }
+        } else {
+            return metaVal.split(',').map(s => s.trim()).filter(Boolean);
+        }
+    } else if (Array.isArray(metaVal)) {
+        return metaVal.map((item: any) => (item.id?.toString() || item.toString()).trim());
+    }
+    return [];
+}
+
 let WC_URL_ENV = (getEnv('WC_URL') || getEnv('WP_URL') || "https://tienda.winstonandharrystore.com").trim();
 
 // Asegurar que use el subdominio tienda. si es el dominio principal para los llamados a la API
 if (WC_URL_ENV.includes("winstonandharrystore.com") && !WC_URL_ENV.includes("tienda.")) {
     WC_URL_ENV = WC_URL_ENV.replace("winstonandharrystore.com", "tienda.winstonandharrystore.com");
 }
-
-export const PUBLIC_WP_URL = WC_URL_ENV.replace(/\/$/, "");
 
 import { EXCLUDED_SLUGS } from "./menuCategories";
 export { EXCLUDED_SLUGS };
@@ -480,7 +498,7 @@ function mapV3ToStore(p: any) {
                          const colorKey = colorAttr ? String(colorAttr.option || colorAttr.value).toLowerCase().trim() : 'default';
                          if (!imgMap[colorKey]) imgMap[colorKey] = [];
                          
-                         const ids = wpcMeta.value.split(',').map((id: string) => id.trim());
+                         const ids = parseVariationImageIds(wpcMeta.value);
                          ids.forEach((id: string) => {
                              const url = p.wpc_resolved_media[id];
                              if (url && !imgMap[colorKey].some(img => img.src === url)) {
@@ -526,7 +544,12 @@ function mapV3ToStore(p: any) {
                 
                 if (!wpcImagesMap[colorKey]) wpcImagesMap[colorKey] = [];
                 
-                const ids = wpcMeta.value.split(',').map((id: string) => id.trim());
+                if (v.image && v.image.src) {
+                    if (!wpcImagesMap[colorKey].some(img => img.src === v.image.src)) {
+                        wpcImagesMap[colorKey].push({ id: v.image.id || parseInt(v.id || '0'), src: v.image.src, alt: v.image.alt || p.name });
+                    }
+                }
+                const ids = parseVariationImageIds(wpcMeta.value);
                 ids.forEach((id: string) => {
                     const url = p.wpc_resolved_media[id];
                     if (url && !wpcImagesMap[colorKey].some(img => img.src === url)) {
@@ -614,48 +637,18 @@ function mapV3ToStore(p: any) {
             };
         }) || null,
         variation_images_map: (() => {
-            if (p.variation_images_map) return p.variation_images_map;
-            const imgMap: Record<string, any[]> = {};
+            try {
+                if (p.variation_images_map) return p.variation_images_map;
+                const imgMap: Record<string, any[]> = {};
 
-            if (p.variations_data && Array.isArray(p.variations_data)) {
-                const colorsArr = (p.attributes || []).find((a: any) => 
-                    (a.name || "").toLowerCase().includes('color') || 
-                    (a.slug || "").toLowerCase().includes('color')
-                )?.options || [];
+                if (p.variations_data && Array.isArray(p.variations_data)) {
+                    const colorsArr = (p.attributes || []).find((a: any) => 
+                        (a.name || "").toLowerCase().includes('color') || 
+                        (a.slug || "").toLowerCase().includes('color')
+                    )?.options || [];
 
-                // 1. Primero cargamos las imágenes principales de las variaciones (para que sean las primeras)
-                p.variations_data.forEach((v: any) => {
-                    const colorAttr = v.attributes?.find((a: any) => {
-                        const n = (a.name || "").toLowerCase();
-                        const s = (a.slug || "").toLowerCase();
-                        return n.includes('color') || s.includes('color') || 
-                               n.includes('selecciona-el') || s.includes('selecciona-el') ||
-                               (a.id || "").toString().includes('color') ||
-                               a.name === 'Pa_selecciona-el-color';
-                    });
-                    
-                    if (colorAttr && (colorAttr.option || colorAttr.value) && v.image?.src) {
-                         const colorValue = String(colorAttr.option || colorAttr.value).toLowerCase().trim();
-                         // Usamos el slug normalizado si existe en los términos del producto, sino el valor crudo
-                         const colorKey = normalizeSlug(colorValue) || colorValue;
-                         
-                         if (!imgMap[colorKey]) imgMap[colorKey] = [];
-                         
-                         if (!imgMap[colorKey].some((img: any) => img.src === v.image.src)) {
-                             imgMap[colorKey].push({ 
-                                id: v.image.id || 0,
-                                src: v.image.src, 
-                                alt: v.image.alt || v.image.name || '',
-                                name: v.image.name || ''
-                            });
-                         }
-                    }
-                });
-
-                // 2. Luego añadimos las de WPC (ordenadas después de la principal)
-                p.variations_data.forEach((v: any) => {
-                    const wpcMeta = v.meta_data?.find((m: any) => (m.key === 'wpcvi_images' || m.key === 'wd_additional_variation_images_data') && m.value);
-                    if (wpcMeta?.value && p.wpc_resolved_media) {
+                    // 1. Primero cargamos las imágenes principales de las variaciones (para que sean las primeras)
+                    p.variations_data.forEach((v: any) => {
                         const colorAttr = v.attributes?.find((a: any) => {
                             const n = (a.name || "").toLowerCase();
                             const s = (a.slug || "").toLowerCase();
@@ -665,24 +658,60 @@ function mapV3ToStore(p: any) {
                                    a.name === 'Pa_selecciona-el-color';
                         });
                         
-                        if (colorAttr && (colorAttr.option || colorAttr.value)) {
-                            const colorValue = String(colorAttr.option || colorAttr.value).toLowerCase().trim();
-                            const colorKey = normalizeSlug(colorValue) || colorValue;
-
-                            if (!imgMap[colorKey]) imgMap[colorKey] = [];
-                            
-                            const ids = wpcMeta.value.split(',').map((id: string) => id.trim());
-                            ids.forEach((id: string) => {
-                                const url = p.wpc_resolved_media[id];
-                                if (url && !imgMap[colorKey].some(img => img.src === url)) {
-                                    imgMap[colorKey].push({ id: parseInt(id), src: url, alt: p.name });
-                                }
-                            });
+                        if (colorAttr && (colorAttr.option || colorAttr.value) && v.image?.src) {
+                             const colorValue = String(colorAttr.option || colorAttr.value).toLowerCase().trim();
+                             // Usamos el slug normalizado si existe en los términos del producto, sino el valor crudo
+                             const colorKey = normalizeSlug(colorValue) || colorValue;
+                             
+                             if (!imgMap[colorKey]) imgMap[colorKey] = [];
+                             
+                             if (!imgMap[colorKey].some((img: any) => img.src === v.image.src)) {
+                                 imgMap[colorKey].push({ 
+                                    id: v.image.id || 0,
+                                    src: v.image.src, 
+                                    alt: v.image.alt || v.image.name || '',
+                                    name: v.image.name || ''
+                                });
+                             }
                         }
-                    }
-                });
+                    });
+
+                    // 2. Luego añadimos las de WPC (ordenadas después de la principal)
+                    p.variations_data.forEach((v: any) => {
+                        const wpcMeta = v.meta_data?.find((m: any) => (m.key === 'wpcvi_images' || m.key === 'wd_additional_variation_images_data') && m.value);
+                        if (wpcMeta?.value && p.wpc_resolved_media) {
+                            const colorAttr = v.attributes?.find((a: any) => {
+                                const n = (a.name || "").toLowerCase();
+                                const s = (a.slug || "").toLowerCase();
+                                return n.includes('color') || s.includes('color') || 
+                                       n.includes('selecciona-el') || s.includes('selecciona-el') ||
+                                       (a.id || "").toString().includes('color') ||
+                                       a.name === 'Pa_selecciona-el-color';
+                            });
+                            
+                            if (colorAttr && (colorAttr.option || colorAttr.value)) {
+                                const colorValue = String(colorAttr.option || colorAttr.value).toLowerCase().trim();
+                                const colorKey = normalizeSlug(colorValue) || colorValue;
+
+                                if (!imgMap[colorKey]) imgMap[colorKey] = [];
+                                
+                                // La imagen principal de la variación ya se agregó en el paso 1.
+                                const ids = parseVariationImageIds(wpcMeta.value);
+                                ids.forEach((id: string) => {
+                                    const url = p.wpc_resolved_media[id.trim()];
+                                    if (url && !imgMap[colorKey].some(img => img.src === url)) {
+                                        imgMap[colorKey].push({ id: parseInt(id), src: url, alt: p.name });
+                                    }
+                                });
+                            }
+                        }
+                    });
+                }
+                return Object.keys(imgMap).length > 0 ? imgMap : null;
+            } catch (e) {
+                console.error('[variation_images_map] Error:', e);
+                return null;
             }
-            return Object.keys(imgMap).length > 0 ? imgMap : null;
         })(),
         stock_status: p.stock_status || 'instock',
         manage_stock: p.manage_stock || false,
@@ -734,7 +763,7 @@ export async function getProductById(id: number | string) {
             const allWpcIds = new Set<string>();
             variations.forEach((v: any) => {
                 const meta = v.meta_data?.find((m: any) => (m.key === 'wpcvi_images' || m.key === 'wd_additional_variation_images_data') && m.value);
-                if (meta?.value) meta.value.split(',').forEach((id: string) => allWpcIds.add(id.trim()));
+                if (meta?.value) parseVariationImageIds(meta.value).forEach((id: string) => { if (id) allWpcIds.add(id.trim()); });
             });
 
             if (allWpcIds.size > 0) {
@@ -781,7 +810,9 @@ export const ASTRO_TO_WP_SLUG_MAP: Record<string, string> = {
     'tallas-grandes-zapatos-hombre': 'tallas-grandes',
     'zapatos-hechos-colombia-hombre': 'linea-colombia',
     'zapatos-cordon-hombre': 'zapatos-de-cordon',
-    'zapatos-hebilla-hombre': 'zapatos-de-hebilla'
+    'zapatos-hebilla-hombre': 'zapatos-de-hebilla',
+    'billeteras-cuero-hombre': 'billeteras',
+    'limpieza-cuidado-zapatos': 'limpieza'
 };
 
 export const STRICT_CATEGORIES = [
@@ -917,6 +948,41 @@ export const STRICT_CATEGORIES = [
         name: 'Chaquetas',
         description: 'Chaquetas hechas a mano con diseño atemporal. Una tercera pieza clave para elevar cualquier atuendo.',
         image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-ropa-m.jpg'
+    },
+    {
+        id: 964,
+        slug: 'billeteras-cuero-hombre',
+        name: 'Billeteras',
+        description: 'Billeteras y tarjeteros de cuero legítimo para hombre. Diseños elegantes y funcionales que combinan con tu estilo.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-accesorios-m.jpg'
+    },
+    {
+        id: 967,
+        slug: 'cinturones',
+        name: 'Cinturones',
+        description: 'Cinturones de cuero artesanal para hombre. El complemento perfecto para cerrar cualquier look con elegancia.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-accesorios-m.jpg'
+    },
+    {
+        id: 966,
+        slug: 'gorras',
+        name: 'Gorras',
+        description: 'Gorras y sombreros premium para hombre. El toque final que eleva cualquier atuendo casual o formal.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-accesorios-m.jpg'
+    },
+    {
+        id: 965,
+        slug: 'limpieza-cuidado-zapatos',
+        name: 'Limpieza y Cuidado',
+        description: 'Productos especializados para el cuidado y limpieza de zapatos y accesorios de cuero. Mantén tus piezas como el primer día.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-accesorios-m.jpg'
+    },
+    {
+        id: 963,
+        slug: 'reatas',
+        name: 'Reatas',
+        description: 'Reatas y correas de cuero para hombre. Accesorios esenciales hechos con los mejores materiales.',
+        image: 'https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-accesorios-m.jpg'
     }
 ];
 
@@ -1097,7 +1163,7 @@ export async function getProductBySlug(slug: string) {
                         const allWpcIds = new Set<string>();
                         variations.forEach((v: any) => {
                             const meta = v.meta_data?.find((m: any) => (m.key === 'wpcvi_images' || m.key === 'wd_additional_variation_images_data') && m.value);
-                            if (meta?.value) meta.value.split(',').forEach((id: string) => allWpcIds.add(id.trim()));
+                            if (meta?.value) parseVariationImageIds(meta.value).forEach((id: string) => { if (id) allWpcIds.add(id.trim()); });
                         });
 
                         if (allWpcIds.size > 0) {
@@ -1147,7 +1213,7 @@ export async function getProductBySlug(slug: string) {
             const allWpcIds = new Set<string>();
             variations.forEach((v: any) => {
                 const meta = v.meta_data?.find((m: any) => (m.key === 'wpcvi_images' || m.key === 'wd_additional_variation_images_data') && m.value);
-                if (meta?.value) meta.value.split(',').forEach((id: string) => allWpcIds.add(id.trim()));
+                if (meta?.value) parseVariationImageIds(meta.value).forEach((id: string) => { if (id) allWpcIds.add(id.trim()); });
             });
 
             if (allWpcIds.size > 0) {

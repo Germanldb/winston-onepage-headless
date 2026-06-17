@@ -13711,8 +13711,8 @@
       "type": "variation",
       "date_created": "2025-10-30T03:42:43",
       "date_created_gmt": "2025-10-30T03:42:43",
-      "date_modified": "2026-05-07T23:09:27",
-      "date_modified_gmt": "2026-05-07T23:09:27",
+      "date_modified": "2026-06-16T17:44:24",
+      "date_modified_gmt": "2026-06-16T17:44:24",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/recife/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=39",
       "sku": "7003326039",
@@ -13735,7 +13735,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -14528,7 +14528,7 @@
         {
           "id": 2257398,
           "key": "_last_change_time",
-          "value": "1778184927"
+          "value": "1781631494"
         },
         {
           "id": 2311040,

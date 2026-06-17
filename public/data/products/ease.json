@@ -6895,8 +6895,8 @@
       "type": "variation",
       "date_created": "2025-04-21T18:05:37",
       "date_created_gmt": "2025-04-21T18:05:37",
-      "date_modified": "2026-05-08T21:42:34",
-      "date_modified_gmt": "2026-05-08T21:42:34",
+      "date_modified": "2026-06-16T17:43:25",
+      "date_modified_gmt": "2026-06-16T17:43:25",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ease/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=38",
       "sku": "7100802038",
@@ -6919,7 +6919,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -7617,7 +7617,7 @@
         {
           "id": 2260307,
           "key": "_last_change_time",
-          "value": "1778275845"
+          "value": "1781631430"
         },
         {
           "id": 2311603,

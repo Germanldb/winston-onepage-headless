@@ -9053,8 +9053,8 @@
       "type": "variation",
       "date_created": "2022-08-29T21:01:58",
       "date_created_gmt": "2022-08-29T21:01:58",
-      "date_modified": "2026-06-02T17:36:20",
-      "date_modified_gmt": "2026-06-02T17:36:20",
+      "date_modified": "2026-06-16T17:41:07",
+      "date_modified_gmt": "2026-06-16T17:41:07",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/london/?attribute_pa_selecciona-el-color=vinotinto&attribute_pa_selecciona-una-talla=40",
       "sku": "7021319040",
@@ -9077,7 +9077,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 10,
+      "stock_quantity": 9,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -9630,7 +9630,7 @@
         {
           "id": 2259714,
           "key": "_last_change_time",
-          "value": "1780421780"
+          "value": "1781631284"
         },
         {
           "id": 2313629,

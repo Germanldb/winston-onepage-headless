@@ -1763,8 +1763,8 @@
       "type": "variation",
       "date_created": "2025-08-14T16:56:52",
       "date_created_gmt": "2025-08-14T16:56:52",
-      "date_modified": "2026-06-02T17:41:10",
-      "date_modified_gmt": "2026-06-02T17:41:10",
+      "date_modified": "2026-06-16T17:44:24",
+      "date_modified_gmt": "2026-06-16T17:44:24",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-londres/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=xl",
       "sku": "19199805038",
@@ -1787,7 +1787,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -2580,7 +2580,7 @@
         {
           "id": 2250427,
           "key": "_last_change_time",
-          "value": "1780422070"
+          "value": "1781631493"
         },
         {
           "id": 2311250,
@@ -8635,8 +8635,8 @@
       "type": "variation",
       "date_created": "2025-08-14T16:56:49",
       "date_created_gmt": "2025-08-14T16:56:49",
-      "date_modified": "2026-05-07T23:01:14",
-      "date_modified_gmt": "2026-05-07T23:01:14",
+      "date_modified": "2026-06-16T17:44:24",
+      "date_modified_gmt": "2026-06-16T17:44:24",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-londres/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=l",
       "sku": "19199802036",
@@ -8659,7 +8659,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -9452,7 +9452,7 @@
         {
           "id": 2250425,
           "key": "_last_change_time",
-          "value": "1778177796"
+          "value": "1781631492"
         },
         {
           "id": 2311256,
@@ -16366,8 +16366,8 @@
       "type": "variation",
       "date_created": "2025-08-14T16:56:45",
       "date_created_gmt": "2025-08-14T16:56:45",
-      "date_modified": "2026-05-07T23:01:14",
-      "date_modified_gmt": "2026-05-07T23:01:14",
+      "date_modified": "2026-06-16T17:44:24",
+      "date_modified_gmt": "2026-06-16T17:44:24",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-londres/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=xxl",
       "sku": "19199801040",
@@ -16390,7 +16390,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -17183,7 +17183,7 @@
         {
           "id": 2233397,
           "key": "_last_change_time",
-          "value": "1778177796"
+          "value": "1781631492"
         },
         {
           "id": 2311268,
@@ -20661,8 +20661,8 @@
       "type": "variation",
       "date_created": "2025-08-14T16:56:44",
       "date_created_gmt": "2025-08-14T16:56:44",
-      "date_modified": "2026-05-07T23:01:08",
-      "date_modified_gmt": "2026-05-07T23:01:08",
+      "date_modified": "2026-06-16T17:44:15",
+      "date_modified_gmt": "2026-06-16T17:44:15",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-londres/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=s",
       "sku": "19199801032",
@@ -20685,7 +20685,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -21478,7 +21478,7 @@
         {
           "id": 2254929,
           "key": "_last_change_time",
-          "value": "1778177790"
+          "value": "1781631481"
         },
         {
           "id": 2311269,

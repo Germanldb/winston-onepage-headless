@@ -70,7 +70,5 @@ export const EXCLUDED_SLUGS = [
   'sin-categorizar',
   'outlet-zapatos-ropa',
   'zapatos-maletas-cuero-hombre',
-  'zapatos-y-maletas',
-  'billeteras',
-  'limpieza'
+  'zapatos-y-maletas'
 ];
