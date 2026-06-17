@@ -4,6 +4,7 @@ import SideCart from "../components/SideCart";
 import SearchDrawer from "../components/SearchDrawer";
 import CookieBanner from "../components/CookieBanner.astro";
 import MetaPixel from "../components/MetaPixel.astro";
+import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 import { PUBLIC_WP_URL } from "../lib/woocommerce";
 import GlobalBanner from "../components/GlobalBanner.astro";
 
@@ -96,6 +97,7 @@ const seo = rawSeo || {
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-NRK6FQ5N');</script>
         <!-- End Google Tag Manager -->
+        <GoogleAnalytics />
         <meta charset="UTF-8" />
         {noindex && <meta name="robots" content="noindex, nofollow" />}
         <meta name="description" content={seo.description} />

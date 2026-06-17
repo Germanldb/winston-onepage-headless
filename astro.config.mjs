@@ -143,7 +143,7 @@ export default defineConfig({
     }),
     partytown({
       config: {
-        forward: ['dataLayer.push', 'fbq']
+        forward: ['dataLayer.push', 'fbq', 'gtag']
       }
     })
   ],
