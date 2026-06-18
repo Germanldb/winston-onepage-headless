@@ -482,8 +482,13 @@
       "permanent": true
     },
     {
-      "source": "/checkout",
-      "destination": "/finalizar-compra",
+      "source": "/finalizar-compra",
+      "destination": "/checkout",
+      "permanent": true
+    },
+    {
+      "source": "/finalizar-compra/",
+      "destination": "/checkout",
       "permanent": true
     },
     {
