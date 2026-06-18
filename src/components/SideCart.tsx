@@ -49,7 +49,7 @@ export default function SideCart() {
     };
 
     const handleCheckout = () => {
-        redirectToCheckout('/checkout/');
+        window.location.href = '/checkout';
     };
 
     const handleViewCart = () => {

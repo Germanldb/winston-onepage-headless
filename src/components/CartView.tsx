@@ -39,6 +39,42 @@ export default function CartView() {
         return items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     }, [items]);
 
+React.useEffect(() => {
+        // RASTREADOR 1: Verifica si el componente se monta en el cliente
+        console.log("1. React useEffect disparado. Cantidad de items:", items ? items.length : 0);
+
+        if (!items || items.length === 0) {
+            console.log("2. El estado global del carrito está vacío o aún no hidrata. Abortando envío a GTM.");
+            return;
+        }
+
+        const gtmFlag = `gtm_cart_${items.length}_${subtotal}`;
+        if (sessionStorage.getItem(gtmFlag)) {
+            console.log("3. Bloqueo activo: El evento GTM ya se envió en esta sesión.");
+            return;
+        }
+
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        (window as any).dataLayer.push({ ecommerce: null });
+        (window as any).dataLayer.push({
+            event: 'view_cart',
+            ecommerce: {
+                currency: 'COP',
+                value: subtotal,
+                items: items.map((item: any, index: number) => ({
+                    item_id: String(item.id),
+                    item_name: item.name,
+                    price: item.price,
+                    quantity: item.quantity,
+                    index: index
+                }))
+            }
+        });
+
+        sessionStorage.setItem(gtmFlag, 'true');
+        console.log("4. ✅ GTM TRACKING EXITOSO: view_cart");
+    }, [items, subtotal]);
+
     const FREE_SHIPPING_THRESHOLD = shippingSettings.free_shipping_threshold;
     const SHIPPING_COST = shippingSettings.flat_rate;
     const shippingCost = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_COST;
@@ -58,7 +94,7 @@ export default function CartView() {
                 });
             }
         }
-        redirectToCheckout('/checkout/', couponCode);
+        window.location.href = couponCode ? `/checkout?coupon=${couponCode}` : '/checkout';
     };
 
     const handleApplyCoupon = () => {
@@ -69,12 +105,152 @@ export default function CartView() {
 
     if (items.length === 0) {
         return (
-            <div className="cart-page-empty">
-                <div className="container">
-                    <h1>TU CARRITO ESTÁ VACÍO</h1>
-                    <p>Parece que aún no has añadido nada a tu bolsa.</p>
-                    <a href="/tienda" className="btn-green">VOLVER A LA TIENDA</a>
+            <div className="cart-page-empty-dark">
+                <div className="cart-empty-backdrop"></div>
+                <div className="cart-empty-card">
+                    <span className="cart-empty-badge">CARRITO VACÍO</span>
+                    <h1 className="cart-empty-title">TU CARRITO ESTÁ VACÍO</h1>
+                    <p className="cart-empty-description">
+                        Parece que no has añadido nada aún.
+                        Nuestros maestros artesanos cuidan cada detalle en nuestros zapatos, y queremos cuidar también de tu experiencia de compra.
+                    </p>
+                    
+                    <div className="cart-empty-helper">
+                        <h2>¿QUÉ ESTABAS BUSCANDO?</h2>
+                        <div className="cart-empty-grid">
+                            <a href="/categoria/zapatos-cuero-hombre" className="cart-empty-link">
+                                <span className="nav-title">Calzado de Cuero</span>
+                                <span className="nav-arrow">→</span>
+                            </a>
+                            <a href="/categoria/ropa-hombre-colombia" className="cart-empty-link">
+                                <span className="nav-title">Ropa Masculina</span>
+                                <span className="nav-arrow">→</span>
+                            </a>
+                            <a href="/categoria/maletas-morrales-cuero" className="cart-empty-link">
+                                <span className="nav-title">Morrales y Maletas</span>
+                                <span className="nav-arrow">→</span>
+                            </a>
+                            <a href="/categoria/accesorios-hombre" className="cart-empty-link">
+                                <span className="nav-title">Accesorios Finos</span>
+                                <span className="nav-arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div className="cart-empty-actions">
+                        <a href="/tienda" className="btn-empty-primary">VOLVER A LA TIENDA</a>
+                    </div>
                 </div>
+                <style>{`
+                    .cart-page-empty-dark {
+                        position: relative;
+                        min-height: 100vh;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 136px 2rem 80px 2rem;
+                        background-color: #0b1512;
+                        background-image: radial-gradient(circle at center, #10241f 0%, #0b1512 100%);
+                        overflow: hidden;
+                        z-index: 1;
+                    }
+                    .cart-empty-backdrop {
+                        position: absolute;
+                        top: 0; left: 0; width: 100%; height: 100%;
+                        opacity: 0.05;
+                        background-image: url('https://tienda.winstonandharrystore.com/wp-content/uploads/winston-and-harry-zapatos-mocasines-m.jpg');
+                        background-size: cover;
+                        background-position: center;
+                        z-index: -1;
+                        filter: grayscale(1) blur(4px);
+                    }
+                    .cart-empty-card {
+                        max-width: 700px; width: 100%;
+                        background: rgba(255, 255, 255, 0.03);
+                        border: 1px solid rgba(255, 255, 255, 0.08);
+                        backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+                        padding: 4rem; border-radius: 4px;
+                        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+                        text-align: center;
+                        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+                    }
+                    .cart-empty-badge {
+                        display: inline-block;
+                        font-family: var(--font-paragraphs, sans-serif);
+                        font-size: 0.75rem; letter-spacing: 3px; color: #d1b894;
+                        margin-bottom: 1.5rem; font-weight: 600; text-transform: uppercase;
+                        border-bottom: 1px solid rgba(209, 184, 148, 0.3); padding-bottom: 4px;
+                    }
+                    .cart-empty-title {
+                        font-family: var(--font-titles, serif);
+                        font-size: 2.2rem; letter-spacing: 4px; color: #ffffff !important;
+                        margin: 0 0 1.5rem 0; line-height: 1.2; text-transform: uppercase;
+                    }
+                    .cart-empty-description {
+                        font-family: var(--font-paragraphs, sans-serif);
+                        font-size: 0.95rem; line-height: 1.8; color: #b0b8b5;
+                        margin: 0 auto 3rem auto; max-width: 580px;
+                    }
+                    .cart-empty-helper {
+                        border-top: 1px solid rgba(255, 255, 255, 0.08);
+                        padding-top: 2rem; margin-bottom: 3rem; text-align: left;
+                    }
+                    .cart-empty-helper h2 {
+                        font-family: var(--font-titles, serif);
+                        font-size: 0.85rem; letter-spacing: 2px; color: #ffffff;
+                        text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 500;
+                    }
+                    .cart-empty-grid {
+                        display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+                    }
+                    .cart-empty-link {
+                        display: flex; justify-content: space-between; align-items: center;
+                        padding: 1.2rem; background: rgba(255, 255, 255, 0.02);
+                        border: 1px solid rgba(255, 255, 255, 0.04);
+                        text-decoration: none !important; transition: all 0.3s ease; border-radius: 2px;
+                    }
+                    .cart-empty-link:hover {
+                        background: rgba(209, 184, 148, 0.06); border-color: rgba(209, 184, 148, 0.3);
+                    }
+                    .cart-empty-link .nav-title {
+                        font-family: var(--font-paragraphs, sans-serif);
+                        font-size: 0.85rem; color: #ffffff; letter-spacing: 0.5px; transition: color 0.3s ease;
+                    }
+                    .cart-empty-link:hover .nav-title {
+                        color: #d1b894;
+                    }
+                    .cart-empty-link .nav-arrow {
+                        color: #d1b894; font-size: 1rem; transition: transform 0.3s ease;
+                    }
+                    .cart-empty-link:hover .nav-arrow {
+                        transform: translateX(4px);
+                    }
+                    .cart-empty-actions {
+                        display: flex; justify-content: center; gap: 1.5rem;
+                    }
+                    .btn-empty-primary {
+                        display: inline-block; background-color: #d1b894; color: #0b1512 !important;
+                        font-family: var(--font-paragraphs, sans-serif);
+                        font-size: 0.8rem; font-weight: 600; letter-spacing: 2px;
+                        padding: 1.2rem 2.5rem; border-radius: 2px; text-decoration: none !important;
+                        transition: all 0.3s ease; border: 1px solid #d1b894;
+                    }
+                    .btn-empty-primary:hover {
+                        background-color: transparent; color: #d1b894 !important;
+                        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                    }
+                    @keyframes fadeInUp {
+                        from { opacity: 0; transform: translateY(20px); }
+                        to { opacity: 1; transform: translateY(0); }
+                    }
+                    @media (max-width: 768px) {
+                        .cart-empty-card { padding: 2.5rem 1.5rem; }
+                        .cart-empty-title { font-size: 1.6rem; letter-spacing: 2px; }
+                        .cart-empty-grid { grid-template-columns: 1fr; }
+                        .cart-empty-actions { flex-direction: column; gap: 1rem; }
+                        .btn-empty-primary { width: 100%; text-align: center; }
+                    }
+                `}</style>
             </div>
         );
     }

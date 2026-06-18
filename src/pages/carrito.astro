@@ -1,8 +1,10 @@
 ---
+export const prerender = false;
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CartView from "../components/CartView";
+
 
 // SEO Metadata para el carrito
 const seoData = {
@@ -17,7 +19,7 @@ const seoData = {
     <Header />
     
     <main>
-        <CartView client:load />
+        <CartView client:only="react" />
     </main>
 
     <Footer />

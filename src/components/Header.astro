@@ -233,11 +233,20 @@ function flattenCategoryUrl(url: string) {
                                             class={`menu-item ${item.children.length > 0 ? "has-submenu" : ""}`}
                                         >
                                             <div class="menu-link-wrapper">
-                                                <a
-                                                    href={flattenCategoryUrl(item.url)}
-                                                    class="mobile-link"
-                                                    set:html={item.title}
-                                                />
+                                                {item.children.length > 0 ? (
+                                                    <button
+                                                        class="mobile-link submenu-toggle text-left bg-transparent border-none cursor-pointer p-0"
+                                                        style="text-align: left; flex-grow: 1; outline: none; box-shadow: none; padding: 0;"
+                                                        aria-expanded="false"
+                                                        set:html={item.title}
+                                                    />
+                                                ) : (
+                                                    <a
+                                                        href={flattenCategoryUrl(item.url)}
+                                                        class="mobile-link"
+                                                        set:html={item.title}
+                                                    />
+                                                )}
                                                 {item.children.length > 0 && (
                                                     <button
                                                         class="submenu-toggle"
@@ -261,6 +270,21 @@ function flattenCategoryUrl(url: string) {
                                             </div>
                                             {item.children.length > 0 && (
                                                 <ul class="submenu">
+                                                    <li>
+                                                        <a
+                                                            href={flattenCategoryUrl(item.url)}
+                                                            class="mobile-sublink uppercase"
+                                                            style="color: #1a1a1a; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.5px;"
+                                                        >
+                                                            {(() => {
+                                                                const t = (item.title || '').toUpperCase();
+                                                                if (t.includes('ZAPATO')) return 'VER TODOS LOS ZAPATOS';
+                                                                if (t.includes('ROPA')) return 'VER TODA LA ROPA';
+                                                                if (t.includes('MALETA') || t.includes('MORRAL')) return 'VER TODAS LAS MALETAS Y MORRALES';
+                                                                return `VER TODO EN ${t}`;
+                                                            })()}
+                                                        </a>
+                                                    </li>
                                                     {item.children.map((child: any) => (
                                                         <li>
                                                             <a
@@ -487,8 +511,8 @@ function flattenCategoryUrl(url: string) {
     }
 
     mobileLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-            // No cerrar el menú si se hace click en el toggle del submenú, pero mobile-link es solo el texto así que esto está bien.
+        link.addEventListener("click", (e) => {
+            if (link.classList.contains("submenu-toggle")) return;
             toggleMenu(false);
         });
     });
@@ -923,6 +947,9 @@ function flattenCategoryUrl(url: string) {
         color: #121212;
         display: flex;
         align-items: center;
+    }
+
+    .submenu-toggle svg {
         transition: transform 0.3s ease;
     }
 
@@ -957,7 +984,7 @@ function flattenCategoryUrl(url: string) {
         max-height: 600px;
     }
 
-    .has-submenu.open .submenu-toggle {
+    .has-submenu.open .submenu-toggle svg {
         transform: rotate(180deg);
     }
 
