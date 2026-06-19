@@ -3,15 +3,43 @@ import type { APIRoute } from 'astro';
 import { wcFetch, PUBLIC_WP_URL } from '../../lib/woocommerce';
 
 // Función para mapear a códigos de departamento válidos en WooCommerce (Colombia)
-const getValidStateCode = (stateName: string) => {
-    if (!stateName) return 'BOG';
-    const s = stateName.toLowerCase();
-    if (s.includes('antio')) return 'ANT';
-    if (s.includes('atlan') || s.includes('atle')) return 'ATL';
-    if (s.includes('valle')) return 'VAC';
-    if (s.includes('cundin')) return 'CUN';
-    if (s.includes('sant')) return 'SAN';
-    return 'BOG'; // Fallback seguro
+const getValidStateCode = (stateName: string): string => {
+  if (!stateName) return "BOG";
+  const s = stateName.toLowerCase();
+  if (s.includes("amazona")) return "AMA";
+  if (s.includes("antioqui") || s.includes("antioq")) return "ANT";
+  if (s.includes("arauca")) return "ARA";
+  if (s.includes("atlán") || s.includes("atlan")) return "ATL";
+  if (s.includes("bolívar") || s.includes("bolivar")) return "BOL";
+  if (s.includes("boyac")) return "BOY";
+  if (s.includes("caldas")) return "CAL";
+  if (s.includes("caquetá") || s.includes("caqueta")) return "CAQ";
+  if (s.includes("casanare")) return "CAS";
+  if (s.includes("cauca")) return "CAU";
+  if (s.includes("cesar")) return "CES";
+  if (s.includes("chocó") || s.includes("choco")) return "CHO";
+  if (s.includes("córdoba") || s.includes("cordoba")) return "COR";
+  if (s.includes("cundinam")) return "CUN";
+  if (s.includes("guainía") || s.includes("guainia")) return "GUA";
+  if (s.includes("guaviare")) return "GUV";
+  if (s.includes("huila")) return "HUI";
+  if (s.includes("la guajira") || s.includes("guajira")) return "LAG";
+  if (s.includes("magdalena")) return "MAG";
+  if (s.includes("meta")) return "MET";
+  if (s.includes("nariño") || s.includes("narino")) return "NAR";
+  if (s.includes("norte de santander") || s.includes("n. santander")) return "NSA";
+  if (s.includes("putumayo")) return "PUT";
+  if (s.includes("quindío") || s.includes("quindio")) return "QUI";
+  if (s.includes("risaralda")) return "RIS";
+  if (s.includes("san andrés") || s.includes("san andres")) return "SAP";
+  if (s.includes("santander")) return "SAN"; // debe ir DESPUÉS de norte de santander
+  if (s.includes("sucre")) return "SUC";
+  if (s.includes("tolima")) return "TOL";
+  if (s.includes("valle")) return "VAC";
+  if (s.includes("vaupés") || s.includes("vaupes")) return "VAU";
+  if (s.includes("vichada")) return "VID";
+  if (s.includes("bog") || s.includes("d.c") || s.includes("capital")) return "BOG";
+  return "BOG"; // fallback seguro
 };
 
 export const POST: APIRoute = async ({ request, clientAddress }) => {
@@ -77,7 +105,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
                 country: 'CO',
                 email: body.email,
                 phone: body.phone || '0000000000',
-                'addi/cedula-id': body.document_id || '000000000',
+                "addi/cedula-id": body.document_id
             },
             shipping_address: {
                 first_name: body.ship_to_different_address ? (body.shipping_first_name || 'Cliente') : (body.first_name || 'Cliente'),
@@ -89,13 +117,26 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
                 postcode: validShippingPostcode,
                 country: 'CO',
                 phone: body.phone || '0000000000',
-                'addi/cedula-id': body.document_id || '000000000',
+                "addi/cedula-id": body.document_id
             },
             customer_note: body.order_notes || '',
             payment_method: paymentMethodId,
+            meta_data: [
+                { key: 'billing_cedula', value: body.document_id },
+                { key: 'addi_cedula', value: body.document_id },
+                { key: '_billing_cedula', value: body.document_id },
+                { key: 'billing_document_type', value: body.document_type },
+                { key: 'addi_document_type', value: body.document_type },
+                { key: 'billing_city_dane', value: body.city },
+                { key: '_billing_city_dane', value: body.city },
+            ]
         };
 
         console.log('[API Store Checkout] Procesando pago con:', paymentMethodId);
+        console.log('[DEBUG CITY]', JSON.stringify({
+          city: body.city,
+          meta_data: checkoutPayload.meta_data
+        }));
 
         // 4. Ejecutar el Checkout en Store API
         const checkoutRes = await fetch(`${WC_URL}/wp-json/wc/store/v1/checkout`, {
