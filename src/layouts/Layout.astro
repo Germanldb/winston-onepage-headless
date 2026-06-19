@@ -85,6 +85,8 @@ const seo = rawSeo || {
     ogImage: `${SITE_URL}/favicon.png`,
     ogType: "website",
 };
+
+seo.canonical = customCanonical ?? `https://www.winstonandharrystore.com${Astro.url.pathname}`;
 ---
 
 <!doctype html>
