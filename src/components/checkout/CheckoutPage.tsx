@@ -9,6 +9,7 @@ type Step = 'form' | 'payment' | 'processing';
 interface FormData {
     first_name: string;
     last_name: string;
+    document_type: string;
     document_id: string;
     email: string;
     phone: string;
@@ -33,6 +34,7 @@ interface FormData {
 const INITIAL_FORM: FormData = {
     first_name: '',
     last_name: '',
+    document_type: 'CC',
     document_id: '',
     email: '',
     phone: '',
