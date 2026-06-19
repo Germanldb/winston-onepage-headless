@@ -361,17 +361,17 @@ export default function CheckoutPage() {
 
                         {/* 2. INDICADOR DE PASOS DINÁMICO (The Timeline) */}
                         <div className="checkout-timeline">
-                            <div className={`timeline-step ${step >= 1 ? 'active' : ''}`}>
+                            <div className={`timeline-step ${(step === 1 || step === 2 || step === 3 || step === 'processing') ? 'active' : ''}`}>
                                 <div className="timeline-circle">1</div>
                                 <span className="timeline-label">CONTACTO</span>
                             </div>
-                            <div className={`timeline-line ${step >= 2 ? 'active' : ''}`} />
-                            <div className={`timeline-step ${step >= 2 ? 'active' : ''}`}>
+                            <div className={`timeline-line ${(step === 2 || step === 3 || step === 'processing') ? 'active' : ''}`} />
+                            <div className={`timeline-step ${(step === 2 || step === 3 || step === 'processing') ? 'active' : ''}`}>
                                 <div className="timeline-circle">2</div>
                                 <span className="timeline-label">ENVÍO</span>
                             </div>
-                            <div className={`timeline-line ${step === 3 ? 'active' : ''}`} />
-                            <div className={`timeline-step ${step === 3 ? 'active' : ''}`}>
+                            <div className={`timeline-line ${(step === 3 || step === 'processing') ? 'active' : ''}`} />
+                            <div className={`timeline-step ${(step === 3 || step === 'processing') ? 'active' : ''}`}>
                                 <div className="timeline-circle">3</div>
                                 <span className="timeline-label">PAGO</span>
                             </div>
