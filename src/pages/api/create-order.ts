@@ -66,10 +66,21 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
         const cartToken = cartRes.headers.get('Cart-Token') || '';
         const nonce = cartRes.headers.get('Nonce') || '';
 
-        // 2. Agregar cada producto al carrito
+        // 2. Limpiar el carrito antes de agregar ítems (evita contaminación entre sesiones)
+        await fetch(`${WC_URL}/wp-json/wc/store/v1/cart/items`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Cart-Token': cartToken,
+                'Nonce': nonce,
+                ...forwardHeaders
+            }
+        });
+
+        // 3. Agregar cada producto al carrito
         for (const item of body.items) {
             const itemId = item.variation_id ? item.variation_id : item.product_id;
-            await fetch(`${WC_URL}/wp-json/wc/store/v1/cart/add-item`, {
+            const addRes = await fetch(`${WC_URL}/wp-json/wc/store/v1/cart/add-item`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -82,6 +93,14 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
                     quantity: item.quantity,
                 })
             });
+            if (!addRes.ok) {
+                const addErr = await addRes.json().catch(() => ({}));
+                console.error('[API Store Checkout] Error al agregar ítem al carrito:', addErr);
+                return new Response(
+                    JSON.stringify({ error: addErr.message || 'Error al agregar producto al carrito' }),
+                    { status: 400 }
+                );
+            }
         }
 
         // 3. Preparar el payload del Checkout (Store API)
