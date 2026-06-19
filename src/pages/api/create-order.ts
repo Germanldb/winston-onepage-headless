@@ -2,6 +2,118 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import { wcFetch, PUBLIC_WP_URL } from '../../lib/woocommerce';
 
+// ── Addi Direct API Helpers ─────────────────────────────────────────────────
+async function getAddiToken(): Promise<string> {
+    const res = await fetch('https://auth.addi.com/oauth/token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            grant_type: 'client_credentials',
+            client_id: import.meta.env.ADDI_CLIENT_ID,
+            client_secret: import.meta.env.ADDI_CLIENT_SECRET,
+            audience: 'https://api.addi.com'
+        })
+    });
+    if (!res.ok) {
+        const err = await res.text();
+        throw new Error(`[Addi Auth] Error obteniendo token: ${err}`);
+    }
+    const data = await res.json();
+    console.log('[Addi Auth] Token obtenido correctamente');
+    return data.access_token;
+}
+
+async function createAddiApplication(token: string, body: any, orderData: any): Promise<string> {
+    const allySlug = import.meta.env.ADDI_ALLY_SLUG || 'winstonharry-ecommerce';
+    const orderId = orderData.id;
+    const total    = parseFloat(orderData.total         || '0').toFixed(1);
+    const shipping = parseFloat(orderData.shipping_total || '0').toFixed(1);
+    const tax      = parseFloat(orderData.total_tax      || '0').toFixed(1);
+    const orderKey = orderData.order_key || '';
+
+    // Mapear ítems de la orden de WooCommerce
+    const items = (orderData.line_items || []).map((item: any) => ({
+        sku:       item.sku || String(item.product_id || 'PROD'),
+        name:      item.name || 'Producto',
+        quantity:  item.quantity || 1,
+        unitPrice: parseFloat(item.price || '0').toFixed(1),
+        tax:       '0',
+        pictureUrl: item.image?.src || '',
+        category:  'simple'
+    }));
+
+    const addiPayload = {
+        orderId:           orderId,
+        totalAmount:       total,
+        shippingAmount:    shipping,
+        totalTaxesAmount:  tax,
+        currency:          'COP',
+        ecommercePlatform: 'WOOCOMMERCE',
+        items: items.length > 0 ? items : [{
+            sku:       `ORDEN-${orderId}`,
+            name:      'Compra Winston & Harry',
+            quantity:  1,
+            unitPrice: total,
+            tax:       '0',
+            pictureUrl: '',
+            category:  'simple'
+        }],
+        client: {
+            firstName:            body.first_name || 'Cliente',
+            lastName:             body.last_name || 'Winston',
+            idType:               body.document_type || 'CC',
+            idNumber:             body.document_id   || '',
+            email:                body.email,
+            cellphone:            (body.phone || '').replace(/\D/g, '').slice(-10),
+            cellphoneCountryCode: '+57',
+            address: {
+                lineOne: body.address_1 || 'No proporcionada',
+                city:    body.city      || 'Bogotá',
+                country: 'CO'
+            }
+        },
+        shippingAddress: {
+            lineOne: body.ship_to_different_address
+                ? (body.shipping_address_1 || body.address_1 || 'No proporcionada')
+                : (body.address_1 || 'No proporcionada'),
+            city: body.ship_to_different_address
+                ? (body.shipping_city || body.city || 'Bogotá')
+                : (body.city || 'Bogotá'),
+            country: 'CO'
+        },
+        allyUrlRedirection: {
+            logoUrl:        'https://www.winstonandharrystore.com/wp-content/uploads/logo-winston.png',
+            callbackUrl:    `${PUBLIC_WP_URL}/?wc-api=wc_addi_gateway`,
+            redirectionUrl: `${PUBLIC_WP_URL}/checkout/order-received/${orderId}/?key=${orderKey}`
+        }
+    };
+
+    console.log('[Addi] Enviando payload a /v1/online-applications:', JSON.stringify(addiPayload));
+
+    // redirect: 'manual' para capturar el header Location sin seguirlo
+    const res = await fetch('https://api.addi.com/v1/online-applications', {
+        method: 'POST',
+        redirect: 'manual',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept':        'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(addiPayload)
+    });
+
+    const locationUrl = res.headers.get('location') || res.headers.get('Location') || '';
+    console.log('[Addi] Status:', res.status, '| Location:', locationUrl);
+
+    if (locationUrl) return locationUrl;
+
+    // Si no hay Location, leer body para diagnóstico
+    const resBody = await res.text();
+    console.error('[Addi] Sin Location header. Body:', resBody);
+    throw new Error(`[Addi] Sin URL de redirección. Status: ${res.status}`);
+}
+// ────────────────────────────────────────────────────────────────────────────
+
 // Función para mapear a códigos de departamento válidos en WooCommerce (Colombia)
 const getValidStateCode = (stateName: string): string => {
   if (!stateName) return "BOG";
@@ -182,28 +294,69 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
             );
         }
 
-        // 5. (Híbrido) Inyectar los Meta Datos de Cédula mediante la API v3 clásica
-        if (body.document_id) {
-            await wcFetch(`/orders/${checkoutData.order_id}`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    meta_data: [
-                        { key: '_billing_cedula', value: body.document_id },
-                        { key: 'billing_cedula', value: body.document_id },
-                        { key: '_billing_dni', value: body.document_id }
-                    ]
-                })
-            });
+        // 5. (Híbrido) Inyectar Meta Datos de Cédula y capturar order_key para el fallback
+        // 5. (Híbrido) Inyectar Meta Datos de Cédula y capturar order_key para el fallback
+        // wcFetch retorna el JSON directamente (no un Response), o null si hay error
+        let orderKey = '';
+        let fullOrderData = null;
+        const orderUpdateData = await wcFetch(`/orders/${checkoutData.order_id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                meta_data: [
+                    { key: '_billing_cedula', value: body.document_id || '' },
+                    { key: 'billing_cedula', value: body.document_id || '' },
+                    { key: '_billing_dni', value: body.document_id || '' }
+                ]
+            })
+        });
+        if (orderUpdateData && orderUpdateData.order_key) {
+            orderKey = orderUpdateData.order_key;
+            fullOrderData = orderUpdateData;
+            console.log('[API Store Checkout] order_key capturado:', orderKey);
+        } else {
+            // Si el PUT no devolvió order_key, hacemos un GET para obtenerlo
+            const orderGetData = await wcFetch(`/orders/${checkoutData.order_id}`);
+            fullOrderData = orderGetData;
+            if (orderGetData && orderGetData.order_key) {
+                orderKey = orderGetData.order_key;
+                console.log('[API Store Checkout] order_key via GET:', orderKey);
+            }
         }
 
         // 6. Obtener la URL de redirección directa
+        console.log('[DEBUG payment_result]', JSON.stringify(checkoutData.payment_result));
         let finalPaymentUrl = '';
-        if (checkoutData.payment_result && checkoutData.payment_result.redirect_url) {
+
+        if (body.payment_method === 'addi') {
+            // ── Addi: llamamos la API directamente para obtener la URL de pago ──
+            try {
+                const addiToken = await getAddiToken();
+                // Si fullOrderData es null por alguna razón, usamos un objeto base
+                const orderDataToUse = fullOrderData || { id: checkoutData.order_id, total: 0, order_key: orderKey };
+                const addiRedirectUrl = await createAddiApplication(addiToken, body, orderDataToUse);
+
+                if (addiRedirectUrl) {
+                    finalPaymentUrl = addiRedirectUrl;
+                    console.log('[Addi] URL de pago generada:', finalPaymentUrl);
+                } else {
+                    console.error('[Addi] No se recibió URL de redirección de Addi');
+                    // Fallback seguro con order_key
+                    const keyParam = orderKey ? `&key=${orderKey}` : '';
+                    finalPaymentUrl = `${WC_URL}/checkout/order-pay/${checkoutData.order_id}/?pay_for_order=true${keyParam}`;
+                }
+            } catch (addiErr: any) {
+                console.error('[Addi] Error creando preapplication:', addiErr.message);
+                // Fallback seguro con order_key
+                const keyParam = orderKey ? `&key=${orderKey}` : '';
+                finalPaymentUrl = `${WC_URL}/checkout/order-pay/${checkoutData.order_id}/?pay_for_order=true${keyParam}`;
+            }
+        } else if (checkoutData.payment_result && checkoutData.payment_result.redirect_url) {
+            // MercadoPago u otro método: usar la URL generada por WooCommerce
             finalPaymentUrl = checkoutData.payment_result.redirect_url;
         } else {
-            // Fallback nativo
-            finalPaymentUrl = `${WC_URL}/checkout/order-pay/${checkoutData.order_id}/?pay_for_order=true`;
+            const keyParam = orderKey ? `&key=${orderKey}` : '';
+            finalPaymentUrl = `${WC_URL}/checkout/order-pay/${checkoutData.order_id}/?pay_for_order=true${keyParam}`;
         }
 
         return new Response(

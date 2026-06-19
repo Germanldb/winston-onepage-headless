@@ -292,11 +292,8 @@ export default function CheckoutPage() {
             setStep('processing');
 
             // Redirigir a pasarela de pago
-            if (form.payment_method === 'addi') {
-                window.location.href = `https://order-checkout.addi.com/allies/winstonharry-ecommerce/orders/${data.order_id}/checkout`;
-            } else {
-                window.location.href = data.payment_url;
-            }
+            // payment_url viene de WooCommerce con el token de sesión correcto (válido tanto para Addi como para MercadoPago)
+            window.location.href = data.payment_url;
 
         } catch (err: any) {
             setServerError('Error de conexión. Intenta de nuevo.');
