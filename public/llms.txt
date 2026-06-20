@@ -1,17 +1,46 @@
 # Winston & Harry
 
-> Marca colombiana de artículos de cuero artesanal y lifestyle masculino. Zapatos, billeteras, cinturones, morrales y accesorios hechos a mano en Colombia.
+> Zapatos y ropa para hombre hechos a mano en Colombia. Cuero artesanal, diseño atemporal y garantía de por vida. Envío gratis.
 
-## Tienda
-- Sitio web: https://www.winstonandharrystore.com
-- Categorías principales: zapatos de cuero, mocasines, botas, billeteras, cinturones, morrales, accesorios
+## Sobre la marca
+Winston & Harry es una marca colombiana especializada en ropa para hombre y calzado artesanal de cuero genuino. Cada prenda está pensada para integrarse a tu forma de vestir y a tu ritmo. Descubre ropa que suma, combina y se adapta a tu día: chaquetas, camisas, suéteres y zapatos de la más alta calidad fabricados a mano en Colombia.
+
+## Categorías principales
+- Zapatos de cuero: https://www.winstonandharrystore.com/categoria/zapatos-cuero-hombre
+- Ropa para hombre: https://www.winstonandharrystore.com/categoria/ropa-hombre-colombia
+- Camisas: https://www.winstonandharrystore.com/categoria/camisas-algodon-hombre
+- Chaquetas: https://www.winstonandharrystore.com/categoria/chaquetas-hombre
+- Suéteres y chalecos: https://www.winstonandharrystore.com/categoria/sueteres-chalecos-hombre
+- Polos y camisetas: https://www.winstonandharrystore.com/categoria/polos-camisetas-hombre
+- Medias: https://www.winstonandharrystore.com/categoria/medias-hombre
+
+## Accesorios y complementos
+- Accesorios: https://www.winstonandharrystore.com/categoria/accesorios-hombre
+- Maletas y morrales: https://www.winstonandharrystore.com/categoria/maletas-morrales-cuero
+- Cinturones: https://www.winstonandharrystore.com/categoria/cinturones
+- Billeteras: https://www.winstonandharrystore.com/categoria/billeteras-cuero-hombre
+- Gorras: https://www.winstonandharrystore.com/categoria/gorras
+- Reatas: https://www.winstonandharrystore.com/categoria/reatas
+- Cuidado de zapatos: https://www.winstonandharrystore.com/categoria/limpieza-cuidado-zapatos
+- Collares para perro: https://www.winstonandharrystore.com/categoria/collares-cuero-perro
+
+## Redes sociales
+- Instagram: https://www.instagram.com/winstonandharrystore/
+- TikTok: https://www.tiktok.com/@winstonandharrystore
+- Facebook: https://www.facebook.com/winstonandharrystore
+
+## Tiendas físicas
+Winston & Harry tiene 4 tiendas físicas en Bogotá, Colombia.
+- Más información: https://www.winstonandharrystore.com/contacto
+
+## Contacto
+- Email: info@winstonandharrystore.com
+- WhatsApp: +57 310 307 5540
 
 ## Políticas
 - Cambios y devoluciones: https://www.winstonandharrystore.com/cambios-y-devoluciones
 - Política de envíos: https://www.winstonandharrystore.com/politica-costos-envio
 - Política de privacidad: https://www.winstonandharrystore.com/politica-privacidad-proteccion-datos
 
-## Contacto
-- Email: info@winstonandharrystore.com
-- WhatsApp: +57 310 307 5540
-- Tiendas físicas: 4 ubicaciones en Bogotá, Colombia
+## Sitemap
+https://www.winstonandharrystore.com/sitemap-index.xml

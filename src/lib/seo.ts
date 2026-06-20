@@ -49,10 +49,21 @@ export function sanitizeSEO(seoData: any, currentPath: string, siteUrl: string) 
         canonical = canonical.slice(0, -1);
     }
 
-    // 4. OpenGraph Images (Asegurar que sean absolutas)
+    // 4. OpenGraph Images (Asegurar que sean absolutas y con www)
     let ogImage = seoData.opengraph_image || seoData.rank_math_og_image || seoData.yoast_head_json?.og_image || "";
-    if (ogImage && !ogImage.startsWith('http')) {
-        ogImage = `${wpUrl}${ogImage}`;
+    if (Array.isArray(ogImage) && ogImage.length > 0) {
+        ogImage = ogImage[0].url || ogImage[0];
+    }
+    
+    if (ogImage && typeof ogImage === "string") {
+        if (!ogImage.startsWith('http')) {
+            ogImage = `${wpUrl}${ogImage}`;
+        }
+        ogImage = ogImage
+            .replace("https://tienda.winstonandharrystore.com", "https://www.winstonandharrystore.com")
+            .replace("https://winstonandharrystore.com", "https://www.winstonandharrystore.com");
+    } else {
+        ogImage = "";
     }
 
     return {

@@ -261,7 +261,6 @@ const clientProduct = product ? stripMainProduct(product) : null;
     </main>
 
     <Footer />
-</Layout>
 
 <style>
     .product-page-container {
@@ -355,7 +354,33 @@ const clientProduct = product ? stripMainProduct(product) : null;
         document.addEventListener('DOMContentLoaded', fireViewItem);
       } else {
         fireViewItem();
-      }
     })();
   </script>
 )}
+
+{product && (
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "description": (product.short_description || product.description || "").replace(/<[^>]+>/g, "").trim(),
+    "image": product.images?.[0]?.src,
+    "sku": product.sku || product.id?.toString(),
+    "brand": {
+      "@type": "Brand",
+      "name": "Winston & Harry"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": product.price,
+      "priceCurrency": "COP",
+      "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+      "availability": product.stock_status === "instock"
+        ? "https://schema.org/InStock"
+        : "https://schema.org/OutOfStock",
+      "url": `https://www.winstonandharrystore.com/productos/${product.slug}`
+    }
+  })} />
+)}
+
+</Layout>

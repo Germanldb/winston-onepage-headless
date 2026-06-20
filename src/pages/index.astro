@@ -63,6 +63,24 @@ const lookData = await getLookOfTheWeekData();
 	</main>
 
 	<Footer />
+
+	<script type="application/ld+json" is:inline set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		"name": "Winston & Harry",
+		"url": "https://www.winstonandharrystore.com",
+		"logo": "https://www.winstonandharrystore.com/images/logo.png",
+		"description": "Marca colombiana de ropa y accesorios de cuero para hombre, hechos a mano por artesanos colombianos.",
+		"foundingLocation": {
+			"@type": "Place",
+			"name": "Colombia"
+		},
+		"sameAs": [
+			"https://www.instagram.com/winstonandharrystore/",
+			"https://www.tiktok.com/@winstonandharrystore",
+			"https://www.facebook.com/winstonandharrystore"
+		]
+	})} />
 </Layout>
 
 <style is:global>

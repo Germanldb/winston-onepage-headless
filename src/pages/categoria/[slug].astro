@@ -376,6 +376,11 @@ const desktopBanner = (await getBannerUrl(['banner_categoria_desktop', 'banner_d
 // Móvil: Prioridad al campo de móvil, si no existe usa la de desktop
 const mobileBanner = (await getBannerUrl(['imagen_categoria_movil', 'banner_mobile', 'banner_movil'])) || desktopBanner;
 
+const desktopBannerValue = desktopBanner ? `url('${desktopBanner}')` : 'none';
+const mobileBannerValue = mobileBanner ? `url('${mobileBanner}')` : 'none';
+const bannerClass = desktopBanner ? "category-banner" : "category-banner no-banner";
+
+
 const categoryTitle = category?.name || "Categoría";
 const categoryDesc = category?.description?.replace(/<[^>]+>/g, "") || "";
 const rawCategoryDescription = category?.description || "";
@@ -412,8 +417,8 @@ const seoData = {
 
     <main class="category-page">
         <section
-            class="category-banner"
-            style={`--desktop-banner: url('${desktopBanner}'); --mobile-banner: url('${mobileBanner}');`}
+            class={bannerClass}
+            style={`--desktop-banner: ${desktopBannerValue}; --mobile-banner: ${mobileBannerValue};`}
         >
             <div class="banner-overlay"></div>
             <div class="banner-content">
@@ -527,10 +532,17 @@ const seoData = {
         overflow: hidden;
     }
 
+    .category-banner.no-banner {
+        height: 160px;
+    }
+
     @media (max-width: 768px) {
         .category-banner {
             background-image: var(--mobile-banner);
             height: 400px;
+        }
+        .category-banner.no-banner {
+            height: 200px;
         }
     }
 
