@@ -12,32 +12,86 @@ export default function OrderConfirmation() {
 
     useEffect(() => {
         const raw = sessionStorage.getItem('wh_last_order');
+
         if (raw) {
             const parsedOrder = JSON.parse(raw);
             setOrder(parsedOrder);
             sessionStorage.removeItem('wh_last_order');
             clearCart();
 
-            // GA4 + Meta Purchase
             const alreadyTracked = sessionStorage.getItem('tracked_order_' + parsedOrder.id);
-            if (!alreadyTracked && typeof window !== 'undefined') {
-                const orderTotal = parseFloat(String(parsedOrder.total || '0')) || 0;
-                const orderItems = parsedOrder.items || [];
-                (window as any).dataLayer = (window as any).dataLayer || [];
-                (window as any).dataLayer.push({
-                    event: 'purchase',
-                    transaction_id: String(parsedOrder.id), currency: 'COP', value: orderTotal,
-                    items: orderItems.map((item: any) => ({ item_id: String(item.id), item_name: item.name, price: item.price, quantity: item.quantity }))
-                });
-                if (typeof (window as any).fbq === 'function') {
-                    (window as any).fbq('track', 'Purchase', {
-                        content_ids: orderItems.map((item: any) => String(item.id)), content_type: 'product', value: orderTotal, currency: 'COP'
-                    });
-                }
-                sessionStorage.setItem('tracked_order_' + parsedOrder.id, 'true');
+            if (!alreadyTracked) {
+                // ⚠️ FIX TIMING: esperar a que GTM/Partytown inicialice el dataLayer
+                // antes de hacer push mediante un setInterval
+                dispatchWhenReady(parsedOrder);
+            }
+        } else {
+            // FALLBACK: el sessionStorage no está (usuario llegó directo, recargó, etc.)
+            // Leer order_id del query param que viene de Mercado Pago
+            const params = new URLSearchParams(window.location.search);
+            const orderId = params.get('order_id') || params.get('external_reference');
+            if (orderId && !sessionStorage.getItem('tracked_order_' + orderId)) {
+                fetch(`/api/get-order?id=${orderId}`)
+                    .then(r => r.json())
+                    .then(orderData => {
+                        if (orderData?.id) {
+                            setOrder(orderData);
+                            dispatchWhenReady(orderData);
+                        }
+                    })
+                    .catch(err => console.error('Error fetching order for tracking:', err));
             }
         }
     }, []);
+
+    function dispatchWhenReady(order: any) {
+        // Si dataLayer ya existe con más de 1 evento, GTM está listo
+        if ((window as any).dataLayer && (window as any).dataLayer.length > 1) {
+            fireTrackingEvents(order);
+        } else {
+            // Esperar y reintentar hasta 5 veces con 600ms de intervalo
+            let attempts = 0;
+            const interval = setInterval(() => {
+                attempts++;
+                if (((window as any).dataLayer && (window as any).dataLayer.length > 1) || attempts >= 5) {
+                    clearInterval(interval);
+                    fireTrackingEvents(order);
+                }
+            }, 600);
+        }
+    }
+
+    // Extraer la lógica de tracking a una función separada para reutilizarla
+    function fireTrackingEvents(order: any) {
+        const orderTotal = parseFloat(String(order.total || '0')) || 0;
+        const orderItems = order.items || [];
+
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        (window as any).dataLayer.push({ ecommerce: null }); // limpiar ecommerce anterior
+        (window as any).dataLayer.push({
+            event: 'purchase',
+            transaction_id: String(order.id),
+            currency: 'COP',
+            value: orderTotal,
+            items: orderItems.map((item: any) => ({
+                item_id: String(item.id),
+                item_name: item.name,
+                price: item.price,
+                quantity: item.quantity
+            }))
+        });
+
+        if (typeof (window as any).fbq === 'function') {
+            (window as any).fbq('track', 'Purchase', {
+                content_ids: orderItems.map((item: any) => String(item.id)),
+                content_type: 'product',
+                value: orderTotal,
+                currency: 'COP'
+            });
+        }
+
+        sessionStorage.setItem('tracked_order_' + order.id, 'true');
+    }
 
     return (
         <>

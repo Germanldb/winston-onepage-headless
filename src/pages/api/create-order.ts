@@ -352,8 +352,16 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
                 finalPaymentUrl = `${WC_URL}/checkout/order-pay/${checkoutData.order_id}/?pay_for_order=true${keyParam}`;
             }
         } else if (checkoutData.payment_result && checkoutData.payment_result.redirect_url) {
-            // MercadoPago u otro método: usar la URL generada por WooCommerce
-            finalPaymentUrl = checkoutData.payment_result.redirect_url;
+            const rawMpUrl = checkoutData.payment_result.redirect_url;
+            try {
+                const mpUrl = new URL(rawMpUrl);
+                // Mercado Pago respeta back_url como query param en su checkout
+                mpUrl.searchParams.set('back_url', 'https://www.winstonandharrystore.com/gracias');
+                finalPaymentUrl = mpUrl.toString();
+            } catch {
+                // Si la URL no es parseable, usarla tal cual como fallback
+                finalPaymentUrl = rawMpUrl;
+            }
         } else {
             const keyParam = orderKey ? `&key=${orderKey}` : '';
             finalPaymentUrl = `${WC_URL}/checkout/order-pay/${checkoutData.order_id}/?pay_for_order=true${keyParam}`;
