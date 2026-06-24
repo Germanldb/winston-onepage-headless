@@ -149,6 +149,7 @@ export default defineConfig({
   },
   image: {
     domains: ["winstonandharrystore.com", "staging.winstonandharrystore.com", "tienda.winstonandharrystore.com"],
+    remotePatterns: [{ protocol: 'https', hostname: 'tienda.winstonandharrystore.com' }]
   },
   vite: {
     server: {

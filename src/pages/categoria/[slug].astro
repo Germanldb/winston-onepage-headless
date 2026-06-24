@@ -390,11 +390,17 @@ Astro.response.headers.set('X-Generated-At', new Date().toISOString());
 Astro.response.headers.set('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate=43200');
 
 // SEO Bridge: Conexión dinámica con metadatos de RankMath / Yoast / WooCommerce para categorías
+// El fallback mejora el CTR cuando WP no tiene título SEO configurado manualmente
+const seoFallbackTitle = `${categoryTitle} Colombia | Cuero Artesanal Hecho a Mano | Winston & Harry`;
+const seoFallbackDesc = categoryDesc
+    ? `${categoryDesc.slice(0, 120)}. Envío gratis en Colombia.`
+    : `Descubre nuestra colección de ${categoryTitle} en cuero artesanal hecho a mano en Colombia. Diseño atemporal, garantía de por vida. Envío gratis a todo el país.`;
+
 const seoData = {
-    title: category?.yoast_head_json?.title || category?.rank_math_seo?.title || `${categoryTitle} | Winston & Harry`,
-    description: category?.yoast_head_json?.description || category?.rank_math_seo?.description || categoryDesc || `Descubre nuestra colección de ${categoryTitle} en Winston & Harry.`,
-    opengraph_title: category?.yoast_head_json?.og_title || category?.rank_math_seo?.og_title || `${categoryTitle} | Winston & Harry`,
-    opengraph_description: category?.yoast_head_json?.og_description || category?.rank_math_seo?.og_description || categoryDesc || `Descubre nuestra colección de ${categoryTitle} en Winston & Harry.`,
+    title: category?.yoast_head_json?.title || category?.rank_math_seo?.title || seoFallbackTitle,
+    description: category?.yoast_head_json?.description || category?.rank_math_seo?.description || seoFallbackDesc,
+    opengraph_title: category?.yoast_head_json?.og_title || category?.rank_math_seo?.og_title || seoFallbackTitle,
+    opengraph_description: category?.yoast_head_json?.og_description || category?.rank_math_seo?.og_description || seoFallbackDesc,
     opengraph_image: category?.yoast_head_json?.og_image || category?.rank_math_seo?.og_image || desktopBanner || null,
     opengraph_type: "website"
 };

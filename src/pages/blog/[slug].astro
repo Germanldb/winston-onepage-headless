@@ -104,7 +104,9 @@ const postUrl = `https://winstonandharrystore.com/blog/${slug}`;
 
 const seoData = {
   title: `${post.title.rendered.replace(/<[^>]*>/g, "")} | Blog Winston & Harry`,
-  description: excerpt,
+  description: excerpt
+    ? (excerpt.length > 130 ? excerpt.slice(0, 130) + "… Descúbrelo en el blog de Winston & Harry." : excerpt + " Winston & Harry, cuero artesanal hecho a mano en Colombia.")
+    : `Artículo sobre ${post.title.rendered.replace(/<[^>]*>/g, "")}. Tips de moda y estilo para hombre en el blog de Winston & Harry.`,
   image: img || undefined,
   canonical: postUrl,
 };

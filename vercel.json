@@ -62,6 +62,11 @@
   ],
   "redirects": [
     {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "permanent": true
+    },
+    {
       "source": "/zapatos",
       "destination": "/categoria/zapatos-cuero-hombre",
       "permanent": true
@@ -517,5 +522,10 @@
       "source": "/carrito",
       "destination": "/carrito"
     }
-  ]
+  ],
+  "images": {
+    "domains": ["tienda.winstonandharrystore.com"],
+    "sizes": [400, 600, 800, 1200],
+    "formats": ["image/webp", "image/avif"]
+  }
 }

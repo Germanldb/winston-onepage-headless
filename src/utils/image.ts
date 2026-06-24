@@ -22,10 +22,18 @@ export function getOptimizedUrl(src: string, options: OptimizeOptions = {}): str
 
   const { width, quality = 80, format = 'webp' } = options;
   
-  // In static mode, runtime optimization via /_image is not available on Vercel
-  // unless explicitly configured via edge functions. For now, we return the direct URL.
-  // If the user wants build-time optimization, they should use Astro's <Image /> component.
-  return src;
+  if (import.meta.env.DEV) {
+    // Bypass optimization in local dev to avoid Astro's /_image endpoint issues
+    return src;
+  }
+
+  const params = new URLSearchParams();
+  params.append('url', src);
+  if (width) params.append('w', width.toString());
+  params.append('q', quality.toString());
+  params.append('f', format);
+
+  return `/_vercel/image?${params.toString()}`;
 }
 
 /**

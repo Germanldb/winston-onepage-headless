@@ -648,11 +648,11 @@ export default function CheckoutPage() {
                                         </div>
                                         <div className="checkout-item-details">
                                             <span className="checkout-item-name">{item.name}</span>
-                                            {item.attributes?.find(a => String(a.name||'').toLowerCase().includes('color') || String(a.id||'').toLowerCase().includes('color')) && (
-                                                <span className="checkout-item-attr">Color: {item.attributes.find(a => String(a.name||'').toLowerCase().includes('color') || String(a.id||'').toLowerCase().includes('color'))?.option}</span>
+                                            {item.color && (
+                                                <span className="checkout-item-attr">Color: {item.color}</span>
                                             )}
-                                            {item.attributes?.find(a => String(a.name||'').toLowerCase().includes('talla') || String(a.id||'').toLowerCase().includes('talla') || String(a.name||'').toLowerCase().includes('size')) && (
-                                                <span className="checkout-item-attr">Talla: {item.attributes.find(a => String(a.name||'').toLowerCase().includes('talla') || String(a.id||'').toLowerCase().includes('talla') || String(a.name||'').toLowerCase().includes('size'))?.option}</span>
+                                            {item.size && (
+                                                <span className="checkout-item-attr">Talla: {item.size}</span>
                                             )}
                                         </div>
                                         <div className="checkout-item-price">

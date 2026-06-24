@@ -174,12 +174,41 @@ if (!product && !error) {
 }
 
 // SEO Bridge: Conexión dinámica con metadatos de RankMath / Yoast / WooCommerce
+// El fallback mejora el CTR cuando WP no tiene título SEO configurado manualmente
+
+// RankMath guarda sus datos en el array meta_data de WooCommerce (no como objeto top-level)
+const rankMathTitle = product?.meta_data?.find((m: any) => m.key === 'rank_math_title')?.value || '';
+const rankMathDesc  = product?.meta_data?.find((m: any) => m.key === 'rank_math_description')?.value || '';
+
+const productCleanDesc = (product?.short_description || product?.description || "")
+    .replace(/<[^>]+>/g, "").trim();
+
+// Detectar tipo de producto por categorías para no poner "Cuero" en ropa o accesorios
+const productCatIds = product?.categories?.map((c: any) => c.id) || [];
+const isShoe      = productCatIds.some((id: number) => [63, 194, 192, 195, 193, 196, 70].includes(id));
+const isClothing  = productCatIds.some((id: number) => [249, 951, 952, 251, 1022, 250].includes(id));
+const isAccessory = productCatIds.some((id: number) => [126, 172, 190].includes(id));
+
+const seoSuffix = isShoe
+    ? 'Zapatos Cuero Hombre Colombia | Envío Gratis | Winston & Harry'
+    : isClothing
+        ? 'Ropa Hombre Colombia | Hecho a Mano | Envío Gratis | Winston & Harry'
+        : isAccessory
+            ? 'Accesorios Cuero Hombre Colombia | Envío Gratis | Winston & Harry'
+            : 'Hombre Colombia | Hecho a Mano | Envío Gratis | Winston & Harry';
+
+const seoFallbackTitle = `${product?.name} | ${seoSuffix}`;
+const seoFallbackDesc = productCleanDesc
+    ? `${productCleanDesc.slice(0, 130)}. Envío gratis a todo Colombia.`
+    : `${product?.name} en Winston & Harry. Diseño atemporal, garantía de por vida. Envío gratis a todo Colombia.`;
+
+// Cadena de prioridad: RankMath → Yoast → short/long description de WC → fallback genérico
 const seoData = {
-    title: product?.yoast_head_json?.title || product?.rank_math_seo?.title || `${product?.name} | Winston & Harry`,
-    description: product?.yoast_head_json?.description || product?.rank_math_seo?.description || product?.short_description?.replace(/<[^>]+>/g, "") || product?.description?.replace(/<[^>]+>/g, "") || `Descubre ${product?.name} en Winston & Harry.`,
-    opengraph_title: product?.yoast_head_json?.og_title || product?.rank_math_seo?.og_title || `${product?.name} | Winston & Harry`,
-    opengraph_description: product?.yoast_head_json?.og_description || product?.rank_math_seo?.og_description || product?.short_description?.replace(/<[^>]+>/g, "") || `Descubre ${product?.name} en Winston & Harry.`,
-    opengraph_image: product?.yoast_head_json?.og_image || product?.rank_math_seo?.og_image || product?.images?.[0]?.src || null,
+    title: rankMathTitle || product?.yoast_head_json?.title || seoFallbackTitle,
+    description: rankMathDesc || product?.yoast_head_json?.description || seoFallbackDesc,
+    opengraph_title: rankMathTitle || product?.yoast_head_json?.og_title || seoFallbackTitle,
+    opengraph_description: rankMathDesc || product?.yoast_head_json?.og_description || seoFallbackDesc,
+    opengraph_image: product?.yoast_head_json?.og_image || product?.images?.[0]?.src || null,
     opengraph_type: "website"
 };
 
@@ -237,10 +266,91 @@ const stripMainProduct = (p: any) => {
 };
 
 const clientProduct = product ? stripMainProduct(product) : null;
+
+const schemaPrice = 
+  parseFloat(product?.prices?.price)
+  || parseFloat(product?.prices?.regular_price)
+  || parseFloat(product?.price)
+  || parseFloat(product?.regular_price)
+  || parseFloat(product?.sale_price)
+  || (product?.variations?.length > 0
+      ? parseFloat(product?.price_range?.min_price ?? '0')
+      : 0);
+
+const schemaData = (product && schemaPrice > 0 && !isNaN(schemaPrice))
+  ? {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": product.name,
+      "description": (product.short_description || product.description || "")
+        .replace(/<[^>]+>/g, "").trim(),
+      "image": product.images?.[0]?.src,
+      "sku": product.sku || product.id?.toString(),
+      "brand": { "@type": "Brand", "name": "Winston & Harry" },
+      ...(product.rating_count > 0 && {
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": product.average_rating,
+          "reviewCount": product.rating_count
+        }
+      }),
+      "offers": {
+        "@type": "Offer",
+        "price": schemaPrice,
+        "priceCurrency": "COP",
+        "priceValidUntil": new Date(
+          new Date().setFullYear(new Date().getFullYear() + 1)
+        ).toISOString().split('T')[0],
+        "availability": product.stock_status === "instock"
+          ? "https://schema.org/InStock"
+          : "https://schema.org/OutOfStock",
+        "url": `https://www.winstonandharrystore.com/productos/${product.slug}`,
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "CO",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 30,
+          "returnMethod": "https://schema.org/ReturnByMail"
+        },
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "COP"
+          },
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "CO"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "businessDays": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"]
+            },
+            "cutoffTime": "17:00:00-05:00",
+            "handlingTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 1,
+              "maxValue": 2,
+              "unitCode": "DAY"
+            },
+            "transitTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 2,
+              "maxValue": 5,
+              "unitCode": "DAY"
+            }
+          }
+        }
+      }
+    }
+  : null;
 ---
 
 <Layout 
-    title={product ? `${product.name} | Winston & Harry` : "Producto"}
+    title={seoData.title || (product ? `${product.name} | Winston & Harry` : "Producto")}
     seoData={seoData}
 >
     <Header />
@@ -354,33 +464,15 @@ const clientProduct = product ? stripMainProduct(product) : null;
         document.addEventListener('DOMContentLoaded', fireViewItem);
       } else {
         fireViewItem();
+      }
     })();
   </script>
 )}
 
-{product && (
-  <script type="application/ld+json" is:inline set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": product.name,
-    "description": (product.short_description || product.description || "").replace(/<[^>]+>/g, "").trim(),
-    "image": product.images?.[0]?.src,
-    "sku": product.sku || product.id?.toString(),
-    "brand": {
-      "@type": "Brand",
-      "name": "Winston & Harry"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": product.price,
-      "priceCurrency": "COP",
-      "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
-      "availability": product.stock_status === "instock"
-        ? "https://schema.org/InStock"
-        : "https://schema.org/OutOfStock",
-      "url": `https://www.winstonandharrystore.com/productos/${product.slug}`
-    }
-  })} />
+{schemaData && (
+  <script type="application/ld+json" is:inline 
+    set:html={JSON.stringify(schemaData)} 
+  />
 )}
 
 </Layout>

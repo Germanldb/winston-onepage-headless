@@ -11,17 +11,17 @@ import Footer from "../components/Footer.astro";
         <div class="error-backdrop"></div>
         <div class="error-content-card">
             <span class="error-badge">ERROR 404</span>
-            <h1 class="error-title">ESTILO FUERA DE RUTA</h1>
+            <h1 class="error-title">PÁGINA NO ENCONTRADA</h1>
             <p class="error-description">
-                El enlace que has seguido o la ruta que has ingresado no se encuentra disponible. 
-                Nuestros maestros artesanos cuidan cada detalle en nuestros zapatos, y queremos cuidar también de tu experiencia de navegación.
+                La página que buscas no existe o fue movida. 
+                No te preocupes — nuestras tiendas siguen abiertas y tenemos exactamente lo que necesitas.
             </p>
             
             <div class="error-helper-section">
                 <h2>¿Qué estabas buscando?</h2>
                 <div class="error-navigation-grid">
                     <a href="/categoria/zapatos-cuero-hombre" class="error-nav-link">
-                        <span class="nav-title">Calzado de Cuero</span>
+                        <span class="nav-title">Zapatos de Cuero</span>
                         <span class="nav-arrow">→</span>
                     </a>
                     <a href="/categoria/ropa-hombre-colombia" class="error-nav-link">
@@ -33,7 +33,15 @@ import Footer from "../components/Footer.astro";
                         <span class="nav-arrow">→</span>
                     </a>
                     <a href="/categoria/accesorios-hombre" class="error-nav-link">
-                        <span class="nav-title">Accesorios Finos</span>
+                        <span class="nav-title">Accesorios</span>
+                        <span class="nav-arrow">→</span>
+                    </a>
+                    <a href="/sale" class="error-nav-link">
+                        <span class="nav-title">Outlet y Descuentos</span>
+                        <span class="nav-arrow">→</span>
+                    </a>
+                    <a href="/blog" class="error-nav-link">
+                        <span class="nav-title">Blog de Moda</span>
                         <span class="nav-arrow">→</span>
                     </a>
                 </div>
@@ -142,7 +150,7 @@ import Footer from "../components/Footer.astro";
 
     .error-navigation-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 1rem;
     }
 

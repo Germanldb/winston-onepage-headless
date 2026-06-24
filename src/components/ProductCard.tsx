@@ -513,8 +513,8 @@ export default function ProductCard({ product, isSelected, onSelectionToggle, on
                             <img
                                 key={mainImage?.src}
                                 src={getOptimizedUrl(mainImage?.src || '', { width: 600 })}
-                                srcSet={getImageSrcSet(mainImage?.src || '', [400, 600, 800])}
-                                sizes="(max-width: 768px) 50vw, 33vw"
+                                srcSet={mainImage?.srcset || getImageSrcSet(mainImage?.src || '', [400, 600, 800])}
+                                sizes={mainImage?.sizes || "(max-width: 768px) 50vw, 33vw"}
                                 alt={mainImage?.alt || product.name}
                                 className="fade-in reveal-on-scroll is-visible"
                                 loading="lazy"
@@ -562,8 +562,8 @@ export default function ProductCard({ product, isSelected, onSelectionToggle, on
                             <picture className="hover-image">
                                 <img
                                     src={getOptimizedUrl(effectiveHoverSrc || '', { width: 600 })}
-                                    srcSet={getImageSrcSet(effectiveHoverSrc || '', [400, 600])}
-                                    sizes="(max-width: 768px) 50vw, 33vw"
+                                    srcSet={hoverImageRaw?.srcset || getImageSrcSet(effectiveHoverSrc || '', [400, 600])}
+                                    sizes={hoverImageRaw?.sizes || "(max-width: 768px) 50vw, 33vw"}
                                     alt={hoverImageRaw?.alt || product.name}
                                     className="reveal-on-scroll is-visible"
                                     loading="lazy"

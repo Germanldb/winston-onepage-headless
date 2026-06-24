@@ -63,8 +63,22 @@ export default function OrderConfirmation() {
 
     // Extraer la lógica de tracking a una función separada para reutilizarla
     function fireTrackingEvents(order: any) {
-        const orderTotal = parseFloat(String(order.total || '0')) || 0;
+        const parseColPrice = (val: any): number => {
+            if (!val) return 0;
+            const str = String(val);
+            // Remover puntos de miles y reemplazar coma decimal si existe
+            const cleaned = str.replace(/\./g, '').replace(',', '.');
+            return parseFloat(cleaned) || 0;
+        };
+
+        const orderTotal = parseColPrice(order.total);
         const orderItems = order.items || [];
+
+        console.log('[GA4 Purchase Debug]', { 
+            orderTotal, 
+            rawTotal: order.total, 
+            items: orderItems 
+        });
 
         // ✅ Usar gtag() directamente en lugar de dataLayer.push
         // gtag() cruza correctamente la barrera del Web Worker de Partytown
@@ -76,7 +90,7 @@ export default function OrderConfirmation() {
                 items: orderItems.map((item: any) => ({
                     item_id: String(item.id),
                     item_name: item.name,
-                    price: item.price,
+                    price: parseColPrice(item.price || item.total),
                     quantity: item.quantity
                 }))
             });
@@ -92,7 +106,7 @@ export default function OrderConfirmation() {
                 items: orderItems.map((item: any) => ({
                     item_id: String(item.id),
                     item_name: item.name,
-                    price: item.price,
+                    price: parseColPrice(item.price || item.total),
                     quantity: item.quantity
                 }))
             });

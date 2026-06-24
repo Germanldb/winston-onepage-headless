@@ -713,8 +713,8 @@ export default function ProductDetail({ initialProduct }: Props) {
                 <picture>
                   <img
                     src={getOptimizedUrl(img.src, { width: 1200 })}
-                    srcSet={getImageSrcSet(img.src, [600, 900, 1200])}
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    srcSet={img.srcset || getImageSrcSet(img.src, [600, 900, 1200])}
+                    sizes={img.sizes || "(max-width: 768px) 100vw, 50vw"}
                     alt={img.alt || product.name}
                     className="reveal-on-scroll is-visible cursor-zoom"
                     loading={index === 0 ? "eager" : "lazy"}

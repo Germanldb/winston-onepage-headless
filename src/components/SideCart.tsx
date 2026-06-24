@@ -184,11 +184,11 @@ export default function SideCart() {
                             </div>
                         </div>
                         <div className="cart-actions">
-                            <button className="btn-action btn-beige" onClick={handleViewCart}>
-                                VER CARRITO
-                            </button>
                             <button className="btn-action btn-green" onClick={handleCheckout}>
                                 FINALIZAR COMPRA
+                            </button>
+                            <button className="btn-action btn-secondary-cart" onClick={handleViewCart}>
+                                VER CARRITO
                             </button>
                         </div>
                     </div>
@@ -448,13 +448,14 @@ export default function SideCart() {
                     transition: all 0.3s ease;
                 }
 
-                .btn-beige {
-                    background-color: #B1915F;
-                    color: #fff;
-                }
                 .btn-green, .btn-buy {
                     background-color: #155338;
                     color: #fff;
+                }
+                .btn-secondary-cart {
+                    background-color: transparent;
+                    color: #155338;
+                    border: 1.5px solid #155338 !important;
                 }
                 .btn-action:hover {
                     filter: brightness(1.1);

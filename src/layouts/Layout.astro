@@ -86,7 +86,7 @@ const seo = rawSeo || {
     ogType: "website",
 };
 
-seo.canonical = customCanonical ?? `https://www.winstonandharrystore.com${Astro.url.pathname}`;
+seo.canonical = customCanonical ?? `https://www.winstonandharrystore.com${cleanPath === '/' ? '' : cleanPath}`;
 ---
 
 <!doctype html>
