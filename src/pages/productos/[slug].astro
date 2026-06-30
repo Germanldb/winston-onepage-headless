@@ -268,14 +268,9 @@ const stripMainProduct = (p: any) => {
 const clientProduct = product ? stripMainProduct(product) : null;
 
 const schemaPrice = 
-  parseFloat(product?.prices?.price)
-  || parseFloat(product?.prices?.regular_price)
-  || parseFloat(product?.price)
-  || parseFloat(product?.regular_price)
-  || parseFloat(product?.sale_price)
-  || (product?.variations?.length > 0
-      ? parseFloat(product?.price_range?.min_price ?? '0')
-      : 0);
+  product?.prices?.price
+    ? parseFloat(product.prices.price) / (10 ** (product.prices?.currency_minor_unit || 0))
+    : parseFloat(product?.price || product?.regular_price || '0');
 
 const schemaData = (product && schemaPrice > 0 && !isNaN(schemaPrice))
   ? {
@@ -398,14 +393,18 @@ const schemaData = (product && schemaPrice > 0 && !isNaN(schemaPrice))
   product && (
     <script
       is:inline
+      data-astro-rerun
       data-product-id={String(product.id)}
-      data-product-price={String(product.price ?? product.regular_price ?? '0')}
+      data-product-price={String(product.prices?.price ? (parseFloat(product.prices.price) / (10 ** (product.prices?.currency_minor_unit || 0))) : (product.price || product.regular_price || '0'))}
       id="meta-view-content"
     >
       (function () {
         function fireViewContent() {
           var el = document.getElementById('meta-view-content');
           if (!el) return;
+          if (el.getAttribute('data-fired') === 'true') return;
+          el.setAttribute('data-fired', 'true');
+
           var productId = el.getAttribute('data-product-id');
           var rawPrice  = el.getAttribute('data-product-price');
           var price     = parseFloat(rawPrice) || 0;
@@ -420,15 +419,16 @@ const schemaData = (product && schemaPrice > 0 && !isNaN(schemaPrice))
           }
         }
 
-        // Astro ViewTransitions: astro:page-load se dispara al cargar cada página
-        document.addEventListener('astro:page-load', fireViewContent);
-
-        // Fallback: si no hay ViewTransitions, disparar en DOMContentLoaded
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', fireViewContent);
-        } else {
+        if (document.readyState !== 'loading') {
           fireViewContent();
+        } else {
+          document.addEventListener('DOMContentLoaded', fireViewContent);
         }
+        document.addEventListener('astro:page-load', function() {
+          var el = document.getElementById('meta-view-content');
+          if (el) el.removeAttribute('data-fired');
+          fireViewContent();
+        });
       })();
     </script>
   )
@@ -436,8 +436,9 @@ const schemaData = (product && schemaPrice > 0 && !isNaN(schemaPrice))
 {product && (
   <script
     is:inline
+    data-astro-rerun
     data-product-id={String(product.id)}
-    data-product-price={String(product.price ?? product.regular_price ?? '0')}
+    data-product-price={String(product.prices?.price ? (parseFloat(product.prices.price) / (10 ** (product.prices?.currency_minor_unit || 0))) : (product.price || product.regular_price || '0'))}
     data-product-name={product.name}
     id="ga4-view-item"
   >
@@ -445,9 +446,14 @@ const schemaData = (product && schemaPrice > 0 && !isNaN(schemaPrice))
       function fireViewItem() {
         var el = document.getElementById('ga4-view-item');
         if (!el) return;
+        // Evitar disparo duplicado en la misma página
+        if (el.getAttribute('data-fired') === 'true') return;
+        el.setAttribute('data-fired', 'true');
+        
         var productId = el.getAttribute('data-product-id');
         var productName = el.getAttribute('data-product-name');
         var price = parseFloat(el.getAttribute('data-product-price')) || 0;
+        
         if (typeof window !== 'undefined') {
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({ ecommerce: null }); 
@@ -459,12 +465,17 @@ const schemaData = (product && schemaPrice > 0 && !isNaN(schemaPrice))
           });
         }
       }
-      document.addEventListener('astro:page-load', fireViewItem);
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', fireViewItem);
-      } else {
+      
+      if (document.readyState !== 'loading') {
         fireViewItem();
+      } else {
+        document.addEventListener('DOMContentLoaded', fireViewItem);
       }
+      document.addEventListener('astro:page-load', function() {
+        var el = document.getElementById('ga4-view-item');
+        if (el) el.removeAttribute('data-fired'); // resetear para nueva navegación
+        fireViewItem();
+      });
     })();
   </script>
 )}
