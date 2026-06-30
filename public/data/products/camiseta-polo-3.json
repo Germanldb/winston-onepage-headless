@@ -416,6 +416,7 @@
         "name": "_MG_5198",
         "alt": ""
       },
+      "gallery_image_ids": [],
       "attributes": [
         {
           "id": 3,
@@ -965,6 +966,9 @@
         "name": "_MG_5190",
         "alt": ""
       },
+      "gallery_image_ids": [
+        15978
+      ],
       "attributes": [
         {
           "id": 3,
@@ -1509,6 +1513,9 @@
         "name": "_MG_5190",
         "alt": ""
       },
+      "gallery_image_ids": [
+        15978
+      ],
       "attributes": [
         {
           "id": 3,
@@ -2058,6 +2065,9 @@
         "name": "_MG_5190",
         "alt": ""
       },
+      "gallery_image_ids": [
+        15978
+      ],
       "attributes": [
         {
           "id": 3,
@@ -2607,6 +2617,9 @@
         "name": "_MG_5190",
         "alt": ""
       },
+      "gallery_image_ids": [
+        15978
+      ],
       "attributes": [
         {
           "id": 3,
@@ -3156,6 +3169,9 @@
         "name": "_MG_5190",
         "alt": ""
       },
+      "gallery_image_ids": [
+        15978
+      ],
       "attributes": [
         {
           "id": 3,

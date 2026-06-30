@@ -173,13 +173,15 @@ export default function CheckoutPage() {
         [items]
     );
 
+    const hasFired = useRef(false);
+
     useEffect(() => {
-        // 1. Si el carrito está vacío o aún no carga de la memoria, abortar.
+        // 1. Si el carrito está vacío, abortar.
         if (!items || items.length === 0) return;
 
-        // 2. Verificar si ya disparamos el evento en esta sesión para no duplicar.
-        const gtmFlag = `gtm_checkout_${items.length}_${subtotal}`;
-        if (sessionStorage.getItem(gtmFlag)) return;
+        // 2. Verificar con useRef para no duplicar en re-renders (ej. StrictMode)
+        if (hasFired.current) return;
+        hasFired.current = true;
 
         // 3. Forzar inyección en window
         (window as any).dataLayer = (window as any).dataLayer || [];
@@ -199,8 +201,7 @@ export default function CheckoutPage() {
             }
         });
 
-        // 4. Marcar como disparado y log de éxito
-        sessionStorage.setItem(gtmFlag, 'true');
+        // 4. Log de éxito
         console.log("✅ GTM TRACKING EXITOSO: begin_checkout");
     }, [items, subtotal]);
 

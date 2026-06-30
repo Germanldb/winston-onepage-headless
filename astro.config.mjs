@@ -119,7 +119,7 @@ export default defineConfig({
     }),
     partytown({
       config: {
-        forward: ['dataLayer.push', 'fbq', 'gtag']
+        forward: ['fbq'] // Solo Meta Pixel corre en Partytown, GTM está en el hilo principal
       }
     })
   ],

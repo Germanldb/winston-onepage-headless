@@ -261,6 +261,10 @@
         "name": "Morral-Edimburgo-Cuero-Cognac-Winstonandharry-1",
         "alt": ""
       },
+      "gallery_image_ids": [
+        17325,
+        17326
+      ],
       "attributes": [
         {
           "id": 3,
@@ -944,6 +948,7 @@
         "name": "Morral-Edimburgo-Cuero-Cognac-Winstonandharry-1",
         "alt": ""
       },
+      "gallery_image_ids": [],
       "attributes": [
         {
           "id": 3,

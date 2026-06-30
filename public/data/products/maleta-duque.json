@@ -240,6 +240,7 @@
         "name": "002-grande-04",
         "alt": ""
       },
+      "gallery_image_ids": [],
       "attributes": [
         {
           "id": 3,
@@ -768,6 +769,10 @@
         "name": "1 bolso fontal",
         "alt": ""
       },
+      "gallery_image_ids": [
+        17438,
+        17439
+      ],
       "attributes": [
         {
           "id": 3,
@@ -1311,6 +1316,10 @@
         "name": "bolso-06-front",
         "alt": ""
       },
+      "gallery_image_ids": [
+        17435,
+        11629
+      ],
       "attributes": [
         {
           "id": 3,

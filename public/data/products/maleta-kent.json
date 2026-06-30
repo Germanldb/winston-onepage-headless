@@ -292,6 +292,10 @@
         "name": "4 kent cognac posi 1",
         "alt": ""
       },
+      "gallery_image_ids": [
+        17309,
+        17307
+      ],
       "attributes": [
         {
           "id": 3,
@@ -835,6 +839,11 @@
         "name": "bolso-12-front",
         "alt": ""
       },
+      "gallery_image_ids": [
+        13585,
+        13586,
+        13591
+      ],
       "attributes": [
         {
           "id": 3,
@@ -1378,6 +1387,11 @@
         "name": "bolso-04-front",
         "alt": ""
       },
+      "gallery_image_ids": [
+        13588,
+        13580,
+        13589
+      ],
       "attributes": [
         {
           "id": 3,

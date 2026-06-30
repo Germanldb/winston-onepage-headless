@@ -338,6 +338,7 @@
         "name": "Technocase-Café-Winstonandharry-1",
         "alt": ""
       },
+      "gallery_image_ids": [],
       "attributes": [
         {
           "id": 3,
@@ -1021,6 +1022,11 @@
         "name": "Technocase-Negro-Winstonandharry-1",
         "alt": ""
       },
+      "gallery_image_ids": [
+        35807,
+        35809,
+        35812
+      ],
       "attributes": [
         {
           "id": 3,
@@ -1704,6 +1710,10 @@
         "name": "Technocase-Miel-Winstonandharry-1",
         "alt": ""
       },
+      "gallery_image_ids": [
+        35804,
+        35802
+      ],
       "attributes": [
         {
           "id": 3,

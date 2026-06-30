@@ -20,20 +20,9 @@ export function getOptimizedUrl(src: string, options: OptimizeOptions = {}): str
   // If it's a placeholder, already optimized, or an invalid URL, return as is
   if (!src || src.includes('placeholder.com') || src.startsWith('/_image') || src.includes('undefined')) return src;
 
-  const { width, quality = 80, format = 'webp' } = options;
-  
-  if (import.meta.env.DEV) {
-    // Bypass optimization in local dev to avoid Astro's /_image endpoint issues
-    return src;
-  }
-
-  const params = new URLSearchParams();
-  params.append('url', src);
-  if (width) params.append('w', width.toString());
-  params.append('q', quality.toString());
-  params.append('f', format);
-
-  return `/_vercel/image?${params.toString()}`;
+  // Bypass Vercel Image Optimization en producción también para evitar errores
+  // INVALID_IMAGE_OPTIMIZE_REQUEST (usualmente bloqueos de WordFence a IPs de Vercel)
+  return src;
 }
 
 /**

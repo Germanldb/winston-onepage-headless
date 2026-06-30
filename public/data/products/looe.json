@@ -367,6 +367,7 @@
         "name": "055-zapato-composition",
         "alt": ""
       },
+      "gallery_image_ids": [],
       "attributes": [
         {
           "id": 3,
@@ -901,6 +902,7 @@
         "name": "055-zapato-composition",
         "alt": ""
       },
+      "gallery_image_ids": [],
       "attributes": [
         {
           "id": 3,
@@ -1450,6 +1452,7 @@
         "name": "055-zapato-composition",
         "alt": ""
       },
+      "gallery_image_ids": [],
       "attributes": [
         {
           "id": 3,
@@ -1994,6 +1997,7 @@
         "name": "055-zapato-composition",
         "alt": ""
       },
+      "gallery_image_ids": [],
       "attributes": [
         {
           "id": 3,
@@ -2543,6 +2547,7 @@
         "name": "055-zapato-composition",
         "alt": ""
       },
+      "gallery_image_ids": [],
       "attributes": [
         {
           "id": 3,
@@ -3092,6 +3097,10 @@
         "name": "056-zapato-composition",
         "alt": ""
       },
+      "gallery_image_ids": [
+        17406,
+        17405
+      ],
       "attributes": [
         {
           "id": 3,
@@ -3641,6 +3650,10 @@
         "name": "056-zapato-composition",
         "alt": ""
       },
+      "gallery_image_ids": [
+        17406,
+        17405
+      ],
       "attributes": [
         {
           "id": 3,
@@ -4190,6 +4203,10 @@
         "name": "056-zapato-composition",
         "alt": ""
       },
+      "gallery_image_ids": [
+        17406,
+        17405
+      ],
       "attributes": [
         {
           "id": 3,
@@ -4739,6 +4756,10 @@
         "name": "056-zapato-composition",
         "alt": ""
       },
+      "gallery_image_ids": [
+        17406,
+        17405
+      ],
       "attributes": [
         {
           "id": 3,
@@ -5283,6 +5304,10 @@
         "name": "056-zapato-composition",
         "alt": ""
       },
+      "gallery_image_ids": [
+        17406,
+        17405
+      ],
       "attributes": [
         {
           "id": 3,

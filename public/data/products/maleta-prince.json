@@ -250,6 +250,11 @@
         "name": "bolso-03-front",
         "alt": ""
       },
+      "gallery_image_ids": [
+        13602,
+        13600,
+        13601
+      ],
       "attributes": [
         {
           "id": 3,
@@ -778,6 +783,10 @@
         "name": "bolso-01-front",
         "alt": ""
       },
+      "gallery_image_ids": [
+        13594,
+        13592
+      ],
       "attributes": [
         {
           "id": 3,
@@ -1321,6 +1330,11 @@
         "name": "bolso-02-front",
         "alt": ""
       },
+      "gallery_image_ids": [
+        13597,
+        13596,
+        13598
+      ],
       "attributes": [
         {
           "id": 3,

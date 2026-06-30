@@ -388,96 +388,39 @@ const schemaData = (product && schemaPrice > 0 && !isNaN(schemaPrice))
         }
 </style>
 
-{/* ViewContent Meta Pixel – datos del producto disponibles en build time */}
-{
-  product && (
-    <script
-      is:inline
-      data-astro-rerun
-      data-product-id={String(product.id)}
-      data-product-price={String(product.prices?.price ? (parseFloat(product.prices.price) / (10 ** (product.prices?.currency_minor_unit || 0))) : (product.price || product.regular_price || '0'))}
-      id="meta-view-content"
-    >
-      (function () {
-        function fireViewContent() {
-          var el = document.getElementById('meta-view-content');
-          if (!el) return;
-          if (el.getAttribute('data-fired') === 'true') return;
-          el.setAttribute('data-fired', 'true');
-
-          var productId = el.getAttribute('data-product-id');
-          var rawPrice  = el.getAttribute('data-product-price');
-          var price     = parseFloat(rawPrice) || 0;
-
-          if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-            window.fbq('track', 'ViewContent', {
-              content_ids:  [productId],
-              content_type: 'product',
-              value:        price,
-              currency:     'COP'
-            });
-          }
-        }
-
-        if (document.readyState !== 'loading') {
-          fireViewContent();
-        } else {
-          document.addEventListener('DOMContentLoaded', fireViewContent);
-        }
-        document.addEventListener('astro:page-load', function() {
-          var el = document.getElementById('meta-view-content');
-          if (el) el.removeAttribute('data-fired');
-          fireViewContent();
-        });
-      })();
-    </script>
-  )
-}
 {product && (
   <script
     is:inline
-    data-astro-rerun
-    data-product-id={String(product.id)}
-    data-product-price={String(product.prices?.price ? (parseFloat(product.prices.price) / (10 ** (product.prices?.currency_minor_unit || 0))) : (product.price || product.regular_price || '0'))}
-    data-product-name={product.name}
-    id="ga4-view-item"
-  >
-    (function () {
-      function fireViewItem() {
-        var el = document.getElementById('ga4-view-item');
-        if (!el) return;
-        // Evitar disparo duplicado en la misma página
-        if (el.getAttribute('data-fired') === 'true') return;
-        el.setAttribute('data-fired', 'true');
-        
-        var productId = el.getAttribute('data-product-id');
-        var productName = el.getAttribute('data-product-name');
-        var price = parseFloat(el.getAttribute('data-product-price')) || 0;
-        
+    set:html={`
+      window.addEventListener('load', function () {
         if (typeof window !== 'undefined') {
+          // GA4
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({ ecommerce: null }); 
           window.dataLayer.push({
             event: 'view_item',
-            currency: 'COP',
-            value: price,
-            items: [{ item_id: String(productId), item_name: productName, price: price, quantity: 1 }]
+            ecommerce: {
+              currency: 'COP',
+              value: ${schemaPrice},
+              items: [{ item_id: "${product.id}", item_name: ${JSON.stringify(product.name)}, price: ${schemaPrice}, quantity: 1 }]
+            }
           });
+          console.log("✅ GTM TRACKING EXITOSO: view_item");
+
+          // Meta Pixel
+          if (typeof window.fbq === 'function') {
+            window.fbq('track', 'ViewContent', {
+              content_ids: ['${product.id}'],
+              content_type: 'product',
+              value: ${schemaPrice},
+              currency: 'COP'
+            });
+            console.log("✅ META TRACKING EXITOSO: ViewContent");
+          }
         }
-      }
-      
-      if (document.readyState !== 'loading') {
-        fireViewItem();
-      } else {
-        document.addEventListener('DOMContentLoaded', fireViewItem);
-      }
-      document.addEventListener('astro:page-load', function() {
-        var el = document.getElementById('ga4-view-item');
-        if (el) el.removeAttribute('data-fired'); // resetear para nueva navegación
-        fireViewItem();
       });
-    })();
-  </script>
+    `}
+  />
 )}
 
 {schemaData && (

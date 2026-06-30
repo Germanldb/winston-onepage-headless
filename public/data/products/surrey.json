@@ -535,6 +535,7 @@
         "name": "30-compo",
         "alt": ""
       },
+      "gallery_image_ids": [],
       "attributes": [
         {
           "id": 3,
@@ -1079,6 +1080,7 @@
         "name": "30-compo",
         "alt": ""
       },
+      "gallery_image_ids": [],
       "attributes": [
         {
           "id": 3,
@@ -1623,6 +1625,7 @@
         "name": "30-compo",
         "alt": ""
       },
+      "gallery_image_ids": [],
       "attributes": [
         {
           "id": 3,
@@ -2167,6 +2170,7 @@
         "name": "30-compo",
         "alt": ""
       },
+      "gallery_image_ids": [],
       "attributes": [
         {
           "id": 3,
@@ -2711,6 +2715,7 @@
         "name": "30-compo",
         "alt": ""
       },
+      "gallery_image_ids": [],
       "attributes": [
         {
           "id": 3,
@@ -3255,6 +3260,7 @@
         "name": "30-compo",
         "alt": ""
       },
+      "gallery_image_ids": [],
       "attributes": [
         {
           "id": 3,
@@ -3799,6 +3805,7 @@
         "name": "30-compo",
         "alt": ""
       },
+      "gallery_image_ids": [],
       "attributes": [
         {
           "id": 3,
@@ -4343,6 +4350,7 @@
         "name": "30-compo",
         "alt": ""
       },
+      "gallery_image_ids": [],
       "attributes": [
         {
           "id": 3,
@@ -4887,6 +4895,7 @@
         "name": "30-compo",
         "alt": ""
       },
+      "gallery_image_ids": [],
       "attributes": [
         {
           "id": 3,
@@ -5431,6 +5440,10 @@
         "name": "42-compo",
         "alt": ""
       },
+      "gallery_image_ids": [
+        16742,
+        16741
+      ],
       "attributes": [
         {
           "id": 3,
@@ -5975,6 +5988,10 @@
         "name": "42-compo",
         "alt": ""
       },
+      "gallery_image_ids": [
+        16742,
+        16741
+      ],
       "attributes": [
         {
           "id": 3,
@@ -6519,6 +6536,10 @@
         "name": "42-compo",
         "alt": ""
       },
+      "gallery_image_ids": [
+        16742,
+        16741
+      ],
       "attributes": [
         {
           "id": 3,
@@ -7063,6 +7084,10 @@
         "name": "42-compo",
         "alt": ""
       },
+      "gallery_image_ids": [
+        16742,
+        16741
+      ],
       "attributes": [
         {
           "id": 3,
@@ -7607,6 +7632,10 @@
         "name": "42-compo",
         "alt": ""
       },
+      "gallery_image_ids": [
+        16742,
+        16741
+      ],
       "attributes": [
         {
           "id": 3,
@@ -8151,6 +8180,10 @@
         "name": "42-compo",
         "alt": ""
       },
+      "gallery_image_ids": [
+        16742,
+        16741
+      ],
       "attributes": [
         {
           "id": 3,
@@ -8695,6 +8728,10 @@
         "name": "42-compo",
         "alt": ""
       },
+      "gallery_image_ids": [
+        16742,
+        16741
+      ],
       "attributes": [
         {
           "id": 3,
@@ -9239,6 +9276,10 @@
         "name": "42-compo",
         "alt": ""
       },
+      "gallery_image_ids": [
+        16742,
+        16741
+      ],
       "attributes": [
         {
           "id": 3,
@@ -9783,6 +9824,10 @@
         "name": "42-compo",
         "alt": ""
       },
+      "gallery_image_ids": [
+        16742,
+        16741
+      ],
       "attributes": [
         {
           "id": 3,
