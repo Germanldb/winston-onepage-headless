@@ -112,13 +112,15 @@ export default function OrderConfirmation() {
             });
         }
 
-        // Meta Pixel — sin cambios
+        // Meta Pixel
         if (typeof (window as any).fbq === 'function') {
+            (window as any).fbq('init', '533909598411848', { em: order.email?.toLowerCase().trim() });
             (window as any).fbq('track', 'Purchase', {
                 content_ids: orderItems.map((item: any) => String(item.id)),
                 content_type: 'product',
                 value: orderTotal,
-                currency: 'COP'
+                currency: 'COP',
+                num_items: orderItems.reduce((acc: number, item: any) => acc + (item.quantity || 1), 0)
             });
         }
 

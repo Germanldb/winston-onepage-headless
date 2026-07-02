@@ -3,7 +3,7 @@
 ---
 
 <!-- Meta Pixel Code -->
-<script type="text/partytown">
+<script is:inline>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -13,13 +13,14 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '533909598411848');
+fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=533909598411848&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
-<!-- Evento de PageView adaptado para Astro ViewTransitions -->
+<!-- PageView para Astro ViewTransitions -->
 <script is:inline>
     document.addEventListener('astro:page-load', () => {
         if (typeof window !== 'undefined' && typeof window.fbq === 'function') {

@@ -200,9 +200,19 @@ export default function CheckoutPage() {
                 }))
             }
         });
+        
+        if (typeof (window as any).fbq === 'function') {
+            (window as any).fbq('track', 'InitiateCheckout', {
+                content_ids: items.map(item => String(item.id)),
+                content_type: 'product',
+                value: subtotal,
+                currency: 'COP',
+                num_items: items.reduce((acc, i) => acc + i.quantity, 0)
+            });
+        }
 
         // 4. Log de éxito
-        console.log("✅ GTM TRACKING EXITOSO: begin_checkout");
+        console.log("✅ GTM TRACKING EXITOSO: begin_checkout & InitiateCheckout");
     }, [items, subtotal]);
 
     const FREE_SHIPPING_THRESHOLD = shippingSettings.free_shipping_threshold;
@@ -252,6 +262,12 @@ export default function CheckoutPage() {
             // Scroll to top or show error alert
             return;
         }
+        
+        // Inicializar Pixel con Advanced Matching si hay email
+        if (form.email && typeof (window as any).fbq === 'function') {
+            (window as any).fbq('init', '533909598411848', { em: form.email.toLowerCase().trim() });
+        }
+        
         setSubmitting(true);
         setServerError('');
 

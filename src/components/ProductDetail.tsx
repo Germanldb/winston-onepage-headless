@@ -646,10 +646,12 @@ export default function ProductDetail({ initialProduct }: Props) {
         currency: 'COP', value: price,
         items: [{ item_id: String(currentProduct.id), item_name: currentProduct.name, price, quantity: 1 }]
       });
+      console.log("[META Debug] typeof window.fbq =", typeof (window as any).fbq);
       if (typeof (window as any).fbq === 'function') {
         (window as any).fbq('track', 'AddToCart', {
           content_ids: [String(currentProduct.id)], content_type: 'product', value: price, currency: 'COP'
         });
+        console.log("✅ META TRACKING EXITOSO: AddToCart", price);
       }
     }
 
