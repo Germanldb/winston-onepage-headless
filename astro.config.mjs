@@ -119,7 +119,7 @@ export default defineConfig({
     }),
     partytown({
       config: {
-        forward: ['fbq'] // Solo Meta Pixel corre en Partytown, GTM está en el hilo principal
+        forward: [] // Meta Pixel corre en hilo principal (is:inline), no necesita forwarding
       }
     })
   ],
