@@ -262,12 +262,6 @@ export default function CheckoutPage() {
             // Scroll to top or show error alert
             return;
         }
-        
-        // Inicializar Pixel con Advanced Matching si hay email
-        if (form.email && typeof (window as any).fbq === 'function') {
-            (window as any).fbq('init', '533909598411848', { em: form.email.toLowerCase().trim() });
-        }
-        
         setSubmitting(true);
         setServerError('');
 

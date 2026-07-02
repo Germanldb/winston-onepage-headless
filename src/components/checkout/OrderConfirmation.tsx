@@ -114,7 +114,6 @@ export default function OrderConfirmation() {
 
         // Meta Pixel
         if (typeof (window as any).fbq === 'function') {
-            (window as any).fbq('init', '533909598411848', { em: order.email?.toLowerCase().trim() });
             (window as any).fbq('track', 'Purchase', {
                 content_ids: orderItems.map((item: any) => String(item.id)),
                 content_type: 'product',
