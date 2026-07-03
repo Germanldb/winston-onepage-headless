@@ -8315,8 +8315,8 @@
       "type": "variation",
       "date_created": "2025-09-02T23:15:41",
       "date_created_gmt": "2025-09-02T23:15:41",
-      "date_modified": "2026-06-02T17:41:18",
-      "date_modified_gmt": "2026-06-02T17:41:18",
+      "date_modified": "2026-07-03T17:22:51",
+      "date_modified_gmt": "2026-07-03T17:22:51",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-san-francisco/?attribute_pa_selecciona-el-color=beige&attribute_pa_selecciona-una-talla=l",
       "sku": "19200006036",
@@ -8339,7 +8339,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -9133,7 +9133,7 @@
         {
           "id": 2254939,
           "key": "_last_change_time",
-          "value": "1780422078"
+          "value": "1783099371"
         },
         {
           "id": 2311177,

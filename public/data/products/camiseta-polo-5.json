@@ -368,8 +368,8 @@
       "type": "variation",
       "date_created": "2023-06-22T21:54:01",
       "date_created_gmt": "2023-06-22T21:54:01",
-      "date_modified": "2026-05-07T23:00:11",
-      "date_modified_gmt": "2026-05-07T23:00:11",
+      "date_modified": "2026-07-03T17:21:38",
+      "date_modified_gmt": "2026-07-03T17:21:38",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-5/?attribute_pa_selecciona-el-color=rojo&attribute_pa_selecciona-una-talla=xl",
       "sku": "5056113038",
@@ -392,7 +392,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -876,7 +876,7 @@
         {
           "id": 2250226,
           "key": "_last_change_time",
-          "value": "1778177732"
+          "value": "1783099298"
         },
         {
           "id": 2312841,

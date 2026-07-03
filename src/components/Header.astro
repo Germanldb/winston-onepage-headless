@@ -93,6 +93,23 @@ function flattenCategoryUrl(url: string) {
                     <line x1="3" y1="18" x2="21" y2="18"></line>
                 </svg>
             </button>
+        </div>
+
+        <!-- Parte Central: Logo -->
+        <a href="/" class="logo">
+            <picture>
+                <img 
+                src={`${PUBLIC_WP_URL}/wp-content/uploads/2020/12/logo-w-h-vertical.png`}
+                alt="Winston & Harry Logo"
+                loading="eager"
+                fetchpriority="high"
+                decoding="sync"
+                />
+            </picture>
+        </a>
+
+        <!-- Parte Derecha: Acciones -->
+        <div class="header-right">
             <button
                 class="action-btn search-btn header-search-desktop"
                 id="search-btn-left"
@@ -113,23 +130,6 @@ function flattenCategoryUrl(url: string) {
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
             </button>
-        </div>
-
-        <!-- Parte Central: Logo -->
-        <a href="/" class="logo">
-            <picture>
-                <img 
-                src={`${PUBLIC_WP_URL}/wp-content/uploads/2020/12/logo-w-h-vertical.png`}
-                alt="Winston & Harry Logo"
-                loading="eager"
-                fetchpriority="high"
-                decoding="sync"
-                />
-            </picture>
-        </a>
-
-        <!-- Parte Derecha: Acciones -->
-        <div class="header-right">
             <button
                 class="action-btn cart-btn-new header-cart-mobile"
                 id="cart-btn-desktop"
@@ -191,17 +191,7 @@ function flattenCategoryUrl(url: string) {
 
 <div class="mobile-nav" id="mobile-nav">
     <ul class="mobile-links">
-        <li class="menu-item">
-            <div class="menu-link-wrapper">
-                <a
-                    href="/regalos-dia-del-padre"
-                    class="mobile-link campaign-menu-link"
-                >
-                    REGALOS DÍA DEL PADRE
-                </a>
-            </div>
-        </li>
-        <hr class="menu-separator" />
+
         {
             menuTree && menuTree.length > 0 ? (
                 (() => {

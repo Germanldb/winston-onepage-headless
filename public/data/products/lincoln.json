@@ -12478,8 +12478,8 @@
       "type": "variation",
       "date_created": "2025-02-21T03:51:20",
       "date_created_gmt": "2025-02-21T03:51:20",
-      "date_modified": "2026-05-07T23:05:27",
-      "date_modified_gmt": "2026-05-07T23:05:27",
+      "date_modified": "2026-07-03T17:22:07",
+      "date_modified_gmt": "2026-07-03T17:22:07",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/lincoln/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=37",
       "sku": "7240143037",
@@ -12502,7 +12502,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -13131,7 +13131,7 @@
         {
           "id": 2260947,
           "key": "_last_change_time",
-          "value": "1778184206"
+          "value": "1783099327"
         },
         {
           "id": 2311959,

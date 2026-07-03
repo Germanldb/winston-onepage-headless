@@ -9698,8 +9698,8 @@
       "type": "variation",
       "date_created": "2024-07-12T21:46:42",
       "date_created_gmt": "2024-07-12T21:46:42",
-      "date_modified": "2026-05-07T22:57:32",
-      "date_modified_gmt": "2026-05-07T22:57:32",
+      "date_modified": "2026-07-03T17:22:06",
+      "date_modified_gmt": "2026-07-03T17:22:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/balmoral/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=40",
       "sku": "7015702040",
@@ -9722,7 +9722,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -10276,7 +10276,7 @@
         {
           "id": 2259597,
           "key": "_last_change_time",
-          "value": "1778175357"
+          "value": "1783099326"
         },
         {
           "id": 2312228,
@@ -14658,8 +14658,8 @@
       "type": "variation",
       "date_created": "2024-07-12T21:46:42",
       "date_created_gmt": "2024-07-12T21:46:42",
-      "date_modified": "2026-05-07T22:57:32",
-      "date_modified_gmt": "2026-05-07T22:57:32",
+      "date_modified": "2026-07-03T17:22:06",
+      "date_modified_gmt": "2026-07-03T17:22:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/balmoral/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=41",
       "sku": "7015704041",
@@ -14682,7 +14682,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 10,
+      "stock_quantity": 8,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -15236,7 +15236,7 @@
         {
           "id": 2259606,
           "key": "_last_change_time",
-          "value": "1778175356"
+          "value": "1783099326"
         },
         {
           "id": 2312233,

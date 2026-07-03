@@ -2493,8 +2493,8 @@
       "type": "variation",
       "date_created": "2024-12-02T17:31:54",
       "date_created_gmt": "2024-12-02T17:31:54",
-      "date_modified": "2026-06-02T17:39:39",
-      "date_modified_gmt": "2026-06-02T17:39:39",
+      "date_modified": "2026-07-03T17:22:07",
+      "date_modified_gmt": "2026-07-03T17:22:07",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cuero-reata-2144/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=32&attribute_pa_hebilla=acero-inoxidable&attribute_pa_material=100-cuero",
       "sku": "27214401032",
@@ -2517,7 +2517,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 28,
+      "stock_quantity": 27,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3138,7 +3138,7 @@
         {
           "id": 2254848,
           "key": "_last_change_time",
-          "value": "1780421979"
+          "value": "1783099327"
         },
         {
           "id": 2312113,

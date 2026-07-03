@@ -22239,8 +22239,8 @@
       "type": "variation",
       "date_created": "2023-01-11T20:52:02",
       "date_created_gmt": "2023-01-11T20:52:02",
-      "date_modified": "2026-06-02T17:37:12",
-      "date_modified_gmt": "2026-06-02T17:37:12",
+      "date_modified": "2026-07-03T17:21:36",
+      "date_modified_gmt": "2026-07-03T17:21:36",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/surrey-ii/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=41",
       "sku": "7220432041",
@@ -22263,7 +22263,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -22827,7 +22827,7 @@
         {
           "id": 2211161,
           "key": "_last_change_time",
-          "value": "1780421832"
+          "value": "1783099296"
         },
         {
           "id": 2313397,
@@ -27954,8 +27954,8 @@
       "type": "variation",
       "date_created": "2023-01-11T20:51:42",
       "date_created_gmt": "2023-01-11T20:51:42",
-      "date_modified": "2026-06-02T17:37:12",
-      "date_modified_gmt": "2026-06-02T17:37:12",
+      "date_modified": "2026-07-03T17:21:35",
+      "date_modified_gmt": "2026-07-03T17:21:35",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/surrey-ii/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=41",
       "sku": "7220404041",
@@ -27978,7 +27978,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 8,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -28552,7 +28552,7 @@
         {
           "id": 2211171,
           "key": "_last_change_time",
-          "value": "1780421832"
+          "value": "1783099296"
         },
         {
           "id": 2313406,

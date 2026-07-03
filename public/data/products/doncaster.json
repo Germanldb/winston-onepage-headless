@@ -439,35 +439,6 @@
       "sale_price": ""
     },
     {
-      "id": 60205,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "blanco",
-          "option": "blanco"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "39",
-          "option": "39"
-        }
-      ],
-      "image": {
-        "id": 60531,
-        "date_created": "2025-02-25T04:37:16",
-        "date_created_gmt": "2025-02-25T04:37:16",
-        "date_modified": "2025-02-26T03:52:07",
-        "date_modified_gmt": "2025-02-26T03:52:07",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/02/Doncaster-Blanco-Winstonandharry-1-e1752699838364.jpg",
-        "name": "Doncaster-Blanco-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
-      "sale_price": ""
-    },
-    {
       "id": 60210,
       "attributes": [
         {
@@ -11088,8 +11059,8 @@
       "type": "variation",
       "date_created": "2025-02-21T02:59:46",
       "date_created_gmt": "2025-02-21T02:59:46",
-      "date_modified": "2026-05-07T23:02:58",
-      "date_modified_gmt": "2026-05-07T23:02:58",
+      "date_modified": "2026-07-03T17:22:07",
+      "date_modified_gmt": "2026-07-03T17:22:07",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/doncaster/?attribute_pa_selecciona-el-color=blanco&attribute_pa_selecciona-una-talla=39",
       "sku": "7222515039",
@@ -11112,8 +11083,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -11741,7 +11712,7 @@
         {
           "id": 2260832,
           "key": "_last_change_time",
-          "value": "1778178047"
+          "value": "1783099327"
         },
         {
           "id": 2311971,

@@ -4974,8 +4974,8 @@
       "type": "variation",
       "date_created": "2026-05-08T00:56:21",
       "date_created_gmt": "2026-05-08T00:56:21",
-      "date_modified": "2026-06-02T17:42:16",
-      "date_modified_gmt": "2026-06-02T17:42:16",
+      "date_modified": "2026-07-03T17:23:17",
+      "date_modified_gmt": "2026-07-03T17:23:17",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-amsterdam/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=l",
       "sku": "19200205036",
@@ -4998,7 +4998,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5045,7 +5045,7 @@
         {
           "id": 2335346,
           "key": "_last_change_time",
-          "value": "1780422136"
+          "value": "1783099397"
         },
         {
           "id": 2335347,
@@ -9286,8 +9286,8 @@
       "type": "variation",
       "date_created": "2026-05-08T00:56:21",
       "date_created_gmt": "2026-05-08T00:56:21",
-      "date_modified": "2026-06-02T17:42:16",
-      "date_modified_gmt": "2026-06-02T17:42:16",
+      "date_modified": "2026-07-03T17:23:17",
+      "date_modified_gmt": "2026-07-03T17:23:17",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-amsterdam/?attribute_pa_selecciona-el-color=rojo&attribute_pa_selecciona-una-talla=m",
       "sku": "19200213034",
@@ -9310,7 +9310,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 8,
+      "stock_quantity": 7,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -9357,7 +9357,7 @@
         {
           "id": 2335293,
           "key": "_last_change_time",
-          "value": "1780422136"
+          "value": "1783099397"
         },
         {
           "id": 2335294,
@@ -11442,8 +11442,8 @@
       "type": "variation",
       "date_created": "2026-05-08T00:56:21",
       "date_created_gmt": "2026-05-08T00:56:21",
-      "date_modified": "2026-06-02T17:42:16",
-      "date_modified_gmt": "2026-06-02T17:42:16",
+      "date_modified": "2026-07-03T17:23:17",
+      "date_modified_gmt": "2026-07-03T17:23:17",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-amsterdam/?attribute_pa_selecciona-el-color=azul-oscuro&attribute_pa_selecciona-una-talla=xxl",
       "sku": "19200237040",
@@ -11466,7 +11466,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -11513,7 +11513,7 @@
         {
           "id": 2335267,
           "key": "_last_change_time",
-          "value": "1780422136"
+          "value": "1783099397"
         },
         {
           "id": 2335268,
@@ -12520,8 +12520,8 @@
       "type": "variation",
       "date_created": "2026-05-08T00:56:21",
       "date_created_gmt": "2026-05-08T00:56:21",
-      "date_modified": "2026-06-02T17:42:16",
-      "date_modified_gmt": "2026-06-02T17:42:16",
+      "date_modified": "2026-07-03T17:23:17",
+      "date_modified_gmt": "2026-07-03T17:23:17",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-amsterdam/?attribute_pa_selecciona-el-color=azul-oscuro&attribute_pa_selecciona-una-talla=xl",
       "sku": "19200237038",
@@ -12544,7 +12544,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12591,7 +12591,7 @@
         {
           "id": 2335253,
           "key": "_last_change_time",
-          "value": "1780422136"
+          "value": "1783099397"
         },
         {
           "id": 2335254,

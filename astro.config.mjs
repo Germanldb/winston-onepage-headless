@@ -60,7 +60,7 @@ const productPages = await getDynamicProductPages();
 
 const categoryPages = []; // Ya no se mapean estáticamente
 
-const allSitemapPages = [...productPages, 'https://www.winstonandharrystore.com/sale', 'https://www.winstonandharrystore.com/regalos-dia-del-padre'];
+const allSitemapPages = [...productPages, 'https://www.winstonandharrystore.com/sale'];
 
 // Set para evitar duplicados en el sitemap durante el proceso de generación
 const seenUrls = new Set();
@@ -134,6 +134,48 @@ export default defineConfig({
     '/categoria/limpieza': '/categoria/limpieza-cuidado-zapatos',
     '/productos/limpiador-en-seco': '/categoria/accesorios-hombre',
     '/productos/sueter-tejido-escalera-negro': '/categoria/sueteres-chalecos-hombre',
+    '/regalos-dia-del-padre': '/',
+    
+    // Redirects Categorías Legacy (eliminadas)
+    '/categoria/menos-de-200000': '/sale',
+    '/categoria/menos-de-350000': '/sale',
+    '/categoria/menos-de-499000': '/sale',
+    '/categoria/mas-de-500000': '/sale',
+    '/categoria/outlet-zapatos-ropa': '/sale',
+    '/categoria/sin-categorizar': '/',
+    '/categoria/ideas-regalo-hombre': '/',
+    '/categoria/bono-regalo-hombre': '/',
+    '/categoria/zapatos-maletas-cuero-hombre': '/categoria/zapatos-cuero-hombre',
+    '/categoria/chaquetas-cuero-hombre': '/categoria/ropa-hombre-colombia',
+    '/categoria/cinturones-cuero-hombre': '/categoria/cinturones',
+    
+    // Redirects Productos 404 Muertos a sus categorías superiores
+    '/productos/collar-perro-trenzado': '/categoria/collares-cuero-perro',
+    '/productos/collar-perro-cuero': '/categoria/collares-cuero-perro',
+    '/productos/reata-670': '/categoria/cinturones',
+    '/productos/reata-7586-04': '/categoria/cinturones',
+    '/productos/portabilletes-rfid': '/categoria/billeteras-cuero-hombre',
+    '/productos/wallet': '/categoria/billeteras-cuero-hombre',
+    '/productos/clip-card-holder': '/categoria/billeteras-cuero-hombre',
+    '/productos/crema-humectante': '/categoria/limpieza-cuidado-zapatos',
+    '/productos/bono-de-regalo': '/',
+    '/productos/bono-de-regalo-2': '/',
+    '/productos/producto': '/',
+    '/productos/kit-animales': '/categoria/collares-cuero-perro',
+    '/productos/kit-animales-2': '/categoria/collares-cuero-perro',
+    '/productos/huntingdon': '/categoria/zapatos-cuero-hombre',
+    '/productos/dorset': '/categoria/zapatos-cuero-hombre',
+    '/productos/maicao': '/categoria/zapatos-cuero-hombre',
+    '/productos/cumbria-ii': '/categoria/zapatos-cuero-hombre',
+    '/productos/manchester': '/categoria/zapatos-cuero-hombre',
+    '/productos/wiltshire': '/categoria/zapatos-cuero-hombre',
+    '/productos/rutland': '/categoria/zapatos-cuero-hombre',
+    '/productos/amberley': '/categoria/zapatos-cuero-hombre',
+    '/productos/morral-viscount': '/categoria/maletas-morrales-cuero',
+    '/productos/berkshire': '/categoria/zapatos-cuero-hombre',
+    '/productos/ramsey': '/categoria/zapatos-cuero-hombre',
+    '/productos/exester': '/categoria/zapatos-cuero-hombre',
+    '/productos/cesar': '/categoria/zapatos-cuero-hombre',
   },
   output: 'static',
   adapter: vercel({

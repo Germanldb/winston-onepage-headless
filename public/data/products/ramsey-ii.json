@@ -511,35 +511,6 @@
       "sale_price": ""
     },
     {
-      "id": 66681,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "cognac",
-          "option": "cognac"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "37",
-          "option": "37"
-        }
-      ],
-      "image": {
-        "id": 67056,
-        "date_created": "2025-08-20T01:35:50",
-        "date_created_gmt": "2025-08-20T01:35:50",
-        "date_modified": "2025-08-25T04:35:50",
-        "date_modified_gmt": "2025-08-25T04:35:50",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Ramsey-II-Cognac-Winstonandharry-1-e1755656939892.jpg",
-        "name": "Ramsey II-Cognac-Winstonandharry-1",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "544500",
-      "regular_price": "544500",
-      "sale_price": ""
-    },
-    {
       "id": 66682,
       "attributes": [
         {
@@ -15716,8 +15687,8 @@
       "type": "variation",
       "date_created": "2025-07-30T17:25:45",
       "date_created_gmt": "2025-07-30T17:25:45",
-      "date_modified": "2026-05-07T23:08:17",
-      "date_modified_gmt": "2026-05-07T23:08:17",
+      "date_modified": "2026-07-03T17:22:30",
+      "date_modified_gmt": "2026-07-03T17:22:30",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ramsey-ii/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=37",
       "sku": "7000732037",
@@ -15740,8 +15711,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -16539,7 +16510,7 @@
         {
           "id": 2259323,
           "key": "_last_change_time",
-          "value": "1778184516"
+          "value": "1783099350"
         },
         {
           "id": 2311407,

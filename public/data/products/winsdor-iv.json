@@ -21614,8 +21614,8 @@
       "type": "variation",
       "date_created": "2025-02-19T21:37:52",
       "date_created_gmt": "2025-02-19T21:37:52",
-      "date_modified": "2026-06-16T17:43:25",
-      "date_modified_gmt": "2026-06-16T17:43:25",
+      "date_modified": "2026-07-03T17:22:07",
+      "date_modified_gmt": "2026-07-03T17:22:07",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iv/?attribute_pa_selecciona-el-color=arena&attribute_pa_selecciona-una-talla=42",
       "sku": "7141008042",
@@ -21638,7 +21638,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -22257,7 +22257,7 @@
         {
           "id": 2212013,
           "key": "_last_change_time",
-          "value": "1781631430"
+          "value": "1783099327"
         },
         {
           "id": 2212038,

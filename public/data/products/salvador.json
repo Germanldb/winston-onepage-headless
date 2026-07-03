@@ -4503,8 +4503,8 @@
       "type": "variation",
       "date_created": "2025-10-29T22:06:56",
       "date_created_gmt": "2025-10-29T22:06:56",
-      "date_modified": "2026-05-07T23:09:51",
-      "date_modified_gmt": "2026-05-07T23:09:51",
+      "date_modified": "2026-07-03T17:22:51",
+      "date_modified_gmt": "2026-07-03T17:22:51",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/salvador/?attribute_pa_selecciona-el-color=tabaco&attribute_pa_selecciona-una-talla=41",
       "sku": "7003110041",
@@ -4527,7 +4527,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5321,7 +5321,7 @@
         {
           "id": 2259424,
           "key": "_last_change_time",
-          "value": "1778190030"
+          "value": "1783099372"
         },
         {
           "id": 2311069,

@@ -5214,8 +5214,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:45:44",
       "date_created_gmt": "2022-08-25T22:45:44",
-      "date_modified": "2026-05-07T23:10:04",
-      "date_modified_gmt": "2026-05-07T23:10:04",
+      "date_modified": "2026-07-03T17:21:33",
+      "date_modified_gmt": "2026-07-03T17:21:33",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sheffield/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=38",
       "sku": "7021602038",
@@ -5238,7 +5238,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5805,7 +5805,7 @@
         {
           "id": 2254706,
           "key": "_last_change_time",
-          "value": "1778190041"
+          "value": "1783099293"
         },
         {
           "id": 2314241,
@@ -6480,8 +6480,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:45:44",
       "date_created_gmt": "2022-08-25T22:45:44",
-      "date_modified": "2026-05-07T23:10:04",
-      "date_modified_gmt": "2026-05-07T23:10:04",
+      "date_modified": "2026-07-03T17:21:32",
+      "date_modified_gmt": "2026-07-03T17:21:32",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sheffield/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=45",
       "sku": "7021626045",
@@ -6504,7 +6504,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -7071,7 +7071,7 @@
         {
           "id": 2259760,
           "key": "_last_change_time",
-          "value": "1778190041"
+          "value": "1783099292"
         },
         {
           "id": 2314239,

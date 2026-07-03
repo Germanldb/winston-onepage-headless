@@ -2753,8 +2753,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:29:26",
       "date_created_gmt": "2022-08-25T22:29:26",
-      "date_modified": "2026-05-07T23:00:48",
-      "date_modified_gmt": "2026-05-07T23:00:48",
+      "date_modified": "2026-07-03T17:20:57",
+      "date_modified_gmt": "2026-07-03T17:20:57",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=42",
       "sku": "7005002042",
@@ -2777,7 +2777,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3404,7 +3404,7 @@
         {
           "id": 2233263,
           "key": "_last_change_time",
-          "value": "1778177770"
+          "value": "1783099257"
         },
         {
           "id": 2314955,
@@ -5525,8 +5525,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:29:25",
       "date_created_gmt": "2022-08-25T22:29:25",
-      "date_modified": "2026-05-07T23:00:48",
-      "date_modified_gmt": "2026-05-07T23:00:48",
+      "date_modified": "2026-07-03T17:20:56",
+      "date_modified_gmt": "2026-07-03T17:20:56",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cardiff/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=38",
       "sku": "7005002038",
@@ -5549,7 +5549,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -6176,7 +6176,7 @@
         {
           "id": 2259472,
           "key": "_last_change_time",
-          "value": "1778177769"
+          "value": "1783099257"
         },
         {
           "id": 2314965,

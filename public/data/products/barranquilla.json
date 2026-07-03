@@ -330,35 +330,6 @@
       "sale_price": ""
     },
     {
-      "id": 29397,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "cafe",
-          "option": "cafe"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "39",
-          "option": "39"
-        }
-      ],
-      "image": {
-        "id": 47266,
-        "date_created": "2024-02-21T15:47:05",
-        "date_created_gmt": "2024-02-21T15:47:05",
-        "date_modified": "2024-06-12T16:13:11",
-        "date_modified_gmt": "2024-06-12T16:13:11",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/Barranquilla-zapato-hebilla-cafe-winstonandharry.jpg",
-        "name": "Barranquilla-zapato-hebilla-cafe-winstonandharry",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "492800",
-      "regular_price": "704000",
-      "sale_price": ""
-    },
-    {
       "id": 29402,
       "attributes": [
         {
@@ -1072,8 +1043,8 @@
       "type": "variation",
       "date_created": "2023-06-08T17:52:39",
       "date_created_gmt": "2023-06-08T17:52:39",
-      "date_modified": "2026-06-02T17:37:25",
-      "date_modified_gmt": "2026-06-02T17:37:25",
+      "date_modified": "2026-07-03T17:21:37",
+      "date_modified_gmt": "2026-07-03T17:21:37",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/barranquilla/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=44",
       "sku": "7308304044",
@@ -1096,7 +1067,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1660,7 +1631,7 @@
         {
           "id": 2215650,
           "key": "_last_change_time",
-          "value": "1780421845"
+          "value": "1783099297"
         },
         {
           "id": 2313168,
@@ -4197,8 +4168,8 @@
       "type": "variation",
       "date_created": "2023-06-08T17:52:39",
       "date_created_gmt": "2023-06-08T17:52:39",
-      "date_modified": "2026-05-08T21:40:35",
-      "date_modified_gmt": "2026-05-08T21:40:35",
+      "date_modified": "2026-07-03T17:21:36",
+      "date_modified_gmt": "2026-07-03T17:21:36",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/barranquilla/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=39",
       "sku": "7308304039",
@@ -4221,8 +4192,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -4785,7 +4756,7 @@
         {
           "id": 2215639,
           "key": "_last_change_time",
-          "value": "1778275710"
+          "value": "1783099297"
         },
         {
           "id": 2313163,
@@ -10462,8 +10433,8 @@
       "type": "variation",
       "date_created": "2023-06-08T17:52:38",
       "date_created_gmt": "2023-06-08T17:52:38",
-      "date_modified": "2026-06-02T17:37:25",
-      "date_modified_gmt": "2026-06-02T17:37:25",
+      "date_modified": "2026-07-03T17:21:36",
+      "date_modified_gmt": "2026-07-03T17:21:36",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/barranquilla/?attribute_pa_selecciona-el-color=tabaco&attribute_pa_selecciona-una-talla=38",
       "sku": "7308310038",
@@ -10486,7 +10457,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -11050,7 +11021,7 @@
         {
           "id": 2215615,
           "key": "_last_change_time",
-          "value": "1780421845"
+          "value": "1783099296"
         },
         {
           "id": 2313174,

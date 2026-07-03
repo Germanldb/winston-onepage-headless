@@ -8494,8 +8494,8 @@
       "type": "variation",
       "date_created": "2025-09-04T19:34:28",
       "date_created_gmt": "2025-09-04T19:34:28",
-      "date_modified": "2026-05-07T23:00:23",
-      "date_modified_gmt": "2026-05-07T23:00:23",
+      "date_modified": "2026-07-03T17:22:51",
+      "date_modified_gmt": "2026-07-03T17:22:51",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-madrid/?attribute_pa_selecciona-el-color=beige&attribute_pa_selecciona-una-talla=l",
       "sku": "5056606036",
@@ -8518,7 +8518,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 10,
+      "stock_quantity": 9,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -9312,7 +9312,7 @@
         {
           "id": 2219102,
           "key": "_last_change_time",
-          "value": "1778177744"
+          "value": "1783099371"
         },
         {
           "id": 2311162,
@@ -13654,8 +13654,8 @@
       "type": "variation",
       "date_created": "2025-09-04T19:34:28",
       "date_created_gmt": "2025-09-04T19:34:28",
-      "date_modified": "2026-06-16T17:44:24",
-      "date_modified_gmt": "2026-06-16T17:44:24",
+      "date_modified": "2026-07-03T17:22:51",
+      "date_modified_gmt": "2026-07-03T17:22:51",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camiseta-polo-madrid/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=l",
       "sku": "5056601036",
@@ -13678,7 +13678,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 14,
+      "stock_quantity": 15,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -14472,7 +14472,7 @@
         {
           "id": 2219101,
           "key": "_last_change_time",
-          "value": "1781631493"
+          "value": "1783099371"
         },
         {
           "id": 2311167,

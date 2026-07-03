@@ -8461,8 +8461,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:34:44",
       "date_created_gmt": "2022-08-25T22:34:44",
-      "date_modified": "2026-06-02T17:35:34",
-      "date_modified_gmt": "2026-06-02T17:35:34",
+      "date_modified": "2026-07-03T17:20:57",
+      "date_modified_gmt": "2026-07-03T17:20:57",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/kent/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=41",
       "sku": "7112902041",
@@ -8485,7 +8485,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -9042,7 +9042,7 @@
         {
           "id": 2218896,
           "key": "_last_change_time",
-          "value": "1780421734"
+          "value": "1783099257"
         },
         {
           "id": 2314762,

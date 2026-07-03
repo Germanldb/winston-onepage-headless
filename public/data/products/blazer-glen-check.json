@@ -1653,8 +1653,8 @@
       "type": "variation",
       "date_created": "2026-05-08T00:17:52",
       "date_created_gmt": "2026-05-08T00:17:52",
-      "date_modified": "2026-06-02T17:42:03",
-      "date_modified_gmt": "2026-06-02T17:42:03",
+      "date_modified": "2026-07-03T17:23:17",
+      "date_modified_gmt": "2026-07-03T17:23:17",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/blazer-glen-check/?attribute_pa_selecciona-el-color=tabaco&attribute_pa_selecciona-una-talla=42",
       "sku": "2025110042",
@@ -1677,7 +1677,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -1724,7 +1724,7 @@
         {
           "id": 2328223,
           "key": "_last_change_time",
-          "value": "1780422123"
+          "value": "1783099397"
         },
         {
           "id": 2328224,
@@ -5965,8 +5965,8 @@
       "type": "variation",
       "date_created": "2026-05-08T00:17:52",
       "date_created_gmt": "2026-05-08T00:17:52",
-      "date_modified": "2026-06-16T17:44:55",
-      "date_modified_gmt": "2026-06-16T17:44:55",
+      "date_modified": "2026-07-03T17:23:17",
+      "date_modified_gmt": "2026-07-03T17:23:17",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/blazer-glen-check/?attribute_pa_selecciona-el-color=tabaco&attribute_pa_selecciona-una-talla=38",
       "sku": "2025110038",
@@ -5989,7 +5989,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -6036,7 +6036,7 @@
         {
           "id": 2328170,
           "key": "_last_change_time",
-          "value": "1781631895"
+          "value": "1783099397"
         },
         {
           "id": 2328171,

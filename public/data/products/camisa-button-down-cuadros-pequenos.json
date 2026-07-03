@@ -225,35 +225,6 @@
       "sale_price": ""
     },
     {
-      "id": 83100,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "morado",
-          "option": "morado"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "l",
-          "option": "l"
-        }
-      ],
-      "image": {
-        "id": 81788,
-        "date_created": "2025-10-28T19:33:11",
-        "date_created_gmt": "2025-10-28T19:33:11",
-        "date_modified": "2025-11-04T17:24:12",
-        "date_modified_gmt": "2025-11-04T17:24:12",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/1504-Btt-Down-Cuadros-Peq-Rosado-Winstonandharry-3.jpg",
-        "name": "1504-Btt Down-Cuadros Peq-Rosado-Winstonandharry-3",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "310000",
-      "regular_price": "310000",
-      "sale_price": ""
-    },
-    {
       "id": 83101,
       "attributes": [
         {
@@ -4996,8 +4967,8 @@
       "type": "variation",
       "date_created": "2025-10-31T04:47:15",
       "date_created_gmt": "2025-10-31T04:47:15",
-      "date_modified": "2026-06-16T17:44:43",
-      "date_modified_gmt": "2026-06-16T17:44:43",
+      "date_modified": "2026-07-03T17:23:17",
+      "date_modified_gmt": "2026-07-03T17:23:17",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-button-down-cuadros-pequenos/?attribute_pa_selecciona-el-color=verde&attribute_pa_selecciona-una-talla=s",
       "sku": "5150405032",
@@ -5020,7 +4991,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5814,7 +5785,7 @@
         {
           "id": 2259140,
           "key": "_last_change_time",
-          "value": "1781631516"
+          "value": "1783099397"
         },
         {
           "id": 2310886,
@@ -8436,8 +8407,8 @@
       "type": "variation",
       "date_created": "2025-10-31T04:47:15",
       "date_created_gmt": "2025-10-31T04:47:15",
-      "date_modified": "2026-06-16T17:44:43",
-      "date_modified_gmt": "2026-06-16T17:44:43",
+      "date_modified": "2026-07-03T17:23:17",
+      "date_modified_gmt": "2026-07-03T17:23:17",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-button-down-cuadros-pequenos/?attribute_pa_selecciona-el-color=morado&attribute_pa_selecciona-una-talla=l",
       "sku": "5150422036",
@@ -8460,8 +8431,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -9254,7 +9225,7 @@
         {
           "id": 2257437,
           "key": "_last_change_time",
-          "value": "1781631516"
+          "value": "1783099397"
         },
         {
           "id": 2310888,

@@ -7,14 +7,12 @@ Disallow: /checkout
 Disallow: /mi-cuenta
 Disallow: /api/
 
-# Bloquear basura heredada de WordPress
-Disallow: /product/
-Disallow: /product-category/
-Disallow: /product-tag/
-
 # Bloquear TODAS las URLs parametrizadas (filtros, orden, precios)
 Disallow: /*?*
 Disallow: /*&*
+
+# Bloquear archivos de analiticas
+Disallow: /~partytown/
 
 # Declarar el Sitemap limpio
 Sitemap: https://www.winstonandharrystore.com/sitemap-index.xml

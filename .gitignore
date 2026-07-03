@@ -49,3 +49,4 @@ debug-auth.js
 
 # Scratch directory for temporary scripts
 scratch/
+.env*

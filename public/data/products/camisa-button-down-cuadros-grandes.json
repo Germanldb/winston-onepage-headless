@@ -4967,8 +4967,8 @@
       "type": "variation",
       "date_created": "2025-10-31T04:51:45",
       "date_created_gmt": "2025-10-31T04:51:45",
-      "date_modified": "2026-05-07T22:59:38",
-      "date_modified_gmt": "2026-05-07T22:59:38",
+      "date_modified": "2026-07-03T17:23:17",
+      "date_modified_gmt": "2026-07-03T17:23:17",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/camisa-button-down-cuadros-grandes/?attribute_pa_selecciona-el-color=rosado&attribute_pa_selecciona-una-talla=s",
       "sku": "5150516032",
@@ -4991,7 +4991,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5785,7 +5785,7 @@
         {
           "id": 2259157,
           "key": "_last_change_time",
-          "value": "1778177615"
+          "value": "1783099397"
         },
         {
           "id": 2310879,

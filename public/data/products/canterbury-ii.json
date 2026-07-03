@@ -458,35 +458,6 @@
       "sale_price": ""
     },
     {
-      "id": 61327,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "negro",
-          "option": "negro"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "41",
-          "option": "41"
-        }
-      ],
-      "image": {
-        "id": 30721,
-        "date_created": "2023-07-17T22:15:23",
-        "date_created_gmt": "2023-07-17T22:15:23",
-        "date_modified": "2023-07-17T22:15:23",
-        "date_modified_gmt": "2023-07-17T22:15:23",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2023/07/30082023-_MG_5511.jpg",
-        "name": "30082023-_MG_5511",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "649000",
-      "regular_price": "649000",
-      "sale_price": ""
-    },
-    {
       "id": 30738,
       "attributes": [
         {
@@ -1450,8 +1421,8 @@
       "type": "variation",
       "date_created": "2025-03-03T07:29:05",
       "date_created_gmt": "2025-03-03T07:29:05",
-      "date_modified": "2026-05-07T23:00:43",
-      "date_modified_gmt": "2026-05-07T23:00:43",
+      "date_modified": "2026-07-03T17:22:30",
+      "date_modified_gmt": "2026-07-03T17:22:30",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/canterbury-ii/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=41",
       "sku": "7308102041",
@@ -1474,8 +1445,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -1578,7 +1549,7 @@
         {
           "id": 2321024,
           "key": "_last_change_time",
-          "value": "1778177762"
+          "value": "1783099350"
         }
       ],
       "name": "Negro, 41",

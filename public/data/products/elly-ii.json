@@ -4703,8 +4703,8 @@
       "type": "variation",
       "date_created": "2025-02-27T03:43:56",
       "date_created_gmt": "2025-02-27T03:43:56",
-      "date_modified": "2026-06-02T17:40:05",
-      "date_modified_gmt": "2026-06-02T17:40:05",
+      "date_modified": "2026-07-03T17:22:30",
+      "date_modified_gmt": "2026-07-03T17:22:30",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/elly-ii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=40",
       "sku": "7408426040",
@@ -4727,7 +4727,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5356,7 +5356,7 @@
         {
           "id": 2233359,
           "key": "_last_change_time",
-          "value": "1780422005"
+          "value": "1783099350"
         },
         {
           "id": 2311817,
@@ -17148,8 +17148,8 @@
       "type": "variation",
       "date_created": "2023-06-09T21:03:17",
       "date_created_gmt": "2023-06-09T21:03:17",
-      "date_modified": "2026-05-07T23:04:00",
-      "date_modified_gmt": "2026-05-07T23:04:00",
+      "date_modified": "2026-07-03T17:21:37",
+      "date_modified_gmt": "2026-07-03T17:21:37",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/elly-ii/?attribute_pa_selecciona-el-color=gris&attribute_pa_selecciona-una-talla=40",
       "sku": "7408403040",
@@ -17172,7 +17172,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -17801,7 +17801,7 @@
         {
           "id": 2261491,
           "key": "_last_change_time",
-          "value": "1778178275"
+          "value": "1783099297"
         },
         {
           "id": 2313064,

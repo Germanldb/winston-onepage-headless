@@ -11,9 +11,9 @@
   "description": "<p>Los Mocasines Winsdor III son la versión mejorada de un clásico atemporal. Manteniendo la forma esbelta y elegante que caracteriza a los originales, este modelo presenta una sutil placa en el antifaz, que le otorga un toque distintivo y moderno sin perder su esencia informal. Su diseño tubular sigue ofreciendo una comodidad excepcional, ahora reforzada por una suela mejorada, diseñada para proporcionar aún más confort y durabilidad. Perfectos para aquellos que buscan estilo y comodidad, los Winsdor III son ideales para usarlos con o sin medias, disfrutando de cada paso con un diseño que refleja tanto la sofisticación como la versatilidad de un mocasín contemporáneo.</p>",
   "on_sale": false,
   "prices": {
-    "price": "560000",
-    "regular_price": "560000",
-    "sale_price": "560000",
+    "price": "590000",
+    "regular_price": "590000",
+    "sale_price": "590000",
     "price_range": null,
     "currency_code": "COP",
     "currency_symbol": "$",
@@ -23,7 +23,7 @@
     "currency_prefix": "$",
     "currency_suffix": ""
   },
-  "price_html": "<span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#036;</span>560,000</span>",
+  "price_html": "<span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#036;</span>590,000</span>",
   "average_rating": "0",
   "review_count": 0,
   "images": [
@@ -227,8 +227,8 @@
         "alt": ""
       },
       "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": ""
     },
     {
@@ -256,8 +256,8 @@
         "alt": ""
       },
       "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": ""
     },
     {
@@ -285,8 +285,8 @@
         "alt": ""
       },
       "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": ""
     },
     {
@@ -314,8 +314,8 @@
         "alt": ""
       },
       "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": ""
     },
     {
@@ -343,8 +343,66 @@
         "alt": ""
       },
       "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
+      "sale_price": ""
+    },
+    {
+      "id": 60605,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "cognac",
+          "option": "cognac"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "42",
+          "option": "42"
+        }
+      ],
+      "image": {
+        "id": 60907,
+        "date_created": "2025-03-02T05:15:19",
+        "date_created_gmt": "2025-03-02T05:15:19",
+        "date_modified": "2025-03-03T03:16:21",
+        "date_modified_gmt": "2025-03-03T03:16:21",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Winsdor-III-Cognac-Winstonandharry-1-e1752872124476.jpg",
+        "name": "Winsdor III-Cognac-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "590000",
+      "regular_price": "590000",
+      "sale_price": ""
+    },
+    {
+      "id": 60606,
+      "attributes": [
+        {
+          "name": "Selecciona el Color",
+          "value": "cognac",
+          "option": "cognac"
+        },
+        {
+          "name": "Selecciona una Talla",
+          "value": "43",
+          "option": "43"
+        }
+      ],
+      "image": {
+        "id": 60907,
+        "date_created": "2025-03-02T05:15:19",
+        "date_created_gmt": "2025-03-02T05:15:19",
+        "date_modified": "2025-03-03T03:16:21",
+        "date_modified_gmt": "2025-03-03T03:16:21",
+        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2025/03/Winsdor-III-Cognac-Winstonandharry-1-e1752872124476.jpg",
+        "name": "Winsdor III-Cognac-Winstonandharry-1",
+        "alt": ""
+      },
+      "stock_status": "instock",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": ""
     },
     {
@@ -372,8 +430,8 @@
         "alt": ""
       },
       "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": ""
     },
     {
@@ -401,8 +459,8 @@
         "alt": ""
       },
       "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": ""
     },
     {
@@ -430,8 +488,8 @@
         "alt": ""
       },
       "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": ""
     },
     {
@@ -459,8 +517,8 @@
         "alt": ""
       },
       "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": ""
     },
     {
@@ -488,8 +546,8 @@
         "alt": ""
       },
       "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": ""
     },
     {
@@ -517,8 +575,8 @@
         "alt": ""
       },
       "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": ""
     },
     {
@@ -546,8 +604,8 @@
         "alt": ""
       },
       "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": ""
     },
     {
@@ -575,8 +633,8 @@
         "alt": ""
       },
       "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": ""
     },
     {
@@ -604,8 +662,8 @@
         "alt": ""
       },
       "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": ""
     },
     {
@@ -633,8 +691,8 @@
         "alt": ""
       },
       "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": ""
     },
     {
@@ -662,8 +720,8 @@
         "alt": ""
       },
       "stock_status": "instock",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": ""
     }
   ],
@@ -732,14 +790,14 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-05-07T23:15:13",
-      "date_modified_gmt": "2026-05-07T23:15:13",
+      "date_modified": "2026-07-02T17:10:40",
+      "date_modified_gmt": "2026-07-02T17:10:40",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=45",
       "sku": "7100526045",
       "global_unique_id": "",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -1055,7 +1113,7 @@
         {
           "id": 1735749,
           "key": "fb_visibility",
-          "value": ""
+          "value": "yes"
         },
         {
           "id": 1735750,
@@ -1380,12 +1438,17 @@
         {
           "id": 2260118,
           "key": "_last_change_time",
-          "value": "1778195713"
+          "value": "1783012315"
         },
         {
           "id": 2311854,
           "key": "wpcvi_images",
           "value": "60917,60916,60918,60919,60920,60921,60922"
+        },
+        {
+          "id": 2387371,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Miel, 45",
@@ -1422,14 +1485,14 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-05-07T23:13:04",
-      "date_modified_gmt": "2026-05-07T23:13:04",
+      "date_modified": "2026-07-02T17:10:40",
+      "date_modified_gmt": "2026-07-02T17:10:40",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=44",
       "sku": "7100526044",
       "global_unique_id": "",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -1745,7 +1808,7 @@
         {
           "id": 1735631,
           "key": "fb_visibility",
-          "value": ""
+          "value": "yes"
         },
         {
           "id": 1735632,
@@ -2070,12 +2133,17 @@
         {
           "id": 2260117,
           "key": "_last_change_time",
-          "value": "1778190693"
+          "value": "1783012315"
         },
         {
           "id": 2311870,
           "key": "wpcvi_images",
           "value": "60917,60916,60918,60919,60920,60921,60922"
+        },
+        {
+          "id": 2387370,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Miel, 44",
@@ -2112,14 +2180,14 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-05-07T23:13:04",
-      "date_modified_gmt": "2026-05-07T23:13:04",
+      "date_modified": "2026-07-02T17:10:40",
+      "date_modified_gmt": "2026-07-02T17:10:40",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=43",
       "sku": "7100526043",
       "global_unique_id": "",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -2435,7 +2503,7 @@
         {
           "id": 1735513,
           "key": "fb_visibility",
-          "value": ""
+          "value": "yes"
         },
         {
           "id": 1735514,
@@ -2760,12 +2828,17 @@
         {
           "id": 2260116,
           "key": "_last_change_time",
-          "value": "1778190692"
+          "value": "1783012315"
         },
         {
           "id": 2311868,
           "key": "wpcvi_images",
           "value": "60917,60916,60918,60919,60920,60921,60922"
+        },
+        {
+          "id": 2387369,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Miel, 43",
@@ -2802,14 +2875,14 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-06-02T17:40:05",
-      "date_modified_gmt": "2026-06-02T17:40:05",
+      "date_modified": "2026-07-02T17:11:05",
+      "date_modified_gmt": "2026-07-02T17:11:05",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=42",
       "sku": "7100526042",
       "global_unique_id": "",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -2891,16 +2964,6 @@
           "id": 1721530,
           "key": "fb_visibility",
           "value": "yes"
-        },
-        {
-          "id": 1721531,
-          "key": "fb_product_description",
-          "value": ""
-        },
-        {
-          "id": 1721532,
-          "key": "fb_rich_text_description",
-          "value": ""
         },
         {
           "id": 1721533,
@@ -3455,12 +3518,27 @@
         {
           "id": 2260115,
           "key": "_last_change_time",
-          "value": "1780422005"
+          "value": "1783012240"
         },
         {
           "id": 2311855,
           "key": "wpcvi_images",
           "value": "60917,60916,60918,60919,60920,60921,60922"
+        },
+        {
+          "id": 2387355,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2387356,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2387357,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Miel, 42",
@@ -3497,14 +3575,14 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-05-07T23:13:04",
-      "date_modified_gmt": "2026-05-07T23:13:04",
+      "date_modified": "2026-07-03T17:22:30",
+      "date_modified_gmt": "2026-07-03T17:22:30",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=41",
       "sku": "7100526041",
       "global_unique_id": "",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -3521,7 +3599,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3586,16 +3664,6 @@
           "id": 1721518,
           "key": "fb_visibility",
           "value": "yes"
-        },
-        {
-          "id": 1721519,
-          "key": "fb_product_description",
-          "value": ""
-        },
-        {
-          "id": 1721520,
-          "key": "fb_rich_text_description",
-          "value": ""
         },
         {
           "id": 1721521,
@@ -4150,12 +4218,27 @@
         {
           "id": 2260114,
           "key": "_last_change_time",
-          "value": "1778190692"
+          "value": "1783099350"
         },
         {
           "id": 2311853,
           "key": "wpcvi_images",
           "value": "60917,60916,60918,60919,60920,60921,60922"
+        },
+        {
+          "id": 2387352,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2387353,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2387354,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Miel, 41",
@@ -4192,14 +4275,14 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-05-07T23:13:04",
-      "date_modified_gmt": "2026-05-07T23:13:04",
+      "date_modified": "2026-07-02T17:11:05",
+      "date_modified_gmt": "2026-07-02T17:11:05",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=40",
       "sku": "7100526040",
       "global_unique_id": "",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -4281,16 +4364,6 @@
           "id": 1721506,
           "key": "fb_visibility",
           "value": "yes"
-        },
-        {
-          "id": 1721507,
-          "key": "fb_product_description",
-          "value": ""
-        },
-        {
-          "id": 1721508,
-          "key": "fb_rich_text_description",
-          "value": ""
         },
         {
           "id": 1721509,
@@ -4845,12 +4918,27 @@
         {
           "id": 2260113,
           "key": "_last_change_time",
-          "value": "1778190691"
+          "value": "1783012240"
         },
         {
           "id": 2311869,
           "key": "wpcvi_images",
           "value": "60917,60916,60918,60919,60920,60921,60922"
+        },
+        {
+          "id": 2387349,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2387350,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2387351,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Miel, 40",
@@ -4887,14 +4975,14 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-05-07T23:13:04",
-      "date_modified_gmt": "2026-05-07T23:13:04",
+      "date_modified": "2026-07-02T17:11:05",
+      "date_modified_gmt": "2026-07-02T17:11:05",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=39",
       "sku": "7100526039",
       "global_unique_id": "",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -4976,16 +5064,6 @@
           "id": 1721494,
           "key": "fb_visibility",
           "value": "yes"
-        },
-        {
-          "id": 1721495,
-          "key": "fb_product_description",
-          "value": ""
-        },
-        {
-          "id": 1721496,
-          "key": "fb_rich_text_description",
-          "value": ""
         },
         {
           "id": 1721497,
@@ -5540,12 +5618,27 @@
         {
           "id": 2260112,
           "key": "_last_change_time",
-          "value": "1778190691"
+          "value": "1783012240"
         },
         {
           "id": 2311867,
           "key": "wpcvi_images",
           "value": "60917,60916,60918,60919,60920,60921,60922"
+        },
+        {
+          "id": 2387346,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2387347,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2387348,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Miel, 39",
@@ -5582,14 +5675,14 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-05-07T23:13:04",
-      "date_modified_gmt": "2026-05-07T23:13:04",
+      "date_modified": "2026-07-03T17:22:30",
+      "date_modified_gmt": "2026-07-03T17:22:30",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=38",
       "sku": "7100526038",
       "global_unique_id": "",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -5606,7 +5699,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5671,16 +5764,6 @@
           "id": 1721482,
           "key": "fb_visibility",
           "value": "yes"
-        },
-        {
-          "id": 1721483,
-          "key": "fb_product_description",
-          "value": ""
-        },
-        {
-          "id": 1721484,
-          "key": "fb_rich_text_description",
-          "value": ""
         },
         {
           "id": 1721485,
@@ -6235,12 +6318,27 @@
         {
           "id": 2254866,
           "key": "_last_change_time",
-          "value": "1778190691"
+          "value": "1783099350"
         },
         {
           "id": 2311866,
           "key": "wpcvi_images",
           "value": "60917,60916,60918,60919,60920,60921,60922"
+        },
+        {
+          "id": 2387343,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2387344,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2387345,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Miel, 38",
@@ -6277,14 +6375,14 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-05-07T23:13:04",
-      "date_modified_gmt": "2026-05-07T23:13:04",
+      "date_modified": "2026-07-02T17:11:05",
+      "date_modified_gmt": "2026-07-02T17:11:05",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=37",
       "sku": "7100526037",
       "global_unique_id": "",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -6366,16 +6464,6 @@
           "id": 1721469,
           "key": "fb_visibility",
           "value": "yes"
-        },
-        {
-          "id": 1721470,
-          "key": "fb_product_description",
-          "value": ""
-        },
-        {
-          "id": 1721471,
-          "key": "fb_rich_text_description",
-          "value": ""
         },
         {
           "id": 1721472,
@@ -6930,12 +7018,27 @@
         {
           "id": 2260108,
           "key": "_last_change_time",
-          "value": "1778190690"
+          "value": "1783012240"
         },
         {
           "id": 2311865,
           "key": "wpcvi_images",
           "value": "60917,60916,60918,60919,60920,60921,60922"
+        },
+        {
+          "id": 2387340,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2387341,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2387342,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Miel, 37",
@@ -6972,14 +7075,14 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-05-07T23:15:13",
-      "date_modified_gmt": "2026-05-07T23:15:13",
+      "date_modified": "2026-07-02T17:11:05",
+      "date_modified_gmt": "2026-07-02T17:11:05",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=45",
       "sku": "7100532045",
       "global_unique_id": "",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -7061,16 +7164,6 @@
           "id": 1721456,
           "key": "fb_visibility",
           "value": "yes"
-        },
-        {
-          "id": 1721457,
-          "key": "fb_product_description",
-          "value": ""
-        },
-        {
-          "id": 1721458,
-          "key": "fb_rich_text_description",
-          "value": ""
         },
         {
           "id": 1721459,
@@ -7625,12 +7718,27 @@
         {
           "id": 2260129,
           "key": "_last_change_time",
-          "value": "1778195713"
+          "value": "1783012258"
         },
         {
           "id": 2311864,
           "key": "wpcvi_images",
           "value": "60909,60908,60910,60911,60912,60913,60914"
+        },
+        {
+          "id": 2387337,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2387338,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2387339,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Cognac, 45",
@@ -7667,14 +7775,14 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-05-07T23:13:04",
-      "date_modified_gmt": "2026-05-07T23:13:04",
+      "date_modified": "2026-07-02T17:11:05",
+      "date_modified_gmt": "2026-07-02T17:11:05",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=44",
       "sku": "7100532044",
       "global_unique_id": "",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -7756,16 +7864,6 @@
           "id": 1721444,
           "key": "fb_visibility",
           "value": "yes"
-        },
-        {
-          "id": 1721445,
-          "key": "fb_product_description",
-          "value": ""
-        },
-        {
-          "id": 1721446,
-          "key": "fb_rich_text_description",
-          "value": ""
         },
         {
           "id": 1721447,
@@ -8320,12 +8418,27 @@
         {
           "id": 2260128,
           "key": "_last_change_time",
-          "value": "1778190690"
+          "value": "1783012240"
         },
         {
           "id": 2311863,
           "key": "wpcvi_images",
           "value": "60909,60908,60910,60911,60912,60913,60914"
+        },
+        {
+          "id": 2387334,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2387335,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2387336,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Cognac, 44",
@@ -8362,14 +8475,14 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-05-07T23:13:04",
-      "date_modified_gmt": "2026-05-07T23:13:04",
+      "date_modified": "2026-07-03T17:22:30",
+      "date_modified_gmt": "2026-07-03T17:22:30",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=43",
       "sku": "7100532043",
       "global_unique_id": "",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -8386,8 +8499,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 0,
-      "stock_status": "outofstock",
+      "stock_quantity": 1,
+      "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -8451,16 +8564,6 @@
           "id": 1721432,
           "key": "fb_visibility",
           "value": "yes"
-        },
-        {
-          "id": 1721433,
-          "key": "fb_product_description",
-          "value": ""
-        },
-        {
-          "id": 1721434,
-          "key": "fb_rich_text_description",
-          "value": ""
         },
         {
           "id": 1721435,
@@ -9010,12 +9113,27 @@
         {
           "id": 2260127,
           "key": "_last_change_time",
-          "value": "1778190690"
+          "value": "1783099350"
         },
         {
           "id": 2311862,
           "key": "wpcvi_images",
           "value": "60909,60908,60910,60911,60912,60913,60914"
+        },
+        {
+          "id": 2387331,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2387332,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2387333,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Cognac, 43",
@@ -9052,14 +9170,14 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-05-07T23:13:04",
-      "date_modified_gmt": "2026-05-07T23:13:04",
+      "date_modified": "2026-07-03T17:22:30",
+      "date_modified_gmt": "2026-07-03T17:22:30",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=42",
       "sku": "7100532042",
       "global_unique_id": "",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -9076,8 +9194,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 0,
-      "stock_status": "outofstock",
+      "stock_quantity": 1,
+      "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -9141,16 +9259,6 @@
           "id": 1721420,
           "key": "fb_visibility",
           "value": "yes"
-        },
-        {
-          "id": 1721421,
-          "key": "fb_product_description",
-          "value": ""
-        },
-        {
-          "id": 1721422,
-          "key": "fb_rich_text_description",
-          "value": ""
         },
         {
           "id": 1721423,
@@ -9700,12 +9808,27 @@
         {
           "id": 2260126,
           "key": "_last_change_time",
-          "value": "1778190689"
+          "value": "1783099350"
         },
         {
           "id": 2311861,
           "key": "wpcvi_images",
           "value": "60909,60908,60910,60911,60912,60913,60914"
+        },
+        {
+          "id": 2387328,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2387329,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2387330,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Cognac, 42",
@@ -9742,14 +9865,14 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-05-07T23:13:04",
-      "date_modified_gmt": "2026-05-07T23:13:04",
+      "date_modified": "2026-07-03T17:22:30",
+      "date_modified_gmt": "2026-07-03T17:22:30",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=41",
       "sku": "7100532041",
       "global_unique_id": "",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -9765,8 +9888,8 @@
       "download_expiry": -1,
       "tax_status": "taxable",
       "tax_class": "",
-      "manage_stock": "parent",
-      "stock_quantity": 1,
+      "manage_stock": true,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -9831,16 +9954,6 @@
           "id": 1721408,
           "key": "fb_visibility",
           "value": "yes"
-        },
-        {
-          "id": 1721409,
-          "key": "fb_product_description",
-          "value": ""
-        },
-        {
-          "id": 1721410,
-          "key": "fb_rich_text_description",
-          "value": ""
         },
         {
           "id": 1721411,
@@ -10395,12 +10508,27 @@
         {
           "id": 2260125,
           "key": "_last_change_time",
-          "value": "1778190689"
+          "value": "1783099350"
         },
         {
           "id": 2311860,
           "key": "wpcvi_images",
           "value": "60909,60908,60910,60911,60912,60913,60914"
+        },
+        {
+          "id": 2387325,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2387326,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2387327,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Cognac, 41",
@@ -10437,14 +10565,14 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-06-16T17:43:25",
-      "date_modified_gmt": "2026-06-16T17:43:25",
+      "date_modified": "2026-07-03T17:22:29",
+      "date_modified_gmt": "2026-07-03T17:22:29",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=40",
       "sku": "7100532040",
       "global_unique_id": "",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -10461,7 +10589,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -10526,16 +10654,6 @@
           "id": 1721396,
           "key": "fb_visibility",
           "value": "yes"
-        },
-        {
-          "id": 1721397,
-          "key": "fb_product_description",
-          "value": ""
-        },
-        {
-          "id": 1721398,
-          "key": "fb_rich_text_description",
-          "value": ""
         },
         {
           "id": 1721399,
@@ -11090,12 +11208,27 @@
         {
           "id": 2260124,
           "key": "_last_change_time",
-          "value": "1781631430"
+          "value": "1783099349"
         },
         {
           "id": 2311859,
           "key": "wpcvi_images",
           "value": "60909,60908,60910,60911,60912,60913,60914"
+        },
+        {
+          "id": 2387322,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2387323,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2387324,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Cognac, 40",
@@ -11132,14 +11265,14 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-05-07T23:13:04",
-      "date_modified_gmt": "2026-05-07T23:13:04",
+      "date_modified": "2026-07-03T17:22:29",
+      "date_modified_gmt": "2026-07-03T17:22:29",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=39",
       "sku": "7100532039",
       "global_unique_id": "",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -11156,7 +11289,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -11221,16 +11354,6 @@
           "id": 1721384,
           "key": "fb_visibility",
           "value": "yes"
-        },
-        {
-          "id": 1721385,
-          "key": "fb_product_description",
-          "value": ""
-        },
-        {
-          "id": 1721386,
-          "key": "fb_rich_text_description",
-          "value": ""
         },
         {
           "id": 1721387,
@@ -11785,12 +11908,27 @@
         {
           "id": 2260123,
           "key": "_last_change_time",
-          "value": "1778190688"
+          "value": "1783099349"
         },
         {
           "id": 2311858,
           "key": "wpcvi_images",
           "value": "60909,60908,60910,60911,60912,60913,60914"
+        },
+        {
+          "id": 2387319,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2387320,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2387321,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Cognac, 39",
@@ -11827,14 +11965,14 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-05-07T23:13:04",
-      "date_modified_gmt": "2026-05-07T23:13:04",
+      "date_modified": "2026-07-03T17:22:29",
+      "date_modified_gmt": "2026-07-03T17:22:29",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=38",
       "sku": "7100532038",
       "global_unique_id": "",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -11851,7 +11989,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -11916,16 +12054,6 @@
           "id": 1721372,
           "key": "fb_visibility",
           "value": "yes"
-        },
-        {
-          "id": 1721373,
-          "key": "fb_product_description",
-          "value": ""
-        },
-        {
-          "id": 1721374,
-          "key": "fb_rich_text_description",
-          "value": ""
         },
         {
           "id": 1721375,
@@ -12480,12 +12608,27 @@
         {
           "id": 2260120,
           "key": "_last_change_time",
-          "value": "1778190688"
+          "value": "1783099349"
         },
         {
           "id": 2311857,
           "key": "wpcvi_images",
           "value": "60909,60908,60910,60911,60912,60913,60914"
+        },
+        {
+          "id": 2387316,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2387317,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2387318,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Cognac, 38",
@@ -12522,14 +12665,14 @@
       "type": "variation",
       "date_created": "2025-02-27T02:50:27",
       "date_created_gmt": "2025-02-27T02:50:27",
-      "date_modified": "2026-05-07T23:13:04",
-      "date_modified_gmt": "2026-05-07T23:13:04",
+      "date_modified": "2026-07-02T17:11:05",
+      "date_modified_gmt": "2026-07-02T17:11:05",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/winsdor-iii/?attribute_pa_selecciona-el-color=cognac&attribute_pa_selecciona-una-talla=37",
       "sku": "7100532037",
       "global_unique_id": "",
-      "price": "560000",
-      "regular_price": "560000",
+      "price": "590000",
+      "regular_price": "590000",
       "sale_price": "",
       "date_on_sale_from": null,
       "date_on_sale_from_gmt": null,
@@ -12611,16 +12754,6 @@
           "id": 1721359,
           "key": "fb_visibility",
           "value": "yes"
-        },
-        {
-          "id": 1721360,
-          "key": "fb_product_description",
-          "value": ""
-        },
-        {
-          "id": 1721361,
-          "key": "fb_rich_text_description",
-          "value": ""
         },
         {
           "id": 1721362,
@@ -13175,12 +13308,27 @@
         {
           "id": 2260119,
           "key": "_last_change_time",
-          "value": "1778190688"
+          "value": "1783012240"
         },
         {
           "id": 2311856,
           "key": "wpcvi_images",
           "value": "60909,60908,60910,60911,60912,60913,60914"
+        },
+        {
+          "id": 2387313,
+          "key": "_wc_facebook_product_video_source",
+          "value": "upload"
+        },
+        {
+          "id": 2387314,
+          "key": "fb_product_images",
+          "value": ""
+        },
+        {
+          "id": 2387315,
+          "key": "_wc_facebook_sync_enabled_v2",
+          "value": "yes"
         }
       ],
       "name": "Cognac, 37",

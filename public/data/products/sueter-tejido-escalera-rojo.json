@@ -2655,8 +2655,8 @@
       "type": "variation",
       "date_created": "2025-04-22T23:32:41",
       "date_created_gmt": "2025-04-22T23:32:41",
-      "date_modified": "2026-06-02T17:40:28",
-      "date_modified_gmt": "2026-06-02T17:40:28",
+      "date_modified": "2026-07-03T17:22:30",
+      "date_modified_gmt": "2026-07-03T17:22:30",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sueter-tejido-escalera-rojo/?attribute_pa_selecciona-el-color=rojo&attribute_pa_selecciona-una-talla=l",
       "sku": "6060113036",
@@ -2679,7 +2679,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 17,
+      "stock_quantity": 18,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -3378,7 +3378,7 @@
         {
           "id": 2219040,
           "key": "_last_change_time",
-          "value": "1780422028"
+          "value": "1783099350"
         },
         {
           "id": 2311545,

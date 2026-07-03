@@ -7600,8 +7600,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:48:27",
       "date_created_gmt": "2022-08-25T22:48:27",
-      "date_modified": "2026-06-02T17:36:09",
-      "date_modified_gmt": "2026-06-02T17:36:09",
+      "date_modified": "2026-07-03T17:21:33",
+      "date_modified_gmt": "2026-07-03T17:21:33",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bilston/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=42",
       "sku": "7404804042",
@@ -7624,7 +7624,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -8103,7 +8103,7 @@
         {
           "id": 2215661,
           "key": "_last_change_time",
-          "value": "1780421769"
+          "value": "1783099293"
         },
         {
           "id": 2314095,
@@ -8735,8 +8735,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:48:26",
       "date_created_gmt": "2022-08-25T22:48:26",
-      "date_modified": "2026-06-02T17:36:09",
-      "date_modified_gmt": "2026-06-02T17:36:09",
+      "date_modified": "2026-07-03T17:21:33",
+      "date_modified_gmt": "2026-07-03T17:21:33",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bilston/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=40",
       "sku": "7404804040",
@@ -8759,7 +8759,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 8,
+      "stock_quantity": 6,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -9223,7 +9223,7 @@
         {
           "id": 2215659,
           "key": "_last_change_time",
-          "value": "1780421769"
+          "value": "1783099293"
         },
         {
           "id": 2314105,

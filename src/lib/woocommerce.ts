@@ -1296,13 +1296,13 @@ export async function getAllProducts(
     }
 }
 
+let globalSearchCache: any[] | null = null;
+
 export async function searchProducts(query: string, perPage = 20) {
     if (!query || query.length < 2) return [];
 
-    // Normalizado de términos comunes y typos
     const normalizeQuery = (q: string) => {
         const lower = q.toLowerCase().trim();
-        // Diccionario de "Deseo decir" (Fuzzy simple)
         const commonTypos: Record<string, string> = {
             'roap': 'ropa', 'rospa': 'ropa', 'ropps': 'ropa',
             'zapato': 'zapatos', 'sapato': 'zapatos', 'zapatoz': 'zapatos',
@@ -1316,82 +1316,105 @@ export async function searchProducts(query: string, perPage = 20) {
     };
 
     const term = normalizeQuery(query);
+    const tokens = term.split(/\s+/).filter(t => t.length >= 3 || t === term);
+    if (tokens.length === 0) tokens.push(term);
 
     try {
-        // 1. Intento de búsqueda por texto (Título/Descripción)
-        let results: any[] = [];
-        const storeUrl = `${PUBLIC_WP_URL}/wp-json/wc/store/v1/products?search=${encodeURIComponent(term)}&per_page=${perPage}&stock_status=instock`;
-        const storeRes = await fetch(storeUrl);
-        
-        if (storeRes.ok) {
-            const data = await storeRes.json();
-            results = Array.isArray(data) ? data.map(p => mapV3ToStore(p)).filter(p => p !== null) : [];
-        } else {
-            const data = await wcFetch(`/products?search=${encodeURIComponent(term)}&per_page=${perPage}&status=publish&stock_status=instock`);
-            results = Array.isArray(data) ? data.map(p => mapV3ToStore(p)) : [];
-        }
-
-        // 2. Inteligencia extra: Buscar por Categorías y Tags
-        // Si no hay resultados o si el término es corto/genérico, buscamos coincidencias en taxonomías
-        const isCommonTerm = ['ropa', 'zapatos', 'calzado', 'maletas', 'cinturones', 'botas', 'mocasines', 'tenis', 'chaquetas', 'morral', 'maletin', 'billetera'].includes(term);
-        
-        if (results.length < 5 || isCommonTerm) {
-            const [categories, tags] = await Promise.all([
-                wcFetch(`/products/categories?search=${encodeURIComponent(term)}&per_page=10`),
-                wcFetch(`/products/tags?search=${encodeURIComponent(term)}&per_page=10`)
-            ]);
-            
-            let extraProducts: any[] = [];
-
-            // Procesar Categorías
-            if (Array.isArray(categories) && categories.length > 0) {
-                const bestCat = categories.find(c => c.slug === term || c.name.toLowerCase() === term) || categories[0];
-                if (bestCat) {
-                    const catProducts = await getProductsByCategory(bestCat.id, perPage);
-                    extraProducts = [...extraProducts, ...catProducts];
+        // 1. Cargar el caché global a RAM si no está cargado
+        if (!globalSearchCache) {
+            const fs = await import('node:fs');
+            const path = await import('node:path');
+            const newCache: any[] = [];
+            for (let i = 1; i <= 20; i++) {
+                const filePath = path.join(process.cwd(), 'public', 'data', 'catalog', `tienda-p${i}.json`);
+                if (fs.existsSync(filePath)) {
+                    const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+                    newCache.push(...data);
+                } else {
+                    break;
                 }
             }
+            globalSearchCache = newCache;
+            console.log(`[searchProducts] Global cache loaded with ${globalSearchCache.length} products in memory.`);
+        }
 
-            // Procesar Tags
-            if (Array.isArray(tags) && tags.length > 0) {
-                const bestTag = tags.find(t => t.slug === term || t.name.toLowerCase() === term) || tags[0];
-                if (bestTag) {
-                    // Obtener productos por tag
-                    const tagProductsData = await wcFetch(`/products?tag=${bestTag.id}&per_page=${perPage}&status=publish&stock_status=instock`);
-                    if (Array.isArray(tagProductsData)) {
-                        const mappedTagProducts = tagProductsData.map(p => mapV3ToStore(p)).filter(p => p !== null);
-                        extraProducts = [...extraProducts, ...mappedTagProducts];
+        if (!globalSearchCache || globalSearchCache.length === 0) {
+            return [];
+        }
+
+        // 2. Filtrado 100% In-Memory (Súper Rápido)
+        let allMatchedProducts = globalSearchCache.map(p => ({...p, _score: 0, _exactMatch: false})); // Clon superficial
+
+        allMatchedProducts = allMatchedProducts.filter((p: any) => {
+            // Extraer valores de atributos top-level si existen
+            const topLevelAttrs = (p.attributes || []).map((a: any) => {
+                if (Array.isArray(a.terms)) return a.terms.map((t: any) => t.name || t.slug || '').join(' ');
+                if (typeof a.terms === 'string') return a.terms;
+                return '';
+            });
+
+            // Extraer valores de las variaciones (color, talla, etc)
+            const variationAttrs = (p.variations || []).map((v: any) => {
+                if (Array.isArray(v.attributes)) {
+                    return v.attributes.map((a: any) => a.value || a.option || '').join(' ');
+                }
+                return '';
+            });
+
+            const fullText = [
+                p.name,
+                p.description,
+                p.short_description,
+                ...(p.tags?.map((t: any) => t.name) || []),
+                ...(p.categories?.map((c: any) => c.name) || []),
+                ...topLevelAttrs,
+                ...variationAttrs
+            ].join(' ').toLowerCase();
+
+            let matchesAll = true;
+            let localScore = 0;
+
+            for (const t of tokens) {
+                if (fullText.includes(t)) {
+                    localScore += 2;
+                } else {
+                    if (t.endsWith('s') && fullText.includes(t.slice(0, -1))) {
+                        localScore += 1;
+                    } else if (!t.endsWith('s') && fullText.includes(t + 's')) {
+                        localScore += 1;
+                    } else {
+                        matchesAll = false;
+                        break; // Descartamos rápido para mayor velocidad
                     }
                 }
             }
 
-            if (extraProducts.length > 0) {
-                // Combinar de forma inteligente:
-                // 1. Resultados exactos (si los hay)
-                // 2. Resultados de taxonomías
-                // 3. Otros resultados
-                const seenIds = new Set(results.map(p => p.id));
-                for (const p of extraProducts) {
-                    if (!seenIds.has(p.id)) {
-                        results.push(p);
-                        seenIds.add(p.id);
-                    }
+            if (matchesAll) {
+                p._score = localScore;
+                if (p.name && p.name.toLowerCase().includes(term)) {
+                    p._exactMatch = true;
+                    p._score += 10;
                 }
-                
-                // Si el término coincide exactamente con el nombre de un producto de extraProducts, ponerlo arriba
-                results.sort((a, b) => {
-                    const aName = a.name.toLowerCase();
-                    const bName = b.name.toLowerCase();
-                    if (aName === term) return -1;
-                    if (bName === term) return 1;
-                    return 0;
-                });
             }
-        }
+            return matchesAll;
+        });
 
-        return results.slice(0, perPage);
+        // 3. Ordenar por relevancia
+        allMatchedProducts.sort((a, b) => {
+            if (a._exactMatch && !b._exactMatch) return -1;
+            if (!a._exactMatch && b._exactMatch) return 1;
+            return (b._score || 0) - (a._score || 0);
+        });
+
+        // 4. Limpiar variables temporales y retornar
+        allMatchedProducts.forEach(p => {
+            delete p._exactMatch;
+            delete p._score;
+        });
+
+        return allMatchedProducts.slice(0, perPage);
     } catch (error) {
-        console.error("[searchProducts] Error:", error);
+        console.error("[searchProducts] Error in memory search:", error);
         return [];
     }
 }

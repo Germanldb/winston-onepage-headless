@@ -5221,8 +5221,8 @@
       "type": "variation",
       "date_created": "2024-04-26T16:22:25",
       "date_created_gmt": "2024-04-26T16:22:25",
-      "date_modified": "2026-06-02T17:38:29",
-      "date_modified_gmt": "2026-06-02T17:38:29",
+      "date_modified": "2026-07-03T17:22:06",
+      "date_modified_gmt": "2026-07-03T17:22:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ireland/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=39",
       "sku": "7013002039",
@@ -5245,7 +5245,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5874,7 +5874,7 @@
         {
           "id": 2257260,
           "key": "_last_change_time",
-          "value": "1780421909"
+          "value": "1783099326"
         },
         {
           "id": 2312461,

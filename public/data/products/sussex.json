@@ -509,35 +509,6 @@
       "sale_price": ""
     },
     {
-      "id": 24421,
-      "attributes": [
-        {
-          "name": "Selecciona el Color",
-          "value": "negro",
-          "option": "negro"
-        },
-        {
-          "name": "Selecciona una Talla",
-          "value": "40",
-          "option": "40"
-        }
-      ],
-      "image": {
-        "id": 57233,
-        "date_created": "2024-08-01T17:10:05",
-        "date_created_gmt": "2024-08-01T17:10:05",
-        "date_modified": "2024-08-01T20:33:13",
-        "date_modified_gmt": "2024-08-01T20:33:13",
-        "src": "https://tienda.winstonandharrystore.com/wp-content/uploads/2024/08/sussex-negro-cuero-zapato-mocasin-winston-and-harry-7.jpg",
-        "name": "sussex-negro-cuero-zapato-mocasin-winston-and-harry-7",
-        "alt": ""
-      },
-      "stock_status": "instock",
-      "price": "825000",
-      "regular_price": "825000",
-      "sale_price": ""
-    },
-    {
       "id": 24422,
       "attributes": [
         {
@@ -3870,8 +3841,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:31:51",
       "date_created_gmt": "2022-08-25T22:31:51",
-      "date_modified": "2026-05-07T23:11:21",
-      "date_modified_gmt": "2026-05-07T23:11:21",
+      "date_modified": "2026-07-03T17:20:57",
+      "date_modified_gmt": "2026-07-03T17:20:57",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sussex/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=40",
       "sku": "7018702040",
@@ -3894,8 +3865,8 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
-      "stock_status": "instock",
+      "stock_quantity": 0,
+      "stock_status": "outofstock",
       "backorders": "no",
       "backorders_allowed": false,
       "backordered": false,
@@ -4465,7 +4436,7 @@
         {
           "id": 2218824,
           "key": "_last_change_time",
-          "value": "1778190419"
+          "value": "1783099257"
         },
         {
           "id": 2314862,
@@ -9583,8 +9554,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:31:38",
       "date_created_gmt": "2022-08-25T22:31:38",
-      "date_modified": "2026-05-07T23:11:14",
-      "date_modified_gmt": "2026-05-07T23:11:14",
+      "date_modified": "2026-07-03T17:20:57",
+      "date_modified_gmt": "2026-07-03T17:20:57",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/sussex/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=40",
       "sku": "7018726040",
@@ -9607,7 +9578,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -10174,7 +10145,7 @@
         {
           "id": 2254669,
           "key": "_last_change_time",
-          "value": "1778190379"
+          "value": "1783099257"
         },
         {
           "id": 2314877,

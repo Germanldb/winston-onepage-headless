@@ -6930,8 +6930,8 @@
       "type": "variation",
       "date_created": "2023-06-20T22:23:31",
       "date_created_gmt": "2023-06-20T22:23:31",
-      "date_modified": "2026-06-02T17:37:25",
-      "date_modified_gmt": "2026-06-02T17:37:25",
+      "date_modified": "2026-07-03T17:21:37",
+      "date_modified_gmt": "2026-07-03T17:21:37",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chelsea/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=44",
       "sku": "7016702044",
@@ -6954,7 +6954,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -7515,7 +7515,7 @@
         {
           "id": 2259647,
           "key": "_last_change_time",
-          "value": "1780421845"
+          "value": "1783099297"
         },
         {
           "id": 2312962,
@@ -11951,8 +11951,8 @@
       "type": "variation",
       "date_created": "2023-06-20T22:23:30",
       "date_created_gmt": "2023-06-20T22:23:30",
-      "date_modified": "2026-06-02T17:37:25",
-      "date_modified_gmt": "2026-06-02T17:37:25",
+      "date_modified": "2026-07-03T17:21:37",
+      "date_modified_gmt": "2026-07-03T17:21:37",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chelsea/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=45",
       "sku": "7016726045",
@@ -11975,7 +11975,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 1,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12551,7 +12551,7 @@
         {
           "id": 2259658,
           "key": "_last_change_time",
-          "value": "1780421845"
+          "value": "1783099297"
         },
         {
           "id": 2312964,

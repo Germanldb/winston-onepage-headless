@@ -14767,8 +14767,8 @@
       "type": "variation",
       "date_created": "2025-02-21T04:23:42",
       "date_created_gmt": "2025-02-21T04:23:42",
-      "date_modified": "2026-05-07T22:57:46",
-      "date_modified_gmt": "2026-05-07T22:57:46",
+      "date_modified": "2026-07-03T17:22:29",
+      "date_modified_gmt": "2026-07-03T17:22:29",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bankside/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=43",
       "sku": "7600104043",
@@ -14791,7 +14791,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -15420,7 +15420,7 @@
         {
           "id": 2261916,
           "key": "_last_change_time",
-          "value": "1778175371"
+          "value": "1783099349"
         },
         {
           "id": 2311915,
@@ -17532,8 +17532,8 @@
       "type": "variation",
       "date_created": "2025-02-21T04:23:42",
       "date_created_gmt": "2025-02-21T04:23:42",
-      "date_modified": "2026-05-07T22:57:45",
-      "date_modified_gmt": "2026-05-07T22:57:45",
+      "date_modified": "2026-07-03T17:22:29",
+      "date_modified_gmt": "2026-07-03T17:22:29",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bankside/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=39",
       "sku": "7600104039",
@@ -17556,7 +17556,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -18185,7 +18185,7 @@
         {
           "id": 2261909,
           "key": "_last_change_time",
-          "value": "1778175369"
+          "value": "1783099349"
         },
         {
           "id": 2311911,

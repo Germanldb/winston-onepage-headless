@@ -5054,8 +5054,8 @@
       "type": "variation",
       "date_created": "2025-10-30T21:24:45",
       "date_created_gmt": "2025-10-30T21:24:45",
-      "date_modified": "2026-05-07T23:01:08",
-      "date_modified_gmt": "2026-05-07T23:01:08",
+      "date_modified": "2026-07-03T17:22:52",
+      "date_modified_gmt": "2026-07-03T17:22:52",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/chaqueta-edimburgo/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=s",
       "sku": "19199901032",
@@ -5078,7 +5078,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -5872,7 +5872,7 @@
         {
           "id": 2262033,
           "key": "_last_change_time",
-          "value": "1778177789"
+          "value": "1783099372"
         },
         {
           "id": 2310951,

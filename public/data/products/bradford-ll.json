@@ -3776,8 +3776,8 @@
       "type": "variation",
       "date_created": "2025-04-21T19:35:00",
       "date_created_gmt": "2025-04-21T19:35:00",
-      "date_modified": "2026-05-07T22:58:56",
-      "date_modified_gmt": "2026-05-07T22:58:56",
+      "date_modified": "2026-07-03T17:22:30",
+      "date_modified_gmt": "2026-07-03T17:22:30",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bradford-ll/?attribute_pa_selecciona-el-color=vinotinto&attribute_pa_selecciona-una-talla=41",
       "sku": "7112719041",
@@ -3800,7 +3800,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -4499,7 +4499,7 @@
         {
           "id": 2219038,
           "key": "_last_change_time",
-          "value": "1778175686"
+          "value": "1783099350"
         },
         {
           "id": 2311588,
@@ -9491,8 +9491,8 @@
       "type": "variation",
       "date_created": "2024-05-29T21:17:35",
       "date_created_gmt": "2024-05-29T21:17:35",
-      "date_modified": "2026-06-16T17:42:36",
-      "date_modified_gmt": "2026-06-16T17:42:36",
+      "date_modified": "2026-07-03T17:22:06",
+      "date_modified_gmt": "2026-07-03T17:22:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bradford-ll/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=42",
       "sku": "7112702042",
@@ -9515,7 +9515,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -10079,7 +10079,7 @@
         {
           "id": 2254789,
           "key": "_last_change_time",
-          "value": "1781631389"
+          "value": "1783099326"
         },
         {
           "id": 2312365,
@@ -10121,8 +10121,8 @@
       "type": "variation",
       "date_created": "2024-05-29T21:17:35",
       "date_created_gmt": "2024-05-29T21:17:35",
-      "date_modified": "2026-06-02T17:38:30",
-      "date_modified_gmt": "2026-06-02T17:38:30",
+      "date_modified": "2026-07-03T17:22:06",
+      "date_modified_gmt": "2026-07-03T17:22:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bradford-ll/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=41",
       "sku": "7112702041",
@@ -10145,7 +10145,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -10709,7 +10709,7 @@
         {
           "id": 2260355,
           "key": "_last_change_time",
-          "value": "1780421910"
+          "value": "1783099326"
         },
         {
           "id": 2312364,
@@ -11376,8 +11376,8 @@
       "type": "variation",
       "date_created": "2024-05-29T21:17:35",
       "date_created_gmt": "2024-05-29T21:17:35",
-      "date_modified": "2026-06-02T17:38:30",
-      "date_modified_gmt": "2026-06-02T17:38:30",
+      "date_modified": "2026-07-03T17:22:06",
+      "date_modified_gmt": "2026-07-03T17:22:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bradford-ll/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=39",
       "sku": "7112702039",
@@ -11400,7 +11400,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -11964,7 +11964,7 @@
         {
           "id": 2260353,
           "key": "_last_change_time",
-          "value": "1780421910"
+          "value": "1783099326"
         },
         {
           "id": 2312362,
@@ -12006,8 +12006,8 @@
       "type": "variation",
       "date_created": "2024-05-29T21:17:35",
       "date_created_gmt": "2024-05-29T21:17:35",
-      "date_modified": "2026-06-16T17:42:36",
-      "date_modified_gmt": "2026-06-16T17:42:36",
+      "date_modified": "2026-07-03T17:22:06",
+      "date_modified_gmt": "2026-07-03T17:22:06",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/bradford-ll/?attribute_pa_selecciona-el-color=negro&attribute_pa_selecciona-una-talla=38",
       "sku": "7112702038",
@@ -12030,7 +12030,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -12589,7 +12589,7 @@
         {
           "id": 2260352,
           "key": "_last_change_time",
-          "value": "1781631389"
+          "value": "1783099326"
         },
         {
           "id": 2312361,

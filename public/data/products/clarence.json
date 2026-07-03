@@ -13984,8 +13984,8 @@
       "type": "variation",
       "date_created": "2025-04-21T17:19:22",
       "date_created_gmt": "2025-04-21T17:19:22",
-      "date_modified": "2026-05-07T23:01:52",
-      "date_modified_gmt": "2026-05-07T23:01:52",
+      "date_modified": "2026-07-03T17:22:30",
+      "date_modified_gmt": "2026-07-03T17:22:30",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/clarence/?attribute_pa_selecciona-el-color=cafe&attribute_pa_selecciona-una-talla=37",
       "sku": "7008004037",
@@ -14008,7 +14008,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 3,
+      "stock_quantity": 2,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -14707,7 +14707,7 @@
         {
           "id": 2259505,
           "key": "_last_change_time",
-          "value": "1778177835"
+          "value": "1783099350"
         },
         {
           "id": 2311646,

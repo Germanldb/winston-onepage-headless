@@ -26741,8 +26741,8 @@
       "type": "variation",
       "date_created": "2022-08-25T22:43:49",
       "date_created_gmt": "2022-08-25T22:43:49",
-      "date_modified": "2026-05-07T23:04:11",
-      "date_modified_gmt": "2026-05-07T23:04:11",
+      "date_modified": "2026-07-03T17:20:57",
+      "date_modified_gmt": "2026-07-03T17:20:57",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/ever/?attribute_pa_selecciona-el-color=azul&attribute_pa_selecciona-una-talla=41",
       "sku": "7193101041",
@@ -26765,7 +26765,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -27332,7 +27332,7 @@
         {
           "id": 2260724,
           "key": "_last_change_time",
-          "value": "1778178333"
+          "value": "1783099257"
         },
         {
           "id": 2314376,

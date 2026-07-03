@@ -17632,8 +17632,8 @@
       "type": "variation",
       "date_created": "2023-08-17T23:23:40",
       "date_created_gmt": "2023-08-17T23:23:40",
-      "date_modified": "2026-05-07T22:59:21",
-      "date_modified_gmt": "2026-05-07T22:59:21",
+      "date_modified": "2026-07-03T17:21:38",
+      "date_modified_gmt": "2026-07-03T17:21:38",
       "description": "",
       "permalink": "https://tienda.winstonandharrystore.com/product/cabrera/?attribute_pa_selecciona-el-color=miel&attribute_pa_selecciona-una-talla=40",
       "sku": "7230526040",
@@ -17656,7 +17656,7 @@
       "tax_status": "taxable",
       "tax_class": "",
       "manage_stock": true,
-      "stock_quantity": 7,
+      "stock_quantity": 5,
       "stock_status": "instock",
       "backorders": "no",
       "backorders_allowed": false,
@@ -18280,7 +18280,7 @@
         {
           "id": 2260903,
           "key": "_last_change_time",
-          "value": "1778177573"
+          "value": "1783099298"
         },
         {
           "id": 2312622,
